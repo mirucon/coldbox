@@ -1,0 +1,715 @@
+@charset "UTF-8";
+/*
+Theme Name: Coldbox
+Theme URI: https://www.mirucon.me/coldbox/
+Description: Coldbox is a free clean WordPress theme for blogger.
+It's easy to customize, multifunctional, SEO friendly and faster load. *This theme layouted by Flexbox module. See Demo: #Link
+Version: 0.9.0 β
+Author: Toshihiro Kanai
+Author URI: https://www.mirucon.me/
+Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background,
+custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments,
+Text Domain: coldbox
+License: GNU General Public License v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+*/
+/*
+Responsive Breakpoints
+961+     => PC
+960-641  => Tablet
+639-     => Smartphone
+*/
+/* ------------------------------------------------------------------------
+Table Of Contents
+
+0. Reset
+1. Global
+2. Typography
+3. Header
+4. Index
+5. Single
+6. Archive
+7. Page
+8. Sidebar
+9. Footer
+10. Comment
+12. Customized Style
+13. WP native
+14. Parts
+15. Plugin
+16. IE Fix
+----------------------------------------------------------------------- */
+
+// ------------------------------------------------------------------------- *
+// Mixin
+// ------------------------------------------------------------------------- */
+@import "variables.scss";
+@mixin box-shadow($x: 0, $y: 0, $blur: 6px, $spread: 0, $color: rgba(0, 0, 0, 0.2)) { box-shadow: $x $y $blur $spread $color; }
+@mixin box-shadow-inset($x: 0, $y: 0, $blur: 6px, $spread: 0, $color: rgba(0, 0, 0, 0.2)) { box-shadow: $x $y $blur $spread $color inset; }
+@function em($px, $base: $base-font-size) { @return ($px / $base) * 1em; }
+/* ------------------------------------------------------------------------- *
+/*  0. Reset
+/* ------------------------------------------------------------------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6 { font: inherit }
+textarea, input, select, button { font: inherit; -webkit-tap-highlight-color: rgba(68, 68, 68, .3); }
+a:hover, a:active { outline-width: 0 }
+table { border-collapse: collapse; border-spacing: 0; overflow: auto }
+ol, ul { list-style: none; }
+
+/* ------------------------------------------------------------------------- *
+*  1. Global
+* ------------------------------------------------------------------------- */
+body {
+  background-color: #f8f8f8;
+  color: $text;
+  word-wrap: break-word;
+  line-height: 1.4;
+  font-family: $main-font;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+#main {
+  margin-bottom: 40px;
+}
+.container-outer {
+  position: relative;
+}
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  max-width: 1140px;
+  padding: 0 10px;
+  margin: 0 auto;
+  @media screen and (max-width: $bpmax-tablet) and (min-width: $bpmin-tablet) { display: block }
+  @media screen and (max-width: $bpmax-mobile) { display: block; padding: 0 }
+}
+.content {
+  @media screen and (min-width: 961px) {
+    min-height: 80vh;
+    width: 100%;
+  }
+}
+.content-inner {
+  padding: 10px;
+  background-color: #fafafa;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
+  @media screen and (max-width: $bpmax-mobile) {
+    padding: 5px;
+  }
+}
+.sidebar {
+  width: $side-width;
+  padding: 10px;
+  background-color: #fafafa;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
+  @media screen and (max-width: $bpmax-tablet) {
+    width: 100%;
+  }
+}
+.right-sidebar {
+  .content { padding-right: $side-width + 20px; padding-left: 0; @media screen and (max-width: $bpmax-tablet) { padding: 0 } }
+  .sidebar { margin-left: -$side-width; @media screen and (max-width: $bpmax-tablet) { margin-left: 0 } }
+}
+.left-sidebar {
+  .content { padding-right: 0; padding-left: $side-width + 20px; @media screen and (max-width: $bpmax-tablet) { padding: 0 } }
+  .sidebar { margin-right: -$side-width; order: -1; @media screen and (max-width: $bpmax-tablet) { margin-right: 0 } }
+}
+.hide-sidebar { @media screen and (min-width: 961px) {
+  .grid-view .post, .grid-view .page { width: 33.333%; } }
+}
+.bottom-sidebar {
+  #wrapper > .container { display: block }
+  @media screen and (min-width: 961px) {
+    .sidebar { display: flex; width: 100%; margin-top: 24px; flex-flow: row wrap; }
+    .sidebar .widget { width: calc(33.333% - 10px); margin: 5px; }
+    .grid-view .post, .grid-view .page { width: 33.333%; }
+  }
+}
+::-webkit-scrollbar { height: 12px; background-color: transparent; }
+::-webkit-scrollbar-thumb { background-color: #888; }
+::-webkit-scrollbar-thumb:hover { background-color: #777 }
+::selection { background: $link; color: #fff; text-shadow: none; }
+img { max-width: 100%; height: auto; vertical-align: middle; border-style: none }
+iframe { max-width: 100%; vertical-align: middle; }
+
+/* ------------------------------------------------------------------------- *
+*  2. Base Styling
+* ------------------------------------------------------------------------- */
+/*   Base : Typography
+/* -------------------------------------------------- */
+a { color: inherit; text-decoration: none; transition: all .2s; -webkit-tap-highlight-color: rgba(68, 68, 68, .3); }
+b, strong { font-weight: bold }
+big { font-size: larger }
+hr { height: 0; overflow: visible; border: 1px solid #f0f0f0 }
+small { font-size: smaller }
+sub { vertical-align: sub; font-size: smaller }
+sup { vertical-align: super; font-size: smaller }
+ins { text-decoration: underline; }
+address, cite, q, var, em { font-style: italic }
+h1, h2, h3, h4, h5, h6 {
+  color: #111;
+  line-height: 1.4;
+  letter-spacing: -.03em;
+}
+h1 { font-size: 1.6em }
+h2 { font-size: 1.5em }
+h3 { font-size: 1.4em }
+h4 { font-size: 1.3em }
+h5 { font-size: 1.2em }
+h6 { font-size: 1.1em }
+
+/*   Base : Entry
+/* -------------------------------------------------- */
+.entry {
+  line-height: 1.6;
+
+  a { color: $link; box-shadow: 0 1px 0 0 currentColor }
+  a:hover { color: $hover; box-shadow: 0 1px 0 0 #000 }
+  dt { font-weight: bold }
+  dd { margin-bottom: 1em }
+  hr { margin: 1em 0; }
+  iframe { margin-bottom: 1em }
+  p { margin-bottom: 1em }
+  p > iframe { margin-bottom: 0 }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+  }
+  h1 {
+    margin: 1.8em 0 1em;
+  }
+  h2 {
+    margin: 1.6em 0 1em;
+  }
+  h3 {
+    margin: 1.5em 0 1em;
+  }
+  h4 {
+    margin: 1.4em 0 .9em;
+  }
+  h5 {
+    margin: 1.3em 0 .8em;
+  }
+  h6 {
+    margin: 1.2em 0 .8em;
+  }
+
+  ul {
+    list-style: square;
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 30px;
+  }
+  ol {
+    list-style: decimal;
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 30px;
+  }
+
+  blockquote {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 10px 10px 10px 48px;
+    border-radius: 1px;
+    color: #666;
+    font-style: italic;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    &::before {
+      content: "\f10d";
+      display: block;
+      position: absolute;
+      top: 10px; left: 12px;
+      color: #aaa;
+      font-family: FontAwesome;
+      font-weight: 300;
+      font-size: 1.6em;
+      line-height: 1;
+      font-style: normal;
+    }
+  }
+
+  pre {
+    position: relative;
+    margin: 1em 0;
+    padding: 1em 1.2em;
+    background: $accent;
+    color: #E5E5EB;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: .96em;
+    line-height: 1.4;
+    font-family: 'Source Code Pro', Monaco, Consolas, monospace;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  }
+  pre > code {
+    display: block;
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    white-space: inherit;
+  }
+  code {
+    background-color: #f0f0f0;
+    padding: 0 3px;
+    border-radius: 1px;
+    font-size: .9em;
+    font-family: 'Source Code Pro', Monaco, Consolas, monospace;
+  }
+  kbd {
+    background-color: #f0f0f0;
+    padding: 0 3px;
+    border: 1px solid $accent;
+    border-radius: 1px;
+    font-size: .9em;
+    font-family: 'Source Code Pro', Monaco, Consolas, monospace;
+  }
+
+  table {
+    width: 100%;
+    margin-bottom: 1em;
+    font-size: .95em;
+    text-align: center;
+    overflow-x: auto;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    td, th {
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      padding: 7px 10px;
+      border-top: 1px solid #ddd;
+      background: $bg-color;
+      font-weight: bold;
+    }
+    td {
+      padding: 6px;
+      vertical-align: middle;
+    }
+  }
+
+  address {
+    margin-bottom: 1em;
+    font-style: italic;
+  }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    padding-right: 15px; padding-left: 15px;
+  }
+
+}
+
+/*   Base : Common Parts
+/* -------------------------------------------------- */
+.content-box {
+  margin-bottom: 2em;
+  padding: 20px 40px;
+  background-color: #fff;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  &:last-child {
+    margin-bottom: 0;
+  }
+  @media screen and (max-width: $bpmax-mobile) {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}
+.title-box {
+  position: relative;
+  background-color: #f8f8f8;
+  font-weight: 300;
+  font-family: $lato;
+  &-inner {
+    flex-flow: column wrap;
+    padding: 40px 40px;
+  }
+  .post-date {
+    position: relative;
+    color: #777;
+    line-height: 1;
+  }
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  a:hover { color: $link }
+  @media screen and (max-width: $bpmax-mobile) {
+    &-inner {
+      padding-right: 15px; padding-left: 15px;
+    }
+  }
+}
+.action-bar {
+  display: block;
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: auto; height: 2px;
+  background-color: $link;
+  pointer-events: none;
+  transition: all .2s;
+}
+
+/*   Base : Forms
+/* -------------------------------------------------- */
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=search],
+input[type=tel], input[type=date], input[type=datetime], input[type=month], input[type=week],
+input[type=time], input[type=datetime-local], input[type=number] {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  background-color: #fefefe;
+  color: #777;
+  outline: 0;
+  transition: all .2s;
+  &:focus { border-color: currentColor; background-color: #fff; }
+}
+input[type=password] {
+  display: inline-block;
+  max-width: 100%;
+  padding: 4px 6px;
+  border: 1px solid #ddd;
+  color: #777;
+  outline: 0;
+  transition: all .2s;
+  &:focus { border-color: currentColor; }
+}
+input[type=range] {
+}
+input[type=color] {
+  display: inline-block;
+  max-width: 100%;
+  border: 1px solid #ddd;
+  color: #777;
+  outline: 0;
+  transition: all .2s;
+  &:focus { border-color: currentColor; }
+}
+input[type=checkbox] {
+  display: inline-block;
+  margin: 3px 3px 3px 4px;
+}
+input[type=radio] {
+  margin: 3px 3px 0px 5px;
+}
+input[type=submit], input[type=button], button[type=submit], button[type=button] {
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  padding: 5px 7px;
+  border: 1px solid transparent;
+  outline: 0;
+  border-radius: 2px;
+  background-color: $link + #222;
+  color: #fff;
+  font-weight: bold;
+  transition: all .2s;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &:hover, &:focus {
+    border: 1px solid #444;
+    color: #fff;
+    @include box-shadow($y: 2px, $blur: 2px);
+  }
+}
+input[type=reset], button[type=reset] {
+  display: inline-block;
+  max-width: 100%;
+  padding: 5px 7px;
+  border: 0;
+  outline: 0;
+  border-radius: 2px;
+  background-color: #888;
+  color: #fff;
+  font-weight: bold;
+  transition: all .2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &:hover, &:focus { background-color: #666; @include box-shadow($y: 2px, $blur: 2px); }
+}
+textarea {
+  display: block;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  outline: 0;
+  font-size: 15px;
+  transition: border .2s;
+  &:focus { border-color: $link }
+}
+
+/* ------------------------------------------------------------------------- *
+*  5. Single
+* ------------------------------------------------------------------------- */
+@import "_single.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  4. Index
+* ------------------------------------------------------------------------- */
+@import "_index.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  6. Archive
+* ------------------------------------------------------------------------- */
+.title-description {
+  color: #666;
+}
+.taxonomy-description {
+  position: relative;
+  margin: .6em 6px 0;
+  padding: 10px 16px;
+  border-top: 1px solid currentColor;
+  background-color: #f4f4f4;
+  color: #777;
+  text-transform: capitalize;
+  font-weight: 300;
+  @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .08));
+}
+
+
+/* ------------------------------------------------------------------------- *
+*  7. Page
+* ------------------------------------------------------------------------- */
+.page {
+  .entry-header {
+    margin: 0;
+
+    .post-title {
+      margin: 0;
+    }
+  }
+}
+
+
+/* ------------------------------------------------------------------------- *
+*  n. 404 Error page
+* ------------------------------------------------------------------------- */
+.error404 {
+  .error-messages {
+    background-color: #fff;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    padding: 20px 30px;
+    p { margin-bottom: 1em }
+  }
+  @media screen and (max-width: $bpmax-mobile) {
+    .error-messages {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+}
+
+
+/* ------------------------------------------------------------------------- *
+*  3. Header
+* ------------------------------------------------------------------------- */
+@import "_header.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  9. Footer
+* ------------------------------------------------------------------------- */
+@import "footer.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  8. Sidebar
+* ------------------------------------------------------------------------- */
+@import "sidebar.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  10. Comment
+/* ------------------------------------------------------------------------- */
+@import "_comment.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  12. WP native
+* ------------------------------------------------------------------------- */
+.wp-caption {
+  max-width: 100%;
+  margin-bottom: 1em;
+  padding: 5px 5px 0;
+  text-align: center;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+}
+.wp-caption .wp-caption-text { margin: 0; padding: 5px 4px; color: #555; line-height: 1.4; font-weight: 300; }
+.wp-caption img { margin: 0 auto; padding: 0; border: 0; }
+.aligncenter { display: block; max-width: 100%; margin-left: auto; margin-right: auto }
+.alignright { float: right; max-width: 100%; margin-left: 10px }
+.alignleft { float: left; max-width: 100%; margin-right: 10px }
+.clearfix:after {	content: ""; 	display: block;	clear: both; }
+html body .screen-reader-text { position: absolute;	width: 1px; height: 1px;	clip: rect(1px, 1px, 1px, 1px);	overflow: hidden;	}
+body.home { border-top-color: transparent }
+
+/* ------------------------------------------------------------------------- *
+*  13. Misc
+* ------------------------------------------------------------------------- */
+#back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 0; right: 10px;
+  padding: 12px 16px;
+  background-color: #fff;
+  border-radius: 6px 6px 0 0;
+  @include box-shadow($blur: 4px, $color: rgba(0, 0, 0, .6));
+  transition: box-shadow .4s, padding .4s;
+}
+.chevron-up {
+  display: inline-block;
+  position: relative;
+  top: 8px;
+  width: 14px; height: 14px;
+  border-top: 1px solid $accent;
+  border-left: 1px solid $accent;
+  background: transparent;
+  transform: rotate(45deg);
+  transition: all .4s;
+}
+#back-to-top.abs {
+  position: absolute;
+}
+#back-to-top:hover, #back-to-top.clicked {
+  padding-bottom: 16px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, .6), 0 3px 6px rgba(0, 0, 0, .4);
+}
+
+.search-form {
+  display: flex;
+  flex-flow: row nowrap;
+  .search-inner {
+    flex: 1;
+    width: 100%;
+    padding: 6px 6px;
+    border-right-style: none;
+    border-radius: 2px 0 0 2px;
+    font-size: .96em;
+    line-height: normal;
+  }
+  .search-submit {
+    width: 60px;
+    position: relative;
+    background-color: #444;
+    border-radius: 0 2px 2px 0;
+    &:hover, &:focus { background-color: #777; box-shadow: none }
+  }
+  .icon { top: calc(50% - 6px); left: calc(50% - 8px) }
+}
+.icon.search {
+  color: #444;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin-top: -1px;
+  margin-left: -1px;
+  border: solid 1px #fff;
+  border-radius: 100%;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    height: 6px;
+    width: 1px;
+    background-color: #fff;
+  }
+}
+
+.more {
+  display: inline-block;
+  position: relative;
+  transition: all .7s ease-in-out;
+  a {
+    display: block;
+    padding: 7px 8px;
+    font-size: 14px;
+    border: 1px solid $text;
+    color: $text;
+    font-weight: 500;
+    &:hover {
+      background: $text;
+      color: #fff;
+    }
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+@keyframes fadeOutRight {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* ------------------------------------------------------------------------- *
+*  n. For CJK Settings
+* -------------------------------------------------------------------------- */
+:lang(ja), :lang(ko), :lang(zh) {
+  .bradcrumb {
+    margin-bottom: .2em;
+  }
+  .entry, .comment-body {
+    line-height: 1.8
+  }
+  .related-posts .post-title {
+    line-height: inherit;
+  }
+}
+
+
+/* ------------------------------------------------------------------------- *
+*  14. Plugin
+* ------------------------------------------------------------------------- */
+@import "plugin.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  15. IE Fix
+* ------------------------------------------------------------------------- */

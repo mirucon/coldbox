@@ -1,0 +1,370 @@
+.single .entry-content, .page #main, .error404 #main  {
+  position: relative;
+  @include box-shadow($blur: 2px);
+}
+
+/*   Post Meta
+/* -------------------------------------------------- */
+.post-meta {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  color: #666;
+  font-size: .88em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  a {
+    white-space: nowrap;
+    &:hover { color: $link; }
+  }
+  & > *[class^=post-] { display: inline-block; padding-right: 10px; }
+  & > *[class^=post-]::before { display: inline-block; position: relative; padding-right: .2em; font-family: FontAwesome; line-height: 1; }
+  .post-date::before { content: "\f017"; }
+  .post-category::before { content: "\f07b"; }
+  .post-modified::before { content: "\f1da"; }
+  .post-tag::before { content: "\f02b"; }
+  .post-author::before { content: "\f007"; }
+  .post-edit::before { content: "\f040"; }
+  .post-update::before { content: "\f021"; }
+  .post-comment a::before { content: "\f075"; display: inline-block; position: relative; padding-right: .2em; font-family: FontAwesome; line-height: 1; }
+}
+
+/*   Single : entry header
+/* -------------------------------------------------- */
+.post-meta.content-box {
+  a { color: $text; box-shadow: 0 1px 0 0 currentColor }
+  a:hover { color: $link }
+}
+
+.entry .post-meta {
+  margin-bottom: 3em;
+}
+
+/*   Single : Bottom Post Category, Tag
+/* -------------------------------------------------- */
+.btm-post-meta { margin-top: 3em; clear: both }
+.post-btm-tags, p.post-btm-cats {
+  position: relative;
+  margin-bottom: .1em;
+  font-size: .88em;
+  line-height: 1.6;
+  .fa { margin-right: .2em; width: 16px }
+  a {
+    display: inline-block;
+    margin: 0 .4em .3em 0;
+    color: currentColor;
+    white-space: nowrap;
+    &:hover { color: $link; }
+  }
+}
+.meta-label {
+  margin-right: .4em;
+  color: #111;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+.post-btm-cats .meta-label {
+@include box-shadow($x: 0, $y: 1px, $blur:0, $color: rgba(#d85719, .4));
+}
+.post-btm-tags .meta-label {
+  @include box-shadow($x: 0, $y: 1px, $blur:0, $color: rgba(#19d831, .4));
+}
+
+
+/*   Single : entry footer
+/* -------------------------------------------------- */
+& > * {
+  margin-bottom: 20px;
+  padding: 10px 25px;
+  background-color: #fff;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+}
+.content-box > h4 {
+  position: relative;
+  margin: .2em 0 .7em 0;
+  text-transform: capitalize;
+  font-weight: 300;
+}
+
+/*   Single : Related Posts
+/* -------------------------------------------------- */
+.related-posts {
+
+  .related-posts-list {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .related-article {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    margin-bottom: 16px;
+  }
+  .post {
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    background-color: #fff;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  }
+  .post-thumbnail {
+    max-width: em(100px);
+    overflow: hidden;
+    a { display: block; height: 100% }
+    img { display: block; width: 100%; height: auto; overflow: hidden; transition: all .4s ease-out; }
+  }
+  .post-content {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    padding: 3px 8px 6px;
+  }
+  .post-category {
+    margin-bottom: em(4px);
+    font-size: .8em;
+    color: #666;
+    a {
+      color: $link;
+      &:hover { color: #444 }
+    }
+  }
+  .post-title {
+    flex: 1;
+    font-size: em(15.4px);
+    line-height: 1.3;
+    font-family: $lato;
+    letter-spacing: 0;
+    overflow: hidden;
+    a { display: block; height: 100%; transition: all .4s ease-out; }
+    a:hover { color: $link }
+  }
+  a:hover {
+    .post-thumbnail img {
+      transform: scale(1.08);
+      cursor: pointer;
+    }
+    .post-title {
+      color: $link;
+    }
+  }
+  @media screen and (min-width: $bpmin-pc) {
+    .related-article:nth-of-type(odd) .post {
+      margin-right: 16px;
+    }
+  }
+  @media screen and (max-width: $bpmax-mobile) {
+    .related-posts-list {
+      flex-flow: column wrap;
+    }
+    .related-article {
+      width: 100%;
+    }
+    .related a:hover {
+      .post-thumbnail img {
+        transform: none;
+        opacity: .9;
+      }
+    }
+  }
+}
+
+/*   Single : Post Navigation
+/* -------------------------------------------------- */
+.post-nav {
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  ul { display: flex }
+  .prev, .next {
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+  }
+  .next a, .prev a {
+    display: block;
+    min-height: 100%;
+    background: rgba(0, 0, 0, .6);
+    transition: background-color .4s;
+  }
+  .next a {
+    padding: 12px 40px 12px 24px;
+  }
+  .prev a {
+    padding: 12px 24px 12px 40px;
+  }
+  .post-thumbnail {
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    margin: auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    opacity: .5;
+    filter: blur(3px);
+    transition: all .4s;
+  }
+  .nav-title {
+    position: relative;
+    margin-bottom: .4em;
+    color: #f0f0f0;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .6);
+    font-size: 14px;
+    font-family: $lato;
+  }
+  .post-title {
+    position: relative;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    line-height: 1.6;
+  }
+  .chevron-right {
+    position: absolute;
+    top: calc(50% - 10px); right: 14px;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    border-right: 1px solid #fff;
+    border-top: 1px solid #fff;
+    transform: rotate(45deg);
+    transition: all .4s;
+  }
+  .chevron-left {
+    position: absolute;
+    top: calc(50% - 10px); left: 14px;
+    width: 16px;
+    height: 16px;
+    background: transparent;
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(45deg);
+    transition: all .4s;
+  }
+  .next .nav-title { right: -8px }
+  .prev .nav-title { left: -8px }
+  .next a:hover {
+    background: rgba(0, 0, 0, .55);
+    .post-thumbnail { filter: blur(2px); }
+    .chevron-right { right: 18px; }
+  }
+  .prev a:hover {
+    background: rgba(0, 0, 0, .55);
+    .post-thumbnail { filter: blur(2px); }
+    .chevron-left { left: 18px; }
+  }
+}
+@media screen and (max-width: $bpmax-mobile) {
+  .post-nav ul {
+    display: block;
+  }
+  .next a, .prev a {
+    padding: 12px 40px;
+  }
+}
+
+/*   Single : Multipages Navigation
+/* -------------------------------------------------- */
+.post-pages {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 10px;
+  border-bottom: 2px solid #ddd;
+  color: $link;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+  }
+
+  li > * {
+    display: block;
+    padding: 6px 10px;
+    border-bottom: 2px solid #ddd;
+    transition: border .4s;
+  }
+  span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
+  a.page-numbers:hover { border-bottom: 2px solid $link; }
+}
+
+/*   Single : SNS Button
+/* -------------------------------------------------- */
+.share-list-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.balloon-btn {
+  position: relative;
+  margin: 0 3px;
+
+  .share {
+    transition: all .4s;
+    i { position: relative; left: calc(50% - 8px); }
+  }
+  .share-inner {
+    display: block;
+    padding: 6px 9px;
+    @include box-shadow($blur: 1px);
+    border-radius: 100%;
+    color: #fff;
+  }
+  .count {
+    position: absolute;
+    right: 0; bottom: 0;
+    transition: all .4s
+  }
+  .count-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0; right: 0;
+    min-height: 12px;
+    min-width: 11px;
+    border-radius: 1px;
+    background-color: #444;
+    color: #fff;
+    font-size: .3em;
+    line-height: 1;
+    font-family: $lato;
+    font-weight: bold;
+    transition: all .4s;
+  }
+  .share-inner:hover { opacity: .8 }
+  .count-inner:hover { text-decoration: underline }
+  &.twitter .share-inner { background-color: #6bace2 }
+  &.facebook .share-inner { background-color: #445d93 }
+  &.googleplus .share-inner { background-color: #d36054 }
+  &.hatena .share-inner { background-color: #4c7ec6 }
+  &.pocket .share-inner { background-color: #e15c69 }
+  &.line .share-inner { background-color: #50c150 }
+  &.feedly .share-inner { background-color: #94be61 }
+}
+
+@media only screen and (max-width: 767px) { .share-list-container { justify-content: center } }
+@media only screen and (max-width: 369px) { .googleplus,.pocket { display: none } }
+@media only screen and (min-width: 370px) and (max-width: 439px) { .googleplus { display: none } }
+
+
+/*   Single : post formats
+/* -------------------------------------------------- */
+.format-aside { .post-title-box { display: none } }
+.format-aside .post-format::before { content: "\f111"; }
+.format-gallery .post-format::before { content: "\f1c5"; }
+.format-link .post-format::before { content: "\f0c1"; }
+.format-image .post-format::before { content: "\f03e"; }
+.format-quote .post-format::before { content: "\f10d"; }
+.format-status .post-format::before { content: "\f005" }
+.format-video .post-format::before { content: "\f008"; }
+.format-audio .post-format::before { content: "\f028"; }
+.format-chat .post-format::before { content: "\f086"; }
+
+/* clearfix */
+.entry-header::after, .entry-content::after, .entry-footer::after { content: ""; display: block; clear: both }

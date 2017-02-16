@@ -1,0 +1,181 @@
+.sidebar {
+
+  .widget {
+    background-color: #fff;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  }
+
+
+}
+
+// Tablet && Mobile
+@media screen and (max-width: $bpmax-tablet) {
+  .sidebar {
+    display: flex;
+    margin-top: 40px;
+    flex-flow: row wrap;
+    align-items: flex-start;
+  }
+}
+// Tablet
+@media screen and (max-width: $bpmax-tablet) and (min-width: $bpmin-tablet) {
+  .sidebar .widget {
+    width: calc(50% - 10px);
+    margin: 5px;
+  }
+}
+// Mobile
+@media screen and (max-width: $bpmax-mobile) {
+  .sidebar {
+    display: block;
+
+    .widget {
+    }
+  }
+
+}
+
+
+/*   Sidebar : Widget
+/* -------------------------------------------------- */
+.widget {
+  margin-bottom: 24px;
+  padding: 20px;
+  font-size: .94em;
+
+  .widget-title {
+    position: relative;
+    margin-bottom: 1em;
+    font-size: 1.2em;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+
+  a {
+    color: #888;
+    &:hover {
+      color: currentColor;
+    }
+  }
+
+  select {
+    width: 100%;
+    padding: 4px 6px;
+  }
+  option {
+    padding: 4px 0;
+  }
+
+  &_recent_entries {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type a { border-top: 1px solid $border }
+  }
+  &_recent_comments {
+    li {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type { border-top: 1px solid $border }
+  }
+  &_archive {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type a { border-top: 1px solid $border }
+    .count {
+      position: absolute;
+      right: 0;
+    }
+    li a::before { content: "\f073"; position: relative; top: -1px; padding-right: .5em; font-family: FontAwesome; font-size: .8em }
+
+  }
+  &_categories {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+      &::before { content: "\f115"; padding-right: .4em; font-family: FontAwesome; font-size: .8em }
+    } li:first-of-type a { border-top: 1px solid $border }
+    .count {
+      position: absolute;
+      right: 0;
+    }
+    .children {
+      padding-left: 1em;
+      &:first-of-type a { border-top: 0 }
+      li a::before { content: "\f114"; padding-right: .4em; font-family: FontAwesome; font-size: .8em }
+    }
+  }
+  &_pages {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type a { border-top: 1px solid $border }
+    .children {
+      padding-left: 1em;
+      &:first-of-type a { border-top: 0 }
+    }
+  }
+  &_nav_menu {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type a { border-top: 1px solid $border }
+    .sub-menu {
+      padding-left: 1em;
+      &:first-of-type a { border-top: 0 }
+    }
+  }
+  &_meta {
+    li a {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type a { border-top: 1px solid $border }
+  }
+  #wp-calendar {
+    width: 100%;
+    caption { margin-bottom: .4em; }
+    tbody { text-align: center; vertical-align: middle; }
+    a { color: $link }
+  }
+  &_rss {
+    li {
+      display: block;
+      position: relative;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border;
+      line-height: 1.5;
+    } li:first-of-type { border-top: 1px solid $border }
+
+  }
+
+
+  @media screen and (max-width: $bpmax-mobile) {
+
+    .widget-title {
+    }
+
+  }
+
+}

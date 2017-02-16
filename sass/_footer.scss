@@ -1,0 +1,36 @@
+#footer {
+ position: relative;
+ min-height: 80px;
+ padding: 30px 20px;
+ background: $accent;
+ color: rgba(255, 255, 255, .6);
+
+ .container {
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+ }
+
+ a {
+  color: rgba(255, 255, 255, .9);
+  &:hover {
+   color: rgba(255, 255, 255, 1);
+  }
+ }
+
+ #copyright {
+  font-weight: 300;
+  font-size: .96em;
+  line-height: 1.6;
+ }
+}
+
+
+@media screen and (max-width: $bpmax-mobile) {
+ #footer {
+
+  .container {
+  }
+ }
+
+}
