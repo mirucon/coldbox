@@ -1093,31 +1093,32 @@ textarea:focus {
   justify-content: center;
   position: relative;
   width: 100%;
-  margin: 0 auto 10px;
+  margin: 10px auto 10px;
   border-bottom: 2px solid #ddd;
   color: #00619F;
   font-weight: bold;
 }
 
-.post-pages li {
+.post-pages span {
   display: inline-block;
   position: relative;
   bottom: -2px;
-}
-
-.post-pages li > * {
-  display: block;
   padding: 6px 10px;
   border-bottom: 2px solid #ddd;
   transition: border .4s;
 }
 
-.post-pages span.page-numbers.current {
+.post-pages li > * {
+  display: block;
+  transition: border .4s;
+}
+
+.post-pages > span {
   color: #000;
   border-bottom: 2px solid #00619F;
 }
 
-.post-pages a.page-numbers:hover {
+.post-pages > a:hover > span {
   border-bottom: 2px solid #00619F;
 }
 

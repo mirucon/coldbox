@@ -272,25 +272,26 @@
   justify-content: center;
   position: relative;
   width: 100%;
-  margin: 0 auto 10px;
+  margin: 10px auto 10px;
   border-bottom: 2px solid #ddd;
   color: $link;
   font-weight: bold;
 
-  li {
+  span {
     display: inline-block;
     position: relative;
     bottom: -2px;
+    padding: 6px 10px;
+    border-bottom: 2px solid #ddd;
+    transition: border .4s
   }
 
   li > * {
     display: block;
-    padding: 6px 10px;
-    border-bottom: 2px solid #ddd;
     transition: border .4s;
   }
-  span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
-  a.page-numbers:hover { border-bottom: 2px solid $link; }
+  & > span { color: #000; border-bottom: 2px solid $link; }
+  & > a:hover > span { border-bottom: 2px solid $link; }
 }
 
 /*   Single : SNS Button

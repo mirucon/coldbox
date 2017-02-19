@@ -28,7 +28,7 @@
 
               <div class="entry content-box">
                 <div class="entry-inner"><?php the_content(); ?></div>
-                <?php wp_link_pages( $defaults = array( 'before' => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ), 'after'=> '</div>', 'link_before' => '<span class="page-number">', 'link_after' => '</span>' ) ); ?>
+                <?php wp_link_pages( $defaults = array( 'before' => '<div class="post-pages">', 'after'=> '</div>', 'link_before' => '<span class="page-number">', 'link_after' => '</span>' ) ); ?>
                 <div class="btm-post-meta">
                   <?php if ( cd_is_meta_btm_cat() ) { ?><p class="post-btm-cats"><span class="meta-label"><?php _e( 'Categories:', 'coldbox' ) ?></span><?php the_category('&#8203;'); ?> </p><?php } ?>
                   <?php if ( cd_is_meta_btm_tag() ) { the_tags( '<p class="post-btm-tags"> <span class="meta-label">' . __( 'Tags:', 'coldbox' ) . '</span>','',' </p>'); } ?>
