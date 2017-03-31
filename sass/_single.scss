@@ -65,11 +65,11 @@
   font-size: 1.1em;
   font-weight: 300;
 }
-.post-btm-cats .meta-label {
-@include box-shadow($x: 0, $y: 1px, $blur:0, $color: rgba(#d85719, .4));
+.post-btm-cats a:hover {
+  @include box-shadow($x: 0, $y: 2px, $blur:0, $color: rgba(#d85719, .4));
 }
-.post-btm-tags .meta-label {
-  @include box-shadow($x: 0, $y: 1px, $blur:0, $color: rgba(#19d831, .4));
+.post-btm-tags a:hover {
+  @include box-shadow($x: 0, $y: 2px, $blur:0, $color: rgba(#19d831, .4));
 }
 
 

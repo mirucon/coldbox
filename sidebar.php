@@ -4,7 +4,11 @@
 
   <aside class="sidebar">
 
-    <?php dynamic_sidebar('sidebar-1'); ?>
+    <div class="sidebar-inner">
+
+      <?php dynamic_sidebar('sidebar-1'); ?>
+
+    </div>
 
   </aside><!--/.sidebar-->
 

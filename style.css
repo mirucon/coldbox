@@ -581,6 +581,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 input[type=tel], input[type=date], input[type=datetime], input[type=month], input[type=week],
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
+  -webkit-appearance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
@@ -641,7 +642,7 @@ input[type=submit], input[type=button], button[type=submit], button[type=button]
   border: 1px solid transparent;
   outline: 0;
   border-radius: 2px;
-  background-color: #2283c1;
+  background-color: #1172b0;
   color: #fff;
   font-weight: bold;
   transition: all .2s;
@@ -651,16 +652,16 @@ input[type=submit], input[type=button], button[type=submit], button[type=button]
 }
 
 input[type=submit]:hover, input[type=submit]:focus, input[type=button]:hover, input[type=button]:focus, button[type=submit]:hover, button[type=submit]:focus, button[type=button]:hover, button[type=button]:focus {
-  border: 1px solid #444;
+  border: 1px solid #1172b0;
+  background-color: #2283c1;
   color: #fff;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
 }
 
 input[type=reset], button[type=reset] {
   display: inline-block;
   max-width: 100%;
   padding: 5px 7px;
-  border: 0;
+  border: 1px solid transparent;
   outline: 0;
   border-radius: 2px;
   background-color: #888;
@@ -672,8 +673,8 @@ input[type=reset], button[type=reset] {
 }
 
 input[type=reset]:hover, input[type=reset]:focus, button[type=reset]:hover, button[type=reset]:focus {
-  background-color: #666;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  background-color: #666666;
 }
 
 textarea {
@@ -822,12 +823,12 @@ textarea:focus {
   font-weight: 300;
 }
 
-.post-btm-cats .meta-label {
-  box-shadow: 0 1px 0 0 rgba(216, 87, 25, 0.4);
+.post-btm-cats a:hover {
+  box-shadow: 0 2px 0 0 rgba(216, 87, 25, 0.4);
 }
 
-.post-btm-tags .meta-label {
-  box-shadow: 0 1px 0 0 rgba(25, 216, 49, 0.4);
+.post-btm-tags a:hover {
+  box-shadow: 0 2px 0 0 rgba(25, 216, 49, 0.4);
 }
 
 /*   Single : entry footer
@@ -1303,6 +1304,7 @@ body.home #main {
 }
 
 .grid-view .article {
+  display: flex;
   width: 50%;
   margin-bottom: 30px;
 }

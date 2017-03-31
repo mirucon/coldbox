@@ -359,6 +359,7 @@ input[type=text], input[type=password], input[type=email], input[type=url], inpu
 input[type=tel], input[type=date], input[type=datetime], input[type=month], input[type=week],
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
+  -webkit-appearance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
@@ -404,7 +405,7 @@ input[type=submit], input[type=button], button[type=submit], button[type=button]
   border: 1px solid transparent;
   outline: 0;
   border-radius: 2px;
-  background-color: $link + #222;
+  background-color: $link + #111;
   color: #fff;
   font-weight: bold;
   transition: all .2s;
@@ -412,16 +413,16 @@ input[type=submit], input[type=button], button[type=submit], button[type=button]
   -webkit-appearance: none;
   -moz-appearance: none;
   &:hover, &:focus {
-    border: 1px solid #444;
+    border: 1px solid $link + #111;
+    background-color: $link + #222;
     color: #fff;
-    @include box-shadow($y: 2px, $blur: 2px);
   }
 }
 input[type=reset], button[type=reset] {
   display: inline-block;
   max-width: 100%;
   padding: 5px 7px;
-  border: 0;
+  border: 1px solid transparent;
   outline: 0;
   border-radius: 2px;
   background-color: #888;
@@ -430,7 +431,7 @@ input[type=reset], button[type=reset] {
   transition: all .2s;
   -webkit-appearance: none;
   -moz-appearance: none;
-  &:hover, &:focus { background-color: #666; @include box-shadow($y: 2px, $blur: 2px); }
+  &:hover, &:focus { border: 1px solid #444; background-color: #888 - #222; }
 }
 textarea {
   display: block;
