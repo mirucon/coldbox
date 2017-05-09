@@ -101,10 +101,10 @@ if ( !function_exists ( 'cd_body_class' ) ) {
     if ( has_nav_menu('header-menu') ) { $classes[] = 'header-menu-enabled'; }
     if ( cd_is_sticky_top_menu() ) { $classes[] = 'topmenu-sticky'; }
     if ( !cd_is_sticky_top_menu() ) { $classes[] = 'topmenu-relative'; }
-    if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar'; }
-    elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar'; }
-    elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar'; }
-    elseif ( cd_sidebar_stg() == 'hide' ) { $classes[] = 'hide-sidebar'; }
+    if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar-s1'; }
+    elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar-s1'; }
+    elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar-s1'; }
+    elseif ( cd_sidebar_stg() == 'hide' ) { $classes[] = 'hide-sidebar-s1'; }
     if ( cd_header_direction() == 'column' ) { $classes[] = 'header-column'; }
     elseif ( cd_header_direction() == 'row' ) { $classes[] = 'header-row'; }
     $ua = getenv( 'HTTP_USER_AGENT' );

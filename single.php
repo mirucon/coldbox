@@ -13,6 +13,8 @@
 
             <div class="content-inner">
 
+              <div class="content-inside">
+
               <footer class="post-meta content-box">
                 <?php if ( has_post_format() ){ ?><span class="post-format"><?php echo get_post_format(); ?></span><?php } ?><?php if ( has_post_format('aside') ){ ?> <div class="post-date"><?php echo get_the_date(); ?></div><?php }
                 if ( get_the_modified_time('c') != get_the_time('c') && cd_is_meta_modified() ) {
@@ -40,9 +42,11 @@
               if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
               if ( cd_is_post_nav() ) { get_template_part('parts/post-nav'); } ?>
 
-            </div><!--/.content-->
+            </div><!--/.content-inside-->
 
-          </div><!--/.content-inner-->
+            </div><!--/.content-inner-->
+
+          </div><!--/.content-->
 
           <?php get_sidebar(); ?>
 

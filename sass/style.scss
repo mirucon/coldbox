@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /*
 Theme Name: Coldbox
-Theme URI: https://www.mirucon.me/coldbox/
+Theme URI: https://miruc.co/coldbox/
 Description: Coldbox is a free clean WordPress theme for blogger.
 It's easy to customize, multifunctional, SEO friendly and faster load. *This theme layouted by Flexbox module. See Demo: #Link
 Version: 0.9.0 β
-Author: Toshihiro Kanai
-Author URI: https://www.mirucon.me/
+Author: Mirucon
+Author URI: https://miruc.xo/
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background,
 custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments,
 Text Domain: coldbox
@@ -100,30 +100,28 @@ body {
     padding: 5px;
   }
 }
-.sidebar {
+.sidebar-s1 {
   width: $side-width;
-  padding: 10px;
-  background-color: #fafafa;
-  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
   @media screen and (max-width: $bpmax-tablet) {
     width: 100%;
   }
 }
-.right-sidebar {
+.right-sidebar-s1 {
   .content { padding-right: $side-width + 20px; padding-left: 0; @media screen and (max-width: $bpmax-tablet) { padding: 0 } }
-  .sidebar { margin-left: -$side-width; @media screen and (max-width: $bpmax-tablet) { margin-left: 0 } }
+  .sidebar-s1 { margin-left: -$side-width; @media screen and (max-width: $bpmax-tablet) { margin-left: 0 } }
 }
-.left-sidebar {
+.left-sidebar-s1 {
   .content { padding-right: 0; padding-left: $side-width + 20px; @media screen and (max-width: $bpmax-tablet) { padding: 0 } }
-  .sidebar { margin-right: -$side-width; order: -1; @media screen and (max-width: $bpmax-tablet) { margin-right: 0 } }
+  .sidebar-s1 { margin-right: -$side-width; order: -1; @media screen and (max-width: $bpmax-tablet) { margin-right: 0 } }
 }
-.hide-sidebar { @media screen and (min-width: 961px) {
+.hide-sidebar-s1 { @media screen and (min-width: 961px) {
   .grid-view .post, .grid-view .page { width: 33.333%; } }
 }
-.bottom-sidebar {
+.bottom-sidebar-s1 {
   #wrapper > .container { display: block }
   @media screen and (min-width: 961px) {
-    .sidebar { display: flex; width: 100%; margin-top: 24px; flex-flow: row wrap; }
+    .sidebar-s1 { width: 100%; margin-top: 24px;  }
+    .sidebar-inner { display: flex; flex-flow: row wrap; }
     .sidebar .widget { width: calc(33.333% - 10px); margin: 5px; }
     .grid-view .post, .grid-view .page { width: 33.333%; }
   }
@@ -304,13 +302,15 @@ h6 { font-size: 1.1em }
 
 /*   Base : Common Parts
 /* -------------------------------------------------- */
-.content-box {
-  margin-bottom: 2em;
-  padding: 20px 40px;
+.content-inside {
   background-color: #fff;
   @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+}
+.content-box {
+  padding: 2em 40px;
+  border-bottom: 1px solid #eaeaea;
   &:last-child {
-    margin-bottom: 0;
+    border-bottom: 0;
   }
   @media screen and (max-width: $bpmax-mobile) {
     padding-right: 20px;
@@ -319,6 +319,7 @@ h6 { font-size: 1.1em }
 }
 .title-box {
   position: relative;
+  padding: 1.4em;
   background-color: #f8f8f8;
   font-weight: 300;
   font-family: $lato;
@@ -360,6 +361,7 @@ input[type=tel], input[type=date], input[type=datetime], input[type=month], inpu
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
   -webkit-appearance: none;
+  -moz-apperance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
@@ -548,7 +550,7 @@ textarea {
 .alignright { float: right; max-width: 100%; margin-left: 10px }
 .alignleft { float: left; max-width: 100%; margin-right: 10px }
 .clearfix:after {	content: ""; 	display: block;	clear: both; }
-html body .screen-reader-text { position: absolute;	width: 1px; height: 1px;	clip: rect(1px, 1px, 1px, 1px);	overflow: hidden;	}
+html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;	}
 body.home { border-top-color: transparent }
 
 /* ------------------------------------------------------------------------- *

@@ -1,10 +1,13 @@
 .sidebar {
+  padding: 10px;
+  background-color: #fafafa;
+  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
 
   .widget {
     background-color: #fff;
     @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    &:last-child { margin-bottom: 0 }
   }
-
 
 }
 

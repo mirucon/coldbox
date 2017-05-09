@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /*
 Theme Name: Coldbox
-Theme URI: https://www.mirucon.me/coldbox/
+Theme URI: https://miruc.co/coldbox/
 Description: Coldbox is a free clean WordPress theme for blogger.
 It's easy to customize, multifunctional, SEO friendly and faster load. *This theme layouted by Flexbox module. See Demo: #Link
 Version: 0.9.0 β
-Author: Toshihiro Kanai
-Author URI: https://www.mirucon.me/
+Author: Mirucon
+Author URI: https://miruc.xo/
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background,
 custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments,
 Text Domain: coldbox
@@ -134,84 +134,83 @@ body {
   }
 }
 
-.sidebar {
+.sidebar-s1 {
   width: 320px;
-  padding: 10px;
-  background-color: #fafafa;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
 
 @media screen and (max-width: 980px) {
-  .sidebar {
+  .sidebar-s1 {
     width: 100%;
   }
 }
 
-.right-sidebar .content {
+.right-sidebar-s1 .content {
   padding-right: 340px;
   padding-left: 0;
 }
 
 @media screen and (max-width: 980px) {
-  .right-sidebar .content {
+  .right-sidebar-s1 .content {
     padding: 0;
   }
 }
 
-.right-sidebar .sidebar {
+.right-sidebar-s1 .sidebar-s1 {
   margin-left: -320px;
 }
 
 @media screen and (max-width: 980px) {
-  .right-sidebar .sidebar {
+  .right-sidebar-s1 .sidebar-s1 {
     margin-left: 0;
   }
 }
 
-.left-sidebar .content {
+.left-sidebar-s1 .content {
   padding-right: 0;
   padding-left: 340px;
 }
 
 @media screen and (max-width: 980px) {
-  .left-sidebar .content {
+  .left-sidebar-s1 .content {
     padding: 0;
   }
 }
 
-.left-sidebar .sidebar {
+.left-sidebar-s1 .sidebar-s1 {
   margin-right: -320px;
   order: -1;
 }
 
 @media screen and (max-width: 980px) {
-  .left-sidebar .sidebar {
+  .left-sidebar-s1 .sidebar-s1 {
     margin-right: 0;
   }
 }
 
 @media screen and (min-width: 961px) {
-  .hide-sidebar .grid-view .post, .hide-sidebar .grid-view .page {
+  .hide-sidebar-s1 .grid-view .post, .hide-sidebar-s1 .grid-view .page {
     width: 33.333%;
   }
 }
 
-.bottom-sidebar #wrapper > .container {
+.bottom-sidebar-s1 #wrapper > .container {
   display: block;
 }
 
 @media screen and (min-width: 961px) {
-  .bottom-sidebar .sidebar {
-    display: flex;
+  .bottom-sidebar-s1 .sidebar-s1 {
     width: 100%;
     margin-top: 24px;
+  }
+  .bottom-sidebar-s1 .sidebar-inner {
+    display: flex;
     flex-flow: row wrap;
   }
-  .bottom-sidebar .sidebar .widget {
+  .bottom-sidebar-s1 .sidebar .widget {
     width: calc(33.333% - 10px);
     margin: 5px;
   }
-  .bottom-sidebar .grid-view .post, .bottom-sidebar .grid-view .page {
+  .bottom-sidebar-s1 .grid-view .post, .bottom-sidebar-s1 .grid-view .page {
     width: 33.333%;
   }
 }
@@ -510,15 +509,18 @@ h6 {
 
 /*   Base : Common Parts
 /* -------------------------------------------------- */
-.content-box {
-  margin-bottom: 2em;
-  padding: 20px 40px;
+.content-inside {
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
+.content-box {
+  padding: 2em 40px;
+  border-bottom: 1px solid #eaeaea;
+}
+
 .content-box:last-child {
-  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 @media screen and (max-width: 640px) {
@@ -530,6 +532,7 @@ h6 {
 
 .title-box {
   position: relative;
+  padding: 1.4em;
   background-color: #f8f8f8;
   font-weight: 300;
   font-family: Lato, Arial, sans-serif;
@@ -582,6 +585,7 @@ input[type=tel], input[type=date], input[type=datetime], input[type=month], inpu
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
   -webkit-appearance: none;
+  -moz-apperance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
@@ -1304,7 +1308,6 @@ body.home #main {
 }
 
 .grid-view .article {
-  display: flex;
   width: 50%;
   margin-bottom: 30px;
 }
@@ -2168,9 +2171,19 @@ ul.page-numbers a.page-numbers:hover {
 /* ------------------------------------------------------------------------- *
 *  8. Sidebar
 * ------------------------------------------------------------------------- */
+.sidebar {
+  padding: 10px;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
 .sidebar .widget {
   background-color: #fff;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .widget:last-child {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 980px) {

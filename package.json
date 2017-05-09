@@ -1,0 +1,43 @@
+{
+  "name": "coldbox",
+  "version": "1.0.0",
+  "description": "My First WordPress Theme.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.1",
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-combine-media-queries": "^0.2.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-csso": "^2.0.0",
+    "gulp-file-sync": "^1.0.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "my-ip": "^1.1.1",
+    "postcss-cssnext": "^2.8.0"
+  },
+  "scripts": {
+    "start": "gulp default",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vccw-team/vccw.git"
+  },
+  "author": "Mirucon",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/vccw-team/vccw/issues"
+  },
+  "homepage": "https://github.com/vccw-team/vccw#readme"
+}

@@ -2,11 +2,15 @@
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 
-  <aside class="sidebar">
+  <aside class="sidebar-s1">
 
-    <div class="sidebar-inner">
+    <div class="sidebar">
 
-      <?php dynamic_sidebar('sidebar-1'); ?>
+      <div class="sidebar-inner">
+
+        <?php dynamic_sidebar('sidebar-1'); ?>
+
+      </div>
 
     </div>
 
