@@ -60,10 +60,14 @@ ol, ul { list-style: none; }
 /* ------------------------------------------------------------------------- *
 *  1. Global
 * ------------------------------------------------------------------------- */
+html {
+  font-size: 62.5% !important;
+}
 body {
   background-color: #f8f8f8;
   color: $text;
   word-wrap: break-word;
+  font-size: 1.6em;
   line-height: 1.4;
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
@@ -152,12 +156,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   letter-spacing: -.03em;
 }
-h1 { font-size: 1.6em }
-h2 { font-size: 1.5em }
-h3 { font-size: 1.4em }
-h4 { font-size: 1.3em }
-h5 { font-size: 1.2em }
-h6 { font-size: 1.1em }
+h1 { font-size: 3rem }
+h2 { font-size: 2.5rem }
+h3 { font-size: 2.3rem }
+h4 { font-size: 2.15rem }
+h5 { font-size: 2rem }
+h6 { font-size: 1.8rem }
 
 /*   Base : Entry
 /* -------------------------------------------------- */
@@ -334,7 +338,7 @@ h6 { font-size: 1.1em }
   }
   h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 3rem;
     line-height: 1.2;
   }
   a:hover { color: $link }

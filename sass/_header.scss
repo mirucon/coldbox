@@ -21,19 +21,19 @@
   flex-flow: row wrap;
   flex-grow: 1;
   align-items: center;
-  padding: 16px 10px;
+  padding: 30px 20px;
 }
 .site-title {
   max-width: 100%;
-  font-size: 1.8rem;
+  font-size: 3.0rem;
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: 300;
   a { display: block }
   img { display: block; max-height: 60%; height: auto; margin: 0 auto; }
 }
 .site-description {
   max-width: 100%;
-  padding: 0 1em;
+  padding: 0 2rem;
   color: #666;
   font-weight: 300;
 }

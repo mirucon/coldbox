@@ -3,13 +3,13 @@
 
     <a class="post-link" href="<?php the_permalink(); ?>">
 
-      <figure class="post-thumbnail"><div>
+      <div class="post-thumbnail"><figure>
         <?php if ( has_post_thumbnail() ): ?>
           <?php the_post_thumbnail('thumb-medium'); ?>
         <?php else: ?>
           <img src="<?php echo get_template_directory_uri(); ?>/img/thumb-medium.png" alt="<?php the_title(); ?>">
         <?php endif; ?>
-      </div></figure>
+      </figure></div>
 
       <div class="post-content">
         <div class="post-date"><?php echo get_the_date(); ?></div>

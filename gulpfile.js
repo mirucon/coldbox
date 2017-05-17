@@ -18,9 +18,9 @@ gulp.task('sass', function() {
   return gulp.src(['sass/*.scss'])
   .pipe(sourcemaps.init())
   .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-  .pipe(sass({outputStyle: 'expanded'}))
+  .pipe(sass({outputStyle: 'expanded',}))
   // .pipe(postcss(processors))
-  .pipe(sourcemaps.write('.'))
+  .pipe(sourcemaps.write())
   .pipe(gulp.dest('.'));
 });
 gulp.task('browser-sync', function () {
@@ -28,7 +28,7 @@ gulp.task('browser-sync', function () {
     open: 'external',
     notify: false,
     proxy: "https://coldbox.dev/",
-    // port: "8082",
+    port: "8000",
     // reloadDelay: 300
   });
 });

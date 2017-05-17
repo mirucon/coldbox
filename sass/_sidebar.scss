@@ -14,6 +14,9 @@
 // Tablet && Mobile
 @media screen and (max-width: $bpmax-tablet) {
   .sidebar {
+    margin-top: 40px;
+  }
+  .sidebar-inner {
     display: flex;
     margin-top: 40px;
     flex-flow: row wrap;
