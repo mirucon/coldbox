@@ -27,7 +27,7 @@ gulp.task('browser-sync', function () {
   browserSync({
     open: 'external',
     notify: false,
-    proxy: "https://coldbox.dev/",
+    proxy: "http://coldbox.dev/",
     port: "8000",
     // reloadDelay: 300
   });

@@ -63,10 +63,8 @@ jQuery(function($) {
   $(window).on('load scroll resize', function() {
     var header = $('#header');
     var offset = header.offset();
-    var headerHgt = header.height();
     var siteInfo = $('.site-info');
     var siteInfoHgt = $('.site-info').outerHeight();
-    var siteInfoHgtRev = -siteInfoHgt;
 
     if ( window.matchMedia('(min-width: 767px)').matches ) {
       var scrollTop = $(window).scrollTop();
@@ -74,6 +72,7 @@ jQuery(function($) {
       var scrollTop = 0;
     }
 
+    // When header row sets
     if ( $('body').hasClass('header-row') ) {
       if ( scrollTop > 0 ) {
         header.addClass('sticky');
@@ -84,26 +83,32 @@ jQuery(function($) {
       }
     }
 
-     else if ( $('body').hasClass('header-column') ) {
+    // When header column sets
+    else if ( $('body').hasClass('header-column') ) {
       if ( $('body').hasClass('header-menu-enabled') ) {
-        if ( scrollTop >= 0 && scrollTop < siteInfoHgt ) {
-          $('.search-toggle').css({top: scrollTop});
-          if ( window.matchMedia('(min-width: 767px)').matches ) {
+        if ( window.matchMedia('(min-width: 767px)').matches ) {
+          if ( scrollTop <= 0 && scrollTop < siteInfoHgt ) { // Not on scroll
+            $('.search-toggle').css({top: scrollTop, height: ''});
             $('.header-search').css({top: scrollTop + 48});
+          } else { // On scroll
+            $('.search-toggle').css({top: siteInfoHgt, position: '', height: $('#header-menu').height() });
+            $('.header-search').css({top: ''});
           }
         } else {
-          $('.search-toggle').css({top: siteInfoHgt, position: ''});
-          $('.header-search').css({top: ''});
+          $('.search-toggle').css({top: '', height: ''});
         }
       }
-      if ( scrollTop > 0 + siteInfoHgt ) {
+      if ( scrollTop > 0 + siteInfoHgt ) { // On scroll
+        // sticks header
         header.addClass('sticky');
-        $('body').css({ paddingTop: headerHgt });
-        if ( $('body').hasClass('admin-bar') ) {
-          var adminHeight = $('#wpadminbar').innerHeight();
-          header.css({top: siteInfoHgtRev + adminHeight});
-        } else { header.css({ top: siteInfoHgtRev }); }
-      } else {
+        $('body').css({paddingTop: $(header).height() });
+        if ( $('body').hasClass('admin-bar') ) { // When logging in
+          header.css({top: -siteInfoHgt + $('#wpadminbar').innerHeight()});
+        } else {
+          header.css({top: -siteInfoHgt});
+        }
+      } else { // Not on scroll
+        // Remove sticks header
         header.removeClass('sticky');
         $('body').css({paddingTop: ''});
         header.css({top: ''});

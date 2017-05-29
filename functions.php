@@ -200,7 +200,7 @@ if ( !function_exists ( 'cd_breadcrumb' ) ) {
       } else {
         echo esc_html($cat->name);
       }
-    } elseif ( is_auther() ) {
+    } elseif ( is_author() ) {
       the_author();
     } elseif ( is_page() ) {
       the_title();

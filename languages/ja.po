@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: coldbox\n"
 "POT-Creation-Date: 2016-07-29 10:37+0900\n"
-"PO-Revision-Date: 2016-07-29 10:37+0900\n"
+"PO-Revision-Date: 2017-05-18 17:29+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -28,7 +28,7 @@ msgstr "1件のコメント"
 msgid "% Responses"
 msgstr "%件のコメント"
 
-# Time Format
+# Day Format
 # default : Year/Month/Day
 #: content-2col.php:17 content-grid.php:13 content-standard.php:13
 msgid "Y/n/j"

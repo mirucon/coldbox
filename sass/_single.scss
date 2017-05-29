@@ -36,6 +36,10 @@
 .post-meta.content-box {
   a { color: $text; box-shadow: 0 1px 0 0 currentColor }
   a:hover { color: $link }
+  .post-category a{ margin: 0 0 .3em 0; }
+  .post-category a:hover { @include box-shadow($x: 0, $y: 2px, $blur: 0, $color: rgba(216, 87, 25, 0.4)) }
+  .post-author a:hover { @include box-shadow($x: 0, $y: 2px, $blur: 0, $color: rgba(#00619F, 0.4)) }
+  .post-comment a:hover { @include box-shadow($x: 0, $y: 2px, $blur: 0, $color: rgba(#0a4a12, 0.4));}
 }
 
 .entry .post-meta {
@@ -95,12 +99,13 @@
   .related-posts-list {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
   }
 
   .related-article {
     display: inline-block;
     position: relative;
-    width: 50%;
+    width: 49%;
     margin-bottom: 16px;
   }
   .post {

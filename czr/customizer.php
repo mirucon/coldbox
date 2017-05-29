@@ -220,19 +220,20 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_date', array(
-        'label'    => __( 'Show Date','coldbox' ),
+        'label'    => __( 'Show Post Dates','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
       // Category
       $wp_customize->add_setting( 'single_meta_cat', array(
-        'default'  => true,
+        'default'  => false,
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_cat', array(
-        'label'    => __( 'Show Category','coldbox' ),
+        'label'    => __( 'Show Post Categories','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
+        'description'=> 'It\'s not recommended to show categories here, It\'s showed on the breadcrum already.'
       )));
       // Author
       $wp_customize->add_setting( 'single_meta_author', array(
@@ -240,7 +241,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_author', array(
-        'label'    => __( 'Show Author','coldbox' ),
+        'label'    => __( 'Show Post Author','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -260,7 +261,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_btm_tag', array(
-        'label'    => __( 'Show Tag', 'coldbox' ),
+        'label'    => __( 'Show Post Tags on Bottom', 'coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -270,17 +271,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_btm_cat', array(
-        'label'    => __( 'Post Category', 'coldbox' ),
-        'section'  => 'single',
-        'type'     => 'checkbox',
-      )));
-      // Related Post
-      $wp_customize->add_setting( 'single_related_posts', array(
-        'default'  => true,
-        'sanitize_callback' => 'cd_sanitize_checkbox',
-      ));
-      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_posts', array(
-        'label'    => __( 'Show Related Posts','coldbox' ),
+        'label'    => __( 'Show Post Categories on Bottom', 'coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -290,7 +281,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_comment', array(
-        'label'    => __( 'Show Comment','coldbox' ),
+        'label'    => __( 'Show Comments','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -307,6 +298,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
       /*   Related Posts Settings
       /* -------------------------------------------------- */
+      // Related Post
+      $wp_customize->add_setting( 'single_related_posts', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_posts', array(
+        'label'    => __( 'Show Related Posts','coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
       // Max Article
       $wp_customize->add_setting( 'single_related_max', array(
         'default'  => 6,

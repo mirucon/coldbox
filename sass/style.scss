@@ -311,7 +311,7 @@ h6 { font-size: 1.8rem }
   @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
 }
 .content-box {
-  padding: 2em 40px;
+  padding: 1.4em 40px;
   border-bottom: 1px solid #eaeaea;
   &:last-child {
     border-bottom: 0;
@@ -470,7 +470,7 @@ textarea {
 }
 .taxonomy-description {
   position: relative;
-  margin: .6em 6px 0;
+  margin: 1em 6px 0;
   padding: 10px 16px;
   border-top: 1px solid currentColor;
   background-color: #f4f4f4;
@@ -650,11 +650,11 @@ body.home { border-top-color: transparent }
   }
 }
 
-@keyframes fadeInRight {
+@keyframes fadeInLeft {
   0% {
     opacity: 0;
     visibility: hidden;
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
   }
   100% {
     opacity: 1;
@@ -707,6 +707,11 @@ body.home { border-top-color: transparent }
   }
   .related-posts .post-title {
     line-height: inherit;
+  }
+}
+:lang(ja) {
+  h1 {
+    font-family: Lato, "Noto Sans CJK JP Light", "Yu Gothic Light", "Hiragino Sans", arial, sans-serif;
   }
 }
 
