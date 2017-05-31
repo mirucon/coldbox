@@ -151,7 +151,7 @@ body.home #main {
     // .post-thumbnail::before { border-top-color: #fff; border-bottom-color: #fff; }
     // .post-thumbnail::after { border-right-color: #fff; border-left-color: #fff }
     .post-thumbnail img {
-      filter: blur(3px);
+      filter: blur(2px);
     }
     .post-title {
       color: $link;
