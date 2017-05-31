@@ -270,9 +270,9 @@
   }
   @media screen and (min-width: 768px) { position: absolute; right: 0; height: 100%; }
 }
-.header-search {
+.header-searchbar {
   position: absolute;
-  top: calc(100% - 11px); right: 6px;
+  top: calc(100% - 20px); right: 6px;
   z-index: 1001;
   max-width: 320px;
   width: 80%;
@@ -286,8 +286,8 @@
   }
 }
 
-@media screen and (max-width: 767px) { .header-search { display: none } } // Mobile
-@media screen and (min-width: 768px) { .nav-toggle, .header-search { display: none } } // PC
+@media screen and (max-width: 767px) { .header-searchbar { display: none } } // Mobile
+@media screen and (min-width: 768px) { .nav-toggle, .header-searchbar { display: none } } // PC
 
 /*   Header: Toggle Animation
 /* -------------------------------------------------- */

@@ -30,7 +30,7 @@
           <?php wp_nav_menu( array( 'theme_location'=>'header-menu', 'container'=>'', 'menu_class'=>'', 'items_wrap'=>'<ul id="header-nav" class="menu-container">%3$s</ul>') ); ?>
         </nav>
       <?php endif; ?>
-      <div class="header-search"><?php get_search_form(); ?></div>
+      <div class="header-searchbar"><?php get_search_form(); ?></div>
 
     </div>
 
