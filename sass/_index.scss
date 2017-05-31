@@ -16,11 +16,19 @@ body.home #main {
   padding: 16px 8px 0;
   overflow: hidden;
 
-  .article {
-    // display: flex;
+  .post, .page {
     width: 50%;
     margin-bottom: 1.6em;
   }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    flex-flow: column wrap;
+    padding: 2em 20px;
+    .post, .page {
+      width: 100%;
+    }
+  }
+
   .post-inner {
     display: flex;
     flex-flow: column;
@@ -70,6 +78,7 @@ body.home #main {
     margin: 6px 0;
     font-size: 1.2em;
     font-weight: bold;
+    transition: all .4s;
   }
   .post-excerpt {
     margin: 10px 0;
@@ -94,63 +103,58 @@ body.home #main {
   }
 
   // Hover Animations
-  .post-thumbnail figure::after {
-    position: absolute;
-    top: calc(50% - 11px); right: calc(50% - 42px); z-index: 2;
-    color: transparent;
-    transition: all .4s ease-out;
-  }
-  .post-thumbnail figure::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0; z-index: 2;
-  }
-  .post-thumbnail::before {
-    content: '';
-    position: absolute;
-    top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-    transform: scale(0, 1);
-  }
-  .post-thumbnail::after {
-    content: '';
-    position: absolute;
-    top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    transform: scale(1, 0);
-  }
+  // .post-thumbnail figure::after {
+  //   position: absolute;
+  //   top: calc(50% - 11px); right: calc(50% - 42px); z-index: 2;
+  //   color: transparent;
+  //   transition: all .4s ease-out;
+  // }
+  // .post-thumbnail figure::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 0; right: 0; bottom: 0; left: 0; z-index: 2;
+  // }
+  // .post-thumbnail::before {
+  //   content: '';
+  //   position: absolute;
+  //   top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
+  //   border-top: 1px solid transparent;
+  //   border-bottom: 1px solid transparent;
+  //   transform: scale(0, 1);
+  // }
+  // .post-thumbnail::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
+  //   border-right: 1px solid transparent;
+  //   border-left: 1px solid transparent;
+  //   transform: scale(1, 0);
+  // }
   .post-inner:hover {
     @include box-shadow($y: 6px, $blur: 10px, $spread: 0);
-    transform: translate(0, -2px);
+    transform: translate(0, -1px);
   }
   .post-inner a:hover {
-    .post-thumbnail figure::before {
-      width: 100%; height: 100%;
-      background-color: rgba($blue, .2);
-    }
-    .post-thumbnail figure::after {
-      content: "Read More...";
-      color: #fff;
-      transition: all .4s ease-out;
-    }
-    .post-thumbnail::before, .post-thumbnail::after {
-      transform: scale(1);
-      transition: transform .4s;
-    }
-    .post-thumbnail::before { border-top-color: #fff; border-bottom-color: #fff; }
-    .post-thumbnail::after { border-right-color: #fff; border-left-color: #fff }
+    // .post-thumbnail figure::before {
+    //   width: 100%; height: 100%;
+    //   background-color: rgba($blue, .2);
+    // }
+    // .post-thumbnail figure::after {
+    //   content: "Read More...";
+    //   color: #fff;
+    //   transition: all .4s ease-out;
+    // }
+    // .post-thumbnail::before, .post-thumbnail::after {
+    //   transform: scale(1);
+    //   transition: transform .4s;
+    // }
+    // .post-thumbnail::before { border-top-color: #fff; border-bottom-color: #fff; }
+    // .post-thumbnail::after { border-right-color: #fff; border-left-color: #fff }
     .post-thumbnail img {
-      filter: blur(4px);
-      transform: scale(1.1);
+      filter: blur(3px);
     }
-  }
-  @media screen and (max-width: $bpmax-mobile) {
-    flex-flow: column wrap;
-    padding: 2em 20px;
-    .post, .page {
-      width: 100%;
+    .post-title {
+      color: $link;
     }
   }
 

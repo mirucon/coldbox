@@ -26,7 +26,7 @@ jQuery(function($) {
       $('#back-to-top').css({'bottom': footHeight});
       $('a#back-to-top').addClass('abs');
     } else {
-      $('#back-to-top').css({'bottom':  ''});
+      $('#back-to-top').css({'bottom': ''});
       $('a#back-to-top').removeClass('abs');
     }
   });
