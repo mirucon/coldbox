@@ -39,6 +39,10 @@
   color: #666;
   font-weight: 300;
 }
+@media screen and (min-width: 768px) and (max-width: 768px) {
+  .site-info { flex-flow: column wrap }
+  .site-description { padding: .4em 1em 0; }
+}
 @media screen and (max-width: 767px) {
   .header-inner { padding-right: 0 }
   .site-info {
