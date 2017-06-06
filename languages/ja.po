@@ -2,19 +2,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: coldbox\n"
 "POT-Creation-Date: 2016-07-29 10:37+0900\n"
-"PO-Revision-Date: 2017-05-18 17:29+1200\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2017-06-06 22:58+1200\n"
 "Language-Team: Mirucon\n"
-"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.1\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
+"Last-Translator: \n"
+"Language: ja\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 #: comments.php:4
 msgid "No Responses"
@@ -64,7 +65,7 @@ msgstr "サイドバーを非表示"
 
 #: czr/customizer.php:49
 msgid "Font Family"
-msgstr "Font Family設定"
+msgstr "Font Family 設定"
 
 #: czr/customizer.php:50
 msgid ""
@@ -90,7 +91,7 @@ msgstr "グリッドスタイル (デフォルト)"
 
 #: czr/customizer.php:76 czr/customizer.php:93
 msgid "2Column Simple List Style"
-msgstr "2カラムシンプルレイアウト"
+msgstr "2カラムリストレイアウト"
 
 #: czr/customizer.php:77 czr/customizer.php:94
 msgid "Standard Style"
@@ -130,7 +131,7 @@ msgstr "タグを表示 (下エリア)"
 
 #: czr/customizer.php:183
 msgid "Show Post Navigation"
-msgstr ""
+msgstr "ポストナビゲーションを表示"
 
 #: czr/customizer.php:196
 msgid "Coldbox: Footer Settings"
@@ -138,160 +139,160 @@ msgstr "Coldbox: フッター設定"
 
 #: czr/customizer.php:204
 msgid "Theme Credit"
-msgstr "テーマクレジットを表示"
+msgstr ""
 
 #: czr/customizer.php:220
 msgid "Primary Color"
-msgstr "プライマリーカラー"
+msgstr ""
 
 #: czr/customizer.php:231
 msgid "Hover Link Color"
-msgstr "リンクホバー色"
+msgstr ""
 
 #: czr/customizer.php:242
 msgid "Header Background"
-msgstr "ヘッダーの背景色"
+msgstr ""
 
 #: czr/customizer.php:253
 msgid "Header Site Title Color"
-msgstr "ヘッダーのサイトタイトルの文字色"
+msgstr ""
 
 #: czr/customizer.php:265
 msgid "Header Site Description Color"
-msgstr "ヘッダーのサイト説明の文字色"
+msgstr ""
 
 #: czr/customizer.php:277
 msgid "Header Menu Background"
-msgstr "ヘッダーメニューの背景色"
+msgstr ""
 
 #: czr/customizer.php:288
 msgid "Header Menu Hover Color"
-msgstr "ヘッダーメニューのホバー色"
+msgstr ""
 
 #: czr/customizer.php:299
 msgid "Footer Background"
-msgstr "フッターの背景色"
+msgstr ""
 
 #: czr/customizer.php:310
 msgid "Footer Text"
-msgstr "フッターの文字色"
+msgstr ""
 
 #: functions.php:112
 msgid "Add widgets here!"
-msgstr "サイドバーに表示するウィジェットを選択してください。"
+msgstr ""
 
 #: parts/page-title.php:4
 msgid "Category:"
-msgstr "Category:"
+msgstr ""
 
 #: parts/page-title.php:8
 msgid "Tag:"
-msgstr "Tag:"
+msgstr ""
 
 #: parts/page-title.php:12
 msgid "Search Results for:"
-msgstr "検索結果: "
+msgstr ""
 
 #: parts/page-title.php:16
 msgid "Daily Archive:"
-msgstr "Daily Archive:"
+msgstr ""
 
 #: parts/page-title.php:20
 msgid "Monthly Archive:"
-msgstr "Monthly Archive:"
+msgstr ""
 
 #: parts/page-title.php:24
 msgid "Yearly Archive:"
-msgstr "Yearly Archive:"
+msgstr ""
 
 #: parts/page-title.php:28
 msgid "Author:"
-msgstr "Author: "
+msgstr ""
 
 #: parts/page-title.php:32
 msgid "ERROR 404."
-msgstr "ERROR 404."
+msgstr ""
 
 #: parts/page-title.php:32
 msgid "Sorry, Page Not Found."
-msgstr "ページが存在しません"
+msgstr ""
 
 #: parts/post-nav.php:7
 msgid "Prev Post"
-msgstr "前の投稿"
+msgstr ""
 
 #: parts/post-nav.php:13
 msgid "Next Post"
-msgstr "次の投稿"
+msgstr ""
 
 #: parts/related-posts.php:21
 msgid "Related Posts"
-msgstr "関連記事"
+msgstr ""
 
 #: parts/sns-button.php:17
 msgid "Share"
-msgstr "シェアする"
+msgstr ""
 
 #: searchform.php:3
 msgid "Search this site"
-msgstr "サイト内を検索"
+msgstr ""
 
 # Time Format
 # default : Year/Month/Day
 #: single.php:16 single.php:33 single.php:35
 msgid "Y/m/d"
-msgstr "Y/m/d"
+msgstr ""
 
 #: single.php:29
 msgid "Pages:"
-msgstr "ページ: "
+msgstr ""
 
 #: single.php:33
 msgid "Published :"
-msgstr "記事公開日 :"
+msgstr ""
 
 #: single.php:35
 msgid "Updated :"
-msgstr "最終更新日 :"
+msgstr ""
 
-#~ msgid "Default Value: \"Open Sans\", Arial, sans-serif"
-#~ msgstr "デフォルト値: \"Open Sans\", Arial, sans-serif"
+msgid "Default Value: \"Open Sans\", Arial, sans-serif"
+msgstr "デフォルト値: \"Open Sans\", Arial, sans-serif"
 
-#~ msgid "Standard style"
-#~ msgstr "スタンダードスタイル"
+msgid "Standard style"
+msgstr "スタンダードスタイル"
 
-#~ msgid "Header Menu"
-#~ msgstr "ヘッダーメニュー"
+msgid "Header Menu"
+msgstr "ヘッダーメニュー"
 
-#~ msgid "Page Style Settings"
-#~ msgstr "ページスタイル設定"
+msgid "Page Style Settings"
+msgstr "ページスタイル設定"
 
-#~ msgid "Front page style"
-#~ msgstr "トップページのスタイル"
+msgid "Front page style"
+msgstr "トップページのスタイル"
 
-#~ msgid "Standard style (default)"
-#~ msgstr "スタンダードスタイル (デフォルト)"
+msgid "Standard style (default)"
+msgstr "スタンダードスタイル (デフォルト)"
 
-#~ msgid "Grid style"
-#~ msgstr "グリッドスタイル"
+msgid "Grid style"
+msgstr "グリッドスタイル"
 
-#~ msgid "Archive page style"
-#~ msgstr "アーカイブページのスタイル"
+msgid "Archive page style"
+msgstr "アーカイブページのスタイル"
 
-#~ msgid "Footer"
-#~ msgstr "フッター"
+msgid "Footer"
+msgstr "フッター"
 
-#~ msgid "Theme credit"
-#~ msgstr "テーマクレジットを表示"
+msgid "Theme credit"
+msgstr "テーマクレジットを表示"
 
-#~ msgid "Link color"
-#~ msgstr "リンク色"
+msgid "Link color"
+msgstr "リンク色"
 
-#~ msgid "Auther:"
-#~ msgstr "Auther:"
+msgid "Auther:"
+msgstr "Auther:"
 
-#~ msgid "Published : "
-#~ msgstr "記事"
+msgid "Published : "
+msgstr "記事"
 
-#~ msgid "Category: "
-#~ msgstr "Category:"
+msgid "Category: "
+msgstr "Category:"

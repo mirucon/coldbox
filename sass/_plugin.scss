@@ -93,3 +93,19 @@ Copyright: (c) 2015-2016 Nicolas GUILLAUME (nikeo), 2013-2015 Alexander "Alx" Ag
 .wpcf7 div.wpcf7-response-output { margin: 0; padding: 0; }
 .wpcf7 span.wpcf7-form-control-wrap { display: block; position: relative; }
 .wpcf7 span.wpcf7-not-valid-tip { background-color: #f2dede; border-color: #e3bfbf; color: #b94a48; padding: 4px 14px; font-size: 12px; line-height: 20px; position: absolute; left: 0; top: 12px; width: auto; right: 0; display: block; }
+
+
+/*   Style for hightlight.js
+/* -------------------------------------------------- */
+.hljs { color: #E5E5EB; background: #282b2e; display: block; padding: 0; }
+.hljs-bullet, .hljs-literal, .hljs-number, .hljs-symbol { color: #6897BB; }
+.hljs-deletion, .hljs-keyword, .hljs-selector-tag { color: #cc7832; }
+.hljs-link, .hljs-template-variable, .hljs-variable { color: #629755; }
+.hljs-comment, .hljs-quote { color: grey; }
+.hljs-meta { color: #bd4b40; }
+.hljs-addition, .hljs-attribute, .hljs-string { color: #8cab7a; }
+.hljs-section, .hljs-title, .hljs-type { color: #ffc66d; }
+.hljs-name, .hljs-selector-class, .hljs-selector-id { color: #e66562; }
+.lang-tag * { color: #fff; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
