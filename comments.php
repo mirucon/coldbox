@@ -28,10 +28,9 @@
     <?php endif; ?>
 
     <?php if ( get_comment_pages_count() > 1 ): ?>
-      <nav class="comments-nav group">
-        <div class="nav-previous"><?php previous_comments_link(); ?></div>
-        <div class="nav-next"><?php next_comments_link(); ?></div>
-      </nav><!--/.comments-nav-->
+      <div class="comment-pages">
+        <?php paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') ); ?>
+      </div><!--/.comment-pages-->
     <?php endif; ?>
 
   <?php endif;?>

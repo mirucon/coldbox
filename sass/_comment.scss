@@ -10,7 +10,7 @@
   }
   .tabitem > a {
     display: inline-block;
-    padding: 6px 12px;
+    padding: .5em 1.1em;
     border-bottom: 2px solid #ddd;
     transition: all .4s;
   }
@@ -19,15 +19,16 @@
   }
   .active > a { color: $link; }
   .count {
-    margin-left: .2em;
-    padding: 0 3px;
+    margin-left: .4em;
+    padding: 0 .28em;
     background-color: #ddd;
     color: #666;
+    border-radius: 2px;
+    font-size: .94em;
     line-height: 1;
   }
-  a {  }
-  // .tabitem > a[href^='#comment-list']::before { content: "\f075"; padding-right: .2em; font-family: FontAwesome; }
-  // .tabitem > a[href^='#ping-list']::before { content: "\f064"; padding-right: .2em; font-family: FontAwesome; }
+  .tabitem > a[href^='#comment-list']::before { content: "\f075"; padding-right: .2em; font-family: FontAwesome; }
+  .tabitem > a[href^='#ping-list']::before { content: "\f064"; padding-right: .2em; font-family: FontAwesome; }
 }
 
 #comment-list {
@@ -42,7 +43,7 @@
     line-height: 1.6;
   }
   & > li:first-child .comment-body { border-top-style: none; }
-  & > li:last-child .comment-body { border-bottom: 1px solid #f0f0f0; }
+  & > .comment-body:last-child  { border-bottom: 1px solid #f7f7f7; }
 
   .comment-meta {
     margin-bottom: 1.6em;
@@ -65,11 +66,10 @@
     a:hover { color: $text; box-shadow: 0 1px 0 0 #000; }
   }
   .bypostauthor > article .fn {
-    color: #fff;
     &::after {
       content: "\f007";
       margin: 0 .2em;
-      color: $link;
+      color: #66673b;
       font-family: "fontAwesome";
       text-transform: uppercase;
     }
@@ -83,12 +83,17 @@
   .edit-link::before {
     content: " / ";
     padding: 0 .4em;
+    color: #aaa;
   }
 
   .comment-content {
     margin-left: 1em;
     padding-left: 1.2em;
-    border-left: 1px solid #f0f0f0
+    border-left: 1px solid #f0f0f0;
+  }
+
+  .children {
+    margin-top: -10px;
   }
 
   .children > li {
@@ -181,6 +186,37 @@
 
   }
 
+}
+
+.comment-pages {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 10px auto 10px;
+  border-bottom: 2px solid #ddd;
+  color: $link;
+  font-weight: bold;
+
+  span, a {
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+    padding: 6px 10px;
+    border-bottom: 2px solid #ddd;
+    transition: border .4s
+  }
+
+  span {
+    border-bottom-color: $link;
+    color: #000;
+  }
+
+  * {
+    display: block;
+    transition: border .4s;
+  }
+  & > a:hover { border-bottom: 2px solid $link; }
 }
 
 .comment-body {

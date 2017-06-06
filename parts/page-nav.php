@@ -5,8 +5,8 @@ echo paginate_links( array(
   'end_size'           => '2',
   'mid_size'           => '3',
   'total'              => $wp_query->max_num_pages,
-  'prev_text'          => '«',
-  'next_text'          => '»',
+  'prev_text'          => '&laquo;',
+  'next_text'          => '&raquo;',
   'after_page_number'  => ''
 ) );
 // echo '<span class="action-bar"></span>'

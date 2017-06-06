@@ -35,24 +35,24 @@ jQuery(function($) {
   /*   Smooth Scroll
   /* -------------------------------------------------- */
   $('a[href*=#]').not('.noscroll').not('a[href^="#comment-list"]').not('a[href^="#ping-list"]').click(function() {
-    var href = $(this).prop('href');
+    var href = $(this).prop('href'); // Get property of the link
     var hrefPageUrl = href.split('#')[0];
     var currentUrl = location.href;
     var currentUrl = currentUrl.split('#')[0];
-    if ( hrefPageUrl == currentUrl ) {
+    if ( hrefPageUrl == currentUrl ) { // If the link goes to current page
       href = href.split('#');
       href = href.pop();
       href = '#' + href;
-      var target = $( href == '#' || href == '' ? 'html' : href );
-      var position = target.offset().top;
-      if ( $('body').hasClass('topmenu-sticky') && $('#topmenu').css('position') === 'fixed' ) {
-        position -= $('#topmenu').innerHeight();
-      }
-      if ( $('#wpadminbar').css('position') == 'fixed' ) {
+      var target = $( href == '#' || href == '' ? 'html' : href ); // Get where it goes
+      var position = target.offset().top; // Get the offset value
+      if ( $('#wpadminbar').css('position') == 'fixed' ) { // When logged in
         position -= $('#wpadminbar').outerHeight();
       }
-      $('body,html').animate({scrollTop:position}, 400);
-      console.log ( '%cSmooth Scroll ' + 'Go To ' + position, 'color:#39c' );
+      if ( $('#header').css('position') == 'fixed' ) { // When header is sticked
+        position -= $('#header').height();
+      }
+      $('body, html').animate({scrollTop:position}, 400); // Smooth Scroll
+      // console.log ( '%cSmooth Scroll: ' + 'Goes To ' + position, 'color:#39c' ); // Debag info
       return false;
     }
   });

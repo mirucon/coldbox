@@ -705,13 +705,16 @@ body.home { border-top-color: transparent }
   .entry, .comment-body {
     line-height: 1.8
   }
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.5
+  }
   .related-posts .post-title {
     line-height: inherit;
   }
 }
 :lang(ja) {
   h1 {
-    font-family: Lato, "Noto Sans CJK JP Light", "Yu Gothic Light", "Hiragino Sans", arial, sans-serif;
+    font-family: Lato, "Noto Sans CJK JP Light", "Yu Gothic Light", "Hiragino Sans", Arial, sans-serif;
   }
 }
 
