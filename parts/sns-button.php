@@ -1,16 +1,16 @@
 <?php
 /* ----------------------------------------------------------------------------- *
-*  SNS button
-*  You need to install "SNS count cache" plugin
+*  SNS Button
+*  Need to install "SNS Count Cache" Plugin
 *  Followed SNS : Twitter, Hatena Bookmark, Facebook, Google Plus, Pocket, Feedly.
 * ------------------------------------------------------------------------------ */
 
 if ( function_exists( 'scc_get_share_total' ) ) :
   wp_enqueue_style ( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.css' );
-  $canonical_url=get_permalink();
-  $title=wp_title( '', false, 'right' ).'| '.get_bloginfo('name');
-  $canonical_url_encode=urlencode($canonical_url);
-  $title_encode=urlencode($title);
+  $canonical_url = get_permalink();
+  $title = wp_title( '', false, 'right' ).'| '.get_bloginfo('name');
+  $canonical_url_encode = urlencode($canonical_url);
+  $title_encode = urlencode($title);
   ?>
   <section id="social-links" class="content-box">
     <h4 id="sns-btn-bottom-head"><?php _e('Share', 'coldbox') ?></h4>

@@ -163,7 +163,7 @@ body.home #main {
 /*   Index : Standard View
 /* -------------------------------------------------- */
 .standard-view {
-  padding: 20px 5px;
+  padding: 20px 10px;
 
   .post, .page {
     margin-bottom: 20px;
@@ -174,7 +174,7 @@ body.home #main {
     position: relative;
     padding: 15px 15px 15px 15px + 15px + 200px;
     background-color: #fff;
-    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
   }
   .post-header {
     flex-grow: 1;

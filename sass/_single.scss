@@ -305,22 +305,21 @@
 /* -------------------------------------------------- */
 .share-list-container {
   display: flex;
-  justify-content: flex-start;
 }
 
 .balloon-btn {
+  flex-grow: 1;
   position: relative;
-  margin: 0 3px;
 
   .share {
     transition: all .4s;
-    i { position: relative; left: calc(50% - 8px); }
+    i { position: relative; left: calc(50% - 1.2rem); font-size: 2.4rem }
   }
   .share-inner {
-    display: block;
-    padding: 6px 9px;
-    @include box-shadow($blur: 1px);
-    border-radius: 100%;
+    display: flex;
+    padding: .4em .6em;
+    @include box-shadow($y: 1px, $blur: 1px);
+    // border-radius: 100%;
     color: #fff;
   }
   .count {
@@ -334,18 +333,18 @@
     justify-content: center;
     position: absolute;
     bottom: 0; right: 0;
-    min-height: 12px;
-    min-width: 11px;
+    min-height: 2rem;
+    min-width: 2rem;
     border-radius: 1px;
     background-color: #444;
     color: #fff;
-    font-size: .3em;
+    font-size: .8em;
     line-height: 1;
     font-family: $lato;
     font-weight: bold;
     transition: all .4s;
   }
-  .share-inner:hover { opacity: .8 }
+  .share-inner:hover { opacity: .8; box-shadow: 0 2px 3px rgba(0, 0, 0, .2), 0 1px 3px rgba(0, 0, 0, .1) inset }
   .count-inner:hover { text-decoration: underline }
   &.twitter .share-inner { background-color: #6bace2 }
   &.facebook .share-inner { background-color: #445d93 }
@@ -354,6 +353,8 @@
   &.pocket .share-inner { background-color: #e15c69 }
   &.line .share-inner { background-color: #50c150 }
   &.feedly .share-inner { background-color: #94be61 }
+  &:first-of-type .share-inner { border-radius: 2px 0 0 2px }
+  &:last-of-type .share-inner { border-radius: 0 2px 2px 0 }
 }
 
 @media only screen and (max-width: 767px) { .share-list-container { justify-content: center } }

@@ -283,7 +283,7 @@
     border-radius: 1px;
     color: #666;
     font-style: italic;
-    @include box-shadow($blur: 2px);
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
     &::before {
       content: "\f10d";
       display: block;
@@ -310,7 +310,7 @@
     font-size: .96em;
     line-height: 1.4;
     font-family: 'Source Code Pro', Monaco, Consolas, monospace;
-    @include box-shadow($blur: 6px);
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
   }
   pre > code {
     display: block;
@@ -341,6 +341,7 @@
     font-size: .95em;
     text-align: center;
     overflow-x: auto;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
     td, th {
       border-bottom: 1px solid #ddd;
     }
@@ -360,5 +361,6 @@
     margin-bottom: 1em;
     font-style: italic;
   }
+
 
 }

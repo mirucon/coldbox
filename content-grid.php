@@ -20,7 +20,7 @@
     </a>
 
     <div class="post-meta">
-      <span class="post-category"><?php the_category('/') ?></span>
+      <?php if ( get_post_type() === 'post' ): ?><span class="post-category"><?php the_category('/') ?></span><?php endif; ?>
       <?php if ( comments_open() && cd_is_post_single_comment() ) { ?><span class="post-comment"><?php comments_popup_link('Comments: 0', 'Comment: 1', 'Comments: %'); ?></span><?php } ?>
     </div>
 
