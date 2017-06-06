@@ -25,7 +25,7 @@
           <?php else: ?>
 
             <div class="page-title">
-              <?php _e( 'Posts Not Found!', 'coldbox' ); ?>
+              <?php _e( 'Posts Not Found.', 'coldbox' ); ?>
             </div>
 
           <?php endif; ?>

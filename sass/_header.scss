@@ -151,6 +151,7 @@
     & > li:hover > a::before {
       right: 15px; left: 15px;
       width: calc(100% - 30px);
+      overflow: hidden;
     }
     & > li.menu-item-has-children > a::after {
       content: '';

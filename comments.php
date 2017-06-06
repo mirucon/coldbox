@@ -18,6 +18,9 @@
     <?php if ( !empty( $comments_by_type['comment'] ) ): ?>
       <ol id="comment-list">
         <?php wp_list_comments( array( 'type' => 'comment', 'avatar_size' => 42 ) ); ?>
+        <?php if ( get_comment_pages_count() > 1 ): ?>
+          <div class="comment-pages"> <?php paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') ); ?> </div><!--/.comment-pages-->
+        <?php endif; ?>
       </ol>
     <?php endif; ?>
 
@@ -25,12 +28,6 @@
       <ol id="ping-list">
         <?php wp_list_comments( array( 'type' => 'pings', 'avatar_size' => 50, 'short_ping' => true ) ); ?>
       </ol>
-    <?php endif; ?>
-
-    <?php if ( get_comment_pages_count() > 1 ): ?>
-      <div class="comment-pages">
-        <?php paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') ); ?>
-      </div><!--/.comment-pages-->
     <?php endif; ?>
 
   <?php endif;?>

@@ -15,7 +15,7 @@
 
             <div class="error-messages">
 
-              <p>That page couldn't be found. Please try the search.</p>
+              <p>The page does not exist, or has been moved. The search box or menus may help you to find what you are looking for.</p>
               <?php get_search_form(); ?>
 
             </div>

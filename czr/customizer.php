@@ -1,9 +1,4 @@
 <?php
-if ( !function_exists( 'cd_czr_set' ) ) {
-  function cd_czr_set() {
-  }
-}
-add_action( 'customize_register', 'cd_czr_set' );
 
 function cd_czr_style() {
   wp_enqueue_style( 'czr_style', get_template_directory_uri().'/czr/czr-style.css' );
@@ -17,7 +12,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
   function cd_customize_register($wp_customize) {
 
-    // function cd_sanitize_radio( $input, $setting ){ $input = sanitize_key($input); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
     function cd_sanitize_checkbox( $input ){ return ( isset( $input ) ? true : false ); }
     function cd_sanitize_select( $input, $setting ){ $input = sanitize_key($input); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
     function cd_sanitize_radio( $input, $setting ) { global $wp_customize; $control = $wp_customize->get_control( $setting->id ); if ( array_key_exists( $input, $control->choices ) ) { return $input; } else { return $setting->default; }

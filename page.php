@@ -24,9 +24,9 @@
               <div class="content-inside">
 
                 <div class="post-meta content-box">
-                  <?php if ( cd_is_meta_date() ){ ?><span class="post-date"><?php echo get_the_date(); ?></span><?php } ?>
-                  <?php if ( cd_is_meta_author() ){ ?><span class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo $author = get_the_author(); ?></a></span><?php } ?>
-                  <?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ) { ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php } ?>
+                  <?php if ( cd_is_meta_date() ): ?><span class="post-date"><?php echo get_the_date(); ?></span><?php endif; ?>
+                  <?php if ( cd_is_meta_author() ): ?><span class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo $author = get_the_author(); ?></a></span><?php endif; ?>
+                  <?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ): ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php endif; ?>
                 </div>
                 <div class="entry">
                   <div class="entry-inner content-box"><?php the_content(); ?></div>

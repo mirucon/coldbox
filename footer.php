@@ -1,11 +1,9 @@
-
-
 <footer id="footer">
  <div class="container">
 
   <div id="copyright">
    <p>&copy;<?php echo date( 'Y' ); ?> <a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a> </p>
-   <!--<?php if ( cd_is_theme_credit() ): ?><p>Powered by <a href="https://wordpress.org/">WordPress</a>.  Theme <a href="https://mirucon.xyz/coldbox/">Coldbox</a> by <a href="https://mirucon.xyz/">Mirucon</a>.</p><?php endif; ?>-->
+   <?php if ( cd_is_theme_credit() ): ?><p>Powered by <a href="https://wordpress.org/">WordPress</a>.   <a href="https://miruc.co/coldbox/">Coldbox</a> theme by <a href="https://miruc.co/">Mirucon</a>.</p><?php endif; ?>
    </div><!--/#copyright-->
 
   </div><!--/.container-->
