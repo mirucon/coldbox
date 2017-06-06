@@ -1,12 +1,6 @@
 <?php
 if ( !function_exists( 'cd_czr_set' ) ) {
   function cd_czr_set() {
-    function cd_sanitize_rgba_color( $color ) { if ( '' === $color )	return '';	if ( false === strpos( $color, 'rgba' )){ $color = maybe_hash_hex_color( $color );	return $color; } else { $color = str_replace( ' ', '', $color ); sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha ); return 'rgba('.$red.','.$green.','.$blue.','.$alpha.')'; } }
-    function cd_sanitize_radio( $input, $setting ) { global $wp_customize; $control = $wp_customize->get_control( $setting->id ); if ( array_key_exists( $input, $control->choices ) ) { return $input; } else { return $setting->default; } }
-    function cd_sanitize_checkbox( $input ){ if($input==true){ return true; } else{ return false; } }
-    function cd_sanitize_text( $input ) { return wp_kses_post( force_balance_tags( $input ) ); }
-    function cd_sanitize_num( $input ) { if ( ! $input || is_null($input) ) return $input; $input = esc_attr( $input ); $input = (int) $input; return ( 0 < $input ) ? $input : null; }
-    function cd_sanitize_select( $input, $setting ) { $input = sanitize_key( $input ); $choices = $setting->manager->get_control( $setting->id )->choices;	return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
   }
 }
 add_action( 'customize_register', 'cd_czr_set' );
@@ -22,6 +16,10 @@ add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 if ( !function_exists( 'cd_customize_register' ) ) {
 
   function cd_customize_register($wp_customize) {
+
+    function cd_sanitize_radio( $input, $setting ){ $input = sanitize_key($input); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
+    function cd_sanitize_checkbox( $input ){ return ( isset( $input ) ? true : false ); }
+    function cd_sanitize_select( $input, $setting ){ $input = sanitize_key($input); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
 
     /* ------------------------------------------------------------------------- *
     *  Global Settings
@@ -50,7 +48,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     // Container Width
     $wp_customize->add_setting( 'container_width', array(
       'default'  => '1140',
-      'sanitize_callback' => 'cd_sanitize_num',
+      'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'container_width', array(
       'label'    =>  __( 'Site Max-Width', 'coldbox' ),
@@ -91,7 +89,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     )));
     $wp_customize->add_setting( 'global_font_size_pc', array(
       'default'  => 16,
-      'sanitize_callback' => 'cd_sanitize_num',
+      'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_pc', array(
       'label'    => __( 'Global Font Size For PC', 'coldbox' ),
@@ -105,7 +103,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     )));
     $wp_customize->add_setting( 'global_font_size_mobile', array(
       'default'  => 15,
-      'sanitize_callback' => 'cd_sanitize_num',
+      'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_mobile', array(
       'label'    => __( 'Global Font Size For Mobile', 'coldbox' ),
@@ -184,7 +182,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Excerpt Length Setting
       $wp_customize->add_setting( 'excerpt_length', array(
         'default'  => '60',
-        'sanitize_callback' => 'cd_sanitize_num',
+        'sanitize_callback' => 'absint',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'excerpt_length', array(
         'label'    =>  __( 'Excerpt Length', 'coldbox' ),
@@ -196,7 +194,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       )));
       $wp_customize->add_setting( 'excerpt_ending', array(
         'default'  => '&#46;&#46;&#46;',
-        'sanitize_callback' => 'cd_sanitize_text',
+        'sanitize_callback' => 'wp_filter_nohtml_kses',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'excerpt_ending', array(
         'label'    =>  __( 'Excerpt Ending', 'coldbox' ),
@@ -311,7 +309,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Max Article
       $wp_customize->add_setting( 'single_related_max', array(
         'default'  => 6,
-        'sanitize_callback' => 'cd_sanitize_num',
+        'sanitize_callback' => 'absint',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_max', array(
         'label'    => __( 'Related Posts Max Articles', 'coldbox' ),
@@ -324,7 +322,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Max Article
       $wp_customize->add_setting( 'single_related_col', array(
         'default'  => 3,
-        'sanitize_callback' => 'cd_sanitize_num',
+        'sanitize_callback' => 'absint',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_col', array(
         'label'    => __( 'Related Posts Columns', 'coldbox' ),

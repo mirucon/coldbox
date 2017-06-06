@@ -7,6 +7,7 @@
   .tabitem {
     position: relative;
     bottom: -2px;
+    font-size: .94em;
   }
   .tabitem > a {
     display: inline-block;
@@ -29,6 +30,16 @@
   }
   .tabitem > a[href^='#comment-list']::before { content: "\f075"; padding-right: .2em; font-family: FontAwesome; }
   .tabitem > a[href^='#ping-list']::before { content: "\f064"; padding-right: .2em; font-family: FontAwesome; }
+
+  @media screen and (max-width: 374px) {
+    .tabitem {
+      font-size: .88em;
+    }
+    .tabitem > a {
+      padding-right: .6em;
+      padding-left: .6em;
+    }
+  }
 }
 
 #comment-list {
