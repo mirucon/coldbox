@@ -154,12 +154,12 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
   letter-spacing: -.03em;
 }
-h1 { font-size: 3rem }
-h2 { font-size: 2.5rem }
-h3 { font-size: 2.3rem }
-h4 { font-size: 2.15rem }
-h5 { font-size: 2rem }
-h6 { font-size: 1.8rem }
+h1 { font-size: 1.875em }
+h2 { font-size: 1.56em }
+h3 { font-size: 1.43em }
+h4 { font-size: 1.34em }
+h5 { font-size: 1.25em }
+h6 { font-size: 1.12em }
 
 /*   Base : Entry
 /* -------------------------------------------------- */
@@ -548,6 +548,7 @@ textarea {
 }
 .wp-caption .wp-caption-text { margin: 0; padding: 5px 4px; color: #555; line-height: 1.4; font-weight: 300; }
 .wp-caption img { margin: 0 auto; padding: 0; border: 0; }
+.gallery-caption { @extend .wp-caption-text;}
 .aligncenter { display: block; max-width: 100%; margin-left: auto; margin-right: auto }
 .alignright { float: right; max-width: 100%; margin-left: 10px }
 .alignleft { float: left; max-width: 100%; margin-right: 10px }

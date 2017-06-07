@@ -51,7 +51,7 @@
 /*   Single : Bottom Post Category, Tag
 /* -------------------------------------------------- */
 .btm-post-meta { margin-top: 3em; clear: both }
-.post-btm-tags, p.post-btm-cats {
+p.post-btm-tags, p.post-btm-cats {
   position: relative;
   margin-bottom: .1em;
   font-size: .88em;
@@ -317,7 +317,7 @@
 
   .share {
     transition: all .4s;
-    i { position: relative; left: calc(50% - 1.2rem); font-size: 2.4rem }
+    i { position: relative; left: calc(50% - 1.2rem); z-index: 999; font-size: 2.4rem; }
   }
   .share-inner {
     display: flex;
@@ -329,7 +329,7 @@
   .count {
     position: absolute;
     right: 0; bottom: 0;
-    transition: all .4s
+    transition: all .4s;
   }
   .count-inner {
     display: inline-flex;
@@ -337,11 +337,11 @@
     justify-content: center;
     position: absolute;
     bottom: 0; right: 0;
-    min-height: 2rem;
-    min-width: 2rem;
+    min-height: 1.8rem;
+    min-width: 1.8rem;
     border-radius: 1px;
     background-color: #444;
-    color: #fff;
+    color: rgba(255, 255, 255, .8);
     font-size: .8em;
     line-height: 1;
     font-family: $lato;
@@ -349,7 +349,7 @@
     transition: all .4s;
   }
   .share-inner:hover { opacity: .8; box-shadow: 0 2px 3px rgba(0, 0, 0, .2), 0 1px 3px rgba(0, 0, 0, .1) inset }
-  .count-inner:hover { text-decoration: underline }
+  .count-inner:hover { color: #fff }
   &.twitter .share-inner { background-color: #6bace2 }
   &.facebook .share-inner { background-color: #445d93 }
   &.googleplus .share-inner { background-color: #d36054 }
@@ -362,8 +362,8 @@
 }
 
 @media only screen and (max-width: 767px) { .share-list-container { justify-content: center } }
-@media only screen and (max-width: 369px) { .googleplus,.pocket { display: none } }
-@media only screen and (min-width: 370px) and (max-width: 439px) { .googleplus { display: none } }
+// @media only screen and (max-width: 369px) { .googleplus,.pocket { display: none } }
+// @media only screen and (min-width: 370px) and (max-width: 439px) { .googleplus { display: none } }
 
 
 /*   Single : post formats

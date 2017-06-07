@@ -5,7 +5,7 @@
 *  Followed SNS : Twitter, Hatena Bookmark, Facebook, Google Plus, Pocket, Feedly.
 * ------------------------------------------------------------------------------ */
 
-if ( function_exists( 'scc_get_share_total' ) ) :
+if ( function_exists( 'scc_get_share_total' ) && cd_use_snsb() ) :
   wp_enqueue_style ( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.css' );
   $canonical_url = get_permalink();
   $title = wp_title( '', false, 'right' ).'| '.get_bloginfo('name');
@@ -16,7 +16,7 @@ if ( function_exists( 'scc_get_share_total' ) ) :
     <h4 id="sns-btn-bottom-head"><?php _e('Share', 'coldbox') ?></h4>
     <ul class="share-list-container">
 
-      <?php if ( function_exists( 'scc_get_share_twitter' ) ): ?>
+      <?php if ( function_exists( 'scc_get_share_twitter' ) && cd_use_snsb_twitter() ): ?>
         <li class="twitter balloon-btn">
           <div class="share">
             <a class="share-inner" href="http://twitter.com/intent/tweet?url=<?php echo $canonical_url_encode ?>&text=<?php echo $title_encode ?>&tw_p=tweetbutton" target="blank">
@@ -31,7 +31,7 @@ if ( function_exists( 'scc_get_share_total' ) ) :
         </li>
       <?php endif; ?>
 
-      <?php if ( function_exists( 'scc_get_share_hatebu' ) ): ?>
+      <?php if ( function_exists( 'scc_get_share_hatebu' ) && cd_use_snsb_facebook() ): ?>
         <li class="hatena balloon-btn">
           <div class="share">
             <a class="share-inner" href="http://b.hatena.ne.jp/add?mode=confirm&url=<?php echo $canonical_url_encode ?>&title=<?php echo $title_encode;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=510');return false;" target="blank">
@@ -46,7 +46,7 @@ if ( function_exists( 'scc_get_share_total' ) ) :
         </li>
       <?php endif; ?>
 
-      <?php if ( function_exists( 'scc_get_share_facebook' ) ): ?>
+      <?php if ( function_exists( 'scc_get_share_facebook' ) && cd_use_snsb_hatena() ): ?>
         <li class="facebook balloon-btn">
           <div class="share">
             <a class="share-inner" href="http://www.facebook.com/sharer.php?src=bm&u=<?php echo $canonical_url_encode;?>&t=<?php echo $title_encode;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="blank">
@@ -61,7 +61,7 @@ if ( function_exists( 'scc_get_share_total' ) ) :
         </li>
       <?php endif; ?>
 
-      <?php if ( function_exists( 'scc_get_share_gplus' ) ): ?>
+      <?php if ( function_exists( 'scc_get_share_gplus' ) && cd_use_snsb_googleplus() ): ?>
         <li class="googleplus balloon-btn">
           <div class="share">
             <a class="share-inner" href="https://plus.google.com/share?url=<?php echo $canonical_url_encode;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=500');return false;" target="blank">
@@ -76,22 +76,22 @@ if ( function_exists( 'scc_get_share_total' ) ) :
         </li>
       <?php endif; ?>
 
-      <?php if ( function_exists( 'scc_get_share_pocket' ) ): ?>
+      <?php if ( function_exists( 'scc_get_share_pocket' ) && cd_use_snsb_pocket() ): ?>
         <li class="pocket balloon-btn">
           <div class="share">
-            <a class="share-inner" href="http://getpocket.com/edit?url=<?php echo $canonical_url_encode;?>&title=<?php echo $title_encode;?>" target="blank">
+            <a class="share-inner" href="https://getpocket.com/edit?url=<?php echo $canonical_url_encode;?>&title=<?php echo $title_encode;?>" target="blank">
               <i class="icon-pocket"></i>
             </a>
           </div>
           <span class="count">
-            <a class="count-inner" href="http://getpocket.com/edit?url=<?php echo $canonical_url_encode;?>&title=<?php echo $title_encode;?>" target="blank">
+            <a class="count-inner" href="https://getpocket.com/edit?url=<?php echo $canonical_url_encode;?>&title=<?php echo $title_encode;?>" target="blank">
               <?php echo scc_get_share_pocket(); ?>
             </a>
           </span>
         </li>
       <?php endif; ?>
 
-      <?php if ( function_exists( 'scc_get_follow_feedly' ) ): ?>
+      <?php if ( function_exists( 'scc_get_follow_feedly' ) && cd_use_snsb_feedly() ): ?>
         <li class="feedly balloon-btn">
           <div class="share">
             <a class="share-inner" href="https://cloud.feedly.com/#subscription%2Ffeed%2F<?php bloginfo('rss2_url'); ?>" target="blank">

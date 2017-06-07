@@ -130,7 +130,7 @@
   &_tag_cloud {
     a {
       display: inline-block;
-      margin: .14em 0;
+      margin: .2em .03em;
       padding: 4px 6px;
       border-radius: 2px;
       background-color: #f0f0f0;
@@ -141,7 +141,7 @@
         @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
       &:hover {
         color: #000;
-        @include box-shadow($y: 2px, $blur: 2px, $color: rgba(0, 0, 0, .3));
+        @include box-shadow($y: 2px, $blur: 1px, $color: rgba(0, 0, 0, .3));
       }
     }
   }

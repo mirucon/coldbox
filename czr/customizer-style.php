@@ -43,29 +43,27 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 
     // Link Color
     if ( get_theme_mod( 'link_color', '#3399cc' ) != '#3399cc' ): ?>
-    .entry-content a, .comment-body a,
-    .page-nav ul.page-numbers,
-    .related-posts .related-posts-inner .related-grid:hover .post-title,
-    #back-to-top .fa {
+    .entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover,
+    .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a,
+    .related-posts .post:hover .post-title, .post-pages, .grid-view .post-inner a:hover .post-title,
+    .standard-view .post-title:hover, ul.page-numbers,
+    .widget #wp-calendar a, .widget .widgets-list-layout li:hover a,
+    #comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages,
+    .comment-pages a,.comment-pages span, .comment-body a, .comment-tabmenu .active > a {
       color: <?php echo get_theme_mod( 'link_color' ); ?>;
     }
     #comments input[type=submit],
     .post-tags a, .post-tags a,
-    .main-archive .post-date {
+    .main-archive .post-date, .action-bar {
       background-color: <?php echo get_theme_mod( 'link_color' ); ?>;
     }
-    #comments textarea:focus,
-    #comments input[type=text]:focus,
-    .search-inner:focus,
-    #back-to-top {
+    textarea:focus {
       border-color: <?php echo get_theme_mod( 'link_color' ); ?>;
     }
-    .post-date::before {
-      border-right-color: <?php echo get_theme_mod( 'link_color' ); ?>;
-    }
-    .wp-pagenavi span.current,
-    .page-nav a.page-numbers:hover, .page-nav a.page-numbers:active,
-    .page-nav span.page-numbers.current {
+    .comment-pages > a:hover, .comment-pages span,
+    .post-pages > a:hover>span,.post-pages>span,
+    ul.page-numbers span.page-numbers.current,
+    ul.page-numbers a.page-numbers:hover {
       border-bottom-color: <?php echo get_theme_mod( 'link_color' ); ?>;
     }
     ::selection { background-color: <?php echo get_theme_mod( 'link_color' ); ?> }
@@ -74,51 +72,24 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 
 
     // Link Hover Color
-    if( get_theme_mod( 'link_hover_color', '#cc0033' ) != '#cc0033' ): ?>
-    .entry-content a:hover, .entry-content a:active,
-    .comment-body a:hover, .comment-body a:active {
+    if( get_theme_mod( 'link_hover_color', '#0f5373' ) != '#0f5373' ): ?>
+    .entry a:hover, .comment-body a:hover {
       color: <?php echo get_theme_mod( 'link_hover_color' ); ?>;
     }
     <?php endif;
 
 
     // Header Background Color
-    if( get_theme_mod( 'header_color', '#33333B' ) != '#33333B' ):
-      $hdrhex = get_theme_mod( 'header_color', '#33333B' );
-      list($r, $g, $b) = sscanf($hdrhex, "#%02x%02x%02x");
-      $r = $r - 10; $g = $g - 10; $b = $b - 10;
-      if ( $r < 0 ) { $r = 0; } if ( $g < 0 ) { $g = 0; } if ( $b < 0 ) { $b = 0; }
-      $r = dechex($r); $g = dechex($g); $b = dechex($b);
-      if ( strlen($r) == 1 ) { $r = $r.$r; } if ( strlen($g) == 1 ) { $g = $g.$g; } if ( strlen($b) == 1 ) { $b = $b.$b; } ?>
-      #header .bloginfo {
-        background-color: <?php echo $hdrhex ?>;
-      }
-      .nav-toggle.open {
-        background-color: <?php echo '#'.$r.$g.$b; ?>;
-      }
-      <?php endif;
-
-      // Footer Background Color
-      if ( get_theme_mod( 'footer_color', '#33333B' ) != '#33333B' ): ?>
-      #footer {
-        background-color: <?php echo get_theme_mod( 'footer_color' ); ?>;
-      }
-      <?php endif;
-
-
-      // Header Menu Background Color
-      if ( get_theme_mod( 'header_menu_color', '#4b4b4b' ) != '#4b4b4b' ): ?>
-      #header-menu/*,
-      #header-menu .sub-menu */ {
-      background-color: <?php echo get_theme_mod( 'header_menu_color' ); ?>;
+    if( get_theme_mod( 'header_color', '#ffffff' ) != '#ffffff' ): ?>
+    #header {
+      background-color: <?php echo get_theme_mod( 'header_color' ); ?>;
     }
     <?php endif;
 
-
-    // Top Menu Backgrond Color
-    if ( get_theme_mod( 'top_menu_color', '#ffffff' ) != '#ffffff' ): ?>
-    # {
-      background-color: <?php echo get_theme_mod( 'top_menu_color' ); ?>;
+    // Footer Background Color
+    if ( get_theme_mod( 'footer_color', '#44463B' ) != '#44463B' ): ?>
+    #footer {
+      background-color: <?php echo get_theme_mod( 'footer_color' ); ?>;
     }
     <?php endif;
 

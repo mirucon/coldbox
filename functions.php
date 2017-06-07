@@ -5,9 +5,14 @@
 if ( !function_exists ( 'cd_scripts' ) ) {
 
   function cd_scripts() {
-    wp_enqueue_style ( 'main-style', get_template_directory_uri().'/style.css', array(), '0.9.0' );
-    wp_enqueue_style ( 'FontAwesome', get_template_directory_uri().'/fonts/fontawesome/css/font-awesome.min.css');
-    wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700');
+    if ( cd_use_minified_css() ) {
+      wp_enqueue_style ( 'main-style', get_template_directory_uri().'/style.min.css', array(), '0.9.0' );
+    }
+    else {
+      wp_enqueue_style ( 'main-style', get_template_directory_uri().'/style.css', array(), '0.9.0' );
+    }
+    wp_enqueue_style ( 'FontAwesome', get_template_directory_uri().'/fonts/fontawesome/css/font-awesome.min.css' );
+    wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
     wp_enqueue_script( 'scripts', get_template_directory_uri().'/js/scripts.js', array('jquery') );
     wp_enqueue_script( 'comment-reply' );
   }
@@ -70,7 +75,7 @@ if ( !function_exists ( 'cd_supports' ) ) {
 
     // Support custom background color and image
     $custom_background_defaults = array(
-      'default-color' => '#fff',
+      'default-color' => '#f8f8f8',
       'default-image' => '',
     );
     add_theme_support( 'custom-background', $custom_background_defaults );
@@ -209,23 +214,26 @@ if ( !function_exists ( 'cd_breadcrumb' ) ) {
 }
 
 /* ------------------------------------------------------------------------- *
-*  HighLightjs
+*  Highlight.js
 * -------------------------------------------------------------------------- */
-if ( get_theme_mod( 'does_use_hljs', false ) || get_theme_mod( 'use_hljs_web_pack', false ) ) {
-  if ( !function_exists ( 'cd_load_hljs' ) ) {
-    function cd_load_hljs() {
-      if ( get_theme_mod( 'does_use_hljs', false ) && !get_theme_mod( 'use_hljs_web_pack', false ) ) {
+if ( !function_exists ( 'cd_load_hljs' ) ) {
+  function cd_load_hljs() {
+
+    if ( cd_use_normal_hljs() || cd_use_web_hljs() ) {
+      if ( cd_use_normal_hljs() && !cd_use_web_hljs() ) {
         wp_enqueue_script( 'hljs', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', '9.12.0' );
       }
-      elseif ( get_theme_mod( 'use_hljs_web_pack', false ) && !get_theme_mod( 'does_use_hljs', false ) ) {
+      elseif ( cd_use_web_hljs() && !cd_use_normal_hljs() ) {
         wp_enqueue_script( 'hljs', get_template_directory_uri().'/js/highlight-web.js', '9.12.0' );
       }
-      elseif ( get_theme_mod( 'use_hljs_web_pack', false ) && get_theme_mod( 'does_use_hljs', false ) ) {
+      elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
         wp_enqueue_script( 'hljs', get_template_directory_uri().'/js/highlight-web.js', '9.12.0' );
       }
     }
+
   }
   add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
+
   if ( !function_exists ( 'cd_hljs_on_pre_tag' ) ) {
     function cd_hljs_on_pre_tag() {
       echo "<script>jQuery(document).ready(function(a) { a('pre').each(function(b, c) { hljs.highlightBlock(c) }) });</script>";

@@ -112,6 +112,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       'max'      => '32',
     ),
   )));
+  $wp_customize->add_setting( 'minified_css', array(
+    'default'  => true,
+    'sanitize_callback' => 'cd_sanitize_checkbox',
+  ));
+  $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'minified_css', array(
+    'label'    => __( 'Use minified CSS file', 'coldbox' ),
+    'description' => __('The theme will load minified CSS file. Minifying css stylesheets improves loading speed of your website.', 'coldbox'),
+    'section'  => 'global',
+    'type'     => 'checkbox',
+  )));
   // Use highlight.js
   $wp_customize->add_setting( 'does_use_hljs', array(
     'default'  => false,
@@ -233,7 +243,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       *  Single Settings
       * ------------------------------------------------------------------------- */
       $wp_customize->add_section( 'single', array(
-        'title'    => __( 'Coldbox: Single Settings','coldbox' ),
+        'title'    => __( 'Coldbox: Single Settings', 'coldbox' ),
         'priority' => 3,
       ));
       /*   Add a decoration to header Tags
@@ -243,7 +253,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'decorate_htags', array(
-        'label'    => __( 'Add Decoration to H2-H5 Tags.','coldbox' ),
+        'label'    => __( 'Add Decoration to H2-H5 Tags.', 'coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -256,7 +266,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_date', array(
-        'label'    => __( 'Display Post Dates','coldbox' ),
+        'label'    => __( 'Display Post Dates', 'coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -331,6 +341,78 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
+      /*   SNS Buttons
+      /* -------------------------------------------------- */
+      $wp_customize->add_setting( 'sns_button', array(
+        'default'  => false,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button', array(
+        'label'    => __( 'Display SNS Buttons', 'coldbox' ),
+        'description' => __( 'Requires SNS Count Cache plugin is installed and enabled', 'coldbox'),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Twitter
+      $wp_customize->add_setting( 'sns_button_twitter', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_twitter', array(
+        'label'    => __( ' - Twitter', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Facebook
+      $wp_customize->add_setting( 'sns_button_facebook', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_facebook', array(
+        'label'    => __( ' - Facebook', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // hatena Bookmark
+      $wp_customize->add_setting( 'sns_button_hatena', array(
+        'default'  => false,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_hatena', array(
+        'label'    => __( ' - Hatena Bookmark', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Google Plus
+      $wp_customize->add_setting( 'sns_button_googleplus', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_googleplus', array(
+        'label'    => __( ' - Google Plus', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Pocket
+      $wp_customize->add_setting( 'sns_button_pocket', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_pocket', array(
+        'label'    => __( ' - Pocket', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Feedly
+      $wp_customize->add_setting( 'sns_button_feedly', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_feedly', array(
+        'label'    => __( ' - Feedly', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
 
       /*   Related Posts Settings
       /* -------------------------------------------------- */
@@ -396,7 +478,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       * ------------------------------------------------------------------------- */
       // Link Color
       $wp_customize->add_setting( 'link_color', array(
-        'default'    => '#3399cc',
+        'default'    => '#00619F',
         'sanitize_callback' => 'sanitize_hex_color',
       ));
       $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
@@ -406,7 +488,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       )));
       // Hover Link Color
       $wp_customize->add_setting( 'link_hover_color', array(
-        'default'   => '#cc0033',
+        'default'   => '#0f5373',
         'sanitize_callback' => 'sanitize_hex_color',
       ));
       $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
@@ -414,29 +496,9 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'section'   => 'colors',
         'settings'  => 'link_hover_color'
       )));
-      // Top Menu Background Color
-      $wp_customize->add_setting( 'top_menu_color', array(
-        'default'  => '#ffffff',
-        'sanitize_callback' => 'sanitize_hex_color',
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'top_menu_color', array(
-        'label'  => __( 'Top Menu Background', 'coldbox' ),
-        'section' => 'colors',
-        'settings'  => 'top_menu_color',
-      )));
-      // Header Nav Menu Background Color
-      $wp_customize->add_setting( 'header_menu_color', array(
-        'default'  => '#4b4b4b',
-        'sanitize_callback' => 'sanitize_hex_color',
-      ));
-      $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_color', array(
-        'label'  => __( 'Header Menu Background', 'coldbox' ),
-        'section' => 'colors',
-        'settings'  => 'header_menu_color',
-      )));
       // Header Background Color
       $wp_customize->add_setting( 'header_color', array(
-        'default'  => '#33333B',
+        'default'  => '#ffffff',
         'sanitize_callback' => 'sanitize_hex_color',
       ));
       $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
@@ -446,7 +508,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       )));
       // Footer Background Color
       $wp_customize->add_setting( 'footer_color', array(
-        'default'  => '#33333B',
+        'default'  => '#44463B',
         'sanitize_callback' => 'sanitize_hex_color',
       ));
       $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
@@ -459,6 +521,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
 
 
+    // Minified CSS
+    function cd_use_minified_css() { return ( get_theme_mod( 'minified_css', true ) ); }
     // Sidebar Position
     function cd_sidebar_stg() { return ( get_theme_mod( 'sidebar_position', 'right' ) ); }
     // Page Style Settings
@@ -487,7 +551,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     // Theme credit
     function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
     // Hightlight.js
-
+    function cd_use_normal_hljs() { return ( get_theme_mod( 'does_use_hljs', false ) ); }
+    function cd_use_web_hljs() { return ( get_theme_mod( 'use_hljs_web_pack', false ) ); }
+    // SNS Buttons
+    function cd_use_snsb() { return ( get_theme_mod( 'sns_button', false ) ); }
+    function cd_use_snsb_twitter() { return ( get_theme_mod( 'sns_button_twitter', true ) ); }
+    function cd_use_snsb_facebook() { return ( get_theme_mod( 'sns_button_facebook', true ) ); }
+    function cd_use_snsb_hatena() { return ( get_theme_mod( 'sns_button_hatena', true ) ); }
+    function cd_use_snsb_googleplus() { return ( get_theme_mod( 'sns_button_googleplus', true ) ); }
+    function cd_use_snsb_pocket() { return ( get_theme_mod( 'sns_button_pocket', true ) ); }
+    function cd_use_snsb_feedly() { return ( get_theme_mod( 'sns_button_feedly', true ) ); }
   }
   add_action( 'customize_register', 'cd_customize_register' );
 
