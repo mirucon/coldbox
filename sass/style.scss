@@ -167,7 +167,7 @@ h6 { font-size: 1.12em }
   line-height: 1.6;
 
   a { color: $link; box-shadow: 0 1px 0 0 currentColor }
-  a:hover { color: $hover; box-shadow: 0 1px 0 0 #000 }
+  a:hover { color: $hover; box-shadow: 0 2px 0 0 #000 }
   dt { font-weight: bold }
   dd { margin-bottom: 1em }
   hr { margin: 1em 0; }
@@ -275,7 +275,7 @@ h6 { font-size: 1.12em }
     font-size: .95em;
     text-align: center;
     overflow-x: auto;
-    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .08));
     td, th {
       border-bottom: 1px solid #ddd;
     }

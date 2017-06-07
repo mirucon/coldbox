@@ -39,7 +39,7 @@ if ( function_exists( 'scc_get_share_total' ) && cd_use_snsb() ) :
             </a>
           </div>
           <span class="count">
-            <a class="count-inner" href="http://b.hatena.ne.jp/entry/<?php echo $canonical_url_encode ?>&title=<?php echo $title_encode;?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=510');return false;" target="blank">
+            <a class="count-inner" href="http://b.hatena.ne.jp/entry/<?php echo $canonical_url_encode ?>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=510');return false;" target="blank">
               <?php echo scc_get_share_hatebu(); ?>
             </a>
           </span>
