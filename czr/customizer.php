@@ -236,6 +236,18 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'title'    => __( 'Coldbox: Single Settings','coldbox' ),
         'priority' => 3,
       ));
+      /*   Add a decoration to header Tags
+      /* -------------------------------------------------- */
+      $wp_customize->add_setting( 'decorate_htags', array(
+        'default'  => false,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'decorate_htags', array(
+        'label'    => __( 'Add a decoration to H2-H5 Tags.','coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+
       /*   Single Meta Settings
       /* -------------------------------------------------- */
       // Date

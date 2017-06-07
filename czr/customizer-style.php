@@ -24,6 +24,22 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     }
     <?php endif;
 
+    // Add decoration
+    if ( get_theme_mod( 'decorate_htags', false ) ): ?>
+    .entry h2 {
+      margin-left: -40px; margin-right: -40px; padding: 1.3rem 30px; border-style: solid; border-width: 1px 0; overflow: hidden;
+    }
+    .entry h3 {
+      margin-left: -10px; margin-right: -10px; padding: 0 5px .4rem; border-bottom: 2px solid rgba(0, 0, 0, .5); overflow: hidden;
+    }
+    .entry h4 {
+      padding: 0 0 .4rem; border-bottom: 2px solid #bbb; overflow: hidden;
+    }
+    .entry h5 {
+      padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden;
+    }
+    <?php endif;
+
 
     // Link Color
     if ( get_theme_mod( 'link_color', '#3399cc' ) != '#3399cc' ): ?>
@@ -68,32 +84,32 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 
     // Header Background Color
     if( get_theme_mod( 'header_color', '#33333B' ) != '#33333B' ):
-    $hdrhex = get_theme_mod( 'header_color', '#33333B' );
-    list($r, $g, $b) = sscanf($hdrhex, "#%02x%02x%02x");
-    $r = $r - 10; $g = $g - 10; $b = $b - 10;
-    if ( $r < 0 ) { $r = 0; } if ( $g < 0 ) { $g = 0; } if ( $b < 0 ) { $b = 0; }
-    $r = dechex($r); $g = dechex($g); $b = dechex($b);
-    if ( strlen($r) == 1 ) { $r = $r.$r; } if ( strlen($g) == 1 ) { $g = $g.$g; } if ( strlen($b) == 1 ) { $b = $b.$b; } ?>
-    #header .bloginfo {
-      background-color: <?php echo $hdrhex ?>;
-    }
-    .nav-toggle.open {
-      background-color: <?php echo '#'.$r.$g.$b; ?>;
-    }
-    <?php endif;
+      $hdrhex = get_theme_mod( 'header_color', '#33333B' );
+      list($r, $g, $b) = sscanf($hdrhex, "#%02x%02x%02x");
+      $r = $r - 10; $g = $g - 10; $b = $b - 10;
+      if ( $r < 0 ) { $r = 0; } if ( $g < 0 ) { $g = 0; } if ( $b < 0 ) { $b = 0; }
+      $r = dechex($r); $g = dechex($g); $b = dechex($b);
+      if ( strlen($r) == 1 ) { $r = $r.$r; } if ( strlen($g) == 1 ) { $g = $g.$g; } if ( strlen($b) == 1 ) { $b = $b.$b; } ?>
+      #header .bloginfo {
+        background-color: <?php echo $hdrhex ?>;
+      }
+      .nav-toggle.open {
+        background-color: <?php echo '#'.$r.$g.$b; ?>;
+      }
+      <?php endif;
 
-    // Footer Background Color
-    if ( get_theme_mod( 'footer_color', '#33333B' ) != '#33333B' ): ?>
-    #footer {
-      background-color: <?php echo get_theme_mod( 'footer_color' ); ?>;
-    }
-    <?php endif;
+      // Footer Background Color
+      if ( get_theme_mod( 'footer_color', '#33333B' ) != '#33333B' ): ?>
+      #footer {
+        background-color: <?php echo get_theme_mod( 'footer_color' ); ?>;
+      }
+      <?php endif;
 
 
-    // Header Menu Background Color
-    if ( get_theme_mod( 'header_menu_color', '#4b4b4b' ) != '#4b4b4b' ): ?>
-    #header-menu/*,
-    #header-menu .sub-menu */ {
+      // Header Menu Background Color
+      if ( get_theme_mod( 'header_menu_color', '#4b4b4b' ) != '#4b4b4b' ): ?>
+      #header-menu/*,
+      #header-menu .sub-menu */ {
       background-color: <?php echo get_theme_mod( 'header_menu_color' ); ?>;
     }
     <?php endif;

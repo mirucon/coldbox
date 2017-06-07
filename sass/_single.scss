@@ -110,11 +110,13 @@
     width: 49%;
     margin-bottom: 16px;
   }
+
   .post {
     display: flex;
     flex-flow: row nowrap;
     height: 100%;
     background-color: #fff;
+    transition: all .4s;
     @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
   }
   .post-thumbnail {
@@ -145,13 +147,15 @@
     font-family: $lato;
     letter-spacing: 0;
     overflow: hidden;
-    a { display: block; height: 100%; transition: all .4s ease-out; }
-    a:hover { color: $link }
+    transition: all .4s;
+    a { display: block; height: 100% }
   }
-  a:hover {
+
+
+  .post:hover {
+    @include box-shadow($y: 3px, $blur: 3px, $color: rgba(0, 0, 0, .15));
     .post-thumbnail img {
-      transform: scale(1.08);
-      cursor: pointer;
+      opacity: .8;
     }
     .post-title {
       color: $link;

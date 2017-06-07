@@ -52,7 +52,9 @@
 
   .widget-title {
     position: relative;
-    margin-bottom: 1em;
+    margin-bottom: .8em;
+    // padding-bottom: .1em;
+    // border-bottom: 2px solid #ddd;
     font-size: 1.2em;
     font-weight: 300;
     text-transform: capitalize;
@@ -125,6 +127,24 @@
       li a::before { content: "\f114"; padding-right: .4em; font-family: FontAwesome; font-size: .8em }
     }
   }
+  &_tag_cloud {
+    a {
+      display: inline-block;
+      margin: .14em 0;
+      padding: 4px 6px;
+      border-radius: 2px;
+      background-color: #597188;
+      color: rgba(255, 255, 255, .8);
+      line-height: 1.2;
+      font-size: 1.55rem !important;
+      transition: all .4s;
+        @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
+      &:hover {
+        color: #fff;
+        @include box-shadow($y: 2px, $blur: 2px, $color: rgba(0, 0, 0, .3));
+      }
+    }
+  }
   &_pages {
     li a {
       display: block;
@@ -176,6 +196,36 @@
     } li:first-of-type { border-top: 1px solid $border }
 
   }
+
+.widgets-list-layout .widgets-list-layout-links {
+  width: calc(100% - 110px);
+  padding-top: 0.4em;
+}
+
+.widgets-list-layout a {
+  display: block;
+}
+
+.widgets-list-layout li {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.widgets-list-layout li:first-child {
+  padding-top: 0;
+}
+
+.widgets-list-layout .widgets-list-layout-links a {
+  color: #444;
+  transition: all 0.2s;
+}
+
+.widgets-list-layout li:hover {
+  a { color: $link; }
+  img { opacity: 0.8 }
+}
+
+
 
 
   @media screen and (max-width: $bpmax-mobile) {
