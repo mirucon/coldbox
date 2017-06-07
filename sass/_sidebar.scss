@@ -133,14 +133,14 @@
       margin: .14em 0;
       padding: 4px 6px;
       border-radius: 2px;
-      background-color: #597188;
-      color: rgba(255, 255, 255, .8);
+      background-color: #f0f0f0;
+      color: rgba(0, 0, 0, .8);
       line-height: 1.2;
-      font-size: 1.55rem !important;
+      font-size: 1.5rem !important;
       transition: all .4s;
         @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
       &:hover {
-        color: #fff;
+        color: #000;
         @include box-shadow($y: 2px, $blur: 2px, $color: rgba(0, 0, 0, .3));
       }
     }

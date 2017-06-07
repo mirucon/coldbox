@@ -9,22 +9,3 @@
  margin: 2px 0;
  font-family: 'Open Sans', Arial, sans-serif;
 }
-
-#accordion-section ul li:nth-of-type(2) label::before {
- content: 'Post Header Area Settings';
- display: block;
- margin: 4px 0;
- margin-left: -24px;
- font-size: 14px;
- line-height: 22px;
- font-weight: 600;
-}
-
-#accordion-section ul li:nth-of-type(6) label::before {
- content: 'Post Footer Area Settings';
- display: block;
- margin: -6px 0 4px -24px;
- font-size: 14px;
- line-height: 22px;
- font-weight: 600;
-}

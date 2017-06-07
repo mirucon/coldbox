@@ -63,7 +63,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     'sanitize_callback' => 'cd_sanitize_select',
   ));
   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'global_font', array(
-    'label'    =>  __( 'Global Font Select', 'coldbox' ),
+    'label'    =>  __( 'Global Font Selecter', 'coldbox' ),
     'section'  => 'global',
     'type'     => 'select',
     'choices'  => array(
@@ -89,7 +89,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     'sanitize_callback' => 'absint',
   ));
   $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_pc', array(
-    'label'    => __( 'Global Font Size For PC', 'coldbox' ),
+    'label'    => __( 'Global Font Size for PC', 'coldbox' ),
     'section'  => 'global',
     'type'     => 'number',
     'input_attrs' => array(
@@ -103,7 +103,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     'sanitize_callback' => 'absint',
   ));
   $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_mobile', array(
-    'label'    => __( 'Global Font Size For Mobile', 'coldbox' ),
+    'label'    => __( 'Global Font Size for Mobile', 'coldbox' ),
     'section'  => 'global',
     'type'     => 'number',
     'input_attrs' => array(
@@ -129,7 +129,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'use_hljs_web_pack', array(
       'label'  => __( 'Use highlight.js with Web Package', 'coldbox'),
-      'description'=> __('The package contains languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox'),
+      'description'=> __('The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox'),
       'section'  => 'global',
       'type'     => 'checkbox',
     )));
@@ -172,7 +172,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       *  Index settings
       * ------------------------------------------------------------------------- */
       $wp_customize->add_section( 'index', array(
-        'title'    => __( 'Coldbox: Index Settings','coldbox' ),
+        'title'    => __( 'Coldbox: Archive Pages Settings','coldbox' ),
         'priority' => 2,
       ));
       // Front page style
@@ -243,7 +243,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'sanitize_callback' => 'cd_sanitize_checkbox',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'decorate_htags', array(
-        'label'    => __( 'Add a decoration to H2-H5 Tags.','coldbox' ),
+        'label'    => __( 'Add Decoration to H2-H5 Tags.','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
@@ -269,7 +269,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'label'    => __( 'Display Post Categories','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
-        'description'=> 'Note: It\'s already showed on the breadcrum'
+        'description'=> 'Note: Categories are already showed on the breadcrum.'
       )));
       // Author
       $wp_customize->add_setting( 'single_meta_author', array(
@@ -359,7 +359,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       )));
       // Max Article
       $wp_customize->add_setting( 'single_related_col', array(
-        'default'  => 3,
+        'default'  => 2,
         'sanitize_callback' => 'absint',
       ));
       $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_col', array(
@@ -473,7 +473,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     // Single Meta Settings
     function cd_is_meta_date() { return ( get_theme_mod( 'single_meta_date', true ) ); }
     function cd_is_meta_modified() { return ( get_theme_mod( 'single_meta_date', true ) ); }
-    function cd_is_meta_cat() { return ( get_theme_mod( 'single_meta_cat', true ) ); }
+    function cd_is_meta_cat() { return ( get_theme_mod( 'single_meta_cat', false ) ); }
     function cd_is_meta_author() { return ( get_theme_mod( 'single_meta_author', true ) ); }
     function cd_is_meta_com() { return ( get_theme_mod( 'single_meta_com', true ) ); }
     function cd_is_meta_btm_tag() { return ( get_theme_mod( 'single_meta_btm_tag', true ) ); }
@@ -483,7 +483,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     function cd_is_post_single_comment() { return ( get_theme_mod( 'single_comment', true ) ); }
     // Related Posts Settings
     function cd_single_related_max() { return ( get_theme_mod( 'single_related_max', 6 ) ); }
-    function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 3 ) ); }
+    function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 2 ) ); }
     // Theme credit
     function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
     // Hightlight.js

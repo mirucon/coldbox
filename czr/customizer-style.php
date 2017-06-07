@@ -124,7 +124,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 
 
     // Related Posts Columns
-    if ( get_theme_mod( 'single_related_col', 3 ) != 3 ): ?>
+    if ( get_theme_mod( 'single_related_col', 2 ) != 2 ): ?>
     .related-posts .related-article {
       width: calc(100% / <?php echo get_theme_mod( 'single_related_col' ) ?>);
     }
