@@ -2,8 +2,8 @@
 /*
 Theme Name: Coldbox
 Theme URI: https://miruc.co/coldbox/
-Description: Coldbox is a great WordPress theme for blogger. It is easy to customize, multifunctional, SEO friendly, and quicker load. *This theme layouted by Flexbox module. See Demo: https://miruc.co/coldbox/demo
-Version: 0.9.0 β
+Description: Coldbox is a great WordPress theme for blogger. It helps increase site traffic from Google and SNS. The main featires are easy to customize, multifunctional, SEO friendly, and quicker load. This theme fully layouted by Flexbox module. See Demo: https://miruc.co/coldbox/demo
+Version: 1.0.0
 Author: Mirucon
 Author URI: https://miruc.co/
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
@@ -641,6 +641,29 @@ body.home { border-top-color: transparent }
   }
 }
 
+.select-none {
+  -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.fs15 { font-size: em(15px); }
+.fs17 { font-size: em(17px); }
+.fs20 { font-size: em(20px); }
+.info-1 {
+  display: block;
+  border: 2px solid #000;
+  border-radius: 11px;
+  padding: 12px;
+}
+.attention-1 {
+  padding: 20px;
+  border: solid 2px #ff5000;
+  border-radius: 3px;
+  background: #ffd580;
+}
 @keyframes fadeInLeft {
   0% {
     opacity: 0;

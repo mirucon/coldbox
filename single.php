@@ -4,7 +4,7 @@
   <main id="main" class="main-single">
     <article id="post-<?php the_ID(); ?>" <?php post_class('main-inner'); ?>>
 
-      <?php get_template_part('parts/title-box') ?>
+      <?php get_template_part('parts/title-box'); ?>
 
       <div class="container-outer">
         <div class="container">
@@ -24,7 +24,7 @@
                 <?php if ( get_the_modified_time('c') == get_the_time('c') && cd_is_meta_date() ): ?>
                   <time class="post-date" datetime="<?php get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
                 <?php endif; ?>
-                <?php if ( cd_is_meta_btm_cat() ): ?><p class="post-category"><?php the_category(' / '); ?> </p><?php endif; ?>
+                <?php if ( cd_is_meta_cat() ): ?><p class="post-category"><?php the_category(' / '); ?> </p><?php endif; ?>
                 <?php if ( cd_is_meta_author() ): ?><span class="post-author"><a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php echo $author = get_the_author(); ?></a></span><?php endif; ?>
                 <?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ): ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php endif; ?>
               </footer>

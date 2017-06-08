@@ -341,6 +341,45 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'section'  => 'single',
         'type'     => 'checkbox',
       )));
+
+      /*   Related Posts Settings
+      /* -------------------------------------------------- */
+      // Related Post
+      $wp_customize->add_setting( 'single_related_posts', array(
+        'default'  => true,
+        'sanitize_callback' => 'cd_sanitize_checkbox',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_posts', array(
+        'label'    => __( 'Display Related Posts','coldbox' ),
+        'section'  => 'single',
+        'type'     => 'checkbox',
+      )));
+      // Max Article
+      $wp_customize->add_setting( 'single_related_max', array(
+        'default'  => 6,
+        'sanitize_callback' => 'absint',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_max', array(
+        'label'    => __( 'Related Posts Max Articles', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'number',
+        'input_attrs' => array(
+          'min'      => '1',
+        ),
+      )));
+      // Max Article
+      $wp_customize->add_setting( 'single_related_col', array(
+        'default'  => 2,
+        'sanitize_callback' => 'absint',
+      ));
+      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_col', array(
+        'label'    => __( 'Related Posts Columns', 'coldbox' ),
+        'section'  => 'single',
+        'type'     => 'number',
+        'input_attrs' => array(
+          'min'      => '1',
+        ),
+      )));
       /*   SNS Buttons
       /* -------------------------------------------------- */
       $wp_customize->add_setting( 'sns_button', array(
@@ -412,45 +451,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'label'    => __( ' - Feedly', 'coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
-      )));
-
-      /*   Related Posts Settings
-      /* -------------------------------------------------- */
-      // Related Post
-      $wp_customize->add_setting( 'single_related_posts', array(
-        'default'  => true,
-        'sanitize_callback' => 'cd_sanitize_checkbox',
-      ));
-      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_posts', array(
-        'label'    => __( 'Display Related Posts','coldbox' ),
-        'section'  => 'single',
-        'type'     => 'checkbox',
-      )));
-      // Max Article
-      $wp_customize->add_setting( 'single_related_max', array(
-        'default'  => 6,
-        'sanitize_callback' => 'absint',
-      ));
-      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_max', array(
-        'label'    => __( 'Related Posts Max Articles', 'coldbox' ),
-        'section'  => 'single',
-        'type'     => 'number',
-        'input_attrs' => array(
-          'min'      => '1',
-        ),
-      )));
-      // Max Article
-      $wp_customize->add_setting( 'single_related_col', array(
-        'default'  => 2,
-        'sanitize_callback' => 'absint',
-      ));
-      $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_col', array(
-        'label'    => __( 'Related Posts Columns', 'coldbox' ),
-        'section'  => 'single',
-        'type'     => 'number',
-        'input_attrs' => array(
-          'min'      => '1',
-        ),
       )));
 
 

@@ -9,7 +9,6 @@ var plumber = require('gulp-plumber');
 var notify = require('gulp-notify');
 var cssmin = require('gulp-cssmin');
 var rename = require('gulp-rename');
-// var fileSync = require('gulp-file-sync');
 
 gulp.task('sass', function() {
   var processors = [

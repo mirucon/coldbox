@@ -1,6 +1,6 @@
 # Coldbox
 WordPress Theme Coldbox by Mirucon
-Version: 0.9.0
+Version: 1.0.0
 Need WordPress version 4.3 or higher
 
 ## Theme License
@@ -18,10 +18,10 @@ License - GPL / CC BY 4.0
 URL: https://icomoon.io/#icons-icomoon
 Created by Keyamoon
 
-## Alpha Color Picker License
-License - GPL
-URL: https://github.com/BraadMartin/components
-Created by BraadMartin
+## Highlight.js License
+License - BSD 3-clause "New" or "Revised" License
+URL: https://highlightjs.org/
+Created by @highlightjs
 
 ## PlaceFolder Camera icon
 License - MIT License

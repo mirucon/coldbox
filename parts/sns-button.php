@@ -6,7 +6,7 @@
 * ------------------------------------------------------------------------------ */
 
 if ( function_exists( 'scc_get_share_total' ) && cd_use_snsb() ) :
-  wp_enqueue_style ( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.css' );
+  wp_enqueue_style ( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' );
   $canonical_url = get_permalink();
   $title = wp_title( '', false, 'right' ).'| '.get_bloginfo('name');
   $canonical_url_encode = urlencode($canonical_url);
