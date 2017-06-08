@@ -4,7 +4,7 @@
 
 A beautiful WordPress theme - coldbox. It helps increase site traffic from Google and SNS. The main featires are easy to customize, multifunctional, SEO friendly, and quicker load.
 
-View the demo: [https://miruc.co/coldbox/demo/](https://miruc.co/coldbox/demo/)
+See the demo: [https://miruc.co/coldbox/demo/](https://miruc.co/coldbox/demo/)
 
 ## Getting Started
 You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) after theme installed.  
