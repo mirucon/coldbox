@@ -48,3 +48,19 @@ gulp.task('default', ['browser-sync'], function () {
   gulp.watch("czr/*.*", ['bs-reload']);
   gulp.watch("*.*", ['bs-reload']);
 });
+
+gulp.task('editor', function() {
+    var processors = [ cssnext({browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009'}) ];
+    return gulp.src('parts/editor-style.scss')
+    .pipe(sourcemaps.init())
+    .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
+    .pipe(sass({outputStyle: 'expanded',}))
+    .pipe(postcss(processors))
+    .pipe(gulp.dest('parts'));
+})
+gulp.task('editor-min', function() {
+  gulp.src('parts/editor-style.css')
+  .pipe(cssmin())
+  .pipe(rename({suffix: '.min'}))
+  .pipe(gulp.dest('parts'));
+});

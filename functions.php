@@ -24,7 +24,7 @@ if ( !function_exists ( 'cd_loads' ) ) {
 
   function cd_loads() {
     load_theme_textdomain( 'coldbox', get_template_directory().'/languages');
-    add_editor_style( 'parts/editor-style.css' );
+    add_editor_style( 'parts/editor-style.min.css' );
   }
 
 }
