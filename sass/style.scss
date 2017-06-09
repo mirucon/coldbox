@@ -654,15 +654,21 @@ body.home { border-top-color: transparent }
 .fs20 { font-size: em(20px); }
 .info-1 {
   display: block;
-  border: 2px solid #000;
-  border-radius: 11px;
-  padding: 12px;
+  padding: 1.4em;
+  border: 2px solid #39c;
+  border-radius: 3px;
 }
 .attention-1 {
-  padding: 20px;
+  padding: 1.4em;
   border: solid 2px #ff5000;
   border-radius: 3px;
   background: #ffd580;
+}
+.link-box {
+  display: block;
+  padding: 4px 6px;
+  background-color: #f0f0f0;
+  & > a { display: block }
 }
 @keyframes fadeInLeft {
   0% {
