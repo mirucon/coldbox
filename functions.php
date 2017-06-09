@@ -213,6 +213,7 @@ if ( !function_exists ( 'cd_breadcrumb' ) ) {
 
 }
 
+
 /* ------------------------------------------------------------------------- *
 *  Highlight.js
 * -------------------------------------------------------------------------- */
@@ -229,18 +230,15 @@ if ( !function_exists ( 'cd_load_hljs' ) ) {
       elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
         wp_enqueue_script( 'hljs', get_template_directory_uri().'/js/highlight-web.js', '9.12.0' );
       }
+
+      wp_add_inline_script( 'hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
     }
 
-  }
-  add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
-
-  if ( !function_exists ( 'cd_hljs_on_pre_tag' ) ) {
-    function cd_hljs_on_pre_tag() {
-      echo "<script>jQuery(document).ready(function(a) { a('pre').each(function(b, c) { hljs.highlightBlock(c) }) });</script>";
-    }
-    add_action( 'wp_footer', 'cd_hljs_on_pre_tag' );
   }
 }
+add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
+
+
 /* ------------------------------------------------------------------------- *
 *  Apparence
 * -------------------------------------------------------------------------- */

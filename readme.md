@@ -2,16 +2,17 @@
 
 ![coldbox-screenshot](/screenshot.jpg)
 
-A beautiful WordPress theme - coldbox. It helps increase site traffic from Google and SNS. The main featires are easy to customize, multifunctional, SEO friendly, and quicker load.
+A beautiful WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. The main features are easy to customize, multifunctional, SEO friendly, and quicker load.
 
 See the demo: [https://miruc.co/coldbox/demo/](https://miruc.co/coldbox/demo/)
 
 ## Getting Started
 You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) after theme installed.  
+To get official child theme, visit [Coldbox Official Site](https://miruc.co/coldbox/)
 <!-- **Documentation** -->
 
 ## Theme License
-The coldbox theme is under 100% [GNU v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
+The Coldbox theme is under 100% [GNU v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
 
 ### FontAwesome License
 Font License - SIL OFL 1.1  

@@ -41,13 +41,12 @@ $query = new WP_Query($args); ?>
             </div>
 
           </article>
-        </a>
-      </li>
+        </li>
 
-    <?php endwhile;?>
-  </ul>
+      <?php endwhile;?>
+    </ul>
 
-</section>
+  </section>
 <?php endif; ?>
 
 <?php wp_reset_postdata(); ?>
