@@ -2,3 +2,5 @@
 node_modules
 *.gitignore
 coldbox
+gulpfile.js
+style.map.css

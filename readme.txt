@@ -9,7 +9,7 @@ The theme is available on GitHub: https://github.com/Mirucon/coldbox
 ## Author information
 WordPress Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
-E-mail: admin@mirucon.com
+Email: admin@mirucon.com
 
 ## Theme License
 GNU General Public License v3.0

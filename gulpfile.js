@@ -34,7 +34,6 @@ gulp.task('browser-sync', function () {
     notify: false,
     proxy: "http://coldbox.dev/",
     port: "8000",
-    // reloadDelay: 300
   });
 });
 gulp.task('bs-reload', function () {

@@ -1,6 +1,6 @@
 {
   "name": "coldbox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "My First WordPress Theme.",
   "main": "index.js",
   "dependencies": {
@@ -32,12 +32,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vccw-team/vccw.git"
+    "url": "git+https://github.com/Mirucon/coldbox"
   },
   "author": "Mirucon",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/vccw-team/vccw/issues"
+    "url": "https://github.com/Mirucon/coldbox/issues"
   },
-  "homepage": "https://github.com/vccw-team/vccw#readme"
+  "homepage": "https://github.com/Mirucon/coldbox#readme"
 }
