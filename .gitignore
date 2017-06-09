@@ -1,6 +1,7 @@
 *.DS_Store
 node_modules
 *.gitignore
+*.git
 coldbox
 gulpfile.js
-style.map.css
+style.css.map
