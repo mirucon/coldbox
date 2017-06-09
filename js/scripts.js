@@ -52,6 +52,7 @@ jQuery(function($) {
         position -= $('#header').height();
       }
       $('body, html').animate({scrollTop:position}, 400); // Smooth Scroll
+      // console.log ( '%cSmooth Scroll: ' + 'Goes To ' + position, 'color:#39c' ); // Debag info
       return false;
     }
   });

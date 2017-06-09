@@ -29,6 +29,9 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     .entry h2 {
       margin-left: -40px; margin-right: -40px; padding: 1.3rem 30px; border-style: solid; border-width: 1px 0; overflow: hidden;
     }
+    @media screen and (max-width: 640px) {
+      .entry h2 { margin-left: -20px; margin-right: -20px; padding-left: 10px; padding-right: 10px; }
+    }
     .entry h3 {
       margin-left: -10px; margin-right: -10px; padding: 0 5px .4rem; border-bottom: 2px solid rgba(0, 0, 0, .5); overflow: hidden;
     }
