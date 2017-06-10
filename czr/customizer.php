@@ -118,7 +118,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
   ));
   $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'minified_css', array(
     'label'    => __( 'Use minified CSS file', 'coldbox' ),
-    'description' => __('The theme will load minified CSS file. Minifying css stylesheets improves loading speed of your website.', 'coldbox'),
+    'description' => __('The theme loads minified CSS file. Minifying css stylesheets improves loading speed of your website.', 'coldbox'),
     'section'  => 'global',
     'type'     => 'checkbox',
   )));
@@ -168,7 +168,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       'sanitize_callback' => 'cd_sanitize_radio',
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_direction', array(
-      'label'    =>  __( 'Header Direction', 'coldbox' ),
+      'label'    =>  __( 'Header and Menu Direction', 'coldbox' ),
       'section'  => 'header',
       'type'     => 'radio',
       'choices'  => array(
@@ -279,7 +279,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'label'    => __( 'Display Post Categories','coldbox' ),
         'section'  => 'single',
         'type'     => 'checkbox',
-        'description'=> 'Note: Categories are already showed on the breadcrum.'
+        'description'=> __( 'Note: Categories are already showed on the breadcrum.', 'coldbox'),
       )));
       // Author
       $wp_customize->add_setting( 'single_meta_author', array(

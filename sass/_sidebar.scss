@@ -138,7 +138,7 @@
       line-height: 1.2;
       font-size: 1.5rem !important;
       transition: all .4s;
-        @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
+      @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
       &:hover {
         color: #000;
         @include box-shadow($y: 2px, $blur: 1px, $color: rgba(0, 0, 0, .3));
@@ -197,33 +197,35 @@
 
   }
 
-.widgets-list-layout .widgets-list-layout-links {
-  width: calc(100% - 110px);
-  padding-top: 0.4em;
-}
+  .widgets-list-layout .widgets-list-layout-links {
+    width: calc(100% - 110px);
+    padding-top: 0.4em;
+  }
 
-.widgets-list-layout a {
-  display: block;
-}
+  .widgets-list-layout a {
+    display: block;
+    img { transition: all .2s; }
+  }
 
-.widgets-list-layout li {
-  padding-bottom: 1em;
-  border-bottom: 1px solid #ddd;
-}
+  .widgets-list-layout li {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+    img { transition: all .2s; }
+  }
 
-.widgets-list-layout li:first-child {
-  padding-top: 0;
-}
+  .widgets-list-layout li:first-child {
+    padding-top: 0;
+  }
 
-.widgets-list-layout .widgets-list-layout-links a {
-  color: #444;
-  transition: all 0.2s;
-}
+  .widgets-list-layout .widgets-list-layout-links a {
+    color: #444;
+    transition: all 0.2s;
+  }
 
-.widgets-list-layout li:hover {
-  a { color: $link; }
-  img { opacity: 0.8 }
-}
+  .widgets-list-layout li:hover {
+    a { color: $link; }
+    img { opacity: 0.8 }
+  }
 
 
 
