@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
 "POT-Creation-Date: 2017-06-07 22:04+1200\n"
-"PO-Revision-Date: 2017-06-07 22:21+1200\n"
+"PO-Revision-Date: 2017-06-11 12:56+1200\n"
 "Last-Translator: Mirucon <admin@mirucon.com>\n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja_JP\n"
@@ -859,7 +859,7 @@ msgstr "Coldbox: ヘッダー設定"
 #: coldbox/coldbox/czr/customizer.php:161 coldbox/czr/customizer.php:161
 #: czr/customizer.php:161
 msgid "Display Site Description"
-msgstr "サイトの説明を表示"
+msgstr "キャッチフレーズを表示"
 
 #: coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/czr/customizer.php:171
 #: coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/coldbox/czr/customizer.php:171

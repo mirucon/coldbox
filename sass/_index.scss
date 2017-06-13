@@ -23,7 +23,7 @@ body.home #main {
 
   @media screen and (max-width: $bpmax-mobile) {
     flex-flow: column wrap;
-    padding: 2em 20px;
+    padding: 2em 20px 0;
     .post, .page {
       width: 100%;
     }

@@ -36,6 +36,7 @@
                   <?php if ( cd_is_meta_btm_cat() ): ?><p class="post-btm-cats"><span class="meta-label"><?php _e( 'Categories:', 'coldbox' ) ?></span><?php the_category('&#8203;'); ?> </p><?php endif; ?>
                   <?php if ( cd_is_meta_btm_tag() ): ?><?php the_tags( '<p class="post-btm-tags"> <span class="meta-label">' . __( 'Tags:', 'coldbox' ) . '</span>','',' </p>'); ?><?php endif; ?>
                 </div>
+                <?php get_template_part( 'parts/author-box' ); ?>
               </div>
 
               <?php get_template_part('parts/sns-button');

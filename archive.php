@@ -27,8 +27,8 @@
 
             <?php else: ?>
 
-              <div class="title-box">
-                <h1><?php _e( 'Posts Not Found!', 'coldbox' ); ?></h1>
+              <div class="error-messages">
+                <h2><?php _e( 'Posts Not Found!', 'coldbox' ); ?></h2>
               </div>
 
             <?php endif; ?>

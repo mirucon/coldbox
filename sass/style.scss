@@ -494,17 +494,44 @@ textarea {
 /* ------------------------------------------------------------------------- *
 *  7. 404 Page
 * ------------------------------------------------------------------------- */
-.error404 {
-  .error-messages {
-    background-color: #fff;
-    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
-    padding: 20px 30px;
-    p { margin-bottom: 1em }
+.error-messages {
+  font-weight: 300;
+
+  p { margin-bottom: 2em }
+  h2 {
+    padding: .8em 1.4em;
+    background-color: #f8f8f8;
+    font-family: Lato, Arial, sans-serif;
+  }
+  .content-inner > & {
+    padding-bottom: 16px;
   }
   @media screen and (max-width: $bpmax-mobile) {
-    .error-messages {
-      padding-right: 15px;
-      padding-left: 15px;
+    .content-inner > & {
+      padding-bottom: 2em;
+    }
+    h2 {
+      padding: .2em .8em;
+    }
+  }
+}
+.error404 {
+  .content-inner {
+    padding: 1.8em;
+    & > .error-messages { padding-bottom: 0 }
+
+    @media only screen and (min-width: $bpmax-mobile) {
+      .search-form {
+        position: relative;
+        margin: 1em 6px 0;
+        padding: 10px 16px;
+        border-top: 1px solid currentColor;
+        background-color: #f4f4f4;
+        color: #777;
+        text-transform: capitalize;
+        font-weight: 300;
+        @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .08));
+      }
     }
   }
 }

@@ -7,6 +7,9 @@
   transition: box-shadow .4s;
   @include box-shadow($x: 1px, $blur: 1px, $color: rgba(0, 0, 0, .4));
   &.sticky { position: fixed; @include box-shadow($blur: 6px); }
+  @media screen and (max-width: $bpmax-mobile) {
+    background-position: center;
+  }
 }
 .header-inner {
   display: flex;

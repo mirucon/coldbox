@@ -46,7 +46,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 
 
     // Link Color
-    if ( get_theme_mod( 'link_color', '#00619F' ) != '#00619F' ) {
+    if ( get_theme_mod( 'link_color', '#00619f' ) != '#00619f' ) {
       $color_link = get_theme_mod( 'link_color' );
       $czr_color_link = "
       .entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover, .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a,
@@ -75,7 +75,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     if( get_theme_mod( 'link_hover_color', '#0f5373' ) != '#0f5373' ) {
       $color_hover = get_theme_mod( 'link_hover_color' );
       $czr_color_hover = "
-      .entry a:hover, .comment-body a:hover {
+      .entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover {
         color: $color_hover;
       } ";
       wp_add_inline_style( 'main-style', $czr_color_hover );
@@ -93,7 +93,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     }
 
     // Footer Background Color
-    if ( get_theme_mod( 'footer_color', '#44463B' ) != '#44463B' ) {
+    if ( get_theme_mod( 'footer_color', '#44463b' ) != '#44463b' ) {
       $color_footer = get_theme_mod( 'footer_color' );
       $czr_color_footer = "
       #footer {

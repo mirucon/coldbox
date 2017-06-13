@@ -53,8 +53,6 @@
   .widget-title {
     position: relative;
     margin-bottom: .8em;
-    // padding-bottom: .1em;
-    // border-bottom: 2px solid #ddd;
     font-size: 1.2em;
     font-weight: 300;
     text-transform: capitalize;
@@ -141,6 +139,7 @@
       @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .1));
       &:hover {
         color: #000;
+        background-color: #ddd;
         @include box-shadow($y: 2px, $blur: 1px, $color: rgba(0, 0, 0, .3));
       }
     }
@@ -182,9 +181,14 @@
   }
   #wp-calendar {
     width: 100%;
+    a { color: $link; }
+    a:hover { color: $hover; }
     caption { margin-bottom: .4em; }
-    tbody { text-align: center; vertical-align: middle; }
-    a { color: $link }
+    tbody {
+      text-align: center; vertical-align: middle;
+      a { @include box-shadow($x: 0, $y: 1px, $blur: 0, $color: currentColor); }
+      a:hover { @include box-shadow($x: 0, $y: 2px, $blur: 0, $color: #000);}
+    }
   }
   &_rss {
     li {

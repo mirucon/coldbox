@@ -78,6 +78,38 @@ p.post-btm-tags, p.post-btm-cats {
   @include box-shadow($x: 0, $y: 2px, $blur:0, $color: rgba(#19d831, .4));
 }
 
+/*   Single : Author Box
+/* -------------------------------------------------- */
+.author-box {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 1.6em;
+  padding: 1em;
+  border-radius: 2px;
+  @include box-shadow($x: 0, $y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .14));
+
+  .author-thumbnail {
+    flex-shrink: 1;
+    img { border-radius: 50% }
+  }
+
+  .author-content {
+    flex: 1;
+    padding-left: .8em;
+  }
+
+  .author-name {
+    margin-bottom: .5em;
+    font-size: 1.2em;
+  }
+
+  .author-description {
+    margin-bottom: 0;
+    font-weight: 300;
+  }
+}
+
+
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
@@ -159,11 +191,6 @@ p.post-btm-tags, p.post-btm-cats {
     }
     .post-title {
       color: $link;
-    }
-  }
-  @media screen and (min-width: $bpmin-pc) {
-    .related-article:nth-of-type(odd) .post {
-      margin-right: 16px;
     }
   }
   @media screen and (max-width: $bpmax-mobile) {

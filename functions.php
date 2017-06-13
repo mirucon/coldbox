@@ -67,11 +67,18 @@ if ( !function_exists ( 'cd_supports' ) ) {
     add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
     // Support custom header
-    $custom_header_defaults = array(
+    add_theme_support( 'custom-header', array(
+      'width'       => 980,
+      'height'      => 100,
       'flex-height' => true,
       'flex-width'  => true,
-    );
-    add_theme_support( 'custom-header', $custom_header_defaults );
+    ) );
+
+    add_theme_support( 'custom-logo', array(
+      'height'      => 80,
+      'width'       => 270,
+      'flex-height' => true,
+    ) );
 
     // Support custom background color and image
     $custom_background_defaults = array(
@@ -92,7 +99,7 @@ if ( !function_exists ( 'cd_supports' ) ) {
 add_action( 'after_setup_theme', 'cd_supports' );
 
 // Content width
-if ( !isset( $content_width ) ) $content_width = 745;
+if ( !isset( $content_width ) ) $content_width = 680;
 
 
 /* ------------------------------------------------------------------------- *
@@ -162,14 +169,15 @@ add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2);
 /*   TagCloud Widget
 /* -------------------------------------------------- */
 if ( !function_exists ( 'cd_archive_widget_count' ) ) {
+
   function cd_archive_widget_count( $links ) {
     $links = str_replace( '</a>&nbsp;(', ' <span class="count">(', $links );
     $links = str_replace( ')', ')</span></a>', $links );
     return $links;
   }
+
 }
 add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
-
 
 
 /* ------------------------------------------------------------------------- *
@@ -271,14 +279,27 @@ if ( !function_exists ( 'cd_site_title' ) ) {
 
   function cd_site_title() {
     echo '<a href="'.esc_url(home_url()).'" title="',bloginfo('name'),'">';
-    if ( get_header_image() ):
-      echo '<img src="<?php header_image(); ?>" alt="<?php bloginfo("name"); ?>" />';
+    if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ):
+      $image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+      echo '<img src="'.$image[0].'" alt="',bloginfo('name'),'" />';
     else:
       echo bloginfo('name');
     endif;
     echo '</a>';
   }
 
+}
+
+if ( !function_exists ( 'cd_header_image' ) ) {
+  if ( has_header_image() ) {
+
+    function cd_header_image() {
+      $style = "#header { background-image: url('".get_header_image()."'); }";
+      wp_add_inline_style( 'main-style', $style );
+    }
+    add_action( 'wp_enqueue_scripts', 'cd_header_image' );
+
+  }
 }
 
 /* ------------------------------------------------------------------------- *

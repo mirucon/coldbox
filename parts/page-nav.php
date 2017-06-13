@@ -9,4 +9,3 @@ echo paginate_links( array(
   'next_text'          => '&raquo;',
   'after_page_number'  => ''
 ) );
-// echo '<span class="action-bar"></span>'

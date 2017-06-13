@@ -1,7 +1,8 @@
 # Coldbox
 WordPress Theme Coldbox by Mirucon
-Version: 1.0.1
-Need WordPress version 4.3 or higher
+Version: 1.0.2
+Requires at least: version 4.3 or higher
+Tested up: WordPress 4.8.0
 See the demo: https://miruc.co/coldbox/demo/
 To get official child theme, visit https://miruc.co/coldbox/
 The theme is available on GitHub: https://github.com/Mirucon/coldbox

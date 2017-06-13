@@ -4,6 +4,10 @@
 
 A beautiful WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. The main features are easy to customize, multifunctional, SEO friendly, and quicker load.
 
+**Version**: 1.0.2  
+**Requires at least**: version 4.3 or higher  
+**Tested up**: WordPress 4.8.0
+
 See the demo: [https://miruc.co/coldbox/demo/](https://miruc.co/coldbox/demo/)
 
 ## Getting Started
