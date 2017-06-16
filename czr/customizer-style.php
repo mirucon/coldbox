@@ -9,7 +9,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       .container {
         max-width: ${container_width}px;
       } ";
-      wp_add_inline_style( 'czr', $czr_container_width );
+      wp_add_inline_style( 'main-style', $czr_container_width );
     }
 
     if ( get_theme_mod( 'global_font_size_pc', '16' ) != '16' ) {
@@ -18,7 +18,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       body {
         font-size: ${font_size_pc}px;
       } ";
-      wp_add_inline_style( 'czr', $czr_font_size_pc );
+      wp_add_inline_style( 'main-style', $czr_font_size_pc );
     }
 
     if ( get_theme_mod( 'global_font_size_mobile', '15' ) != '15' ) {
@@ -29,7 +29,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
           font-size: ${font_size_mobile}px;
         }
       } ";
-      wp_add_inline_style( 'czr', $czr_font_size_mobile );
+      wp_add_inline_style( 'main-style', $czr_font_size_mobile );
 
     }
 
@@ -41,7 +41,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       .entry h3 { margin-left: -10px; margin-right: -10px; padding: 0 5px .4rem; border-bottom: 2px solid rgba(0, 0, 0, .5); overflow: hidden; }
       .entry h4 { padding: 0 0 .4rem; border-bottom: 2px solid #bbb; overflow: hidden; }
       .entry h5 { padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden; } ";
-      wp_add_inline_style( 'czr', $czr_style_htags );
+      wp_add_inline_style( 'main-style', $czr_style_htags );
     }
 
 
@@ -67,7 +67,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       ::selection { background-color: $color_link; }
       ::moz-selection { background-color: $color_link; }
       ";
-      wp_add_inline_style( 'czr', $czr_color_link );
+      wp_add_inline_style( 'main-style', $czr_color_link );
     }
 
 
@@ -78,7 +78,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       .entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover {
         color: $color_hover;
       } ";
-      wp_add_inline_style( 'czr', $czr_color_hover );
+      wp_add_inline_style( 'main-style', $czr_color_hover );
     }
 
 
@@ -89,7 +89,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       #header {
         background-color: $color_header;
       } ";
-      wp_add_inline_style( 'czr', $czr_color_header );
+      wp_add_inline_style( 'main-style', $czr_color_header );
     }
 
     // Footer Background Color
@@ -99,7 +99,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       #footer {
         background-color: $color_footer;
       } ";
-      wp_add_inline_style( 'czr', $czr_color_footer );
+      wp_add_inline_style( 'main-style', $czr_color_footer );
     }
 
     // Related Posts Columns
@@ -109,7 +109,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
       .related-posts .related-article {
         width: calc(100% / $rel_col);
       } ";
-      wp_add_inline_style( 'czr', $czr_rel_col );
+      wp_add_inline_style( 'main-style', $czr_rel_col );
     }
 
   }

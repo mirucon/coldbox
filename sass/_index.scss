@@ -284,6 +284,7 @@ ul.page-numbers {
     border-bottom: 2px solid #ddd;
     transition: border .4s;
   }
+  li > span { color: #444 }
   span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
   a.page-numbers:hover { border-bottom: 2px solid $link; }
 }

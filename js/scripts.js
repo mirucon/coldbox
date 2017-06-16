@@ -192,7 +192,7 @@ jQuery(function($) {
   /*   Fix : delete shadows from images
   /* -------------------------------------------------- */
   $(function() {
-    $('img').parent('a').css({'box-shadow':'none'});
+    $('.entry img').parent('a').css({'box-shadow':'none'});
   });
 
 
