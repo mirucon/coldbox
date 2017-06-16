@@ -496,12 +496,12 @@ textarea {
 * ------------------------------------------------------------------------- */
 .error-messages {
   font-weight: 300;
+  font-family: Lato, Arial, sans-serif;
 
   p { margin-bottom: 2em }
   h2 {
     padding: .8em 1.4em;
     background-color: #f8f8f8;
-    font-family: Lato, Arial, sans-serif;
   }
   .content-inner > & {
     padding-bottom: 16px;
