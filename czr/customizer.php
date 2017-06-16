@@ -258,7 +258,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         /*   Add a decoration to header Tags
         /* -------------------------------------------------- */
-        $wp_customize->add_setting( 'single_content', array() );
+        $wp_customize->add_setting( 'single_content', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
         $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_content', array(
           'content' => '<h3 class="czr-heading first">' . __( 'Settings for Content', 'coldbox' ) . '</h3>', 'section' => 'single',
         ) ) );
@@ -274,7 +274,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
         /*   Single Meta Settings
         /* -------------------------------------------------- */
-        $wp_customize->add_setting( 'single_meta', array() );
+        $wp_customize->add_setting( 'single_meta', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
         $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_meta', array(
           'content' => '<h3 class="czr-heading">' . __( 'Settings for Metas', 'coldbox' ) . '</h3>', 'section' => 'single',
           ) ) );
@@ -372,7 +372,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
         /*   Related Posts Settings
         /* -------------------------------------------------- */
-        $wp_customize->add_setting( 'single_related', array() );
+        $wp_customize->add_setting( 'single_related', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
         $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_related', array(
           'content' => '<h3 class="czr-heading">' . __( 'Settings for Related Posts', 'coldbox' ) . '</h3>', 'section' => 'single',
         ) ) );
@@ -414,7 +414,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         )));
         /*   SNS Buttons
         /* -------------------------------------------------- */
-        $wp_customize->add_setting( 'sns_buttons', array() );
+        $wp_customize->add_setting( 'sns_buttons', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
         $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'sns_buttons', array(
           'content' => '<h3 class="czr-heading">' . __( 'Settings for SNS Buttons', 'coldbox' ) . '</h3>', 'section' => 'single',
           ) ) );

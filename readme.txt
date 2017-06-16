@@ -5,6 +5,7 @@ Requires at least: version 4.3 or higher
 Tested up: WordPress 4.8.0
 See the demo: https://miruc.co/coldbox/demo/
 To get official child theme, visit https://miruc.co/coldbox/
+
 The theme is available on GitHub: https://github.com/Mirucon/coldbox
 
 ## Author information

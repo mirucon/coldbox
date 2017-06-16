@@ -687,9 +687,11 @@ body.home { border-top-color: transparent }
 .fs20 { font-size: em(20px); }
 .info-1 {
   display: block;
+  margin: 1.6em 0;
   padding: 1.4em;
   border: 2px solid #39c;
   border-radius: 3px;
+  background-color: rgba(51, 153, 204, .1);
 }
 .attention-1 {
   padding: 1.4em;
