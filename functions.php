@@ -110,8 +110,6 @@ if ( !function_exists ( 'cd_body_class' ) ) {
   function cd_body_class( $classes ) {
 
     if ( has_nav_menu('header-menu') ) { $classes[] = 'header-menu-enabled'; }
-    if ( cd_is_sticky_top_menu() ) { $classes[] = 'topmenu-sticky'; }
-    if ( !cd_is_sticky_top_menu() ) { $classes[] = 'topmenu-relative'; }
     if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar-s1'; }
     elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar-s1'; }
     elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar-s1'; }
@@ -155,6 +153,7 @@ add_action( 'widgets_init', 'cd_widgets_init' );
 /*   Category Widget
 /* -------------------------------------------------- */
 if ( !function_exists ( 'cd_cat_widget_count' ) ) {
+
   function cd_cat_widget_count( $output, $args ) {
     $replaced_text = preg_replace('/<\/a> \(([0-9,]*)\)/', ' <span class="count">(${1})</span></a>', $output);
     if ( $replaced_text != NULL ) {
@@ -163,10 +162,11 @@ if ( !function_exists ( 'cd_cat_widget_count' ) ) {
       return $output;
     }
   }
+
 }
 add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2);
 
-/*   TagCloud Widget
+/*   Archive Widget
 /* -------------------------------------------------- */
 if ( !function_exists ( 'cd_archive_widget_count' ) ) {
 
@@ -179,6 +179,34 @@ if ( !function_exists ( 'cd_archive_widget_count' ) ) {
 }
 add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
 
+/*   Recently Posts Widget
+/* -------------------------------------------------- */
+if ( !function_exists ( 'cd_remove_current_post_on_recent_widget' ) ) {
+
+  function cd_remove_current_post_on_recent_widget( $args ) {
+    if ( is_single() ) {
+      $args['post_not_in'] = array( get_the_ID() );
+    }
+    return $args;
+  }
+
+}
+add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widget', 10, 3 );
+
+/*  TagCloud Widget
+/* -------------------------------------------------- */
+if ( !function_exists ( 'cd_tag_widget_count' ) ) {
+  function cd_tag_widget_count( $content, $tags, $args ) {
+    $count = 0;
+    $output = preg_replace_callback( '(</a\s*>)',
+    function($match) use ($tags, &$count) {
+      return "<span class=\"count\">(".$tags[$count++]->count.")</span></a>";
+    }, $content);
+
+    return $output;
+  }
+}
+add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
 
 /* ------------------------------------------------------------------------- *
 *  Breadcrumbs

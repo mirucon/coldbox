@@ -189,7 +189,17 @@ jQuery(function($) {
     return false;
   });
 
-  /*   Fix : delete shadows from images
+  /*   Recent Posts Widget : Adjust the date style
+  /* -------------------------------------------------- */
+  if ( $('.widget_recent_entries .post-date').length ) {
+    $('.post-date').each(function(e) {
+      if ( $(this).prev('a') ) {
+        $(this).html($(this).html()+" ").prependTo($(this).prev('a'));
+      }
+    });
+  }
+
+  /*   Fix : Delete shadows from images
   /* -------------------------------------------------- */
   $(function() {
     $('.entry img').parent('a').css({'box-shadow':'none'});

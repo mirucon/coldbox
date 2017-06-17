@@ -81,6 +81,10 @@
       border-bottom: 1px solid $border;
       line-height: 1.5;
     } li:first-of-type a { border-top: 1px solid $border }
+    .post-date {
+      display: block;
+      color: #444;
+    }
   }
   &_recent_comments {
     li {
@@ -130,6 +134,7 @@
       display: inline-block;
       margin: .2em .03em;
       padding: 4px 6px;
+      border: 1px solid #ddd;
       border-radius: 2px;
       background-color: #f0f0f0;
       color: rgba(0, 0, 0, .8);
@@ -141,6 +146,13 @@
         color: #000;
         background-color: #ddd;
         @include box-shadow($y: 2px, $blur: 1px, $color: rgba(0, 0, 0, .3));
+      }
+      .count {
+        margin-left: .2em;
+        color: #777;
+        font-family: Lato, Arial, sans-serif;
+        font-size: .9em;
+        line-height: 1.2;
       }
     }
   }

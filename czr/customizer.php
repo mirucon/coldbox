@@ -563,7 +563,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Page Style Settings
       function cd_index_style() { return ( get_theme_mod( 'index_style', 'grid' ) ); }
       function cd_archive_style() { return ( get_theme_mod( 'archive_style', 'grid' ) ); }
-      function cd_is_sticky_top_menu() { return ( get_theme_mod( 'sticky_top_menu', true ) ); }
       function cd_is_site_desc() { return ( get_theme_mod( 'site_desc', true ) ); }
       function cd_header_direction() { return ( get_theme_mod( 'header_direction', 'column' ) ); }
       // Excerpt Settings
