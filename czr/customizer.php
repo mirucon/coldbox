@@ -508,14 +508,15 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'type'     => 'checkbox',
         )));
         $wp_customize->add_setting( 'theme_credit_text', array(
-          'default'  => 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> Theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>',
+          'default'  => 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>',
           'sanitize_callback' => 'cd_sanitize_text',
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
           'label'    => __( 'Theme Credit Contents','coldbox' ),
+          'description' => __( 'It will be displayed when above checked. You can use the following HTML tags: &lt;a&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;p&gt;, &lt;br&gt;', 'coldbox' ),
           'section'  => 'footer',
-          'settings' => 'theme_credit',
-          'type'     => 'text',
+          'settings' => 'theme_credit_text',
+          'type'     => 'textarea',
         )));
 
 
@@ -595,6 +596,17 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 2 ) ); }
       // Theme credit
       function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
+      function cd_theme_credit_text() {
+        $text = get_theme_mod( 'theme_credit_text', 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>' ) ;
+        $allowed_html = array(
+          'a' => array( 'href' => array (), 'onclick' => array (), 'target' => array() ),
+          'p' => array( 'style' => array (), 'align' => array (), 'target' => array() ),
+          'br' => array(),
+          'strong' => array(),
+          'b' => array(),
+        );
+        return wp_kses( $text, $allowed_html );
+      }
       // Hightlight.js
       function cd_use_normal_hljs() { return ( get_theme_mod( 'does_use_hljs', false ) ); }
       function cd_use_web_hljs() { return ( get_theme_mod( 'use_hljs_web_pack', false ) ); }

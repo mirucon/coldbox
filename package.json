@@ -1,7 +1,7 @@
 {
   "name": "coldbox",
   "version": "1.0.2",
-  "description": "My First WordPress Theme.",
+  "description": "A beautiful WordPress theme.",
   "main": "index.js",
   "dependencies": {
     "gulp": "^3.9.1"
@@ -39,5 +39,5 @@
   "bugs": {
     "url": "https://github.com/Mirucon/coldbox/issues"
   },
-  "homepage": "https://github.com/Mirucon/coldbox#readme"
+  "homepage": "https://coldbox.miruc.co/"
 }

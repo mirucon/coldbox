@@ -4,7 +4,7 @@
     <div id="copyright">
       <p>&copy;<?php echo date( 'Y' ); ?> <a href="<?php echo esc_url(home_url()); ?>"><?php bloginfo('name'); ?></a> </p>
       <?php if ( cd_is_theme_credit() ): ?>
-        <p><?php _e( 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>,  <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> Theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>', 'coldbox' ) ?>
+        <?php echo cd_theme_credit_text(); ?>
       <?php endif; ?>
     </div><!--/#copyright-->
 

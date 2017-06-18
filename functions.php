@@ -195,18 +195,22 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widget', 10, 
 
 /*  TagCloud Widget
 /* -------------------------------------------------- */
-if ( !function_exists ( 'cd_tag_widget_count' ) ) {
-  function cd_tag_widget_count( $content, $tags, $args ) {
-    $count = 0;
-    $output = preg_replace_callback( '(</a\s*>)',
-    function($match) use ($tags, &$count) {
-      return "<span class=\"count\">(".$tags[$count++]->count.")</span></a>";
-    }, $content);
+if ( !is_admin() ) {
+  if ( !function_exists ( 'cd_tag_widget_count' ) ) {
 
-    return $output;
+    function cd_tag_widget_count( $content, $tags, $args ) {
+      $count = 0;
+      $output = preg_replace_callback( '(</a\s*>)',
+      function( $match ) use ( $tags, &$count ) {
+        return "<span class=\"count\">(".$tags[$count++]->count.")</span></a>";
+      }, $content);
+
+      return $output;
+    }
   }
+
+  add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
 }
-add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
 
 /* ------------------------------------------------------------------------- *
 *  Breadcrumbs
