@@ -507,6 +507,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'settings' => 'theme_credit',
           'type'     => 'checkbox',
         )));
+        $wp_customize->add_setting( 'theme_credit_text', array(
+          'default'  => 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> Theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>',
+          'sanitize_callback' => 'cd_sanitize_text',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
+          'label'    => __( 'Theme Credit Contents','coldbox' ),
+          'section'  => 'footer',
+          'settings' => 'theme_credit',
+          'type'     => 'text',
+        )));
 
 
         /* ------------------------------------------------------------------------- *

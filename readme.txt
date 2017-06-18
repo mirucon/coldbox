@@ -3,13 +3,14 @@ WordPress Theme Coldbox by Mirucon
 Version: 1.0.2
 Requires at least: version 4.3 or higher
 Tested up: WordPress 4.8.0
-See the demo: https://miruc.co/coldbox/demo/
-To get official child theme, visit https://miruc.co/coldbox/
+See the demo: https://coldbox.miruc.co/demo/
+To get official child theme, visit https://coldbox.miruc.co/
 
 The theme is available on GitHub: https://github.com/Mirucon/coldbox
 
 ## Author information
-WordPress Profile: https://profiles.wordpress.org/mirucon/
+The Coldbox theme designed by Mirucon
+WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
 Email: admin@mirucon.com
 
@@ -30,11 +31,11 @@ URL: https://icomoon.io/#icons-icomoon
 Created by Keyamoon
 
 ### Highlight.js License
-License - BSD 3-clause "New" or "Revised" License
+License - BSD 3-clause License
 URL: https://highlightjs.org/
 Created by @highlightjs
 
-### PlaceFolder Camera icon
+### PlaceFolder Camera Icon license
 License - MIT License
 URL: http://ionicons.com/
 Created by @benjsperry
