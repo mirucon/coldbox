@@ -343,7 +343,6 @@ h6 { font-size: 1.12em }
   h1 {
     margin: 0;
     font-size: 3rem;
-    line-height: 1.2;
   }
   a:hover { color: $link }
   @media screen and (max-width: $bpmax-mobile) {
@@ -572,14 +571,42 @@ textarea {
   @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
 }
 .wp-caption .wp-caption-text { margin: 0; padding: 5px 4px; color: #555; line-height: 1.4; font-weight: 300; }
-.wp-caption img { margin: 0 auto; padding: 0; border: 0; }
-.gallery-caption { @extend .wp-caption-text;}
 .aligncenter { display: block; max-width: 100%; margin-left: auto; margin-right: auto }
 .alignright { float: right; max-width: 100%; margin-left: 10px }
 .alignleft { float: left; max-width: 100%; margin-right: 10px }
 .clearfix:after {	content: ""; 	display: block;	clear: both; }
 html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;	}
 body.home { border-top-color: transparent }
+
+/*   Gallery
+/* -------------------------------------------------- */
+@for $i from 1 through 9 {
+  .gallery-columns-#{$i} {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .gallery-item {
+      width: calc(100% / #{$i});
+      margin-bottom: 1em;
+      padding: 0 .1rem;
+    }
+  }
+}
+.wp-caption img { margin: 0 auto; padding: 0; border: 0; }
+.gallery-icon.landscape {
+  text-align: center;
+}
+.gallery-caption {
+  max-width: 100%;
+  margin-bottom: 1em;
+  padding: 5px 5px 0;
+  font-style: italic;
+  font-size: .94em;
+  line-height: 1.4;
+  text-align: center;
+}
+
 
 /* ------------------------------------------------------------------------- *
 *  13. Misc

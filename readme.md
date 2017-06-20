@@ -15,14 +15,14 @@ You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenera
 To get official child theme, visit [Coldbox Official Site](https://coldbox.miruc.co/)
 <!-- **Documentation** -->
 
+## Theme Author information
+The Coldbox theme designed by Mirucon  
+WordPress.org Profile: https://profiles.wordpress.org/mirucon/  
+Twitter: [@mirucons](https://twitter.com/@mirucons)  
+Email: admin@mirucon.com
+
 ## Theme License
 The Coldbox theme is under 100% [GNU v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
-
-## Author information
-The Coldbox theme designed by Mirucon
-WordPress.org Profile: https://profiles.wordpress.org/mirucon/
-Twitter: @mirucons
-Email: admin@mirucon.com
 
 ### FontAwesome License
 Font License - SIL OFL 1.1  

@@ -149,7 +149,7 @@ p.post-btm-tags, p.post-btm-cats {
     height: 100%;
     background-color: #fff;
     transition: all .4s;
-    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+    @include box-shadow($y: 1px, $blur: 2px, $color: rgba(0, 0, 0, .1));
   }
   .post-thumbnail {
     max-width: em(100px);

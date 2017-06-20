@@ -105,10 +105,17 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     // Related Posts Columns
     if ( get_theme_mod( 'single_related_col', 2 ) != 2 ) {
       $rel_col = get_theme_mod( 'single_related_col' );
-      $czr_rel_col = "
-      .related-posts .related-article {
-        width: calc(100% / $rel_col);
-      } ";
+      if ( $rel_col == 1 ) {
+        $czr_rel_col = "
+        .related-posts .related-article {
+          width: 100%;
+        } ";
+      } else {
+        $czr_rel_col = "
+        .related-posts .related-article {
+          width: calc(100% / $rel_col - 10px);
+        } ";
+      }
       wp_add_inline_style( 'main-style', $czr_rel_col );
     }
 

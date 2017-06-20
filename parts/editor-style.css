@@ -31,7 +31,7 @@ body iframe {
 }
 
 body p {
-  margin: 0 0 0 1em;
+  margin-bottom: 1em;
 }
 
 body p > iframe {

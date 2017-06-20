@@ -13,7 +13,7 @@
 body #customize-controls h3.czr-heading {
   display: block;
   margin-top: .6em;
-  margin-bottom: .4em;
+  margin-bottom: 0;
   color: #111;
   font-size: 1.14em;
   line-height: 24px;
