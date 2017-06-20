@@ -13,10 +13,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
   function cd_customize_register( $wp_customize ) {
 
     function cd_sanitize_checkbox( $checked ){ return ( ( isset( $checked ) && true == $checked ) ? true : false ); }
-    function cd_sanitize_select( $input, $setting ){ $input = sanitize_key($input); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
-    function cd_sanitize_radio( $input, $setting ) { global $wp_customize; $control = $wp_customize->get_control( $setting->id ); if ( array_key_exists( $input, $control->choices ) ) { return $input; } else { return $setting->default; } }
+    function cd_sanitize_radio( $input, $setting ) { 	$input = sanitize_key( $input ); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
     function cd_sanitize_text( $text ) { return sanitize_text_field( $text ); }
-
     if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
       class cd_Custom_Content extends WP_Customize_Control {
         public $content = '';
@@ -70,7 +68,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     // Global Font Select
     $wp_customize->add_setting( 'global_font', array(
       'default'  => 'opensans',
-      'sanitize_callback' => 'cd_sanitize_select',
+      'sanitize_callback' => 'cd_sanitize_radio',
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'global_font', array(
       'label'    =>  __( 'Global Font Selecter', 'coldbox' ),
@@ -509,10 +507,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         )));
         $wp_customize->add_setting( 'theme_credit_text', array(
           'default'  => 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>',
-          'sanitize_callback' => 'cd_sanitize_text',
+          'sanitize_callback' => 'wp_filter_post_kses',
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
-          'label'    => __( 'Theme Credit Contents','coldbox' ),
+          'label'    => __( 'Edit Theme Credit Contents','coldbox' ),
           'description' => __( 'It will be displayed when above checked. You can use the following HTML tags: &lt;a&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;p&gt;, &lt;br&gt;', 'coldbox' ),
           'section'  => 'footer',
           'settings' => 'theme_credit_text',
