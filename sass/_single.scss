@@ -83,7 +83,7 @@ p.post-btm-tags, p.post-btm-cats {
 .author-box {
   display: flex;
   flex-flow: row wrap;
-  margin-top: 1.6em;
+  margin-top: 2em;
   padding: 1em;
   border-radius: 2px;
   @include box-shadow($x: 0, $y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .14));

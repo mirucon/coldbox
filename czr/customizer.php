@@ -5,15 +5,40 @@ function cd_czr_style() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
+function cd_social_sites() {
+  global $social_sites;
+  $social_sites = array(
+    'twitter'       => 'cd_twitter_profile',
+    'facebook'      => 'cd_facebook_profile',
+    'google-plus'   => 'cd_googleplus_profile',
+    'linkedin'      => 'cd_linkedin_profile',
+    'youtube'       => 'cd_youtube_profile',
+    'tumblr'        => 'cd_tumblr_profile',
+    'instagram'     => 'cd_instagram_profile',
+    '500px'         => 'cd_500px_profile',
+    'codepen'       => 'cd_codepen_profile',
+    'github'        => 'cd_github_profile',
+    'steam'         => 'cd_steam_profile',
+    'foursquare'    => 'cd_foursquare_profile',
+    'slack'         => 'cd_slack_profile',
+    'skype'         => 'cd_skype_profile',
+    'paypal'        => 'cd_paypal_profile',
+    'rss'           => 'cd_rss_profile',
+    'feedly'        => 'cd_feedly_profile',
+    'email-form'    => 'cd_email_form_profile',
+    'bell'          => 'cd_push_profile',
+  );
+  return apply_filters( 'cd_social_sites', $social_sites );
+}
+
 /* ------------------------------------------------------------------------- *
 *  Theme Customizer
 * ------------------------------------------------------------------------- */
-
 if ( !function_exists( 'cd_customize_register' ) ) {
   function cd_customize_register( $wp_customize ) {
 
     function cd_sanitize_checkbox( $checked ){ return ( ( isset( $checked ) && true == $checked ) ? true : false ); }
-    function cd_sanitize_radio( $input, $setting ) { 	$input = sanitize_key( $input ); $choices = $setting->manager->get_control( $setting->id )->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
+    function cd_sanitize_radio( $input, $setting ) { $input = sanitize_key( $input ); $choices = $setting->manager->get_control($setting->id)->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
     function cd_sanitize_text( $text ) { return sanitize_text_field( $text ); }
     if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
       class cd_Custom_Content extends WP_Customize_Control {
@@ -107,7 +132,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       ),
     )));
     $wp_customize->add_setting( 'global_font_size_mobile', array(
-      'default'  => 15,
+      'default'  => 16,
       'sanitize_callback' => 'absint',
     ));
     $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_mobile', array(
@@ -486,6 +511,17 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'section'  => 'single',
           'type'     => 'checkbox',
         )));
+        // Twitter username
+        $wp_customize->add_setting( 'twitter_username', array(
+          'default'  => '',
+          'sanitize_callback' => 'cd_sanitize_text',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'twitter_username', array(
+          'label'    => 'Twitter Username',
+          'description' => 'Enter your Twitter username without "@" suffix. The username will be shown in tweets.',
+          'section'  => 'single',
+          'type'     => 'text',
+        )));
 
 
         /* ------------------------------------------------------------------------- *
@@ -533,7 +569,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         )));
         // Hover Link Color
         $wp_customize->add_setting( 'link_hover_color', array(
-          'default'   => '#0f5373',
+          'default'   => '#2e4453',
           'sanitize_callback' => 'sanitize_hex_color',
         ));
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
@@ -557,10 +593,49 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'sanitize_callback' => 'sanitize_hex_color',
         ));
         $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-          'label'  => __( 'Footer Background', 'coldbox' ),
-          'section' => 'colors',
+          'label'     => __( 'Footer Background', 'coldbox' ),
+          'section'   => 'colors',
           'settings'  => 'footer_color',
         )));
+
+      /* ------------------------------------------------------------------------- *
+      *  Social Accounts
+      * -------------------------------------------------------------------------- */
+      $wp_customize->add_section( 'social_links', array(
+        'title' => 'Coldbox: Social Links',
+        'description' => 'Add your social account profiles here. Please enter the full URL.',
+        'priority' => 5,
+      ));
+
+      foreach ( $social_sites as $social_site => $value ) {
+
+        $label = ucfirst( $social_site );
+        if ( $social_site == 'google-plus' ) {
+          $label = 'Google+';
+        } elseif ( $social_site == 'rss' ) {
+          $label = 'RSS';
+        } elseif ( $social_site == 'codepen' ) {
+          $label = 'CodePen';
+        } elseif ( $social_site == 'paypal' ) {
+          $label = 'PayPal';
+        } elseif ( $social_site == 'email-form' ) {
+          $label = 'Contact Form';
+        } elseif ( $social_site == 'bell' ) {
+          $label = 'Push Notification';
+        }
+
+        $wp_customize->add_setting( $social_site, array(
+          'sanitize_callback' => 'esc_url_raw',
+        ));
+
+        $wp_customize->add_control( $social_site, array(
+          'type'    => 'url',
+          'label'   => $label,
+          'section' => 'social_links',
+        ));
+
+      }
+
 
       } // End Customizer
 
@@ -596,13 +671,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
       function cd_theme_credit_text() {
         $text = get_theme_mod( 'theme_credit_text', 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>' ) ;
-        $allowed_html = array(
-          'a' => array( 'href' => array (), 'onclick' => array (), 'target' => array() ),
-          'p' => array( 'style' => array (), 'align' => array (), 'target' => array() ),
-          'br' => array(),
-          'strong' => array(),
-          'b' => array(),
-        );
+        $allowed_html = array( 'a' => array( 'href' => array (), 'onclick' => array (), 'target' => array() ), 'p' => array( 'style' => array (), 'align' => array (), 'target' => array() ), 'br' => array(), 'strong' => array(), 'b' => array(), );
         return wp_kses( $text, $allowed_html );
       }
       // Hightlight.js
@@ -616,6 +685,45 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       function cd_use_snsb_googleplus() { return ( get_theme_mod( 'sns_button_googleplus', true ) ); }
       function cd_use_snsb_pocket() { return ( get_theme_mod( 'sns_button_pocket', true ) ); }
       function cd_use_snsb_feedly() { return ( get_theme_mod( 'sns_button_feedly', true ) ); }
+      function cd_twitter_username() { return ( get_theme_mod( 'twitter_username', '' ) ); }
+      // Social Links
+      function cd_social_links() {
+
+        // Get the social account names and URLs
+        foreach ( cd_social_sites() as $key => $value ) {
+          if ( strlen( get_theme_mod( $key ) ) > 0 ) {
+            $active_links[$key] = get_theme_mod( $key );
+          }
+        }
+
+        // If there is any registered URL
+        if ( !empty( $active_links ) ) {
+
+          echo '<ul class="social-links">';
+
+          // $key has got the social account name, $value has got the URL
+          foreach ( $active_links as $key => $value ) {
+            if ( $key == 'feedly' ) {
+              $class = 'icon-feedly';
+              function load_icomoon() { wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' ); }
+              add_action( 'wp_enqueue_scripts', 'load_icomoon' );
+            } else {
+              $class = 'fa fa-'.$key;
+            } ?>
+            <li class="<?php echo esc_attr( $key ).'-container' ?>">
+              <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value ); ?>" target="_blank">
+                <i class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $key ); ?>"></i>
+              </a>
+            </li>
+            <?php
+          }
+
+          echo "</ul>";
+
+        }
+
+      } echo cd_social_links();
+
     }
     add_action( 'customize_register', 'cd_customize_register' );
 

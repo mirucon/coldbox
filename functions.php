@@ -35,7 +35,7 @@ if ( !function_exists ( 'cd_czr' ) ) {
 
   function cd_czr() {
     get_template_part ( 'czr/customizer' );
-  }
+  } 
 
 }
 add_action( 'after_setup_theme', 'cd_czr' );

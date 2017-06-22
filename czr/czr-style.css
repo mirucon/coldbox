@@ -38,3 +38,21 @@ body #customize-controls h3.czr-heading.first {
 li[id^='customize-control-sns_button_'] {
   margin-bottom: .4em;
 }
+
+#sub-accordion-section-social_links > li > label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 100%;
+}
+#sub-accordion-section-social_links > li > label .customize-control-title {
+  flex-shrink: 1;
+  padding-right: .4em;
+}
+#sub-accordion-section-social_links > li > label input {
+  flex: 1;
+  max-width: 70%;
+}
+#customize-control-foursquare .customize-control-title, #customize-control-email-form .customize-control-title, #customize-control-push .customize-control-title {
+  font-size: .96em;
+}
