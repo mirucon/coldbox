@@ -6,7 +6,7 @@ function cd_czr_style() {
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
 function cd_social_sites() {
-  global $social_sites;
+  $social_sites;
   $social_sites = array(
     'twitter'       => 'cd_twitter_profile',
     'facebook'      => 'cd_facebook_profile',
@@ -602,10 +602,12 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       *  Social Accounts
       * -------------------------------------------------------------------------- */
       $wp_customize->add_section( 'social_links', array(
-        'title' => 'Coldbox: Social Links',
-        'description' => 'Add your social account profiles here. Please enter the full URL.',
+        'title' => __( 'Coldbox: Social Links', 'coldbox' ),
+        'description' => __( 'Add your social account profiles here. Please enter the full URL.', 'coldbox' ),
         'priority' => 5,
       ));
+
+      $social_sites = cd_social_sites();
 
       foreach ( $social_sites as $social_site => $value ) {
 
@@ -689,8 +691,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Social Links
       function cd_social_links() {
 
+      $social_sites = cd_social_sites();
+
         // Get the social account names and URLs
-        foreach ( cd_social_sites() as $key => $value ) {
+        foreach ( $social_sites as $key => $value ) {
           if ( strlen( get_theme_mod( $key ) ) > 0 ) {
             $active_links[$key] = get_theme_mod( $key );
           }
@@ -722,7 +726,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
         }
 
-      } echo cd_social_links();
+      }
 
     }
     add_action( 'customize_register', 'cd_customize_register' );

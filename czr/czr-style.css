@@ -53,6 +53,6 @@ li[id^='customize-control-sns_button_'] {
   flex: 1;
   max-width: 70%;
 }
-#customize-control-foursquare .customize-control-title, #customize-control-email-form .customize-control-title, #customize-control-push .customize-control-title {
+#customize-control-foursquare .customize-control-title, #customize-control-email-form .customize-control-title, #customize-control-bell .customize-control-title {
   font-size: .96em;
 }
