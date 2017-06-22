@@ -15,7 +15,7 @@
 
             <div class="error-messages">
 
-              <p><?php _e( 'The page does not exist, or has been moved. The search box or menus may help you to find what you are looking for.', 'coldbox') ?></p>
+              <p><?php esc_html_e( 'The page does not exist, or has been moved. The search box or menus may help you to find what you are looking for.', 'coldbox') ?></p>
               <?php get_search_form(); ?>
 
             </div>

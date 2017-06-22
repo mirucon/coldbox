@@ -16,9 +16,9 @@
             <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
 
               <?php if ( cd_archive_style() === 'grid' ): ?>
-                <?php get_template_part('content','grid') ?>
+                <?php get_template_part( 'content','grid' ) ?>
               <?php elseif ( cd_archive_style() === 'standard' ): ?>
-                <?php get_template_part('content','standard') ?>
+                <?php get_template_part( 'content','standard' ) ?>
               <?php endif; ?>
 
             <?php endwhile; ?>
@@ -28,7 +28,7 @@
             <?php else: ?>
 
               <div class="error-messages">
-                <h2><?php _e( 'Posts Not Found!', 'coldbox' ); ?></h2>
+                <h2><?php esc_html_e( 'Posts Not Found!', 'coldbox' ); ?></h2>
               </div>
 
             <?php endif; ?>

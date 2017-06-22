@@ -28,7 +28,7 @@
             <?php else: ?>
 
               <div class="error-messages">
-                <h2><?php _e( 'Posts Not Found!', 'coldbox' ); ?></h2>
+                <h2><?php esc_html_e( 'Posts Not Found!', 'coldbox' ); ?></h2>
               </div>
 
             <?php endif; ?>

@@ -18,7 +18,7 @@ $query = new WP_Query($args); ?>
 <?php if ( $query -> have_posts() ): ?>
   <section class="related-posts content-box">
 
-    <h4 class="related-head"><?php _e( 'Related Posts', 'coldbox' ); ?></h4>
+    <h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
     <ul class="related-posts-list">
       <?php while ( $query -> have_posts() ): $query -> the_post(); ?>
 
@@ -30,7 +30,7 @@ $query = new WP_Query($args); ?>
                 <?php if ( has_post_thumbnail() ): ?>
                   <?php the_post_thumbnail('thumb-standard'); ?>
                 <?php else: ?>
-                  <img src="<?php echo get_template_directory_uri(); ?>/img/thumb-standard.png" alt="noimage">
+                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="noimage">
                 <?php endif; ?>
               </a>
             </figure>

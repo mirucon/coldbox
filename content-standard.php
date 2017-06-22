@@ -5,7 +5,7 @@
       <?php if ( has_post_thumbnail() ): ?>
         <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumb-standard'); ?></a>
       <?php else: ?>
-        <a href="<?php the_permalink(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/thumb-standard.png" alt="<?php the_title(); ?>"></a>
+        <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="<?php the_title(); ?>"></a>
       <?php endif; ?>
     </figure>
 
@@ -29,7 +29,7 @@
 
       </div>
 
-      <p class="more"><a href="<?php the_permalink(); ?>"><?php _e( 'READ MORE', 'coldbox' ) ?></a></p>
+      <p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ) ?></a></p>
 
     </div>
 

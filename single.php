@@ -16,7 +16,7 @@
               <div class="content-inside">
 
                 <footer class="post-meta content-box">
-                <?php if ( has_post_format() ): ?><span class="post-format"><?php echo get_post_format(); ?></span><?php endif; ?>
+                <?php if ( has_post_format() ): ?><span class="post-format"><?php echo esc_html( get_post_format() ); ?></span><?php endif; ?>
                 <?php if ( get_the_modified_time('c') != get_the_time('c') && cd_is_meta_modified() ): ?>
                   <?php if ( cd_is_meta_date() ): ?> <span class="post-date"><?php echo get_the_date(); ?></span><?php endif; ?>
                   <time class="post-modified" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
@@ -33,7 +33,7 @@
                 <div class="entry-inner"><?php the_content(); ?></div>
                 <?php wp_link_pages( $defaults = array( 'before' => '<div class="post-pages">', 'after'=> '</div>', 'link_before' => '<span class="page-number">', 'link_after' => '</span>' ) ); ?>
                 <div class="btm-post-meta">
-                  <?php if ( cd_is_meta_btm_cat() ): ?><p class="post-btm-cats"><span class="meta-label"><?php _e( 'Categories:', 'coldbox' ) ?></span><?php the_category('&#8203;'); ?> </p><?php endif; ?>
+                  <?php if ( cd_is_meta_btm_cat() ): ?><p class="post-btm-cats"><span class="meta-label"><?php esc_html_e( 'Categories:', 'coldbox' ) ?></span><?php the_category('&#8203;'); ?> </p><?php endif; ?>
                   <?php if ( cd_is_meta_btm_tag() ): ?><?php the_tags( '<p class="post-btm-tags"> <span class="meta-label">' . __( 'Tags:', 'coldbox' ) . '</span>','',' </p>'); ?><?php endif; ?>
                 </div>
                 <?php if ( cd_is_author_box() ): ?><?php get_template_part( 'parts/author-box' ); ?><?php endif; ?>

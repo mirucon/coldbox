@@ -35,7 +35,7 @@ if ( !function_exists ( 'cd_czr' ) ) {
 
   function cd_czr() {
     get_template_part ( 'czr/customizer' );
-  } 
+  }
 
 }
 add_action( 'after_setup_theme', 'cd_czr' );
@@ -313,7 +313,7 @@ if ( !function_exists ( 'cd_site_title' ) ) {
     echo '<a href="'.esc_url(home_url()).'" title="',bloginfo('name'),'">';
     if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ):
       $image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-      echo '<img src="'.$image[0].'" alt="',bloginfo('name'),'" />';
+      echo '<img src="'.esc_attr( $image[0] ).'" alt="',bloginfo('name'),'" />';
     else:
       echo bloginfo('name');
     endif;
@@ -332,31 +332,4 @@ if ( !function_exists ( 'cd_header_image' ) ) {
     add_action( 'wp_enqueue_scripts', 'cd_header_image' );
 
   }
-}
-
-/* ------------------------------------------------------------------------- *
-*  Mobile Function
-* -------------------------------------------------------------------------- */
-if ( !function_exists( 'cd_is_mobile' ) ) {
-
-  function cd_is_mobile() {
-    $useragents = array(
-      'iPhone',          // iPhone
-      'iPod',            // iPod touch
-      'Android',         // 1.5+ Android
-      'dream',           // Pre 1.5 Android
-      'CUPCAKE',         // 1.5+ Android
-      'blackberry9500',  // Storm
-      'blackberry9530',  // Storm
-      'blackberry9520',  // Storm v2
-      'blackberry9550',  // Storm v2
-      'blackberry9800',  // Torch
-      'webOS',           // Palm Pre Experimental
-      'incognito',       // Other iPhone browser
-      'webmate'          // Other iPhone browser
-    );
-    $pattern = '/'.implode('|', $useragents).'/i';
-    return preg_match($pattern, $_SERVER['HTTP_USER_AGENT']);
-  }
-
 }

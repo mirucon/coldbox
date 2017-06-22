@@ -7,12 +7,14 @@
 
     <h4 class="comment-head"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h4>
 
-    <?php $commentcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type'=> 'comment', 'count' => true, ) );
-    $pingcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type'=> 'pings', 'count' => true, ) );  ?>
+    <?php
+    $commentcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type'=> 'comment', 'count' => true, ) );
+    $pingcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type'=> 'pings', 'count' => true, ) );
+    ?>
 
     <ul class="comment-tabmenu">
-      <li class="tabitem active"><a class="noscroll" href="#comment-list">Comments<span class="count"><?php echo $commentcount ?></span></a></li>
-      <li class="tabitem"><a class="noscroll" href="#ping-list">Pingbacks<span class="count"><?php echo $pingcount ?></span></a></li>
+      <li class="tabitem active"><a class="noscroll" href="#comment-list">Comments<span class="count"><?php echo absint( $commentcount );?></span></a></li>
+      <li class="tabitem"><a class="noscroll" href="#ping-list">Pingbacks<span class="count"><?php echo absint( $pingcount ); ?></span></a></li>
     </ul>
 
     <?php if ( !empty( $comments_by_type['comment'] ) ): ?>
