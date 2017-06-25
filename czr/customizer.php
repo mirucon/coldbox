@@ -154,6 +154,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       'section'  => 'global',
       'type'     => 'checkbox',
     )));
+    $wp_customize->add_setting( 'minified_js', array(
+      'default'  => true,
+      'sanitize_callback' => 'cd_sanitize_checkbox',
+    ));
+    $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'minified_js', array(
+      'label'    => __( 'Use minified JS file', 'coldbox' ),
+      'description' => __( 'The theme will load minified JS file. Minifying JavaScript file improves loading speed of your website. It should be used unless you need to modify the theme\'s stylesheet.', 'coldbox' ),
+      'section'  => 'global',
+      'type'     => 'checkbox',
+    )));
     // Use highlight.js
     $wp_customize->add_setting( 'does_use_hljs', array(
       'default'  => false,
@@ -643,6 +653,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
       // Minified CSS
       function cd_use_minified_css() { return ( get_theme_mod( 'minified_css', true ) ); }
+      function cd_use_minified_js() { return ( get_theme_mod( 'minified_js', true ) ); }
       // Sidebar Position
       function cd_sidebar_stg() { return ( get_theme_mod( 'sidebar_position', 'right' ) ); }
       // Page Style Settings
