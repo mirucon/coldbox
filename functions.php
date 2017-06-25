@@ -53,9 +53,9 @@ if ( !function_exists ( 'cd_supports' ) ) {
     // Support thumbnail
     add_theme_support( 'post-thumbnails' );
     set_post_thumbnail_size( 500, 250, true );
-    add_image_size( 'thumb-small', 150, 150, true );
-    add_image_size( 'thumb-medium', 500, 250, true );
-    add_image_size( 'thumb-standard', 500, 500, true );
+    add_image_size( 'cd-small', 150, 150, true );
+    add_image_size( 'cd-medium', 500, 250, true );
+    add_image_size( 'cd-standard', 500, 500, true );
 
     // Support RSS link
     add_theme_support( 'automatic-feed-links' );
@@ -227,22 +227,24 @@ if ( !function_exists ( 'cd_breadcrumb' ) ) {
       global $wp_query;
       $current_cat = $wp_query->get_queried_object();
       $cat = $wp_query->get_queried_object();
-      if ( $cat->parent ) {
+
+      if ( $cat->parent ) { // If a category has parent category
         $parent = array();
         $parent_url = array();
         while ( $cat->parent ) {
-          $cat = get_category($cat->parent);
+          $cat = get_category( $cat->parent );
           $cat_name = $cat->name;
-          $cat_url = get_category_link($cat->cat_ID);
+          $cat_url = get_category_link( $cat->cat_ID );
           $parent = array_merge( $parent, array( $cat_name => $cat_url ) );
         }
-        $parent_rev = array_reverse($parent);
-        foreach ($parent_rev as $key => $value){
-          echo '<a href="'.esc_html($value).'">'.esc_html($key).'</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+        $parent_rev = array_reverse( $parent );
+        foreach ( $parent_rev as $key => $value ){
+          echo '<a href="'.esc_html( $value ).'">'.esc_html( $key ).'</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
         }
-        echo '<span>'.esc_html($current_cat->name)."</span>";
+        echo '<span>'.esc_html( $current_cat->name )."</span>";
+
       } else {
-        echo esc_html($cat->name);
+        echo esc_html( $cat->name );
       }
     } elseif ( is_author() ) {
       the_author();
@@ -261,6 +263,7 @@ if ( !function_exists ( 'cd_load_hljs' ) ) {
   function cd_load_hljs() {
 
     if ( cd_use_normal_hljs() || cd_use_web_hljs() ) {
+
       if ( cd_use_normal_hljs() && !cd_use_web_hljs() ) {
         wp_enqueue_script( 'hljs', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', array(), '9.12.0' );
       }
@@ -272,6 +275,7 @@ if ( !function_exists ( 'cd_load_hljs' ) ) {
       }
 
       wp_add_inline_script( 'hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
+      
     }
 
   }

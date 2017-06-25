@@ -24,11 +24,11 @@
 
 
   <?php elseif ( is_day() ): ?>
-    <h1><span class="title-description"><?php esc_html_e( 'Daily Archive:', 'coldbox' );?>&#32;</span><?php the_time('j F, Y'); ?></h1>
+    <h1><span class="title-description"><?php esc_html_e( 'Daily Archive:', 'coldbox' );?>&#32;</span><?php the_time( __( 'jS F, Y', 'coldbox' ) ); ?></h1>
 
 
   <?php elseif ( is_month() ): ?>
-    <h1><span class="title-description"><?php esc_html_e( 'Monthly Archive:', 'coldbox' );?>&#32;</span><?php the_time('F, Y'); ?></h1>
+    <h1><span class="title-description"><?php esc_html_e( 'Monthly Archive:', 'coldbox' );?>&#32;</span><?php the_time( __( 'F, Y', 'coldbox' ) ); ?></h1>
 
 
   <?php elseif ( is_year() ): ?>
