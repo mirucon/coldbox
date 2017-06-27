@@ -23,7 +23,7 @@
 
             <?php endwhile; ?>
 
-              <?php get_template_part('parts/page-nav') ?>
+              <?php get_template_part( 'parts/page-nav' ) ?>
 
             <?php else: ?>
 

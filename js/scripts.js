@@ -51,7 +51,10 @@ jQuery(function($) {
       if ( $('#header').css('position') == 'fixed' ) { // When header is sticked
         position -= $('#header').height();
       }
-      $('body, html').animate({scrollTop:position}, 400); // Smooth Scroll
+      if ( $('body').hasClass('header-column') ) {
+        position += $('.site-info').innerHeight();
+      }
+      $('body, html').animate({ scrollTop: position }, 300); // Smooth Scroll
       return false;
     }
   });

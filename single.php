@@ -18,11 +18,11 @@
                 <footer class="post-meta content-box">
                 <?php if ( has_post_format() ): ?><span class="post-format"><?php echo esc_html( get_post_format() ); ?></span><?php endif; ?>
                 <?php if ( get_the_modified_time('c') != get_the_time('c') && cd_is_meta_modified() ): ?>
-                  <?php if ( cd_is_meta_date() ): ?> <span class="post-date"><?php echo get_the_date(); ?></span><?php endif; ?>
+                  <?php if ( cd_is_meta_date() ): ?> <span class="post-date"><?php the_date(); ?></span><?php endif; ?>
                   <time class="post-modified" datetime="<?php the_modified_time('c'); ?>"><?php the_modified_date(); ?></time>
                 <?php endif; ?>
                 <?php if ( get_the_modified_time('c') == get_the_time('c') && cd_is_meta_date() ): ?>
-                  <time class="post-date" datetime="<?php get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+                  <time class="post-date" datetime="<?php get_the_date('c'); ?>"><?php the_date(); ?></time>
                 <?php endif; ?>
                 <?php if ( cd_is_meta_cat() ): ?><p class="post-category"><?php the_category(' / '); ?> </p><?php endif; ?>
                 <?php if ( cd_is_meta_author() ): ?><span class="post-author"><?php the_author_posts_link(); ?></span><?php endif; ?>

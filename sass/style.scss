@@ -259,15 +259,15 @@ h6 { font-size: 1.12em }
     background-color: #f0f0f0;
     padding: 0 3px;
     border-radius: 1px;
-    font-size: .92em;
-    ffont-family: 'Source Code Pro', Monaco, Menlo, 'Courier New', Consolas, monospace;
+    font-size: .96em;
+    font-family: 'Source Code Pro', Monaco, Menlo, 'Courier New', Consolas, monospace;
   }
   kbd {
     background-color: #f0f0f0;
     padding: 0 3px;
     border: 1px solid $accent;
     border-radius: 1px;
-    font-size: .92em;
+    font-size: .96em;
     font-family: 'Source Code Pro', Monaco, Menlo, 'Courier New', Consolas, monospace;
   }
 
@@ -278,6 +278,9 @@ h6 { font-size: 1.12em }
     text-align: center;
     overflow-x: auto;
     @include box-shadow($y: 1px, $blur: 1px, $color: rgba(0, 0, 0, .08));
+    tr:nth-of-type(even) {
+      background-color: #fbfbfb;
+    }
     td, th {
       border-bottom: 1px solid #ddd;
     }

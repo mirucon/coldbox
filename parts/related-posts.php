@@ -30,7 +30,7 @@ $query = new WP_Query($args); ?>
                 <?php if ( has_post_thumbnail() ): ?>
                   <?php the_post_thumbnail('thumb-standard'); ?>
                 <?php else: ?>
-                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="noimage">
+                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="noimage" height="500" width="500">
                 <?php endif; ?>
               </a>
             </figure>

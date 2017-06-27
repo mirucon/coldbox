@@ -16,14 +16,14 @@
             <?php if ( have_posts() ): while ( have_posts() ): the_post(); ?>
 
               <?php if ( cd_archive_style() === 'grid' ): ?>
-                <?php get_template_part('content','grid') ?>
+                <?php get_template_part( 'content','grid' ) ?>
               <?php elseif ( cd_archive_style() === 'standard' ): ?>
-                <?php get_template_part('content','standard') ?>
+                <?php get_template_part( 'content','standard' ) ?>
               <?php endif; ?>
 
             <?php endwhile; ?>
 
-              <?php get_template_part('parts/page-nav') ?>
+              <?php get_template_part( 'parts/page-nav' ); ?>
 
             <?php else: ?>
 

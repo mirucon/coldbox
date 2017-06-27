@@ -5,31 +5,6 @@ function cd_czr_style() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
-function cd_social_sites() {
-  $social_sites = array(
-    'twitter'       => 'cd_twitter_profile',
-    'facebook'      => 'cd_facebook_profile',
-    'google-plus'   => 'cd_googleplus_profile',
-    'linkedin'      => 'cd_linkedin_profile',
-    'youtube'       => 'cd_youtube_profile',
-    'tumblr'        => 'cd_tumblr_profile',
-    'instagram'     => 'cd_instagram_profile',
-    '500px'         => 'cd_500px_profile',
-    'codepen'       => 'cd_codepen_profile',
-    'github'        => 'cd_github_profile',
-    'steam'         => 'cd_steam_profile',
-    'foursquare'    => 'cd_foursquare_profile',
-    'slack'         => 'cd_slack_profile',
-    'skype'         => 'cd_skype_profile',
-    'paypal'        => 'cd_paypal_profile',
-    'rss'           => 'cd_rss_profile',
-    'feedly'        => 'cd_feedly_profile',
-    'email-form'    => 'cd_email_form_profile',
-    'bell'          => 'cd_push_profile',
-  );
-  return apply_filters( 'cd_social_sites', $social_sites );
-}
-
 /* ------------------------------------------------------------------------- *
 *  Theme Customizer
 * ------------------------------------------------------------------------- */
@@ -278,6 +253,34 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'label'    =>  __( 'Excerpt Ending', 'coldbox' ),
           'section'  => 'index',
           'type'     => 'text',
+        )));
+        // Meta Settings
+        $wp_customize->add_setting( 'index_meta_date', array(
+          'default'  => true,
+          'sanitize_callback' => 'cd_sanitize_checkbox',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_date', array(
+          'label'    =>  __( 'Display Post Date on Grid', 'coldbox' ),
+          'section'  => 'index',
+          'type'     => 'checkbox',
+        )));
+        $wp_customize->add_setting( 'index_meta_cat', array(
+          'default'  => true,
+          'sanitize_callback' => 'cd_sanitize_checkbox',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_cat', array(
+          'label'    =>  __( 'Display Categories on Grid', 'coldbox' ),
+          'section'  => 'index',
+          'type'     => 'checkbox',
+        )));
+        $wp_customize->add_setting( 'index_meta_comment', array(
+          'default'  => true,
+          'sanitize_callback' => 'cd_sanitize_checkbox',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_comment', array(
+          'label'    =>  __( 'Display Comments Count on Grid', 'coldbox' ),
+          'section'  => 'index',
+          'type'     => 'checkbox',
         )));
 
 
@@ -540,6 +543,17 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'title'    => __( 'Coldbox: Footer Settings', 'coldbox' ),
           'priority' => 4,
         ));
+        $wp_customize->add_setting( 'credit_text', array(
+          'default'  => '&copy;[year] <a href="[url]">[name]</a>',
+          'sanitize_callback' => 'wp_filter_post_kses',
+        ));
+        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
+          'label'    => __( 'Edit the Credit Content','coldbox' ),
+          'description' => __( 'It will be displayed in footer area. You can use the following HTML tags: &lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ),
+          'section'  => 'footer',
+          'settings' => 'credit_text',
+          'type'     => 'textarea',
+        )));
         $wp_customize->add_setting( 'theme_credit', array(
           'default'  => true,
           'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -555,8 +569,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'sanitize_callback' => 'wp_filter_post_kses',
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
-          'label'    => __( 'Edit Theme Credit Contents','coldbox' ),
-          'description' => __( 'It will be displayed when above checked. You can use the following HTML tags: &lt;a&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;p&gt;, &lt;br&gt;', 'coldbox' ),
+          'label'    => __( 'Edit the Theme Credit Content','coldbox' ),
+          'description' => __( 'It will be displayed when above checked. You can use the following HTML tags: &lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;', 'coldbox' ),
           'section'  => 'footer',
           'settings' => 'theme_credit_text',
           'type'     => 'textarea',
@@ -610,42 +624,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       /* ------------------------------------------------------------------------- *
       *  Social Accounts
       * -------------------------------------------------------------------------- */
-      $wp_customize->add_section( 'social_links', array(
-        'title' => __( 'Coldbox: Social Links', 'coldbox' ),
-        'description' => __( 'Add your social account profiles here. Please enter the full URL.', 'coldbox' ),
-        'priority' => 5,
-      ));
 
-      $social_sites = cd_social_sites();
-
-      foreach ( $social_sites as $social_site => $value ) {
-
-        $label = ucfirst( $social_site );
-        if ( $social_site == 'google-plus' ) {
-          $label = 'Google+';
-        } elseif ( $social_site == 'rss' ) {
-          $label = 'RSS';
-        } elseif ( $social_site == 'codepen' ) {
-          $label = 'CodePen';
-        } elseif ( $social_site == 'paypal' ) {
-          $label = 'PayPal';
-        } elseif ( $social_site == 'email-form' ) {
-          $label = 'Contact Form';
-        } elseif ( $social_site == 'bell' ) {
-          $label = 'Push Notification';
-        }
-
-        $wp_customize->add_setting( $social_site, array(
-          'sanitize_callback' => 'esc_url_raw',
-        ));
-
-        $wp_customize->add_control( $social_site, array(
-          'type'    => 'url',
-          'label'   => $label,
-          'section' => 'social_links',
-        ));
-
-      }
 
 
       } // End Customizer
@@ -661,6 +640,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       function cd_archive_style() { return ( get_theme_mod( 'archive_style', 'grid' ) ); }
       function cd_is_site_desc() { return ( get_theme_mod( 'site_desc', true ) ); }
       function cd_header_direction() { return ( get_theme_mod( 'header_direction', 'column' ) ); }
+      // Index Metas
+      function cd_index_meta_date() { return ( get_theme_mod( 'index_meta_date', true ) ); }
+      function cd_index_meta_cat() { return ( get_theme_mod( 'index_meta_cat', true ) ); }
+      function cd_index_meta_comment() { return ( get_theme_mod( 'index_meta_comment', true ) ); }
       // Excerpt Settings
       function cd_czr_excerpt_length() { return ( get_theme_mod( 'excerpt_length', 60 ) ); }
       function cd_czr_excerpt_ending() { return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) ); }
@@ -694,49 +677,19 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       function cd_use_snsb_pocket() { return ( get_theme_mod( 'sns_button_pocket', true ) ); }
       function cd_use_snsb_feedly() { return ( get_theme_mod( 'sns_button_feedly', true ) ); }
       function cd_twitter_username() { return ( get_theme_mod( 'twitter_username', '' ) ); }
-      // Social Links
-      function cd_social_links() {
-
-      $social_sites = cd_social_sites();
-
-        // Get the social account names and URLs
-        foreach ( $social_sites as $key => $value ) {
-          if ( strlen( get_theme_mod( $key ) ) > 0 ) {
-            $active_links[$key] = get_theme_mod( $key );
-          }
-        }
-
-        // If there is any registered URL
-        if ( !empty( $active_links ) ) {
-
-          echo '<ul class="social-links">';
-
-          // $key has got the social account name, $value has got the URL
-          foreach ( $active_links as $key => $value ) {
-            if ( $key == 'feedly' ) {
-              $class = 'icon-feedly';
-              function load_icomoon() { wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' ); }
-              add_action( 'wp_enqueue_scripts', 'load_icomoon' );
-            } else {
-              $class = 'fa fa-'.$key;
-            } ?>
-            <li class="<?php echo esc_attr( $key ).'-container' ?>">
-              <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value ); ?>" target="_blank">
-                <i class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $key ); ?>"></i>
-              </a>
-            </li>
-            <?php
-          }
-
-          echo "</ul>";
-
-        }
-
+      function cd_credit() {
+        $text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
+        $text = str_replace( '[year]', esc_html( date( "Y" ) ), $text );
+        $text = str_replace( '[url]', esc_url( home_url() ), $text );
+        $text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
+        return $text;
       }
 
     }
     add_action( 'customize_register', 'cd_customize_register' );
 
+    // Load Social Links Setting
+    get_template_part( 'czr/social-links' );
     // Load Font Setting
     get_template_part( 'czr/customizer-font' );
     //  Load Customizer CSS

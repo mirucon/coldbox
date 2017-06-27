@@ -37,6 +37,9 @@
 
   <?php elseif ( is_author() ): ?>
     <h1><span class="title-description"><?php esc_html_e( 'Author:', 'coldbox' );?>&#32;</span><?php the_author_meta( 'display_name' ); ?></h1>
+    <div class="taxonomy-description">
+      <?php the_author_meta( 'description' ); ?>
+    </div>
 
 
   <?php elseif ( is_404() ): ?>
