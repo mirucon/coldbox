@@ -40,7 +40,7 @@
               </div>
 
               <?php get_template_part('parts/sns-button');
-              if ( cd_is_post_related() ) { get_template_part('parts/related-posts'); }
+              if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
               if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
               if ( cd_is_post_nav() ) { get_template_part('parts/post-nav'); } ?>
 

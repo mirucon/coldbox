@@ -34,7 +34,7 @@ jQuery(function($) {
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
-  $('a[href*=#]').not('.noscroll').not('a[href^="#comment-list"]').not('a[href^="#ping-list"]').click(function() {
+  $('a[href*="#"]').not('.noscroll').not('a[href^="#comment-list"]').not('a[href^="#ping-list"]').click(function() {
     var href = $(this).prop('href'); // Get property of the link
     var hrefPageUrl = href.split('#')[0];
     var currentUrl = location.href;

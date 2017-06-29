@@ -11,9 +11,11 @@ add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 if ( !function_exists( 'cd_customize_register' ) ) {
   function cd_customize_register( $wp_customize ) {
 
+    // Sanitize Functions
     function cd_sanitize_checkbox( $checked ){ return ( ( isset( $checked ) && true == $checked ) ? true : false ); }
     function cd_sanitize_radio( $input, $setting ) { $input = sanitize_key( $input ); $choices = $setting->manager->get_control($setting->id)->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
     function cd_sanitize_text( $text ) { return sanitize_text_field( $text ); }
+    // To output HTML
     if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
       class cd_Custom_Content extends WP_Customize_Control {
         public $content = '';
@@ -447,93 +449,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
             'min'      => '1',
           ),
         )));
-        /*   SNS Buttons
-        /* -------------------------------------------------- */
-        $wp_customize->add_setting( 'sns_buttons', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
-        $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'sns_buttons', array(
-          'content' => '<h3 class="czr-heading">' . __( 'Settings for SNS Buttons', 'coldbox' ) . '</h3>', 'section' => 'single',
-          ) ) );
-        $wp_customize->add_setting( 'sns_button', array(
-          'default'  => false,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button', array(
-          'label'    => __( 'Display SNS Buttons', 'coldbox' ),
-          'description' => __( 'Requires SNS Count Cache plugin installed and enabled', 'coldbox'),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Twitter
-        $wp_customize->add_setting( 'sns_button_twitter', array(
-          'default'  => true,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_twitter', array(
-          'label'    => __( ' - Twitter', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Facebook
-        $wp_customize->add_setting( 'sns_button_facebook', array(
-          'default'  => true,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_facebook', array(
-          'label'    => __( ' - Facebook', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // hatena Bookmark
-        $wp_customize->add_setting( 'sns_button_hatena', array(
-          'default'  => false,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_hatena', array(
-          'label'    => __( ' - Hatena Bookmark', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Google Plus
-        $wp_customize->add_setting( 'sns_button_googleplus', array(
-          'default'  => true,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_googleplus', array(
-          'label'    => __( ' - Google Plus', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Pocket
-        $wp_customize->add_setting( 'sns_button_pocket', array(
-          'default'  => true,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_pocket', array(
-          'label'    => __( ' - Pocket', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Feedly
-        $wp_customize->add_setting( 'sns_button_feedly', array(
-          'default'  => true,
-          'sanitize_callback' => 'cd_sanitize_checkbox',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sns_button_feedly', array(
-          'label'    => __( ' - Feedly', 'coldbox' ),
-          'section'  => 'single',
-          'type'     => 'checkbox',
-        )));
-        // Twitter username
-        $wp_customize->add_setting( 'twitter_username', array(
-          'default'  => '',
-          'sanitize_callback' => 'cd_sanitize_text',
-        ));
-        $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'twitter_username', array(
-          'label'    => 'Twitter Username',
-          'description' => 'Enter your Twitter username without "@" suffix. The username will be shown in tweets.',
-          'section'  => 'single',
-          'type'     => 'text',
-        )));
 
 
         /* ------------------------------------------------------------------------- *
@@ -668,15 +583,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       // Hightlight.js
       function cd_use_normal_hljs() { return ( get_theme_mod( 'does_use_hljs', false ) ); }
       function cd_use_web_hljs() { return ( get_theme_mod( 'use_hljs_web_pack', false ) ); }
-      // SNS Buttons
-      function cd_use_snsb() { return ( get_theme_mod( 'sns_button', false ) ); }
-      function cd_use_snsb_twitter() { return ( get_theme_mod( 'sns_button_twitter', true ) ); }
-      function cd_use_snsb_facebook() { return ( get_theme_mod( 'sns_button_facebook', true ) ); }
-      function cd_use_snsb_hatena() { return ( get_theme_mod( 'sns_button_hatena', true ) ); }
-      function cd_use_snsb_googleplus() { return ( get_theme_mod( 'sns_button_googleplus', true ) ); }
-      function cd_use_snsb_pocket() { return ( get_theme_mod( 'sns_button_pocket', true ) ); }
-      function cd_use_snsb_feedly() { return ( get_theme_mod( 'sns_button_feedly', true ) ); }
-      function cd_twitter_username() { return ( get_theme_mod( 'twitter_username', '' ) ); }
       function cd_credit() {
         $text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
         $text = str_replace( '[year]', esc_html( date( "Y" ) ), $text );

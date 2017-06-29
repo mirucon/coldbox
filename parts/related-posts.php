@@ -9,11 +9,11 @@ foreach ( $categories as $category ) {
 }
 $args = array(
   'post__not_in' => array($post -> ID),
-  'posts_per_page' => cd_single_related_max(), // You can change this value on the customizer.
+  'posts_per_page' => cd_single_related_max(), // You can change this value on the theme customizer.
   'category__in' => $category_ID,
   'orderby' => 'rand',
 );
-$query = new WP_Query($args); ?>
+$query = new WP_Query( $args ); ?>
 
 <?php if ( $query -> have_posts() ): ?>
   <section class="related-posts content-box">
@@ -28,7 +28,7 @@ $query = new WP_Query($args); ?>
             <figure class="post-thumbnail">
               <a href="<?php the_permalink(); ?>">
                 <?php if ( has_post_thumbnail() ): ?>
-                  <?php the_post_thumbnail('thumb-standard'); ?>
+                  <?php the_post_thumbnail('cd-standard'); ?>
                 <?php else: ?>
                   <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="noimage" height="500" width="500">
                 <?php endif; ?>

@@ -21,7 +21,7 @@
       <ol id="comment-list">
         <?php wp_list_comments( array( 'type' => 'comment', 'avatar_size' => 42 ) ); ?>
         <?php if ( get_comment_pages_count() > 1 ): ?>
-          <div class="comment-pages"> <?php paginate_comments_links( array('prev_text' => '&laquo;', 'next_text' => '&raquo;') ); ?> </div><!--/.comment-pages-->
+          <div class="comment-pages"><?php paginate_comments_links( array( 'prev_text' => '&laquo;', 'next_text' => '&raquo;' ) ); ?></div><!--/.comment-pages-->
         <?php endif; ?>
       </ol>
     <?php endif; ?>

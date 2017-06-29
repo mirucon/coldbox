@@ -36,6 +36,7 @@ function cd_social_sites() {
   return apply_filters( 'cd_social_sites', $social_sites );
 }
 
+
 /**
  * Register customzer for social links
  *
@@ -82,6 +83,7 @@ function cd_czr_social_links( $wp_customize ) {
   }
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
+
 
 /**
  * Output the social links that got from customizer

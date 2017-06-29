@@ -1,3 +1,5 @@
+/*   Sidebar and widgets styling
+/* -------------------------------------------------- */
 .sidebar {
   padding: 10px;
   background-color: #fafafa;
@@ -213,19 +215,15 @@
 
   }
 
-  .widgets-list-layout .widgets-list-layout-links {
-    width: calc(100% - 110px);
-    padding-top: 0.4em;
-  }
-
   .widgets-list-layout a {
     display: block;
     img { transition: all .2s; }
   }
-
   .widgets-list-layout li {
+    display: flex;
     padding-bottom: 1em;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 1em;
     img.widgets-list-layout-blavatar {
       max-width: 100px;
       width: 100px;
@@ -233,19 +231,17 @@
       transition: all .2s;
     }
   }
-
-  .widgets-list-layout li:first-child {
-    padding-top: 0;
+  .widgets-list-layout .widgets-list-layout-links {
+    width: 100%;
+    padding: .6em .5em 0;
   }
-
   .widgets-list-layout .widgets-list-layout-links a {
     color: #444;
-    transition: all 0.2s;
+    transition: all .2s;
   }
-
   .widgets-list-layout li:hover {
     a { color: $link; }
-    img { opacity: 0.8 }
+    img { opacity: .8 }
   }
 
 
