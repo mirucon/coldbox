@@ -39,7 +39,7 @@
                 <?php if ( cd_is_author_box() ): ?><?php get_template_part( 'parts/author-box' ); ?><?php endif; ?>
               </div>
 
-              <?php get_template_part('parts/sns-button');
+              <?php
               if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
               if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
               if ( cd_is_post_nav() ) { get_template_part('parts/post-nav'); } ?>

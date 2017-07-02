@@ -386,8 +386,28 @@ p.post-btm-tags, p.post-btm-cats {
 }
 
 @media only screen and (max-width: 767px) { .share-list-container { justify-content: center } }
-// @media only screen and (max-width: 369px) { .googleplus,.pocket { display: none } }
-// @media only screen and (min-width: 370px) and (max-width: 439px) { .googleplus { display: none } }
+
+/*   Password Lock
+/* -------------------------------------------------- */
+.post-password-form {
+  p:last-child {
+    display: flex;
+    flex-flow: row nowrap;
+    label {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+    }
+    input[type=password] {
+      flex-grow: 1;
+      border-right-width: 0;
+    }
+    input[type=submit] {
+      flex-shrink: 1;
+      padding: 4px 10px;
+    }
+  }
+}
 
 
 /*   Single : post formats
