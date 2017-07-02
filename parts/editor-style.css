@@ -7,6 +7,7 @@ body {
 body a {
   color: #00619F;
   box-shadow: 0 1px 0 0 currentColor;
+  text-decoration: none;
 }
 
 body a:hover {
