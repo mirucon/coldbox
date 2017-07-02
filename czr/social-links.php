@@ -38,7 +38,7 @@ function cd_social_sites() {
 
 
 /**
- * Register customzer for social links
+ * Register customzer setting for social links
  *
  * @since 1.0.3
  *

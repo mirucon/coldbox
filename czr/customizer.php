@@ -93,6 +93,16 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         'tahoma'    => 'Tahoma',
       ),
     )));
+    $wp_customize->add_setting( 'custom_font', array(
+      'default'  => '[font], Arial, sans-serif',
+      'sanitize_callback' => 'cd_sanitize_checkbox',
+    ));
+    $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'custom_font', array(
+      'label'    => __( 'Custom Font-Family Value', 'coldbox' ),
+      'description' => sprintf ( __('"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
+      'section'  => 'global',
+      'type'     => 'text',
+    )));
     $wp_customize->add_setting( 'global_font_size_pc', array(
       'default'  => 16,
       'sanitize_callback' => 'absint',
@@ -464,7 +474,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
           'label'    => __( 'Edit the Credit Content','coldbox' ),
-          'description' => __( 'It will be displayed in footer area. You can use the following HTML tags: &lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ),
+          'description' => sprintf( __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
           'section'  => 'footer',
           'settings' => 'credit_text',
           'type'     => 'textarea',
@@ -485,7 +495,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
           'label'    => __( 'Edit the Theme Credit Content','coldbox' ),
-          'description' => __( 'It will be displayed when above checked. You can use the following HTML tags: &lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;', 'coldbox' ),
+          'description' => sprintf( __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
           'section'  => 'footer',
           'settings' => 'theme_credit_text',
           'type'     => 'textarea',
@@ -535,11 +545,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'section'   => 'colors',
           'settings'  => 'footer_color',
         )));
-
-      /* ------------------------------------------------------------------------- *
-      *  Social Accounts
-      * -------------------------------------------------------------------------- */
-
 
 
       } // End Customizer

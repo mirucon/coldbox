@@ -1,5 +1,6 @@
 <?php
 if ( !function_exists ( 'cd_customizer_font' ) ) {
+
  function cd_customizer_font() {
   $font = get_theme_mod( 'global_font', 'opensans' );
 
@@ -29,65 +30,30 @@ if ( !function_exists ( 'cd_customizer_font' ) ) {
   }
 
  }
+
 }
 add_action ( 'wp_enqueue_scripts', 'cd_customizer_font' );
 
 
 if ( !function_exists ( 'cd_customizer_font_set' ) ) {
+
  function cd_customizer_font_set() {
+
   $font = get_theme_mod( 'global_font', 'opensans' );
 
-  ?>
-  <style id="font_set" type="text/css">
-  <?php if ( $font == 'opensans' ) : ?>
-  body { font-family: "Open Sans", Arial, sans-serif }
-  <?php
-  elseif ( $font == 'lato' ) : ?>
-  body { font-family: Lato, Arial, sans-serif }
-  <?php
-  elseif ( $font == 'roboto' ) : ?>
-  body { font-family: Roboto, Arial, sans-serif }
-  <?php
-  elseif ( $font == 'robotocondensed' ) : ?>
-  body { font-family: "Roboto Condensed", Arial, sans-serif }
-  <?php
-  elseif ( $font == 'ubuntu' ) : ?>
-  body { font-family: Ubuntu, Arial, sans-serif }
-  <?php
-  elseif ( $font == 'raleway' ) : ?>
-  body { font-family: Raleway, Arial, sans-serif }
-  <?php
-  elseif ( $font == 'sourcesanspro' ) : ?>
-  body { font-family: "Source Sans Pro", Arial, sans-serif }
-  <?php
-  elseif ( $font == 'josefinsans' ) : ?>
-  body { font-family: "Josefin Sans", Arial, sans-serif }
-  <?php
-  elseif ( $font == 'ptsans' ) : ?>
-  body { font-family: "PT Sans", Arial, sans-serif }
-  <?php
-  elseif ( $font == 'lora' ) : ?>
-  body { font-family: lora, Georgia, serif; }
-  <?php
-  elseif ( $font == 'robotoslab' ) : ?>
-  body { font-family: "Roboto Slab", Georgia, serif; }
-  <?php
-  elseif ( $font == 'arial' ) : ?>
-  body { font-family: Arial, sans-serif }
-  <?php
-  elseif ( $font == 'helvetica' ) : ?>
-  body { font-family: Helvetica, sans-serif; }
-  <?php
-  elseif ( $font == 'verdana' ) : ?>
-  body { font-family: Verdana, sans-serif; }
-  <?php
-  elseif ( $font == 'tahoma' ) : ?>
-  body { font-family: Tahoma, sans-serif; }
-  <?php endif; ?>
-  </style>
-  <?php
+  if ( $font == 'opensans' ) { $font = 'Open Sans'; }
+  elseif ( $font == 'sourcesanspro' ) { $font = 'Source Sans Pro'; }
+  elseif ( $font == 'josefinsans' ) { $font = 'Josefin Sans'; }
+  elseif ( $font == 'ptsans' ) { $font = 'PT Sans'; }
+  elseif ( $font == 'robotoslab' ) { $font = 'Roboto Slab'; }
 
+  $custom_ff = get_theme_mod( 'custom_font', '[font], Arial, sans-serif' );
+  $custom_ff = str_replace( '[font]', ucfirst( $font ), $custom_ff );
+  $font_family = "body { font-family: {$custom_ff}; }";
+
+  wp_add_inline_style( 'main-style', $font_family );
 
  }
+
 }
-add_action ( 'wp_head', 'cd_customizer_font_set' );
+add_action ( 'wp_enqueue_scripts', 'cd_customizer_font_set' );

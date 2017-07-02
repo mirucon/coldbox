@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-06-24 20:53+1200\n"
-"PO-Revision-Date: 2017-06-24 22:20+1200\n"
+"POT-Creation-Date: 2017-07-02 13:31+1200\n"
+"PO-Revision-Date: 2017-07-02 14:48+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -19,6 +19,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: parts\n"
 "X-Poedit-SearchPath-2: czr\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
 #: comments.php:8
 msgid "No Responses"
@@ -32,286 +33,300 @@ msgstr "1件のコメント"
 msgid "% Responses"
 msgstr "%件のコメント"
 
-#: czr/customizer.php:57
+#: czr/customizer.php:34
 msgid "Coldbox: Global Settings"
 msgstr "Coldbox: グローバル設定"
 
-#: czr/customizer.php:66
+#: czr/customizer.php:43
 msgid "Sidebar Position"
 msgstr "サイドバーの位置"
 
-#: czr/customizer.php:71
+#: czr/customizer.php:48
 msgid "Right Sidebar (default)"
 msgstr "右サイドバー (デフォルト)"
 
-#: czr/customizer.php:72
+#: czr/customizer.php:49
 msgid "Left Sidebar"
 msgstr "左サイドバー"
 
-#: czr/customizer.php:73
+#: czr/customizer.php:50
 msgid "Bottom Sidebar"
 msgstr "下サイドバー"
 
-#: czr/customizer.php:74
+#: czr/customizer.php:51
 msgid "Hide Sidebar"
 msgstr "サイドバーを非表示"
 
-#: czr/customizer.php:83
+#: czr/customizer.php:60
 msgid "Site Max-Width"
 msgstr "サイトの最大幅"
 
-#: czr/customizer.php:98
+#: czr/customizer.php:75
 msgid "Global Font Selecter"
 msgstr "フォント指定"
 
-#: czr/customizer.php:124
+#: czr/customizer.php:101
+msgid "Custom Font-Family Value"
+msgstr "Font-Family の値"
+
+#: czr/customizer.php:102
+#, php-format
+msgid "\"%s\" will be replaced with the font you've chosen above"
+msgstr "“%s” は上で選択したフォントに置き換えられます。"
+
+#: czr/customizer.php:111
 msgid "Global Font Size for PC"
 msgstr "PCでのフォントサイズ"
 
-#: czr/customizer.php:138
+#: czr/customizer.php:125
 msgid "Global Font Size for Mobile"
 msgstr "モバイルでのフォントサイズ"
 
-#: czr/customizer.php:152
+#: czr/customizer.php:139
 msgid "Use minified CSS file"
-msgstr "圧縮されたCSSを使う"
+msgstr "圧縮済みのCSSファイルを使う"
 
-#: czr/customizer.php:153
+#: czr/customizer.php:140
 msgid ""
 "The theme will load minified CSS file. Minifying css stylesheets improves "
 "loading speed of your website. It should be used unless you need to modify "
 "the theme's stylesheet."
 msgstr ""
-"これを有効化するとテーマは圧縮済みのCSSを読み込むようになります。圧縮ファイ"
-"ルはサイトの表示速度を向上させます。テーマのスタイルシートを改変 (ただしこれ"
-"は推奨されません) する場合以外は有効化しておくことをおすすめします。"
+"これを有効化するとテーマは圧縮済みのCSSを読み込むようになります。圧縮ファイル"
+"はサイトの表示速度を向上させます。テーマのスタイルシートを改変 (ただしこれは"
+"推奨されません) する場合以外は有効化しておくことをおすすめします。"
 
-#: czr/customizer.php:163
+#: czr/customizer.php:149
+msgid "Use minified JS file"
+msgstr "圧縮済みのJavascriptファイルを使う"
+
+#: czr/customizer.php:150
+msgid ""
+"The theme will load minified JS file. Minifying JavaScript file improves "
+"loading speed of your website. It should be used unless you need to modify "
+"the theme's stylesheet."
+msgstr ""
+"これを有効化するとテーマは圧縮済みのJavascriptを読み込むようになります。圧縮"
+"ファイルはサイトの表示速度を向上させます。テーマのスクリプトを改変 (ただしこ"
+"れは推奨されません) する場合以外は有効化しておくことをおすすめします。"
+
+#: czr/customizer.php:160
 msgid "Use highlight.js"
 msgstr "highlight.js を使う"
 
-#: czr/customizer.php:164
+#: czr/customizer.php:161
 msgid "The package contains 23 common languages."
 msgstr ""
 "この highlight.js パッケージは23の主要プログラミング言語を含んでいます。"
 
-#: czr/customizer.php:173
+#: czr/customizer.php:170
 msgid "Use highlight.js with Web Package"
 msgstr "Web開発系言語用の highlight.js を使う"
 
-#: czr/customizer.php:174
+#: czr/customizer.php:171
 msgid ""
 "The package contains the languages which often be used for web development. "
 "To use other languages, you may go to <a href=\"https://highlightjs.org/"
 "\">Highlight.js official site</a>."
 msgstr ""
-"このパッケージはWeb開発で比較的よく使われる言語のみを選択したものです。他の"
-"言語用のものは、<a href=“https://highlightjs.org/“>Highlight.js の公式サイト"
-"</a> からダウンロード出来ます。"
+"このパッケージはWeb開発で比較的よく使われる言語のみを選択したものです。他の言"
+"語用のものは、<a href=“https://highlightjs.org/“>Highlight.js の公式サイト</"
+"a> からダウンロード出来ます。"
 
-#: czr/customizer.php:184
+#: czr/customizer.php:181
 msgid "Coldbox: Header Settings"
 msgstr "Coldbox: ヘッダー設定"
 
-#: czr/customizer.php:193
+#: czr/customizer.php:190
 msgid "Display Site Description"
 msgstr "キャッチフレーズを表示"
 
-#: czr/customizer.php:203
+#: czr/customizer.php:200
 msgid "Header and Menu Direction"
 msgstr "ヘッダー / メニューの順序"
 
-#: czr/customizer.php:207
+#: czr/customizer.php:204
 msgid "Vertical (flex-direction: column)"
 msgstr "垂直方向"
 
-#: czr/customizer.php:208
+#: czr/customizer.php:205
 msgid "Horizontal (flex-direction: row)"
 msgstr "水平方向"
 
-#: czr/customizer.php:217
+#: czr/customizer.php:214
 msgid "Coldbox: Archive Pages Settings"
 msgstr "Coldbox: ページスタイル設定"
 
-#: czr/customizer.php:226
+#: czr/customizer.php:223
 msgid "Front Page Style"
 msgstr "トップページのスタイル"
 
-#: czr/customizer.php:231 czr/customizer.php:246
+#: czr/customizer.php:228 czr/customizer.php:243
 msgid "Grid Style (default)"
 msgstr "グリッドスタイル (デフォルト)"
 
-#: czr/customizer.php:232 czr/customizer.php:247
+#: czr/customizer.php:229 czr/customizer.php:244
 msgid "Standard Style"
 msgstr "スタンダードスタイル"
 
-#: czr/customizer.php:241
+#: czr/customizer.php:238
 msgid "Archive Page Style"
 msgstr "アーカイブページのスタイル"
 
-#: czr/customizer.php:256
+#: czr/customizer.php:253
 msgid "Excerpt Length"
 msgstr "抜粋に表示数する文字数"
 
-#: czr/customizer.php:268
+#: czr/customizer.php:265
 msgid "Excerpt Ending"
 msgstr "抜粋の最後の文字列"
 
-#: czr/customizer.php:278
+#: czr/customizer.php:275
+msgid "Display Post Date on Grid"
+msgstr "グリッド内に投稿日時を表示"
+
+#: czr/customizer.php:284
+msgid "Display Categories on Grid"
+msgstr "グリッド内にカテゴリーを表示"
+
+#: czr/customizer.php:293
+msgid "Display Comments Count on Grid"
+msgstr "グリッド内にコメント数のカウントを表示"
+
+#: czr/customizer.php:303
 msgid "Coldbox: Single Settings"
 msgstr "Coldbox: 投稿ページ設定"
 
-#: czr/customizer.php:285
+#: czr/customizer.php:310
 msgid "Settings for Content"
 msgstr "投稿内容の設定"
 
-#: czr/customizer.php:292
+#: czr/customizer.php:317
 msgid "Add Decoration to H2-H5 Tags."
 msgstr "h2-h5タグに装飾を追加"
 
-#: czr/customizer.php:301
+#: czr/customizer.php:326
 msgid "Settings for Metas"
 msgstr "メタ情報の設定"
 
-#: czr/customizer.php:309
+#: czr/customizer.php:334
 msgid "Display Post Dates"
 msgstr "投稿日時を表示"
 
-#: czr/customizer.php:319
+#: czr/customizer.php:344
 msgid "Display Post Categories"
 msgstr "カテゴリーを表示"
 
-#: czr/customizer.php:322
+#: czr/customizer.php:347
 msgid "Note: Categories are already showed on the breadcrum."
 msgstr "注: カテゴリーは上のパンくずリストに表示されています。"
 
-#: czr/customizer.php:330
+#: czr/customizer.php:355
 msgid "Display Post Author"
 msgstr "投稿者名を表示"
 
-#: czr/customizer.php:340
+#: czr/customizer.php:365
 msgid "Display Comments Count"
 msgstr "コメント数のカウントを表示"
 
-#: czr/customizer.php:350
+#: czr/customizer.php:375
 msgid "Display Post Tags on Bottom"
 msgstr "タグを表示 (下エリア)"
 
-#: czr/customizer.php:360
+#: czr/customizer.php:385
 msgid "Display Post Categories on Bottom"
 msgstr "カテゴリーを表示 (下エリア)"
 
-#: czr/customizer.php:370
+#: czr/customizer.php:395
 msgid "Display Author Box"
 msgstr "投稿者の情報ボックスを表示"
 
-#: czr/customizer.php:380
+#: czr/customizer.php:405
 msgid "Display Comments"
 msgstr "コメントを表示"
 
-#: czr/customizer.php:390
+#: czr/customizer.php:415
 msgid "Display Post Navigation"
 msgstr "投稿の前後記事リンクを表示"
 
-#: czr/customizer.php:399
+#: czr/customizer.php:424
 msgid "Settings for Related Posts"
 msgstr "関連記事の設定"
 
-#: czr/customizer.php:407
+#: czr/customizer.php:432
 msgid "Display Related Posts"
 msgstr "関連記事を表示"
 
-#: czr/customizer.php:417
+#: czr/customizer.php:442
 msgid "Related Post - Max Articles"
 msgstr "関連記事の最大記事数"
 
-#: czr/customizer.php:430
+#: czr/customizer.php:455
 msgid "Related Post - Columns"
 msgstr "関連記事グリッドのカラム数"
 
-#: czr/customizer.php:441
-msgid "Settings for SNS Buttons"
-msgstr "SNSボタンの設定"
-
-#: czr/customizer.php:448
-msgid "Display SNS Buttons"
-msgstr "SNSボタンを表示"
-
-#: czr/customizer.php:449
-msgid "Requires SNS Count Cache plugin installed and enabled"
-msgstr ""
-"SNS Count Cache プラグインがインストールされ有効化されている必要があります。"
-
-#: czr/customizer.php:459
-msgid " - Twitter"
-msgstr " - Twitter"
-
-#: czr/customizer.php:469
-msgid " - Facebook"
-msgstr " - Facebook"
-
-#: czr/customizer.php:479
-msgid " - Hatena Bookmark"
-msgstr " - はてなブックマーク"
-
-#: czr/customizer.php:489
-msgid " - Google Plus"
-msgstr " - Google Plus"
-
-#: czr/customizer.php:499
-msgid " - Pocket"
-msgstr " - Pocket"
-
-#: czr/customizer.php:509
-msgid " - Feedly"
-msgstr " - Feedly"
-
-#: czr/customizer.php:530
+#: czr/customizer.php:468
 msgid "Coldbox: Footer Settings"
 msgstr "Coldbox: フッター設定"
 
-#: czr/customizer.php:538
+#: czr/customizer.php:476
+msgid "Edit the Credit Content"
+msgstr "クレジットの内容を編集"
+
+#: czr/customizer.php:477
+#, php-format
+msgid ""
+"It will be displayed in footer area. You can use the following HTML tags: %s."
+"<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/"
+"> [url] -> This site's URL, <br/> [name] -> This site's name."
+msgstr ""
+"これはフッター内に表示されます。次の HTML タグが使用可能です: %s <br/> そして"
+"いくつかのショートコードも使えます。: <br/>[year] => 現在の年を表示<br/>\n"
+"[url] => サイトURLを表示<br/>\n"
+"[name] => サイト名を表示"
+
+#: czr/customizer.php:487
 msgid "Display Theme Credit"
 msgstr "テーマクレジットを表示"
 
-#: czr/customizer.php:548
-msgid "Edit Theme Credit Contents"
+#: czr/customizer.php:497
+msgid "Edit the Theme Credit Content"
 msgstr "テーマクレジットの内容を編集"
 
-#: czr/customizer.php:549
+#: czr/customizer.php:498
+#, php-format
 msgid ""
 "It will be displayed when above checked. You can use the following HTML "
-"tags: &lt;a&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;p&gt;, &lt;br&gt;"
+"tags: %s"
 msgstr ""
-"上の設定がオンになっている場合に表示されます。以下の HTML が使用可能です: "
-"&lt;a&gt;, &lt;b&gt;, &lt;strong&gt;, &lt;p&gt;, &lt;br&gt;"
+"上の設定がオンになっている場合に表示されます。以下の HTML が使用可能です: %s"
 
-#: czr/customizer.php:565
+#: czr/customizer.php:514
 msgid "Primary Color"
 msgstr "プライマリーカラー"
 
-#: czr/customizer.php:575
+#: czr/customizer.php:524
 msgid "Secondary Color"
 msgstr "セカンダリーカラー"
 
-#: czr/customizer.php:585
+#: czr/customizer.php:534
 msgid "Header Background"
 msgstr "ヘッダーの背景色"
 
-#: czr/customizer.php:595
+#: czr/customizer.php:544
 msgid "Footer Background"
 msgstr "フッターの背景色"
 
-#: czr/customizer.php:604
+#: czr/social-links.php:49
 msgid "Coldbox: Social Links"
 msgstr "Coldbox: ソーシャルリンク"
 
-#: czr/customizer.php:605
+#: czr/social-links.php:50
 msgid "Add your social account profiles here. Please enter the full URL."
 msgstr ""
 "ここにソーシャルアカウントを追加できます。完全なURLを入力してください。"
 
-#: functions.php:138
+#: functions.php:141
 msgid "Add widgets here"
 msgstr "サイドバーに表示するウィジェットを選択してください。"
 
@@ -339,3 +354,37 @@ msgstr "次の投稿"
 #: single.php:37
 msgid "Tags:"
 msgstr "Tags:"
+
+#, fuzzy
+#~| msgid "F, Y"
+#~ msgid ", "
+#~ msgstr "Y年 m月"
+
+#~ msgid "Settings for SNS Buttons"
+#~ msgstr "SNSボタンの設定"
+
+#~ msgid "Display SNS Buttons"
+#~ msgstr "SNSボタンを表示"
+
+#~ msgid "Requires SNS Count Cache plugin installed and enabled"
+#~ msgstr ""
+#~ "SNS Count Cache プラグインがインストールされ有効化されている必要がありま"
+#~ "す。"
+
+#~ msgid " - Twitter"
+#~ msgstr " - Twitter"
+
+#~ msgid " - Facebook"
+#~ msgstr " - Facebook"
+
+#~ msgid " - Hatena Bookmark"
+#~ msgstr " - はてなブックマーク"
+
+#~ msgid " - Google Plus"
+#~ msgstr " - Google Plus"
+
+#~ msgid " - Pocket"
+#~ msgstr " - Pocket"
+
+#~ msgid " - Feedly"
+#~ msgstr " - Feedly"
