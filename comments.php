@@ -13,8 +13,8 @@
     ?>
 
     <ul class="comment-tabmenu">
-      <li class="tabitem active"><a class="noscroll" href="#comment-list">Comments<span class="count"><?php echo absint( $commentcount );?></span></a></li>
-      <li class="tabitem"><a class="noscroll" href="#ping-list">Pingbacks<span class="count"><?php echo absint( $pingcount ); ?></span></a></li>
+      <li class="tabitem active"><a class="noscroll" href="#comment-list"><?php esc_html_e( 'Comments', 'coldbox' ); ?><span class="count"><?php echo absint( $commentcount );?></span></a></li>
+      <li class="tabitem"><a class="noscroll" href="#ping-list"><?php esc_html_e( 'Pingbacks', 'coldbox' ); ?><span class="count"><?php echo absint( $pingcount ); ?></span></a></li>
     </ul>
 
     <?php if ( !empty( $comments_by_type['comment'] ) ): ?>
