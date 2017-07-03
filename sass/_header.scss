@@ -19,6 +19,7 @@
   font-size: .94em;
   font-weight: 300;
 }
+
 .site-info {
   display: flex;
   flex-flow: row wrap;
@@ -27,12 +28,14 @@
   padding: 30px 20px;
   transition: all .4s;
 }
+
 .site-title {
   display: inline-block;
   max-width: 100%;
-  font-size: 3.0rem;
+  font-size: em(30px);
+  color: #444;
+  font-weight: 600;
   line-height: 1.2;
-  font-weight: 300;
   a { display: block }
   img { display: block; max-height: 60%; height: auto; margin: 0 auto; }
 }
@@ -43,10 +46,12 @@
   color: #666;
   font-weight: 300;
 }
+
 @media screen and (min-width: 768px) and (max-width: 768px) {
   .site-info { flex-flow: column wrap }
   .site-description { padding: .4em 1em 0; }
 }
+
 @media screen and (max-width: 767px) {
   .header-inner { padding-right: 0 }
   .site-info {
@@ -60,16 +65,18 @@
     max-width: calc(100% - 100px);
   }
   .site-description {
-    display: inline-block;
-    padding: .4em 1em 0;
+    padding: 0 em(12px) 0;
+    line-height: 1.6;
   }
 }
+
 .header-column {
   @media screen and (min-width: 768px) {
     .site-info { align-self: flex-start; width: 100%; }
     .header-inner { flex-flow: column wrap; }
   }
 }
+
 .header-row {
   @media screen and (min-width: 768px) {
     .search-toggle { height: 100% }
@@ -80,6 +87,7 @@
     padding: 15px 20px;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 782px) { body.admin-bar.header-row { #header.sticky { padding-top: 46px } } }
 @media screen and (min-width: 783px) {
   body.admin-bar.header-row { #header.sticky { padding-top: 32px } }
@@ -199,9 +207,9 @@
 
   #header-nav {
     position: fixed;
-    top: 0; left: 0; z-index: 1003;
+    top: 0; right: 0; z-index: 1003;
     width: 80%; height: 100vh;
-    padding-top: 120px;
+    padding-top: em(96px);
     background-color: #51575d;
     overflow-y: auto;
 
@@ -264,9 +272,9 @@
   .middle { transform: rotate(0deg); }
   .bottom { transform: translateY(10px); }
   &.open {
-    .top { height: 1px; transform: rotate(-45deg) translateY(0px) }
+    .top { height: 1px; transform: rotate(-45deg) translateY(0px); background-color: #f8f8f8; }
     .middle { height: 1px; opacity: 0; visibility: hidden; }
-    .bottom { height: 1px; transform: rotate(45deg) translateY(0px) }
+    .bottom { height: 1px; transform: rotate(45deg) translateY(0px); background-color: #f8f8f8; }
   }
 }
 .search-toggle {
@@ -301,6 +309,7 @@
 @media screen and (max-width: 767px) { .header-searchbar { display: none } } // Mobile
 @media screen and (min-width: 768px) { .nav-toggle, .header-searchbar { display: none } } // PC
 
+
 /*   Header: Toggle Animation
 /* -------------------------------------------------- */
 @media screen and (max-width: 767px) {
@@ -314,9 +323,9 @@
     transition: opacity .4s, visibility .4s;
   }
   #header-menu > #header-nav {
-    animation: fadeOutRight .4s both;
+    animation: fadeOutLeft .4s both;
   }
   .nav-toggle.header-menu.open + #header-menu > #header-nav {
-    animation: fadeInLeft .4s both;
+    animation: fadeInRight .4s both;
   }
 }

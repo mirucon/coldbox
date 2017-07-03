@@ -303,7 +303,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
           'title'    => __( 'Coldbox: Single Settings', 'coldbox' ),
           'priority' => 3,
         ));
-        /*   Add a decoration to header Tags
+
+        /*   Add decorations to header Tags
         /* -------------------------------------------------- */
         $wp_customize->add_setting( 'single_content', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
         $wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_content', array(
@@ -495,7 +496,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
           'label'    => __( 'Edit the Theme Credit Content','coldbox' ),
-          'description' => sprintf( __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+          'description' => sprintf( _x( 'It will be displayed when above checked. You can use the following HTML tags: %s', '%s: HTML tags', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
           'section'  => 'footer',
           'settings' => 'theme_credit_text',
           'type'     => 'textarea',

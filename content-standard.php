@@ -18,9 +18,9 @@
         </h2>
 
         <p class="post-meta">
-          <span class="post-date"><?php echo get_the_date(); ?></span>
-          <?php if ( get_post_type() === 'post' ): ?><span class="post-category"><?php the_category(' / ') ?></span><?php endif; ?>
-          <?php if ( comments_open() && cd_is_post_single_comment() ) { ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php } ?>
+          <?php if ( cd_index_meta_cat() ): ?><span class="post-date"><?php echo get_the_date(); ?></span><?php endif; ?>
+          <?php if ( get_post_type() === 'post' && cd_index_meta_cat() ): ?><span class="post-category"><?php the_category(' / ') ?></span><?php endif; ?>
+          <?php if ( comments_open() && cd_is_post_single_comment() && cd_index_meta_comment() ) { ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php } ?>
         </p>
 
         <?php if ( get_the_excerpt() != '' ): ?>

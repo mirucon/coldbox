@@ -12,7 +12,7 @@
       </figure></div>
 
       <div class="post-content">
-        <?php if ( cd_index_meta_cat() ): ?><div class="post-date"><?php the_date(); ?></div><?php endif; ?>
+        <?php if ( cd_index_meta_cat() ): ?><div class="post-date"><?php echo get_the_date(); ?></div><?php endif; ?>
         <h2 class="post-title"><?php the_title(); ?></h2>
         <?php if ( get_the_excerpt() != '' ): ?><div class="post-excerpt"><?php the_excerpt(); ?></div><?php endif; ?>
       </div>

@@ -2,9 +2,9 @@
 
 <?php while ( have_posts() ): the_post(); ?>
   <main id="main" class="main-single">
-    <article id="post-<?php the_ID(); ?>" <?php post_class('main-inner'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-inner' ); ?>>
 
-      <?php get_template_part('parts/title-box'); ?>
+      <?php get_template_part( 'parts/title-box' ); ?>
 
       <div class="container-outer">
         <div class="container">
@@ -41,8 +41,9 @@
 
               <?php
               if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
+              if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
               if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
-              if ( cd_is_post_nav() ) { get_template_part('parts/post-nav'); } ?>
+              if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); } ?>
 
               </div><!--/.content-inside-->
 

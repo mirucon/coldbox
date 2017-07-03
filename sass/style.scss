@@ -739,6 +739,9 @@ body.home { border-top-color: transparent }
   background-color: #f0f0f0;
   & > a { display: block }
 }
+
+/*   Keyframes
+/* -------------------------------------------------- */
 @keyframes fadeInLeft {
   0% {
     opacity: 0;
@@ -763,6 +766,32 @@ body.home { border-top-color: transparent }
     transform: translate3d(100%, 0, 0);
   }
 }
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+}
+@keyframes fadeOutleft {
+  0% {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -785,17 +814,17 @@ body.home { border-top-color: transparent }
 }
 
 /* ------------------------------------------------------------------------- *
-*  14. Styling for CJK
+*  14. CJK Styling
 * -------------------------------------------------------------------------- */
 :lang(ja), :lang(ko), :lang(zh) {
   .bradcrumb {
     margin-bottom: .2em;
   }
   .entry, .comment-body {
-    line-height: 1.8
+    line-height: 1.8;
   }
   h1, h2, h3, h4, h5, h6 {
-    line-height: 1.5
+    line-height: 1.5;
   }
   .related-posts .post-title {
     line-height: inherit;
@@ -803,7 +832,7 @@ body.home { border-top-color: transparent }
 }
 :lang(ja) {
   h1 {
-    font-family: Lato, "Noto Sans CJK JP Light", "Yu Gothic Light", "Hiragino Sans", Arial, sans-serif;
+    font-family: Lato, 'Noto Sans CJK JP Light', 'Yu Gothic Light', 'Hiragino Sans', Arial, sans-serif;
   }
 }
 

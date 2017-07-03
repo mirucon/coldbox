@@ -24,8 +24,8 @@
       </div>
 
       <div class="search-toggle"><span class="icon search"></span></div>
-      <?php if ( has_nav_menu('header-menu') ) { ?><div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div><?php } ?>
-      <?php if ( has_nav_menu('header-menu') ): ?>
+      <?php if ( has_nav_menu( 'header-menu' ) ) { ?><div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div><?php } ?>
+      <?php if ( has_nav_menu( 'header-menu' ) ): ?>
         <nav id="header-menu">
           <?php wp_nav_menu( array( 'theme_location'=>'header-menu', 'container'=>'', 'menu_class'=>'', 'items_wrap'=>'<ul id="header-nav" class="menu-container">%3$s</ul>') ); ?>
         </nav>
