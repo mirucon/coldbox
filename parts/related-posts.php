@@ -7,22 +7,44 @@ $max_articles = cd_single_related_max();
 $tags = wp_get_post_tags($post -> ID);
 $tag_ids = array();
 
-foreach ( $tags as $tag ) {
-  array_push( $tag_ids, $tag -> term_id);
+// Get related posts by tags first
+if ( has_tag() ) {
+  foreach ( $tags as $tag ) {
+    array_push( $tag_ids, $tag -> term_id);
+  }
+
+  $tag_args = array(
+    'post__not_in' => array($post -> ID),
+    'posts_per_page'=> $max_articles,
+    'tag__in' => $tag_ids,
+    'orderby' => 'rand',
+  );
+
+  $related_posts = get_posts( $tag_args );
+  $posts_by_cats_count = count( $related_posts );
 }
 
-$tag_args = array(
-  'post__not_in' => array($post -> ID),
-  'posts_per_page'=> $max_articles,
-  'tag__in' => $tag_ids,
-  'orderby' => 'rand',
-);
+// If article does not have tag
+if ( empty( $tags ) ) {
+  $categories = get_the_category( $post -> ID );
+  $category_ID = array();
 
-$related_posts = get_posts( $tag_args );
-$posts_by_cats_count = count( $related_posts );
+  foreach ( $categories as $category ) {
+    array_push( $category_ID, $category -> cat_ID);
+  }
+
+  $cat_args = array(
+    'post__not_in' => array( $post -> ID ),
+    'posts_per_page'=> $max_articles,
+    'category__in' => $category_ID,
+    'orderby' => 'rand',
+  );
+  $related_posts = get_posts( $cat_args );
+  $posts_by_cats_count = 0;
+}
 
 // If hasn't got enought by tags, also gets by categories
-if ( $max_articles > $posts_by_cats_count || empty( $tags ) ) {
+elseif ( $max_articles > $posts_by_cats_count ) {
 
   $categories = get_the_category( $post -> ID );
   $category_ID = array();
