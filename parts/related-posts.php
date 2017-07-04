@@ -1,7 +1,10 @@
 <?php
-/* ------------------------------------------------------------------------- *
-* Get Related Posts
-* ------------------------------------------------------------------------- */
+/**
+ * Get related posts from query
+ *
+ * @since 1.0.0
+ */
+
 $max_articles = cd_single_related_max();
 
 $tags = wp_get_post_tags($post -> ID);
@@ -24,7 +27,7 @@ if ( has_tag() ) {
   $posts_by_cats_count = count( $related_posts );
 }
 
-// If article does not have tag
+// If article has no tag
 if ( empty( $tags ) ) {
   $categories = get_the_category( $post -> ID );
   $category_ID = array();
@@ -81,9 +84,9 @@ elseif ( $max_articles > $posts_by_cats_count ) {
             <figure class="post-thumbnail">
               <a href="<?php the_permalink(); ?>">
                 <?php if ( has_post_thumbnail() ): ?>
-                  <?php the_post_thumbnail( 'cd-standard' ); ?>
+                  <?php the_post_thumbnail( 'cd-medium' ); ?>
                 <?php else: ?>
-                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="noimage" height="500" width="500">
+                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ); ?>" alt="noimage" height="250" width="500">
                 <?php endif; ?>
               </a>
             </figure>

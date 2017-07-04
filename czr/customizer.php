@@ -95,11 +95,11 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     )));
     $wp_customize->add_setting( 'custom_font', array(
       'default'  => '[font], Arial, sans-serif',
-      'sanitize_callback' => 'cd_sanitize_checkbox',
+      'sanitize_callback' => 'cd_sanitize_text',
     ));
     $wp_customize->add_control( new WP_Customize_control( $wp_customize, 'custom_font', array(
       'label'    => __( 'Custom Font-Family Value', 'coldbox' ),
-      'description' => sprintf ( __('"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
+      'description' => sprintf ( /* Translators: %s: [font](shortcode) */ __('"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
       'section'  => 'global',
       'type'     => 'text',
     )));
@@ -475,7 +475,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
           'label'    => __( 'Edit the Credit Content','coldbox' ),
-          'description' => sprintf( __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+          'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
           'section'  => 'footer',
           'settings' => 'credit_text',
           'type'     => 'textarea',
@@ -496,7 +496,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
           'label'    => __( 'Edit the Theme Credit Content','coldbox' ),
-          'description' => sprintf( _x( 'It will be displayed when above checked. You can use the following HTML tags: %s', '%s: HTML tags', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+          'description' => sprintf( /* Translators: %s: HTML Tags */ _x( 'It will be displayed when above checked. You can use the following HTML tags: %s', '%s: HTML tags', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
           'section'  => 'footer',
           'settings' => 'theme_credit_text',
           'type'     => 'textarea',
