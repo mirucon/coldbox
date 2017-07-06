@@ -258,14 +258,16 @@ h6 { font-size: 1.12em }
   }
   code {
     background-color: #f0f0f0;
-    padding: 0 3px;
+    padding: 0 .1em;
+    margin: 0 .05em;
     border-radius: 1px;
     font-size: .96em;
     font-family: 'Source Code Pro', Monaco, Menlo, 'Courier New', Consolas, monospace;
   }
   kbd {
     background-color: #f0f0f0;
-    padding: 0 3px;
+    padding: 0 .1em;
+    margin: 0 .05em;
     border: 1px solid $accent;
     border-radius: 1px;
     font-size: .96em;
@@ -690,6 +692,7 @@ body.home { border-top-color: transparent }
 .more {
   display: inline-block;
   position: relative;
+  font-family: $lato;
   transition: all .7s ease-in-out;
   a {
     display: block;
@@ -701,6 +704,28 @@ body.home { border-top-color: transparent }
     &:hover {
       background: $text;
       color: #fff;
+    }
+  }
+  .fa {
+    width: 0;
+    font-style: normal;
+    visibility: hidden;
+    opacity: 0;
+    color: #fff;
+    padding-left: 0;
+    font-size: 1.2em;
+    transition: visibility 0s, font-size 0s, opacity .7s ease-in-out, padding .7s ease-in-out;
+    &::after {
+      content: "\f061";
+      font-family: FontAwesome;
+    }
+  }
+  a:hover .fa {
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+    padding-left: .5em;
+    &::after {
     }
   }
 }
@@ -718,6 +743,8 @@ body.home { border-top-color: transparent }
 .fs20 { font-size: em(20px); }
 .sans-serif { font-family: Helvetica, Arial, sans-serif; }
 .serif { font-family: Georgia, serif; }
+.bold { font-weight: 700; }
+.semibold { font-weight: 600; }
 .monospace { font-family: "Source Code Pro", Monaco, monospace; }
 .info-1 {
   display: block;

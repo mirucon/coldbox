@@ -129,7 +129,6 @@ p.post-btm-tags, p.post-btm-cats {
   .related-posts-list {
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
   }
 
   .related-article {
@@ -185,10 +184,10 @@ p.post-btm-tags, p.post-btm-cats {
   }
   @media screen and (max-width: $bpmax-mobile) {
     .related-posts-list {
-      flex-flow: column wrap;
-    }
-    .related-article {
-      width: 100%;
+      flex-flow: row wrap;
+      .related-article {
+        width: 50%;
+      }
     }
     .related a:hover {
       .post-thumbnail img {

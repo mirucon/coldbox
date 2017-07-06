@@ -449,7 +449,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
         )));
         // Max Article
         $wp_customize->add_setting( 'single_related_col', array(
-          'default'  => 2,
+          'default'  => 3,
           'sanitize_callback' => 'absint',
         ));
         $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_related_col', array(

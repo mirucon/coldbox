@@ -3,13 +3,13 @@
 
     <figure class="post-thumbnail">
       <?php if ( has_post_thumbnail() ): ?>
-        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('cd-standard'); ?></a>
+        <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'cd-standard' ); ?></a>
       <?php else: ?>
         <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="<?php the_title(); ?>"></a>
       <?php endif; ?>
     </figure>
 
-    <div class="post-content flex-column">
+    <div class="post-content">
 
       <div class="post-header">
 
@@ -29,7 +29,7 @@
 
       </div>
 
-      <p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ) ?></a></p>
+      <p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ) ?><i class="fa"></i></a></p>
 
     </div>
 

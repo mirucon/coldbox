@@ -39,12 +39,6 @@ body.home #main {
     transition: all .3s ease-out;
     @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
   }
-  .post-link {
-    display: block;
-    flex-grow: 1;
-    width: 100%;
-    @include box-shadow($x: 0, $y: 1px, $blur: 0, $color: rgba(0, 0, 0, .04));
-  }
 
   .post-thumbnail {
     display: block;
@@ -98,58 +92,15 @@ body.home #main {
     &::before { content: "\f114"; padding-right: 0 }
   }
   .post-comment {
-    &::before { content: ""; }
     a::before { content: "\f0e5"; display: inline-block; padding-right: .2em; font-family: FontAwesome; }
   }
 
   // Hover Animations
-  // .post-thumbnail figure::after {
-  //   position: absolute;
-  //   top: calc(50% - 11px); right: calc(50% - 42px); z-index: 2;
-  //   color: transparent;
-  //   transition: all .4s ease-out;
-  // }
-  // .post-thumbnail figure::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0; right: 0; bottom: 0; left: 0; z-index: 2;
-  // }
-  // .post-thumbnail::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
-  //   border-top: 1px solid transparent;
-  //   border-bottom: 1px solid transparent;
-  //   transform: scale(0, 1);
-  // }
-  // .post-thumbnail::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: 12px; right: 12px; bottom: 12px; left: 12px; z-index: 3;
-  //   border-right: 1px solid transparent;
-  //   border-left: 1px solid transparent;
-  //   transform: scale(1, 0);
-  // }
   .post-inner:hover {
     @include box-shadow($y: 6px, $blur: 10px, $spread: 0);
     transform: translate(0, -1px);
   }
   .post-inner a:hover {
-    // .post-thumbnail figure::before {
-    //   width: 100%; height: 100%;
-    //   background-color: rgba($blue, .2);
-    // }
-    // .post-thumbnail figure::after {
-    //   content: "Read More...";
-    //   color: #fff;
-    //   transition: all .4s ease-out;
-    // }
-    // .post-thumbnail::before, .post-thumbnail::after {
-    //   transform: scale(1);
-    //   transition: transform .4s;
-    // }
-    // .post-thumbnail::before { border-top-color: #fff; border-bottom-color: #fff; }
-    // .post-thumbnail::after { border-right-color: #fff; border-left-color: #fff }
     .post-thumbnail img {
       filter: blur(1px);
     }
@@ -172,23 +123,23 @@ body.home #main {
     display: flex;
     flex-flow: row wrap;
     position: relative;
-    padding: 15px 15px 15px 15px + 15px + 200px;
+    padding: 20px;
     background-color: #fff;
-    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .06));
+    transition: .3s all;
+    @include box-shadow($y: 1px, $blur: 4px, $color: rgba(0, 0, 0, .1));
   }
   .post-header {
     flex-grow: 1;
     width: 100%;
   }
   .post-thumbnail {
-    width: 100%;
+    flex-shrink: 1;
     max-width: 200px;
     position: relative;
-    margin-right: 15px;
-    margin-left: -215px;
-    transition: all .4s;
+    margin-right: 20px;
     align-self: flex-start;
-    @include box-shadow($blur: 6px);
+    transition: .3s all;
+    @include box-shadow($blur: 3px);
     img {
       display: block;
       width: 100%;
@@ -201,12 +152,12 @@ body.home #main {
     font-size: 1.4em;
     line-height: 1.3;
     font-weight: bold;
-    a {
-      display: block;
-    }
+    a { display: block; transition: .3s all; }
   }
   .post-content {
-    width: 100%
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
   }
   .post-meta {
     margin: 12px 0;
@@ -219,11 +170,14 @@ body.home #main {
   .more {
     align-self: flex-start;
   }
-  .post-title:hover {
-    color: $link;
-  }
-  .post-thumbnail:hover {
-    opacity: .9;
+  .post-inner:hover {
+    @include box-shadow($x: 0, $y: 0, $blur: 2px, $spread: 1px, $color: rgba(0, 0, 0, .22));
+    .post-title {
+      color: $link;
+    }
+    .post-thumbnail {
+      opacity: .9;
+    }
   }
 
   @media screen and (max-width: $bpmax-mobile) {

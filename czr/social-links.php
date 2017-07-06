@@ -1,16 +1,16 @@
 <?php
 /**
- * Social Links Option
- *
- * @since 1.0.3
- */
+* Social Links Option
+*
+* @since 1.0.3
+*/
 
 
 /**
- * Define supported social accounts
- *
- * @since 1.0.3
- */
+* Define supported social accounts
+*
+* @since 1.0.3
+*/
 function cd_social_sites() {
   $social_sites = array(
     'twitter'       => 'cd_twitter_profile',
@@ -38,11 +38,11 @@ function cd_social_sites() {
 
 
 /**
- * Register customzer setting for social links
- *
- * @since 1.0.3
- *
- */
+* Register customzer setting for social links
+*
+* @since 1.0.3
+*
+*/
 function cd_czr_social_links( $wp_customize ) {
 
   $wp_customize->add_section( 'social_links', array(
@@ -86,12 +86,25 @@ add_action( 'customize_register', 'cd_czr_social_links' );
 
 
 /**
- * Output the social links that got from customizer
+ * Load Icomoon web font if feedly social link is used
  *
  * @since 1.0.3
- * @param string $key social account name
- * @param string $value social account profile URL user entered
  */
+function load_icomoon() {
+  if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
+    wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' );
+  }
+}
+add_action( 'wp_enqueue_scripts', 'load_icomoon' );
+
+
+/**
+* Output the social links that got from customizer
+*
+* @since 1.0.3
+* @param string $key social account name
+* @param string $value social account profile URL user entered
+*/
 
 function cd_social_links() {
 
@@ -112,8 +125,6 @@ function cd_social_links() {
     foreach ( $active_links as $key => $value ) {
       if ( $key == 'feedly' ) {
         $class = 'icon-feedly';
-        function load_icomoon() { wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' ); }
-        add_action( 'wp_enqueue_scripts', 'load_icomoon' );
       } else {
         $class = 'fa fa-'.$key;
       } ?>

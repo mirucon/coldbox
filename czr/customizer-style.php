@@ -40,12 +40,12 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     if ( get_theme_mod( 'link_color', '#00619f' ) != '#00619f' ) {
       $color_link = get_theme_mod( 'link_color' );
       $czr_color_link = "
-      .entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover, .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a, .related-posts .post:hover .post-title, .post-pages, .grid-view .post-inner a:hover .post-title, .standard-view .post-title:hover, ul.page-numbers, .widget #wp-calendar a, .widget .widgets-list-layout li:hover a, #comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages, .comment-pages a,.comment-pages span, .comment-body a, .comment-tabmenu .active > a { color: $color_link; }
+      .entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover, .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a, .related-posts .post:hover .post-title, .post-pages, .grid-view .post-inner a:hover .post-title, .standard-view .post-title:hover, ul.page-numbers, .widget #wp-calendar a, .widget .widgets-list-layout li:hover a, #comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages, .comment-pages a,.comment-pages span, .comment-body a, .comment-tabmenu .active > a, .standard-view .post-inner:hover .post-title { color: $color_link; }
       #comments input[type=submit], .post-tags a, .post-tags a, .main-archive .post-date, .action-bar { background-color: $color_link; }
       textarea:focus { border-color: $color_link; }
       .comment-pages > a:hover, .comment-pages span, .post-pages > a:hover>span,.post-pages>span, ul.page-numbers span.page-numbers.current, ul.page-numbers a.page-numbers:hover { border-bottom-color: $color_link; }
       ::selection { background-color: $color_link; }
-      ::moz-selection { background-color: $color_link; } ";
+      ::moz-selection { background-color: $color_link; }";
       wp_add_inline_style( 'main-style', $czr_color_link );
     }
 
@@ -76,15 +76,9 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
     }
 
     // Related Posts Columns
-    if ( get_theme_mod( 'single_related_col', 2 ) != 2 ) {
+    if ( get_theme_mod( 'single_related_col', 3 ) != 3 ) {
       $rel_col = get_theme_mod( 'single_related_col' );
-      if ( $rel_col == 1 ) {
-        $czr_rel_col = "
-        .related-posts .related-article { width: 100%; } ";
-      } else {
-        $czr_rel_col = "
-        .related-posts .related-article { width: calc(100% / $rel_col - 10px); } ";
-      }
+      $czr_rel_col = " .related-posts .related-article { width: calc(100% / {$rel_col}); } ";
       wp_add_inline_style( 'main-style', $czr_rel_col );
     }
 

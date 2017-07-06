@@ -18,11 +18,26 @@
   }
  }
 
- #copyright {
+ .copyright {
+  flex-grow: 1;
   font-weight: 300;
   font-size: .96em;
   line-height: 1.6;
  }
+
+ .social-links {
+   flex: 1;
+ }
+}
+
+.social-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  i {
+    font-size: 1.7em;
+  }
+  li:not(:last-child) i { padding-right: .2em; }
 }
 
 
