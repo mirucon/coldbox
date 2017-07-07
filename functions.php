@@ -268,16 +268,35 @@ if ( !function_exists ( 'cd_load_hljs' ) ) {
     if ( cd_use_normal_hljs() || cd_use_web_hljs() ) {
 
       if ( cd_use_normal_hljs() && !cd_use_web_hljs() ) {
-        wp_enqueue_script( 'hljs', '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js', array(), '9.12.0' );
+        if ( cd_use_minified_js() ) {
+          wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . './js/scripts+hljs.js', array('jquery'), '9.12.0' );
+          wp_dequeue_script( 'scripts' );
+        } else {
+          wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight.js', array(), '9.12.0' );
+        }
       }
+
       elseif ( cd_use_web_hljs() && !cd_use_normal_hljs() ) {
-        wp_enqueue_script( 'hljs', get_template_directory_uri().'/js/highlight-web.js', array(), '9.12.0' );
+        if ( cd_use_minified_js() ) {
+          wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array('jquery'), '9.12.0' );
+          wp_dequeue_script( 'scripts' );
+        } else {
+          wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
+        }
       }
+
       elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
-        wp_enqueue_script( 'hljs', get_template_directory_uri().'/js/highlight-web.js', array(), '9.12.0' );
+        if ( cd_use_minified_js() ) {
+          wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array('jquery'), '9.12.0' );
+          wp_dequeue_script( 'scripts' );
+        } else {
+          wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
+        }
       }
 
       wp_add_inline_script( 'hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
+      wp_add_inline_script( 'scripts-hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
+      wp_add_inline_script( 'scripts-hljs-web', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
 
     }
 

@@ -10,6 +10,7 @@ var minify = require('gulp-minify');
 var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
+var concat = require("gulp-concat");
 
 gulp.task( 'sass', function() {
   var processors = [
@@ -37,12 +38,23 @@ gulp.task( 'js-min', function() {
   .pipe(gulp.dest('js/'))
 });
 
+gulp.task( 'js-concat-hljs', function() {
+  return gulp.src( ['js/highlight.js', 'js/scripts.min.js'] )
+  .pipe(concat('scripts+hljs.js'))
+  .pipe(gulp.dest( 'js/' ));
+});
+
+gulp.task( 'js-concat-hljs-web', function() {
+  return gulp.src( ['js/highlight-web.js', 'js/scripts.min.js'] )
+  .pipe(concat( 'scripts+hljs_web.js' ))
+  .pipe(gulp.dest( 'js/' ));
+});
+
 gulp.task( 'browser-sync', function () {
   browserSync({
     open: 'external',
     notify: false,
     proxy: "http://coldbox.vccw/",
-    port: "8000",
   });
 });
 
@@ -68,7 +80,7 @@ gulp.task('bs-reload', function () {
 });
 gulp.task('default', ['browser-sync'], function () {
   gulp.watch("sass/*.scss", ['sass', 'bs-reload', 'css-min']);
-  gulp.watch("js/*.*", ['bs-reload', 'js-min']);
+  gulp.watch("js/*.*", ['bs-reload', 'js-min', 'js-concat-hljs-web', 'js-concat-hljs']);
   gulp.watch("parts/*.*", ['bs-reload']);
   gulp.watch("parts/*.scss", ['editor-sass', 'editor-min'])
   gulp.watch("czr/*.*", ['bs-reload']);
