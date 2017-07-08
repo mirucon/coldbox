@@ -20,7 +20,6 @@
   .copyright {
     flex-shrink: 1;
     font-weight: 300;
-    font-size: .96em;
     line-height: 1.6;
   }
 
@@ -51,6 +50,10 @@
     }
     .social-links {
       padding-top: .9em;
+      justify-content: space-around;
+    }
+    .copyright {
+      text-align: center;
     }
   }
 

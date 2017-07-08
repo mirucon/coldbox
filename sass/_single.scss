@@ -122,6 +122,15 @@ p.post-btm-tags, p.post-btm-cats {
     }
     a::before, a::after { content: none }
   }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    .author-infomation {
+      display: block;
+    }
+    .author-links {
+      margin-left: 0;
+    }
+  }
 }
 
 

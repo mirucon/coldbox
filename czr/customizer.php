@@ -497,7 +497,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 		$wp_customize->add_setting( 'theme_credit_text', array(
-			'default'  => 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>',
+			'default'  => '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>',
 			'sanitize_callback' => 'wp_filter_post_kses',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
@@ -591,7 +591,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 	function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 2 ) ); }
 	// Theme credit
 	function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
-	function cd_theme_credit_text() { return get_theme_mod( 'theme_credit_text', 'Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>, <a href="https://coldbox.miruc.co/" target="_blank">Coldbox</a> theme by <a href="https://miruc.co/" target="_blank">Mirucon</a>' ) ; }
+	function cd_theme_credit_text() { return get_theme_mod( 'theme_credit_text', '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>' ) ; }
 	// Hightlight.js
 	function cd_use_normal_hljs() { return ( get_theme_mod( 'does_use_hljs', false ) ); }
 	function cd_use_web_hljs() { return ( get_theme_mod( 'use_hljs_web_pack', false ) ); }

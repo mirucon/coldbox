@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * The template for displaying footer
 *
@@ -24,7 +24,7 @@
 
 	</div><!--/.container-->
 
-	<a id="back-to-top" href="#"><span class="chevron-up"></span></a>
+	<a id="back-to-top" class="noscroll" href="#"><span class="chevron-up"></span></a>
 
 </footer>
 

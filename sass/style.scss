@@ -377,7 +377,8 @@ h6 { font-size: 1.12em }
   a:hover { color: $link }
   @media screen and (max-width: $bpmax-mobile) {
     &-inner {
-      padding-right: 15px; padding-left: 15px;
+      padding-right: 10px;
+      padding-left: 10px;
     }
   }
 }
@@ -679,7 +680,7 @@ body.home { border-top-color: transparent }
   i {
     font-size: 1.55em;
   }
-  & > li:not(:last-child) { margin-right: .5em; }
+  & > li:not(:first-child) { margin-left: .5em; }
   a, a:hover { box-shadow: none; }
   a::after {
     content: attr(title);
