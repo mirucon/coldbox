@@ -1,3 +1,12 @@
+<?php
+/**
+* The template for displaying title part of the archive pages
+*
+* @since 1.0.0
+* @package coldbox
+*/
+?>
+
 <?php if ( is_category() ): ?>
   <h1><span class="title-description"><?php esc_html_e( 'Category:', 'coldbox' );?>&#32;</span><?php echo single_cat_title(); ?></h1>
   <?php if ( term_description() != '' ): ?>

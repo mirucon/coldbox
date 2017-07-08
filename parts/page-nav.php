@@ -1,4 +1,14 @@
 <?php
+/**
+* The template for displaying paginate links
+*
+* @since 1.0.0
+* @package coldbox
+*/
+?>
+
+
+<?php
 global $wp_query;
 $paginate_links = paginate_links( array(
   'type'               => 'list',

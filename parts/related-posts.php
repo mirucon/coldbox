@@ -1,6 +1,6 @@
 <?php
 /**
- * Get related posts from query
+ * The template for getting and display related posts from query
  *
  * @since 1.0.0
  */
@@ -12,98 +12,98 @@ $tag_ids = array();
 
 // Get related posts by tags first
 if ( has_tag() ) {
-  foreach ( $tags as $tag ) {
-    array_push( $tag_ids, $tag -> term_id );
-  }
+	foreach ( $tags as $tag ) {
+		array_push( $tag_ids, $tag -> term_id );
+	}
 
-  $tag_args = array(
-    'post__not_in' => array( $post -> ID ),
-    'posts_per_page'=> $max_articles,
-    'tag__in' => $tag_ids,
-    'orderby' => 'rand',
-  );
+	$tag_args = array(
+		'post__not_in' => array( $post -> ID ),
+		'posts_per_page'=> $max_articles,
+		'tag__in' => $tag_ids,
+		'orderby' => 'rand',
+	);
 
-  $related_posts = get_posts( $tag_args );
-  $posts_by_cats_count = count( $related_posts );
+	$related_posts = get_posts( $tag_args );
+	$posts_by_cats_count = count( $related_posts );
 }
 
 // If article has no tag
 if ( empty( $tags ) ) {
-  $categories = get_the_category( $post -> ID );
-  $category_ID = array();
+	$categories = get_the_category( $post -> ID );
+	$category_ID = array();
 
-  foreach ( $categories as $category ) {
-    array_push( $category_ID, $category -> cat_ID);
-  }
+	foreach ( $categories as $category ) {
+		array_push( $category_ID, $category -> cat_ID);
+	}
 
-  $cat_args = array(
-    'post__not_in' => array( $post -> ID ),
-    'posts_per_page'=> $max_articles,
-    'category__in' => $category_ID,
-    'orderby' => 'rand',
-  );
-  $related_posts = get_posts( $cat_args );
-  $posts_by_cats_count = 0;
+	$cat_args = array(
+		'post__not_in' => array( $post -> ID ),
+		'posts_per_page'=> $max_articles,
+		'category__in' => $category_ID,
+		'orderby' => 'rand',
+	);
+	$related_posts = get_posts( $cat_args );
+	$posts_by_cats_count = 0;
 }
 
 // If hasn't got enought by tags, also gets by categories
 elseif ( $max_articles > $posts_by_cats_count ) {
 
-  $categories = get_the_category( $post -> ID );
-  $category_ID = array();
+	$categories = get_the_category( $post -> ID );
+	$category_ID = array();
 
-  foreach ( $categories as $category ) {
-    array_push( $category_ID, $category -> cat_ID);
-  }
+	foreach ( $categories as $category ) {
+		array_push( $category_ID, $category -> cat_ID);
+	}
 
-  $cat_args = array(
-    'post__not_in' => array( $post -> ID ),
-    'posts_per_page'=> ( $max_articles - $posts_by_cats_count ),
-    'category__in' => $category_ID,
-    'orderby' => 'rand',
-  );
-  $posts_by_cats = get_posts( $cat_args );
+	$cat_args = array(
+		'post__not_in' => array( $post -> ID ),
+		'posts_per_page'=> ( $max_articles - $posts_by_cats_count ),
+		'category__in' => $category_ID,
+		'orderby' => 'rand',
+	);
+	$posts_by_cats = get_posts( $cat_args );
 
-  $related_posts = array_merge( $related_posts, $posts_by_cats );
+	$related_posts = array_merge( $related_posts, $posts_by_cats );
 } ?>
 
 
 <?php if ( count( $related_posts ) > 0 ) : ?>
 
-  <section class="related-posts content-box">
+	<section class="related-posts content-box">
 
-    <h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
-    <ul class="related-posts-list">
+		<h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
+		<ul class="related-posts-list">
 
 
-      <?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
+			<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
 
-        <li class="related-article">
-          <article <?php post_class();?>>
+				<li class="related-article">
+					<article <?php post_class();?>>
 
-            <figure class="post-thumbnail">
-              <a href="<?php the_permalink(); ?>">
-                <?php if ( has_post_thumbnail() ): ?>
-                  <?php the_post_thumbnail( 'cd-medium' ); ?>
-                <?php else: ?>
-                  <img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ); ?>" alt="noimage" height="250" width="500">
-                <?php endif; ?>
-              </a>
-            </figure>
+						<figure class="post-thumbnail">
+							<a href="<?php the_permalink(); ?>">
+								<?php if ( has_post_thumbnail() ): ?>
+									<?php the_post_thumbnail( 'cd-medium' ); ?>
+								<?php else: ?>
+									<img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ); ?>" alt="noimage" height="250" width="500">
+								<?php endif; ?>
+							</a>
+						</figure>
 
-            <div class="post-content">
-              <div class="post-category"><?php the_category(' / ') ?></div>
-              <h5 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-            </div>
+						<div class="post-content">
+							<div class="post-category"><?php the_category(' / ') ?></div>
+							<h5 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+						</div>
 
-          </article>
-        </li>
+					</article>
+				</li>
 
-      <?php endforeach; ?>
+			<?php endforeach; ?>
 
-    </ul>
+		</ul>
 
-  </section>
+	</section>
 
 <?php endif; ?>
 
