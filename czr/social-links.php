@@ -2,7 +2,7 @@
 /**
 * The template for registering and displaying the social links
 * 
-* @since 1.0.3
+* @since 1.1.0
 * @package coldbox
 */
 
@@ -10,7 +10,7 @@
 /**
 * Define supported social accounts
 *
-* @since 1.0.3
+* @since 1.1.0
 */
 function cd_social_sites() {
 	$social_sites = array(
@@ -42,7 +42,7 @@ function cd_social_sites() {
 /**
 * Register customzer setting for social links
 *
-* @since 1.0.3
+* @since 1.1.0
 *
 */
 function cd_czr_social_links( $wp_customize ) {
@@ -128,7 +128,7 @@ function cd_is_links_on_author_box() { return get_theme_mod( 'links_on_author_bo
 /**
 * Load Icomoon web font if feedly social link is set
 *
-* @since 1.0.3
+* @since 1.1.0
 */
 function load_icomoon() {
 	if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
@@ -141,7 +141,7 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
 /**
 * Output the social links got from the theme customizer
 *
-* @since 1.0.3
+* @since 1.1.0
 * @param string $key social account name
 * @param string $value social account profile URL user entered
 * @param string $class class name for selecting a FontAwesome web icon

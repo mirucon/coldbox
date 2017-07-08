@@ -5,7 +5,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.0.2  
+**Version**: 1.1.0  
 **Requires at least**: version 4.3 or higher  
 **Tested up**: WordPress 4.8.0  
 **License**: GPL v3.0  
@@ -19,11 +19,15 @@ You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenera
 To get official child theme, visit [Coldbox Official Site](https://coldbox.miruc.co/)
 <!-- **Documentation** -->
 
+### Add-on Plugins
+The Social Share Buttons Add-on Plugin is now available.  
+[https://coldbox.miruc.co/addons/share-buttons-add-on/](https://coldbox.miruc.co/addons/share-buttons-add-on/)
+
 ## Theme Author information
 The Coldbox theme is designed by Mirucon  
 WordPress.org Profile: [https://profiles.wordpress.org/mirucon/](https://profiles.wordpress.org/mirucon/)  
 Twitter: [@mirucons](https://twitter.com/@mirucons)  
-Email: admin@mirucon.com
+Email: i@miruc.co
 
 ## Copyright
 The Coldbox theme is under 100% [GNU v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
@@ -51,9 +55,17 @@ Created by @benjsperry
 
 ## Changelog
 
-1.0.3
+1.1.0
 
-- Added social links option
+- Added: Social links option
+- Added: Doc comments
+- Added: Concat / minified JS files
+- Added: Changeable font-family
+- Added: Editable footer copyright
+- Improved: Use both tags and categories to get related posts
+- Improved: Standard contents styling
+- Changed: Default font / Open Sans -> Source Sans Pro
+- Moved: Social share buttons to the add-on plugin
 
 1.0.2
 
