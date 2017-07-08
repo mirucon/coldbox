@@ -87,6 +87,8 @@ function cd_czr_social_links( $wp_customize ) {
       $label = 'GitHub';
     } elseif ( $social_site == 'facebook-official' ) {
       $label = 'Facebook';
+    } elseif ( $social_site == 'linkedin-square' ) {
+      $label = 'Linkedin';
     }
 
     $priority = 5;
