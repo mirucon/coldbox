@@ -32,6 +32,7 @@
                   <?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ): ?><span class="post-comment"><?php comments_popup_link('0', '1', '%'); ?></span><?php endif; ?>
                 </footer>
 
+
                 <div class="entry content-box">
                   <div class="entry-inner"><?php the_content(); ?></div>
                   <?php wp_link_pages( $defaults = array( 'before' => '<div class="post-pages">', 'after'=> '</div>', 'link_before' => '<span class="page-number">', 'link_after' => '</span>' ) ); ?>
@@ -42,11 +43,8 @@
                   <?php if ( cd_is_author_box() ): ?><?php get_template_part( 'parts/author-box' ); ?><?php endif; ?>
                 </div>
 
-                <?php
-                if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
-                if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
-                if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
-                if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); } ?>
+
+                <?php cd_single_bottom_contents(); // Call the bottom parts ?>
 
               </div><!--/.content-inside-->
 

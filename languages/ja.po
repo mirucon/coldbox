@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-07-07 16:17+1200\n"
-"PO-Revision-Date: 2017-07-07 16:20+1200\n"
+"POT-Creation-Date: 2017-07-08 15:51+1200\n"
+"PO-Revision-Date: 2017-07-08 15:52+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -341,14 +341,26 @@ msgstr "ヘッダーの背景色"
 msgid "Footer Background"
 msgstr "フッターの背景色"
 
-#: czr/social-links.php:49
+#: czr/social-links.php:50
 msgid "Coldbox: Social Links"
 msgstr "Coldbox: ソーシャルリンク"
 
-#: czr/social-links.php:50
+#: czr/social-links.php:51
 msgid "Add your social account profiles here. Please enter the full URL."
 msgstr ""
 "ここにソーシャルアカウントを追加できます。完全なURLを入力してください。"
+
+#: czr/social-links.php:63 czr/social-links.php:142
+msgid "RSS Feed"
+msgstr "RSS フィード"
+
+#: czr/social-links.php:69 czr/social-links.php:148
+msgid "Contact Form"
+msgstr "コンタクトフォーム"
+
+#: czr/social-links.php:71 czr/social-links.php:150
+msgid "Push Notification"
+msgstr "プッシュ通知"
 
 #: functions.php:141
 msgid "Add widgets here"
@@ -412,16 +424,14 @@ msgid "Next Post"
 msgstr "次の投稿"
 
 #: parts/related-posts.php:75
-#, fuzzy
-#| msgid "Display Related Posts"
 msgid "Related Posts"
-msgstr "関連記事を表示"
+msgstr "関連記事"
 
-#: single.php:36
+#: single.php:40
 msgid "Categories:"
 msgstr "Categories:"
 
-#: single.php:37
+#: single.php:41
 msgid "Tags:"
 msgstr "Tags:"
 

@@ -68,7 +68,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
     )));
     // Global Font Select
     $wp_customize->add_setting( 'global_font', array(
-      'default'  => 'opensans',
+      'default'  => 'sourcesanspro',
       'sanitize_callback' => 'cd_sanitize_radio',
     ));
     $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'global_font', array(
@@ -76,13 +76,13 @@ if ( !function_exists( 'cd_customize_register' ) ) {
       'section'  => 'global',
       'type'     => 'select',
       'choices'  => array(
+        'sourcesanspro'=> 'Source Sans Pro',
         'opensans'  => 'Open Sans',
         'lato'      => 'Lato',
         'roboto'    => 'Roboto',
         'robotocondensed' => 'Roboto Condensed',
         'ubuntu'    => 'Ubuntu',
         'raleway'   => 'Raleway',
-        'sourcesanspro'=> 'Source Sans Pro',
         'josefinsans'=> 'Josefin Sans',
         'ptsans'    => 'PT Sans',
         'lora'      => 'Lora',
@@ -602,8 +602,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
     // Load Social Links Setting
     get_template_part( 'czr/social-links' );
+
     // Load Font Setting
     get_template_part( 'czr/customizer-font' );
-    //  Load Customizer CSS
+
+    //  Load the inline styles got from the theme customizer
     get_template_part( 'czr/customizer-style' );
     ?>

@@ -4,7 +4,7 @@ Theme Name: Coldbox
 Theme URI: https://coldbox.miruc.co/
 Description: Coldbox is a clean blog-focused WordPress theme. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible. See Demo: https://coldbox.miruc.co/demo/
 Version: 1.0.2
-Author: Mirucon
+Author: Toshihiro Kanai (Mirucon)
 Author URI: https://miruc.co/
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
 Text Domain: coldbox
@@ -65,7 +65,7 @@ body {
   background-color: #f8f8f8;
   color: $text;
   word-wrap: break-word;
-  font-size: 1.6em;
+  font-size: 1.65em;
   line-height: 1.4;
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
@@ -149,6 +149,28 @@ sub { vertical-align: sub; font-size: smaller }
 sup { vertical-align: super; font-size: smaller }
 ins { text-decoration: underline; }
 address, cite, q, var, em { font-style: italic }
+abbr { position: relative; }
+abbr::after {
+  content: attr(title);
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: -29px;
+  right: -2px;
+  z-index: 999;
+  padding: em(3px) em(12px);
+  border-radius: 1px;
+  background-color: #f8f8f8;
+  color: #666;
+  font-size: .88em;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+  @include box-shadow($color: rgba(0, 0, 0, .2));
+}
+abbr:hover::after {
+  visibility: visible;
+}
 h1, h2, h3, h4, h5, h6 {
   color: #111;
   line-height: 1.4;

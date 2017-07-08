@@ -20,14 +20,15 @@ function cd_social_sites() {
     'youtube'       => 'cd_youtube_profile',
     'tumblr'        => 'cd_tumblr_profile',
     'instagram'     => 'cd_instagram_profile',
-    '500px'         => 'cd_500px_profile',
     'codepen'       => 'cd_codepen_profile',
     'github'        => 'cd_github_profile',
+    'wordpress'     => 'cd_wordpress_profile',
     'steam'         => 'cd_steam_profile',
     'foursquare'    => 'cd_foursquare_profile',
     'slack'         => 'cd_slack_profile',
     'skype'         => 'cd_skype_profile',
     'paypal'        => 'cd_paypal_profile',
+    '500px'         => 'cd_500px_profile',
     'rss'           => 'cd_rss_profile',
     'feedly'        => 'cd_feedly_profile',
     'email-form'    => 'cd_email_form_profile',
@@ -59,15 +60,19 @@ function cd_czr_social_links( $wp_customize ) {
     if ( $social_site == 'google-plus' ) {
       $label = 'Google+';
     } elseif ( $social_site == 'rss' ) {
-      $label = 'RSS';
+      $label = __( 'RSS Feed', 'coldbox' );
     } elseif ( $social_site == 'codepen' ) {
       $label = 'CodePen';
     } elseif ( $social_site == 'paypal' ) {
       $label = 'PayPal';
     } elseif ( $social_site == 'email-form' ) {
-      $label = 'Contact Form';
+      $label = __( 'Contact Form', 'coldbox' );
     } elseif ( $social_site == 'bell' ) {
-      $label = 'Push Notification';
+      $label = __( 'Push Notification', 'coldbox' );
+    } elseif ( $social_site == 'wordpress' ) {
+      $label = capital_P_dangit( $label );
+    } elseif ( $social_site == 'github' ) {
+      $label = 'GitHub';
     }
 
     $wp_customize->add_setting( $social_site, array(
@@ -86,10 +91,10 @@ add_action( 'customize_register', 'cd_czr_social_links' );
 
 
 /**
- * Load Icomoon web font if feedly social link is set
- *
- * @since 1.0.3
- */
+* Load Icomoon web font if feedly social link is set
+*
+* @since 1.0.3
+*/
 function load_icomoon() {
   if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
     wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' );
@@ -104,6 +109,7 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
 * @since 1.0.3
 * @param string $key social account name
 * @param string $value social account profile URL user entered
+* @param string $class class name for selecting a FontAwesome web icon
 */
 
 function cd_social_links() {
@@ -117,6 +123,7 @@ function cd_social_links() {
     }
   }
 
+
   if ( !empty( $active_links ) ) { // If there is any registered URL
 
     echo '<ul class="social-links">';
@@ -126,11 +133,31 @@ function cd_social_links() {
       if ( $key == 'feedly' ) {
         $class = 'icon-feedly';
       } else {
-        $class = 'fa fa-'.$key;
+        $class = 'fa fa-' . $key;
+      }
+      $label = $key;
+      if ( $key == 'google-plus' ) {
+        $label = 'Google+';
+      } elseif ( $key == 'rss' ) {
+        $label = __( 'RSS Feed', 'coldbox' );
+      } elseif ( $key == 'codepen' ) {
+        $label = 'CodePen';
+      } elseif ( $key == 'paypal' ) {
+        $label = 'PayPal';
+      } elseif ( $key == 'email-form' ) {
+        $label = __( 'Contact Form', 'coldbox' );
+      } elseif ( $key == 'bell' ) {
+        $label = __( 'Push Notification', 'coldbox' );
+      } elseif ( $key == 'wordpress' ) {
+        $label = 'WordPress';
+      } elseif ( $key == 'github' ) {
+        $label = 'GitHub';
+      } else {
+        $label = ucfirst( $key );
       } ?>
-      <li class="<?php echo esc_attr( $key ).'-container' ?>">
-        <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https' ) ); ?>" target="_blank">
-          <i class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $key ); ?>"></i>
+      <li class="<?php echo esc_attr( $key ) . '-container' ?>">
+        <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" target="_blank">
+          <i class="<?php echo esc_attr( $class ); ?>"></i>
         </a>
       </li>
       <?php

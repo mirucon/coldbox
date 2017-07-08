@@ -151,10 +151,37 @@ if ( !function_exists ( 'cd_widgets_init' ) ) {
 add_action( 'widgets_init', 'cd_widgets_init' );
 
 /* ------------------------------------------------------------------------- *
-*  Widgets Customize
+*  The Bottom Contents
+* -------------------------------------------------------------------------- */
+/**
+ * To output the contents shown bottom of the single articles.
+ *
+ * @since 1.0.3
+ */
+
+if ( !function_exists ( 'cd_single_bottom_contents' ) ) {
+
+  function cd_single_bottom_contents() {
+    if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
+    if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
+    if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
+    if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
+  }
+
+}
+
+/* ------------------------------------------------------------------------- *
+*  Widgets Customizations
 * -------------------------------------------------------------------------- */
 /*   Category Widget
 /* -------------------------------------------------- */
+/**
+ * Make the counts surround with brankets on category widgets
+ *
+ * @var string $output return the count with brankets
+ * @since 1.0.0
+ */
+
 if ( !function_exists ( 'cd_cat_widget_count' ) ) {
 
   function cd_cat_widget_count( $output, $args ) {
@@ -169,21 +196,32 @@ if ( !function_exists ( 'cd_cat_widget_count' ) ) {
 }
 add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2);
 
-/*   Archive Widget
-/* -------------------------------------------------- */
+
+/**
+ * Make the counts surround with brankets on archive widgets
+ *
+ * @var string $output return the count with brankets
+ * @since 1.0.0
+ */
+
 if ( !function_exists ( 'cd_archive_widget_count' ) ) {
 
-  function cd_archive_widget_count( $links ) {
-    $links = str_replace( '</a>&nbsp;(', ' <span class="count">(', $links );
-    $links = str_replace( ')', ')</span></a>', $links );
-    return $links;
+  function cd_archive_widget_count( $output ) {
+    $output = str_replace( '</a>&nbsp;(', ' <span class="count">(', $output );
+    $output = str_replace( ')', ')</span></a>', $output );
+    return $output;
   }
 
 }
 add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
 
-/*   Recently Posts Widget
-/* -------------------------------------------------- */
+
+/**
+ * Remove the corrent post when showing a single article from the recent posts widgets
+ *
+ * @since 1.0.0
+ */
+
 if ( !function_exists ( 'cd_remove_current_post_on_recent_widget' ) ) {
 
   function cd_remove_current_post_on_recent_widget( $args ) {
@@ -196,8 +234,13 @@ if ( !function_exists ( 'cd_remove_current_post_on_recent_widget' ) ) {
 }
 add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widget', 10, 3 );
 
-/*  TagCloud Widget
-/* -------------------------------------------------- */
+
+/**
+ * Adds the counts to the tagcloud widgets
+ *
+ * @since 1.0.0
+ */
+
 if ( !is_admin() ) {
   if ( !function_exists ( 'cd_tag_widget_count' ) ) {
 
@@ -214,6 +257,7 @@ if ( !is_admin() ) {
 
   add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
 }
+
 
 /* ------------------------------------------------------------------------- *
 *  Breadcrumbs
