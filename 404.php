@@ -4,7 +4,7 @@
 
   <section class="main-inner">
 
-    <?php get_template_part('parts/title-box'); ?>
+    <?php get_template_part( 'parts/title-box' ); ?>
 
     <div class="container-outer">
       <div class="container">
@@ -15,7 +15,7 @@
 
             <div class="error-messages">
 
-              <p><?php esc_html_e( 'The page does not exist, or has been moved. Try search or menus to find what you are looking for.', 'coldbox') ?></p>
+              <p><?php esc_html_e( 'The page does not exist, or has been moved. Try search or menus to find what you are looking for.', 'coldbox' ); ?></p>
               <?php get_search_form(); ?>
 
             </div>

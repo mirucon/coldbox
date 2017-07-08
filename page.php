@@ -2,7 +2,7 @@
 
 <?php while ( have_posts() ): the_post(); ?>
   <main id="main" class="main-page">
-    <article id="post-<?php the_ID(); ?>" <?php post_class('main-inner'); ?>>
+    <article id="post-<?php the_ID(); ?>" <?php post_class( 'main-inner' ); ?>>
 
       <header class="title-box">
         <div class="title-box-inner container">

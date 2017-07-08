@@ -7,17 +7,17 @@
 
 $max_articles = cd_single_related_max();
 
-$tags = wp_get_post_tags($post -> ID);
+$tags = wp_get_post_tags( $post -> ID );
 $tag_ids = array();
 
 // Get related posts by tags first
 if ( has_tag() ) {
   foreach ( $tags as $tag ) {
-    array_push( $tag_ids, $tag -> term_id);
+    array_push( $tag_ids, $tag -> term_id );
   }
 
   $tag_args = array(
-    'post__not_in' => array($post -> ID),
+    'post__not_in' => array( $post -> ID ),
     'posts_per_page'=> $max_articles,
     'tag__in' => $tag_ids,
     'orderby' => 'rand',

@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-07-02 13:31+1200\n"
-"PO-Revision-Date: 2017-07-02 14:48+1200\n"
+"POT-Creation-Date: 2017-07-07 16:17+1200\n"
+"PO-Revision-Date: 2017-07-07 16:20+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -14,12 +14,24 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-KeywordsList: __;_e;esc_html_e;_x\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPath-1: parts\n"
 "X-Poedit-SearchPath-2: czr\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
+
+#: 404.php:18
+msgid ""
+"The page does not exist, or has been moved. Try search or menus to find what "
+"you are looking for."
+msgstr ""
+"このページは存在しないか移動されました。お探しのものを見つけるには検索バーや"
+"メニューをお使いください。"
+
+#: archive.php:31 index.php:28 search.php:31
+msgid "Posts Not Found!"
+msgstr "投稿が見つかりませんでした。"
 
 #: comments.php:8
 msgid "No Responses"
@@ -32,6 +44,18 @@ msgstr "1件のコメント"
 #: comments.php:8
 msgid "% Responses"
 msgstr "%件のコメント"
+
+#: comments.php:16
+msgid "Comments"
+msgstr "コメント"
+
+#: comments.php:17
+msgid "Pingbacks"
+msgstr "ピンバック"
+
+#: content-standard.php:32
+msgid "READ MORE"
+msgstr "READ MORE"
 
 #: czr/customizer.php:34
 msgid "Coldbox: Global Settings"
@@ -197,83 +221,83 @@ msgstr "グリッド内にコメント数のカウントを表示"
 msgid "Coldbox: Single Settings"
 msgstr "Coldbox: 投稿ページ設定"
 
-#: czr/customizer.php:310
+#: czr/customizer.php:311
 msgid "Settings for Content"
 msgstr "投稿内容の設定"
 
-#: czr/customizer.php:317
+#: czr/customizer.php:318
 msgid "Add Decoration to H2-H5 Tags."
 msgstr "h2-h5タグに装飾を追加"
 
-#: czr/customizer.php:326
+#: czr/customizer.php:327
 msgid "Settings for Metas"
 msgstr "メタ情報の設定"
 
-#: czr/customizer.php:334
+#: czr/customizer.php:335
 msgid "Display Post Dates"
 msgstr "投稿日時を表示"
 
-#: czr/customizer.php:344
+#: czr/customizer.php:345
 msgid "Display Post Categories"
 msgstr "カテゴリーを表示"
 
-#: czr/customizer.php:347
+#: czr/customizer.php:348
 msgid "Note: Categories are already showed on the breadcrum."
 msgstr "注: カテゴリーは上のパンくずリストに表示されています。"
 
-#: czr/customizer.php:355
+#: czr/customizer.php:356
 msgid "Display Post Author"
 msgstr "投稿者名を表示"
 
-#: czr/customizer.php:365
+#: czr/customizer.php:366
 msgid "Display Comments Count"
 msgstr "コメント数のカウントを表示"
 
-#: czr/customizer.php:375
+#: czr/customizer.php:376
 msgid "Display Post Tags on Bottom"
 msgstr "タグを表示 (下エリア)"
 
-#: czr/customizer.php:385
+#: czr/customizer.php:386
 msgid "Display Post Categories on Bottom"
 msgstr "カテゴリーを表示 (下エリア)"
 
-#: czr/customizer.php:395
+#: czr/customizer.php:396
 msgid "Display Author Box"
 msgstr "投稿者の情報ボックスを表示"
 
-#: czr/customizer.php:405
+#: czr/customizer.php:406
 msgid "Display Comments"
 msgstr "コメントを表示"
 
-#: czr/customizer.php:415
+#: czr/customizer.php:416
 msgid "Display Post Navigation"
 msgstr "投稿の前後記事リンクを表示"
 
-#: czr/customizer.php:424
+#: czr/customizer.php:425
 msgid "Settings for Related Posts"
 msgstr "関連記事の設定"
 
-#: czr/customizer.php:432
+#: czr/customizer.php:433
 msgid "Display Related Posts"
 msgstr "関連記事を表示"
 
-#: czr/customizer.php:442
+#: czr/customizer.php:443
 msgid "Related Post - Max Articles"
 msgstr "関連記事の最大記事数"
 
-#: czr/customizer.php:455
+#: czr/customizer.php:456
 msgid "Related Post - Columns"
 msgstr "関連記事グリッドのカラム数"
 
-#: czr/customizer.php:468
+#: czr/customizer.php:469
 msgid "Coldbox: Footer Settings"
 msgstr "Coldbox: フッター設定"
 
-#: czr/customizer.php:476
+#: czr/customizer.php:477
 msgid "Edit the Credit Content"
 msgstr "クレジットの内容を編集"
 
-#: czr/customizer.php:477
+#: czr/customizer.php:478
 #, php-format
 msgid ""
 "It will be displayed in footer area. You can use the following HTML tags: %s."
@@ -285,15 +309,15 @@ msgstr ""
 "[url] => サイトURLを表示<br/>\n"
 "[name] => サイト名を表示"
 
-#: czr/customizer.php:487
+#: czr/customizer.php:488
 msgid "Display Theme Credit"
 msgstr "テーマクレジットを表示"
 
-#: czr/customizer.php:497
+#: czr/customizer.php:498
 msgid "Edit the Theme Credit Content"
 msgstr "テーマクレジットの内容を編集"
 
-#: czr/customizer.php:498
+#: czr/customizer.php:499
 #, php-format
 msgid ""
 "It will be displayed when above checked. You can use the following HTML "
@@ -301,19 +325,19 @@ msgid ""
 msgstr ""
 "上の設定がオンになっている場合に表示されます。以下の HTML が使用可能です: %s"
 
-#: czr/customizer.php:514
+#: czr/customizer.php:515
 msgid "Primary Color"
 msgstr "プライマリーカラー"
 
-#: czr/customizer.php:524
+#: czr/customizer.php:525
 msgid "Secondary Color"
 msgstr "セカンダリーカラー"
 
-#: czr/customizer.php:534
+#: czr/customizer.php:535
 msgid "Header Background"
 msgstr "ヘッダーの背景色"
 
-#: czr/customizer.php:544
+#: czr/customizer.php:545
 msgid "Footer Background"
 msgstr "フッターの背景色"
 
@@ -334,14 +358,50 @@ msgstr "サイドバーに表示するウィジェットを選択してくださ
 msgid "Pages:"
 msgstr "ページ: "
 
+#: parts/page-title.php:2
+msgid "Category:"
+msgstr "Category:"
+
+#: parts/page-title.php:11
+msgid "Tag:"
+msgstr "Tag:"
+
+#: parts/page-title.php:20
+msgid "Search Results for:"
+msgstr "検索結果: "
+
+#: parts/page-title.php:27
+msgid "Daily Archive:"
+msgstr "Daily Archive:"
+
 # Time fomat: jS (day) F (month), Y (year) by default
 #: parts/page-title.php:27
 msgid "jS F, Y"
 msgstr "Y年 m月 j日"
 
 #: parts/page-title.php:31
+msgid "Monthly Archive:"
+msgstr "Monthly Archive:"
+
+#: parts/page-title.php:31
 msgid "F, Y"
 msgstr "Y年 m月"
+
+#: parts/page-title.php:35
+msgid "Yearly Archive:"
+msgstr "Yearly Archive:"
+
+#: parts/page-title.php:39
+msgid "Author:"
+msgstr "投稿者:"
+
+#: parts/page-title.php:46
+msgid "ERROR 404."
+msgstr "ERROR 404."
+
+#: parts/page-title.php:46
+msgid "Sorry, Page Not Found."
+msgstr "ページが存在しません。"
 
 #: parts/post-nav.php:9 parts/post-nav.php:11
 msgid "Prev Post"
@@ -350,6 +410,16 @@ msgstr "前の投稿"
 #: parts/post-nav.php:19 parts/post-nav.php:21
 msgid "Next Post"
 msgstr "次の投稿"
+
+#: parts/related-posts.php:75
+#, fuzzy
+#| msgid "Display Related Posts"
+msgid "Related Posts"
+msgstr "関連記事を表示"
+
+#: single.php:36
+msgid "Categories:"
+msgstr "Categories:"
 
 #: single.php:37
 msgid "Tags:"

@@ -4,7 +4,7 @@
 
   <section class="main-inner">
 
-    <?php get_template_part('parts/title-box') ?>
+    <?php get_template_part( 'parts/title-box' ); ?>
 
     <div class="container-outer">
       <div class="container">

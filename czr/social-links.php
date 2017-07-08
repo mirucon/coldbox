@@ -86,7 +86,7 @@ add_action( 'customize_register', 'cd_czr_social_links' );
 
 
 /**
- * Load Icomoon web font if feedly social link is used
+ * Load Icomoon web font if feedly social link is set
  *
  * @since 1.0.3
  */
@@ -99,7 +99,7 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
 
 
 /**
-* Output the social links that got from customizer
+* Output the social links got from the theme customizer
 *
 * @since 1.0.3
 * @param string $key social account name
@@ -129,7 +129,7 @@ function cd_social_links() {
         $class = 'fa fa-'.$key;
       } ?>
       <li class="<?php echo esc_attr( $key ).'-container' ?>">
-        <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value ); ?>" target="_blank">
+        <a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https' ) ); ?>" target="_blank">
           <i class="<?php echo esc_attr( $class ); ?>" title="<?php echo esc_attr( $key ); ?>"></i>
         </a>
       </li>

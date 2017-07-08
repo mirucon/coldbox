@@ -3,7 +3,7 @@
 
 <section id="comments" class="content-box">
 
-  <?php if ( have_comments() ): ?>
+  <?php if ( have_comments() ) : ?>
 
     <h4 class="comment-head"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h4>
 
@@ -26,13 +26,13 @@
       </ol>
     <?php endif; ?>
 
-    <?php if ( !empty( $comments_by_type['pings'] ) ): ?>
+    <?php if ( !empty( $comments_by_type['pings'] ) ) : ?>
       <ol id="ping-list">
         <?php wp_list_comments( array( 'type' => 'pings', 'avatar_size' => 50, 'short_ping' => true ) ); ?>
       </ol>
     <?php endif; ?>
 
-  <?php endif;?>
+  <?php endif; ?>
 
   <?php if ( comments_open() ) { comment_form(); } ?>
 

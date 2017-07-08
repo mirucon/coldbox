@@ -6,7 +6,6 @@
  color: rgba(255, 255, 255, .6);
 
  .container {
-  justify-content: flex-start;
   align-items: center;
   height: 100%;
  }
@@ -42,10 +41,13 @@
 
 
 @media screen and (max-width: $bpmax-mobile) {
+
  #footer {
 
   .container {
+
   }
+
  }
 
 }

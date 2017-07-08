@@ -11,7 +11,7 @@
 
     </div>
 
-    <?php echo cd_social_links();  ?>
+    <?php cd_social_links();  ?>
 
   </div><!--/.container-->
 
