@@ -27,54 +27,7 @@
   .social-links {
     flex-grow: 1;
     padding: 0 .7em;
-  }
-}
-
-.social-links {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-end;
-  li {
-    position: relative;
-  }
-  i {
-    font-size: 1.7em;
-  }
-  & > li:not(:last-child) { margin-right: .32em; }
-
-  a::after {
-    content: attr(title);
-    display: block;
-    visibility: hidden;
-    position: absolute;
-    top: -35px;
-    right: -5px;
-    z-index: 999;
-    padding: em(3px) em(12px);
-    border-radius: 1px;
-    background-color: #f8f8f8;
-    color: #666;
-    font-size: .88em;
-    font-weight: 300;
-    text-align: center;
-    white-space: nowrap;
-    @include box-shadow($color: rgba(0, 0, 0, .2));
-  }
-  a::before {
-    content: "";
-    visibility: hidden;
-    position: absolute;
-    top: -10px;
-    right: calc(50% - .55em);
-    z-index: 998;
-    width: 0; height: 0;
-    border: solid transparent 8px;
-    border-top-color: #f8f8f8;
-    border-bottom-width: 0;
-    @include box-shadow($color: rgba(0, 0, 0, .2));
-  }
-  a:hover::after, a:hover::before {
-    visibility: visible;
+    justify-content: flex-end;
   }
 }
 

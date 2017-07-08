@@ -39,7 +39,7 @@ li[id^='customize-control-sns_button_'] {
   margin-bottom: .4em;
 }
 
-#sub-accordion-section-social_links > li > label {
+#sub-accordion-section-social_links > li:not(:nth-child(2)) > label {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -49,10 +49,13 @@ li[id^='customize-control-sns_button_'] {
   flex-shrink: 1;
   padding-right: .4em;
 }
-#sub-accordion-section-social_links > li > label input {
+#sub-accordion-section-social_links > li > label input[type=url] {
   flex: 1;
   max-width: 70%;
 }
 #customize-control-foursquare .customize-control-title, #customize-control-email-form .customize-control-title, #customize-control-bell .customize-control-title {
   font-size: .96em;
+}
+#customize-control-feed_url_info {
+  word-wrap: break-word;
 }

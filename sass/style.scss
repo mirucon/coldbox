@@ -515,7 +515,7 @@ textarea {
 
 
 /* ------------------------------------------------------------------------- *
-*  6. Page
+*  6. Pages
 * ------------------------------------------------------------------------- */
 
 
@@ -587,7 +587,7 @@ textarea {
 /* ------------------------------------------------------------------------- *
 *  11. Comment
 /* ------------------------------------------------------------------------- */
-@import "_comment.scss";
+@import "comment.scss";
 
 
 /* ------------------------------------------------------------------------- *
@@ -668,6 +668,78 @@ body.home { border-top-color: transparent }
   box-shadow: 0 0 4px rgba(0, 0, 0, .6), 0 3px 6px rgba(0, 0, 0, .4);
 }
 
+/* Social Links */
+.social-links {
+  display: flex;
+  flex-flow: row wrap;
+  box-shadow: none;
+  li {
+    position: relative;
+  }
+  i {
+    font-size: 1.55em;
+  }
+  & > li:not(:last-child) { margin-right: .5em; }
+  a, a:hover { box-shadow: none; }
+  a::after {
+    content: attr(title);
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    top: -35px;
+    right: -5px;
+    z-index: 999;
+    padding: em(3px) em(12px);
+    border-radius: 1px;
+    background-color: #f8f8f8;
+    color: #666;
+    font-size: .88em;
+    font-weight: 300;
+    text-align: center;
+    white-space: nowrap;
+    @include box-shadow($color: rgba(0, 0, 0, .2));
+  }
+  a::before {
+    content: "";
+    visibility: hidden;
+    position: absolute;
+    top: -10px;
+    right: calc(50% - .55em);
+    z-index: 998;
+    width: 0; height: 0;
+    border: solid transparent 8px;
+    border-top-color: #f8f8f8;
+    border-bottom-width: 0;
+    @include box-shadow($color: rgba(0, 0, 0, .2));
+  }
+  a:hover::after, a:hover::before {
+    visibility: visible;
+  }
+  // .facebook .fa { color: #3b5998 }
+  // .twitter .fa { color: #00aced }
+  // .youtube .fa { color: #bb0000 }
+  // .linkedin .fa { color: #007bb6 }
+  // .instagram .fa { color: #517fa4 }
+  // .pinterest .fa { color: #cb2027 }
+  // .vine .fa { color: #00bf8f }
+  // .snapchat .fa { color: #fffc00 }
+  // .flickr .fa { color: #ff0084 }
+  // .tumblr .fa { color: #32506d }
+  // .vimeo .fa { color: #aad450 }
+  // .foursquare .fa { color: #0072b1 }
+  // .slack .fa { color: #78d4b6 }
+  // .skype .fa { color: #0bbff2 }
+  // .google-plus .fa { color: #dd4c3b; }
+  // .bell .fa { color: #ffbe06 }
+  // .rss .fa { color: #b9422f }
+  // .feedly .fa { color: #87c040 }
+  // .paypal .fa { color: #253b80 }
+  // .steam .fa { color: #14497d }
+  // .feedly *[class*='feedly'] { color: #94be61 }
+}
+ul.social-links { padding-left: 0; list-style: none; }
+
+/* Search Bar */
 .search-form {
   display: flex;
   flex-flow: row nowrap;
@@ -711,6 +783,7 @@ body.home { border-top-color: transparent }
   }
 }
 
+/* READ MORE button */
 .more {
   display: inline-block;
   position: relative;
@@ -752,6 +825,7 @@ body.home { border-top-color: transparent }
   }
 }
 
+/* Custom Classes for several usage */
 .select-none {
   -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;
 }

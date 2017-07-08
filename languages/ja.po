@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-07-08 15:51+1200\n"
-"PO-Revision-Date: 2017-07-08 15:52+1200\n"
+"POT-Creation-Date: 2017-07-08 18:59+1200\n"
+"PO-Revision-Date: 2017-07-08 19:11+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -341,26 +341,40 @@ msgstr "ヘッダーの背景色"
 msgid "Footer Background"
 msgstr "フッターの背景色"
 
-#: czr/social-links.php:50
+#: czr/social-links.php:54
+#, php-format
+msgid "<p>Your Feed URL is: </p>%s"
+msgstr "<p>このサイトの Feed の URL: </p>%s"
+
+#: czr/social-links.php:55
+#, php-format
+msgid "<p>Your Feedly URL is: </p>%s"
+msgstr "<p>このサイトの Feedly の URL: </p>%s"
+
+#: czr/social-links.php:63
 msgid "Coldbox: Social Links"
 msgstr "Coldbox: ソーシャルリンク"
 
-#: czr/social-links.php:51
+#: czr/social-links.php:64
 msgid "Add your social account profiles here. Please enter the full URL."
 msgstr ""
 "ここにソーシャルアカウントを追加できます。完全なURLを入力してください。"
 
-#: czr/social-links.php:63 czr/social-links.php:142
+#: czr/social-links.php:76 czr/social-links.php:173
 msgid "RSS Feed"
 msgstr "RSS フィード"
 
-#: czr/social-links.php:69 czr/social-links.php:148
+#: czr/social-links.php:82 czr/social-links.php:179
 msgid "Contact Form"
 msgstr "コンタクトフォーム"
 
-#: czr/social-links.php:71 czr/social-links.php:150
+#: czr/social-links.php:84 czr/social-links.php:181
 msgid "Push Notification"
 msgstr "プッシュ通知"
+
+#: czr/social-links.php:114
+msgid "Show the social links on the author box"
+msgstr "投稿者情報ボックス内にソーシャルリンクを表示"
 
 #: functions.php:141
 msgid "Add widgets here"

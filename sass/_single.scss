@@ -93,8 +93,16 @@ p.post-btm-tags, p.post-btm-cats {
     padding-left: 1em;
   }
 
-  .author-name {
+  .author-infomation {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
     margin-bottom: .3em;
+  }
+
+  .author-name {
+    display: inline-block;
+    margin-bottom: 0;
     font-size: 1.2em;
   }
 
@@ -102,6 +110,17 @@ p.post-btm-tags, p.post-btm-cats {
     margin-bottom: 0;
     font-size: .94em;
     font-weight: 300;
+  }
+
+  .author-links {
+    margin-left: .7em;
+    .social-links {
+      margin-bottom: 0;
+      font-size: .74em;
+      a > i { color: #777 }
+      a:hover > i { color: #222; }
+    }
+    a::before, a::after { content: none }
   }
 }
 
@@ -129,17 +148,17 @@ p.post-btm-tags, p.post-btm-cats {
   .related-posts-list {
     display: flex;
     flex-flow: row wrap;
+    margin-left: 1%;
   }
 
   .related-article {
-    display: inline-block;
     position: relative;
-    width: 33.33%;
+    width: 33%;
     margin-bottom: 16px;
   }
 
   .post {
-    height: 100%;
+    height: auto;
     padding: 0 .02em;
     background-color: #fff;
     transition: all .4s;
@@ -172,7 +191,6 @@ p.post-btm-tags, p.post-btm-cats {
     a { display: block; height: 100% }
   }
 
-
   .post:hover {
     @include box-shadow($y: 3px, $blur: 3px, $color: rgba(0, 0, 0, .15));
     .post-thumbnail img {
@@ -182,9 +200,11 @@ p.post-btm-tags, p.post-btm-cats {
       color: $link;
     }
   }
+
   @media screen and (max-width: $bpmax-mobile) {
     .related-posts-list {
       flex-flow: row wrap;
+      margin-left: 0;
       .related-article {
         width: 50%;
       }
