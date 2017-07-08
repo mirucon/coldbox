@@ -25,7 +25,7 @@ gulp.task( 'sass', function() {
   .pipe(gulp.dest('.'));
 });
 
-gulp.task( 'css-min', function () {
+gulp.task( 'css-min', ['sass'], function () {
   gulp.src( 'style.css' )
   .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
@@ -68,17 +68,17 @@ gulp.task( 'editor-sass', function() {
   .pipe(gulp.dest( 'parts' ));
 });
 
-gulp.task( 'editor-min', function() {
+gulp.task( 'editor-min', ['editor-sass'], function() {
   gulp.src('parts/editor-style.css')
   .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
   .pipe(gulp.dest('parts'));
 });
 
-gulp.task('bs-reload', function () {
+gulp.task( 'bs-reload', function () {
   browserSync.reload();
 });
-gulp.task('default', ['browser-sync'], function () {
+gulp.task( 'default', ['browser-sync'], function () {
   gulp.watch("sass/*.scss", ['sass', 'bs-reload', 'css-min']);
   gulp.watch("js/*.*", ['bs-reload', 'js-min', 'js-concat-hljs-web', 'js-concat-hljs']);
   gulp.watch("parts/*.*", ['bs-reload']);
