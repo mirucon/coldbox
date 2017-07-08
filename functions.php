@@ -6,16 +6,16 @@ if ( !function_exists ( 'cd_scripts' ) ) {
 
   function cd_scripts() {
     if ( cd_use_minified_css() ) {
-      wp_enqueue_style ( 'main-style', get_template_directory_uri().'/style.min.css', array(), '1.0.2' );
+      wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.min.css', array(), '1.0.2' );
     } else {
-      wp_enqueue_style ( 'main-style', get_template_directory_uri().'/style.css', array(), '1.0.2' );
+      wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.0.2' );
     }
     if ( cd_use_minified_js() ) {
-      wp_enqueue_script( 'scripts', get_template_directory_uri().'/js/scripts.min.js', array('jquery') );
+      wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery') );
     } else {
-      wp_enqueue_script( 'scripts', get_template_directory_uri().'/js/scripts.js', array('jquery') );
+      wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery') );
     }
-    wp_enqueue_style ( 'FontAwesome', get_template_directory_uri().'/fonts/fontawesome/css/font-awesome.min.css' );
+    wp_enqueue_style ( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
     wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
     wp_enqueue_script( 'comment-reply' );
   }
