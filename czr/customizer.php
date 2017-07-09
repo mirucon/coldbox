@@ -21,6 +21,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 		function cd_sanitize_checkbox( $checked ){ return ( ( isset( $checked ) && true == $checked ) ? true : false ); }
 		function cd_sanitize_radio( $input, $setting ) { $input = sanitize_key( $input ); $choices = $setting->manager->get_control($setting->id)->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
 		function cd_sanitize_text( $text ) { return sanitize_text_field( $text ); }
+		function cd_sanitize_nohtml( $nohtml ) { return wp_filter_nohtml_kses( $nohtml ); }
+		function cd_sanitize_html( $html ) { return wp_filter_post_kses( $html ); }
 		// To output HTML
 		if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
 			class cd_Custom_Content extends WP_Customize_Control {
@@ -475,37 +477,37 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'title'    => __( 'Coldbox: Footer Settings', 'coldbox' ),
 			'priority' => 4,
 		));
-		$wp_customize->add_setting( 'credit_text', array(
-			'default'  => '&copy;[year] <a href="[url]">[name]</a>',
-			'sanitize_callback' => 'wp_filter_post_kses',
-		));
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
-			'label'    => __( 'Edit the Credit Content','coldbox' ),
-			'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
-				'section'  => 'footer',
-				'settings' => 'credit_text',
-				'type'     => 'textarea',
-		)));
 		$wp_customize->add_setting( 'theme_credit', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
+			'priority' => 5,
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit', array(
-			'label'    => __( 'Display Theme Credit','coldbox' ),
+			'label'    => __( 'Display Theme Credit', 'coldbox' ),
 			'section'  => 'footer',
-			'settings' => 'theme_credit',
 			'type'     => 'checkbox',
+		)));
+		$wp_customize->add_setting( 'credit_text', array(
+			'default'  => '©[year] <a href="[url]">[name]</a>',
+			'sanitize_callback' => 'wp_kses_post',
+			'priority' => 1,
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
+			'label'    => __( 'Edit the Credit Content', 'coldbox' ),
+			'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+			'section'  => 'footer',
+			'type'     => 'textarea',
 		)));
 		$wp_customize->add_setting( 'theme_credit_text', array(
 			'default'  => '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>',
-			'sanitize_callback' => 'wp_filter_post_kses',
+			'sanitize_callback' => 'wp_kses_post',
+			'priority' => 10,
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
-			'label'    => __( 'Edit the Theme Credit Content','coldbox' ),
-			'description' => sprintf( /* Translators: %s: HTML Tags */ _x( 'It will be displayed when above checked. You can use the following HTML tags: %s', '%s: HTML tags', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
-				'section'  => 'footer',
-				'settings' => 'theme_credit_text',
-				'type'     => 'textarea',
+			'label'    => __( 'Edit the Theme Credit Content', 'coldbox' ),
+			'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+			'section'  => 'footer',
+			'type'     => 'textarea',
 		)));
 
 
@@ -552,6 +554,22 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'section'   => 'colors',
 			'settings'  => 'footer_color',
 		)));
+
+		/* ------------------------------------------------------------------------- *
+		*  Social Links
+		* -------------------------------------------------------------------------- */
+		$wp_customize->add_setting( 'links_on_author_box', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+
+		$wp_customize->add_control( 'links_on_author_box', array(
+			'label'   => __( 'Show the social links on the author box', 'coldbox' ),
+			'section' => 'social_links',
+			'type'    => 'checkbox',
+			'priority' => '1',
+		));
+
 
 
 	} // End Customizer

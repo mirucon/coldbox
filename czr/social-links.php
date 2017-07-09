@@ -1,7 +1,7 @@
 <?php
 /**
 * The template for registering and displaying the social links
-* 
+*
 * @since 1.1.0
 * @package coldbox
 */
@@ -50,13 +50,12 @@ function cd_czr_social_links( $wp_customize ) {
 	$feed_url = esc_url_raw( get_bloginfo( 'rss2_url' ) );
 	$feedly_url = esc_url_raw( 'https://cloud.feedly.com/#subscription/feed/' . get_bloginfo( 'rss2_url' ) );
 
-	$wp_customize->add_setting( 'feed_url_info', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
+	$wp_customize->add_setting( 'feed_url_info', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 	$wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'feed_url_info', array(
 		'content' => sprintf( /* Translators: %s: The feed URL */ __( '<p>Your Feed URL is: </p>%s', 'coldbox' ), $feed_url ) . '<br>' . sprintf( /* Translators: %s: The feedly URL */ __( '<p>Your Feedly URL is: </p>%s', 'coldbox' ), $feedly_url ),
 		'section' => 'social_links',
 		'priority' => 1000
 	) ) );
-
 
 
 	$wp_customize->add_section( 'social_links', array(
@@ -108,17 +107,6 @@ function cd_czr_social_links( $wp_customize ) {
 		$priority++;
 
 	}
-
-	$wp_customize->add_setting( 'links_on_author_box', array(
-		'sanitize_callback' => 'cd_sanitize_checkbox',
-	));
-
-	$wp_customize->add_control( 'links_on_author_box', array(
-		'type'    => 'checkbox',
-		'label'   => __( 'Show the social links on the author box', 'coldbox' ),
-		'section' => 'social_links',
-		'priority' => '1',
-	));
 
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
