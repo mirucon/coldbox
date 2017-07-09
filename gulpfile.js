@@ -40,13 +40,13 @@ gulp.task( 'js-min', function() {
 
 gulp.task( 'js-concat-hljs', function() {
   return gulp.src( ['js/highlight.js', 'js/scripts.min.js'] )
-  .pipe(concat('scripts+hljs.js'))
+  .pipe( concat('scripts+hljs.js') )
   .pipe(gulp.dest( 'js/' ));
 });
 
 gulp.task( 'js-concat-hljs-web', function() {
   return gulp.src( ['js/highlight-web.js', 'js/scripts.min.js'] )
-  .pipe(concat( 'scripts+hljs_web.js' ))
+  .pipe( concat( 'scripts+hljs_web.js' ) )
   .pipe(gulp.dest( 'js/' ));
 });
 

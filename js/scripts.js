@@ -2,7 +2,7 @@ jQuery(function($) {
 
   /*   Back To Top
   /* -------------------------------------------------- */
-  $(window).on('load scroll', function() {
+  $(window).on( 'load scroll', function() {
     if ( $(this).scrollTop() > 100 ) {
       $('a#back-to-top').fadeIn(600);
     } else {
@@ -12,7 +12,7 @@ jQuery(function($) {
       }, 400);
     }
   });
-  $('a#back-to-top').click(function() {
+  $('a#back-to-top').click( function() {
     $('html, body').animate({ scrollTop:0 }, 'slow');
     $('a#back-to-top').addClass('clicked');
     return false;
@@ -34,7 +34,7 @@ jQuery(function($) {
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
-  $('a[href*="#"]').not('.noscroll').not('a[href^="#comment-list"]').not('a[href^="#ping-list"]').click(function() {
+  $('a[href*="#"]').not('.noscroll').not('a[href^="#comment-list"]').not('a[href^="#ping-list"]').click( function() {
     var href = $(this).prop('href'); // Get property of the link
     var hrefPageUrl = href.split('#')[0];
     var currentUrl = location.href;
@@ -62,7 +62,7 @@ jQuery(function($) {
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  $(window).on('load scroll resize', function() {
+  $(window).on( 'load scroll resize', function() {
     var header = $('#header');
     var siteInfoHgt = $('.site-info').outerHeight();
 
@@ -115,6 +115,14 @@ jQuery(function($) {
       }
     }
   });
+
+  /*   Fix : Padding of the menu on mobile devices
+  /* -------------------------------------------------- */
+  if ( $('body').hasClass('header-menu-enabled') && window.matchMedia('(max-width: 767px)').matches ) {
+    var padding = $('.site-info').outerHeight();
+    if ( $('body').hasClass('admin-bar') ) { padding +=  $('#wpadminbar').innerHeight(); }
+    $('#header-nav').css({paddingTop: padding});
+  }
 
 
   /*   Toggle : Nav Menu Toggle

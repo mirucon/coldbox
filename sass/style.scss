@@ -737,6 +737,10 @@ body.home { border-top-color: transparent }
   // .paypal .fa { color: #253b80 }
   // .steam .fa { color: #14497d }
   // .feedly *[class*='feedly'] { color: #94be61 }
+  //
+  @media screen and (max-width: $bpmax-mobile) {
+    i { font-size: 2em }
+  }
 }
 ul.social-links { padding-left: 0; list-style: none; }
 

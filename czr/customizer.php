@@ -499,7 +499,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'textarea',
 		)));
 		$wp_customize->add_setting( 'theme_credit_text', array(
-			'default'  => '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>',
+			'default'  => '<a href="' . esc_url_raw( __( "https://coldbox.miruc.co/", "coldbox" ) ) . '">Coldbox WordPress theme</a> by <a href="' . esc_url_raw( __( "https://miruc.co/", "coldbox" ) ) . '">Mirucon</a>',
 			'sanitize_callback' => 'wp_kses_post',
 			'priority' => 10,
 		));
