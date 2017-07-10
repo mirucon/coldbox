@@ -118,11 +118,15 @@ jQuery(function($) {
 
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
-  if ( $('body').hasClass('header-menu-enabled') && window.matchMedia('(max-width: 767px)').matches ) {
-    var padding = $('.site-info').outerHeight();
-    if ( $('body').hasClass('admin-bar') ) { padding +=  $('#wpadminbar').innerHeight(); }
-    $('#header-nav').css({paddingTop: padding});
-  }
+  $(window).on( 'resize', function() {
+    if ( $('body').hasClass('header-menu-enabled') && window.matchMedia('(max-width: 767px)').matches ) {
+      var padding = $('.site-info').outerHeight();
+      if ( $('body').hasClass('admin-bar') ) { padding +=  $('#wpadminbar').innerHeight(); }
+      $('#header-nav').css({paddingTop: padding});
+    } else {
+      $('#header-nav').css({paddingTop: ''});
+    }
+  });
 
 
   /*   Toggle : Nav Menu Toggle

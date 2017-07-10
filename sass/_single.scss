@@ -116,7 +116,7 @@ p.post-btm-tags, p.post-btm-cats {
     margin-left: .7em;
     .social-links {
       margin-bottom: 0;
-      font-size: .86em;
+      font-size: .82em;
       a > i { color: #777 }
       a:hover > i { color: #222; }
     }
@@ -137,12 +137,6 @@ p.post-btm-tags, p.post-btm-cats {
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
-& > * {
-  margin-bottom: 20px;
-  padding: 10px 25px;
-  background-color: #fff;
-  @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
-}
 .content-box > h4 {
   position: relative;
   margin: .2em 0 .7em 0;

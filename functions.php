@@ -13,6 +13,9 @@
 if ( !function_exists ( 'cd_scripts' ) ) {
 
 	function cd_scripts() {
+		wp_enqueue_style ( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
+		wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
+		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
 			wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.min.css', array(), '1.1.0' );
 		} else {
@@ -23,9 +26,6 @@ if ( !function_exists ( 'cd_scripts' ) ) {
 		} else {
 			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery') );
 		}
-		wp_enqueue_style ( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
-		wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
-		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
@@ -114,7 +114,7 @@ if ( !isset( $content_width ) ) $content_width = 680;
 
 
 /* ------------------------------------------------------------------------- *
-*  Body class
+*  Body classes
 * ------------------------------------------------------------------------- */
 if ( !function_exists ( 'cd_body_class' ) ) {
 
@@ -181,8 +181,6 @@ if ( !function_exists ( 'cd_single_bottom_contents' ) ) {
 /* ------------------------------------------------------------------------- *
 *  Widgets Customizations
 * -------------------------------------------------------------------------- */
-/*   Category Widget
-/* -------------------------------------------------- */
 /**
  * Make the counts surround with brankets on category widgets
  *
@@ -202,7 +200,7 @@ if ( !function_exists ( 'cd_cat_widget_count' ) ) {
 	}
 
 }
-add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2);
+add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2 );
 
 
 /**
@@ -225,14 +223,14 @@ add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
 
 
 /**
- * Remove the corrent post when showing a single article from the recent posts widgets
+ * Remove the current post when showing a single article from the recent posts widgets
  *
  * @since 1.0.0
  */
 
-if ( !function_exists ( 'cd_remove_current_post_on_recent_widget' ) ) {
+if ( !function_exists ( 'cd_remove_current_post_on_recent_widgets' ) ) {
 
-	function cd_remove_current_post_on_recent_widget( $args ) {
+	function cd_remove_current_post_on_recent_widgets( $args ) {
 		if ( is_single() ) {
 			$args['post_not_in'] = array( get_the_ID() );
 		}
@@ -240,7 +238,7 @@ if ( !function_exists ( 'cd_remove_current_post_on_recent_widget' ) ) {
 	}
 
 }
-add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widget', 10, 3 );
+add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10, 3 );
 
 
 /**
@@ -273,7 +271,7 @@ if ( !is_admin() ) {
 if ( !function_exists ( 'cd_breadcrumb' ) ) {
 
 	function cd_breadcrumb() {
-		echo '<a href="'.esc_url(home_url()).'">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
 			the_title();
 		} elseif ( is_single() ) {
@@ -283,7 +281,7 @@ if ( !function_exists ( 'cd_breadcrumb' ) ) {
 			$current_cat = $wp_query->get_queried_object();
 			$cat = $wp_query->get_queried_object();
 
-			if ( $cat->parent ) { // If a category has parent category
+			if ( $cat->parent ) { // If the category has parent category
 				$parent = array();
 				$parent_url = array();
 				while ( $cat->parent ) {

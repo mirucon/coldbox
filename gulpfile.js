@@ -32,19 +32,25 @@ gulp.task( 'css-min', ['sass'], function () {
   .pipe(gulp.dest('.'));
 });
 
+gulp.task( 'css-concat', ['css-min'], function () {
+  gulp.src( ['style.min.css', 'fonts/fontawesome/css/font-awesome.min.css'] )
+  .pipe( concat('main.min.css') )
+  .pipe(gulp.dest( '.' ));
+});
+
 gulp.task( 'js-min', function() {
   return gulp.src( 'js/scripts.js' )
   .pipe(minify({ ext:{ min:'.min.js', }, }))
   .pipe(gulp.dest('js/'))
 });
 
-gulp.task( 'js-concat-hljs', function() {
+gulp.task( 'js-concat-hljs', ['js-min'], function() {
   return gulp.src( ['js/highlight.js', 'js/scripts.min.js'] )
   .pipe( concat('scripts+hljs.js') )
   .pipe(gulp.dest( 'js/' ));
 });
 
-gulp.task( 'js-concat-hljs-web', function() {
+gulp.task( 'js-concat-hljs-web', ['js-min'], function() {
   return gulp.src( ['js/highlight-web.js', 'js/scripts.min.js'] )
   .pipe( concat( 'scripts+hljs_web.js' ) )
   .pipe(gulp.dest( 'js/' ));
