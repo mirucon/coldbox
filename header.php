@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
 * The template for displaying header
 *
@@ -12,7 +12,7 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta content="#3b8dbd" name="theme-color">
+	<meta content="<?php echo get_theme_mod( 'link_color' ); ?>" name="theme-color">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
@@ -28,7 +28,7 @@
 					<?php cd_site_title(); ?>
 				</h1>
 				<?php if ( cd_is_site_desc() ) : ?>
-					<p class="site-description"><?php bloginfo('description'); ?></p>
+					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 				<?php endif; ?>
 			</div>
 

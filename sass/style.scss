@@ -603,13 +603,12 @@ textarea {
 }
 .wp-caption .wp-caption-text { margin: 0; padding: .6em 4px; line-height: 1.4; font-style: italic; }
 .aligncenter { display: block; max-width: 100%; margin-left: auto; margin-right: auto }
-.alignright { float: right; max-width: 100%; margin-left: 10px }
-.alignleft { float: left; max-width: 100%; margin-right: 10px }
+.alignright { float: right; max-width: 100%; margin-left: 1em }
+.alignleft { float: left; max-width: 100%; margin-right: 1em }
 .clearfix:after {	content: ""; 	display: block;	clear: both; }
 html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;	}
-body.home { border-top-color: transparent }
 
-/*   Gallery
+/*   WP : Gallery
 /* -------------------------------------------------- */
 @for $i from 1 through 9 {
   .gallery-columns-#{$i} {
@@ -674,6 +673,7 @@ body.home { border-top-color: transparent }
   display: flex;
   flex-flow: row wrap;
   box-shadow: none;
+  align-items: center;
   li {
     position: relative;
   }
@@ -716,28 +716,9 @@ body.home { border-top-color: transparent }
   a:hover::after, a:hover::before {
     visibility: visible;
   }
-  // .facebook .fa { color: #3b5998 }
-  // .twitter .fa { color: #00aced }
-  // .youtube .fa { color: #bb0000 }
-  // .linkedin .fa { color: #007bb6 }
-  // .instagram .fa { color: #517fa4 }
-  // .pinterest .fa { color: #cb2027 }
-  // .vine .fa { color: #00bf8f }
-  // .snapchat .fa { color: #fffc00 }
-  // .flickr .fa { color: #ff0084 }
-  // .tumblr .fa { color: #32506d }
-  // .vimeo .fa { color: #aad450 }
-  // .foursquare .fa { color: #0072b1 }
-  // .slack .fa { color: #78d4b6 }
-  // .skype .fa { color: #0bbff2 }
-  // .google-plus .fa { color: #dd4c3b; }
-  // .bell .fa { color: #ffbe06 }
-  // .rss .fa { color: #b9422f }
-  // .feedly .fa { color: #87c040 }
-  // .paypal .fa { color: #253b80 }
-  // .steam .fa { color: #14497d }
-  // .feedly *[class*='feedly'] { color: #94be61 }
-  //
+  .feedly .icon-feedly { display: block; bottom: -1px; line-height: 1.06;
+  &::before { font-size: 1.06em } }
+
   @media screen and (max-width: $bpmax-mobile) {
     i { font-size: 2em }
   }
@@ -847,7 +828,7 @@ ul.social-links { padding-left: 0; list-style: none; }
 .bold { font-weight: 700; }
 .semibold { font-weight: 600; }
 .monospace { font-family: "Source Code Pro", Monaco, monospace; }
-.info-1 {
+.info-box {
   display: block;
   margin: 1.6em 0;
   padding: 1.2em 1.4em;
@@ -855,7 +836,7 @@ ul.social-links { padding-left: 0; list-style: none; }
   border-radius: 3px;
   background-color: rgba(51, 153, 204, .1);
 }
-.attention-1 {
+.attention-box {
   padding: 1.4em;
   border: solid 2px #ff5000;
   border-radius: 3px;

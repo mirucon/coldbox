@@ -44,7 +44,6 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_style_htags );
 		}
 
-
 		// Link Color
 		if ( get_theme_mod( 'link_color', '#00619f' ) != '#00619f' ) {
 			$color_link = get_theme_mod( 'link_color' );
@@ -58,7 +57,6 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_color_link );
 		}
 
-
 		// Link Hover Color
 		if( get_theme_mod( 'link_hover_color', '#2e4453' ) != '#2e4453' ) {
 			$color_hover = get_theme_mod( 'link_hover_color' );
@@ -66,7 +64,6 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 			.entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover { color: $color_hover; } ";
 			wp_add_inline_style( 'main-style', $czr_color_hover );
 		}
-
 
 		// Header Background Color
 		if( get_theme_mod( 'header_color', '#ffffff' ) != '#ffffff' ) {

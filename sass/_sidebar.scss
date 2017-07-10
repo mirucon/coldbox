@@ -88,6 +88,7 @@
       color: #444;
     }
   }
+
   &_recent_comments {
     li {
       display: block;
@@ -97,6 +98,7 @@
       line-height: 1.5;
     } li:first-of-type { border-top: 1px solid $border }
   }
+
   &_archive {
     li a {
       display: block;
@@ -110,8 +112,8 @@
       right: 0;
     }
     li a::before { content: "\f073"; position: relative; top: -1px; padding-right: .5em; font-family: FontAwesome; font-size: .8em }
-
   }
+
   &_categories {
     li a {
       display: block;
@@ -131,6 +133,7 @@
       li a::before { content: "\f114"; padding-right: .4em; font-family: FontAwesome; font-size: .8em }
     }
   }
+
   &_tag_cloud {
     a {
       display: inline-block;
@@ -158,6 +161,7 @@
       }
     }
   }
+
   &_pages {
     li a {
       display: block;
@@ -171,6 +175,7 @@
       &:first-of-type a { border-top: 0 }
     }
   }
+
   &_nav_menu {
     li a {
       display: block;
@@ -184,6 +189,7 @@
       &:first-of-type a { border-top: 0 }
     }
   }
+
   &_meta {
     li a {
       display: block;
@@ -193,6 +199,7 @@
       line-height: 1.5;
     } li:first-of-type a { border-top: 1px solid $border }
   }
+
   #wp-calendar {
     width: 100%;
     a { color: $link; }
@@ -204,6 +211,7 @@
       a:hover { @include box-shadow($x: 0, $y: 2px, $blur: 0, $color: #000);}
     }
   }
+
   &_rss {
     li {
       display: block;
@@ -212,7 +220,62 @@
       border-bottom: 1px solid $border;
       line-height: 1.5;
     } li:first-of-type { border-top: 1px solid $border }
+  }
 
+  &_cd_widget_social_links {
+    .social-links {
+      &.has-1, &.has-2, &.has-3 {
+        li { flex-grow: 1 }
+      }
+      li {
+        flex-basis: 25%;
+        &:not(:first-child) { margin-left: 0; }
+       }
+       a {
+         display: block;
+         margin: .16em .06em;
+         padding: .3em .7em;
+        //  border: 1px solid #fff;
+         background-color: $link;
+         color: #fff;
+         text-align: center;
+       }
+       @mixin box-shadow-sns( $color ) {
+        //  box-shadow: 0 2px 3px rgba($color, .4);
+         box-shadow: 0 2px 3px rgba(0, 0, 0, .2);
+       }
+       @mixin box-shadow-sns-hover() {
+         box-shadow: 0 2px 3px rgba(0, 0, 0, .4);
+       }
+       *[class^=facebook] a { background-color: #3b5998; @include box-shadow-sns( $color: #3b5998 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=twitter] a { background-color: #00aced; @include box-shadow-sns( $color: #00aced ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=youtube] a { background-color: #bb0000; @include box-shadow-sns( $color: #bb0000 );  &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=linkedin] a { background-color: #007bb6; @include box-shadow-sns( $color: #007bb6 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=instagram] a { background-color: #517fa4; @include box-shadow-sns( $color: #517fa4 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=pinterest] a { background-color: #cb2027; @include box-shadow-sns( $color: #cb2027 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=vine] a { background-color: #00bf8f; @include box-shadow-sns( $color: #00bf8f ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=snapchat] a { background-color: #fffc00; @include box-shadow-sns( $color: #fffc00 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=flickr] a { background-color: #ff0084; @include box-shadow-sns( $color: #ff0084 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=tumblr] a { background-color: #32506d; @include box-shadow-sns( $color: #32506d ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=vimeo] a { background-color: #aad450; @include box-shadow-sns( $color: #aad450 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=foursquare] a { background-color: #0072b1; @include box-shadow-sns( $color: #0072b1 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=slack] a { background-color: #78d4b6; @include box-shadow-sns( $color: #78d4b6 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=skype] a { background-color: #0bbff2; @include box-shadow-sns( $color: #0bbff2 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=google-plus] a { background-color: #dd4c3b; @include box-shadow-sns( $color: #dd4c3b ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=github] a { background-color: #000; @include box-shadow-sns( $color:  #000 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=codepen] a { background-color: #444; @include box-shadow-sns( $color: #444 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=wordpress] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^='500px'] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=bell] a { background-color: #ffbe06; @include box-shadow-sns( $color: #ffbe06); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=rss] a { background-color: #b9422f; @include box-shadow-sns( $color: #b9422f); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=feedly] a { background-color: #87c040; @include box-shadow-sns( $color: #87c040); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=paypal] a { background-color: #253b80; @include box-shadow-sns( $color: #253b80); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=steam] a { background-color: #14497d; @include box-shadow-sns( $color: #14497d); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=envelope] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=feedly] a { background-color: #94be61; @include box-shadow-sns( $color: #94be61 ); &:hover { @include box-shadow-sns-hover(); } }
+
+      a::after, a::before { content: none }
+    }
   }
 
   .widgets-list-layout a {

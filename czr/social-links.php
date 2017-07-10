@@ -135,7 +135,7 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
 * @param string $class class name for selecting a FontAwesome web icon
 */
 
-function cd_social_links() {
+function cd_social_links( $class = null ) {
 
 	$social_sites = cd_social_sites();
 
@@ -145,11 +145,11 @@ function cd_social_links() {
 			$active_links[$key] = get_theme_mod( $key );
 		}
 	}
-
+	$count = count( $active_links );
 
 	if ( !empty( $active_links ) ) { // If there is any registered URL
 
-		echo '<ul class="social-links">';
+		echo '<ul class="social-links has-' . $count . ' ' . $class . ' ">';
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
@@ -192,6 +192,90 @@ function cd_social_links() {
 
 		echo "</ul>";
 
+	}
+
+}
+
+
+/**
+* Add the social links widget
+*
+* @since 1.1.1
+* @param type var Description
+*/
+
+/**
+* Register and load the widget
+*
+* @since 1.1.1
+*/
+function cd_load_widget_social_links() {
+	register_widget( 'cd_social_links' );
+}
+add_action( 'widgets_init', 'cd_load_widget_social_links' );
+
+class cd_social_links extends WP_Widget {
+
+	/**
+	* Register the widget
+	*/
+	function __construct() {
+		parent::__construct(
+			'cd_widget_social_links', // Base ID
+			__( '[Coldbox] Social Links', 'coldbox' ), // Name
+			array( 'description' => 'Show the social links entered on the customizer.', ) // Args
+		);
+	}
+
+	/**
+	* Widget's Front-end
+	*
+	* @since 1.1.1
+	* @param array $args The titles user entered
+	* @param array $instance  Widget settings
+	*/
+	public function widget( $args, $instance ) {
+		$title = apply_filters( 'widget_title', $instance['title'] );
+		echo $args['before_widget'];
+
+		if ( ! empty( $title ) ) {
+			echo $args['before_title'] . $title . $args['after_title'];
+		} else {
+			echo $args['before_title'] . __( 'Follow me', 'coldbox' ) . $args['after_title'];
+		}
+
+		echo cd_social_links();
+
+		echo $args['after_widget'];
+	}
+
+	/**
+	* Widget's Back-end
+	*
+	* @since 1.1.1
+	*/
+	public function form( $instance ) {
+		if ( isset( $instance[ 'title' ] ) ) {
+			$title = $instance[ 'title' ];
+		} else {
+			$title = __( 'Follow me', 'coldbox' );
+		}
+
+		// Widget admin form
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
+				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			</label>
+		</p>
+		<?php
+	}
+
+	// Updating widget replacing old instances with new
+	public function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		return $instance;
 	}
 
 }
