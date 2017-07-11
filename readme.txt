@@ -12,7 +12,7 @@ The theme is available on GitHub: https://github.com/Mirucon/coldbox
 The Coldbox theme designed by Mirucon
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
-Email: admin@mirucon.com
+Email: i@miruc.co
 
 ## Copyright
 The Coldbox theme is 100% under the GNU General Public License v3.0.
@@ -34,7 +34,7 @@ License - BSD 3-clause License
 URL: https://highlightjs.org/
 Created by @highlightjs
 
-### PlaceFolder Camera Icon license
+### PlaceFolder Camera Icon License
 License - MIT License
 URL: http://ionicons.com/
 Created by @benjsperry
