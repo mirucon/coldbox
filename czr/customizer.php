@@ -353,7 +353,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'label'    => __( 'Display Post Categories','coldbox' ),
 			'section'  => 'single',
 			'type'     => 'checkbox',
-			'description'=> __( 'Note: Categories are already showed on the breadcrum.', 'coldbox'),
+			'description'=> __( 'Note: Categories are already shown on the breadcrum.', 'coldbox' ),
 		)));
 		// Author
 		$wp_customize->add_setting( 'single_meta_author', array(
@@ -468,6 +468,48 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 				'min'      => '1',
 			),
 		)));
+		/* ------------------------------------------------------------------------- *
+		*  Static Pages Settings
+		* ------------------------------------------------------------------------- */
+		$wp_customize->add_section( 'pages', array(
+			'title'    => __( 'Coldbox: Static Pages Settings', 'coldbox' ),
+			'priority' => 3,
+		));
+
+		/*   Pages Meta Settings
+		/* -------------------------------------------------- */
+		// Data
+		$wp_customize->add_setting( 'pages_meta_data', array(
+			'default'  => false,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_data', array(
+			'label'    => __( 'Display Data', 'coldbox' ),
+			'section'  => 'pages',
+			'type'     => 'checkbox',
+		)));
+		// Author
+		$wp_customize->add_setting( 'pages_meta_author', array(
+			'default'  => false,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_author', array(
+			'label'    => __( 'Display the Author name', 'coldbox' ),
+			'section'  => 'pages',
+			'type'     => 'checkbox',
+		)));
+		// Comments count
+		$wp_customize->add_setting( 'pages_meta_comments_count', array(
+			'default'  => false,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_comments_count', array(
+			'label'    => __( 'Display the comments count', 'coldbox' ),
+			'description' => __( 'It will be shown when comments are opened and shown.', 'coldbox' ),
+			'section'  => 'pages',
+			'type'     => 'checkbox',
+		)));
+
 
 
 		/* ------------------------------------------------------------------------- *
@@ -607,6 +649,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 	// Related Posts Settings
 	function cd_single_related_max() { return ( get_theme_mod( 'single_related_max', 6 ) ); }
 	function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 2 ) ); }
+	// Pages Metas
+	function cd_pages_meta_data() { return  ( get_theme_mod( 'pages_meta_data', false ) ); }
+	function cd_pages_meta_author() { return  ( get_theme_mod( 'pages_meta_author', false ) ); }
+	function cd_pages_meta_comments_count() { return  ( get_theme_mod( 'pages_meta_comments_count', false ) ); }
 	// Theme credit
 	function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
 	function cd_theme_credit_text() { return get_theme_mod( 'theme_credit_text', '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>' ) ; }

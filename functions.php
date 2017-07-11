@@ -34,7 +34,7 @@ add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 if ( !function_exists ( 'cd_loads' ) ) {
 
 	function cd_loads() {
-		load_theme_textdomain( 'coldbox', get_template_directory().'/languages' );
+		load_theme_textdomain( 'coldbox', get_template_directory() . '/languages' );
 		add_editor_style( 'parts/editor-style.min.css' );
 	}
 
@@ -100,7 +100,7 @@ if ( !function_exists ( 'cd_supports' ) ) {
 
 		// Nav menu
 		register_nav_menus( array(
-			'header-menu' => 'Header Menu',
+			'header-menu' => __( 'Header Menu', 'coldbox' ),
 		) );
 
 
@@ -120,7 +120,7 @@ if ( !function_exists ( 'cd_body_class' ) ) {
 
 	function cd_body_class( $classes ) {
 
-		if ( has_nav_menu('header-menu') ) { $classes[] = 'header-menu-enabled'; }
+		if ( has_nav_menu( 'header-menu' ) ) { $classes[] = 'header-menu-enabled'; }
 		if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar-s1'; }
 		elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar-s1'; }
 		elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar-s1'; }
