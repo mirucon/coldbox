@@ -29,7 +29,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 				public $content = '';
 				public function render_content() {
 					if ( isset( $this->content ) ) {
-						echo $this->content;
+						echo wp_kses_post( $this->content );
 					}
 				}
 			}

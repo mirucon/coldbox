@@ -45,16 +45,18 @@ jQuery(function($) {
       href = '#' + href;
       var target = $( href == '#' || href == '' ? 'html' : href ); // Get where it goes
       var position = target.offset().top; // Get the offset value
-      if ( $('#wpadminbar').css('position') == 'fixed' ) { // When logged in
-        position -= $('#wpadminbar').outerHeight();
+      if ( window.matchMedia('(min-width: 767px)').matches ) {
+        if ( $('#wpadminbar').css('position') == 'fixed' ) { // When logged in
+          position -= $('#wpadminbar').outerHeight();
+        }
+        if ( $('#header').css('position') == 'fixed' ) { // When header is sticked
+          position -= $('#header').height();
+        }
+        if ( $('body').hasClass('header-column') ) {
+          position += $('.site-info').innerHeight();
+        }
       }
-      if ( $('#header').css('position') == 'fixed' ) { // When header is sticked
-        position -= $('#header').height();
-      }
-      if ( $('body').hasClass('header-column') ) {
-        position += $('.site-info').innerHeight();
-      }
-      $('body, html').animate({ scrollTop: position }, 300); // Smooth Scroll
+      $('body, html').animate({ scrollTop: position }, 300 ); // Smooth Scroll
       return false;
     }
   });

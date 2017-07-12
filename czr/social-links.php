@@ -149,7 +149,7 @@ function cd_social_links( $class = null ) {
 
 	if ( !empty( $active_links ) ) { // If there is any registered URL
 
-		echo '<ul class="social-links has-' . $count . ' ' . $class . ' ">';
+		echo '<ul class="social-links has-' . absint( $count ) . ' ' . esc_attr( $class ) . ' ">';
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
@@ -223,7 +223,7 @@ class cd_social_links extends WP_Widget {
 		parent::__construct(
 			'cd_widget_social_links', // Base ID
 			__( '[Coldbox] Social Links', 'coldbox' ), // Name
-			array( 'description' => 'Show the social links entered on the customizer.', ) // Args
+			array( 'description' => __( 'Show the social links you have entered on the customizer.', 'coldbox' ), ) // Args
 		);
 	}
 
@@ -236,17 +236,17 @@ class cd_social_links extends WP_Widget {
 	*/
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
-		echo $args['before_widget'];
+		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title'];
+			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
 		} else {
-			echo $args['before_title'] . __( 'Follow me', 'coldbox' ) . $args['after_title'];
+			echo wp_kses_post( $args['before_title'] . esc_html__( 'Follow me', 'coldbox' ) . $args['after_title'] );
 		}
 
-		echo cd_social_links();
+		cd_social_links();
 
-		echo $args['after_widget'];
+		echo wp_kses_post( $args['after_widget'] );
 	}
 
 	/**
@@ -264,8 +264,8 @@ class cd_social_links extends WP_Widget {
 		// Widget admin form
 		?>
 		<p>
-			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>
-				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'coldbox' ); ?>
+				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</label>
 		</p>
 		<?php
