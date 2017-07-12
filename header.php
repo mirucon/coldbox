@@ -12,7 +12,7 @@
 <head>
 	<meta charset="<?php bloginfo('charset'); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta content="<?php echo get_theme_mod( 'link_color' ); ?>" name="theme-color">
+	<meta content="<?php echo sanitize_hex_color( get_theme_mod( 'link_color', '#00619f' ) ); ?>" name="theme-color">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>

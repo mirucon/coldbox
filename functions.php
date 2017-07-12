@@ -22,9 +22,9 @@ if ( !function_exists ( 'cd_scripts' ) ) {
 			wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.0' );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array('jquery') );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ) );
 		} else {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery') );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ) );
 		}
 	}
 }
@@ -121,6 +121,7 @@ if ( !function_exists ( 'cd_body_class' ) ) {
 	function cd_body_class( $classes ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) { $classes[] = 'header-menu-enabled'; }
+		if ( cd_header_sticky() ) { $classes[] = 'sticky-header'; }
 		if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar-s1'; }
 		elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar-s1'; }
 		elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar-s1'; }

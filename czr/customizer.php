@@ -209,9 +209,20 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'header',
 			'type'     => 'radio',
 			'choices'  => array(
-				'column'  => __( 'Vertical (flex-direction: column)', 'coldbox' ),
-				'row'     => __( 'Horizontal (flex-direction: row)', 'coldbox' ),
+				'column'  => __( 'Vertical (column)', 'coldbox' ),
+				'row'     => __( 'Horizontal (row)', 'coldbox' ),
 				)
+		)));
+		// Sticky Header
+		$wp_customize->add_setting( 'header_sticky', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_sticky', array(
+			'label'    =>  __( 'Make Header Sticky', 'coldbox' ),
+			'description' => __( 'Only menus will be sticky when vertical is selected, or the whole header will be sticky with narrower padding when horizontal is selected.', 'coldbox' ),
+			'section'  => 'header',
+			'type'     => 'checkbox',
 		)));
 
 
@@ -626,7 +637,9 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 	function cd_index_style() { return ( get_theme_mod( 'index_style', 'grid' ) ); }
 	function cd_archive_style() { return ( get_theme_mod( 'archive_style', 'grid' ) ); }
 	function cd_is_site_desc() { return ( get_theme_mod( 'site_desc', true ) ); }
+	// Header
 	function cd_header_direction() { return ( get_theme_mod( 'header_direction', 'column' ) ); }
+	function cd_header_sticky() { return ( get_theme_mod( 'header_sticky', true ) ); }
 	// Index Metas
 	function cd_index_meta_date() { return ( get_theme_mod( 'index_meta_date', true ) ); }
 	function cd_index_meta_cat() { return ( get_theme_mod( 'index_meta_cat', true ) ); }

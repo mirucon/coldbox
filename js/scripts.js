@@ -64,63 +64,67 @@ jQuery(function($) {
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  $(window).on( 'load scroll resize', function() {
-    var header = $('#header');
-    var siteInfoHgt = $('.site-info').outerHeight();
+  if ( $('body').hasClass('sticky-header') ) {
 
-    if ( window.matchMedia('(min-width: 767px)').matches ) {
-      var scrollTop = $(window).scrollTop();
-    } else {
-      var scrollTop = 0;
-    }
+    $(window).on( 'load scroll resize', function() {
+      var header = $('#header');
+      var siteInfoHgt = $('.site-info').outerHeight();
 
-    // When header row is set
-    if ( $('body').hasClass('header-row') ) {
-      if ( scrollTop > 0 ) { // On scroll
-        header.addClass('sticky');
-        $('body').css({paddingTop: header.height() });
-      } else { // Not on scroll
-        header.removeClass('sticky');
-        $('body').css({paddingTop: ''});
+      if ( window.matchMedia('(min-width: 767px)').matches ) {
+        var scrollTop = $(window).scrollTop();
+      } else {
+        var scrollTop = 0;
       }
-    }
 
-    // When header column is set
-    else if ( $('body').hasClass('header-column') ) {
-      // Adjust search toggle behavior for the sticky header
-      if ( $('body').hasClass('header-menu-enabled') ) { // If header menu is set
-        if ( window.matchMedia('(min-width: 767px)').matches ) { // On PC view
-          if ( scrollTop > 0 ) { // On scroll
-            $('.search-toggle').css({top: siteInfoHgt, height: $('#header-menu').height() });
-            $('.header-searchbar').css({top: siteInfoHgt + $('#header-menu').height() / 1.3});
-          } else { // Not on scroll
-            $('.search-toggle').css({top: scrollTop, height: ''});
+      // When header row is set
+      if ( $('body').hasClass('header-row') ) {
+        if ( scrollTop > 0 ) { // On scroll
+          header.addClass('sticky');
+          $('body').css({paddingTop: header.height() });
+        } else { // Not on scroll
+          header.removeClass('sticky');
+          $('body').css({paddingTop: ''});
+        }
+      }
+
+      // When header column is set
+      else if ( $('body').hasClass('header-column') ) {
+        // Adjust search toggle behavior for the sticky header
+        if ( $('body').hasClass('header-menu-enabled') ) { // If header menu is set
+          if ( window.matchMedia('(min-width: 767px)').matches ) { // On PC view
+            if ( scrollTop > 0 ) { // On scroll
+              $('.search-toggle').css({top: siteInfoHgt, height: $('#header-menu').height() });
+              $('.header-searchbar').css({top: siteInfoHgt + $('#header-menu').height() / 1.3});
+            } else { // Not on scroll
+              $('.search-toggle').css({top: scrollTop, height: ''});
+            }
+          } else { // On mobile view
+            $('.search-toggle').css({top: '', height: ''});
           }
-        } else { // On mobile view
-          $('.search-toggle').css({top: '', height: ''});
+        }
+        // Sticky header
+        if ( scrollTop > 0 + siteInfoHgt ) { // On scroll
+          header.addClass('sticky');
+          $('body').css({ paddingTop: $(header).height() });
+          if ( $('body').hasClass('admin-bar') ) { // When logging in
+            header.css({ top: -siteInfoHgt + $('#wpadminbar').innerHeight() });
+          } else {
+            header.css({ top: -siteInfoHgt });
+          }
+        } else { // Not on scroll
+          // Remove sticky header
+          header.removeClass('sticky');
+          $('body').css({paddingTop: ''});
+          header.css({top: ''});
         }
       }
-      // Sticky header
-      if ( scrollTop > 0 + siteInfoHgt ) { // On scroll
-        header.addClass('sticky');
-        $('body').css({ paddingTop: $(header).height() });
-        if ( $('body').hasClass('admin-bar') ) { // When logging in
-          header.css({ top: -siteInfoHgt + $('#wpadminbar').innerHeight() });
-        } else {
-          header.css({ top: -siteInfoHgt });
-        }
-      } else { // Not on scroll
-        // Remove sticky header
-        header.removeClass('sticky');
-        $('body').css({paddingTop: ''});
-        header.css({top: ''});
-      }
-    }
-  });
+    });
+
+  }
 
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
-  $(window).on( 'resize', function() {
+  $(window).on( 'load resize', function() {
     if ( $('body').hasClass('header-menu-enabled') && window.matchMedia('(max-width: 767px)').matches ) {
       var padding = $('.site-info').outerHeight();
       if ( $('body').hasClass('admin-bar') ) { padding +=  $('#wpadminbar').innerHeight(); }
