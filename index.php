@@ -9,7 +9,7 @@
 
 <?php get_header(); ?>
 
-<main id="main">
+<main id="main" class="home">
 
 	<div class="container-outer">
 

@@ -135,22 +135,43 @@ jQuery(function($) {
   });
 
 
-  /*   Toggle : Nav Menu Toggle
-  /* -------------------------------------------------- */
-  $('.nav-toggle.header-menu, #header-menu').click(function() {
-    $('.nav-toggle.header-menu').toggleClass('open');
-  });
-
-
   /*   Toggle : Search Toggle
   /* -------------------------------------------------- */
-  $('.search-toggle').click(function() {
+  var count = 0;
+
+  $('.search-toggle, .close-toggle').not('.search-form').click( function() {
     $(this).toggleClass('open');
-    $('.header-searchbar').stop().fadeToggle(300);
-    setTimeout(function(){
-      $('.header-searchbar .search-inner').focus();
+    $('body').toggleClass('modal-search-open');
+    setTimeout( function() {
+      $('.modal-search-form .search-inner').focus();
     }, 400);
+    count++;
+    if ( count % 2 == 0 ) { $('body').addClass('modal-search-closed'); }
+    if ( count % 2 == 1 ) { $('body').removeClass('modal-search-closed'); }
   });
+
+  $(window).keyup( function(e){ // Close the window when pressing esc key
+    if ( e.keyCode == 27 ) { $('body').removeClass('modal-search-open') }
+  });
+
+
+  /*   Toggle : Nav Menu Toggle
+  /* -------------------------------------------------- */
+  var count = 0;
+
+  $('#header-menu').append('<span class="menu-overlay"></span>');
+  $('.nav-toggle.header-menu').click( function() {
+    $(this).toggleClass('open');
+    count++;
+    if ( count % 2 == 0 ) { $('body').addClass('header-menu-closed'); }
+    if ( count % 2 == 1 ) { $('body').removeClass('header-menu-closed'); }
+  });
+
+  $('.menu-overlay').click( function() {
+    $('.nav-toggle.header-menu').removeClass('open');
+    $('.nav-toggle.header-menu').addClass('closed');
+    $('body').addClass('header-menu-closed');
+  })
 
 
   /*   Multipage Link : Underline Animate
@@ -174,23 +195,6 @@ jQuery(function($) {
       });
     });
   }
-
-
-  /*   Header Menu : Undeline Animate
-  /* -------------------------------------------------- */
-  $('#header-nav > li').hover(function() {
-    $('#header-nav .action-bar').css({
-      width: $(this).outerWidth(),
-      left: $(this).position().left,
-      backgroundColor: ''
-    });
-    if ( $(this).hasClass('menu-item-has-children') ) {
-      $('#header-nav .action-bar').css({ width: '200px' });
-    }
-  },
-  function() {
-    $('#header-nav .action-bar').css({ backgroundColor: 'transparent' });
-  });
 
 
   /*   Comments : Comment Tab

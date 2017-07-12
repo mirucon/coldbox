@@ -28,6 +28,8 @@
 
 </footer>
 
+<div class="modal-search-form"><?php get_search_form(); ?><div class="close-toggle"><span class="top"></span><span class="bottom"></span><span class="label">Close</span></div></div>
+
 
 <?php wp_footer(); ?>
 </body></html>
