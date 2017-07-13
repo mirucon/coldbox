@@ -1,4 +1,4 @@
-#footer {
+.footer {
   position: relative;
   min-height: 80px;
   padding: 30px 20px;
@@ -34,7 +34,7 @@
 
 @media screen and (min-width: $bpmax-mobile) and (max-width: $bpmax-tablet) {
 
-  #footer {
+  .footer {
     .container {
       display: flex;
     }
@@ -44,7 +44,7 @@
 
 @media screen and (max-width: $bpmax-mobile) {
 
-  #footer {
+  .footer {
     .container {
       display: flex;
       flex-flow: column wrap;

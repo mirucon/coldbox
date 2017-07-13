@@ -1,14 +1,15 @@
 <?php
 /**
-* The template for displaying comments
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * The template for displaying comments
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
+
 ?>
 
 <?php if ( post_password_required() ) { return; } ?>
-<?php if ( have_comments() == false && comments_open() == false ) { return; } ?>
+<?php if ( have_comments() === false && comments_open() === false ) { return; } ?>
 
 <section id="comments" class="content-box">
 
@@ -17,8 +18,18 @@
 		<h4 class="comment-head"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h4>
 
 		<?php
-		$commentcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type' => 'comment', 'count' => true, ) );
-		$pingcount = get_comments( array( 'status' => 'approve', 'post_id'=> get_the_ID(), 'type' => 'pings', 'count' => true, ) );
+		$commentcount = get_comments( array(
+			'status' => 'approve',
+			'post_id' => get_the_ID(),
+			'type' => 'comment',
+			'count' => true,
+		) );
+		$pingcount = get_comments( array(
+			'status' => 'approve',
+			'post_id' => get_the_ID(),
+			'type' => 'pings',
+			'count' => true,
+		) );
 		?>
 
 		<ul class="comment-tabmenu">
@@ -27,17 +38,32 @@
 		</ul>
 
 		<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
+		
 			<ol id="comment-list">
-				<?php wp_list_comments( array( 'type' => 'comment', 'avatar_size' => 42 ) ); ?>
+				<?php wp_list_comments( array(
+					'type' => 'comment',
+					'avatar_size' => 42,
+				) ); ?>
+
 				<?php if ( get_comment_pages_count() > 1 ) : ?>
-					<div class="comment-pages"><?php paginate_comments_links( array( 'prev_text' => '&laquo;', 'next_text' => '&raquo;' ) ); ?></div>
+					<div class="comment-pages">
+						<?php paginate_comments_links( array(
+							'prev_text' => '&laquo;',
+							'next_text' => '&raquo;',
+						) ); ?>
+					</div>
 				<?php endif; ?>
 			</ol>
+
 		<?php endif; ?>
 
 		<?php if ( ! empty( $comments_by_type['pings'] ) ) : ?>
 			<ol id="ping-list">
-				<?php wp_list_comments( array( 'type' => 'pings', 'avatar_size' => 50, 'short_ping' => true ) ); ?>
+				<?php wp_list_comments( array(
+					'type' => 'pings',
+					'avatar_size' => 50,
+					'short_ping' => true,
+				) ); ?>
 			</ol>
 		<?php endif; ?>
 

@@ -1,10 +1,11 @@
 <?php
 /**
-* The template for displaying header
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * The template for displaying header
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
+
 ?>
 
 <!DOCTYPE html>
@@ -19,7 +20,7 @@
 
 <body <?php body_class(); ?>>
 
-	<header id="header">
+	<header id="header" class="header">
 
 		<div class="header-inner container">
 

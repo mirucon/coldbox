@@ -1,25 +1,26 @@
 <?php
 /**
-* Coldbox functions and definitions
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * Coldbox functions and definitions
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
 
+if ( ! function_exists( 'cd_scripts' ) ) {
 
-/* ------------------------------------------------------------------------- *
-*  Enqueue Files
-* ------------------------------------------------------------------------- */
-if ( !function_exists ( 'cd_scripts' ) ) {
-
+	/**
+	 * Enqueue theme styles and scripts
+	 *
+	 * @since 1.0.0
+	 **/
 	function cd_scripts() {
-		wp_enqueue_style ( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
-		wp_enqueue_style ( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
+		wp_enqueue_style( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
+		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
-			wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.min.css', array(), '1.1.0' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.min.css', array(), '1.1.0' );
 		} else {
-			wp_enqueue_style ( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.0' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.0' );
 		}
 		if ( cd_use_minified_js() ) {
 			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ) );
@@ -31,53 +32,64 @@ if ( !function_exists ( 'cd_scripts' ) ) {
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 
 
-if ( !function_exists ( 'cd_loads' ) ) {
+if ( ! function_exists( 'cd_loads' ) ) {
 
+	/**
+	 * Load the language domain and editor style
+	 *
+	 * @since 1.0.0
+	 **/
 	function cd_loads() {
 		load_theme_textdomain( 'coldbox', get_template_directory() . '/languages' );
 		add_editor_style( 'parts/editor-style.min.css' );
 	}
-
 }
 add_action( 'after_setup_theme', 'cd_loads' );
 
 
-if ( !function_exists ( 'cd_czr' ) ) {
+if ( ! function_exists( 'cd_czr' ) ) {
 
+	/**
+	 * Load the theme customizer
+	 *
+	 * @since 1.0.0
+	 **/
 	function cd_czr() {
-		get_template_part ( 'czr/customizer' );
+		get_template_part( 'czr/customizer' );
 	}
-
 }
 add_action( 'after_setup_theme', 'cd_czr' );
 
-/* ------------------------------------------------------------------------- *
-*  Theme Function
-* ------------------------------------------------------------------------- */
-if ( !function_exists ( 'cd_supports' ) ) {
 
+if ( ! function_exists( 'cd_supports' ) ) {
+
+	/**
+	 * Load the supported functions provided by WordPress
+	 *
+	 * @since 1.0.0
+	 **/
 	function cd_supports() {
 
-		// Title tag
+		// Title tag.
 		add_theme_support( 'title-tag' );
 
-		// Support thumbnail
+		// Support thumbnail.
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 500, 250, true );
 		add_image_size( 'cd-small', 150, 150, true );
 		add_image_size( 'cd-medium', 500, 250, true );
 		add_image_size( 'cd-standard', 500, 500, true );
 
-		// Support RSS link
+		// Support RSS link.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Support all post format
+		// Support all post format.
 		add_theme_support( 'post-formats', array( 'audio', 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
-		// Support HTML5
+		// Support HTML5.
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
-		// Support custom header
+		// Support custom header.
 		add_theme_support( 'custom-header', array(
 			'width'       => 980,
 			'height'      => 100,
@@ -85,64 +97,83 @@ if ( !function_exists ( 'cd_supports' ) ) {
 			'flex-width'  => true,
 		) );
 
+		// Support custom logo.
 		add_theme_support( 'custom-logo', array(
 			'height'      => 80,
 			'width'       => 270,
 			'flex-height' => true,
 		) );
 
-		// Support custom background color and image
+		// Support custom background color and image.
 		$custom_background_defaults = array(
 			'default-color' => '#f8f8f8',
 			'default-image' => '',
 		);
 		add_theme_support( 'custom-background', $custom_background_defaults );
 
-		// Nav menu
+		// Register nav menu.
 		register_nav_menus( array(
 			'header-menu' => __( 'Header Menu', 'coldbox' ),
 		) );
-
-
 	}
-
-}
+} // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
 
-// Content width
-if ( !isset( $content_width ) ) $content_width = 680;
+// Content width.
+if ( ! isset( $content_width ) ) {
+	$content_width = 680;
+}
 
 
-/* ------------------------------------------------------------------------- *
-*  Body classes
-* ------------------------------------------------------------------------- */
-if ( !function_exists ( 'cd_body_class' ) ) {
+if ( ! function_exists( 'cd_body_class' ) ) {
 
+	/**
+	 * Adding body tags
+	 *
+	 * @param string $classes The classes add to the body class.
+	 * @since 1.0.0
+	 **/
 	function cd_body_class( $classes ) {
 
-		if ( has_nav_menu( 'header-menu' ) ) { $classes[] = 'header-menu-enabled'; }
-		if ( cd_header_sticky() ) { $classes[] = 'sticky-header'; }
-		if ( cd_sidebar_stg() == 'right' ) { $classes[] = 'right-sidebar-s1'; }
-		elseif ( cd_sidebar_stg() == 'left' ) { $classes[] = 'left-sidebar-s1'; }
-		elseif ( cd_sidebar_stg() == 'bottom' ) { $classes[] = 'bottom-sidebar-s1'; }
-		elseif ( cd_sidebar_stg() == 'hide' ) { $classes[] = 'hide-sidebar-s1'; }
-		if ( cd_header_direction() == 'column' ) { $classes[] = 'header-column'; }
-		elseif ( cd_header_direction() == 'row' ) { $classes[] = 'header-row'; }
-		$ua = getenv( 'HTTP_USER_AGENT' );
-		if ( strstr( $ua, "MSIE 9.0" ) ) { $classes[] = "ie9"; }
-		if ( strstr( $ua, "MSIE 10.0" ) ) { $classes[] = "ie10"; }
+		if ( has_nav_menu( 'header-menu' ) ) {
+			$classes[] = 'header-menu-enabled';
+		}
+		if ( cd_header_sticky() ) {
+			$classes[] = 'sticky-header';
+		}
+		if ( cd_sidebar_stg() == 'right' ) {
+			$classes[] = 'right-sidebar-s1';
+		} elseif ( cd_sidebar_stg() == 'left' ) {
+			$classes[] = 'left-sidebar-s1';
+		} elseif ( cd_sidebar_stg() == 'bottom' ) {
+			$classes[] = 'bottom-sidebar-s1';
+		} elseif ( cd_sidebar_stg() == 'hide' ) {
+			$classes[] = 'hide-sidebar-s1';
+		}
+		if ( cd_header_direction() == 'column' ) {
+			$classes[] = 'header-column';
+		} elseif ( cd_header_direction() == 'row' ) {
+			$classes[] = 'header-row';
+		}
 		return $classes;
-
 	}
-
 }
 add_filter( 'body_class', 'cd_body_class' );
 
-/* ------------------------------------------------------------------------- *
-*  Sidebars
-* ------------------------------------------------------------------------- */
-if ( !function_exists ( 'cd_widgets_init' ) ) {
 
+/*
+ * ----------------------------------------------------------------------
+ * Widgets
+ * ----------------------------------------------------------------------
+*/
+
+if ( ! function_exists( 'cd_widgets_init' ) ) {
+
+	/**
+	 * Inits widgets area
+	 *
+	 * @since 1.0.0
+	 **/
 	function cd_widgets_init() {
 		register_sidebar( array(
 			'name'          => 'Sidebar',
@@ -155,121 +186,115 @@ if ( !function_exists ( 'cd_widgets_init' ) ) {
 			)
 		);
 	}
-
 }
 add_action( 'widgets_init', 'cd_widgets_init' );
 
-/* ------------------------------------------------------------------------- *
-*  The Bottom Contents
-* -------------------------------------------------------------------------- */
-/**
- * To output the contents shown bottom of the single articles.
- *
- * @since 1.1.0
- */
 
-if ( !function_exists ( 'cd_single_bottom_contents' ) ) {
+if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
+	/**
+	 * To output the contents shown bottom of the single articles.
+	 *
+	 * @since 1.1.0
+	 */
 	function cd_single_bottom_contents() {
 		if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
 		if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
 		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
 		if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
 	}
-
 }
 
-/* ------------------------------------------------------------------------- *
-*  Widgets Customizations
-* -------------------------------------------------------------------------- */
-/**
- * Make the counts surround with brankets on category widgets
- *
- * @var string $output return the count with brankets
- * @since 1.0.0
- */
 
-if ( !function_exists ( 'cd_cat_widget_count' ) ) {
+if ( ! function_exists( 'cd_cat_widget_count' ) ) {
 
+	/**
+	 * Make the counts surround with brankets on category widgets
+	 *
+	 * @param string $output return the count with brankets.
+	 * @param string $args widget arguments.
+	 * @since 1.0.0
+	 */
 	function cd_cat_widget_count( $output, $args ) {
-		$replaced_text = preg_replace('/<\/a> \(([0-9,]*)\)/', ' <span class="count">(${1})</span></a>', $output);
-		if ( $replaced_text != NULL ) {
+		$replaced_text = preg_replace( '/<\/a> \(([0-9,]*)\)/', ' <span class="count">(${1})</span></a>', $output );
+		if ( null !== $replaced_text ) {
 			return $replaced_text;
 		} else {
 			return $output;
 		}
 	}
-
 }
 add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2 );
 
 
-/**
- * Make the counts surround with brankets on archive widgets
- *
- * @var string $output return the count with brankets
- * @since 1.0.0
- */
+if ( ! function_exists( 'cd_archive_widget_count' ) ) {
 
-if ( !function_exists ( 'cd_archive_widget_count' ) ) {
-
+	/**
+	 * Make the counts surround with brankets on archive widgets
+	 *
+	 * @param string $output return the count with brankets.
+	 * @since 1.0.0
+	 */
 	function cd_archive_widget_count( $output ) {
 		$output = str_replace( '</a>&nbsp;(', ' <span class="count">(', $output );
 		$output = str_replace( ')', ')</span></a>', $output );
 		return $output;
 	}
-
 }
 add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
 
 
-/**
- * Remove the current post when showing a single article from the recent posts widgets
- *
- * @since 1.0.0
- */
+if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 
-if ( !function_exists ( 'cd_remove_current_post_on_recent_widgets' ) ) {
-
+	/**
+	 * Remove the current post when showing a single article from the recent posts widgets
+	 *
+	 * @param string $args return widget's argument without current post.
+	 * @since 1.0.0
+	 */
 	function cd_remove_current_post_on_recent_widgets( $args ) {
 		if ( is_single() ) {
 			$args['post_not_in'] = array( get_the_ID() );
 		}
 		return $args;
 	}
-
 }
 add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10, 3 );
 
 
-/**
- * Adds the counts to the tagcloud widgets
- *
- * @since 1.0.0
- */
+if ( ! is_admin() ) {
 
-if ( !is_admin() ) {
-	if ( !function_exists ( 'cd_tag_widget_count' ) ) {
+	if ( ! function_exists( 'cd_tag_widget_count' ) ) {
 
+		/**
+		 * Adds the counts to the tagcloud widgets
+		 *
+		 * @param string $content widget.
+		 * @param string $tags Used to get the counts.
+		 * @param string $args Return widget's argument with the count.
+		 * @since 1.0.0
+		 */
 		function cd_tag_widget_count( $content, $tags, $args ) {
 			$count = 0;
 			$output = preg_replace_callback( '(</a\s*>)',
-			function( $match ) use ( $tags, &$count ) {
-				return "<span class=\"count\">(".$tags[$count++]->count.")</span></a>";
-			}, $content);
+				function( $match ) use ( $tags, &$count ) {
+					return '<span class="count">( ' . $tags[ $count++ ] -> count . ' )</span></a>';
+				},
+			$content );
 
 			return $output;
 		}
 	}
-
 	add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
 }
 
 
-/* ------------------------------------------------------------------------- *
-*  Breadcrumbs
-* -------------------------------------------------------------------------- */
-if ( !function_exists ( 'cd_breadcrumb' ) ) {
+/*
+ * -------------------------------------------------------------------------
+ *  Breadcrumbs
+ * -------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'cd_breadcrumb' ) ) {
 
 	function cd_breadcrumb() {
 		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';

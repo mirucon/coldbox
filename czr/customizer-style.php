@@ -77,7 +77,7 @@ if ( !function_exists ( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'footer_color', '#44463b' ) != '#44463b' ) {
 			$color_footer = get_theme_mod( 'footer_color' );
 			$czr_color_footer = "
-			#footer { background-color: $color_footer; } ";
+			.footer { background-color: $color_footer; } ";
 			wp_add_inline_style( 'main-style', $czr_color_footer );
 		}
 

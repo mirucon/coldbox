@@ -862,7 +862,7 @@ ul.social-links { padding-left: 0; list-style: none; }
     animation: fadeIn .4s;
     visibility: visible;
   }
-  #main, #header, #footer {
+  #main, #header, .footer {
     filter: blur(4px);
   }
 }
