@@ -1,10 +1,11 @@
 <?php
 /**
-* The template for displaying the title part of the archive pages
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * The template for displaying the title part of the archive pages
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
+
 ?>
 
 <?php if ( is_category() ) : ?>

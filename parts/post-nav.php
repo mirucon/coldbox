@@ -1,10 +1,11 @@
 <?php
 /**
-* The template for displaying previous/next posts links
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * The template for displaying previous/next posts links
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
+
 ?>
 
 <nav class="post-nav">

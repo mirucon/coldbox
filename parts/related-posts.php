@@ -3,6 +3,7 @@
  * The template for getting and display related posts from query
  *
  * @since 1.0.0
+ * @package coldbox
  */
 
 $max_articles = cd_single_related_max();
@@ -10,7 +11,7 @@ $max_articles = cd_single_related_max();
 $tags = wp_get_post_tags( $post -> ID );
 $tag_ids = array();
 
-// Get related posts by tags first
+// Get related posts by tags first.
 if ( has_tag() ) {
 	foreach ( $tags as $tag ) {
 		array_push( $tag_ids, $tag -> term_id );
@@ -27,7 +28,7 @@ if ( has_tag() ) {
 	$posts_by_cats_count = count( $related_posts );
 }
 
-// If article has no tag
+// If article has no tag.
 if ( empty( $tags ) ) {
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();

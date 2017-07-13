@@ -6,41 +6,74 @@
  * @package coldbox
  */
 
+/**
+ * Enqueue customizer CSS
+ *
+ * @since 1.0.0
+ */
 function cd_czr_style() {
 	wp_enqueue_style( 'czr_style', get_template_directory_uri() . '/czr/czr-style.css' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
-/* ------------------------------------------------------------------------- *
-*  Theme Customizer
-* ------------------------------------------------------------------------- */
+/* 
+ * -------------------------------------------------------------------------
+ *  Theme Customizer
+ * -------------------------------------------------------------------------
+ */
 if ( ! function_exists( 'cd_customize_register' ) ) {
-
+	/**
+	 * Register customzer setting.
+	 *
+	 * @since 1.0.0
+	 * @param string $wp_customize Register customizations.
+	 */
 	function cd_customize_register( $wp_customize ) {
 
-		// Sanitization Functions
+		/**
+		 * Define the sanitization function for checkboxes.
+		 *
+		 * @since 1.0.0
+		 * @param string $checked The strings that will be checked..
+		 */
 		function cd_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true == $checked ) ? true : false );
 		}
+		/**
+		 * Define the sanitization function for radio bottom / select boxes.
+		 *
+		 * @since 1.0.0
+		 * @param string $input The strings that will be checked.
+		 * @param string $setting The possible choices.
+		 */
 		function cd_sanitize_radio( $input, $setting ) {
 			$input = sanitize_key( $input );
 			$choices = $setting -> manager -> get_control( $setting -> id ) -> choices;
 			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 		}
+		/**
+		 * Define the sanitization function for text.
+		 *
+		 * @since 1.0.0
+		 * @param string $text The strings that will be checked.
+		 */
 		function cd_sanitize_text( $text ) {
 			return sanitize_text_field( $text );
 		}
-		// To output HTML
+
+		// To output HTML.
 		get_template_part( 'czr/class-cd-custom-content' );
 
-		/* ------------------------------------------------------------------------- *
-		*  Global Settings
-		* ------------------------------------------------------------------------- */
+		/* 
+		 * -------------------------------------------------------------------------
+		 *  Global Settings
+		 * ------------------------------------------------------------------------- 
+		 */
 		$wp_customize->add_section( 'global', array(
 			'title'  => __( 'Coldbox: Global Settings', 'coldbox' ),
 			'priority' => 1,
 		));
-		// Sidebar Position
+		// Sidebar Position.
 		$wp_customize->add_setting( 'sidebar_position', array(
 			'default'  => 'right',
 			'sanitize_callback' => 'cd_sanitize_radio',
@@ -57,7 +90,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'hide'     => __( 'Hide Sidebar', 'coldbox' ),
 			),
 		)));
-		// Container Width
+		// Container Width.
 		$wp_customize->add_setting( 'container_width', array(
 			'default'  => '1140',
 			'sanitize_callback' => 'absint',
@@ -72,7 +105,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'max'      => '1980',
 			),
 		)));
-		// Global Font Select
+		// Global Font Select.
 		$wp_customize->add_setting( 'global_font', array(
 			'default'  => 'sourcesanspro',
 			'sanitize_callback' => 'cd_sanitize_radio',
@@ -157,7 +190,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'global',
 			'type'     => 'checkbox',
 		)));
-		// Use highlight.js
+		// Use highlight.js.
 		$wp_customize->add_setting( 'does_use_hljs', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -179,14 +212,16 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'type'     => 'checkbox',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Header Settings
-		* -------------------------------------------------------------------------- */
+		/* 
+		 * -------------------------------------------------------------------------
+		 *  Header Settings
+		 * -------------------------------------------------------------------------
+		 */
 		$wp_customize->add_section( 'header', array(
 			'title'    => __( 'Coldbox: Header Settings','coldbox' ),
 			'priority' => 1,
 		));
-		// Site Description
+		// Site Description.
 		$wp_customize->add_setting( 'site_desc', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -196,7 +231,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'header',
 			'type'     => 'checkbox',
 		)));
-		// Header Direction
+		// Header Direction.
 		$wp_customize->add_setting( 'header_direction', array(
 			'default'  => 'column',
 			'sanitize_callback' => 'cd_sanitize_radio',
@@ -210,7 +245,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'row'     => __( 'Horizontal (row)', 'coldbox' ),
 			),
 		)));
-		// Sticky Header
+		// Sticky Header.
 		$wp_customize->add_setting( 'header_sticky', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -222,14 +257,16 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Index settings
-		* ------------------------------------------------------------------------- */
+		/* 
+		 * -------------------------------------------------------------------------
+		 *  Index settings
+		 * -------------------------------------------------------------------------
+		 */
 		$wp_customize->add_section( 'index', array(
 			'title'    => __( 'Coldbox: Archive Pages Settings','coldbox' ),
 			'priority' => 2,
 		));
-		// Front page style
+		// Front page style.
 		$wp_customize->add_setting( 'index_style', array(
 			'default'  => 'grid',
 			'sanitize_callback' => 'cd_sanitize_radio',
@@ -244,7 +281,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'standard' => __( 'Standard Style','coldbox' ),
 			),
 		)));
-		// Archive page style
+		// Archive page style.
 		$wp_customize->add_setting( 'archive_style', array(
 			'default'  => 'grid',
 			'sanitize_callback' => 'cd_sanitize_radio',
@@ -259,7 +296,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'standard' => __( 'Standard Style','coldbox' ),
 			),
 		)));
-		// Excerpt Length Setting
+		// Excerpt Length Setting.
 		$wp_customize->add_setting( 'excerpt_length', array(
 			'default'  => '60',
 			'sanitize_callback' => 'absint',
@@ -281,7 +318,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'index',
 			'type'     => 'text',
 		)));
-		// Meta Settings
+		// Meta Settings.
 		$wp_customize->add_setting( 'index_meta_date', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -310,16 +347,20 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Single Settings
-		* ------------------------------------------------------------------------- */
+		/* 
+		 *------------------------------------------------------------------------- *
+		 *  Single Settings
+		 * ------------------------------------------------------------------------- 
+		 */
 		$wp_customize->add_section( 'single', array(
 			'title'    => __( 'Coldbox: Single Settings', 'coldbox' ),
 			'priority' => 3,
 		));
 
-		/*   Add decorations to header Tags
-		/* -------------------------------------------------- */
+		/*  
+		 *  Add decorations to header Tags
+		 * -------------------------------------------------- 
+		 */
 		$wp_customize->add_setting( 'single_content', array(
 			'sanitize_callback' => 'cd_sanitize_text',
 		) );
@@ -337,8 +378,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/*   Single Meta Settings
-		/* -------------------------------------------------- */
+		/*   
+		 * Single Meta Settings
+		 * -------------------------------------------------- 
+		*/
 		$wp_customize->add_setting( 'single_meta', array(
 			'sanitize_callback' => 'cd_sanitize_text',
 		) );
@@ -346,7 +389,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'content' => '<h3 class="czr-heading">' . __( 'Settings for Metas', 'coldbox' ) . '</h3>',
 			'section' => 'single',
 		) ) );
-		// Date
+		// Date.
 		$wp_customize->add_setting( 'single_meta_date', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -356,7 +399,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Category
+		// Last modified date.
+		$wp_customize->add_setting( 'single_meta_modified_data', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_modified_data', array(
+			'label'    => __( 'Display the last Modified Dates', 'coldbox' ),
+			'section'  => 'single',
+			'type'     => 'checkbox',
+		)));
+		// Category.
 		$wp_customize->add_setting( 'single_meta_cat', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -367,7 +420,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 			'description' => __( 'Note: Categories are already shown on the breadcrum.', 'coldbox' ),
 		)));
-		// Author
+		// Author.
 		$wp_customize->add_setting( 'single_meta_author', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -377,7 +430,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Comment Count
+		// Comment Count.
 		$wp_customize->add_setting( 'single_meta_com', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -387,7 +440,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Bottom Tag
+		// Bottom Tag.
 		$wp_customize->add_setting( 'single_meta_btm_tag', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -397,7 +450,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Bottom Category
+		// Bottom Category.
 		$wp_customize->add_setting( 'single_meta_btm_cat', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -407,7 +460,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Author Box
+		// Author Box.
 		$wp_customize->add_setting( 'single_author_box', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -417,7 +470,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		));
-		// Comment
+		// Comment.
 		$wp_customize->add_setting( 'single_comment', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -427,7 +480,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Post Nav
+		// Post Nav.
 		$wp_customize->add_setting( 'single_post_nav', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -438,8 +491,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/*   Related Posts Settings
-		/* -------------------------------------------------- */
+		/*   
+		 * Related Posts Settings
+		 * -------------------------------------------------- 
+		 */
 		$wp_customize->add_setting( 'single_related', array(
 			'sanitize_callback' => 'cd_sanitize_text',
 		) );
@@ -447,7 +502,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'content' => '<h3 class="czr-heading">' . __( 'Settings for Related Posts', 'coldbox' ) . '</h3>',
 			'section' => 'single',
 		) ) );
-		// Related Post
+		// Related Post.
 		$wp_customize->add_setting( 'single_related_posts', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -457,7 +512,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'single',
 			'type'     => 'checkbox',
 		)));
-		// Max Article
+		// Max Article.
 		$wp_customize->add_setting( 'single_related_max', array(
 			'default'  => 6,
 			'sanitize_callback' => 'absint',
@@ -470,7 +525,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'min'      => '1',
 			),
 		)));
-		// Max Article
+		// Max Article.
 		$wp_customize->add_setting( 'single_related_col', array(
 			'default'  => 3,
 			'sanitize_callback' => 'absint',
@@ -483,17 +538,23 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'min'      => '1',
 			),
 		)));
-		/* ------------------------------------------------------------------------- *
-		*  Static Pages Settings
-		* ------------------------------------------------------------------------- */
+
+		/* 
+		 * ------------------------------------------------------------------------- *
+		 *  Static Pages Settings
+		 * ------------------------------------------------------------------------- 
+		 */
 		$wp_customize->add_section( 'pages', array(
 			'title'    => __( 'Coldbox: Static Pages Settings', 'coldbox' ),
 			'priority' => 3,
 		));
 
-		/*   Pages Meta Settings
-		/* -------------------------------------------------- */
-		// Data
+		/*   
+		 * Pages Meta Settings
+		 * --------------------------------------------------
+		 */
+
+		// Data.
 		$wp_customize->add_setting( 'pages_meta_data', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -503,7 +564,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
-		// Author
+		// Author.
 		$wp_customize->add_setting( 'pages_meta_author', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -513,7 +574,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
-		// Comments count
+		// Comments count.
 		$wp_customize->add_setting( 'pages_meta_comments_count', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -525,9 +586,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Footer Settings
-		* ------------------------------------------------------------------------- */
+		/* 
+		 * ------------------------------------------------------------------------- *
+		 *  Footer Settings
+		 * -------------------------------------------------------------------------
+		 */
 		$wp_customize->add_section( 'footer', array(
 			'title'    => __( 'Coldbox: Footer Settings', 'coldbox' ),
 			'priority' => 4,
@@ -549,7 +612,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'credit_text', array(
 			'label'    => __( 'Edit the Credit Content', 'coldbox' ),
-			'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+			'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
 			'section'  => 'footer',
 			'type'     => 'textarea',
 		)));
@@ -560,15 +623,18 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'theme_credit_text', array(
 			'label'    => __( 'Edit the Theme Credit Content', 'coldbox' ),
-			'description' => sprintf( /* Translators: %s: HTML Tags */ __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+			'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
 			'section'  => 'footer',
 			'type'     => 'textarea',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Colors
-		* ------------------------------------------------------------------------- */
-		// Link Color
+		/* 
+		 * ------------------------------------------------------------------------- *
+		 *  Colors
+		 * ------------------------------------------------------------------------- 
+		 */
+
+		// Link Color.
 		$wp_customize->add_setting( 'link_color', array(
 			'default'    => '#00619f',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -578,7 +644,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'    => 'colors',
 			'settings'   => 'link_color',
 		)));
-		// Hover Link Color
+		// Hover Link Color.
 		$wp_customize->add_setting( 'link_hover_color', array(
 			'default'   => '#2e4453',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -588,7 +654,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'   => 'colors',
 			'settings'  => 'link_hover_color',
 		)));
-		// Header Background Color
+		// Header Background Color.
 		$wp_customize->add_setting( 'header_color', array(
 			'default'  => '#ffffff',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -598,7 +664,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'   => 'colors',
 			'settings'  => 'header_color',
 		)));
-		// Footer Background Color
+		// Footer Background Color.
 		$wp_customize->add_setting( 'footer_color', array(
 			'default'  => '#44463b',
 			'sanitize_callback' => 'sanitize_hex_color',
@@ -609,9 +675,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'settings'  => 'footer_color',
 		)));
 
-		/* ------------------------------------------------------------------------- *
-		*  Social Links
-		* -------------------------------------------------------------------------- */
+		/* 
+		 * ------------------------------------------------------------------------- *
+		 *  Social Links
+		 * -------------------------------------------------------------------------- 
+		 */
 		$wp_customize->add_setting( 'links_on_author_box', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -624,119 +692,262 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'priority' => '1',
 		));
 
-	} // End Customizer
+	} // End Customizer.
 
 
-	// Minified CSS
+	/**
+	 * Get using minified CSS or not
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_use_minified_css() {
 		return ( get_theme_mod( 'minified_css', true ) );
 	}
+	/**
+	 * Get using minified JS or not
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_use_minified_js() {
 		return ( get_theme_mod( 'minified_js', true ) );
 	}
-	// Sidebar Position
+	/**
+	 * Get the sidebar position
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_sidebar_stg() {
 		return ( get_theme_mod( 'sidebar_position', 'right' ) );
 	}
-	// Page Style Settings
+	/**
+	 * Get page style for index pages
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_index_style() {
 		return ( get_theme_mod( 'index_style', 'grid' ) );
 	}
+	/**
+	 * Get page style for archive pages
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_archive_style() {
 		return ( get_theme_mod( 'archive_style', 'grid' ) );
 	}
+	/**
+	 * Get dispyaing the site tagline or not
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_site_desc() {
 		return ( get_theme_mod( 'site_desc', true ) );
 	}
-	// Header
+	/**
+	 * Get the header direction
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_header_direction() {
 		return ( get_theme_mod( 'header_direction', 'column' ) );
 	}
+	/**
+	 * Get the header's sticky setting
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_header_sticky() {
 		return ( get_theme_mod( 'header_sticky', true ) );
 	}
-	// Index Metas
+	/**
+	 * Get displaying the date on index pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_index_meta_date() {
 		return ( get_theme_mod( 'index_meta_date', true ) );
 	}
+	/**
+	 * Get displaying the categories on index pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_index_meta_cat() {
 		return ( get_theme_mod( 'index_meta_cat', true ) );
 	}
+	/**
+	 * Get displaying the comments count on index pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_index_meta_comment() {
 		return ( get_theme_mod( 'index_meta_comment', true ) );
 	}
-	// Excerpt Settings
+	/**
+	 * Get the length of the excerpt.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_czr_excerpt_length() {
 		return ( get_theme_mod( 'excerpt_length', 60 ) );
 	}
+	/**
+	 * Get the ending strings of the excerpt.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_czr_excerpt_ending() {
 		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
 	}
-	// Single Meta Settings
+	/**
+	 * Get displaying the data on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_date() {
 		return ( get_theme_mod( 'single_meta_date', true ) );
 	}
+	/**
+	 * Get displaying the modified data on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_modified() {
-		return ( get_theme_mod( 'single_meta_date', true ) );
+		return ( get_theme_mod( 'single_meta_modified_data', true ) );
 	}
+	/**
+	 * Get displaying the categories on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_cat() {
 		return ( get_theme_mod( 'single_meta_cat', false ) );
 	}
+	/**
+	 * Get displaying the author on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_author() {
 		return ( get_theme_mod( 'single_meta_author', true ) );
 	}
+	/**
+	 * Get displaying the comments count on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_com() {
 		return ( get_theme_mod( 'single_meta_com', true ) );
 	}
+	/**
+	 * Get displaying the tags on bottom of single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_btm_tag() {
 		return ( get_theme_mod( 'single_meta_btm_tag', true ) );
 	}
+	/**
+	 * Get displaying the categories on bottom of single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_meta_btm_cat() {
 		return ( get_theme_mod( 'single_meta_btm_cat', true ) );
 	}
+	/**
+	 * Get displaying the author box on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_author_box() {
 		return ( get_theme_mod( 'single_author_box', true ) );
 	}
+	/**
+	 * Get displaying the post navigation on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_post_nav() {
 		return ( get_theme_mod( 'single_post_nav', true ) );
 	}
+	/**
+	 * Get displaying the related posts on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_post_related() {
 		return ( get_theme_mod( 'single_related_posts', true ) );
 	}
+	/**
+	 * Get displaying the comments on single pages.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_post_single_comment() {
 		return ( get_theme_mod( 'single_comment', true ) );
 	}
-	// Related Posts Settings
+	/**
+	 * Get the max articles shown on related posts.
+	 *
+	 * @since 
+	 */
 	function cd_single_related_max() {
 		return ( get_theme_mod( 'single_related_max', 6 ) );
 	}
+	/**
+	 * Get the column number of related posts.
+	 *
+	 * @since 
+	 */
 	function cd_single_related_col() {
 		return ( get_theme_mod( 'single_related_col', 2 ) );
 	}
-	// Pages Metas
+	/**
+	 * Get displaying the data on static pages.
+	 *
+	 * @since 1.1.1
+	 */
 	function cd_pages_meta_data() {
 		return  ( get_theme_mod( 'pages_meta_data', false ) );
 	}
+	/**
+	 * Get displaying the author on static pages.
+	 *
+	 * @since 1.1.1
+	 */
 	function cd_pages_meta_author() {
 		return  ( get_theme_mod( 'pages_meta_author', false ) );
 	}
+	/**
+	 * Get displaying the comments count on static pages.
+	 *
+	 * @since 1.1.1
+	 */
 	function cd_pages_meta_comments_count() {
 		return  ( get_theme_mod( 'pages_meta_comments_count', false ) );
 	}
-	// Theme credit
+	/**
+	 * Get displaying theme credit or not.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_is_theme_credit() {
 		return ( get_theme_mod( 'theme_credit', true ) );
 	}
+	/**
+	 * Get the contents of the theme credit text.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_theme_credit_text() {
 		return get_theme_mod( 'theme_credit_text', '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>' );
 	}
-	// Hightlight.js
-	function cd_use_normal_hljs() {
-		return ( get_theme_mod( 'does_use_hljs', false ) );
-	}
-	function cd_use_web_hljs() {
-		return ( get_theme_mod( 'use_hljs_web_pack', false ) );
-	}
+	/**
+	 * Get the contents of the credit text.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_credit() {
 		$text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
 		$text = str_replace( '[year]', esc_html( date( 'Y' ) ), $text );
@@ -744,15 +955,31 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
 		return $text;
 	}
+	/**
+	 * Get using of the hljs.
+	 *
+	 * @since 1.0.0
+	 */
+	function cd_use_normal_hljs() {
+		return ( get_theme_mod( 'does_use_hljs', false ) );
+	}
+	/**
+	 * Get using of the hljs with web package.
+	 *
+	 * @since 1.0.0
+	 */
+	function cd_use_web_hljs() {
+		return ( get_theme_mod( 'use_hljs_web_pack', false ) );
+	}
 } // End if().
 
 add_action( 'customize_register', 'cd_customize_register' );
 
-// Load Social Links Setting
+// Load Social Links Setting.
 get_template_part( 'czr/social-links' );
 
-// Load Font Setting
+// Load Font Setting.
 get_template_part( 'czr/customizer-font' );
 
-//  Load the inline styles got from the theme customizer
+// Load the inline styles got from the theme customizer.
 get_template_part( 'czr/customizer-style' );

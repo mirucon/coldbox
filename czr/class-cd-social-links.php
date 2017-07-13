@@ -3,28 +3,31 @@
  * The template for adding the social links widget
  *
  * @since 1.1.1
- * @param type var Description
+ * @package coldbox
  */
 
 /**
-* Register and load the widget
-*
-* @since 1.1.1
-*/
+ * Register and load the widget
+ *
+ * @since 1.1.1
+ */
 function cd_load_widget_social_links() {
 	register_widget( 'cd_social_links' );
 }
 add_action( 'widgets_init', 'cd_load_widget_social_links' );
 
+/**
+ * For the social links widget's class
+ */
 class CD_Social_Links extends WP_Widget {
 
 	/**
-	* Register the widget
-	*/
+	 * Register the widget
+	 */
 	function __construct() {
 		parent::__construct(
-			'cd_widget_social_links', // Base ID
-			__( '[Coldbox] Social Links', 'coldbox' ), // Name
+			'cd_widget_social_links', // Base ID.
+			__( '[Coldbox] Social Links', 'coldbox' ), // Name.
 			array(
 				'description' => __( 'Show the social links you have entered on the customizer.', 'coldbox' ),
 			)
@@ -32,12 +35,12 @@ class CD_Social_Links extends WP_Widget {
 	}
 
 	/**
-	* Widget's Front-end
-	*
-	* @since 1.1.1
-	* @param array $args The titles user entered
-	* @param array $instance  Widget settings
-	*/
+	 * Widget's Front-end
+	 *
+	 * @since 1.1.1
+	 * @param array $args The titles user entered.
+	 * @param array $instance  Widget settings.
+	 */
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title'] );
 		echo wp_kses_post( $args['before_widget'] );
@@ -54,10 +57,11 @@ class CD_Social_Links extends WP_Widget {
 	}
 
 	/**
-	* Widget's Back-end
-	*
-	* @since 1.1.1
-	*/
+	 * Widget's Back-end
+	 *
+	 * @since 1.1.1
+	 * @param string $instance Return the widget title.
+	 */
 	public function form( $instance ) {
 		if ( isset( $instance['title'] ) ) {
 			$title = $instance['title'];
@@ -65,7 +69,7 @@ class CD_Social_Links extends WP_Widget {
 			$title = __( 'Follow me', 'coldbox' );
 		}
 
-		// Widget admin form
+		// Widget admin form.
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'coldbox' ); ?>
@@ -75,7 +79,14 @@ class CD_Social_Links extends WP_Widget {
 		<?php
 	}
 
-	// Updating widget replacing old instances with new
+	/**
+	 * Updating widget replacing old instances with new.
+	 *
+	 * @since 1.1.1
+	 * @param string $new_instance A new instance.
+	 * @param string $old_instance A old instance.
+	 * @return string title.
+	 **/
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';

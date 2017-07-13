@@ -5,13 +5,20 @@
  * @since 1.0.0
  * @package coldbox
  */
+
 ?>
 
 <?php
 if ( ! function_exists( 'cd_customizer_style' ) ) {
+
+	/**
+	 * The inline styles that from the theme customizer.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_customizer_style() {
 
-		// Container Width
+		// Container Width.
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = get_theme_mod( 'container_width' );
 			$czr_container_width = "
@@ -33,7 +40,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_font_size_mobile );
 		}
 
-		// Add decoration
+		// Add decoration.
 		if ( get_theme_mod( 'decorate_htags', false ) ) {
 			$czr_style_htags = '
 			.entry h2 { margin: 2em -40px 1.3em; padding: 1.3rem 30px; border-style: solid; border-width: 1px 0; overflow: hidden; }
@@ -44,7 +51,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_style_htags );
 		}
 
-		// Link Color
+		// Link Color.
 		if ( get_theme_mod( 'link_color', '#00619f' ) !== '#00619f' ) {
 			$color_link = get_theme_mod( 'link_color' );
 			$czr_color_link = "
@@ -57,7 +64,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_color_link );
 		}
 
-		// Link Hover Color
+		// Link Hover Color.
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = get_theme_mod( 'link_hover_color' );
 			$czr_color_hover = "
@@ -65,7 +72,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_color_hover );
 		}
 
-		// Header Background Color
+		// Header Background Color.
 		if ( get_theme_mod( 'header_color', '#ffffff' ) !== '#ffffff' ) {
 			$color_header = get_theme_mod( 'header_color' );
 			$czr_color_header = "
@@ -73,7 +80,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_color_header );
 		}
 
-		// Footer Background Color
+		// Footer Background Color.
 		if ( get_theme_mod( 'footer_color', '#44463b' ) !== '#44463b' ) {
 			$color_footer = get_theme_mod( 'footer_color' );
 			$czr_color_footer = "
@@ -81,7 +88,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'main-style', $czr_color_footer );
 		}
 
-		// Related Posts Columns
+		// Related Posts Columns.
 		if ( get_theme_mod( 'single_related_col', 3 ) !== 3 ) {
 			$rel_col = get_theme_mod( 'single_related_col' );
 			$czr_rel_col = " .related-posts .related-article { width: calc(100% / {$rel_col}); } ";

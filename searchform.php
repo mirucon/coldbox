@@ -5,6 +5,7 @@
  * @since 1.0.0
  * @package coldbox
  */
+
 ?>
 
 <form method="get" class="search-form" action="<?php echo esc_attr( home_url( '/' ) ); ?>">

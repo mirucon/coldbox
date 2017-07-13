@@ -11,6 +11,11 @@
 <?php
 if ( ! function_exists( 'cd_customizer_font' ) ) {
 
+	/**
+	 * Enqueue the font file selected on theme customizer
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_customizer_font() {
 		$font = get_theme_mod( 'global_font', 'sourcesanspro' );
 
@@ -46,6 +51,11 @@ add_action( 'wp_enqueue_scripts', 'cd_customizer_font' );
 
 if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 
+	/**
+	 * Set the font the user has selected.
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_customizer_font_set() {
 
 		$font = get_theme_mod( 'global_font', 'sourcesanspro' );

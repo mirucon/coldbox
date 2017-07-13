@@ -346,6 +346,12 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
  * -------------------------------------------------------------------------
  */
 if ( ! function_exists( 'cd_load_hljs' ) ) {
+
+	/**
+	 * Load the highlight.js
+	 *
+	 * @since 1.0.0
+	 */
 	function cd_load_hljs() {
 
 		if ( cd_use_normal_hljs() || cd_use_web_hljs() ) {
@@ -390,20 +396,31 @@ add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
  * -------------------------------------------------------------------------
  */
 
-/*   the_excerpt
-/* -------------------------------------------------- */
-/* Excerpt length */
+/*   
+ * the_excerpt
+ * -------------------------------------------------- 
+ */
 if ( ! function_exists( 'cd_excerpt_length' ) ) {
-
+	/**
+	 * The length of the excerpt which set on the customizer.
+	 *
+	 * @since 1.0.0
+	 * @param int $length The length.
+	 */
 	function cd_excerpt_length( $length ) {
 		return cd_czr_excerpt_length( $length );
 	}
 }
 add_filter( 'excerpt_length', 'cd_excerpt_length', 999 );
 
-/* Excerpt ending */
 if ( ! function_exists( 'cd_excerpt_more' ) ) {
 
+	/**
+	 * The ending of the excerpt which set on the customizer.
+	 *
+	 * @since 1.0.0
+	 * @param string $more The ending strings.
+	 */
 	function cd_excerpt_more( $more ) {
 		return cd_czr_excerpt_ending( $more );
 	}
@@ -411,8 +428,10 @@ if ( ! function_exists( 'cd_excerpt_more' ) ) {
 add_filter( 'excerpt_more', 'cd_excerpt_more' );
 
 
-/*   Site Title
-/* -------------------------------------------------- */
+/*   
+ * Site Title
+ * -------------------------------------------------- 
+ */
 if ( ! function_exists( 'cd_site_title' ) ) {
 
 	/**
@@ -435,6 +454,11 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 if ( ! function_exists( 'cd_header_image' ) ) {
 	if ( has_header_image() ) {
 
+		/**
+		 * The header background image.
+		 *
+		 * @since 1.0.0
+		 */
 		function cd_header_image() {
 			$style = "#header { background-image: url('" . get_header_image() . "'); }";
 			wp_add_inline_style( 'main-style', $style );

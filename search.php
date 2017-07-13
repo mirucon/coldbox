@@ -5,6 +5,7 @@
  * @since 1.0.0
  * @package coldbox
  */
+
 ?>
 
 <?php get_header(); ?>

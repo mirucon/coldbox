@@ -1,17 +1,16 @@
 <?php
 /**
-* The template for registering and displaying the social links
-*
-* @since 1.1.0
-* @package coldbox
-*/
-
+ * The template for registering and displaying the social links
+ *
+ * @since 1.1.0
+ * @package coldbox
+ */
 
 /**
-* Define supported social accounts
-*
-* @since 1.1.0
-*/
+ * Define supported social accounts
+ *
+ * @since 1.1.0
+ */
 function cd_social_sites() {
 	$social_sites = array(
 		'twitter'              => 'cd_twitter_profile',
@@ -40,11 +39,11 @@ function cd_social_sites() {
 
 
 /**
-* Register customzer setting for social links
-*
-* @since 1.1.0
-*
-*/
+ * Register customzer setting for social links
+ *
+ * @since 1.1.0
+ * @param string $wp_customize Register customizations.
+ */
 function cd_czr_social_links( $wp_customize ) {
 
 	$feed_url = esc_url_raw( get_bloginfo( 'rss2_url' ) );
@@ -111,6 +110,11 @@ function cd_czr_social_links( $wp_customize ) {
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
 
+/**
+ * Check the links_on_author_box of the customizer.
+ *
+ * @since 1.1.0
+ **/
 function cd_is_links_on_author_box() {
 	return get_theme_mod( 'links_on_author_box', true );
 }
@@ -129,19 +133,19 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
 
 
 /**
-* Output the social links got from the theme customizer
-*
-* @since 1.1.0
-* @param string $key social account name
-* @param string $value social account profile URL user entered
-* @param string $class class name for selecting a FontAwesome web icon
-*/
-
+ * Output the social links got from the theme customizer
+ *
+ * @since 1.1.0
+ * @param string $class The custom class that you can set as a parameter.
+ */
 function cd_social_links( $class = null ) {
 
+	// @param string $key social account name.
+	// @param string $value social account profile URL user entered.
+	// @param string $class class name for selecting a FontAwesome web icon.
 	$social_sites = cd_social_sites();
 
-	// Get the social account names and URLs
+	// Get the social account names and URLs.
 	foreach ( $social_sites as $key => $value ) {
 		if ( strlen( get_theme_mod( $key ) ) > 0 ) {
 			$active_links[ $key ] = get_theme_mod( $key );
@@ -149,7 +153,7 @@ function cd_social_links( $class = null ) {
 	}
 	$count = count( $active_links );
 
-	if ( ! empty( $active_links ) ) { // If there is any registered URL
+	if ( ! empty( $active_links ) ) { // If there is any registered URL.
 
 		echo '<ul class="social-links has-' . absint( $count ) . ' ' . esc_attr( $class ) . ' ">';
 
@@ -198,5 +202,5 @@ function cd_social_links( $class = null ) {
 
 }
 
-// Load the widget
+// Load the widget template.
 get_template_part( 'czr/class-cd-social-links' );

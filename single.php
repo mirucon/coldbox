@@ -5,6 +5,7 @@
  * @since 1.0.0
  * @package coldbox
  */
+
 ?>
 
 <?php get_header(); ?>
@@ -33,7 +34,7 @@
 										<?php if ( cd_is_meta_date() ) : ?> <span class="post-date"><?php the_date(); ?></span><?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
 									<?php endif; ?>
-									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_date() ) : ?>
+									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
 										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php the_date(); ?></time>
 									<?php endif; ?>
 									<?php if ( cd_is_meta_cat() ) : ?><p class="post-category"><?php the_category( ' / ' ); ?> </p><?php endif; ?>
@@ -60,7 +61,7 @@
 								</div>
 
 
-								<?php cd_single_bottom_contents(); // Call the bottom parts ?>
+								<?php cd_single_bottom_contents(); // Call the bottom parts. ?>
 
 
 							</div><!--/.content-inside-->
