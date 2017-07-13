@@ -1,10 +1,11 @@
 <?php
 /**
-* The template for displaying author meta box
-*
-* @since 1.0.2
-* @package coldbox
-*/
+ * The template for displaying author meta box
+ *
+ * @since 1.0.2
+ * @package coldbox
+ */
+
 ?>
 
 <div class="author-box">

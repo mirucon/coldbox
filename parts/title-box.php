@@ -8,7 +8,7 @@
 ?>
 
 <?php
-if ( is_single() && !is_attachment() ) { ?>
+if ( is_single() && ! is_attachment() ) { ?>
 	<header class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
@@ -45,4 +45,4 @@ if ( is_single() && !is_attachment() ) { ?>
 		</div>
 	</div>
 	<?php
-}
+} // End if().

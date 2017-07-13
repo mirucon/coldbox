@@ -1,10 +1,10 @@
 <?php
 /**
-* The template for displaying sidebar
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * The template for displaying sidebar
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
 ?>
 
 <?php if ( cd_sidebar_stg() === 'hide' ) { return; } ?>

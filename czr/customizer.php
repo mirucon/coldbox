@@ -1,39 +1,37 @@
 <?php
 /**
-* Register customizations
-*
-* @since 1.0.0
-* @package coldbox
-*/
+ * Register customizations
+ *
+ * @since 1.0.0
+ * @package coldbox
+ */
 
 function cd_czr_style() {
-	wp_enqueue_style( 'czr_style', get_template_directory_uri().'/czr/czr-style.css' );
+	wp_enqueue_style( 'czr_style', get_template_directory_uri() . '/czr/czr-style.css' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
 /* ------------------------------------------------------------------------- *
 *  Theme Customizer
 * ------------------------------------------------------------------------- */
-if ( !function_exists( 'cd_customize_register' ) ) {
+if ( ! function_exists( 'cd_customize_register' ) ) {
+
 	function cd_customize_register( $wp_customize ) {
 
-		// Sanitize Functions
-		function cd_sanitize_checkbox( $checked ){ return ( ( isset( $checked ) && true == $checked ) ? true : false ); }
-		function cd_sanitize_radio( $input, $setting ) { $input = sanitize_key( $input ); $choices = $setting->manager->get_control($setting->id)->choices; return ( array_key_exists( $input, $choices ) ? $input : $setting->default ); }
-		function cd_sanitize_text( $text ) { return sanitize_text_field( $text ); }
-		function cd_sanitize_nohtml( $nohtml ) { return wp_filter_nohtml_kses( $nohtml ); }
-		function cd_sanitize_html( $html ) { return wp_filter_post_kses( $html ); }
-		// To output HTML
-		if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
-			class cd_Custom_Content extends WP_Customize_Control {
-				public $content = '';
-				public function render_content() {
-					if ( isset( $this->content ) ) {
-						echo wp_kses_post( $this->content );
-					}
-				}
-			}
+		// Sanitization Functions
+		function cd_sanitize_checkbox( $checked ) {
+			return ( ( isset( $checked ) && true == $checked ) ? true : false );
 		}
+		function cd_sanitize_radio( $input, $setting ) {
+			$input = sanitize_key( $input );
+			$choices = $setting -> manager -> get_control( $setting -> id ) -> choices;
+			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
+		}
+		function cd_sanitize_text( $text ) {
+			return sanitize_text_field( $text );
+		}
+		// To output HTML
+		get_template_part( 'czr/class-cd-custom-content' );
 
 		/* ------------------------------------------------------------------------- *
 		*  Global Settings
@@ -48,7 +46,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_radio',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sidebar_position', array(
-			'label'    =>  __( 'Sidebar Position', 'coldbox' ),
+			'label'    => __( 'Sidebar Position', 'coldbox' ),
 			'section'  => 'global',
 			'priority' => 1,
 			'type'     => 'radio',
@@ -65,7 +63,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'absint',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'container_width', array(
-			'label'    =>  __( 'Site Max-Width', 'coldbox' ),
+			'label'    => __( 'Site Max-Width', 'coldbox' ),
 			'section'  => 'global',
 			'type'     => 'number',
 			'input_attrs' => array(
@@ -80,21 +78,21 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_radio',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'global_font', array(
-			'label'    =>  __( 'Global Font Selecter', 'coldbox' ),
+			'label'    => __( 'Global Font Selecter', 'coldbox' ),
 			'section'  => 'global',
 			'type'     => 'select',
 			'choices'  => array(
-				'sourcesanspro'=> 'Source Sans Pro',
+				'sourcesanspro' => 'Source Sans Pro',
 				'opensans'  => 'Open Sans',
 				'lato'      => 'Lato',
 				'roboto'    => 'Roboto',
 				'robotocondensed' => 'Roboto Condensed',
 				'ubuntu'    => 'Ubuntu',
 				'raleway'   => 'Raleway',
-				'josefinsans'=> 'Josefin Sans',
+				'josefinsans' => 'Josefin Sans',
 				'ptsans'    => 'PT Sans',
 				'lora'      => 'Lora',
-				'robotoslab'=> 'Roboto Slab',
+				'robotoslab' => 'Roboto Slab',
 				'arial'     => 'Arial',
 				'helvetica' => 'Helvetica',
 				'verdana'   => 'Verdana',
@@ -107,7 +105,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 		));
 		$wp_customize->add_control( new WP_Customize_control( $wp_customize, 'custom_font', array(
 			'label'    => __( 'Custom Font-Family Value', 'coldbox' ),
-			'description' => sprintf ( /* Translators: %s: [font](shortcode) */ __('"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
+			'description' => sprintf( /* Translators: %s: [font](shortcode) */ __( '"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
 			'section'  => 'global',
 			'type'     => 'text',
 		)));
@@ -165,8 +163,8 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'does_use_hljs', array(
-			'label'  => __( 'Use highlight.js', 'coldbox'),
-			'description'=> __( 'The package contains 23 common languages.' , 'coldbox'),
+			'label'  => __( 'Use highlight.js', 'coldbox' ),
+			'description' => __( 'The package contains 23 common languages.' , 'coldbox' ),
 			'section'  => 'global',
 			'type'     => 'checkbox',
 		)));
@@ -176,11 +174,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'use_hljs_web_pack', array(
 			'label'  => __( 'Use highlight.js with Web Package', 'coldbox' ),
-			'description'=> __( 'The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox' ),
+			'description' => __( 'The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox' ),
 				'section'  => 'global',
 				'type'     => 'checkbox',
 		)));
-
 
 		/* ------------------------------------------------------------------------- *
 		*  Header Settings
@@ -195,7 +192,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_desc', array(
-			'label'    =>  __( 'Display Site Description', 'coldbox' ),
+			'label'    => __( 'Display Site Description', 'coldbox' ),
 			'section'  => 'header',
 			'type'     => 'checkbox',
 		)));
@@ -205,13 +202,13 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_radio',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_direction', array(
-			'label'    =>  __( 'Header and Menu Direction', 'coldbox' ),
+			'label'    => __( 'Header and Menu Direction', 'coldbox' ),
 			'section'  => 'header',
 			'type'     => 'radio',
 			'choices'  => array(
 				'column'  => __( 'Vertical (column)', 'coldbox' ),
 				'row'     => __( 'Horizontal (row)', 'coldbox' ),
-				)
+			),
 		)));
 		// Sticky Header
 		$wp_customize->add_setting( 'header_sticky', array(
@@ -219,12 +216,11 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'header_sticky', array(
-			'label'    =>  __( 'Make Header Sticky', 'coldbox' ),
+			'label'    => __( 'Make Header Sticky', 'coldbox' ),
 			'description' => __( 'Only menus will be sticky when vertical is selected, or the whole header will be sticky with narrower padding when horizontal is selected.', 'coldbox' ),
 			'section'  => 'header',
 			'type'     => 'checkbox',
 		)));
-
 
 		/* ------------------------------------------------------------------------- *
 		*  Index settings
@@ -269,7 +265,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'absint',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'excerpt_length', array(
-			'label'    =>  __( 'Excerpt Length', 'coldbox' ),
+			'label'    => __( 'Excerpt Length', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'number',
 			'input_attrs' => array(
@@ -281,7 +277,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_text',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'excerpt_ending', array(
-			'label'    =>  __( 'Excerpt Ending', 'coldbox' ),
+			'label'    => __( 'Excerpt Ending', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'text',
 		)));
@@ -291,7 +287,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_date', array(
-			'label'    =>  __( 'Display Post Date on Grid', 'coldbox' ),
+			'label'    => __( 'Display Post Date on Grid', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'checkbox',
 		)));
@@ -300,7 +296,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_cat', array(
-			'label'    =>  __( 'Display Categories on Grid', 'coldbox' ),
+			'label'    => __( 'Display Categories on Grid', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'checkbox',
 		)));
@@ -309,11 +305,10 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_meta_comment', array(
-			'label'    =>  __( 'Display Comments Count on Grid', 'coldbox' ),
+			'label'    => __( 'Display Comments Count on Grid', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'checkbox',
 		)));
-
 
 		/* ------------------------------------------------------------------------- *
 		*  Single Settings
@@ -325,9 +320,12 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
 		/*   Add decorations to header Tags
 		/* -------------------------------------------------- */
-		$wp_customize->add_setting( 'single_content', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
-		$wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_content', array(
-			'content' => '<h3 class="czr-heading first">' . __( 'Settings for Content', 'coldbox' ) . '</h3>', 'section' => 'single',
+		$wp_customize->add_setting( 'single_content', array(
+			'sanitize_callback' => 'cd_sanitize_text',
+		) );
+		$wp_customize->add_control( new CD_Custom_Content( $wp_customize, 'single_content', array(
+			'content'  => '<h3 class="czr-heading first">' . __( 'Settings for Content', 'coldbox' ) . '</h3>',
+			'section'  => 'single',
 		) ) );
 		$wp_customize->add_setting( 'decorate_htags', array(
 			'default'  => false,
@@ -341,9 +339,12 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
 		/*   Single Meta Settings
 		/* -------------------------------------------------- */
-		$wp_customize->add_setting( 'single_meta', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
-		$wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_meta', array(
-			'content' => '<h3 class="czr-heading">' . __( 'Settings for Metas', 'coldbox' ) . '</h3>', 'section' => 'single',
+		$wp_customize->add_setting( 'single_meta', array(
+			'sanitize_callback' => 'cd_sanitize_text',
+		) );
+		$wp_customize->add_control( new CD_Custom_Content( $wp_customize, 'single_meta', array(
+			'content' => '<h3 class="czr-heading">' . __( 'Settings for Metas', 'coldbox' ) . '</h3>',
+			'section' => 'single',
 		) ) );
 		// Date
 		$wp_customize->add_setting( 'single_meta_date', array(
@@ -364,7 +365,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'label'    => __( 'Display Post Categories','coldbox' ),
 			'section'  => 'single',
 			'type'     => 'checkbox',
-			'description'=> __( 'Note: Categories are already shown on the breadcrum.', 'coldbox' ),
+			'description' => __( 'Note: Categories are already shown on the breadcrum.', 'coldbox' ),
 		)));
 		// Author
 		$wp_customize->add_setting( 'single_meta_author', array(
@@ -379,7 +380,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 		// Comment Count
 		$wp_customize->add_setting( 'single_meta_com', array(
 			'default'  => true,
-			'sanitize_callback' => 'cd_sanitize_checkbox'
+			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_com', array(
 			'label'    => __( 'Display Comments Count', 'coldbox' ),
@@ -439,9 +440,12 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 
 		/*   Related Posts Settings
 		/* -------------------------------------------------- */
-		$wp_customize->add_setting( 'single_related', array( 'sanitize_callback'=>'cd_sanitize_text' ) );
-		$wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'single_related', array(
-			'content' => '<h3 class="czr-heading">' . __( 'Settings for Related Posts', 'coldbox' ) . '</h3>', 'section' => 'single',
+		$wp_customize->add_setting( 'single_related', array(
+			'sanitize_callback' => 'cd_sanitize_text',
+		) );
+		$wp_customize->add_control( new CD_Custom_Content( $wp_customize, 'single_related', array(
+			'content' => '<h3 class="czr-heading">' . __( 'Settings for Related Posts', 'coldbox' ) . '</h3>',
+			'section' => 'single',
 		) ) );
 		// Related Post
 		$wp_customize->add_setting( 'single_related_posts', array(
@@ -521,8 +525,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-
-
 		/* ------------------------------------------------------------------------- *
 		*  Footer Settings
 		* ------------------------------------------------------------------------- */
@@ -552,7 +554,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'textarea',
 		)));
 		$wp_customize->add_setting( 'theme_credit_text', array(
-			'default'  => '<a href="' . esc_url_raw( __( "https://coldbox.miruc.co/", "coldbox" ) ) . '">Coldbox WordPress theme</a> by <a href="' . esc_url_raw( __( "https://miruc.co/", "coldbox" ) ) . '">Mirucon</a>',
+			'default'  => '<a href="' . esc_url_raw( __( 'https://coldbox.miruc.co/', 'coldbox' ) ) . '">Coldbox WordPress theme</a> by <a href="' . esc_url_raw( __( 'https://miruc.co/', 'coldbox' ) ) . '">Mirucon</a>',
 			'sanitize_callback' => 'wp_kses_post',
 			'priority' => 10,
 		));
@@ -562,7 +564,6 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'footer',
 			'type'     => 'textarea',
 		)));
-
 
 		/* ------------------------------------------------------------------------- *
 		*  Colors
@@ -585,7 +586,7 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'link_hover_color', array(
 			'label'     => __( 'Secondary Color', 'coldbox' ),
 			'section'   => 'colors',
-			'settings'  => 'link_hover_color'
+			'settings'  => 'link_hover_color',
 		)));
 		// Header Background Color
 		$wp_customize->add_setting( 'header_color', array(
@@ -623,64 +624,128 @@ if ( !function_exists( 'cd_customize_register' ) ) {
 			'priority' => '1',
 		));
 
-
-
 	} // End Customizer
 
 
 	// Minified CSS
-	function cd_use_minified_css() { return ( get_theme_mod( 'minified_css', true ) ); }
-	function cd_use_minified_js() { return ( get_theme_mod( 'minified_js', true ) ); }
+	function cd_use_minified_css() {
+		return ( get_theme_mod( 'minified_css', true ) );
+	}
+	function cd_use_minified_js() {
+		return ( get_theme_mod( 'minified_js', true ) );
+	}
 	// Sidebar Position
-	function cd_sidebar_stg() { return ( get_theme_mod( 'sidebar_position', 'right' ) ); }
+	function cd_sidebar_stg() {
+		return ( get_theme_mod( 'sidebar_position', 'right' ) );
+	}
 	// Page Style Settings
-	function cd_index_style() { return ( get_theme_mod( 'index_style', 'grid' ) ); }
-	function cd_archive_style() { return ( get_theme_mod( 'archive_style', 'grid' ) ); }
-	function cd_is_site_desc() { return ( get_theme_mod( 'site_desc', true ) ); }
+	function cd_index_style() {
+		return ( get_theme_mod( 'index_style', 'grid' ) );
+	}
+	function cd_archive_style() {
+		return ( get_theme_mod( 'archive_style', 'grid' ) );
+	}
+	function cd_is_site_desc() {
+		return ( get_theme_mod( 'site_desc', true ) );
+	}
 	// Header
-	function cd_header_direction() { return ( get_theme_mod( 'header_direction', 'column' ) ); }
-	function cd_header_sticky() { return ( get_theme_mod( 'header_sticky', true ) ); }
+	function cd_header_direction() {
+		return ( get_theme_mod( 'header_direction', 'column' ) );
+	}
+	function cd_header_sticky() {
+		return ( get_theme_mod( 'header_sticky', true ) );
+	}
 	// Index Metas
-	function cd_index_meta_date() { return ( get_theme_mod( 'index_meta_date', true ) ); }
-	function cd_index_meta_cat() { return ( get_theme_mod( 'index_meta_cat', true ) ); }
-	function cd_index_meta_comment() { return ( get_theme_mod( 'index_meta_comment', true ) ); }
+	function cd_index_meta_date() {
+		return ( get_theme_mod( 'index_meta_date', true ) );
+	}
+	function cd_index_meta_cat() {
+		return ( get_theme_mod( 'index_meta_cat', true ) );
+	}
+	function cd_index_meta_comment() {
+		return ( get_theme_mod( 'index_meta_comment', true ) );
+	}
 	// Excerpt Settings
-	function cd_czr_excerpt_length() { return ( get_theme_mod( 'excerpt_length', 60 ) ); }
-	function cd_czr_excerpt_ending() { return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) ); }
+	function cd_czr_excerpt_length() {
+		return ( get_theme_mod( 'excerpt_length', 60 ) );
+	}
+	function cd_czr_excerpt_ending() {
+		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
+	}
 	// Single Meta Settings
-	function cd_is_meta_date() { return ( get_theme_mod( 'single_meta_date', true ) ); }
-	function cd_is_meta_modified() { return ( get_theme_mod( 'single_meta_date', true ) ); }
-	function cd_is_meta_cat() { return ( get_theme_mod( 'single_meta_cat', false ) ); }
-	function cd_is_meta_author() { return ( get_theme_mod( 'single_meta_author', true ) ); }
-	function cd_is_meta_com() { return ( get_theme_mod( 'single_meta_com', true ) ); }
-	function cd_is_meta_btm_tag() { return ( get_theme_mod( 'single_meta_btm_tag', true ) ); }
-	function cd_is_meta_btm_cat() { return ( get_theme_mod( 'single_meta_btm_cat', true ) ); }
-	function cd_is_author_box() { return ( get_theme_mod( 'single_author_box', true ) ); }
-	function cd_is_post_nav() { return ( get_theme_mod( 'single_post_nav', true ) ); }
-	function cd_is_post_related() { return ( get_theme_mod( 'single_related_posts', true ) ); }
-	function cd_is_post_single_comment() { return ( get_theme_mod( 'single_comment', true ) ); }
+	function cd_is_meta_date() {
+		return ( get_theme_mod( 'single_meta_date', true ) );
+	}
+	function cd_is_meta_modified() {
+		return ( get_theme_mod( 'single_meta_date', true ) );
+	}
+	function cd_is_meta_cat() {
+		return ( get_theme_mod( 'single_meta_cat', false ) );
+	}
+	function cd_is_meta_author() {
+		return ( get_theme_mod( 'single_meta_author', true ) );
+	}
+	function cd_is_meta_com() {
+		return ( get_theme_mod( 'single_meta_com', true ) );
+	}
+	function cd_is_meta_btm_tag() {
+		return ( get_theme_mod( 'single_meta_btm_tag', true ) );
+	}
+	function cd_is_meta_btm_cat() {
+		return ( get_theme_mod( 'single_meta_btm_cat', true ) );
+	}
+	function cd_is_author_box() {
+		return ( get_theme_mod( 'single_author_box', true ) );
+	}
+	function cd_is_post_nav() {
+		return ( get_theme_mod( 'single_post_nav', true ) );
+	}
+	function cd_is_post_related() {
+		return ( get_theme_mod( 'single_related_posts', true ) );
+	}
+	function cd_is_post_single_comment() {
+		return ( get_theme_mod( 'single_comment', true ) );
+	}
 	// Related Posts Settings
-	function cd_single_related_max() { return ( get_theme_mod( 'single_related_max', 6 ) ); }
-	function cd_single_related_col() { return ( get_theme_mod( 'single_related_col', 2 ) ); }
+	function cd_single_related_max() {
+		return ( get_theme_mod( 'single_related_max', 6 ) );
+	}
+	function cd_single_related_col() {
+		return ( get_theme_mod( 'single_related_col', 2 ) );
+	}
 	// Pages Metas
-	function cd_pages_meta_data() { return  ( get_theme_mod( 'pages_meta_data', false ) ); }
-	function cd_pages_meta_author() { return  ( get_theme_mod( 'pages_meta_author', false ) ); }
-	function cd_pages_meta_comments_count() { return  ( get_theme_mod( 'pages_meta_comments_count', false ) ); }
+	function cd_pages_meta_data() {
+		return  ( get_theme_mod( 'pages_meta_data', false ) );
+	}
+	function cd_pages_meta_author() {
+		return  ( get_theme_mod( 'pages_meta_author', false ) );
+	}
+	function cd_pages_meta_comments_count() {
+		return  ( get_theme_mod( 'pages_meta_comments_count', false ) );
+	}
 	// Theme credit
-	function cd_is_theme_credit() { return ( get_theme_mod( 'theme_credit', true ) ); }
-	function cd_theme_credit_text() { return get_theme_mod( 'theme_credit_text', '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>' ) ; }
+	function cd_is_theme_credit() {
+		return ( get_theme_mod( 'theme_credit', true ) );
+	}
+	function cd_theme_credit_text() {
+		return get_theme_mod( 'theme_credit_text', '<a href="https://coldbox.miruc.co/">Coldbox WordPress theme</a> by <a href="https://miruc.co/">Mirucon</a>' );
+	}
 	// Hightlight.js
-	function cd_use_normal_hljs() { return ( get_theme_mod( 'does_use_hljs', false ) ); }
-	function cd_use_web_hljs() { return ( get_theme_mod( 'use_hljs_web_pack', false ) ); }
+	function cd_use_normal_hljs() {
+		return ( get_theme_mod( 'does_use_hljs', false ) );
+	}
+	function cd_use_web_hljs() {
+		return ( get_theme_mod( 'use_hljs_web_pack', false ) );
+	}
 	function cd_credit() {
 		$text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
-		$text = str_replace( '[year]', esc_html( date( "Y" ) ), $text );
+		$text = str_replace( '[year]', esc_html( date( 'Y' ) ), $text );
 		$text = str_replace( '[url]', esc_url( home_url() ), $text );
 		$text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
 		return $text;
 	}
+} // End if().
 
-}
 add_action( 'customize_register', 'cd_customize_register' );
 
 // Load Social Links Setting
@@ -691,4 +756,3 @@ get_template_part( 'czr/customizer-font' );
 
 //  Load the inline styles got from the theme customizer
 get_template_part( 'czr/customizer-style' );
-?>

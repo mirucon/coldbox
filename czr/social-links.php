@@ -50,13 +50,14 @@ function cd_czr_social_links( $wp_customize ) {
 	$feed_url = esc_url_raw( get_bloginfo( 'rss2_url' ) );
 	$feedly_url = esc_url_raw( 'https://cloud.feedly.com/#subscription/feed/' . get_bloginfo( 'rss2_url' ) );
 
-	$wp_customize->add_setting( 'feed_url_info', array( 'sanitize_callback' => 'sanitize_text_field' ) );
-	$wp_customize->add_control( new cd_Custom_Content( $wp_customize, 'feed_url_info', array(
+	$wp_customize->add_setting( 'feed_url_info', array(
+		'sanitize_callback' => 'sanitize_text_field',
+	) );
+	$wp_customize->add_control( new CD_Custom_Content( $wp_customize, 'feed_url_info', array(
 		'content' => sprintf( /* Translators: %s: The feed URL */ __( '<p>Your Feed URL is: </p>%s', 'coldbox' ), $feed_url ) . '<br>' . sprintf( /* Translators: %s: The feedly URL */ __( '<p>Your Feedly URL is: </p>%s', 'coldbox' ), $feedly_url ),
 		'section' => 'social_links',
-		'priority' => 1000
+		'priority' => 1000,
 	) ) );
-
 
 	$wp_customize->add_section( 'social_links', array(
 		'title' => __( 'Coldbox: Social Links', 'coldbox' ),
@@ -69,25 +70,25 @@ function cd_czr_social_links( $wp_customize ) {
 	foreach ( $social_sites as $social_site => $value ) {
 
 		$label = ucfirst( $social_site );
-		if ( $social_site == 'google-plus-official' ) {
+		if ( 'google-plus-official' === $social_site ) {
 			$label = 'Google+';
-		} elseif ( $social_site == 'rss' ) {
+		} elseif ( 'rss' === $social_site ) {
 			$label = __( 'RSS Feed', 'coldbox' );
-		} elseif ( $social_site == 'codepen' ) {
+		} elseif ( 'codepen' === $social_site ) {
 			$label = 'CodePen';
-		} elseif ( $social_site == 'paypal' ) {
+		} elseif ( 'paypal' === $social_site ) {
 			$label = 'PayPal';
-		} elseif ( $social_site == 'envelope' ) {
+		} elseif ( 'envelope' === $social_site ) {
 			$label = __( 'Contact Form', 'coldbox' );
-		} elseif ( $social_site == 'bell' ) {
+		} elseif ( 'bell' === $social_site ) {
 			$label = __( 'Push Notification', 'coldbox' );
-		} elseif ( $social_site == 'wordpress' ) {
+		} elseif ( 'wordpress' === $social_site ) {
 			$label = 'WordPress';
-		} elseif ( $social_site == 'github' ) {
+		} elseif ( 'github' === $social_site ) {
 			$label = 'GitHub';
-		} elseif ( $social_site == 'facebook-official' ) {
+		} elseif ( 'facebook-official' === $social_site ) {
 			$label = 'Facebook';
-		} elseif ( $social_site == 'linkedin-square' ) {
+		} elseif ( 'linkedin-square' === $social_site ) {
 			$label = 'Linkedin';
 		}
 
@@ -106,18 +107,19 @@ function cd_czr_social_links( $wp_customize ) {
 
 		$priority++;
 
-	}
-
+	} // End foreach().
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
 
-function cd_is_links_on_author_box() { return get_theme_mod( 'links_on_author_box', true ); }
+function cd_is_links_on_author_box() {
+	return get_theme_mod( 'links_on_author_box', true );
+}
 
 /**
-* Load Icomoon web font if feedly social link is set
-*
-* @since 1.1.0
-*/
+ * Load Icomoon web font if feedly social link is set
+ *
+ * @since 1.1.0
+ */
 function load_icomoon() {
 	if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
 		wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' );
@@ -142,42 +144,42 @@ function cd_social_links( $class = null ) {
 	// Get the social account names and URLs
 	foreach ( $social_sites as $key => $value ) {
 		if ( strlen( get_theme_mod( $key ) ) > 0 ) {
-			$active_links[$key] = get_theme_mod( $key );
+			$active_links[ $key ] = get_theme_mod( $key );
 		}
 	}
 	$count = count( $active_links );
 
-	if ( !empty( $active_links ) ) { // If there is any registered URL
+	if ( ! empty( $active_links ) ) { // If there is any registered URL
 
 		echo '<ul class="social-links has-' . absint( $count ) . ' ' . esc_attr( $class ) . ' ">';
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
-			if ( $key == 'feedly' ) {
+			if ( 'feedly' === $key ) {
 				$class = 'icon-feedly';
 			} else {
 				$class = 'fa fa-' . $key;
 			}
 			$label = $key;
-			if ( $key == 'google-plus-official' ) {
+			if ( 'google-plus-official' === $key ) {
 				$label = 'Google+';
-			} elseif ( $key == 'rss' ) {
+			} elseif ( 'rss' === $key ) {
 				$label = __( 'RSS Feed', 'coldbox' );
-			} elseif ( $key == 'codepen' ) {
+			} elseif ( 'codepen' === $key ) {
 				$label = 'CodePen';
-			} elseif ( $key == 'paypal' ) {
+			} elseif ( 'paypal' === $key ) {
 				$label = 'PayPal';
-			} elseif ( $key == 'envelope' ) {
+			} elseif ( 'envelope' === $key ) {
 				$label = __( 'Contact Form', 'coldbox' );
-			} elseif ( $key == 'bell' ) {
+			} elseif ( 'bell' === $key ) {
 				$label = __( 'Push Notification', 'coldbox' );
-			} elseif ( $key == 'wordpress' ) {
+			} elseif ( 'wordpress' === $key ) {
 				$label = 'WordPress';
-			} elseif ( $key == 'github' ) {
+			} elseif ( 'github' === $key ) {
 				$label = 'GitHub';
-			} elseif ( $key == 'facebook-official' ) {
+			} elseif ( 'facebook-official' === $key ) {
 				$label = 'Facebook';
-			} elseif ( $key == 'linkedin-square' ) {
+			} elseif ( 'linkedin-square' === $key ) {
 				$label = 'Linkedin';
 			} else {
 				$label = ucfirst( $key );
@@ -188,94 +190,13 @@ function cd_social_links( $class = null ) {
 				</a>
 			</li>
 			<?php
-		}
+		} // End foreach().
 
-		echo "</ul>";
+		echo '</ul>';
 
-	}
-
-}
-
-
-/**
-* Add the social links widget
-*
-* @since 1.1.1
-* @param type var Description
-*/
-
-/**
-* Register and load the widget
-*
-* @since 1.1.1
-*/
-function cd_load_widget_social_links() {
-	register_widget( 'cd_social_links' );
-}
-add_action( 'widgets_init', 'cd_load_widget_social_links' );
-
-class cd_social_links extends WP_Widget {
-
-	/**
-	* Register the widget
-	*/
-	function __construct() {
-		parent::__construct(
-			'cd_widget_social_links', // Base ID
-			__( '[Coldbox] Social Links', 'coldbox' ), // Name
-			array( 'description' => __( 'Show the social links you have entered on the customizer.', 'coldbox' ), ) // Args
-		);
-	}
-
-	/**
-	* Widget's Front-end
-	*
-	* @since 1.1.1
-	* @param array $args The titles user entered
-	* @param array $instance  Widget settings
-	*/
-	public function widget( $args, $instance ) {
-		$title = apply_filters( 'widget_title', $instance['title'] );
-		echo wp_kses_post( $args['before_widget'] );
-
-		if ( ! empty( $title ) ) {
-			echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
-		} else {
-			echo wp_kses_post( $args['before_title'] . esc_html__( 'Follow me', 'coldbox' ) . $args['after_title'] );
-		}
-
-		cd_social_links();
-
-		echo wp_kses_post( $args['after_widget'] );
-	}
-
-	/**
-	* Widget's Back-end
-	*
-	* @since 1.1.1
-	*/
-	public function form( $instance ) {
-		if ( isset( $instance[ 'title' ] ) ) {
-			$title = $instance[ 'title' ];
-		} else {
-			$title = __( 'Follow me', 'coldbox' );
-		}
-
-		// Widget admin form
-		?>
-		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title:', 'coldbox' ); ?>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-			</label>
-		</p>
-		<?php
-	}
-
-	// Updating widget replacing old instances with new
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		return $instance;
-	}
+	} // End if().
 
 }
+
+// Load the widget
+get_template_part( 'czr/class-cd-social-links' );
