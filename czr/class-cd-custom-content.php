@@ -10,14 +10,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Conten
 
 	/**
 	 * For adding HTML on the customizer.
-	 * 
+	 *
 	 * @since 1.1.1
 	 */
 	class CD_Custom_Content extends WP_Customize_Control {
 
 		/**
 		 * A variable described below.
-		 *  
+		 *
 		 * @var string $content The string that will be output on the customizer
 		 */
 		public $content = '';

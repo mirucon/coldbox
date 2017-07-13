@@ -16,7 +16,7 @@ function cd_czr_style() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
-/* 
+/*
  * -------------------------------------------------------------------------
  *  Theme Customizer
  * -------------------------------------------------------------------------
@@ -64,10 +64,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		// To output HTML.
 		get_template_part( 'czr/class-cd-custom-content' );
 
-		/* 
+		/*
 		 * -------------------------------------------------------------------------
 		 *  Global Settings
-		 * ------------------------------------------------------------------------- 
+		 * -------------------------------------------------------------------------
 		 */
 		$wp_customize->add_section( 'global', array(
 			'title'  => __( 'Coldbox: Global Settings', 'coldbox' ),
@@ -212,7 +212,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'type'     => 'checkbox',
 		)));
 
-		/* 
+		/*
 		 * -------------------------------------------------------------------------
 		 *  Header Settings
 		 * -------------------------------------------------------------------------
@@ -257,7 +257,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* 
+		/*
 		 * -------------------------------------------------------------------------
 		 *  Index settings
 		 * -------------------------------------------------------------------------
@@ -347,19 +347,19 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* 
+		/*
 		 *------------------------------------------------------------------------- *
 		 *  Single Settings
-		 * ------------------------------------------------------------------------- 
+		 * -------------------------------------------------------------------------
 		 */
 		$wp_customize->add_section( 'single', array(
 			'title'    => __( 'Coldbox: Single Settings', 'coldbox' ),
 			'priority' => 3,
 		));
 
-		/*  
+		/*
 		 *  Add decorations to header Tags
-		 * -------------------------------------------------- 
+		 * --------------------------------------------------
 		 */
 		$wp_customize->add_setting( 'single_content', array(
 			'sanitize_callback' => 'cd_sanitize_text',
@@ -378,9 +378,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/*   
+		/*
 		 * Single Meta Settings
-		 * -------------------------------------------------- 
+		 * --------------------------------------------------
 		*/
 		$wp_customize->add_setting( 'single_meta', array(
 			'sanitize_callback' => 'cd_sanitize_text',
@@ -491,9 +491,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/*   
+		/*
 		 * Related Posts Settings
-		 * -------------------------------------------------- 
+		 * --------------------------------------------------
 		 */
 		$wp_customize->add_setting( 'single_related', array(
 			'sanitize_callback' => 'cd_sanitize_text',
@@ -539,17 +539,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			),
 		)));
 
-		/* 
+		/*
 		 * ------------------------------------------------------------------------- *
 		 *  Static Pages Settings
-		 * ------------------------------------------------------------------------- 
+		 * -------------------------------------------------------------------------
 		 */
 		$wp_customize->add_section( 'pages', array(
 			'title'    => __( 'Coldbox: Static Pages Settings', 'coldbox' ),
 			'priority' => 3,
 		));
 
-		/*   
+		/*
 		 * Pages Meta Settings
 		 * --------------------------------------------------
 		 */
@@ -586,7 +586,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 
-		/* 
+		/*
 		 * ------------------------------------------------------------------------- *
 		 *  Footer Settings
 		 * -------------------------------------------------------------------------
@@ -628,10 +628,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'textarea',
 		)));
 
-		/* 
+		/*
 		 * ------------------------------------------------------------------------- *
 		 *  Colors
-		 * ------------------------------------------------------------------------- 
+		 * -------------------------------------------------------------------------
 		 */
 
 		// Link Color.
@@ -675,10 +675,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'settings'  => 'footer_color',
 		)));
 
-		/* 
+		/*
 		 * ------------------------------------------------------------------------- *
 		 *  Social Links
-		 * -------------------------------------------------------------------------- 
+		 * --------------------------------------------------------------------------
 		 */
 		$wp_customize->add_setting( 'links_on_author_box', array(
 			'default'  => true,
@@ -890,7 +890,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	/**
 	 * Get the max articles shown on related posts.
 	 *
-	 * @since 
+	 * @since 1.0.0
 	 */
 	function cd_single_related_max() {
 		return ( get_theme_mod( 'single_related_max', 6 ) );
@@ -898,7 +898,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	/**
 	 * Get the column number of related posts.
 	 *
-	 * @since 
+	 * @since 1.0.0
 	 */
 	function cd_single_related_col() {
 		return ( get_theme_mod( 'single_related_col', 2 ) );

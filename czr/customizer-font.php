@@ -45,7 +45,7 @@ if ( ! function_exists( 'cd_customizer_font' ) ) {
 		}
 
 	}
-}
+} // End if().
 add_action( 'wp_enqueue_scripts', 'cd_customizer_font' );
 
 

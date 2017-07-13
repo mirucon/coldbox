@@ -396,9 +396,9 @@ add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
  * -------------------------------------------------------------------------
  */
 
-/*   
+/*
  * the_excerpt
- * -------------------------------------------------- 
+ * --------------------------------------------------
  */
 if ( ! function_exists( 'cd_excerpt_length' ) ) {
 	/**
@@ -428,9 +428,9 @@ if ( ! function_exists( 'cd_excerpt_more' ) ) {
 add_filter( 'excerpt_more', 'cd_excerpt_more' );
 
 
-/*   
+/*
  * Site Title
- * -------------------------------------------------- 
+ * --------------------------------------------------
  */
 if ( ! function_exists( 'cd_site_title' ) ) {
 
