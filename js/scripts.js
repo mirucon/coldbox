@@ -230,5 +230,4 @@ jQuery(function($) {
     $('.entry img').parent('a').css({'box-shadow':'none'});
   });
 
-
 });

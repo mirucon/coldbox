@@ -1,6 +1,6 @@
 <?php
 /**
- * A template for single articles.
+ * The template for displaying single articles.
  *
  * @since 1.0.0
  * @package coldbox

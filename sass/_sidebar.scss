@@ -152,7 +152,7 @@
         background-color: #ddd;
         @include box-shadow($y: 2px, $blur: 1px, $color: rgba(0, 0, 0, .3));
       }
-      .count {
+      .tag-link-count {
         margin-left: .2em;
         color: #777;
         font-family: Lato, Arial, sans-serif;
@@ -266,11 +266,11 @@
        *[class^=codepen] a { background-color: #444; @include box-shadow-sns( $color: #444 ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=wordpress] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^='500px'] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
-       *[class^=bell] a { background-color: #ffbe06; @include box-shadow-sns( $color: #ffbe06); &:hover { @include box-shadow-sns-hover(); } }
-       *[class^=rss] a { background-color: #b9422f; @include box-shadow-sns( $color: #b9422f); &:hover { @include box-shadow-sns-hover(); } }
-       *[class^=feedly] a { background-color: #87c040; @include box-shadow-sns( $color: #87c040); &:hover { @include box-shadow-sns-hover(); } }
-       *[class^=paypal] a { background-color: #253b80; @include box-shadow-sns( $color: #253b80); &:hover { @include box-shadow-sns-hover(); } }
-       *[class^=steam] a { background-color: #14497d; @include box-shadow-sns( $color: #14497d); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=bell] a { background-color: #ffbe06; @include box-shadow-sns( $color: #ffbe06 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=rss] a { background-color: #b9422f; @include box-shadow-sns( $color: #b9422f ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=feedly] a { background-color: #87c040; @include box-shadow-sns( $color: #87c040 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=paypal] a { background-color: #253b80; @include box-shadow-sns( $color: #253b80 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=steam] a { background-color: #14497d; @include box-shadow-sns( $color: #14497d ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=envelope] a { background-color: #00619F; @include box-shadow-sns( $color: #00619F ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=feedly] a { background-color: #94be61; @include box-shadow-sns( $color: #94be61 ); &:hover { @include box-shadow-sns-hover(); } }
 
@@ -312,8 +312,7 @@
 
   @media screen and (max-width: $bpmax-mobile) {
 
-    .widget-title {
-    }
+    
 
   }
 

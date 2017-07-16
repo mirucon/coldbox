@@ -128,7 +128,7 @@ if ( ! isset( $content_width ) ) {
 if ( ! function_exists( 'cd_body_class' ) ) {
 
 	/**
-	 * Adding body tags
+	 * Adds classses to the body tags.
 	 *
 	 * @param string $classes The classes add to the body class.
 	 * @since 1.0.0
@@ -170,7 +170,7 @@ add_filter( 'body_class', 'cd_body_class' );
 if ( ! function_exists( 'cd_widgets_init' ) ) {
 
 	/**
-	 * Inits widgets area
+	 * Inits widgets area.
 	 *
 	 * @since 1.0.0
 	 **/
@@ -193,7 +193,7 @@ add_action( 'widgets_init', 'cd_widgets_init' );
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
 	/**
-	 * To output the contents shown bottom of the single articles.
+	 * Gets the parts outputed to the buttom of the single articles.
 	 *
 	 * @since 1.1.0
 	 */
@@ -209,10 +209,10 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_cat_widget_count' ) ) {
 
 	/**
-	 * Make the counts surround with brankets on category widgets
+	 * Make the counts surround with brankets on category widgets.
 	 *
-	 * @param string $output return the count with brankets.
-	 * @param string $args widget arguments.
+	 * @param string $output Return the count with brankets.
+	 * @param string $args The widget arguments.
 	 * @since 1.0.0
 	 */
 	function cd_cat_widget_count( $output, $args ) {
@@ -230,7 +230,7 @@ add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2 );
 if ( ! function_exists( 'cd_archive_widget_count' ) ) {
 
 	/**
-	 * Make the counts surround with brankets on archive widgets
+	 * Make the counts surround with brankets on archive widgets.
 	 *
 	 * @param string $output return the count with brankets.
 	 * @since 1.0.0
@@ -247,7 +247,7 @@ add_filter( 'get_archives_link', 'cd_archive_widget_count', 10, 2 );
 if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 
 	/**
-	 * Remove the current post when showing a single article from the recent posts widgets
+	 * Remove the current post when showing a single article from the recent posts widgets.
 	 *
 	 * @param string $args return widget's argument without current post.
 	 * @since 1.0.0
@@ -260,34 +260,6 @@ if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 	}
 }
 add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10, 3 );
-
-
-if ( ! is_admin() ) {
-
-	if ( ! function_exists( 'cd_tag_widget_count' ) ) {
-
-		/**
-		 * Adds the counts to the tagcloud widgets
-		 *
-		 * @param string $content widget.
-		 * @param string $tags Used to get the counts.
-		 * @param string $args Return widget's argument with the count.
-		 * @since 1.0.0
-		 */
-		function cd_tag_widget_count( $content, $tags, $args ) {
-			$count = 0;
-			$output = preg_replace_callback( '(</a\s*>)',
-				function( $match ) use ( $tags, &$count ) {
-					return '<span class="count">( ' . $tags[ $count++ ] -> count . ' )</span></a>';
-				},
-			$content );
-
-			return $output;
-		}
-	}
-	add_filter( 'wp_generate_tag_cloud','cd_tag_widget_count', 10, 3 );
-}
-
 
 /*
  * -------------------------------------------------------------------------
@@ -435,7 +407,7 @@ add_filter( 'excerpt_more', 'cd_excerpt_more' );
 if ( ! function_exists( 'cd_site_title' ) ) {
 
 	/**
-	 * Return site name or logo if set.
+	 * Return the site name or logo if set.
 	 *
 	 * @since 1.0.0
 	 **/
@@ -455,7 +427,7 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 	if ( has_header_image() ) {
 
 		/**
-		 * The header background image.
+		 * Appear the header background image as CSS background image.
 		 *
 		 * @since 1.0.0
 		 */
