@@ -11,6 +11,7 @@ var rename = require('gulp-rename');
 var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require("gulp-concat");
+var runSequence = require('run-sequence');
 
 gulp.task( 'sass', function() {
   var processors = [
@@ -100,3 +101,7 @@ gulp.task( 'copy', function() {
   )
   .pipe( gulp.dest( 'coldbox' ) );
 } );
+
+gulp.task( 'dist', function(cb){
+    return runSequence( 'sass', 'css-min', 'editor-sass', 'editor-min', 'js-concat-hljs', 'js-concat-hljs-web', 'copy', cb );
+});

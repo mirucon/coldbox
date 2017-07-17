@@ -16,6 +16,10 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
+install:
+  - nvm install 6
+  - npm install
+
 matrix:
   include:
     - php: 7.1
@@ -60,3 +64,7 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
     fi
+
+after_success:
+  # Run npm build task.
+  - run npm dist

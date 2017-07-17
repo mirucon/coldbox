@@ -177,6 +177,9 @@ h6 { font-size: 1.12em }
   p { margin-bottom: 1em }
   p > iframe { margin-bottom: 0 }
   .mejs-container { margin-bottom: 1em }
+  abbr {
+    text-decoration: dotted;
+  }
   abbr::after {
     content: attr(title);
     display: block;

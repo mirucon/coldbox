@@ -6,13 +6,15 @@ body {
 
 body a {
   color: #00619F;
-  box-shadow: 0 1px 0 0 currentColor;
+  -webkit-box-shadow: 0 1px 0 0 currentColor;
+          box-shadow: 0 1px 0 0 currentColor;
   text-decoration: none;
 }
 
 body a:hover {
   color: #2e4453;
-  box-shadow: 0 2px 0 0 #000;
+  -webkit-box-shadow: 0 2px 0 0 #000;
+          box-shadow: 0 2px 0 0 #000;
 }
 
 body dt {
@@ -118,7 +120,8 @@ body blockquote {
   border-radius: 1px;
   color: #666;
   font-style: italic;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
 }
 
 body blockquote::before {
@@ -147,7 +150,8 @@ body pre {
   font-size: .96em;
   line-height: 1.4;
   font-family: 'Source Code Pro', Monaco, Consolas, monospace;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+  -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
 }
 
 body pre > code {
@@ -181,7 +185,8 @@ body table {
   font-size: .95em;
   text-align: center;
   overflow-x: auto;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .08);
+  -webkit-box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .08);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .08);
 }
 
 body table td, body table th {
