@@ -26,7 +26,7 @@ gulp.task( 'sass', function() {
   .pipe(gulp.dest('.'));
 });
 
-gulp.task( 'css-min', ['sass'], function () {
+gulp.task( 'css-min', function () {
   gulp.src( 'style.css' )
   .pipe(cssmin())
   .pipe(rename({suffix: '.min'}))
@@ -99,9 +99,19 @@ gulp.task( 'copy', function() {
     [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*', 'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*'  ],
     { base: '.' }
   )
-  .pipe( gulp.dest( 'coldbox' ) );
+  .pipe( gulp.dest( 'dist' ) );
 } );
 
+gulp.task( 'sass-dev', function() {
+  var processors = [
+    cssnext({browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009'})
+  ];
+  return gulp.src(['sass/*.scss'])
+  .pipe(sass({outputStyle: 'expanded',}))
+  .pipe(postcss(processors))
+  .pipe(gulp.dest('.'));
+});
+
 gulp.task( 'dist', function(cb){
-    return runSequence( 'sass', 'css-min', 'editor-sass', 'editor-min', 'js-concat-hljs', 'js-concat-hljs-web', 'copy', cb );
+    return runSequence( 'sass-dev', 'css-min', 'editor-sass', 'editor-min', 'js-concat-hljs', 'js-concat-hljs-web', 'copy', cb );
 });
