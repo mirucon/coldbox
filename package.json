@@ -1,0 +1,49 @@
+{
+  "name": "coldbox",
+  "version": "1.1.0",
+  "description": "A beautiful WordPress theme.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "browser-sync": "^2.16.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-combine-media-queries": "^0.2.0",
+    "gulp-combine-mq": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-csso": "^3.0.0",
+    "gulp-file-sync": "^1.0.6",
+    "gulp-minify": "^1.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-open": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemap": "^1.0.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "my-ip": "^1.1.1",
+    "postcss-cssnext": "^3.0.0",
+    "run-sequence": "^2.0.0"
+  },
+  "scripts": {
+    "start": "gulp default",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist": "gulp dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mirucon/coldbox"
+  },
+  "author": "Mirucon",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Mirucon/coldbox/issues"
+  },
+  "homepage": "https://coldbox.miruc.co/"
+  
+}

@@ -1,0 +1,251 @@
+.post-excerpt {
+  color: #aaa;
+  font-size: .85em;
+  line-height: 1.4;
+}
+
+body.home #main, #main.home {
+  margin-top: 40px;
+}
+
+/*   Index : Grid View
+/* -------------------------------------------------- */
+.grid-view {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 16px 8px 0;
+  overflow: hidden;
+
+  .post, .page {
+    width: 50%;
+    margin-bottom: 1.6em;
+  }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    flex-flow: column wrap;
+    padding: 2em 20px 0;
+    .post, .page {
+      width: 100%;
+    }
+  }
+
+  .post-inner {
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    height: 100%;
+    margin: 0 8px;
+    background-color: #fff;
+    transition: all .3s ease-out;
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
+  }
+  .post-link {
+    display: block;
+    flex-grow: 1;
+    width: 100%;
+    @include box-shadow($x: 0, $y: 1px, $blur: 0, $color: rgba(0, 0, 0, .04));
+  }
+
+  .post-thumbnail {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    transition: all .4s ease-out;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: auto;
+      transition: all .4s ease-out;
+    }
+  }
+  .post-content {
+    display: block;
+    margin: 6px 0;
+    padding: 0 15px;
+    & > .post-title:first-child { margin-top: 12px }
+  }
+  .post-date {
+    position: relative;
+    margin: 4px 0;
+    color: #777;
+    font-size: .9em;
+    line-height: 1;
+    text-align: center;
+  }
+  .post-title {
+    margin: 6px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: all .4s;
+  }
+  .post-excerpt {
+    margin: 10px 0;
+  }
+
+  .post-meta {
+    margin: 1px 0;
+    padding: 4px 15px;
+    font-size: .8em;
+  }
+  .post-category a {
+    display: inline-block;
+    padding: 0 4px;
+  }
+  .post-meta > *[class^=post-] { padding-right: 6px }
+  .post-category {
+    &::before { content: "\f114"; padding-right: 0 }
+  }
+  .post-comment {
+    a::before { content: "\f0e5"; display: inline-block; padding-right: .2em; font-family: FontAwesome; }
+  }
+
+  // Hover Animations
+  .post-inner:hover {
+    @include box-shadow($y: 6px, $blur: 10px, $spread: 0);
+    transform: translate(0, -1px);
+  }
+  .post-inner a:hover {
+    .post-thumbnail img {
+      filter: blur(1px);
+    }
+    .post-title {
+      color: $link;
+    }
+  }
+
+}
+
+/*   Index : Standard View
+/* -------------------------------------------------- */
+.standard-view {
+  padding: 20px 10px;
+
+  .post, .page {
+    margin-bottom: 20px;
+  }
+  .post-inner {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    padding: 20px;
+    background-color: #fff;
+    transition: .3s all;
+    @include box-shadow($y: 1px, $blur: 4px, $color: rgba(0, 0, 0, .1));
+  }
+  .post-header {
+    flex-grow: 1;
+    width: 100%;
+  }
+  .post-thumbnail {
+    flex-shrink: 1;
+    max-width: 200px;
+    position: relative;
+    margin-right: 20px;
+    align-self: flex-start;
+    transition: .3s all;
+    @include box-shadow($blur: 3px);
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+    }
+  }
+  .post-title {
+    margin-bottom: 12px;
+    font-size: 1.4em;
+    line-height: 1.3;
+    font-weight: bold;
+    a { display: block; transition: .3s all; }
+  }
+  .post-content {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .post-meta {
+    margin: 12px 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .post-excerpt {
+    margin: 12px 0;
+  }
+  .more {
+    align-self: flex-start;
+  }
+  .post-inner:hover {
+    @include box-shadow($x: 0, $y: 0, $blur: 2px, $spread: 1px, $color: rgba(0, 0, 0, .22));
+    .post-title {
+      color: $link;
+    }
+    .post-thumbnail {
+      opacity: .9;
+    }
+  }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    margin-bottom: 20px;
+    padding: 0;
+    background-color: #fff;
+    @include box-shadow();
+    .post, .page {
+      margin-bottom: 0;
+      border-bottom: 1px solid #f0f0f0;
+      box-shadow: none;
+    }
+    .post-inner {
+      padding-left: 15px + 15px + 100px;
+      box-shadow: none;
+    }
+    .post-thumbnail {
+      max-width: 100px;
+      margin-left: -115px;
+      margin-right: 15px;
+    }
+    .post-meta {
+      margin-bottom: 0;
+    }
+    .post-excerpt {
+      margin-bottom: 0;
+    }
+    .more {
+      display: none;
+    }
+    ul.page-numbers {
+      border-bottom: 0;
+    }
+  }
+}
+
+/*   Index : Page Navigation
+/* -------------------------------------------------- */
+ul.page-numbers {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 10px;
+  border-bottom: 2px solid #ddd;
+  color: $link;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    position: relative;
+    bottom: -2px;
+  }
+
+  li > * {
+    display: block;
+    padding: 6px 10px;
+    border-bottom: 2px solid #ddd;
+    transition: border .4s;
+  }
+  li > span { color: #444 }
+  span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
+  a.page-numbers:hover { border-bottom: 2px solid $link; }
+}
