@@ -190,22 +190,6 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 add_action( 'widgets_init', 'cd_widgets_init' );
 
 
-if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
-
-	/**
-	 * Gets the parts outputed to the buttom of the single articles.
-	 *
-	 * @since 1.1.0
-	 */
-	function cd_single_bottom_contents() {
-		if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
-		if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
-		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
-		if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
-	}
-}
-
-
 if ( ! function_exists( 'cd_cat_widget_count' ) ) {
 
 	/**
@@ -260,6 +244,52 @@ if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 	}
 }
 add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10, 3 );
+
+
+/*
+ * -------------------------------------------------------------------------
+ *  Call the bottom parts for each page
+ * -------------------------------------------------------------------------
+  */
+if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
+
+	/**
+	 * Call the the buttom parts of the single articles.
+	 *
+	 * @since 1.1.0
+	 */
+	function cd_single_bottom_contents() {
+		if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
+		if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
+		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
+		if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
+	}
+}
+
+if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
+
+	/**
+	 * Call the the buttom parts of the static pages.
+	 *
+	 * @since 1.1.0
+	 */
+	function cd_pages_bottom_contents() {
+		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
+	}
+}
+
+if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
+
+	/**
+	 * Call the the buttom parts of the archive pages.
+	 *
+	 * @since 1.1.0
+	 */
+	function cd_archive_bottom_contents() {
+		get_template_part( 'parts/page-nav' );
+	}
+}
+
 
 /*
  * -------------------------------------------------------------------------

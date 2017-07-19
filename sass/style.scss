@@ -1,41 +1,39 @@
-@charset "UTF-8";
 /*
-Theme Name: Coldbox
-Theme URI: https://coldbox.miruc.co/
-Description: Coldbox is a clean blog-focused WordPress theme. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible. See Demo: https://coldbox.miruc.co/demo/
-Version: 1.1.0
-Author: Toshihiro Kanai (Mirucon)
-Author URI: https://miruc.co/
-Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
-Text Domain: coldbox
-License: GNU General Public License v3.0
-License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ Theme Name: Coldbox
+ Theme URI: https://coldbox.miruc.co/
+ Description: Coldbox is a clean blog-focused WordPress theme. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible. See Demo: https://coldbox.miruc.co/demo/
+ Version: 1.1.0
+ Author: Toshihiro Kanai (Mirucon)
+ Author URI: https://miruc.co/
+ Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
+ Text Domain: coldbox
+ License: GNU General Public License v3.0
+ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 */
 /*
-Responsive Breakpoints
-961+     => PC
-960-641  => Tablet
-639-     => Smartphone
+ Responsive Breakpoints
+  961+     => PC
+  960-641  => Tablet
+  639-     => Smartphone
 */
 /* ------------------------------------------------------------------------
-Table Of Contents
-
-0. Reset
-1. Global
-2. Base Styling
-3. Single
-4. Index
-5. Archive
-6. Page
-7. 404 Page
-8. Header
-9. Footer
-10. Sidebar
-11. Comment
-12. WP native
-13. Misc
-14. Styling for CJK
-15. Plugin
+ Table Of Contents
+  0. Reset
+  1. Global
+  2. Base Styling
+  3. Single
+  4. Index
+  5. Archive
+  6. Page
+  7. 404 Page
+  8. Header
+  9. Footer
+  10. Sidebar
+  11. Comment
+  12. WP native
+  13. Misc
+  14. Styling for CJK
+  15. Plugin
 ----------------------------------------------------------------------- */
 
 // ------------------------------------------------------------------------- *

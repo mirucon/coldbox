@@ -33,7 +33,7 @@
 
 						<?php endwhile; ?>
 
-							<?php get_template_part( 'parts/page-nav' ); ?>
+							<?php apply_filters( 'cd_archive_bottom_contents', cd_archive_bottom_contents() ); // Call the bottom parts. ?>
 
 						<?php else : ?>
 

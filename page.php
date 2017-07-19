@@ -52,7 +52,7 @@
 									'link_after' => '</span>',
 								) ); ?>
 
-								<?php if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); } ?>
+								<?php apply_filters( 'cd_pages_bottom_contents', cd_pages_bottom_contents() ); // Call the bottom parts. ?>
 
 							</div><!--/.content-inside-->
 

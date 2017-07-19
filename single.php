@@ -61,7 +61,7 @@
 								</div>
 
 
-								<?php cd_single_bottom_contents(); // Call the bottom parts. ?>
+								<?php apply_filters( 'cd_single_bottom_contents', cd_single_bottom_contents() ); // Call the bottom parts. ?>
 
 
 							</div><!--/.content-inside-->
