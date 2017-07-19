@@ -271,7 +271,7 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	/**
 	 * Call the the buttom parts of the static pages.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.1
 	 */
 	function cd_pages_bottom_contents() {
 		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
@@ -283,7 +283,7 @@ if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 	/**
 	 * Call the the buttom parts of the archive pages.
 	 *
-	 * @since 1.1.0
+	 * @since 1.1.1
 	 */
 	function cd_archive_bottom_contents() {
 		get_template_part( 'parts/page-nav' );
