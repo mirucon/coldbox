@@ -143,7 +143,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'text',
 		)));
 		$wp_customize->add_setting( 'global_font_size_pc', array(
-			'default'  => 16,
+			'default'  => 17,
 			'sanitize_callback' => 'absint',
 		));
 		$wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_pc', array(
@@ -222,6 +222,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'priority' => 1,
 		));
 		// Site Description.
+		$wp_customize->add_setting( 'site_title', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_title', array(
+			'label'    => __( 'Display Site Title', 'coldbox' ),
+			'description' => __( 'Even this setting is unchecked, the logo will be still shown.', 'coldbox' ),
+			'section'  => 'header',
+			'type'     => 'checkbox',
+		)));
+		// Site Description.
 		$wp_customize->add_setting( 'site_desc', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -256,6 +267,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'header',
 			'type'     => 'checkbox',
 		)));
+		$wp_customize->remove_control( 'display_header_text' );
 
 		/*
 		 * -------------------------------------------------------------------------
@@ -317,6 +329,16 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'    => __( 'Excerpt Ending', 'coldbox' ),
 			'section'  => 'index',
 			'type'     => 'text',
+		)));
+		// Placefoler Setting.
+		$wp_customize->add_setting( 'index_placefolder_image', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_placefolder_image', array(
+			'label'    => __( 'Use Placefolder Images when no Featured Image', 'coldbox' ),
+			'section'  => 'index',
+			'type'     => 'checkbox',
 		)));
 		// Meta Settings.
 		$wp_customize->add_setting( 'index_meta_date', array(
@@ -674,6 +696,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'   => 'colors',
 			'settings'  => 'footer_color',
 		)));
+		$wp_customize->remove_control( 'header_textcolor' );
 
 		/*
 		 * ------------------------------------------------------------------------- *
@@ -696,7 +719,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 
 
 	/**
-	 * Get using minified CSS or not
+	 * Get whether using minified CSS or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -704,7 +727,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'minified_css', true ) );
 	}
 	/**
-	 * Get using minified JS or not
+	 * Get whether using minified JS or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -736,7 +759,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'archive_style', 'grid' ) );
 	}
 	/**
-	 * Get dispyaing the site tagline or not
+	 * Get whether displaying the site title or not
+	 *
+	 * @since 1.0.2
+	 */
+	function cd_is_site_title() {
+		return ( get_theme_mod( 'site_title', true ) );
+	}
+	/**
+	 * Get whether dispyaing the site tagline or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -760,7 +791,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'header_sticky', true ) );
 	}
 	/**
-	 * Get displaying the date on index pages.
+	 * Get whether using placefolder image or not.
+	 *
+	 * @since 1.1.2
+	 */
+	function cd_index_placefolder_image() {
+		return ( get_theme_mod( 'index_placefolder_image', true ) );
+	}
+	/**
+	 * Get whether displaying the date on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -768,7 +807,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'index_meta_date', true ) );
 	}
 	/**
-	 * Get displaying the categories on index pages.
+	 * Get whether displaying the categories on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -776,7 +815,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'index_meta_cat', true ) );
 	}
 	/**
-	 * Get displaying the comments count on index pages.
+	 * Get whether displaying the comments count on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -800,7 +839,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
 	}
 	/**
-	 * Get displaying the data on single pages.
+	 * Get whether displaying the data on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -808,7 +847,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_date', true ) );
 	}
 	/**
-	 * Get displaying the modified data on single pages.
+	 * Get whether displaying the modified data on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -816,7 +855,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_modified_data', true ) );
 	}
 	/**
-	 * Get displaying the categories on single pages.
+	 * Get whether displaying the categories on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -824,7 +863,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_cat', false ) );
 	}
 	/**
-	 * Get displaying the author on single pages.
+	 * Get whether displaying the author on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -832,7 +871,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_author', true ) );
 	}
 	/**
-	 * Get displaying the comments count on single pages.
+	 * Get whether displaying the comments count on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -840,7 +879,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_com', true ) );
 	}
 	/**
-	 * Get displaying the tags on bottom of single pages.
+	 * Get whether displaying the tags on bottom of single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -848,7 +887,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_btm_tag', true ) );
 	}
 	/**
-	 * Get displaying the categories on bottom of single pages.
+	 * Get whether displaying the categories on bottom of single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -856,7 +895,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_btm_cat', true ) );
 	}
 	/**
-	 * Get displaying the author box on single pages.
+	 * Get whether displaying the author box on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -864,7 +903,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_author_box', true ) );
 	}
 	/**
-	 * Get displaying the post navigation on single pages.
+	 * Get whether displaying the post navigation on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -872,7 +911,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_post_nav', true ) );
 	}
 	/**
-	 * Get displaying the related posts on single pages.
+	 * Get whether displaying the related posts on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -880,7 +919,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_related_posts', true ) );
 	}
 	/**
-	 * Get displaying the comments on single pages.
+	 * Get whether displaying the comments on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -904,7 +943,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_related_col', 2 ) );
 	}
 	/**
-	 * Get displaying the data on static pages.
+	 * Get whether displaying the data on static pages.
 	 *
 	 * @since 1.1.1
 	 */
@@ -912,7 +951,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return  ( get_theme_mod( 'pages_meta_data', false ) );
 	}
 	/**
-	 * Get displaying the author on static pages.
+	 * Get whether displaying the author on static pages.
 	 *
 	 * @since 1.1.1
 	 */
@@ -920,7 +959,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return  ( get_theme_mod( 'pages_meta_author', false ) );
 	}
 	/**
-	 * Get displaying the comments count on static pages.
+	 * Get whether displaying the comments count on static pages.
 	 *
 	 * @since 1.1.1
 	 */
@@ -928,7 +967,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return  ( get_theme_mod( 'pages_meta_comments_count', false ) );
 	}
 	/**
-	 * Get displaying theme credit or not.
+	 * Get whether displaying theme credit or not.
 	 *
 	 * @since 1.0.0
 	 */
@@ -956,7 +995,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return $text;
 	}
 	/**
-	 * Get using of the hljs.
+	 * Get whether using of the hljs or not.
 	 *
 	 * @since 1.0.0
 	 */
@@ -964,7 +1003,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'does_use_hljs', false ) );
 	}
 	/**
-	 * Get using of the hljs with web package.
+	 * Get whether using of the hljs with web package or not.
 	 *
 	 * @since 1.0.0
 	 */

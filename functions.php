@@ -455,13 +455,16 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_site_title() {
+
 		echo '<a href="' . esc_url( home_url() ) . '" title="' , bloginfo( 'name' ) , '">';
-		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) :
+
+		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 			echo '<img src="' . esc_attr( $image[0] ) . '" alt="' , bloginfo( 'name' ) , '" />';
-		else :
+		} elseif ( cd_is_site_title() ) {
 			echo bloginfo( 'name' );
-		endif;
+		}
+
 		echo '</a>';
 	}
 }

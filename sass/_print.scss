@@ -1,0 +1,17 @@
+@media print {
+    #header-menu, .search-toggle, .sidebar, .nav-toggle, .related-posts, .post-nav {
+        display: none;
+    }
+    body, .title-box, .content-inner, .content-inside {
+        background-color: #fff;
+        box-shadow: none;
+    }
+    #header {
+        position: static !important;
+        box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+    }
+    html body .container .content {
+        width: 100%;
+        padding: 0;
+    }
+}

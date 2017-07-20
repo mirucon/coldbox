@@ -32,8 +32,9 @@
   11. Comment
   12. WP native
   13. Misc
-  14. Styling for CJK
+  14. CJK Styling
   15. Plugin
+  16. Print styling
 ----------------------------------------------------------------------- */
 
 // ------------------------------------------------------------------------- *
@@ -63,7 +64,7 @@ body {
   background-color: #f8f8f8;
   color: $text;
   word-wrap: break-word;
-  font-size: 1.65em;
+  font-size: 1.7em;
   line-height: 1.4;
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
@@ -1063,3 +1064,9 @@ ul.social-links { padding-left: 0; list-style: none; }
 *  15. Plugin
 * ------------------------------------------------------------------------- */
 @import "plugin.scss";
+
+
+/* ------------------------------------------------------------------------- *
+*  16. Print styling
+* ------------------------------------------------------------------------- */
+@import "print.scss";
