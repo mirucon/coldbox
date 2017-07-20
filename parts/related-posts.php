@@ -7,6 +7,10 @@
  */
 
 $max_articles = cd_single_related_max();
+$posts_per_page = get_option( 'posts_per_page' );
+if ( $posts_per_page < $max_articles ) {
+	$max_articles = $posts_per_page;
+}
 
 $tags = wp_get_post_tags( $post -> ID );
 $tag_ids = array();

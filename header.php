@@ -40,6 +40,7 @@
 						'theme_location' => 'header-menu',
 						'container' => '',
 						'menu_class' => '',
+						'fallback_cb' => 'wp_page_menu',
 						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul>',
 					) ); ?>
 				</nav>

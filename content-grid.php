@@ -16,7 +16,7 @@
 			<div class="post-thumbnail"><figure>
 				<?php if ( has_post_thumbnail() ) : ?>
 					<?php the_post_thumbnail( 'cd-medium' ); ?>
-				<?php else : ?>
+				<?php elseif ( cd_index_placefolder_image() ) : ?>
 					<img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) ?>" alt="<?php the_title(); ?>">
 				<?php endif; ?>
 			</figure></div>
