@@ -266,6 +266,19 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
+
+	/**
+	 * Call the the buttom parts of the attachment pages.
+	 *
+	 * @since 1.1.2
+	 */
+	function cd_attachment_bottom_contents() {
+		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
+		if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
+	}
+}
+
 if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 
 	/**
@@ -306,7 +319,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	function cd_breadcrumb() {
 		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
-			the_title();
+			echo 'Attachment';
 		} elseif ( is_single() ) {
 			the_category( ' &#47; ' );
 		} elseif ( is_category() ) {

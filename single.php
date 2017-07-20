@@ -52,14 +52,17 @@ get_header(); ?>
 										)
 									); ?>
 									<div class="btm-post-meta">
-										<?php if ( cd_is_meta_btm_cat() ) : ?><p class="post-btm-cats"><span class="meta-label"><?php esc_html_e( 'Categories:', 'coldbox' ) ?></span><?php the_category( '&#8203;' ); ?> </p><?php endif; ?>
+										<?php if ( cd_is_meta_btm_cat() && ! is_attachment() ) : ?><p class="post-btm-cats"><span class="meta-label"><?php esc_html_e( 'Categories:', 'coldbox' ) ?></span><?php the_category( '&#8203;' ); ?> </p><?php endif; ?>
 										<?php if ( cd_is_meta_btm_tag() ) : ?><?php the_tags( '<p class="post-btm-tags"> <span class="meta-label">' . __( 'Tags:', 'coldbox' ) . '</span>', '', ' </p>' ); ?><?php endif; ?>
 									</div>
 									<?php if ( cd_is_author_box() ) : ?><?php get_template_part( 'parts/author-box' ); ?><?php endif; ?>
 								</div>
 
 
-								<?php apply_filters( 'cd_single_bottom_contents', cd_single_bottom_contents() ); // Call the bottom parts. ?>
+								<?php
+								if ( is_attachment() ) { apply_filters( 'cd_attachment_bottom_contents', cd_attachment_bottom_contents() ); /* Call the bottom parts for single pages. */ }
+								elseif ( is_single() ) { apply_filters( 'cd_single_bottom_contents', cd_single_bottom_contents() ); /* Call the bottom parts for single articles. */ }
+								?>
 
 
 							</div><!--/.content-inside-->
