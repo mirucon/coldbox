@@ -6,9 +6,7 @@
  * @package coldbox
  */
 
-?>
-
-<?php if ( is_category() ) : ?>
+if ( is_category() ) : ?>
 	<h1><span class="title-description"><?php esc_html_e( 'Category:', 'coldbox' );?>&#32;</span><?php echo single_cat_title(); ?></h1>
 	<?php if ( term_description() !== '' ) : ?>
 		<div class="taxonomy-description">

@@ -6,9 +6,7 @@
  * @package coldbox
  */
 
-?>
-
-<?php get_header(); ?>
+get_header(); ?>
 
 <main id="main">
 

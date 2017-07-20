@@ -6,9 +6,6 @@
  * @package coldbox
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'cd_customizer_style' ) ) {
 
 	/**
