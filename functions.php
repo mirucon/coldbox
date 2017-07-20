@@ -461,7 +461,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 			echo '<img src="' . esc_attr( $image[0] ) . '" alt="' , bloginfo( 'name' ) , '" />';
-		} elseif ( cd_is_site_title() ) {
+		} elseif ( cd_is_site_title() && display_header_text() ) {
 			echo bloginfo( 'name' );
 		}
 

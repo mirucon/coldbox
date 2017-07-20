@@ -60,8 +60,10 @@ Created by @benjsperry
 - Added: An option to select showing the site title
 - Added: Print styling
 - Improved: The wording when no results found on the search result pages
+- Improved: Attachment pages view
 - Removed: Unused customizer setting
-- Fixed: The color of H tags on pre tags
+- Removed: Unnecessary PHP tags
+- Fixed: The color of h tags on pre tags
 
 1.1.1
 
