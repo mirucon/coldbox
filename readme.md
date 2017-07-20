@@ -5,7 +5,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.1.1  
+**Version**: 1.1.2  
 **Requires at least**: version 4.3 or higher  
 **Tested up**: WordPress 4.8.0  
 **License**: GPL v3.0  
@@ -54,6 +54,14 @@ URL: http://ionicons.com/
 Created by @benjsperry  
 
 ## Changelog
+
+1.1.2
+
+- Added: An option to select showing the site title
+- Added: Print styling
+- Improved: The wording when no results found on the search result pages
+- Removed: Unused customizer setting
+- Fixed: The color of H tags on pre tags
 
 1.1.1
 
