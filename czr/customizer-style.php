@@ -18,17 +18,18 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Container Width.
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = get_theme_mod( 'container_width' );
-			$czr_container_width = "
-			.container { max-width: ${container_width}px; } ";
+			$czr_container_width = ".container { max-width: ${container_width}px; } ";
 			wp_add_inline_style( 'main-style', $czr_container_width );
 		}
 
+		// Font size for PC.
 		if ( get_theme_mod( 'global_font_size_pc', '17' ) !== '17' ) {
 			$font_size_pc = get_theme_mod( 'global_font_size_pc' );
 			$czr_font_size_pc = "body { font-size: ${font_size_pc}px; } ";
 			wp_add_inline_style( 'main-style', $czr_font_size_pc );
 		}
 
+		// Font size for mobile devices.
 		$font_size_mobile = get_theme_mod( 'global_font_size_mobile', '16' );
 		$czr_font_size_mobile = "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
 		wp_add_inline_style( 'main-style', $czr_font_size_mobile );
@@ -39,7 +40,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			@media screen and (max-width: 640px) { .entry h2 { margin-left: -20px; margin-right: -20px; padding-left: 10px; padding-right: 10px; } }
 			.entry h3 { margin: 1.6em -10px 1.1em; padding: 0 5px .4rem; border-bottom: 2px solid rgba(0, 0, 0, .5); overflow: hidden; }
 			.entry h4 { padding: 0 0 .4rem; border-bottom: 2px solid #bbb; overflow: hidden; }
-			.entry h5 { padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden; } ';
+			.entry h5 { padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden; }';
 			wp_add_inline_style( 'main-style', $czr_style_htags );
 		}
 
@@ -58,7 +59,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Link Hover Color.
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = get_theme_mod( 'link_hover_color' );
-			$czr_color_hover = ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover { color: $color_hover; } ";
+			$czr_color_hover = ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover { color: $color_hover; }";
 			wp_add_inline_style( 'main-style', $czr_color_hover );
 		}
 
@@ -67,6 +68,27 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$color_header = get_theme_mod( 'header_color' );
 			$czr_color_header = "#header { background-color: $color_header; } ";
 			wp_add_inline_style( 'main-style', $czr_color_header );
+		}
+
+		// Header text color.
+		if ( get_header_textcolor() !== '444444' ) {
+			$header_textcolor = get_header_textcolor();
+			list( $r, $g, $b ) = sscanf( $header_textcolor, '%02x%02x%02x' );
+			$r_h = $r - 20;
+			$g_h = $g - 20;
+			$b_h = $b - 20;
+			$r_h = $r_h < 0 ? 0 : $r_h;
+			$g_h = $g_h < 0 ? 0 : $g_h;
+			$r_h = $r_h < 0 ? 0 : $r_h;
+			$r += 10;
+			$g += 10;
+			$b += 10;
+			$r = $r > 255 ? 255 : $r;
+			$g = $g > 255 ? 255 : $g;
+			$b = $b > 255 ? 255 : $b;
+			$czr_header_textcolor = ".site-info,.site-title{color:#${header_textcolor};}.site-description{color:rgb(${r}, ${g}, ${b});}
+			#header-menu .menu-container > li > a{color:#${header_textcolor}}#header-menu .menu-container >  li:hover > a{color:rgb(${r_h}, ${g_h}, ${b_h})}";
+			wp_add_inline_style( 'main-style', $czr_header_textcolor );
 		}
 
 		// Footer Background Color.

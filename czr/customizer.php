@@ -23,10 +23,10 @@ add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
  */
 if ( ! function_exists( 'cd_customize_register' ) ) {
 	/**
-	 * Register customzer setting.
+	 * Register customzer settings.
 	 *
 	 * @since 1.0.0
-	 * @param string $wp_customize Register customizations.
+	 * @param string $wp_customize the customizations registered.
 	 */
 	function cd_customize_register( $wp_customize ) {
 
@@ -34,7 +34,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 * Define the sanitization function for checkboxes.
 		 *
 		 * @since 1.0.0
-		 * @param string $checked The strings that will be checked..
+		 * @param string $checked The strings that will be checked.
 		 */
 		function cd_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
@@ -267,7 +267,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'header',
 			'type'     => 'checkbox',
 		)));
-		$wp_customize->remove_control( 'display_header_text' );
 
 		/*
 		 * -------------------------------------------------------------------------
@@ -665,6 +664,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'      => __( 'Primary Color', 'coldbox' ),
 			'section'    => 'colors',
 			'settings'   => 'link_color',
+			'priority' => 10,
 		)));
 		// Hover Link Color.
 		$wp_customize->add_setting( 'link_hover_color', array(
@@ -675,6 +675,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'     => __( 'Secondary Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'link_hover_color',
+			'priority' => 20,
 		)));
 		// Header Background Color.
 		$wp_customize->add_setting( 'header_color', array(
@@ -682,9 +683,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'sanitize_hex_color',
 		));
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-			'label'     => __( 'Header Background', 'coldbox' ),
+			'label'     => __( 'Header Background Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'header_color',
+			'priority' => 30,
 		)));
 		// Footer Background Color.
 		$wp_customize->add_setting( 'footer_color', array(
@@ -692,11 +694,14 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'sanitize_hex_color',
 		));
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-			'label'     => __( 'Footer Background', 'coldbox' ),
+			'label'     => __( 'Footer Background Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'footer_color',
+			'priority' => 100,
 		)));
-		$wp_customize->remove_control( 'header_textcolor' );
+		$wp_customize->get_setting( 'header_textcolor' )->default = '#444444';
+		$wp_customize->get_control( 'header_textcolor' )->priority = 50;
+		$wp_customize->get_control( 'background_color' )->priority = 22;
 
 		/*
 		 * ------------------------------------------------------------------------- *

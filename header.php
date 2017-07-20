@@ -27,7 +27,7 @@
 				<h1 class="site-title">
 					<?php cd_site_title(); ?>
 				</h1>
-				<?php if ( cd_is_site_desc() ) : ?>
+				<?php if ( cd_is_site_desc() && display_header_text() ) : ?>
 					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 				<?php endif; ?>
 			</div>

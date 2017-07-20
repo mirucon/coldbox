@@ -60,8 +60,11 @@ get_header(); ?>
 
 
 								<?php
-								if ( is_attachment() ) { apply_filters( 'cd_attachment_bottom_contents', cd_attachment_bottom_contents() ); /* Call the bottom parts for single pages. */ }
-								elseif ( is_single() ) { apply_filters( 'cd_single_bottom_contents', cd_single_bottom_contents() ); /* Call the bottom parts for single articles. */ }
+								if ( is_attachment() ) {
+									apply_filters( 'cd_attachment_bottom_contents', cd_attachment_bottom_contents() ); /* Call the bottom parts for single pages. */
+								} elseif ( is_single() ) {
+									apply_filters( 'cd_single_bottom_contents', cd_single_bottom_contents() ); /* Call the bottom parts for single articles. */
+								}
 								?>
 
 
