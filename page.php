@@ -6,9 +6,7 @@
  * @package coldbox
  */
 
-?>
-
-<?php get_header(); ?>
+get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 	<main id="main" class="main-page">

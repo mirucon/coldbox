@@ -60,7 +60,7 @@ Created by @benjsperry
 - Added: Social links widget
 - Added: New search form design
 - Added: Selectable sticky header
-- Added: Action hooks that allow you to add some contents on bottom of each page
+- Added: Action hooks that allow you to add some contents on the bottom of each page
 - Improved: Follows the WP coding standards
 
 1.1.0

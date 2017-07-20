@@ -6,9 +6,6 @@
  * @package coldbox
  */
 
-?>
-
-<?php
 global $wp_query;
 $paginate_links = paginate_links( array(
 	'type'               => 'list',
