@@ -523,3 +523,20 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		add_action( 'wp_enqueue_scripts', 'cd_header_image' );
 	}
 }
+
+
+/*
+ * -------------------------------------------------------------------------
+ *  Addon Plugin Cooperation
+ * -------------------------------------------------------------------------
+ */
+if ( ! function_exists( 'is_amp' ) ) {
+	/**
+	 * To known is it AMP page or not.
+	 *
+	 * @since 1.2.0
+	 */
+	function is_amp() {
+		return false;
+	}
+}

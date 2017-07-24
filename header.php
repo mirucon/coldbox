@@ -6,6 +6,9 @@
  * @package coldbox
  */
 
+if ( is_amp() ) :
+	cd_addon_amp_head();
+else :
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -16,6 +19,8 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
+
+<?php endif; ?>
 
 <body <?php body_class(); ?>>
 

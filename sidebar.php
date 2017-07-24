@@ -8,7 +8,11 @@
 
 if ( 'hide' === cd_sidebar_stg() ) {
 	return;
-} ?>
+}
+if ( is_amp() ) {
+	return;
+}
+?>
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 

@@ -6,6 +6,8 @@
  * @package coldbox
  */
 
+if ( is_amp() ) { return; }
+
 $max_articles = cd_single_related_max();
 $posts_per_page = get_option( 'posts_per_page' );
 if ( $posts_per_page < $max_articles ) {

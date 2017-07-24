@@ -242,7 +242,7 @@
     }
     & > li:last-child > a { border-bottom: 1px solid rgba(119, 119, 119, 0.7);}
     .sub-menu {
-      display: block !important;
+      display: block;
       margin-left: 2em;
     }
     & > li > a {
