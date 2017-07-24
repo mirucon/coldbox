@@ -421,11 +421,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 		// Last modified date.
-		$wp_customize->add_setting( 'single_meta_modified_data', array(
+		$wp_customize->add_setting( 'single_meta_modified_date', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_modified_data', array(
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_modified_date', array(
 			'label'    => __( 'Display the last Modified Dates', 'coldbox' ),
 			'section'  => 'single',
 			'type'     => 'checkbox',
@@ -576,12 +576,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 
 		// Data.
-		$wp_customize->add_setting( 'pages_meta_data', array(
+		$wp_customize->add_setting( 'pages_meta_date', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_data', array(
-			'label'    => __( 'Display Data', 'coldbox' ),
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_date', array(
+			'label'    => __( 'Display Post Dates', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
@@ -591,7 +591,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_author', array(
-			'label'    => __( 'Display the Author name', 'coldbox' ),
+			'label'    => __( 'Display Author Names', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
@@ -601,7 +601,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_comments_count', array(
-			'label'    => __( 'Display the comments count', 'coldbox' ),
+			'label'    => __( 'Display Comments Counts', 'coldbox' ),
 			'description' => __( 'It will be shown when comments are opened and shown.', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
@@ -844,7 +844,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
 	}
 	/**
-	 * Get whether displaying the data on single pages.
+	 * Get whether displaying the date on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -852,12 +852,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_date', true ) );
 	}
 	/**
-	 * Get whether displaying the modified data on single pages.
+	 * Get whether displaying the modified date on single pages.
 	 *
 	 * @since 1.0.0
 	 */
 	function cd_is_meta_modified() {
-		return ( get_theme_mod( 'single_meta_modified_data', true ) );
+		return ( get_theme_mod( 'single_meta_modified_date', true ) );
 	}
 	/**
 	 * Get whether displaying the categories on single pages.
@@ -952,8 +952,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 *
 	 * @since 1.1.1
 	 */
-	function cd_pages_meta_data() {
-		return  ( get_theme_mod( 'pages_meta_data', false ) );
+	function cd_pages_meta_date() {
+		return  ( get_theme_mod( 'pages_meta_date', false ) );
 	}
 	/**
 	 * Get whether displaying the author on static pages.
