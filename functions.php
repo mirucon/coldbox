@@ -23,9 +23,9 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.3' );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ), '1.1.3' );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.1.3' );
 		} else {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ), '1.1.3' );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.1.3' );
 		}
 	}
 }
@@ -373,21 +373,21 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . './js/scripts+hljs.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . '/assets/js/cd-scripts+hljs.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );

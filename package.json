@@ -9,6 +9,7 @@
   "devDependencies": {
     "autoprefixer": "^7.1.1",
     "browser-sync": "^2.16.0",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-combine-media-queries": "^0.2.0",
@@ -28,6 +29,7 @@
     "gulp-sourcemaps": "^2.6.0",
     "my-ip": "^1.1.1",
     "postcss-cssnext": "^3.0.0",
+    "rimraf": "^2.6.1",
     "run-sequence": "^2.0.0"
   },
   "scripts": {

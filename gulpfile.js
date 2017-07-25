@@ -12,6 +12,7 @@ var plumber = require('gulp-plumber');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require("gulp-concat");
 var runSequence = require('run-sequence');
+var del = require('del');
 
 gulp.task( 'sass', function() {
   var processors = [
@@ -40,21 +41,31 @@ gulp.task( 'css-concat', ['css-min'], function () {
 });
 
 gulp.task( 'js-min', function() {
-  return gulp.src( 'js/scripts.js' )
-  .pipe(minify({ ext:{ min:'.min.js', }, }))
-  .pipe(gulp.dest('js/'))
+  return gulp.src( 'js/cd-scripts.js' )
+  .pipe( minify({ ext:{ min:'.min.js', }, }) )
+  .pipe( gulp.dest( 'assets/js/' ) );
 });
 
 gulp.task( 'js-concat-hljs', ['js-min'], function() {
-  return gulp.src( ['js/highlight.js', 'js/scripts.min.js'] )
-  .pipe( concat('scripts+hljs.js') )
-  .pipe(gulp.dest( 'js/' ));
+  return gulp.src( ['js/highlight.js', 'js/cd-scripts.js'] )
+  .pipe( concat( 'cd-scripts+hljs.js' ) )
+  .pipe( gulp.dest( 'js/' )  );
 });
 
 gulp.task( 'js-concat-hljs-web', ['js-min'], function() {
-  return gulp.src( ['js/highlight-web.js', 'js/scripts.min.js'] )
-  .pipe( concat( 'scripts+hljs_web.js' ) )
-  .pipe(gulp.dest( 'js/' ));
+  return gulp.src( ['js/highlight-web.js', 'js/cd-scripts.js'] )
+  .pipe( concat( 'cd-scripts+hljs_web.js' ) )
+  .pipe( gulp.dest( 'js/' ) );
+});
+
+gulp.task( 'js-min-concat', ['js-concat-hljs', 'js-concat-hljs-web'], function() {
+  return gulp.src( ['js/cd-scripts+hljs.js', 'js/cd-scripts+hljs_web.js'] )
+  .pipe( minify({ ext:{ min:'.min.js', }, }) )
+  .pipe( gulp.dest( 'assets/js' ) );
+});
+
+gulp.task( 'clean', ['js-min-concat'], function(cb) {
+  del( ['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js', 'assets/js/cd-scripts.js'], cb );
 });
 
 gulp.task( 'browser-sync', function () {
@@ -96,7 +107,9 @@ gulp.task( 'default', ['browser-sync'], function () {
 
 gulp.task( 'copy', function() {
   return gulp.src(
-    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*', 'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*'  ],
+    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
+      'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
+      'languages/coldbox.po', 'assets/js/*.js' ],
     { base: '.' }
   )
   .pipe( gulp.dest( 'dist' ) );
