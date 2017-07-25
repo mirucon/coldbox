@@ -30,8 +30,11 @@ gulp.task( 'sass', function() {
 gulp.task( 'css-min', function () {
   gulp.src( 'style.css' )
   .pipe(cssmin())
-  .pipe(rename({suffix: '.min'}))
-  .pipe(gulp.dest('.'));
+  .pipe(rename({
+    prefix: 'cd-',
+    suffix: '.min'
+  }))
+  .pipe(gulp.dest('assets/css/'));
 });
 
 gulp.task( 'css-concat', ['css-min'], function () {
@@ -62,10 +65,6 @@ gulp.task( 'js-min-concat', ['js-concat-hljs', 'js-concat-hljs-web'], function()
   return gulp.src( ['js/cd-scripts+hljs.js', 'js/cd-scripts+hljs_web.js'] )
   .pipe( minify({ ext:{ min:'.min.js', }, }) )
   .pipe( gulp.dest( 'assets/js' ) );
-});
-
-gulp.task( 'clean', ['js-min-concat'], function(cb) {
-  del( ['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js', 'assets/js/cd-scripts.js'], cb );
 });
 
 gulp.task( 'browser-sync', function () {
@@ -105,15 +104,9 @@ gulp.task( 'default', ['browser-sync'], function () {
   gulp.watch("*.php", ['bs-reload']);
 });
 
-gulp.task( 'copy', function() {
-  return gulp.src(
-    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
-      'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
-      'languages/coldbox.po', 'assets/js/*.js' ],
-    { base: '.' }
-  )
-  .pipe( gulp.dest( 'dist' ) );
-} );
+gulp.task( 'clean', function() {
+  del( ['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js', 'assets/js/cd-scripts.js', 'style.min.css'] );
+});
 
 gulp.task( 'sass-dev', function() {
   var processors = [
@@ -125,6 +118,16 @@ gulp.task( 'sass-dev', function() {
   .pipe(gulp.dest('.'));
 });
 
+gulp.task( 'copy', function() {
+  return gulp.src(
+    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
+      'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
+      'languages/coldbox.po', 'assets/js/*.min.js', 'assets/css/*.css' ],
+    { base: '.' }
+  )
+  .pipe( gulp.dest( 'dist' ) );
+} );
+
 gulp.task( 'dist', function(cb){
-    return runSequence( 'sass-dev', 'css-min', 'editor-sass', 'editor-min', 'js-concat-hljs', 'js-concat-hljs-web', 'copy', cb );
+    return runSequence( ['sass-dev', 'editor-sass'], ['css-min', 'editor-min'], 'js-min-concat', 'clean', 'copy', cb );
 });
