@@ -189,7 +189,7 @@ function cd_social_links( $class = null ) {
 			} else {
 				$label = ucfirst( $key );
 			} ?>
-			<li class="<?php echo esc_attr( $key ) . '-container' ?>">
+			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
 				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" target="_blank">
 					<i class="<?php echo esc_attr( $class ); ?>"></i>
 				</a>

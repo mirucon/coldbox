@@ -6,7 +6,9 @@
  * @package coldbox
  */
 
-if ( 'hide' === cd_sidebar_stg() ) { return; } ?>
+if ( 'hide' === cd_sidebar_stg() ) {
+	return;
+} ?>
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 

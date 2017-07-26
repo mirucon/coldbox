@@ -6,8 +6,12 @@
  * @package coldbox
  */
 
-if ( post_password_required() ) { return; } ?>
-<?php if ( have_comments() === false && comments_open() === false ) { return; } ?>
+if ( post_password_required() ) {
+	return;
+} ?>
+<?php if ( have_comments() === false && comments_open() === false ) {
+	return;
+} ?>
 
 <section id="comments" class="content-box">
 

@@ -27,17 +27,30 @@ get_header(); ?>
 							<div class="content-inside">
 
 								<footer class="post-meta content-box">
-									<?php if ( has_post_format() ) : ?><span class="post-format"><?php echo esc_html( get_post_format() ); ?></span><?php endif; ?>
+									<?php if ( has_post_format() ) : ?>
+										<span class="post-format"><?php echo esc_html( get_post_format() ); ?></span>
+									<?php endif; ?>
+
 									<?php if ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
 										<?php if ( cd_is_meta_date() ) : ?> <span class="post-date"><?php the_date(); ?></span><?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
 									<?php endif; ?>
+
 									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
 										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php the_date(); ?></time>
 									<?php endif; ?>
-									<?php if ( cd_is_meta_cat() ) : ?><p class="post-category"><?php the_category( ' / ' ); ?> </p><?php endif; ?>
-									<?php if ( cd_is_meta_author() ) : ?><span class="post-author"><?php the_author_posts_link(); ?></span><?php endif; ?>
-									<?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ) : ?><span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span><?php endif; ?>
+
+									<?php if ( cd_is_meta_cat() ) : ?>
+										<p class="post-category"><?php the_category( ' / ' ); ?> </p>
+									<?php endif; ?>
+
+									<?php if ( cd_is_meta_author() ) : ?>
+										<span class="post-author"><?php the_author_posts_link(); ?></span>
+									<?php endif; ?>
+
+									<?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ) : ?>
+										<span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span>
+									<?php endif; ?>
 								</footer>
 
 
