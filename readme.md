@@ -7,7 +7,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.1.4  
 **Requires at least**: version 4.3 or higher  
-**Tested up**: WordPress 4.8.0  
+**Tested up**: WordPress 4.8.1-RC1  
 **License**: GPL v3.0  
 **License URI**: http://www.gnu.org/licenses/gpl-3.0.html  
 **Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments

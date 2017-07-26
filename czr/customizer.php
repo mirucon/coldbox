@@ -208,8 +208,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'use_hljs_web_pack', array(
 			'label'  => __( 'Use highlight.js with Web Package', 'coldbox' ),
 			'description' => __( 'The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox' ),
-				'section'  => 'global',
-				'type'     => 'checkbox',
+			'section'  => 'global',
+			'type'     => 'checkbox',
 		)));
 
 		/*

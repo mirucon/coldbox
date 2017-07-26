@@ -13,7 +13,6 @@
 		<exclude name="WordPress.VIP.SuperGlobalInputUsage" />
 		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
-		<exclude name="WordPress.XSS.EscapeOutput" />
 		<exclude name="WordPress.VIP.OrderByRand" />
 	</rule>
 
