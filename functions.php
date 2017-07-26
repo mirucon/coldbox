@@ -27,8 +27,26 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		} else {
 			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.1.4' );
 		}
+		// Load Masonry for making responsive sidebar.
+		wp_enqueue_script( 'imagesloaded', includes_url( '/js/imagesloaded.min.js' ), array( 'jQuery' ), '', true );
+		wp_enqueue_script( 'masonry', includes_url( '/js/masonry.min.js' ), array( 'imagesloaded' ), '', true );
+		$masonry_resp_sidebar = "
+		jQuery(window).on('load resize', function() {
+			if ( window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches || jQuery('body').hasClass('bottom-sidebar-s1') ) {
+				jQuery('#sidebar-s1 .sidebar-inner').imagesLoaded( function() {
+					jQuery('#sidebar-s1 .sidebar-inner').masonry({
+						itemSelector: '.widget',
+						percentPosition: true,
+						isAnimated:true,
+					});
+				});
+ 			} else {
+				 jQuery('.widget').css({'position': '', 'top': '', left: '',});
+			}
+		});";
+		wp_add_inline_script( 'masonry', $masonry_resp_sidebar, 'after' );
 	}
-}
+} // End if().
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 
 
@@ -131,6 +149,7 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 	 * Adds classses to the body tags.
 	 *
 	 * @param string $classes The classes add to the body class.
+	 * @return The custom body classes.
 	 * @since 1.0.0
 	 **/
 	function cd_body_class( $classes ) {

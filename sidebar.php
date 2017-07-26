@@ -12,7 +12,7 @@ if ( 'hide' === cd_sidebar_stg() ) {
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 
-	<aside class="sidebar-s1">
+	<aside id="sidebar-s1" class="sidebar-s1">
 
 		<div class="sidebar">
 
