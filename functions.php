@@ -39,6 +39,7 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 						percentPosition: true,
 						isAnimated:true,
 					});
+					jQuery('.widget').css({'position': 'absolute',});
 				});
  			} else {
 				 jQuery('.widget').css({'position': '', 'top': '', left: '',});
