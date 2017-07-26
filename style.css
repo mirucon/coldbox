@@ -2,7 +2,7 @@
  Theme Name: Coldbox
  Theme URI: https://coldbox.miruc.co/
  Description: Coldbox is a clean blog-focused WordPress theme. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible. See Demo: https://coldbox.miruc.co/demo/
- Version: 1.1.0
+ Version: 1.1.4
  Author: Toshihiro Kanai (Mirucon)
  Author URI: https://miruc.co/
  Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
@@ -32,8 +32,9 @@
   11. Comment
   12. WP native
   13. Misc
-  14. Styling for CJK
+  14. CJK Styling
   15. Plugin
+  16. Print styling
 ----------------------------------------------------------------------- */
 /* ------------------------------------------------------------------------- *
 /*  0. Reset
@@ -79,7 +80,7 @@ body {
   background-color: #f8f8f8;
   color: #333;
   word-wrap: break-word;
-  font-size: 1.65em;
+  font-size: 1.7em;
   line-height: 1.4;
   font-family: "Open Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -479,6 +480,11 @@ h6 {
   padding-left: 30px;
 }
 
+.entry ul li ul, .entry ul li ol, .entry ol li ul, .entry ol li ol {
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
 .entry blockquote {
   position: relative;
   margin-bottom: 1em;
@@ -522,6 +528,10 @@ h6 {
   font-family: 'Source Code Pro', Monaco, Menlo, 'Courier New', Consolas, monospace;
   -webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
           box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
+}
+
+.entry pre h1, .entry pre h2, .entry pre h3, .entry pre h4, .entry pre h5, .entry pre h6 {
+  color: currentColor;
 }
 
 .entry pre > code {
@@ -1643,7 +1653,7 @@ body.home #main, #main.home {
   overflow: hidden;
 }
 
-.grid-view .post, .grid-view .page {
+.grid-view .post, .grid-view .page, .grid-view .article {
   width: 50%;
   margin-bottom: 1.6em;
 }
@@ -4941,4 +4951,27 @@ ul.social-links {
 
 .hljs-strong {
   font-weight: 700;
+}
+
+/* ------------------------------------------------------------------------- *
+*  16. Print styling
+* ------------------------------------------------------------------------- */
+@media print {
+  #header-menu, .search-toggle, .sidebar, .nav-toggle, .related-posts, .post-nav {
+    display: none;
+  }
+  body, .title-box, .content-inner, .content-inside {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  #header {
+    position: static !important;
+    -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+            box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+  }
+  html body .container .content {
+    width: 100%;
+    padding: 0;
+  }
 }

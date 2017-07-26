@@ -39,7 +39,7 @@ function cd_social_sites() {
 
 
 /**
- * Register customzer setting for social links
+ * Register customzer setting for the social links
  *
  * @since 1.1.0
  * @param string $wp_customize Register customizations.
@@ -120,7 +120,7 @@ function cd_is_links_on_author_box() {
 }
 
 /**
- * Load Icomoon web font if feedly social link is set
+ * Load Icomoon web font if feedly social link is set.
  *
  * @since 1.1.0
  */
@@ -136,7 +136,7 @@ add_action( 'wp_enqueue_scripts', 'load_icomoon' );
  * Output the social links got from the theme customizer
  *
  * @since 1.1.0
- * @param string $class The custom class that you can set as a parameter.
+ * @param string $class Custom class that you can set as a parameter.
  */
 function cd_social_links( $class = null ) {
 
@@ -151,9 +151,10 @@ function cd_social_links( $class = null ) {
 			$active_links[ $key ] = get_theme_mod( $key );
 		}
 	}
-	$count = count( $active_links );
 
 	if ( ! empty( $active_links ) ) { // If there is any registered URL.
+
+		$count = count( $active_links );
 
 		echo '<ul class="social-links has-' . absint( $count ) . ' ' . esc_attr( $class ) . ' ">';
 
@@ -188,7 +189,7 @@ function cd_social_links( $class = null ) {
 			} else {
 				$label = ucfirst( $key );
 			} ?>
-			<li class="<?php echo esc_attr( $key ) . '-container' ?>">
+			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
 				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" target="_blank">
 					<i class="<?php echo esc_attr( $class ); ?>"></i>
 				</a>

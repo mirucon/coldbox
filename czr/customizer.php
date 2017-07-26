@@ -23,10 +23,10 @@ add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
  */
 if ( ! function_exists( 'cd_customize_register' ) ) {
 	/**
-	 * Register customzer setting.
+	 * Register customzer settings.
 	 *
 	 * @since 1.0.0
-	 * @param string $wp_customize Register customizations.
+	 * @param string $wp_customize the customizations registered.
 	 */
 	function cd_customize_register( $wp_customize ) {
 
@@ -34,7 +34,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 * Define the sanitization function for checkboxes.
 		 *
 		 * @since 1.0.0
-		 * @param string $checked The strings that will be checked..
+		 * @param string $checked The strings that will be checked.
 		 */
 		function cd_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
@@ -143,7 +143,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'text',
 		)));
 		$wp_customize->add_setting( 'global_font_size_pc', array(
-			'default'  => 16,
+			'default'  => 17,
 			'sanitize_callback' => 'absint',
 		));
 		$wp_customize->add_control( new WP_Customize_control( $wp_customize, 'global_font_size_pc', array(
@@ -208,8 +208,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'use_hljs_web_pack', array(
 			'label'  => __( 'Use highlight.js with Web Package', 'coldbox' ),
 			'description' => __( 'The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox' ),
-				'section'  => 'global',
-				'type'     => 'checkbox',
+			'section'  => 'global',
+			'type'     => 'checkbox',
 		)));
 
 		/*
@@ -221,6 +221,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'title'    => __( 'Coldbox: Header Settings','coldbox' ),
 			'priority' => 1,
 		));
+		// Site Description.
+		$wp_customize->add_setting( 'site_title', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'site_title', array(
+			'label'    => __( 'Display Site Title', 'coldbox' ),
+			'description' => __( 'Even this setting is unchecked, the logo will be still shown.', 'coldbox' ),
+			'section'  => 'header',
+			'type'     => 'checkbox',
+		)));
 		// Site Description.
 		$wp_customize->add_setting( 'site_desc', array(
 			'default'  => true,
@@ -318,6 +329,16 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'index',
 			'type'     => 'text',
 		)));
+		// Placefoler Setting.
+		$wp_customize->add_setting( 'index_placefolder_image', array(
+			'default'  => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'index_placefolder_image', array(
+			'label'    => __( 'Use Placefolder Images when no Featured Image', 'coldbox' ),
+			'section'  => 'index',
+			'type'     => 'checkbox',
+		)));
 		// Meta Settings.
 		$wp_customize->add_setting( 'index_meta_date', array(
 			'default'  => true,
@@ -400,11 +421,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'checkbox',
 		)));
 		// Last modified date.
-		$wp_customize->add_setting( 'single_meta_modified_data', array(
+		$wp_customize->add_setting( 'single_meta_modified_date', array(
 			'default'  => true,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_modified_data', array(
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'single_meta_modified_date', array(
 			'label'    => __( 'Display the last Modified Dates', 'coldbox' ),
 			'section'  => 'single',
 			'type'     => 'checkbox',
@@ -555,12 +576,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 
 		// Data.
-		$wp_customize->add_setting( 'pages_meta_data', array(
+		$wp_customize->add_setting( 'pages_meta_date', array(
 			'default'  => false,
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_data', array(
-			'label'    => __( 'Display Data', 'coldbox' ),
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_date', array(
+			'label'    => __( 'Display Post Dates', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
@@ -570,7 +591,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_author', array(
-			'label'    => __( 'Display the Author name', 'coldbox' ),
+			'label'    => __( 'Display Author Names', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
@@ -580,7 +601,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'cd_sanitize_checkbox',
 		));
 		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'pages_meta_comments_count', array(
-			'label'    => __( 'Display the comments count', 'coldbox' ),
+			'label'    => __( 'Display Comments Counts', 'coldbox' ),
 			'description' => __( 'It will be shown when comments are opened and shown.', 'coldbox' ),
 			'section'  => 'pages',
 			'type'     => 'checkbox',
@@ -643,6 +664,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'      => __( 'Primary Color', 'coldbox' ),
 			'section'    => 'colors',
 			'settings'   => 'link_color',
+			'priority' => 10,
 		)));
 		// Hover Link Color.
 		$wp_customize->add_setting( 'link_hover_color', array(
@@ -653,6 +675,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'     => __( 'Secondary Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'link_hover_color',
+			'priority' => 20,
 		)));
 		// Header Background Color.
 		$wp_customize->add_setting( 'header_color', array(
@@ -660,9 +683,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'sanitize_hex_color',
 		));
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_color', array(
-			'label'     => __( 'Header Background', 'coldbox' ),
+			'label'     => __( 'Header Background Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'header_color',
+			'priority' => 30,
 		)));
 		// Footer Background Color.
 		$wp_customize->add_setting( 'footer_color', array(
@@ -670,10 +694,14 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'sanitize_callback' => 'sanitize_hex_color',
 		));
 		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_color', array(
-			'label'     => __( 'Footer Background', 'coldbox' ),
+			'label'     => __( 'Footer Background Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'footer_color',
+			'priority' => 100,
 		)));
+		$wp_customize->get_setting( 'header_textcolor' )->default = '#444444';
+		$wp_customize->get_control( 'header_textcolor' )->priority = 50;
+		$wp_customize->get_control( 'background_color' )->priority = 22;
 
 		/*
 		 * ------------------------------------------------------------------------- *
@@ -696,7 +724,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 
 
 	/**
-	 * Get using minified CSS or not
+	 * Get whether using minified CSS or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -704,7 +732,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'minified_css', true ) );
 	}
 	/**
-	 * Get using minified JS or not
+	 * Get whether using minified JS or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -736,7 +764,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'archive_style', 'grid' ) );
 	}
 	/**
-	 * Get dispyaing the site tagline or not
+	 * Get whether displaying the site title or not
+	 *
+	 * @since 1.0.2
+	 */
+	function cd_is_site_title() {
+		return ( get_theme_mod( 'site_title', true ) );
+	}
+	/**
+	 * Get whether dispyaing the site tagline or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -760,7 +796,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'header_sticky', true ) );
 	}
 	/**
-	 * Get displaying the date on index pages.
+	 * Get whether using placefolder image or not.
+	 *
+	 * @since 1.1.2
+	 */
+	function cd_index_placefolder_image() {
+		return ( get_theme_mod( 'index_placefolder_image', true ) );
+	}
+	/**
+	 * Get whether displaying the date on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -768,7 +812,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'index_meta_date', true ) );
 	}
 	/**
-	 * Get displaying the categories on index pages.
+	 * Get whether displaying the categories on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -776,7 +820,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'index_meta_cat', true ) );
 	}
 	/**
-	 * Get displaying the comments count on index pages.
+	 * Get whether displaying the comments count on index pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -800,7 +844,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
 	}
 	/**
-	 * Get displaying the data on single pages.
+	 * Get whether displaying the date on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -808,15 +852,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_date', true ) );
 	}
 	/**
-	 * Get displaying the modified data on single pages.
+	 * Get whether displaying the modified date on single pages.
 	 *
 	 * @since 1.0.0
 	 */
 	function cd_is_meta_modified() {
-		return ( get_theme_mod( 'single_meta_modified_data', true ) );
+		return ( get_theme_mod( 'single_meta_modified_date', true ) );
 	}
 	/**
-	 * Get displaying the categories on single pages.
+	 * Get whether displaying the categories on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -824,7 +868,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_cat', false ) );
 	}
 	/**
-	 * Get displaying the author on single pages.
+	 * Get whether displaying the author on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -832,7 +876,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_author', true ) );
 	}
 	/**
-	 * Get displaying the comments count on single pages.
+	 * Get whether displaying the comments count on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -840,7 +884,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_com', true ) );
 	}
 	/**
-	 * Get displaying the tags on bottom of single pages.
+	 * Get whether displaying the tags on bottom of single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -848,7 +892,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_btm_tag', true ) );
 	}
 	/**
-	 * Get displaying the categories on bottom of single pages.
+	 * Get whether displaying the categories on bottom of single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -856,7 +900,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_meta_btm_cat', true ) );
 	}
 	/**
-	 * Get displaying the author box on single pages.
+	 * Get whether displaying the author box on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -864,7 +908,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_author_box', true ) );
 	}
 	/**
-	 * Get displaying the post navigation on single pages.
+	 * Get whether displaying the post navigation on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -872,7 +916,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_post_nav', true ) );
 	}
 	/**
-	 * Get displaying the related posts on single pages.
+	 * Get whether displaying the related posts on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -880,7 +924,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_related_posts', true ) );
 	}
 	/**
-	 * Get displaying the comments on single pages.
+	 * Get whether displaying the comments on single pages.
 	 *
 	 * @since 1.0.0
 	 */
@@ -904,15 +948,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'single_related_col', 2 ) );
 	}
 	/**
-	 * Get displaying the data on static pages.
+	 * Get whether displaying the data on static pages.
 	 *
 	 * @since 1.1.1
 	 */
-	function cd_pages_meta_data() {
-		return  ( get_theme_mod( 'pages_meta_data', false ) );
+	function cd_pages_meta_date() {
+		return  ( get_theme_mod( 'pages_meta_date', false ) );
 	}
 	/**
-	 * Get displaying the author on static pages.
+	 * Get whether displaying the author on static pages.
 	 *
 	 * @since 1.1.1
 	 */
@@ -920,7 +964,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return  ( get_theme_mod( 'pages_meta_author', false ) );
 	}
 	/**
-	 * Get displaying the comments count on static pages.
+	 * Get whether displaying the comments count on static pages.
 	 *
 	 * @since 1.1.1
 	 */
@@ -928,7 +972,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return  ( get_theme_mod( 'pages_meta_comments_count', false ) );
 	}
 	/**
-	 * Get displaying theme credit or not.
+	 * Get whether displaying theme credit or not.
 	 *
 	 * @since 1.0.0
 	 */
@@ -956,7 +1000,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return $text;
 	}
 	/**
-	 * Get using of the hljs.
+	 * Get whether using of the hljs or not.
 	 *
 	 * @since 1.0.0
 	 */
@@ -964,7 +1008,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'does_use_hljs', false ) );
 	}
 	/**
-	 * Get using of the hljs with web package.
+	 * Get whether using of the hljs with web package or not.
 	 *
 	 * @since 1.0.0
 	 */

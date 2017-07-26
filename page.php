@@ -6,9 +6,7 @@
  * @package coldbox
  */
 
-?>
-
-<?php get_header(); ?>
+get_header(); ?>
 
 <?php while ( have_posts() ) : the_post(); ?>
 	<main id="main" class="main-page">
@@ -33,12 +31,22 @@
 
 							<div class="content-inside">
 
-								<?php if ( cd_pages_meta_data() || cd_pages_meta_author() || cd_pages_meta_comments_count() ) : ?>
+								<?php if ( cd_pages_meta_date() || cd_pages_meta_author() || cd_pages_meta_comments_count() ) : ?>
+
 									<div class="post-meta content-box">
-										<?php if ( cd_pages_meta_data() ) : ?><span class="post-date"><?php echo get_the_date(); ?></span><?php endif; ?>
-										<?php if ( cd_pages_meta_author() ) : ?><span class="post-author"><?php the_author_posts_link(); ?></span><?php endif; ?>
-										<?php if ( cd_pages_meta_comments_count() && comments_open() && cd_is_post_single_comment() ) : ?><span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span><?php endif; ?>
+										<?php if ( cd_pages_meta_date() ) : ?>
+											<span class="post-date"><?php echo get_the_date(); ?></span>
+										<?php endif; ?>
+
+										<?php if ( cd_pages_meta_author() ) : ?>
+											<span class="post-author"><?php the_author_posts_link(); ?></span>
+										<?php endif; ?>
+										
+										<?php if ( cd_pages_meta_comments_count() && comments_open() && cd_is_post_single_comment() ) : ?>
+											<span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span>
+										<?php endif; ?>
 									</div>
+									
 								<?php endif; ?>
 
 								<div class="entry content-box">

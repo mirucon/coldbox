@@ -18,17 +18,36 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.min.css', array(), '1.1.0' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), '1.1.4' );
 		} else {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.0' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.4' );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.min.js', array( 'jquery' ) );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.1.4' );
 		} else {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/scripts.js', array( 'jquery' ) );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.1.4' );
 		}
+		// Load Masonry for making responsive sidebar.
+		wp_enqueue_script( 'imagesloaded', includes_url( '/js/imagesloaded.min.js' ), array( 'jQuery' ), '', true );
+		wp_enqueue_script( 'masonry', includes_url( '/js/masonry.min.js' ), array( 'imagesloaded' ), '', true );
+		$masonry_resp_sidebar = "
+		jQuery(window).on('load resize', function() {
+			if ( window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches || jQuery('body').hasClass('bottom-sidebar-s1') ) {
+				jQuery('#sidebar-s1 .sidebar-inner').imagesLoaded( function() {
+					jQuery('#sidebar-s1 .sidebar-inner').masonry({
+						itemSelector: '.widget',
+						percentPosition: true,
+						isAnimated:true,
+					});
+					jQuery('.widget').css({'position': 'absolute',});
+				});
+ 			} else {
+				 jQuery('.widget').css({'position': '', 'top': '', left: '',});
+			}
+		});";
+		wp_add_inline_script( 'masonry', $masonry_resp_sidebar, 'after' );
 	}
-}
+} // End if().
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 
 
@@ -131,6 +150,7 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 	 * Adds classses to the body tags.
 	 *
 	 * @param string $classes The classes add to the body class.
+	 * @return The custom body classes.
 	 * @since 1.0.0
 	 **/
 	function cd_body_class( $classes ) {
@@ -259,10 +279,35 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	 * @since 1.1.0
 	 */
 	function cd_single_bottom_contents() {
-		if ( function_exists( 'cd_addon_sns_buttons' ) ) { cd_addon_sns_buttons_list(); }
-		if ( cd_is_post_related() ) { get_template_part( 'parts/related-posts' ); }
-		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
-		if ( cd_is_post_nav() ) { get_template_part( 'parts/post-nav' ); }
+		if ( function_exists( 'cd_addon_sns_buttons' ) ) {
+			cd_addon_sns_buttons_list();
+		}
+		if ( cd_is_post_related() ) {
+			get_template_part( 'parts/related-posts' );
+		}
+		if ( cd_is_post_single_comment() ) {
+			comments_template( '/comments.php', true );
+		}
+		if ( cd_is_post_nav() ) {
+			get_template_part( 'parts/post-nav' );
+		}
+	}
+}
+
+if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
+
+	/**
+	 * Call the the buttom parts of the attachment pages.
+	 *
+	 * @since 1.1.2
+	 */
+	function cd_attachment_bottom_contents() {
+		if ( cd_is_post_single_comment() ) {
+			comments_template( '/comments.php', true );
+		}
+		if ( cd_is_post_nav() ) {
+			get_template_part( 'parts/post-nav' );
+		}
 	}
 }
 
@@ -274,7 +319,9 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	 * @since 1.1.1
 	 */
 	function cd_pages_bottom_contents() {
-		if ( cd_is_post_single_comment() ) { comments_template( '/comments.php', true ); }
+		if ( cd_is_post_single_comment() ) {
+			comments_template( '/comments.php', true );
+		}
 	}
 }
 
@@ -306,7 +353,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	function cd_breadcrumb() {
 		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
-			the_title();
+			echo 'Attachment';
 		} elseif ( is_single() ) {
 			the_category( ' &#47; ' );
 		} elseif ( is_category() ) {
@@ -360,21 +407,21 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . './js/scripts+hljs.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . '/assets/js/cd-scripts+hljs.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/js/scripts+hljs_web.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
@@ -442,13 +489,16 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_site_title() {
+
 		echo '<a href="' . esc_url( home_url() ) . '" title="' , bloginfo( 'name' ) , '">';
-		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) :
+
+		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
 			echo '<img src="' . esc_attr( $image[0] ) . '" alt="' , bloginfo( 'name' ) , '" />';
-		else :
+		} elseif ( cd_is_site_title() && display_header_text() ) {
 			echo bloginfo( 'name' );
-		endif;
+		}
+
 		echo '</a>';
 	}
 }

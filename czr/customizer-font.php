@@ -1,18 +1,15 @@
 <?php
 /**
- * The template for getting the font setting from the customizer and return font setting
+ * The template for getting the font setting from the customizer and return the font family
  *
  * @since 1.0.0
  * @package coldbox
  */
 
-?>
-
-<?php
 if ( ! function_exists( 'cd_customizer_font' ) ) {
 
 	/**
-	 * Enqueue the font file selected on theme customizer
+	 * Enqueue the font file selected on the theme customizer
 	 *
 	 * @since 1.0.0
 	 */

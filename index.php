@@ -6,9 +6,7 @@
  * @package coldbox
  */
 
-?>
-
-<?php get_header(); ?>
+get_header(); ?>
 
 <main id="main" class="home">
 
@@ -18,14 +16,14 @@
 
 			<div class="content">
 
-				<div class="content-inner <?php echo esc_attr( cd_index_style() ) . '-view' ?>">
+				<div class="content-inner <?php echo esc_attr( cd_index_style() ) . '-view'; ?>">
 
 					<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 						<?php if ( cd_index_style() === 'grid' ) : ?>
-							<?php get_template_part( 'content','grid' ) ?>
+							<?php get_template_part( 'content', 'grid' ); ?>
 						<?php elseif ( cd_index_style() === 'standard' ) : ?>
-							<?php get_template_part( 'content','standard' ) ?>
+							<?php get_template_part( 'content', 'standard' ); ?>
 						<?php endif; ?>
 
 					<?php endwhile; ?>
