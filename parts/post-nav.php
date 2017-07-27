@@ -18,7 +18,7 @@
 
 			$prevthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $prev_post -> ID ), array( 600, 600 ), false, '' );
 
-			if ( has_post_thumbnail( $prev_post ) ) : ?>
+			if ( has_post_thumbnail( $prev_post ) && ! is_amp() ) : ?>
 				<li class="prev"><?php previous_post_link( '%link', '<div class="post-thumbnail" style="background-image: url( ' . $prevthumbnail[0] . ' )"></div> <span class="chevron-left" aria-hidden="true"></span> <p class="nav-title">' . __( 'Prev Post', 'coldbox' ) . '</p> <p class="post-title">%title</p>' ); ?></li>
 			<?php else : ?>
 				<li class="prev"><?php previous_post_link( '%link', '<span class="chevron-left" aria-hidden="true"></span> <p class="nav-title">' . __( 'Prev Post', 'coldbox' ) . '</p> <p class="post-title">%title</p>' ); ?> </li>
@@ -32,7 +32,7 @@
 
 			$nextthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $next_post -> ID ), array( 600, 600 ), false, '' );
 
-			if ( has_post_thumbnail( $next_post ) ) : ?>
+			if ( has_post_thumbnail( $next_post ) && ! is_amp() ) : ?>
 				<li class="next"><?php next_post_link( '%link', '<div class="post-thumbnail" style="background-image: url( ' . $nextthumbnail[0] . ' )"></div> <span class="chevron-right" aria-hidden="true"></span> <p class="nav-title">' . __( 'Next Post', 'coldbox' ) . '</p> <p class="post-title">%title</p>' ); ?></li>
 			<?php else : ?>
 				<li class="next"><?php next_post_link( '%link', '<span class="chevron-right" aria-hidden="true"></span> <p class="nav-title">' . __( 'Next Post', 'coldbox' ) . '</p> <p class="post-title">%title</p>' ); ?></li>
