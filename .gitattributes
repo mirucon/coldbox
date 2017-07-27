@@ -1,0 +1,6 @@
+assets/* linguist-vendored
+js/cd-scripts+hljs.js linguist-vendored
+js/cd-scripts+hljs_web.js linguist-vendored
+js/hightlight.js linguist-vendored
+js/hightlight-web.js linguist-vendored
+bin/* linguist-vendored
