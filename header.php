@@ -38,6 +38,7 @@
 			<?php endif; ?>
 			
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<?php cd_header_menu(); // Call the header menu. ?>
 =======
 			<?php
@@ -47,6 +48,9 @@
 					return;
 				}
 				?>
+=======
+			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+>>>>>>> Polish
 				<nav id="header-menu">
 					<?php wp_nav_menu( array(
 						'theme_location' => 'header-menu',
