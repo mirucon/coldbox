@@ -37,7 +37,27 @@
 				<div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
 			<?php endif; ?>
 			
+<<<<<<< HEAD
 			<?php cd_header_menu(); // Call the header menu. ?>
+=======
+			<?php
+			if ( has_nav_menu( 'header-menu' ) ) :
+				if ( is_amp() ) {
+					cd_addon_amp_header_menu();
+					return;
+				}
+				?>
+				<nav id="header-menu">
+					<?php wp_nav_menu( array(
+						'theme_location' => 'header-menu',
+						'container' => '',
+						'menu_class' => '',
+						'fallback_cb' => 'wp_page_menu',
+						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+					) ); ?>
+				</nav>
+			<?php endif; ?>
+>>>>>>> Modified
 
 		</div>
 
