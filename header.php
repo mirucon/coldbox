@@ -44,7 +44,7 @@
 						'container' => '',
 						'menu_class' => '',
 						'fallback_cb' => 'wp_page_menu',
-						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul>',
+						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
 					) ); ?>
 				</nav>
 			<?php endif; ?>
