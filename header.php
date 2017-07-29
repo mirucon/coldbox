@@ -6,6 +6,9 @@
  * @package coldbox
  */
 
+if ( is_amp() ) :
+	cd_addon_amp_head();
+else :
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -16,6 +19,8 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
+
+<?php endif; ?>
 
 <body <?php body_class(); ?>>
 
@@ -34,34 +39,10 @@
 
 			<div class="search-toggle"><span class="icon search"></span></div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<div class="nav-toggle header-menu" on="tap:sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+				<div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
 			<?php endif; ?>
 			
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<?php cd_header_menu(); // Call the header menu. ?>
-=======
-			<?php
-			if ( has_nav_menu( 'header-menu' ) ) :
-				if ( is_amp() ) {
-					cd_addon_amp_header_menu();
-					return;
-				}
-				?>
-=======
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
->>>>>>> Polish
-				<nav id="header-menu">
-					<?php wp_nav_menu( array(
-						'theme_location' => 'header-menu',
-						'container' => '',
-						'menu_class' => '',
-						'fallback_cb' => 'wp_page_menu',
-						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
-					) ); ?>
-				</nav>
-			<?php endif; ?>
->>>>>>> Modified
+			<?php cd_header_menu(); ?>
 
 		</div>
 
