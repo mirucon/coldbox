@@ -197,7 +197,7 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 
 	/**
-	 * Echo the middle size thumbnail.
+	 * Echo the standard size thumbnail.
 	 *
 	 * @since 1.1.6
 	 */
@@ -209,6 +209,20 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
 		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+	}
+}
+
+if ( ! function_exists( 'cd_get_avatar' ) ) {
+
+	/**
+	 * Echo user avater for the author box.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_get_avatar() {
+
+		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
+		echo apply_filters( 'cd_get_avatar', $avater );
 	}
 }
 
