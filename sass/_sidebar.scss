@@ -75,6 +75,36 @@
     padding: 4px 0;
   }
 
+  .textwidget {
+    p {
+      margin-bottom: 1em;
+    }
+    a {
+      color: $link;
+      &:hover {
+        color: $hover;
+      }
+    }
+    ul {
+      list-style: square;
+      position: relative;
+      margin-bottom: 1em;
+      padding-left: 30px;
+    }
+    ol {
+      list-style: decimal;
+      position: relative;
+      margin-bottom: 1em;
+      padding-left: 30px;
+    }
+    ul li, ol li {
+     ul, ol {
+        margin-bottom: .5em;
+        margin-top: .5em;
+      }
+    }
+  }
+
   &_recent_entries {
     li a {
       display: block;

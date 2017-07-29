@@ -47,7 +47,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Link Color.
 		if ( get_theme_mod( 'link_color', '#00619f' ) !== '#00619f' ) {
 			$color_link = get_theme_mod( 'link_color' );
-			$czr_color_link = ".entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover, .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a, .related-posts .post:hover .post-title, .post-pages, .grid-view .post-inner a:hover .post-title, .standard-view .post-title:hover, ul.page-numbers, .widget #wp-calendar a, .widget .widgets-list-layout li:hover a, #comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages, .comment-pages a,.comment-pages span, .comment-body a, .comment-tabmenu .active > a, .standard-view .post-inner:hover .post-title { color: $color_link; }
+			$czr_color_link = ".entry a, .title-box a:hover, .post-meta a:hover, .post-meta.content-box a:hover, .post-btm-tags a:hover, p.post-btm-cats a:hover, .related-posts .post-category a, .related-posts .post:hover .post-title, .post-pages, .grid-view .post-inner a:hover .post-title, .standard-view .post-title:hover, ul.page-numbers, .widget #wp-calendar a, .widget .widgets-list-layout li:hover a, #comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages, .comment-pages a,.comment-pages span, .comment-body a, .comment-tabmenu .active > a, .standard-view .post-inner:hover .post-title, .widget .textwidget a { color: $color_link; }
 			#comments input[type=submit], .post-tags a, .post-tags a, .main-archive .post-date, .action-bar { background-color: $color_link; }
 			textarea:focus { border-color: $color_link; }
 			.comment-pages > a:hover, .comment-pages span, .post-pages > a:hover>span,.post-pages>span, ul.page-numbers span.page-numbers.current, ul.page-numbers a.page-numbers:hover { border-bottom-color: $color_link; }
@@ -59,7 +59,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Link Hover Color.
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = get_theme_mod( 'link_hover_color' );
-			$czr_color_hover = ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover { color: $color_hover; }";
+			$czr_color_hover = ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover, .widget .textwidget a:hover { color: $color_hover; }";
 			wp_add_inline_style( 'main-style', $czr_color_hover );
 		}
 
