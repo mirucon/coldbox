@@ -37,17 +37,7 @@
 				<div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
 			<?php endif; ?>
 			
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<nav id="header-menu">
-					<?php wp_nav_menu( array(
-						'theme_location' => 'header-menu',
-						'container' => '',
-						'menu_class' => '',
-						'fallback_cb' => 'wp_page_menu',
-						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
-					) ); ?>
-				</nav>
-			<?php endif; ?>
+			<?php cd_header_menu(); // Call the header menu. ?>
 
 		</div>
 

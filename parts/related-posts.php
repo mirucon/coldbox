@@ -8,6 +8,8 @@
 
 $max_articles = cd_single_related_max();
 $posts_per_page = get_option( 'posts_per_page' );
+
+// Uses the value of posts per page option as max articles if it's fewer than the value set on theme customizer.
 if ( $posts_per_page < $max_articles ) {
 	$max_articles = $posts_per_page;
 }
@@ -15,7 +17,7 @@ if ( $posts_per_page < $max_articles ) {
 $tags = wp_get_post_tags( $post -> ID );
 $tag_ids = array();
 
-// Get related posts by tags first.
+// Gets related posts by tags first.
 if ( has_tag() ) {
 	foreach ( $tags as $tag ) {
 		array_push( $tag_ids, $tag -> term_id );
@@ -32,7 +34,7 @@ if ( has_tag() ) {
 	$posts_by_cats_count = count( $related_posts );
 }
 
-// If article has no tag.
+// If article has no tag, gets by categories.
 if ( empty( $tags ) ) {
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();
@@ -49,7 +51,7 @@ if ( empty( $tags ) ) {
 	);
 	$related_posts = get_posts( $cat_args );
 	$posts_by_cats_count = 0;
-} elseif ( $max_articles > $posts_by_cats_count ) { // If hasn't got enought by tags, also gets by categories.
+} elseif ( $max_articles > $posts_by_cats_count ) { // If hasn't got enought articles by tags, also gets by categories.
 
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();
@@ -85,11 +87,7 @@ if ( empty( $tags ) ) {
 
 						<figure class="post-thumbnail">
 							<a href="<?php the_permalink(); ?>">
-								<?php if ( has_post_thumbnail() ) : ?>
-									<?php the_post_thumbnail( 'cd-medium' ); ?>
-								<?php else : ?>
-									<img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ); ?>" alt="noimage" height="250" width="500">
-								<?php endif; ?>
+								<?php cd_middle_thumbnail(); ?>
 							</a>
 						</figure>
 

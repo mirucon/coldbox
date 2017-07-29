@@ -12,11 +12,7 @@
 	<div class="post-inner">
 
 		<figure class="post-thumbnail">
-			<?php if ( has_post_thumbnail() ) : ?>
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'cd-standard' ); ?></a>
-			<?php elseif ( cd_index_placefolder_image() ) : ?>
-				<a href="<?php the_permalink(); ?>"><img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="<?php the_title(); ?>"></a>
-			<?php endif; ?>
+			<?php cd_standard_thumbnail(); ?>
 		</figure>
 
 		<div class="post-content">

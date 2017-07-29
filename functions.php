@@ -139,16 +139,83 @@ if ( ! function_exists( 'cd_supports' ) ) {
 } // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
 
-// Content width.
+// Set the content width.
 if ( ! isset( $content_width ) ) {
 	$content_width = 680;
 }
 
+/*
+ * ----------------------------------------------------------------------
+ * Theme Functions
+ * ----------------------------------------------------------------------
+ */
+
+if ( ! function_exists( 'cd_header_menu' ) ) {
+
+	/**
+	 * Call the header menu through a filter
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_header_menu() {
+
+		if ( has_nav_menu( 'header-menu' ) ) {
+
+			$menu = '<nav id="header-menu">';
+				$menu .= wp_nav_menu( array(
+					'theme_location' => 'header-menu',
+					'container'   => '',
+					'menu_class'  => '',
+					'fallback_cb' => 'wp_page_menu',
+					'echo'        => false,
+					'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+				) );
+			$menu .= '</nav>';
+			echo apply_filters( 'cd_header_menu', $menu );
+		}
+	}
+}
+
+if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
+
+	/**
+	 * Echo the middle size thumbnail.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_standard_thumbnail() {
+
+		if ( has_post_thumbnail() ) {
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
+		} else {
+			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
+		}
+		echo apply_filters( 'cd_standard_thumbnail', $thumbnail );
+	}
+}
+
+if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
+
+	/**
+	 * Echo the middle size thumbnail.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_middle_thumbnail() {
+
+		if ( has_post_thumbnail() ) {
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
+		} else {
+			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
+		}
+		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+	}
+}
 
 if ( ! function_exists( 'cd_body_class' ) ) {
 
 	/**
-	 * Adds classses to the body tags.
+	 * Adds classses to the body tag.
 	 *
 	 * @param string $classes The classes add to the body class.
 	 * @return The custom body classes.
@@ -186,7 +253,7 @@ add_filter( 'body_class', 'cd_body_class' );
  * ----------------------------------------------------------------------
  * Widgets
  * ----------------------------------------------------------------------
-*/
+ */
 
 if ( ! function_exists( 'cd_widgets_init' ) ) {
 
