@@ -10,7 +10,7 @@
 
 <div class="author-box">
 	<div class="author-thumbnail">
-		<?php echo get_avatar( get_the_author_meta( 'ID' ), 74 ); ?>
+		<?php cd_get_avatar(); ?>
 	</div>
 	<div class="author-content">
 		<div class="author-infomation">
