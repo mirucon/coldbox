@@ -81,7 +81,6 @@ if ( empty( $tags ) ) {
 
 
 			<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
-<<<<<<< HEAD
 
 				<li class="related-article">
 					<article <?php post_class();?>>
@@ -99,36 +98,6 @@ if ( empty( $tags ) ) {
 
 					</article>
 				</li>
-=======
-			
-				<?php
-				if ( is_amp() ) :
-					cd_addon_amp_related_posts();
-				else :
-				?>
-					<li class="related-article">
-						<article <?php post_class();?>>
-
-							<figure class="post-thumbnail">
-								<a href="<?php the_permalink(); ?>">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<?php the_post_thumbnail( 'cd-medium' ); ?>
-									<?php else : ?>
-										<img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ); ?>" alt="noimage" height="250" width="500">
-									<?php endif; ?>
-								</a>
-							</figure>
-
-							<div class="post-content">
-								<div class="post-category"><?php the_category( ' / ' ) ?></div>
-								<h5 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
-							</div>
-
-						</article>
-					</li>
-
-				<?php endif; ?>
->>>>>>> AMP plugin Improving
 
 			<?php endforeach; ?>
 
