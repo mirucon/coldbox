@@ -8,10 +8,14 @@
 
 if ( post_password_required() ) {
 	return;
-} ?>
-<?php if ( have_comments() === false && comments_open() === false ) {
+}
+if ( have_comments() === false && comments_open() === false ) {
 	return;
-} ?>
+}
+if ( is_amp() ) {
+	return;
+}
+?>
 
 <section id="comments" class="content-box">
 
