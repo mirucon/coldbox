@@ -10,7 +10,7 @@ if ( 'hide' === cd_sidebar_stg() ) {
 	return;
 }
 
-if ( is_amp() ) {
+if ( cd_is_amp() ) {
 	return;
 } ?>
 

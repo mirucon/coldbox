@@ -6,7 +6,7 @@
  * @package coldbox
  */
 
-if ( is_amp() ) :
+if ( cd_is_amp() ) :
 	cd_addon_amp_head();
 else :
 ?><!DOCTYPE html>
@@ -20,9 +20,9 @@ else :
 	<?php wp_head(); ?>
 </head>
 
-<?php endif; ?>
-
 <body <?php body_class(); ?>>
+
+<?php endif; ?>
 
 	<header id="header" class="header">
 
@@ -39,10 +39,14 @@ else :
 
 			<div class="search-toggle"><span class="icon search"></span></div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+				<div class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
 			<?php endif; ?>
 			
-			<?php cd_header_menu(); ?>
+			<?php
+			if ( ! cd_is_amp() ) {
+				cd_header_menu();
+			}
+			?>
 
 		</div>
 

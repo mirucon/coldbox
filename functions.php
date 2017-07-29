@@ -604,3 +604,15 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		add_action( 'wp_enqueue_scripts', 'cd_header_image' );
 	}
 }
+
+if ( ! function_exists( 'cd_is_amp' ) ) {
+
+	/**
+	 * To disguish whether amp page or not.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_is_amp() {
+		return false;
+	}
+}
