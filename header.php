@@ -39,7 +39,7 @@ else :
 
 			<div class="search-toggle"><span class="icon search"></span></div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<div class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
 			
 			<?php

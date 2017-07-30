@@ -6,9 +6,6 @@
  * @package coldbox
  */
 
-if ( is_amp() ) :
-	cd_addon_amp_author_box();
-else :
 ?>
 
 <div class="author-box">
@@ -24,4 +21,3 @@ else :
 	</div>
 </div>
 
-<?php endif; ?>

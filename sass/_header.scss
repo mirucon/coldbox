@@ -307,7 +307,7 @@
 }
 
 // @media screen and (max-width: 767px) { .header-searchbar { display: none } } // Mobile
-// @media screen and (min-width: 768px) { .nav-toggle, .header-searchbar { display: none } } // PC
+@media screen and (min-width: 768px) { .nav-toggle, .header-searchbar { display: none } } // PC
 
 
 /*   Header: Toggle Animation

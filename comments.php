@@ -12,7 +12,7 @@ if ( post_password_required() ) {
 if ( have_comments() === false && comments_open() === false ) {
 	return;
 }
-if ( is_amp() ) {
+if ( cd_is_amp() ) {
 	return;
 }
 ?>
