@@ -376,6 +376,20 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_single_after_contents' ) ) {
+
+	/**
+	 * The action hook for adding some contents after the article contents.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents shown after the article contents.
+	 */
+	function cd_single_after_contents( $contents = null ) {
+		// You can add something thought `cd_single_after_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
