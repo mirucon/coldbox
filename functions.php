@@ -605,7 +605,7 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 	}
 }
 
-if ( ! function_exists( 'cd_is_amp' ) ) {
+if ( ! function_exists( 'cd_is_active_addon' ) ) {
 
 	/**
 	 * To disguish whether amp page or not.
@@ -615,4 +615,14 @@ if ( ! function_exists( 'cd_is_amp' ) ) {
 	function cd_is_amp() {
 		return false;
 	}
+	add_action( 'init', 'cd_is_amp', 100 );
 }
+// if ( ! function_exists( 'cd_is_active_addon' ) ) {
+
+// 	/**
+// 	 * Check whether active the addon plugin or not.
+// 	 *
+// 	 * @since 1.2.0
+// 	 */
+// 	function cd_is_active_addon() {}
+// }

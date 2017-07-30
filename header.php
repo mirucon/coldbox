@@ -20,8 +20,6 @@ else :
 	<?php wp_head(); ?>
 </head>
 
-<?php endif; ?>
-
 <body <?php body_class(); ?>>
 
 <?php endif; ?>
