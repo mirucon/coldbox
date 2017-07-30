@@ -376,6 +376,20 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_single_after_contents' ) ) {
+
+	/**
+	 * The action hook for adding some contents after the article contents.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents shown after the article contents.
+	 */
+	function cd_single_after_contents( $contents = null ) {
+		// You can add something thought `cd_single_after_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
@@ -604,25 +618,3 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		add_action( 'wp_enqueue_scripts', 'cd_header_image' );
 	}
 }
-
-// if ( ! function_exists( 'cd_is_active_addon' ) ) {
-
-// 	/**
-// 	 * To disguish whether amp page or not.
-// 	 *
-// 	 * @since 1.2.0
-// 	 */
-// 	function cd_is_amp() {
-// 		return false;
-// 	}
-// 	add_action( 'init', 'cd_is_amp', 100 );
-// }
-// if ( ! function_exists( 'cd_is_active_addon' ) ) {
-
-// 	/**
-// 	 * Check whether active the addon plugin or not.
-// 	 *
-// 	 * @since 1.2.0
-// 	 */
-// 	function cd_is_active_addon() {}
-// }
