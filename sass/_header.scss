@@ -263,8 +263,8 @@
 /*   Header : Header toggles
 /* -------------------------------------------------- */
 .nav-toggle {
-  align-self: stretch; position: relative; right: 0; z-index: 1000; width: 50px; height: auto; cursor: pointer; transition: all .4s;
-  -webkit-tap-highlight-color: transparent;
+  align-self: stretch; position: relative; right: 0; z-index: 1000; width: 50px; height: auto; border: 0 transparent; background-color: transparent; cursor: pointer; transition: all .4s;
+  -webkit-tap-highlight-color: transparent; -webkit-appearance: none;
   .top, .middle, .bottom {
     position: absolute; top: 50%; left: 19%; z-index: 1001; width: 62%; height: 1px; background: currentColor; transition: all .4s;
   }
