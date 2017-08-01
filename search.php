@@ -22,10 +22,20 @@ get_header(); ?>
 					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
 
 						<?php
+						// Call the bottom parts.
+						apply_filters( 'cd_archive_top_contents', cd_archive_top_contents() );
+						?>
+
+						<?php
 						if ( have_posts() ) :
 							while ( have_posts() ) :
 								the_post();
-?>
+							?>
+
+							<?php
+							// Call the bottom parts.
+							apply_filters( 'cd_archive_top_contents', cd_archive_top_contents() );
+							?>
 
 							<?php if ( cd_archive_style() === 'grid' ) : ?>
 								<?php get_template_part( 'content', 'grid' ); ?>

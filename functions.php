@@ -361,11 +361,64 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10,
  * -------------------------------------------------------------------------
  *  Call the bottom parts for each page
  * -------------------------------------------------------------------------
-  */
+ */
+if ( ! function_exists( 'cd_single_middle_contents' ) ) {
+
+	define( 'CD_H2_REG', '/<H2.*?>/i' );
+	define( 'CD_H3_REG', '/<H3.*?>/i' );
+	/**
+	 * Get h2 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h2_in_content( $the_content ) {
+		if ( preg_match( CD_H2_REG, $the_content, $h2_result ) ) { // Whether or not h2 tag is used.
+			return $h2_result[0];
+		}
+	}
+	/**
+	 * Get h3 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h3_in_content( $the_content ) {
+		if ( preg_match( CD_H3_REG, $the_content, $h3_result ) ) { // Whether or not h3 tag is used.
+			return $h3_result[0];
+		}
+	}
+
+	/**
+	 * The action hook for adding custom content on the first h2 or h3 tag on each single article through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are hooked.
+	 */
+	function cd_single_middle_contents( $the_content ) {
+		if ( is_single() ) {
+			ob_start();
+			$contents = ob_get_clean();
+			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
+			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
+			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
+				$count = 1;
+				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
+			} elseif ( ! is_null( $h3_result ) ) { // No h2 tag, but h3 tag is found.
+				$count = 1;
+				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
+			}
+			echo wp_kses_post( apply_filters( 'cd_single_middle_contents', $contents ) );
+		}
+		return $the_content;
+	}
+	add_filter( 'the_content', 'cd_single_middle_contents' );
+}
+
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the single articles.
+	 * Call the the buttom parts of the single articles through filter.
 	 *
 	 * @since 1.1.0
 	 */
@@ -388,13 +441,13 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_single_after_contents' ) ) {
 
 	/**
-	 * The action hook for adding some contents after the article contents.
+	 * The action hook for adding some contents after the article contents through filter.
 	 *
 	 * @since 1.1.6
-	 * @param string $contents The contents shown after the article contents.
+	 * @param string $contents The contents will be shown after the article contents.
 	 */
 	function cd_single_after_contents( $contents = null ) {
-		// You can add something thought `cd_single_after_contents` filter.
+		// You can add something through `cd_single_after_contents` filter.
 		return $contents;
 	}
 }
@@ -402,7 +455,7 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the attachment pages.
+	 * Call the the buttom parts of the attachment pages through filter.
 	 *
 	 * @since 1.1.2
 	 */
@@ -419,7 +472,7 @@ if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the static pages.
+	 * Call the the buttom parts of the static pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -430,10 +483,23 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_archive_top_contents' ) ) {
+	/**
+	 * Call the top parts of the archive pages through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents will be shown on top of the article contents.
+	 */
+	function cd_archive_top_contents( $contents = null ) {
+		// You can add something through `cd_archive_top_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the archive pages.
+	 * Call the the buttom parts of the archive pages through filter.
 	 *
 	 * @since 1.1.1
 	 */

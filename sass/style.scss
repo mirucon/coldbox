@@ -960,6 +960,24 @@ ul.social-links { padding-left: 0; list-style: none; }
   background-color: #f0f0f0;
   & > a { display: block }
 }
+.resp-unit {
+  max-height: 300px;
+  max-width: 100%;
+  margin: 0 auto 0.6em;
+  overflow: hidden;
+  text-align: center;
+}
+.ad-label {
+  text-align: center;
+}
+.ads-double {
+  margin: 0 auto;
+}
+div[id^='ad-'][id$='-bottom'] {
+  width: 100%;
+  margin-top: 0.6em;
+}
+
 
 /*   Keyframes
 /* -------------------------------------------------- */
