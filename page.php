@@ -8,7 +8,11 @@
 
 get_header(); ?>
 
-<?php while ( have_posts() ) : the_post(); ?>
+<?php
+while ( have_posts() ) :
+	the_post();
+	?>
+
 	<main id="main" class="main-page">
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'main-inner' ); ?>>
 
@@ -52,15 +56,21 @@ get_header(); ?>
 								<div class="entry content-box">
 									<div class="entry-inner"><?php the_content(); ?></div>
 								</div>
-								<?php wp_link_pages(
+								<?php
+								wp_link_pages(
 									$defaults = array(
-									'before' => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ),
-									'after' => '</div>',
-									'link_before' => '<span class="page-number">',
-									'link_after' => '</span>',
-								) ); ?>
+										'before' => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ),
+										'after' => '</div>',
+										'link_before' => '<span class="page-number">',
+										'link_after' => '</span>',
+									)
+								);
+								?>
 
-								<?php apply_filters( 'cd_pages_bottom_contents', cd_pages_bottom_contents() ); // Call the bottom parts. ?>
+								<?php
+								// Call the bottom parts.
+								apply_filters( 'cd_pages_bottom_contents', cd_pages_bottom_contents() );
+								?>
 
 							</div><!--/.content-inside-->
 

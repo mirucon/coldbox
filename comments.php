@@ -9,9 +9,11 @@
 if ( post_password_required() ) {
 	return;
 } ?>
-<?php if ( have_comments() === false && comments_open() === false ) {
+<?php
+if ( have_comments() === false && comments_open() === false ) {
 	return;
-} ?>
+}
+?>
 
 <section id="comments" class="content-box">
 
@@ -20,39 +22,51 @@ if ( post_password_required() ) {
 		<h4 class="comment-head"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h4>
 
 		<?php
-		$commentcount = get_comments( array(
-			'status' => 'approve',
-			'post_id' => get_the_ID(),
-			'type' => 'comment',
-			'count' => true,
-		) );
-		$pingcount = get_comments( array(
-			'status' => 'approve',
-			'post_id' => get_the_ID(),
-			'type' => 'pings',
-			'count' => true,
-		) );
+		$commentcount = get_comments(
+			array(
+				'status' => 'approve',
+				'post_id' => get_the_ID(),
+				'type' => 'comment',
+				'count' => true,
+			)
+		);
+		$pingcount = get_comments(
+			array(
+				'status' => 'approve',
+				'post_id' => get_the_ID(),
+				'type' => 'pings',
+				'count' => true,
+			)
+		);
 		?>
 
 		<ul class="comment-tabmenu">
-			<li class="tabitem active"><a class="noscroll" href="#comment-list"><?php esc_html_e( 'Comments', 'coldbox' ); ?><span class="count"><?php echo absint( $commentcount );?></span></a></li>
+			<li class="tabitem active"><a class="noscroll" href="#comment-list"><?php esc_html_e( 'Comments', 'coldbox' ); ?><span class="count"><?php echo absint( $commentcount ); ?></span></a></li>
 			<li class="tabitem"><a class="noscroll" href="#ping-list"><?php esc_html_e( 'Pingbacks', 'coldbox' ); ?><span class="count"><?php echo absint( $pingcount ); ?></span></a></li>
 		</ul>
 
 		<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
 		
 			<ol id="comment-list">
-				<?php wp_list_comments( array(
-					'type' => 'comment',
-					'avatar_size' => 42,
-				) ); ?>
+				<?php
+				wp_list_comments(
+					array(
+						'type' => 'comment',
+						'avatar_size' => 42,
+					)
+				);
+				?>
 
 				<?php if ( get_comment_pages_count() > 1 ) : ?>
 					<div class="comment-pages">
-						<?php paginate_comments_links( array(
-							'prev_text' => '&laquo;',
-							'next_text' => '&raquo;',
-						) ); ?>
+						<?php
+						paginate_comments_links(
+							array(
+								'prev_text' => '&laquo;',
+								'next_text' => '&raquo;',
+							)
+						);
+						?>
 					</div>
 				<?php endif; ?>
 			</ol>
@@ -61,16 +75,23 @@ if ( post_password_required() ) {
 
 		<?php if ( ! empty( $comments_by_type['pings'] ) ) : ?>
 			<ol id="ping-list">
-				<?php wp_list_comments( array(
-					'type' => 'pings',
-					'avatar_size' => 50,
-					'short_ping' => true,
-				) ); ?>
+				<?php
+				wp_list_comments(
+					array(
+						'type' => 'pings',
+						'avatar_size' => 50,
+						'short_ping' => true,
+					)
+				);
+				?>
 			</ol>
 		<?php endif; ?>
 
 	<?php endif; ?>
 
-	<?php if ( comments_open() ) { comment_form(); } ?>
+	<?php
+	if ( comments_open() ) {
+		comment_form(); }
+?>
 
 </section>

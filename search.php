@@ -21,7 +21,11 @@ get_header(); ?>
 
 					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
 
-						<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+						<?php
+						if ( have_posts() ) :
+							while ( have_posts() ) :
+								the_post();
+?>
 
 							<?php if ( cd_archive_style() === 'grid' ) : ?>
 								<?php get_template_part( 'content', 'grid' ); ?>
@@ -31,7 +35,10 @@ get_header(); ?>
 
 						<?php endwhile; ?>
 
-							<?php apply_filters( 'cd_archive_bottom_contents', cd_archive_bottom_contents() ); // Call the bottom parts. ?>
+							<?php
+							// Call the bottom parts.
+							apply_filters( 'cd_archive_bottom_contents', cd_archive_bottom_contents() );
+							?>
 
 						<?php else : ?>
 

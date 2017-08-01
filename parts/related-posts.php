@@ -69,7 +69,8 @@ if ( empty( $tags ) ) {
 	$posts_by_cats = get_posts( $cat_args );
 
 	$related_posts = array_merge( $related_posts, $posts_by_cats );
-} ?>
+}
+?>
 
 
 <?php if ( count( $related_posts ) > 0 ) : ?>
@@ -80,10 +81,13 @@ if ( empty( $tags ) ) {
 		<ul class="related-posts-list">
 
 
-			<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
+			<?php
+			foreach ( $related_posts as $post ) :
+				setup_postdata( $post );
+				?>
 
 				<li class="related-article">
-					<article <?php post_class();?>>
+					<article <?php post_class(); ?>>
 
 						<figure class="post-thumbnail">
 							<a href="<?php the_permalink(); ?>">
@@ -92,7 +96,7 @@ if ( empty( $tags ) ) {
 						</figure>
 
 						<div class="post-content">
-							<div class="post-category"><?php the_category( ' / ' ) ?></div>
+							<div class="post-category"><?php the_category( ' / ' ); ?></div>
 							<h5 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
 						</div>
 

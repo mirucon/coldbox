@@ -110,19 +110,23 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 		// Support custom header.
-		add_theme_support( 'custom-header', array(
-			'width'       => 980,
-			'height'      => 100,
-			'flex-height' => true,
-			'flex-width'  => true,
-		) );
+		add_theme_support(
+			'custom-header', array(
+				'width'       => 980,
+				'height'      => 100,
+				'flex-height' => true,
+				'flex-width'  => true,
+			)
+		);
 
 		// Support custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 80,
-			'width'       => 270,
-			'flex-height' => true,
-		) );
+		add_theme_support(
+			'custom-logo', array(
+				'height'      => 80,
+				'width'       => 270,
+				'flex-height' => true,
+			)
+		);
 
 		// Support custom background color and image.
 		$custom_background_defaults = array(
@@ -132,9 +136,11 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'custom-background', $custom_background_defaults );
 
 		// Register nav menu.
-		register_nav_menus( array(
-			'header-menu' => __( 'Header Menu', 'coldbox' ),
-		) );
+		register_nav_menus(
+			array(
+				'header-menu' => __( 'Header Menu', 'coldbox' ),
+			)
+		);
 	}
 } // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
@@ -162,16 +168,18 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 		if ( has_nav_menu( 'header-menu' ) ) {
 
 			$menu = '<nav id="header-menu">';
-				$menu .= wp_nav_menu( array(
-					'theme_location' => 'header-menu',
-					'container'   => '',
-					'menu_class'  => '',
-					'fallback_cb' => 'wp_page_menu',
-					'echo'        => false,
-					'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
-				) );
+				$menu .= wp_nav_menu(
+					array(
+						'theme_location' => 'header-menu',
+						'container'   => '',
+						'menu_class'  => '',
+						'fallback_cb' => 'wp_page_menu',
+						'echo'        => false,
+						'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+					)
+				);
 			$menu .= '</nav>';
-			echo apply_filters( 'cd_header_menu', $menu );
+			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
 		}
 	}
 }
@@ -190,7 +198,7 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_standard_thumbnail', $thumbnail );
+		echo wp_kses_post( apply_filters( 'cd_standard_thumbnail', $thumbnail ) );
 	}
 }
 
@@ -208,7 +216,7 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+		echo wp_kses_post( apply_filters( 'cd_middle_thumbnail', $thumbnail ) );
 	}
 }
 
@@ -222,7 +230,7 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 	function cd_get_avatar() {
 
 		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
-		echo apply_filters( 'cd_get_avatar', $avater );
+		echo wp_kses_post( apply_filters( 'cd_get_avatar', $avater ) );
 	}
 }
 
@@ -277,14 +285,15 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_widgets_init() {
-		register_sidebar( array(
-			'name'          => 'Sidebar',
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here', 'coldbox' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+		register_sidebar(
+			array(
+				'name'          => 'Sidebar',
+				'id'            => 'sidebar-1',
+				'description'   => __( 'Add widgets here', 'coldbox' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
 			)
 		);
 	}
@@ -464,9 +473,11 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 					$cat = get_category( $cat -> parent );
 					$cat_name = $cat -> name;
 					$cat_url = get_category_link( $cat -> cat_ID );
-					$parent = array_merge( $parent, array(
-						$cat_name => $cat_url,
-					) );
+					$parent = array_merge(
+						$parent, array(
+							$cat_name => $cat_url,
+						)
+					);
 				}
 				$parent_rev = array_reverse( $parent );
 				foreach ( $parent_rev as $key => $value ) {

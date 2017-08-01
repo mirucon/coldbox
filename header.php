@@ -37,7 +37,10 @@
 				<button class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
 			
-			<?php cd_header_menu(); // Call the header menu. ?>
+			<?php
+			// Call the header menu.
+			cd_header_menu();
+			?>
 
 		</div>
 

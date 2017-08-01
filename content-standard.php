@@ -31,7 +31,7 @@
 					<?php endif; ?>
 
 					<?php if ( 'post' === get_post_type() && cd_index_meta_cat() ) : ?>
-						<span class="post-category"><?php the_category( ' / ' ) ?></span>
+						<span class="post-category"><?php the_category( ' / ' ); ?></span>
 					<?php endif; ?>
 					
 					<?php if ( comments_open() && cd_is_post_single_comment() && cd_index_meta_comment() ) : ?>
@@ -45,7 +45,7 @@
 
 			</div>
 
-			<p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ) ?><i class="fa"></i></a></p>
+			<p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ); ?><i class="fa"></i></a></p>
 
 		</div>
 
