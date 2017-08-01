@@ -12,15 +12,14 @@
   }
 
   a {
-    color: rgba(255, 255, 255, .9);
+    color: #00d1b2;
     &:hover {
-      color: rgba(255, 255, 255, 1);
+        color: #009881;
     }
   }
 
   .copyright {
     flex-shrink: 1;
-    font-weight: 300;
     line-height: 1.6;
   }
 
