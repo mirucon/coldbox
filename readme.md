@@ -1,5 +1,7 @@
 # Coldbox
 
+[![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox)
+
 ![coldbox-screenshot](/screenshot.jpg)
 
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible.
@@ -7,7 +9,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.1.5  
 **Requires at least**: version 4.5 or higher  
-**Tested up**: WordPress 4.8.1-RC1  
+**Tested up to**: WordPress 4.8.1-RC1  
 **License**: GPL v3.0  
 **License URI**: http://www.gnu.org/licenses/gpl-3.0.html  
 **Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments

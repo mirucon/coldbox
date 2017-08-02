@@ -110,19 +110,23 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 		// Support custom header.
-		add_theme_support( 'custom-header', array(
-			'width'       => 980,
-			'height'      => 100,
-			'flex-height' => true,
-			'flex-width'  => true,
-		) );
+		add_theme_support(
+			'custom-header', array(
+				'width'       => 980,
+				'height'      => 100,
+				'flex-height' => true,
+				'flex-width'  => true,
+			)
+		);
 
 		// Support custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 80,
-			'width'       => 270,
-			'flex-height' => true,
-		) );
+		add_theme_support(
+			'custom-logo', array(
+				'height'      => 80,
+				'width'       => 270,
+				'flex-height' => true,
+			)
+		);
 
 		// Support custom background color and image.
 		$custom_background_defaults = array(
@@ -132,9 +136,11 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'custom-background', $custom_background_defaults );
 
 		// Register nav menu.
-		register_nav_menus( array(
-			'header-menu' => __( 'Header Menu', 'coldbox' ),
-		) );
+		register_nav_menus(
+			array(
+				'header-menu' => __( 'Header Menu', 'coldbox' ),
+			)
+		);
 	}
 } // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
@@ -162,16 +168,18 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 		if ( has_nav_menu( 'header-menu' ) ) {
 
 			$menu = '<nav id="header-menu">';
-				$menu .= wp_nav_menu( array(
-					'theme_location' => 'header-menu',
-					'container'   => '',
-					'menu_class'  => '',
-					'fallback_cb' => 'wp_page_menu',
-					'echo'        => false,
-					'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
-				) );
+				$menu .= wp_nav_menu(
+					array(
+						'theme_location' => 'header-menu',
+						'container'   => '',
+						'menu_class'  => '',
+						'fallback_cb' => 'wp_page_menu',
+						'echo'        => false,
+						'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+					)
+				);
 			$menu .= '</nav>';
-			echo apply_filters( 'cd_header_menu', $menu );
+			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
 		}
 	}
 }
@@ -190,7 +198,7 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_standard_thumbnail', $thumbnail );
+		echo wp_kses_post( apply_filters( 'cd_standard_thumbnail', $thumbnail ) );
 	}
 }
 
@@ -208,7 +216,7 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+		echo wp_kses_post( apply_filters( 'cd_middle_thumbnail', $thumbnail ) );
 	}
 }
 
@@ -222,7 +230,7 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 	function cd_get_avatar() {
 
 		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
-		echo apply_filters( 'cd_get_avatar', $avater );
+		echo wp_kses_post( apply_filters( 'cd_get_avatar', $avater ) );
 	}
 }
 
@@ -277,14 +285,15 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_widgets_init() {
-		register_sidebar( array(
-			'name'          => 'Sidebar',
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here', 'coldbox' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+		register_sidebar(
+			array(
+				'name'          => 'Sidebar',
+				'id'            => 'sidebar-1',
+				'description'   => __( 'Add widgets here', 'coldbox' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
 			)
 		);
 	}
@@ -352,11 +361,64 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10,
  * -------------------------------------------------------------------------
  *  Call the bottom parts for each page
  * -------------------------------------------------------------------------
-  */
+ */
+if ( ! function_exists( 'cd_single_middle_contents' ) ) {
+
+	define( 'CD_H2_REG', '/<H2.*?>/i' );
+	define( 'CD_H3_REG', '/<H3.*?>/i' );
+	/**
+	 * Get h2 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h2_in_content( $the_content ) {
+		if ( preg_match( CD_H2_REG, $the_content, $h2_result ) ) { // Whether or not h2 tag is used.
+			return $h2_result[0];
+		}
+	}
+	/**
+	 * Get h3 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h3_in_content( $the_content ) {
+		if ( preg_match( CD_H3_REG, $the_content, $h3_result ) ) { // Whether or not h3 tag is used.
+			return $h3_result[0];
+		}
+	}
+
+	/**
+	 * The action hook for adding custom content on the first h2 or h3 tag on each single article through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are hooked.
+	 */
+	function cd_single_middle_contents( $the_content ) {
+		if ( is_single() ) {
+			ob_start();
+			$contents = ob_get_clean();
+			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
+			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
+			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
+				$count = 1;
+				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
+			} elseif ( ! is_null( $h3_result ) ) { // No h2 tag, but h3 tag is found.
+				$count = 1;
+				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
+			}
+			echo wp_kses_post( apply_filters( 'cd_single_middle_contents', $contents ) );
+		}
+		return $the_content;
+	}
+	add_filter( 'the_content', 'cd_single_middle_contents' );
+}
+
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the single articles.
+	 * Call the the buttom parts of the single articles through filter.
 	 *
 	 * @since 1.1.0
 	 */
@@ -379,13 +441,13 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_single_after_contents' ) ) {
 
 	/**
-	 * The action hook for adding some contents after the article contents.
+	 * The action hook for adding some contents after the article contents through filter.
 	 *
 	 * @since 1.1.6
-	 * @param string $contents The contents shown after the article contents.
+	 * @param string $contents The contents will be shown after the article contents.
 	 */
 	function cd_single_after_contents( $contents = null ) {
-		// You can add something thought `cd_single_after_contents` filter.
+		// You can add something through `cd_single_after_contents` filter.
 		return $contents;
 	}
 }
@@ -393,7 +455,7 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the attachment pages.
+	 * Call the the buttom parts of the attachment pages through filter.
 	 *
 	 * @since 1.1.2
 	 */
@@ -410,7 +472,7 @@ if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the static pages.
+	 * Call the the buttom parts of the static pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -421,10 +483,23 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_archive_top_contents' ) ) {
+	/**
+	 * Call the top parts of the archive pages through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents will be shown on top of the article contents.
+	 */
+	function cd_archive_top_contents( $contents = null ) {
+		// You can add something through `cd_archive_top_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the archive pages.
+	 * Call the the buttom parts of the archive pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -464,9 +539,11 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 					$cat = get_category( $cat -> parent );
 					$cat_name = $cat -> name;
 					$cat_url = get_category_link( $cat -> cat_ID );
-					$parent = array_merge( $parent, array(
-						$cat_name => $cat_url,
-					) );
+					$parent = array_merge(
+						$parent, array(
+							$cat_name => $cat_url,
+						)
+					);
 				}
 				$parent_rev = array_reverse( $parent );
 				foreach ( $parent_rev as $key => $value ) {
