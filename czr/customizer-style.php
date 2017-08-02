@@ -30,9 +30,11 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		}
 
 		// Font size for mobile devices.
-		$font_size_mobile = get_theme_mod( 'global_font_size_mobile', '16' );
-		$czr_font_size_mobile = "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
-		wp_add_inline_style( 'main-style', $czr_font_size_mobile );
+		if ( get_theme_mod( 'global_font_size_mobile', '16' ) !== '16' ) {
+			$font_size_mobile = get_theme_mod( 'global_font_size_mobile' );
+			$czr_font_size_mobile = "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
+			wp_add_inline_style( 'main-style', $czr_font_size_mobile );
+		}
 
 		// Add decorations to h tags.
 		if ( get_theme_mod( 'decorate_htags', false ) ) {

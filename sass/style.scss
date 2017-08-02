@@ -70,6 +70,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  @media screen and (max-width: $bpmax-mobile) { font-size: 1.6em }
 }
 #main {
   margin-bottom: 40px;

@@ -88,6 +88,12 @@ body {
   -webkit-text-size-adjust: 100%;
 }
 
+@media screen and (max-width: 640px) {
+  body {
+    font-size: 1.6em;
+  }
+}
+
 #main {
   margin-bottom: 40px;
   -webkit-transition: all .4s;
