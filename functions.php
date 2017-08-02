@@ -216,7 +216,7 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo wp_kses_post( apply_filters( 'cd_middle_thumbnail', $thumbnail ) );
+		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
 	}
 }
 
