@@ -216,7 +216,28 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+		$allowed_html = array(
+			'amp-img' => array(
+				'src' => array(),
+				'layout' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array(),
+				'class' => array(),
+			),
+			'i-amphtml-sizer' => array(
+				'style' => array(),
+				'class' => array(),
+			),
+			'img' => array(
+				'alt' => array(),
+				'class' => array(),
+				'src' => array(),
+				'height' => array(),
+				'width' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'cd_middle_thumbnail', $thumbnail ), $allowed_html );
 	}
 }
 
