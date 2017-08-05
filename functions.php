@@ -216,7 +216,28 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_middle_thumbnail', $thumbnail );
+		$allowed_html = array(
+			'amp-img' => array(
+				'src' => array(),
+				'layout' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array(),
+				'class' => array(),
+			),
+			'i-amphtml-sizer' => array(
+				'style' => array(),
+				'class' => array(),
+			),
+			'img' => array(
+				'alt' => array(),
+				'class' => array(),
+				'src' => array(),
+				'height' => array(),
+				'width' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'cd_middle_thumbnail', $thumbnail ), $allowed_html );
 	}
 }
 
@@ -397,18 +418,19 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 */
 	function cd_single_middle_contents( $the_content ) {
 		if ( is_single() ) {
+			$contents = '';
 			ob_start();
+			apply_filters( 'cd_single_middle_contents', $contents );
 			$contents = ob_get_clean();
 			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
 			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
 			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
 				$count = 1;
 				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
-			} elseif ( ! is_null( $h3_result ) ) { // No h2 tag, but h3 tag is found.
+			} elseif ( ! is_null( $h3_result ) ) { // If no h2 tag, but h3 tag is found.
 				$count = 1;
 				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
 			}
-			echo wp_kses_post( apply_filters( 'cd_single_middle_contents', $contents ) );
 		}
 		return $the_content;
 	}
