@@ -1,9 +1,9 @@
 <?php
 /**
- * The template for displaying pages
+ * Template Name: Full Width Page
  *
- * @since 1.0.0
  * @package coldbox
+ * @since 1.2.0
  */
 
 get_header(); ?>
@@ -76,8 +76,6 @@ while ( have_posts() ) :
 
 						</div><!--/.content-inner-->
 					</div><!--/.content-->
-
-					<?php get_sidebar(); ?>
 
 				</div><!--/.container-->
 			</div><!--/.container-outer-->

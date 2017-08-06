@@ -19,11 +19,9 @@
 
 			<div class="post-header">
 
-				<?php if ( 'post' === get_post_type() && cd_index_meta_cat() ) : ?>
-					<h2 class="post-title">
-						<a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-					</h2>
-				<?php endif; ?>
+				<h2 class="post-title">
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</h2>
 
 				<p class="post-meta">
 					<?php if ( cd_index_meta_date() ) : ?>

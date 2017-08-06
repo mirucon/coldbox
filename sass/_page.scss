@@ -1,0 +1,28 @@
+.page-template-full-width {
+  background-color: #ffffff;
+
+    .container-outer, .content-inner, .content-inside {
+        background-color: #ffffff;
+        box-shadow: none;
+    }
+    .container-outer {
+        box-shadow: 0 -2px 1px -1px rgba(0, 0, 0, .1);
+    }
+    .container {
+        max-width: 1000px;
+    }
+    .title-box {
+        box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 1);
+    }
+    .content {
+        padding-right: 0;
+    }
+    .content-inner {
+      padding-top: 0;
+    }
+
+    .title-box-inner, .post-meta, .entry {
+      padding-right: 48px;
+      padding-left: 48px;
+    }
+}
