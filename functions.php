@@ -776,3 +776,36 @@ if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'cd_prev_post_thumbnail' );
+
+/*
+ * -------------------------------------------------------------------------
+ *  Addon cooperation
+ * -------------------------------------------------------------------------
+ */
+
+if ( ! function_exists( 'cd_is_amp' ) ) {
+	/**
+	 * Whether or not addon plugin is active.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_is_active_addon() {
+		$is_active = false;
+		return apply_filters( 'cd_is_active_addon', $is_active );
+	}
+	add_action( 'plugins_loaded', 'cd_is_active_addon', 1 );
+}
+
+if ( ! function_exists( 'cd_is_amp' ) ) {
+
+	/**
+	 * Whether or not AMP page.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_is_amp() {
+		$is_amp = false;
+		return apply_filters( 'cd_is_amp', $is_amp );
+	}
+	add_action( 'wp', 'cd_is_amp', 1 );
+}

@@ -6,6 +6,9 @@
  * @package coldbox
  */
 
+if ( cd_is_amp() ) :
+	cd_addon_amp_head();
+else :
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -18,6 +21,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php endif; ?>
 
 	<header id="header" class="header">
 
@@ -34,13 +39,10 @@
 
 			<div class="search-toggle"><span class="icon search"></span></div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<button class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
 			
-			<?php
-			// Call the header menu.
-			cd_header_menu();
-			?>
+			<?php cd_header_menu(); ?>
 
 		</div>
 
