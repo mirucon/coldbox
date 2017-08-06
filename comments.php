@@ -8,8 +8,7 @@
 
 if ( post_password_required() ) {
 	return;
-} ?>
-<?php
+}
 if ( have_comments() === false && comments_open() === false ) {
 	return;
 }

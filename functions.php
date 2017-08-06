@@ -242,14 +242,18 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 }
 
 if ( ! function_exists( 'cd_comments_template' ) ) {
-	
+
 	/**
 	 * Echo the comments template through action hook.
 	 *
 	 * @since 1.0.0
 	 */
 	function cd_comments_template() {
-		return apply_filters( 'cd_comments_template', comments_template( '/comments.php', true ) );
+		$template = '';
+		ob_start();
+		comments_template( '/comments.php', true );
+		$template = ob_get_clean();
+		echo wp_kses_post( apply_filters( 'cd_comments_template', $template ) );
 	}
 }
 
@@ -263,7 +267,28 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 	function cd_get_avatar() {
 
 		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
-		echo wp_kses_post( apply_filters( 'cd_get_avatar', $avater ) );
+		$allowed_html = array(
+			'amp-img' => array(
+				'src' => array(),
+				'layout' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array(),
+				'class' => array(),
+			),
+			'i-amphtml-sizer' => array(
+				'style' => array(),
+				'class' => array(),
+			),
+			'img' => array(
+				'alt' => array(),
+				'class' => array(),
+				'src' => array(),
+				'height' => array(),
+				'width' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'cd_get_avatar', $avater ), $allowed_html );
 	}
 }
 
