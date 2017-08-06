@@ -7,9 +7,9 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.1.5  
+**Version**: 1.2.0  
 **Requires at least**: version 4.5 or higher  
-**Tested up to**: WordPress 4.8.1-RC1  
+**Tested up to**: WordPress 4.8.1  
 **License**: GPL v3.0  
 **License URI**: http://www.gnu.org/licenses/gpl-3.0.html  
 **Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
@@ -22,8 +22,13 @@ To get official child theme, visit [Coldbox Official Site](https://coldbox.miruc
 <!-- **Documentation** -->
 
 ### Add-on Plugins
-The Social Share Buttons Add-on Plugin is now available.  
-[https://coldbox.miruc.co/addons/share-buttons-add-on/](https://coldbox.miruc.co/addons/share-buttons-add-on/)
+The official Add-on Plugin is now available.  
+[https://coldbox.miruc.co/addon/](https://coldbox.miruc.co/addon/)
+
+The latest version has following features:
+
+- AMP pages
+- Social share buttons
 
 ## Theme Author information
 The Coldbox theme is designed by Mirucon  
@@ -56,6 +61,20 @@ URL: http://ionicons.com/
 Created by @benjsperry  
 
 ## Changelog
+
+1.2.0
+
+- Added: Get ready for the addon plugin features:
+  - AMP pages
+  - Share buttons
+  - Download the addon plugin here: https://github.com/Mirucon/coldbox-addon/
+- Added: Action hooks for several usage
+- Added: Full width page template
+- Changed: Footer text color
+- Fixed: Minor styling bug
+- Fixed: Nav toggle styling
+- Improved: Loading speed of scripts
+- Improved: Followed the latest version of WordPress Coding Standards
 
 1.1.5
 

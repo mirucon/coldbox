@@ -18,14 +18,14 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), '1.1.5' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), '1.2.0' );
 		} else {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.5' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.2.0' );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.1.5', true );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.2.0', true );
 		} else {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.1.5', true );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.2.0', true );
 		}
 		wp_add_inline_script( 'scripts', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		// Load Masonry for making responsive sidebar.
