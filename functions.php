@@ -241,6 +241,18 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_comments_template' ) ) {
+	
+	/**
+	 * Echo the comments template through action hook.
+	 *
+	 * @since 1.0.0
+	 */
+	function cd_comments_template() {
+		return apply_filters( 'cd_comments_template', comments_template( '/comments.php', true ) );
+	}
+}
+
 if ( ! function_exists( 'cd_get_avatar' ) ) {
 
 	/**
@@ -452,7 +464,7 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 			get_template_part( 'parts/related-posts' );
 		}
 		if ( cd_is_post_single_comment() ) {
-			comments_template( '/comments.php', true );
+			cd_comments_template();
 		}
 		if ( cd_is_post_nav() ) {
 			get_template_part( 'parts/post-nav' );
