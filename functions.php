@@ -155,7 +155,7 @@ if ( ! function_exists( 'cd_pingback_header' ) ) {
 	function cd_pingback_header() {
 
 		if ( is_singular() && pings_open() ) {
-			printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+			printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
 		}
 
 	}
