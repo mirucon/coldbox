@@ -145,6 +145,23 @@ if ( ! function_exists( 'cd_supports' ) ) {
 } // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
 
+if ( ! function_exists( 'cd_pingback_header' ) ) {
+
+	/**
+	 * Adds a pingback url when necessary.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_pingback_header() {
+
+		if ( is_singular() && pings_open() ) {
+			printf( '<link rel="pingback" href="%s">' . "\n", get_bloginfo( 'pingback_url' ) );
+		}
+
+	}
+	add_action( 'wp_head', 'cd_pingback_header' );
+}
+
 // Set the content width.
 if ( ! isset( $content_width ) ) {
 	$content_width = 680;
