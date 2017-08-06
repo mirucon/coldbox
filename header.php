@@ -42,11 +42,7 @@ else :
 				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
 			
-			<?php
-			if ( ! cd_is_amp() ) {
-				cd_header_menu();
-			}
-			?>
+			<?php cd_header_menu(); ?>
 
 		</div>
 
