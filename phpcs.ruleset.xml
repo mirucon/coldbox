@@ -14,6 +14,7 @@
 		<exclude name="WordPress.VIP.ValidatedSanitizedInput" />
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />
 		<exclude name="WordPress.VIP.OrderByRand" />
+		<exclude name="WordPress.XSS.EscapeOutput" />
 	</rule>
 
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
