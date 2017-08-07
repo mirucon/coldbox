@@ -270,7 +270,7 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 		ob_start();
 		comments_template( '/comments.php', true );
 		$template = ob_get_clean();
-		echo wp_kses_post( apply_filters( 'cd_comments_template', $template ) );
+		echo apply_filters( 'cd_comments_template', $template );
 	}
 }
 
@@ -499,8 +499,10 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	 * @since 1.1.0
 	 */
 	function cd_single_bottom_contents() {
-		if ( function_exists( 'cd_addon_sns_buttons' ) ) {
-			cd_addon_sns_buttons_list();
+		if ( function_exists( 'cd_addon_sns_buttons' ) && function_exists( 'cd_use_snsb' ) ) {
+			if ( cd_use_snsb() ) {
+				cd_addon_sns_buttons_list( 'single-buttom' );
+			}
 		}
 		if ( cd_is_post_related() ) {
 			get_template_part( 'parts/related-posts' );

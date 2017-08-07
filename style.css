@@ -627,17 +627,17 @@ h6 {
           box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
 }
 
-.content-box {
+.content-box, .sns-buttons.single-buttom {
   padding: 2em 40px;
   border-bottom: 1px solid #eaeaea;
 }
 
-.content-box:last-child {
+.content-box:last-child, .sns-buttons.single-buttom:last-child {
   border-bottom: 0;
 }
 
 @media screen and (max-width: 640px) {
-  .content-box {
+  .content-box, .sns-buttons.single-buttom {
     padding-right: 20px;
     padding-left: 20px;
   }
@@ -907,31 +907,31 @@ textarea:focus {
 
 /*   Single : entry header
 /* -------------------------------------------------- */
-.post-meta.content-box a {
+.post-meta.content-box a, .post-meta.sns-buttons.single-buttom a {
   color: #333;
   -webkit-box-shadow: 0 1px 0 0 currentColor;
           box-shadow: 0 1px 0 0 currentColor;
 }
 
-.post-meta.content-box a:hover {
+.post-meta.content-box a:hover, .post-meta.sns-buttons.single-buttom a:hover {
   color: #00619F;
 }
 
-.post-meta.content-box .post-category a {
+.post-meta.content-box .post-category a, .post-meta.sns-buttons.single-buttom .post-category a {
   margin: 0 0 .3em 0;
 }
 
-.post-meta.content-box .post-category a:hover {
+.post-meta.content-box .post-category a:hover, .post-meta.sns-buttons.single-buttom .post-category a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(216, 87, 25, .4);
           box-shadow: 0 2px 0 0 rgba(216, 87, 25, .4);
 }
 
-.post-meta.content-box .post-author a:hover {
+.post-meta.content-box .post-author a:hover, .post-meta.sns-buttons.single-buttom .post-author a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(0, 97, 159, .4);
           box-shadow: 0 2px 0 0 rgba(0, 97, 159, .4);
 }
 
-.post-meta.content-box .post-comment a:hover {
+.post-meta.content-box .post-comment a:hover, .post-meta.sns-buttons.single-buttom .post-comment a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(10, 74, 18, .4);
           box-shadow: 0 2px 0 0 rgba(10, 74, 18, .4);
 }
@@ -1086,7 +1086,7 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
-.content-box > h4 {
+.content-box > h4, .sns-buttons.single-buttom > h4 {
   position: relative;
   margin: .2em 0 .7em 0;
   text-transform: capitalize;
@@ -1411,6 +1411,12 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 /*   Single : SNS Button
 /* -------------------------------------------------- */
+.sns-buttons ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
 .share-list-container {
   display: -webkit-box;
   display: -webkit-flex;

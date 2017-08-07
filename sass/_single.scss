@@ -348,6 +348,15 @@ p.post-btm-tags, p.post-btm-cats {
 
 /*   Single : SNS Button
 /* -------------------------------------------------- */
+.sns-buttons.single-buttom {
+  @extend .content-box;
+}
+
+.sns-buttons ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
 .share-list-container {
   display: flex;
 }
