@@ -362,7 +362,7 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 	function cd_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => 'Sidebar',
+				'name'          => __( 'Sidebar', 'coldbox' ),
 				'id'            => 'sidebar-1',
 				'description'   => __( 'Add widgets here', 'coldbox' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
