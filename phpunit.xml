@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<phpunit colors="true">
-  <testsuite name="Sample">
-    <directory suffix=".php">.</directory>
-    <directory suffix=".php">./czr/.</directory>
-    <directory suffix=".php">./parts/.</directory>
-    <directory suffix=".php">./page-templates/.</directory>
-  </testsuite>
-</phpunit>
