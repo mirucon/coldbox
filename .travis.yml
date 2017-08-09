@@ -26,6 +26,10 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
+install:
+  - nvm install 7
+  - npm install
+
 matrix:
   include:
     - php: 7.1
