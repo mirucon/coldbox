@@ -29,7 +29,6 @@ cache:
 install:
   - nvm install 7
   - npm install
-  - composer install
 
 matrix:
   include:
