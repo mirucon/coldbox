@@ -6,7 +6,7 @@
 
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible.
 
-**Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
+**Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/) [@mayukojpn](https://profiles.wordpress.org/mayukojpn)  
 **Version**: 1.2.1  
 **Requires at least**: version 4.5 or higher  
 **Tested up to**: WordPress 4.8.1  
@@ -21,9 +21,8 @@ You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenera
 To get official child theme, visit [Coldbox Official Site](https://coldbox.miruc.co/)
 <!-- **Documentation** -->
 
-### Add-on Plugins
-The official Add-on Plugin is now available.  
-[https://coldbox.miruc.co/addon/](https://coldbox.miruc.co/addon/)
+### Add-on Plugin
+The official Add-on Plugin is now available. Download from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
 
 The latest version has following features:
 
@@ -58,7 +57,12 @@ Created by @highlightjs
 ### PlaceFolder Camera Icon License
 License - MIT License  
 URL: http://ionicons.com/  
-Created by @benjsperry  
+Created by @benjsperry
+
+### TGM Plugin Activation License
+License - GPL v2  
+URL: http://tgmpluginactivation.com/  
+Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
 

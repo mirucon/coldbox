@@ -362,7 +362,7 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 	function cd_widgets_init() {
 		register_sidebar(
 			array(
-				'name'          => 'Sidebar',
+				'name'          => __( 'Sidebar', 'coldbox' ),
 				'id'            => 'sidebar-1',
 				'description'   => __( 'Add widgets here', 'coldbox' ),
 				'before_widget' => '<section id="%1$s" class="widget %2$s">',
@@ -801,6 +801,9 @@ add_action( 'wp_enqueue_scripts', 'cd_prev_post_thumbnail' );
  *  Addon cooperation
  * -------------------------------------------------------------------------
  */
+
+// Load TGM plugin activation file.
+require_once get_template_directory() . '/parts/tgm/load-tgm.php';
 
 if ( ! function_exists( 'cd_is_amp' ) ) {
 	/**
