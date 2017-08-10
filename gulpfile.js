@@ -122,7 +122,7 @@ gulp.task( 'copy', function() {
   return gulp.src(
     [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
       'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
-      'languages/coldbox.po', 'assets/js/*.min.js', 'assets/css/*.css' ],
+      'languages/coldbox.po', 'assets/js/*.min.js', 'assets/css/*.css', 'parts/tgm/*.php' ],
     { base: '.' }
   )
   .pipe( gulp.dest( 'dist' ) );
