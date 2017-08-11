@@ -12,22 +12,16 @@
 	<div class="post-inner">
 
 		<figure class="post-thumbnail">
-			<?php if ( has_post_thumbnail() ) : ?>
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'cd-standard' ); ?></a>
-			<?php elseif ( cd_index_placefolder_image() ) : ?>
-				<a href="<?php the_permalink(); ?>"><img src="<?php echo esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ); ?>" alt="<?php the_title(); ?>"></a>
-			<?php endif; ?>
+			<?php cd_standard_thumbnail(); ?>
 		</figure>
 
 		<div class="post-content">
 
 			<div class="post-header">
 
-				<?php if ( 'post' === get_post_type() && cd_index_meta_cat() ) : ?>
-					<h2 class="post-title">
-						<a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
-					</h2>
-				<?php endif; ?>
+				<h2 class="post-title">
+					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				</h2>
 
 				<p class="post-meta">
 					<?php if ( cd_index_meta_date() ) : ?>
@@ -35,7 +29,7 @@
 					<?php endif; ?>
 
 					<?php if ( 'post' === get_post_type() && cd_index_meta_cat() ) : ?>
-						<span class="post-category"><?php the_category( ' / ' ) ?></span>
+						<span class="post-category"><?php the_category( ' / ' ); ?></span>
 					<?php endif; ?>
 					
 					<?php if ( comments_open() && cd_is_post_single_comment() && cd_index_meta_comment() ) : ?>
@@ -49,7 +43,7 @@
 
 			</div>
 
-			<p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ) ?><i class="fa"></i></a></p>
+			<p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ); ?><i class="fa"></i></a></p>
 
 		</div>
 

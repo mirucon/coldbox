@@ -1744,10 +1744,4 @@ jQuery(function($) {
 		});
 	}
 
-	/*   Fix : Delete shadows from images
-	/* -------------------------------------------------- */
-	$(function() {
-		$('.entry img').parent('a').css({'box-shadow':'none'});
-	});
-
 });

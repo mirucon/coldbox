@@ -18,15 +18,16 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), '1.1.5' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), '1.2.2' );
 		} else {
-			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.1.5' );
+			wp_enqueue_style( 'main-style', get_template_directory_uri() . '/style.css', array(), '1.2.2' );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.1.5' );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), '1.2.2', true );
 		} else {
-			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.1.5' );
+			wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), '1.2.2', true );
 		}
+		wp_add_inline_script( 'scripts', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		// Load Masonry for making responsive sidebar.
 		wp_enqueue_script( 'imagesloaded', includes_url( '/js/imagesloaded.min.js' ), array( 'jQuery' ), '', true );
 		wp_enqueue_script( 'masonry', includes_url( '/js/masonry.min.js' ), array( 'imagesloaded' ), '', true );
@@ -109,19 +110,23 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 		// Support custom header.
-		add_theme_support( 'custom-header', array(
-			'width'       => 980,
-			'height'      => 100,
-			'flex-height' => true,
-			'flex-width'  => true,
-		) );
+		add_theme_support(
+			'custom-header', array(
+				'width'       => 980,
+				'height'      => 100,
+				'flex-height' => true,
+				'flex-width'  => true,
+			)
+		);
 
 		// Support custom logo.
-		add_theme_support( 'custom-logo', array(
-			'height'      => 80,
-			'width'       => 270,
-			'flex-height' => true,
-		) );
+		add_theme_support(
+			'custom-logo', array(
+				'height'      => 80,
+				'width'       => 270,
+				'flex-height' => true,
+			)
+		);
 
 		// Support custom background color and image.
 		$custom_background_defaults = array(
@@ -131,23 +136,183 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'custom-background', $custom_background_defaults );
 
 		// Register nav menu.
-		register_nav_menus( array(
-			'header-menu' => __( 'Header Menu', 'coldbox' ),
-		) );
+		register_nav_menus(
+			array(
+				'header-menu' => __( 'Header Menu', 'coldbox' ),
+			)
+		);
 	}
 } // End if().
 add_action( 'after_setup_theme', 'cd_supports' );
 
-// Content width.
+if ( ! function_exists( 'cd_pingback_header' ) ) {
+
+	/**
+	 * Adds a pingback url when necessary.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_pingback_header() {
+
+		if ( is_singular() && pings_open() ) {
+			printf( '<link rel="pingback" href="%s">' . "\n", esc_url( get_bloginfo( 'pingback_url' ) ) );
+		}
+
+	}
+	add_action( 'wp_head', 'cd_pingback_header' );
+}
+
+// Set the content width.
 if ( ! isset( $content_width ) ) {
 	$content_width = 680;
 }
 
+/*
+ * ----------------------------------------------------------------------
+ * Theme Functions
+ * ----------------------------------------------------------------------
+ */
+
+if ( ! function_exists( 'cd_header_menu' ) ) {
+
+	/**
+	 * Call the header menu through a filter
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_header_menu() {
+
+		if ( has_nav_menu( 'header-menu' ) ) {
+
+			$menu = '<nav id="header-menu">';
+				$menu .= wp_nav_menu(
+					array(
+						'theme_location' => 'header-menu',
+						'container'   => '',
+						'menu_class'  => '',
+						'fallback_cb' => 'wp_page_menu',
+						'echo'        => false,
+						'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+					)
+				);
+			$menu .= '</nav>';
+			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
+		}
+	}
+}
+
+if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
+
+	/**
+	 * Echo the middle size thumbnail.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_standard_thumbnail() {
+
+		if ( has_post_thumbnail() ) {
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
+		} else {
+			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
+		}
+		echo wp_kses_post( apply_filters( 'cd_standard_thumbnail', $thumbnail ) );
+	}
+}
+
+if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
+
+	/**
+	 * Echo the standard size thumbnail.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_middle_thumbnail() {
+
+		if ( has_post_thumbnail() ) {
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
+		} else {
+			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
+		}
+		$allowed_html = array(
+			'amp-img' => array(
+				'src' => array(),
+				'layout' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array(),
+				'class' => array(),
+			),
+			'i-amphtml-sizer' => array(
+				'style' => array(),
+				'class' => array(),
+			),
+			'img' => array(
+				'alt' => array(),
+				'class' => array(),
+				'src' => array(),
+				'height' => array(),
+				'width' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'cd_middle_thumbnail', $thumbnail ), $allowed_html );
+	}
+}
+
+if ( ! function_exists( 'cd_comments_template' ) ) {
+
+	/**
+	 * Echo the comments template through action hook.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_comments_template() {
+		$template = '';
+		ob_start();
+		comments_template( '/comments.php', true );
+		$template = ob_get_clean();
+		echo apply_filters( 'cd_comments_template', $template );
+	}
+}
+
+if ( ! function_exists( 'cd_get_avatar' ) ) {
+
+	/**
+	 * Echo user avater for the author box.
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_get_avatar() {
+
+		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
+		$allowed_html = array(
+			'amp-img' => array(
+				'src' => array(),
+				'layout' => array(),
+				'alt' => array(),
+				'height' => array(),
+				'width' => array(),
+				'class' => array(),
+			),
+			'i-amphtml-sizer' => array(
+				'style' => array(),
+				'class' => array(),
+			),
+			'img' => array(
+				'alt' => array(),
+				'class' => array(),
+				'src' => array(),
+				'height' => array(),
+				'width' => array(),
+			),
+		);
+		echo wp_kses( apply_filters( 'cd_get_avatar', $avater ), $allowed_html );
+	}
+}
 
 if ( ! function_exists( 'cd_body_class' ) ) {
 
 	/**
-	 * Adds classses to the body tags.
+	 * Adds classses to the body tag.
 	 *
 	 * @param string $classes The classes add to the body class.
 	 * @return The custom body classes.
@@ -185,7 +350,7 @@ add_filter( 'body_class', 'cd_body_class' );
  * ----------------------------------------------------------------------
  * Widgets
  * ----------------------------------------------------------------------
-*/
+ */
 
 if ( ! function_exists( 'cd_widgets_init' ) ) {
 
@@ -195,14 +360,15 @@ if ( ! function_exists( 'cd_widgets_init' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_widgets_init() {
-		register_sidebar( array(
-			'name'          => 'Sidebar',
-			'id'            => 'sidebar-1',
-			'description'   => __( 'Add widgets here', 'coldbox' ),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget'  => '</section>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
+		register_sidebar(
+			array(
+				'name'          => __( 'Sidebar', 'coldbox' ),
+				'id'            => 'sidebar-1',
+				'description'   => __( 'Add widgets here', 'coldbox' ),
+				'before_widget' => '<section id="%1$s" class="widget %2$s">',
+				'after_widget'  => '</section>',
+				'before_title'  => '<h2 class="widget-title">',
+				'after_title'   => '</h2>',
 			)
 		);
 	}
@@ -270,23 +436,79 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10,
  * -------------------------------------------------------------------------
  *  Call the bottom parts for each page
  * -------------------------------------------------------------------------
-  */
+ */
+if ( ! function_exists( 'cd_single_middle_contents' ) ) {
+
+	define( 'CD_H2_REG', '/<H2.*?>/i' );
+	define( 'CD_H3_REG', '/<H3.*?>/i' );
+	/**
+	 * Get h2 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h2_in_content( $the_content ) {
+		if ( preg_match( CD_H2_REG, $the_content, $h2_result ) ) { // Whether or not h2 tag is used.
+			return $h2_result[0];
+		}
+	}
+	/**
+	 * Get h3 tags from the content.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are find from.
+	 */
+	function cd_single_h3_in_content( $the_content ) {
+		if ( preg_match( CD_H3_REG, $the_content, $h3_result ) ) { // Whether or not h3 tag is used.
+			return $h3_result[0];
+		}
+	}
+
+	/**
+	 * The action hook for adding custom content on the first h2 or h3 tag on each single article through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $the_content The post contents which are hooked.
+	 */
+	function cd_single_middle_contents( $the_content ) {
+		if ( is_single() ) {
+			$contents = '';
+			ob_start();
+			apply_filters( 'cd_single_middle_contents', $contents );
+			$contents = ob_get_clean();
+			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
+			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
+			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
+				$count = 1;
+				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
+			} elseif ( ! is_null( $h3_result ) ) { // If no h2 tag, but h3 tag is found.
+				$count = 1;
+				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
+			}
+		}
+		return $the_content;
+	}
+	add_filter( 'the_content', 'cd_single_middle_contents' );
+}
+
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the single articles.
+	 * Call the the buttom parts of the single articles through filter.
 	 *
 	 * @since 1.1.0
 	 */
 	function cd_single_bottom_contents() {
-		if ( function_exists( 'cd_addon_sns_buttons' ) ) {
-			cd_addon_sns_buttons_list();
+		if ( function_exists( 'cd_addon_sns_buttons' ) && function_exists( 'cd_use_snsb' ) ) {
+			if ( cd_use_snsb() ) {
+				cd_addon_sns_buttons_list( 'single-buttom' );
+			}
 		}
 		if ( cd_is_post_related() ) {
 			get_template_part( 'parts/related-posts' );
 		}
 		if ( cd_is_post_single_comment() ) {
-			comments_template( '/comments.php', true );
+			cd_comments_template();
 		}
 		if ( cd_is_post_nav() ) {
 			get_template_part( 'parts/post-nav' );
@@ -294,10 +516,24 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_single_after_contents' ) ) {
+
+	/**
+	 * The action hook for adding some contents after the article contents through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents will be shown after the article contents.
+	 */
+	function cd_single_after_contents( $contents = null ) {
+		// You can add something through `cd_single_after_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the attachment pages.
+	 * Call the the buttom parts of the attachment pages through filter.
 	 *
 	 * @since 1.1.2
 	 */
@@ -314,7 +550,7 @@ if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the static pages.
+	 * Call the the buttom parts of the static pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -325,10 +561,23 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_archive_top_contents' ) ) {
+	/**
+	 * Call the top parts of the archive pages through filter.
+	 *
+	 * @since 1.1.6
+	 * @param string $contents The contents will be shown on top of the article contents.
+	 */
+	function cd_archive_top_contents( $contents = null ) {
+		// You can add something through `cd_archive_top_contents` filter.
+		return $contents;
+	}
+}
+
 if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the archive pages.
+	 * Call the the buttom parts of the archive pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -368,9 +617,11 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 					$cat = get_category( $cat -> parent );
 					$cat_name = $cat -> name;
 					$cat_url = get_category_link( $cat -> cat_ID );
-					$parent = array_merge( $parent, array(
-						$cat_name => $cat_url,
-					) );
+					$parent = array_merge(
+						$parent, array(
+							$cat_name => $cat_url,
+						)
+					);
 				}
 				$parent_rev = array_reverse( $parent );
 				foreach ( $parent_rev as $key => $value ) {
@@ -407,30 +658,34 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . '/assets/js/cd-scripts+hljs.min.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . '/assets/js/cd-scripts+hljs.min.js', array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0' );
+					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'scripts' );
 				} else {
 					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
 				}
 			}
 
+			// Use hljs with only pre tag.
 			wp_add_inline_script( 'hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
 			wp_add_inline_script( 'scripts-hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
 			wp_add_inline_script( 'scripts-hljs-web', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
+			// Load scripts to stop lending shadows on link tags.
+			wp_add_inline_script( 'scripts-hljs', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
+			wp_add_inline_script( 'scripts-hljs-web', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 
 		}
 
@@ -517,4 +772,62 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		}
 		add_action( 'wp_enqueue_scripts', 'cd_header_image' );
 	}
+}
+
+
+if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
+	/**
+	 * Echo next / previous post thumbanil URL
+	 *
+	 * @since 1.1.6
+	 */
+	function cd_prev_post_thumbnail() {
+
+		if ( get_previous_post() ) {
+			$prevthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_previous_post() -> ID ), array( 600, 600 ), false, '' );
+			wp_add_inline_style( 'main-style', '.prev .post-thumbnail{background-image:url("' . $prevthumbnail[0] . '")}' );
+		}
+		if ( get_next_post() ) {
+			$nextthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_next_post() -> ID ), array( 600, 600 ), false, '' );
+			wp_add_inline_style( 'main-style', '.next .post-thumbnail{background-image:url("' . $nextthumbnail[0] . '")}' );
+		}
+
+	}
+}
+add_action( 'wp_enqueue_scripts', 'cd_prev_post_thumbnail' );
+
+/*
+ * -------------------------------------------------------------------------
+ *  Addon cooperation
+ * -------------------------------------------------------------------------
+ */
+
+// Load TGM plugin activation file.
+require_once get_template_directory() . '/parts/tgm/load-tgm.php';
+
+if ( ! function_exists( 'cd_is_amp' ) ) {
+	/**
+	 * Whether or not addon plugin is active.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_is_active_addon() {
+		$is_active = false;
+		return apply_filters( 'cd_is_active_addon', $is_active );
+	}
+	add_action( 'plugins_loaded', 'cd_is_active_addon', 1 );
+}
+
+if ( ! function_exists( 'cd_is_amp' ) ) {
+
+	/**
+	 * Whether or not AMP page.
+	 *
+	 * @since 1.2.0
+	 */
+	function cd_is_amp() {
+		$is_amp = false;
+		return apply_filters( 'cd_is_amp', $is_amp );
+	}
+	add_action( 'wp', 'cd_is_amp', 1 );
 }

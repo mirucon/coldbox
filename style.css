@@ -2,7 +2,7 @@
  Theme Name: Coldbox
  Theme URI: https://coldbox.miruc.co/
  Description: Coldbox is a clean blog-focused WordPress theme. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully layouted by Flexbox module, that is, it is really flexible. See Demo: https://coldbox.miruc.co/demo/
- Version: 1.1.5
+ Version: 1.2.2
  Author: Toshihiro Kanai (Mirucon)
  Author URI: https://miruc.co/
  Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
@@ -73,7 +73,7 @@ ol, ul {
 *  1. Global
 * ------------------------------------------------------------------------- */
 html {
-  font-size: 62.5% !important;
+  font-size: 62.5%;
 }
 
 body {
@@ -82,10 +82,16 @@ body {
   word-wrap: break-word;
   font-size: 1.7em;
   line-height: 1.4;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+@media screen and (max-width: 640px) {
+  body {
+    font-size: 1.6em;
+  }
 }
 
 #main {
@@ -261,6 +267,10 @@ body {
   background: #00619F;
   color: #fff;
   text-shadow: none;
+}
+
+amp-img {
+  max-width: 100%;
 }
 
 img {
@@ -617,17 +627,17 @@ h6 {
           box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1);
 }
 
-.content-box {
+.content-box, .sns-buttons.single-buttom {
   padding: 2em 40px;
   border-bottom: 1px solid #eaeaea;
 }
 
-.content-box:last-child {
+.content-box:last-child, .sns-buttons.single-buttom:last-child {
   border-bottom: 0;
 }
 
 @media screen and (max-width: 640px) {
-  .content-box {
+  .content-box, .sns-buttons.single-buttom {
     padding-right: 20px;
     padding-left: 20px;
   }
@@ -897,31 +907,31 @@ textarea:focus {
 
 /*   Single : entry header
 /* -------------------------------------------------- */
-.post-meta.content-box a {
+.post-meta.content-box a, .post-meta.sns-buttons.single-buttom a {
   color: #333;
   -webkit-box-shadow: 0 1px 0 0 currentColor;
           box-shadow: 0 1px 0 0 currentColor;
 }
 
-.post-meta.content-box a:hover {
+.post-meta.content-box a:hover, .post-meta.sns-buttons.single-buttom a:hover {
   color: #00619F;
 }
 
-.post-meta.content-box .post-category a {
+.post-meta.content-box .post-category a, .post-meta.sns-buttons.single-buttom .post-category a {
   margin: 0 0 .3em 0;
 }
 
-.post-meta.content-box .post-category a:hover {
+.post-meta.content-box .post-category a:hover, .post-meta.sns-buttons.single-buttom .post-category a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(216, 87, 25, .4);
           box-shadow: 0 2px 0 0 rgba(216, 87, 25, .4);
 }
 
-.post-meta.content-box .post-author a:hover {
+.post-meta.content-box .post-author a:hover, .post-meta.sns-buttons.single-buttom .post-author a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(0, 97, 159, .4);
           box-shadow: 0 2px 0 0 rgba(0, 97, 159, .4);
 }
 
-.post-meta.content-box .post-comment a:hover {
+.post-meta.content-box .post-comment a:hover, .post-meta.sns-buttons.single-buttom .post-comment a:hover {
   -webkit-box-shadow: 0 2px 0 0 rgba(10, 74, 18, .4);
           box-shadow: 0 2px 0 0 rgba(10, 74, 18, .4);
 }
@@ -1048,6 +1058,7 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 }
 
 .author-box .author-links .social-links {
+  list-style-type: none;
   margin-bottom: 0;
   font-size: .82em;
 }
@@ -1075,7 +1086,7 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
-.content-box > h4 {
+.content-box > h4, .sns-buttons.single-buttom > h4 {
   position: relative;
   margin: .2em 0 .7em 0;
   text-transform: capitalize;
@@ -1400,6 +1411,12 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 /*   Single : SNS Button
 /* -------------------------------------------------- */
+.sns-buttons ul {
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
 .share-list-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2022,6 +2039,43 @@ ul.page-numbers a.page-numbers:hover {
 /* ------------------------------------------------------------------------- *
 *  6. Pages
 * ------------------------------------------------------------------------- */
+.page-template-full-width {
+  background-color: #ffffff;
+}
+
+.page-template-full-width .container-outer, .page-template-full-width .content-inner, .page-template-full-width .content-inside {
+  background-color: #ffffff;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.page-template-full-width .container-outer {
+  -webkit-box-shadow: 0 -2px 1px -1px rgba(0, 0, 0, .1);
+          box-shadow: 0 -2px 1px -1px rgba(0, 0, 0, .1);
+}
+
+.page-template-full-width .container {
+  max-width: 1000px;
+}
+
+.page-template-full-width .title-box {
+  -webkit-box-shadow: 0 1px 1px -1px black;
+          box-shadow: 0 1px 1px -1px black;
+}
+
+.page-template-full-width .content {
+  padding-right: 0;
+}
+
+.page-template-full-width .content-inner {
+  padding-top: 0;
+}
+
+.page-template-full-width .title-box-inner, .page-template-full-width .post-meta, .page-template-full-width .entry {
+  padding-right: 48px;
+  padding-left: 48px;
+}
+
 /* ------------------------------------------------------------------------- *
 *  7. 404 Page
 * ------------------------------------------------------------------------- */
@@ -2096,8 +2150,8 @@ ul.page-numbers a.page-numbers:hover {
 
 #header.sticky {
   position: fixed;
-  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
-          box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .2);
+          box-shadow: 0 1px 6px 0 rgba(0, 0, 0, .2);
 }
 
 @media screen and (max-width: 640px) {
@@ -2475,10 +2529,13 @@ ul.page-numbers a.page-numbers:hover {
   z-index: 1000;
   width: 50px;
   height: auto;
+  border: 0 transparent;
+  background-color: transparent;
   cursor: pointer;
   -webkit-transition: all .4s;
   transition: all .4s;
   -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
 }
 
 .nav-toggle .top, .nav-toggle .middle, .nav-toggle .bottom {
@@ -2659,18 +2716,17 @@ ul.page-numbers a.page-numbers:hover {
 }
 
 .footer a {
-  color: rgba(255, 255, 255, .9);
+  color: #00d1b2;
 }
 
 .footer a:hover {
-  color: white;
+  color: #009881;
 }
 
 .footer .copyright {
   -webkit-flex-shrink: 1;
       -ms-flex-negative: 1;
           flex-shrink: 1;
-  font-weight: 300;
   line-height: 1.6;
 }
 
@@ -2809,6 +2865,41 @@ ul.page-numbers a.page-numbers:hover {
 
 .widget option {
   padding: 4px 0;
+}
+
+.widget .textwidget p {
+  margin-bottom: 1em;
+}
+
+.widget .textwidget a {
+  color: #00619F;
+}
+
+.widget .textwidget a:hover {
+  color: #2e4453;
+}
+
+.widget .textwidget ul {
+  list-style: square;
+  position: relative;
+  margin-bottom: 1em;
+  padding-left: 30px;
+}
+
+.widget .textwidget ol {
+  list-style: decimal;
+  position: relative;
+  margin-bottom: 1em;
+  padding-left: 30px;
+}
+
+.widget .textwidget ul li ul, .widget .textwidget ul li ol, .widget .textwidget ol li ul, .widget .textwidget ol li ol {
+  margin-bottom: .5em;
+  margin-top: .5em;
+}
+
+.widget .textwidget > *:last-child {
+  margin-bottom: 0;
 }
 
 .widget_recent_entries li a {
@@ -4557,6 +4648,32 @@ ul.social-links {
 
 .link-box > a {
   display: block;
+}
+
+.resp-unit {
+  max-height: 300px;
+  max-width: 100%;
+  margin: 0 auto 0.6em;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ad-label {
+  text-align: center;
+}
+
+.ads-double {
+  margin: 0 auto;
+}
+
+div[id^='ad-'][id$='-bottom'] {
+  width: 100%;
+  margin-top: 0.6em;
+}
+
+div[id^='ad-'][id$='-top'] {
+  width: 100%;
+  margin-bottom: 0.6em;
 }
 
 /*   Keyframes
