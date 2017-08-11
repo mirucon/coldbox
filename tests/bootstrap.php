@@ -13,6 +13,9 @@ if ( ! $_tests_dir ) {
 // Give access to tests_add_filter() function.
 require_once $_tests_dir . '/includes/functions.php';
 
+/**
+ * Register theme
+ */
 function _register_theme() {
 
 	$theme_dir = dirname( dirname( __FILE__ ) );

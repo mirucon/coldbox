@@ -978,6 +978,10 @@ div[id^='ad-'][id$='-bottom'] {
   width: 100%;
   margin-top: 0.6em;
 }
+div[id^='ad-'][id$='-top'] {
+  width: 100%;
+  margin-bottom: 0.6em;
+}
 
 
 /*   Keyframes

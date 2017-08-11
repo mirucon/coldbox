@@ -82,7 +82,7 @@ body {
   word-wrap: break-word;
   font-size: 1.7em;
   line-height: 1.4;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -4669,6 +4669,11 @@ ul.social-links {
 div[id^='ad-'][id$='-bottom'] {
   width: 100%;
   margin-top: 0.6em;
+}
+
+div[id^='ad-'][id$='-top'] {
+  width: 100%;
+  margin-bottom: 0.6em;
 }
 
 /*   Keyframes

@@ -23,5 +23,5 @@
 	<exclude-pattern>*/*.min.css</exclude-pattern>
 	<exclude-pattern>parts/tgm/*.php</exclude-pattern>
 	<exclude-pattern>*/vender/*</exclude-pattern>
-	<exclude-pattern>*/tests/*</exclude-pattern>
+	<exclude-pattern>*/tests/*.php</exclude-pattern>
 </ruleset>

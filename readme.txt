@@ -43,6 +43,6 @@ URL: http://ionicons.com/
 Created by @benjsperry
 
 ### TGM Plugin Activation License
-License - GPL v2
+License - GPL v2 or later
 URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin

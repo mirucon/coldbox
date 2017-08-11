@@ -22,7 +22,7 @@ get_header(); ?>
 					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
 
 						<?php
-						// Call the bottom parts.
+						// Call the top parts.
 						apply_filters( 'cd_archive_top_contents', cd_archive_top_contents() );
 						?>
 
