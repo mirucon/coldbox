@@ -1,15 +1,18 @@
 # Coldbox
-WordPress Theme Coldbox by Mirucon
-Version: 1.1.5
+Contributors: @mirucon, @mayukojpn
+Version: 1.2.2
 Requires at least: version 4.5 or higher
-Tested up: WordPress 4.8.1-RC1
+Tested up to: WordPress 4.8.1
+License: GPL v3.0
+License URI: http://www.gnu.org/licenses/gpl-3.0.html
+
 See the demo: https://coldbox.miruc.co/demo/
 To get official child theme, visit https://coldbox.miruc.co/
 
 The theme is available on GitHub: https://github.com/Mirucon/coldbox
 
 ## Author information
-The Coldbox theme designed by Mirucon
+The Coldbox theme is designed by Mirucon
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
 Email: i@miruc.co
@@ -38,3 +41,8 @@ Created by @highlightjs
 License - MIT License
 URL: http://ionicons.com/
 Created by @benjsperry
+
+### TGM Plugin Activation License
+License - GPL v2 or later
+URL: http://tgmpluginactivation.com/
+Copyright (c) 2011, Thomas Griffin

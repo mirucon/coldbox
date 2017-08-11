@@ -6,7 +6,8 @@
  * @package coldbox
  */
 
-if ( is_single() && ! is_attachment() ) { ?>
+if ( is_single() && ! is_attachment() ) {
+	?>
 	<header class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
@@ -14,7 +15,8 @@ if ( is_single() && ! is_attachment() ) { ?>
 		</div>
 	</header>
 	<?php
-} elseif ( is_attachment() ) { ?>
+} elseif ( is_attachment() ) {
+	?>
 	<header class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
@@ -22,7 +24,8 @@ if ( is_single() && ! is_attachment() ) { ?>
 		</div>
 	</header>
 	<?php
-} elseif ( is_archive() ) { ?>
+} elseif ( is_archive() ) {
+	?>
 	<div class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
@@ -30,14 +33,16 @@ if ( is_single() && ! is_attachment() ) { ?>
 		</div>
 	</div>
 	<?php
-} elseif ( is_search() ) { ?>
+} elseif ( is_search() ) {
+	?>
 	<div class="title-box">
 		<div class="title-box-inner container">
 			<?php get_template_part( 'parts/page-title' ); ?>
 		</div>
 	</div>
 	<?php
-} elseif ( is_404() ) { ?>
+} elseif ( is_404() ) {
+	?>
 	<div class="title-box">
 		<div class="title-box-inner container">
 			<?php get_template_part( 'parts/page-title' ); ?>

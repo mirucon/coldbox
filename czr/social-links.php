@@ -81,7 +81,7 @@ function cd_czr_social_links( $wp_customize ) {
 			$label = __( 'Contact Form', 'coldbox' );
 		} elseif ( 'bell' === $social_site ) {
 			$label = __( 'Push Notification', 'coldbox' );
-		} elseif ( 'wordpress' === $social_site ) {
+		} elseif ( strcasecmp( 'WordPress', $social_site ) === 0 ) {
 			$label = 'WordPress';
 		} elseif ( 'github' === $social_site ) {
 			$label = 'GitHub';
@@ -178,7 +178,7 @@ function cd_social_links( $class = null ) {
 				$label = __( 'Contact Form', 'coldbox' );
 			} elseif ( 'bell' === $key ) {
 				$label = __( 'Push Notification', 'coldbox' );
-			} elseif ( 'wordpress' === $key ) {
+			} elseif ( strcasecmp( 'WordPress', $key ) === 0 ) {
 				$label = 'WordPress';
 			} elseif ( 'github' === $key ) {
 				$label = 'GitHub';

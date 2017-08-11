@@ -6,6 +6,9 @@
  * @package coldbox
  */
 
+if ( cd_is_amp() ) :
+	cd_addon_amp_head();
+else :
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -13,11 +16,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta content="<?php echo esc_attr( get_theme_mod( 'link_color', '#00619f' ) ); ?>" name="theme-color">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
-	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
+
+<?php endif; ?>
 
 	<header id="header" class="header">
 
@@ -34,20 +38,10 @@
 
 			<div class="search-toggle"><span class="icon search"></span></div>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<div class="nav-toggle header-menu"><span class="top"></span><span class="middle"></span><span class="bottom"></span></div>
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
 			
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<nav id="header-menu">
-					<?php wp_nav_menu( array(
-						'theme_location' => 'header-menu',
-						'container' => '',
-						'menu_class' => '',
-						'fallback_cb' => 'wp_page_menu',
-						'items_wrap' => '<ul id="header-nav" class="menu-container">%3$s</ul>',
-					) ); ?>
-				</nav>
-			<?php endif; ?>
+			<?php cd_header_menu(); ?>
 
 		</div>
 
