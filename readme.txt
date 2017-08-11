@@ -1,6 +1,6 @@
 # Coldbox
 Contributors: @mirucon, @mayukojpn
-Version: 1.2.1
+Version: 1.2.2
 Requires at least: version 4.5 or higher
 Tested up to: WordPress 4.8.1
 License: GPL v3.0
