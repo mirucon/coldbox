@@ -35,13 +35,15 @@ while ( have_posts() ) :
 									<?php endif; ?>
 
 									<?php if ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
+
 										<?php if ( cd_is_meta_date() ) : ?>
 											 <span class="post-date"><?php the_date(); ?></span>
 										<?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
+										
 									<?php endif; ?>
 
-									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
+									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_date() ) : ?>
 										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php the_date(); ?></time>
 									<?php endif; ?>
 
