@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
 "POT-Creation-Date: 2017-08-09 21:06+1200\n"
-"PO-Revision-Date: 2017-08-09 21:06+1200\n"
+"PO-Revision-Date: 2017-08-14 18:13+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -519,47 +519,47 @@ msgstr "関連記事"
 
 #: parts/tgm/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
-msgstr ""
+msgstr "推奨プラグインのインストール"
 
 #: parts/tgm/class-tgm-plugin-activation.php:328
 msgid "Install Plugins"
-msgstr ""
+msgstr "プラグインをインストール"
 
 #: parts/tgm/class-tgm-plugin-activation.php:330
 #, php-format
 msgid "Installing Plugin: %s"
-msgstr ""
+msgstr "%s プラグインをインストール中"
 
 #: parts/tgm/class-tgm-plugin-activation.php:332
 #, php-format
 msgid "Updating Plugin: %s"
-msgstr ""
+msgstr "%s プラグインを更新中"
 
 #: parts/tgm/class-tgm-plugin-activation.php:333
 msgid "Something went wrong with the plugin API."
-msgstr ""
+msgstr "プラグイン API に問題が発生しました。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:385
 msgid "Return to Required Plugins Installer"
-msgstr ""
+msgstr "プラグインのインストールへ戻る"
 
 #: parts/tgm/class-tgm-plugin-activation.php:386
 msgid "Return to the Dashboard"
-msgstr ""
+msgstr "ダッシュボードへ戻る"
 
 #: parts/tgm/class-tgm-plugin-activation.php:387
 #: parts/tgm/class-tgm-plugin-activation.php:3178
 msgid "Plugin activated successfully."
-msgstr ""
+msgstr "プラグインが有効化されました。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:388
 msgid "The following plugin was activated successfully:"
-msgstr ""
+msgstr "次のプラグインは有効化されませんでした: "
 
 #: parts/tgm/class-tgm-plugin-activation.php:390
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
-msgstr ""
+msgstr "%1$s プラグインは既に有効化されています。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:392
 #, php-format
@@ -567,177 +567,180 @@ msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
+"バージョンが足りないためプラグインは有効化されませんでした。%s プラグインを"
+"アップデードしてください。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:394
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
+msgstr "すべてのプラグインは正常にインストールされ有効化されています。%1$s"
 
 #: parts/tgm/class-tgm-plugin-activation.php:395
 msgid "Dismiss this notice"
-msgstr ""
+msgstr "この通知を表示しない"
 
 #: parts/tgm/class-tgm-plugin-activation.php:396
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr ""
+"インストール、アップデートもしくは有効化が必要な一つのプラグインがあります。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:397
 msgid "Please contact the administrator of this site for help."
-msgstr ""
+msgstr "詳しくはこのサイトの管理者に問い合わせてください。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2001
 #, php-format
 msgid "TGMPA v%s"
-msgstr ""
+msgstr "TGMPA v%s"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2292
 msgid "Required"
-msgstr ""
+msgstr "必須"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2295
 msgid "Recommended"
-msgstr ""
+msgstr "推奨"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2311
 msgid "WordPress Repository"
-msgstr ""
+msgstr "WordPress レポジトリ"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2314
 msgid "External Source"
-msgstr ""
+msgstr "外部ソース"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2317
 msgid "Pre-Packaged"
-msgstr ""
+msgstr "パッケージ化済み"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2334
 msgid "Not Installed"
-msgstr ""
+msgstr "未インストール"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2338
 msgid "Installed But Not Activated"
-msgstr ""
+msgstr "有効化されていません"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2340
 msgid "Active"
-msgstr ""
+msgstr "有効化済み"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2346
 msgid "Required Update not Available"
-msgstr ""
+msgstr "必要なアップデートを入手できません"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2349
 msgid "Requires Update"
-msgstr ""
+msgstr "必須のアップデート"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2352
 msgid "Update recommended"
-msgstr ""
+msgstr "アップデートを推奨"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2361
 #, php-format
 msgid "%1$s, %2$s"
-msgstr ""
+msgstr "%1$s, %2$s"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2501
 msgid "unknown"
-msgstr ""
+msgstr "不明"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2509
 msgid "Installed version:"
-msgstr ""
+msgstr "インストール済みバージョン: "
 
 #: parts/tgm/class-tgm-plugin-activation.php:2517
 msgid "Minimum required version:"
-msgstr ""
+msgstr "最小要求バージョン: "
 
 #: parts/tgm/class-tgm-plugin-activation.php:2529
 msgid "Available version:"
-msgstr ""
+msgstr "利用可能なバージョン:"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2566
 msgid "Plugin"
-msgstr ""
+msgstr "プラグイン"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2567
 msgid "Source"
-msgstr ""
+msgstr "ソース"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2568
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2572
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2573
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2622
 #, php-format
 msgid "Install %2$s"
-msgstr ""
+msgstr "%2$s をインストール"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2627
 #, php-format
 msgid "Update %2$s"
-msgstr ""
+msgstr "%2$s をアップデート"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2633
 #, php-format
 msgid "Activate %2$s"
-msgstr ""
+msgstr "%2$s を"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2736
 msgid "Install"
-msgstr ""
+msgstr "インストール"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2742
 msgid "Update"
-msgstr ""
+msgstr "アップデート"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2745
 msgid "Activate"
-msgstr ""
+msgstr "有効化"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2776
 msgid "No plugins were selected to be installed. No action taken."
-msgstr ""
+msgstr "プラグインが選択されていません。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2778
 msgid "No plugins were selected to be updated. No action taken."
-msgstr ""
+msgstr "プラグインが選択されていません。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2819
 msgid "No plugins are available to be installed at this time."
-msgstr ""
+msgstr "利用可能なプラグインがありません。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:2821
 msgid "No plugins are available to be updated at this time."
-msgstr ""
+msgstr "利用可能なプラグインがありません。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:3177
 msgid "Plugin activation failed."
-msgstr ""
+msgstr "プラグインの有効化に失敗しました。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:3489
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "プラグインをアップデート中: %1$s (%2$d/%3$d)"
 
 #: parts/tgm/class-tgm-plugin-activation.php:3492
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
+msgstr "%1$s のインストール中にエラーが発生しました: <strong>%2$s</strong>"
 
 #: parts/tgm/class-tgm-plugin-activation.php:3494
 #, php-format
 msgid "The installation of %1$s failed."
-msgstr ""
+msgstr "%1$s のインストールに失敗しました。"
 
 #: parts/tgm/class-tgm-plugin-activation.php:3498
 msgid ""
