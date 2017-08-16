@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-08-09 21:06+1200\n"
-"PO-Revision-Date: 2017-08-14 18:13+1200\n"
+"POT-Creation-Date: 2017-08-15 18:57+1200\n"
+"PO-Revision-Date: 2017-08-16 18:13+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SearchPath-2: czr\n"
 "X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: 404.php:26
+#: 404.php:26 dist/404.php:26
 msgid ""
 "The page does not exist, or has been moved. Try search or menus to find what "
 "you are looking for."
@@ -29,104 +29,104 @@ msgstr ""
 "このページは存在しないか移動されました。お探しのものを見つけるには検索バーや"
 "メニューをお使いください。"
 
-#: archive.php:51 index.php:48
+#: archive.php:51 dist/archive.php:51 dist/index.php:48 index.php:48
 msgid "Posts Not Found!"
 msgstr "投稿が見つかりませんでした。"
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "No Responses"
 msgstr "コメントなし"
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "1 Response"
 msgstr "1件のコメント"
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "% Responses"
 msgstr "%件のコメント"
 
-#: comments.php:43
+#: comments.php:43 dist/comments.php:43
 msgid "Comments"
 msgstr "コメント"
 
-#: comments.php:44
+#: comments.php:44 dist/comments.php:44
 msgid "Pingbacks"
 msgstr "ピンバック"
 
-#: content-standard.php:46
+#: content-standard.php:46 dist/content-standard.php:46
 msgid "READ MORE"
 msgstr "READ MORE"
 
-#: czr/class-cd-social-links.php:30
+#: czr/class-cd-social-links.php:30 dist/czr/class-cd-social-links.php:30
 msgid "[Coldbox] Social Links"
 msgstr "[Coldbox] ソーシャルリンク"
 
-#: czr/class-cd-social-links.php:32
+#: czr/class-cd-social-links.php:32 dist/czr/class-cd-social-links.php:32
 msgid "Show the social links you have entered on the customizer."
 msgstr "カスタマイザー内で設定したソーシャルリンクを表示します。"
 
-#: czr/class-cd-social-links.php:69
+#: czr/class-cd-social-links.php:69 dist/czr/class-cd-social-links.php:69
 msgid "Follow me"
 msgstr "Follow me"
 
-#: czr/class-cd-social-links.php:75
+#: czr/class-cd-social-links.php:75 dist/czr/class-cd-social-links.php:75
 msgid "Title:"
 msgstr "タイトル:"
 
-#: czr/customizer.php:73
+#: czr/customizer.php:73 dist/czr/customizer.php:73
 msgid "Coldbox: Global Settings"
 msgstr "Coldbox: グローバル設定"
 
-#: czr/customizer.php:82
+#: czr/customizer.php:82 dist/czr/customizer.php:82
 msgid "Sidebar Position"
 msgstr "サイドバーの位置"
 
-#: czr/customizer.php:87
+#: czr/customizer.php:87 dist/czr/customizer.php:87
 msgid "Right Sidebar (default)"
 msgstr "右サイドバー (デフォルト)"
 
-#: czr/customizer.php:88
+#: czr/customizer.php:88 dist/czr/customizer.php:88
 msgid "Left Sidebar"
 msgstr "左サイドバー"
 
-#: czr/customizer.php:89
+#: czr/customizer.php:89 dist/czr/customizer.php:89
 msgid "Bottom Sidebar"
 msgstr "下サイドバー"
 
-#: czr/customizer.php:90
+#: czr/customizer.php:90 dist/czr/customizer.php:90
 msgid "Hide Sidebar"
 msgstr "サイドバーを非表示"
 
-#: czr/customizer.php:99
+#: czr/customizer.php:99 dist/czr/customizer.php:99
 msgid "Site Max-Width"
 msgstr "サイトの最大幅"
 
-#: czr/customizer.php:114
+#: czr/customizer.php:114 dist/czr/customizer.php:114
 msgid "Global Font Selecter"
 msgstr "フォント指定"
 
-#: czr/customizer.php:140
+#: czr/customizer.php:140 dist/czr/customizer.php:140
 msgid "Custom Font-Family Value"
 msgstr "Font-Family の値"
 
-#: czr/customizer.php:141
+#: czr/customizer.php:141 dist/czr/customizer.php:141
 #, php-format
 msgid "\"%s\" will be replaced with the font you've chosen above"
-msgstr "“%s” は上で選択したフォントに置き換えられます。"
+msgstr "“%s” は上部で選択したフォントに置き換えられます。"
 
-#: czr/customizer.php:150
+#: czr/customizer.php:150 dist/czr/customizer.php:150
 msgid "Global Font Size for PC"
 msgstr "PC でのフォントサイズ"
 
-#: czr/customizer.php:164
+#: czr/customizer.php:164 dist/czr/customizer.php:164
 msgid "Global Font Size for Mobile"
 msgstr "モバイルでのフォントサイズ"
 
-#: czr/customizer.php:178
+#: czr/customizer.php:178 dist/czr/customizer.php:178
 msgid "Use minified CSS file"
 msgstr "圧縮済みのCSSファイルを使う"
 
-#: czr/customizer.php:179
+#: czr/customizer.php:179 dist/czr/customizer.php:179
 msgid ""
 "The theme will load minified CSS file. Minifying css stylesheets improves "
 "loading speed of your website. It should be used unless you need to modify "
@@ -136,11 +136,11 @@ msgstr ""
 "はサイトの表示速度を向上させます。テーマのスタイルシートを改変 (ただしこれは"
 "推奨されません) する場合以外は有効化しておくことをおすすめします。"
 
-#: czr/customizer.php:188
+#: czr/customizer.php:188 dist/czr/customizer.php:188
 msgid "Use minified JS file"
 msgstr "圧縮済みのJavascriptファイルを使う"
 
-#: czr/customizer.php:189
+#: czr/customizer.php:189 dist/czr/customizer.php:189
 msgid ""
 "The theme will load minified JS file. Minifying JavaScript file improves "
 "loading speed of your website. It should be used unless you need to modify "
@@ -150,20 +150,20 @@ msgstr ""
 "ファイルはサイトの表示速度を向上させます。テーマのスクリプトを改変 (ただしこ"
 "れは推奨されません) する場合以外は有効化しておくことをおすすめします。"
 
-#: czr/customizer.php:199
+#: czr/customizer.php:199 dist/czr/customizer.php:199
 msgid "Use highlight.js"
 msgstr "highlight.js を使う"
 
-#: czr/customizer.php:200
+#: czr/customizer.php:200 dist/czr/customizer.php:200
 msgid "The package contains 23 common languages."
 msgstr ""
 "この highlight.js パッケージは23の主要プログラミング言語を含んでいます。"
 
-#: czr/customizer.php:209
+#: czr/customizer.php:209 dist/czr/customizer.php:209
 msgid "Use highlight.js with Web Package"
 msgstr "Web開発系言語用の highlight.js を使う"
 
-#: czr/customizer.php:210
+#: czr/customizer.php:210 dist/czr/customizer.php:210
 msgid ""
 "The package contains the languages which often be used for web development. "
 "To use other languages, you may go to <a href=\"https://highlightjs.org/"
@@ -173,39 +173,39 @@ msgstr ""
 "語用のものは、<a href=“https://highlightjs.org/“>Highlight.js の公式サイト</"
 "a> からダウンロード出来ます。"
 
-#: czr/customizer.php:221
+#: czr/customizer.php:221 dist/czr/customizer.php:221
 msgid "Coldbox: Header Settings"
 msgstr "Coldbox: ヘッダー設定"
 
-#: czr/customizer.php:230
+#: czr/customizer.php:230 dist/czr/customizer.php:230
 msgid "Display Site Title"
 msgstr "サイトのタイトルを表示"
 
-#: czr/customizer.php:231
+#: czr/customizer.php:231 dist/czr/customizer.php:231
 msgid "Even this setting is unchecked, the logo will be still shown."
 msgstr "この設定でチェックを外しても、ロゴは表示されます。"
 
-#: czr/customizer.php:241
+#: czr/customizer.php:241 dist/czr/customizer.php:241
 msgid "Display Site Description"
 msgstr "キャッチフレーズを表示"
 
-#: czr/customizer.php:251
+#: czr/customizer.php:251 dist/czr/customizer.php:251
 msgid "Header and Menu Direction"
 msgstr "ヘッダー / メニューの順序"
 
-#: czr/customizer.php:255
+#: czr/customizer.php:255 dist/czr/customizer.php:255
 msgid "Vertical (column)"
 msgstr "垂直方向 (列)"
 
-#: czr/customizer.php:256
+#: czr/customizer.php:256 dist/czr/customizer.php:256
 msgid "Horizontal (row)"
 msgstr "水平方向 (行)"
 
-#: czr/customizer.php:265
+#: czr/customizer.php:265 dist/czr/customizer.php:265
 msgid "Make Header Sticky"
 msgstr "ヘッダーをスクロールに追尾させる"
 
-#: czr/customizer.php:266
+#: czr/customizer.php:266 dist/czr/customizer.php:266
 msgid ""
 "Only menus will be sticky when vertical is selected, or the whole header "
 "will be sticky with narrower padding when horizontal is selected."
@@ -213,155 +213,158 @@ msgstr ""
 "垂直方向の選択時はメニューのみを固定し、水平方向の選択時はより狭いパディング"
 "でヘッダー全体を固定します。"
 
-#: czr/customizer.php:277
+#: czr/customizer.php:277 dist/czr/customizer.php:277
 msgid "Coldbox: Archive Pages Settings"
 msgstr "Coldbox: ページスタイル設定"
 
-#: czr/customizer.php:286
+#: czr/customizer.php:286 dist/czr/customizer.php:286
 msgid "Front Page Style"
 msgstr "トップページのスタイル"
 
-#: czr/customizer.php:291 czr/customizer.php:306
+#: czr/customizer.php:291 czr/customizer.php:306 dist/czr/customizer.php:291
+#: dist/czr/customizer.php:306
 msgid "Grid Style (default)"
 msgstr "グリッドスタイル (デフォルト)"
 
-#: czr/customizer.php:292 czr/customizer.php:307
+#: czr/customizer.php:292 czr/customizer.php:307 dist/czr/customizer.php:292
+#: dist/czr/customizer.php:307
 msgid "Standard Style"
 msgstr "スタンダードスタイル"
 
-#: czr/customizer.php:301
+#: czr/customizer.php:301 dist/czr/customizer.php:301
 msgid "Archive Page Style"
 msgstr "アーカイブページのスタイル"
 
-#: czr/customizer.php:316
+#: czr/customizer.php:316 dist/czr/customizer.php:316
 msgid "Excerpt Length"
 msgstr "抜粋に表示数する文字数"
 
-#: czr/customizer.php:328
+#: czr/customizer.php:328 dist/czr/customizer.php:328
 msgid "Excerpt Ending"
 msgstr "抜粋の最後の文字列"
 
-#: czr/customizer.php:338
+#: czr/customizer.php:338 dist/czr/customizer.php:338
 msgid "Use Placefolder Images when no Featured Image"
 msgstr "サムネイルが未設定の場合にプレースホルダ画像を使用する"
 
-#: czr/customizer.php:348
+#: czr/customizer.php:348 dist/czr/customizer.php:348
 msgid "Display Post Date on Grid"
 msgstr "グリッド内に投稿日時を表示"
 
-#: czr/customizer.php:357
+#: czr/customizer.php:357 dist/czr/customizer.php:357
 msgid "Display Categories on Grid"
 msgstr "グリッド内にカテゴリーを表示"
 
-#: czr/customizer.php:366
+#: czr/customizer.php:366 dist/czr/customizer.php:366
 msgid "Display Comments Count on Grid"
 msgstr "グリッド内にコメント数のカウントを表示"
 
-#: czr/customizer.php:377
+#: czr/customizer.php:377 dist/czr/customizer.php:377
 msgid "Coldbox: Single Settings"
 msgstr "Coldbox: 投稿ページ設定"
 
-#: czr/customizer.php:389
+#: czr/customizer.php:389 dist/czr/customizer.php:389
 msgid "Settings for Content"
 msgstr "投稿内容の設定"
 
-#: czr/customizer.php:397
+#: czr/customizer.php:397 dist/czr/customizer.php:397
 msgid "Add Decoration to H2-H5 Tags."
 msgstr "h2-h5タグに装飾を追加"
 
-#: czr/customizer.php:410
+#: czr/customizer.php:410 dist/czr/customizer.php:410
 msgid "Settings for Metas"
 msgstr "メタ情報の設定"
 
-#: czr/customizer.php:419 czr/customizer.php:584
+#: czr/customizer.php:419 czr/customizer.php:584 dist/czr/customizer.php:419
+#: dist/czr/customizer.php:584
 msgid "Display Post Dates"
 msgstr "投稿日時を表示"
 
-#: czr/customizer.php:429
+#: czr/customizer.php:429 dist/czr/customizer.php:429
 msgid "Display the last Modified Dates"
 msgstr "最終更新日を表示"
 
-#: czr/customizer.php:439
+#: czr/customizer.php:439 dist/czr/customizer.php:439
 msgid "Display Post Categories"
 msgstr "カテゴリーを表示"
 
-#: czr/customizer.php:442
+#: czr/customizer.php:442 dist/czr/customizer.php:442
 msgid "Note: Categories are already shown on the breadcrum."
 msgstr "注: カテゴリーは既に上のパンくずリストで表示されています。"
 
-#: czr/customizer.php:450
+#: czr/customizer.php:450 dist/czr/customizer.php:450
 msgid "Display Post Author"
 msgstr "投稿者名を表示"
 
-#: czr/customizer.php:460
+#: czr/customizer.php:460 dist/czr/customizer.php:460
 msgid "Display Comments Count"
 msgstr "コメント数のカウントを表示"
 
-#: czr/customizer.php:470
+#: czr/customizer.php:470 dist/czr/customizer.php:470
 msgid "Display Post Tags on Bottom"
 msgstr "タグを表示 (下エリア)"
 
-#: czr/customizer.php:480
+#: czr/customizer.php:480 dist/czr/customizer.php:480
 msgid "Display Post Categories on Bottom"
 msgstr "カテゴリーを表示 (下エリア)"
 
-#: czr/customizer.php:490
+#: czr/customizer.php:490 dist/czr/customizer.php:490
 msgid "Display Author Box"
 msgstr "投稿者の情報ボックスを表示"
 
-#: czr/customizer.php:500
+#: czr/customizer.php:500 dist/czr/customizer.php:500
 msgid "Display Comments"
 msgstr "コメントを表示"
 
-#: czr/customizer.php:510
+#: czr/customizer.php:510 dist/czr/customizer.php:510
 msgid "Display Post Navigation"
 msgstr "投稿の前後記事リンクを表示"
 
-#: czr/customizer.php:523
+#: czr/customizer.php:523 dist/czr/customizer.php:523
 msgid "Settings for Related Posts"
 msgstr "関連記事の設定"
 
-#: czr/customizer.php:532
+#: czr/customizer.php:532 dist/czr/customizer.php:532
 msgid "Display Related Posts"
 msgstr "関連記事を表示"
 
-#: czr/customizer.php:542
+#: czr/customizer.php:542 dist/czr/customizer.php:542
 msgid "Related Post - Max Articles"
 msgstr "関連記事の最大記事数"
 
-#: czr/customizer.php:555
+#: czr/customizer.php:555 dist/czr/customizer.php:555
 msgid "Related Post - Columns"
 msgstr "関連記事グリッドのカラム数"
 
-#: czr/customizer.php:569
+#: czr/customizer.php:569 dist/czr/customizer.php:569
 msgid "Coldbox: Static Pages Settings"
 msgstr "Coldbox: 固定ページ設定"
 
-#: czr/customizer.php:594
+#: czr/customizer.php:594 dist/czr/customizer.php:594
 msgid "Display Author Names"
 msgstr "投稿者名を表示"
 
-#: czr/customizer.php:604
+#: czr/customizer.php:604 dist/czr/customizer.php:604
 msgid "Display Comments Counts"
 msgstr "コメント数を表示"
 
-#: czr/customizer.php:605
+#: czr/customizer.php:605 dist/czr/customizer.php:605
 msgid "It will be shown when comments are opened and shown."
 msgstr "コメントを受け付けている場合に表示します。"
 
-#: czr/customizer.php:616
+#: czr/customizer.php:616 dist/czr/customizer.php:616
 msgid "Coldbox: Footer Settings"
 msgstr "Coldbox: フッター設定"
 
-#: czr/customizer.php:625
+#: czr/customizer.php:625 dist/czr/customizer.php:625
 msgid "Display Theme Credit"
 msgstr "テーマクレジットを表示"
 
-#: czr/customizer.php:635
+#: czr/customizer.php:635 dist/czr/customizer.php:635
 msgid "Edit the Credit Content"
 msgstr "クレジットの内容を編集"
 
-#: czr/customizer.php:636
+#: czr/customizer.php:636 dist/czr/customizer.php:636
 #, php-format
 msgid ""
 "It will be displayed in footer area. You can use the following HTML tags: %s."
@@ -373,19 +376,19 @@ msgstr ""
 "[url] => サイトURLを表示<br/>\n"
 "[name] => サイト名を表示"
 
-#: czr/customizer.php:641
+#: czr/customizer.php:641 dist/czr/customizer.php:641
 msgid "https://coldbox.miruc.co/"
 msgstr "https://coldbox.miruc.co/japanese/"
 
-#: czr/customizer.php:641
+#: czr/customizer.php:641 dist/czr/customizer.php:641
 msgid "https://miruc.co/"
 msgstr "https://miruc.co/"
 
-#: czr/customizer.php:646
+#: czr/customizer.php:646 dist/czr/customizer.php:646
 msgid "Edit the Theme Credit Content"
 msgstr "テーマクレジットの内容を編集"
 
-#: czr/customizer.php:647
+#: czr/customizer.php:647 dist/czr/customizer.php:647
 #, php-format
 msgid ""
 "It will be displayed when above checked. You can use the following HTML "
@@ -393,174 +396,189 @@ msgid ""
 msgstr ""
 "上の設定がオンになっている場合に表示されます。以下の HTML が使用可能です: %s"
 
-#: czr/customizer.php:664
+#: czr/customizer.php:664 dist/czr/customizer.php:664
 msgid "Primary Color"
 msgstr "プライマリーカラー"
 
-#: czr/customizer.php:675
+#: czr/customizer.php:675 dist/czr/customizer.php:675
 msgid "Secondary Color"
 msgstr "セカンダリーカラー"
 
-#: czr/customizer.php:686
+#: czr/customizer.php:686 dist/czr/customizer.php:686
 msgid "Header Background Color"
 msgstr "ヘッダー背景色"
 
-#: czr/customizer.php:697
+#: czr/customizer.php:697 dist/czr/customizer.php:697
 msgid "Footer Background Color"
 msgstr "フッター背景色"
 
-#: czr/customizer.php:717
+#: czr/customizer.php:717 dist/czr/customizer.php:717
 msgid "Show the social links on the author box"
 msgstr "投稿者情報ボックス内にソーシャルリンクを表示"
 
-#: czr/social-links.php:56
+#: czr/social-links.php:56 dist/czr/social-links.php:56
 #, php-format
 msgid "<p>Your Feed URL is: </p>%s"
 msgstr "<p>このサイトの Feed の URL: </p>%s"
 
-#: czr/social-links.php:56
+#: czr/social-links.php:56 dist/czr/social-links.php:56
 #, php-format
 msgid "<p>Your Feedly URL is: </p>%s"
 msgstr "<p>このサイトの Feedly の URL: </p>%s"
 
-#: czr/social-links.php:62
+#: czr/social-links.php:62 dist/czr/social-links.php:62
 msgid "Coldbox: Social Links"
 msgstr "Coldbox: ソーシャルリンク"
 
-#: czr/social-links.php:63
+#: czr/social-links.php:63 dist/czr/social-links.php:63
 msgid "Add your social account profiles here. Please enter the full URL."
 msgstr ""
 "ここにソーシャルアカウントを追加できます。完全なURLを入力してください。"
 
 #: czr/social-links.php:75 czr/social-links.php:172
+#: dist/czr/social-links.php:75 dist/czr/social-links.php:172
 msgid "RSS Feed"
 msgstr "RSS フィード"
 
 #: czr/social-links.php:81 czr/social-links.php:178
+#: dist/czr/social-links.php:81 dist/czr/social-links.php:178
 msgid "Contact Form"
 msgstr "コンタクトフォーム"
 
 #: czr/social-links.php:83 czr/social-links.php:180
+#: dist/czr/social-links.php:83 dist/czr/social-links.php:180
 msgid "Push Notification"
 msgstr "プッシュ通知"
 
-#: functions.php:141
+#: dist/functions.php:141 functions.php:141
 msgid "Header Menu"
 msgstr "ヘッダーメニュー"
 
-#: functions.php:365
+#: dist/functions.php:405 functions.php:405
 msgid "Sidebar"
 msgstr "サイドバー"
 
-#: functions.php:367
+#: dist/functions.php:407 functions.php:407
 msgid "Add widgets here"
 msgstr "サイドバーに表示するウィジェットを選択してください。"
 
-#: page-templates/full-width.php:62 page.php:62
+#: dist/page.php:62 page-templates/full-width.php:62 page.php:62
 msgid "Pages:"
 msgstr "ページ: "
 
-#: parts/page-title.php:10
+#: dist/parts/page-title.php:10 parts/page-title.php:10
 msgid "Category:"
 msgstr "Category:"
 
-#: parts/page-title.php:19
+#: dist/parts/page-title.php:19 parts/page-title.php:19
 msgid "Tag:"
 msgstr "Tag:"
 
-#: parts/page-title.php:28
+#: dist/parts/page-title.php:28 parts/page-title.php:28
 msgid "Search Results for:"
 msgstr "検索結果: "
 
-#: parts/page-title.php:35
+#: dist/parts/page-title.php:35 parts/page-title.php:35
 msgid "Daily Archive:"
 msgstr "Daily Archive:"
 
 # Time fomat: jS (day) F (month), Y (year) by default
-#: parts/page-title.php:35
+#: dist/parts/page-title.php:35 parts/page-title.php:35
 msgid "jS F, Y"
 msgstr "Y年 m月 j日"
 
-#: parts/page-title.php:39
+#: dist/parts/page-title.php:39 parts/page-title.php:39
 msgid "Monthly Archive:"
 msgstr "Monthly Archive:"
 
-#: parts/page-title.php:39
+#: dist/parts/page-title.php:39 parts/page-title.php:39
 msgid "F, Y"
 msgstr "Y年 m月"
 
-#: parts/page-title.php:43
+#: dist/parts/page-title.php:43 parts/page-title.php:43
 msgid "Yearly Archive:"
 msgstr "Yearly Archive:"
 
-#: parts/page-title.php:47
+#: dist/parts/page-title.php:47 parts/page-title.php:47
 msgid "Author:"
 msgstr "投稿者:"
 
-#: parts/page-title.php:56
+#: dist/parts/page-title.php:56 parts/page-title.php:56
 msgid "ERROR 404."
 msgstr "ERROR 404."
 
-#: parts/page-title.php:56
+#: dist/parts/page-title.php:56 parts/page-title.php:56
 msgid "Sorry, Page Not Found."
 msgstr "ページが存在しません。"
 
-#: parts/post-nav.php:22
+#: dist/parts/post-nav.php:22 parts/post-nav.php:22
 msgid "Prev Post"
 msgstr "前の投稿"
 
-#: parts/post-nav.php:32
+#: dist/parts/post-nav.php:32 parts/post-nav.php:32
 msgid "Next Post"
 msgstr "次の投稿"
 
-#: parts/related-posts.php:80
+#: dist/parts/related-posts.php:80 parts/related-posts.php:80
 msgid "Related Posts"
 msgstr "関連記事"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:327
 #: parts/tgm/class-tgm-plugin-activation.php:327
 msgid "Install Required Plugins"
 msgstr "推奨プラグインのインストール"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:328
 #: parts/tgm/class-tgm-plugin-activation.php:328
 msgid "Install Plugins"
 msgstr "プラグインをインストール"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:330
 #: parts/tgm/class-tgm-plugin-activation.php:330
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr "%s プラグインをインストール中"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:332
 #: parts/tgm/class-tgm-plugin-activation.php:332
 #, php-format
 msgid "Updating Plugin: %s"
 msgstr "%s プラグインを更新中"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:333
 #: parts/tgm/class-tgm-plugin-activation.php:333
 msgid "Something went wrong with the plugin API."
 msgstr "プラグイン API に問題が発生しました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:385
 #: parts/tgm/class-tgm-plugin-activation.php:385
 msgid "Return to Required Plugins Installer"
 msgstr "プラグインのインストールへ戻る"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:386
 #: parts/tgm/class-tgm-plugin-activation.php:386
 msgid "Return to the Dashboard"
 msgstr "ダッシュボードへ戻る"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:387
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3178
 #: parts/tgm/class-tgm-plugin-activation.php:387
 #: parts/tgm/class-tgm-plugin-activation.php:3178
 msgid "Plugin activated successfully."
 msgstr "プラグインが有効化されました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:388
 #: parts/tgm/class-tgm-plugin-activation.php:388
 msgid "The following plugin was activated successfully:"
 msgstr "次のプラグインは有効化されませんでした: "
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:390
 #: parts/tgm/class-tgm-plugin-activation.php:390
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr "%1$s プラグインは既に有効化されています。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:392
 #: parts/tgm/class-tgm-plugin-activation.php:392
 #, php-format
 msgid ""
@@ -570,15 +588,18 @@ msgstr ""
 "バージョンが足りないためプラグインは有効化されませんでした。%s プラグインを"
 "アップデードしてください。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:394
 #: parts/tgm/class-tgm-plugin-activation.php:394
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr "すべてのプラグインは正常にインストールされ有効化されています。%1$s"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:395
 #: parts/tgm/class-tgm-plugin-activation.php:395
 msgid "Dismiss this notice"
 msgstr "この通知を表示しない"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:396
 #: parts/tgm/class-tgm-plugin-activation.php:396
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
@@ -586,210 +607,258 @@ msgid ""
 msgstr ""
 "インストール、アップデートもしくは有効化が必要な一つのプラグインがあります。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:397
 #: parts/tgm/class-tgm-plugin-activation.php:397
 msgid "Please contact the administrator of this site for help."
 msgstr "詳しくはこのサイトの管理者に問い合わせてください。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2001
 #: parts/tgm/class-tgm-plugin-activation.php:2001
 #, php-format
 msgid "TGMPA v%s"
 msgstr "TGMPA v%s"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2292
 #: parts/tgm/class-tgm-plugin-activation.php:2292
 msgid "Required"
 msgstr "必須"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2295
 #: parts/tgm/class-tgm-plugin-activation.php:2295
 msgid "Recommended"
 msgstr "推奨"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2311
 #: parts/tgm/class-tgm-plugin-activation.php:2311
 msgid "WordPress Repository"
 msgstr "WordPress レポジトリ"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2314
 #: parts/tgm/class-tgm-plugin-activation.php:2314
 msgid "External Source"
 msgstr "外部ソース"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2317
 #: parts/tgm/class-tgm-plugin-activation.php:2317
 msgid "Pre-Packaged"
 msgstr "パッケージ化済み"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2334
 #: parts/tgm/class-tgm-plugin-activation.php:2334
 msgid "Not Installed"
 msgstr "未インストール"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2338
 #: parts/tgm/class-tgm-plugin-activation.php:2338
 msgid "Installed But Not Activated"
 msgstr "有効化されていません"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2340
 #: parts/tgm/class-tgm-plugin-activation.php:2340
 msgid "Active"
 msgstr "有効化済み"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2346
 #: parts/tgm/class-tgm-plugin-activation.php:2346
 msgid "Required Update not Available"
 msgstr "必要なアップデートを入手できません"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2349
 #: parts/tgm/class-tgm-plugin-activation.php:2349
 msgid "Requires Update"
 msgstr "必須のアップデート"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2352
 #: parts/tgm/class-tgm-plugin-activation.php:2352
 msgid "Update recommended"
 msgstr "アップデートを推奨"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2361
 #: parts/tgm/class-tgm-plugin-activation.php:2361
 #, php-format
 msgid "%1$s, %2$s"
 msgstr "%1$s, %2$s"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2501
 #: parts/tgm/class-tgm-plugin-activation.php:2501
 msgid "unknown"
 msgstr "不明"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2509
 #: parts/tgm/class-tgm-plugin-activation.php:2509
 msgid "Installed version:"
 msgstr "インストール済みバージョン: "
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2517
 #: parts/tgm/class-tgm-plugin-activation.php:2517
 msgid "Minimum required version:"
 msgstr "最小要求バージョン: "
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2529
 #: parts/tgm/class-tgm-plugin-activation.php:2529
 msgid "Available version:"
 msgstr "利用可能なバージョン:"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2566
 #: parts/tgm/class-tgm-plugin-activation.php:2566
 msgid "Plugin"
 msgstr "プラグイン"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2567
 #: parts/tgm/class-tgm-plugin-activation.php:2567
 msgid "Source"
 msgstr "ソース"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2568
 #: parts/tgm/class-tgm-plugin-activation.php:2568
 msgid "Type"
 msgstr "タイプ"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2572
 #: parts/tgm/class-tgm-plugin-activation.php:2572
 msgid "Version"
 msgstr "バージョン"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2573
 #: parts/tgm/class-tgm-plugin-activation.php:2573
 msgid "Status"
 msgstr "ステータス"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2622
 #: parts/tgm/class-tgm-plugin-activation.php:2622
 #, php-format
 msgid "Install %2$s"
 msgstr "%2$s をインストール"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2627
 #: parts/tgm/class-tgm-plugin-activation.php:2627
 #, php-format
 msgid "Update %2$s"
 msgstr "%2$s をアップデート"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2633
 #: parts/tgm/class-tgm-plugin-activation.php:2633
 #, php-format
 msgid "Activate %2$s"
 msgstr "%2$s を"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2736
 #: parts/tgm/class-tgm-plugin-activation.php:2736
 msgid "Install"
 msgstr "インストール"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2742
 #: parts/tgm/class-tgm-plugin-activation.php:2742
 msgid "Update"
 msgstr "アップデート"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2745
 #: parts/tgm/class-tgm-plugin-activation.php:2745
 msgid "Activate"
 msgstr "有効化"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2776
 #: parts/tgm/class-tgm-plugin-activation.php:2776
 msgid "No plugins were selected to be installed. No action taken."
 msgstr "プラグインが選択されていません。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2778
 #: parts/tgm/class-tgm-plugin-activation.php:2778
 msgid "No plugins were selected to be updated. No action taken."
 msgstr "プラグインが選択されていません。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2819
 #: parts/tgm/class-tgm-plugin-activation.php:2819
 msgid "No plugins are available to be installed at this time."
 msgstr "利用可能なプラグインがありません。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2821
 #: parts/tgm/class-tgm-plugin-activation.php:2821
 msgid "No plugins are available to be updated at this time."
 msgstr "利用可能なプラグインがありません。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3177
 #: parts/tgm/class-tgm-plugin-activation.php:3177
 msgid "Plugin activation failed."
 msgstr "プラグインの有効化に失敗しました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3489
 #: parts/tgm/class-tgm-plugin-activation.php:3489
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr "プラグインをアップデート中: %1$s (%2$d/%3$d)"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3492
 #: parts/tgm/class-tgm-plugin-activation.php:3492
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr "%1$s のインストール中にエラーが発生しました: <strong>%2$s</strong>"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3494
 #: parts/tgm/class-tgm-plugin-activation.php:3494
 #, php-format
 msgid "The installation of %1$s failed."
 msgstr "%1$s のインストールに失敗しました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3498
 #: parts/tgm/class-tgm-plugin-activation.php:3498
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
+"インストール及び有効化のプロセスが開始されました。サーバーによってはしばらく"
+"時間がかかる可能性があります。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3500
 #: parts/tgm/class-tgm-plugin-activation.php:3500
 #, php-format
 msgid "%1$s installed and activated successfully."
-msgstr ""
+msgstr "%1$s は正常にインストールされ有効化されました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3501
 #: parts/tgm/class-tgm-plugin-activation.php:3501
 msgid "All installations and activations have been completed."
-msgstr ""
+msgstr "すべてのインストールと有効化は正常に完了しました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3503
 #: parts/tgm/class-tgm-plugin-activation.php:3503
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "%1$s プラグインをインストール / 有効化中 (%2$d/%3$d)"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3506
 #: parts/tgm/class-tgm-plugin-activation.php:3506
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
+"インストールプロセスが開始されました。サーバーによってはしばらく時間がかかる"
+"可能性があります。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3509
 #: parts/tgm/class-tgm-plugin-activation.php:3509
 msgid "All installations have been completed."
-msgstr ""
+msgstr "全てのインは正常に完了しました。"
 
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3511
 #: parts/tgm/class-tgm-plugin-activation.php:3511
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
+msgstr "%1$s プラグインをインストール中 (%2$d/%3$d)"
 
-#: parts/tgm/load-tgm.php:91
+#: dist/parts/tgm/load-tgm.php:91 parts/tgm/load-tgm.php:91
 msgid "Install Recommended Plugins"
-msgstr ""
+msgstr "推奨プラグインをインストール"
 
-#: search.php:56
+#: dist/search.php:51 search.php:51
 msgid "No matches found."
 msgstr "一致するものがありません。"
 
-#: single.php:76
+#: dist/single.php:78 single.php:78
 msgid "Categories:"
 msgstr "Categories:"
 
-#: single.php:79
+#: dist/single.php:81 single.php:81
 msgid "Tags:"
 msgstr "Tags:"
 
