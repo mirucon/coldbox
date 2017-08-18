@@ -1,0 +1,14 @@
+*.DS_Store
+node_modules
+*.gitkeep
+*.git
+style.css.map
+coldbox
+dest
+composer.phar
+phpcs.xml
+dist
+assets/js/cd-scripts.js
+
+composer.lock
+/vendor/
