@@ -6,7 +6,7 @@
  * @package coldbox
  */
 
-$max_articles = cd_single_related_max();
+$max_articles = cd_single_related_max(); // It can be changed this on the theme customizer.
 $posts_per_page = get_option( 'posts_per_page' );
 
 // Uses the value of posts per page option as max articles if it's fewer than the value set on theme customizer.
@@ -32,6 +32,12 @@ if ( has_tag() ) {
 
 	$related_posts = get_posts( $tag_args );
 	$posts_by_cats_count = count( $related_posts );
+
+	// Get the post IDs that got by tags, so that the ID will not be included in the query of category.
+	foreach ( $related_posts as $post_id ) {
+		$related_posts_not_in_id[] = $post_id -> ID;
+	}
+	$related_posts_not_in_id[] = $post -> ID;
 }
 
 // If article has no tag, gets by categories.
@@ -42,7 +48,6 @@ if ( empty( $tags ) ) {
 	foreach ( $categories as $category ) {
 		array_push( $category_id, $category -> cat_ID );
 	}
-
 	$cat_args = array(
 		'post__not_in' => array( $post -> ID ),
 		'posts_per_page' => $max_articles,
@@ -51,7 +56,8 @@ if ( empty( $tags ) ) {
 	);
 	$related_posts = get_posts( $cat_args );
 	$posts_by_cats_count = 0;
-} elseif ( $max_articles > $posts_by_cats_count ) { // If hasn't got enought articles by tags, also gets by categories.
+
+} elseif ( $max_articles > $posts_by_cats_count ) { // If it doesn't get enough articles by tags, then gets by categories as well.
 
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();
@@ -61,7 +67,7 @@ if ( empty( $tags ) ) {
 	}
 
 	$cat_args = array(
-		'post__not_in' => array( $post -> ID ),
+		'post__not_in' => $related_posts_not_in_id,
 		'posts_per_page' => ( $max_articles - $posts_by_cats_count ),
 		'category__in' => $category_id,
 		'orderby' => 'rand',
