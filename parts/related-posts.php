@@ -19,21 +19,24 @@ $tag_ids = array();
 
 // Gets related posts by tags first.
 if ( has_tag() ) {
+
 	foreach ( $tags as $tag ) {
 		array_push( $tag_ids, $tag -> term_id );
 	}
 
 	$tag_args = array(
-		'post__not_in' => array( $post -> ID ),
-		'posts_per_page' => $max_articles,
-		'tag__in' => $tag_ids,
-		'orderby' => 'rand',
+		'post__not_in'     => array( $post -> ID ),
+		'posts_per_page'   => $max_articles,
+		'tag__in'          => $tag_ids,
+		'orderby'          => 'rand',
+		'suppress_filters' => false,
+		'lang'             => get_locale(),
 	);
 
 	$related_posts = get_posts( $tag_args );
 	$posts_by_cats_count = count( $related_posts );
 
-	// Get the post IDs that got by tags, so that the ID will not be included in the query of category.
+	// Get the post IDs that were got by tags, so that the IDs will not be included in the query of category.
 	foreach ( $related_posts as $post_id ) {
 		$related_posts_not_in_id[] = $post_id -> ID;
 	}
@@ -42,6 +45,7 @@ if ( has_tag() ) {
 
 // If article has no tag, gets by categories.
 if ( empty( $tags ) ) {
+
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();
 
@@ -49,10 +53,12 @@ if ( empty( $tags ) ) {
 		array_push( $category_id, $category -> cat_ID );
 	}
 	$cat_args = array(
-		'post__not_in' => array( $post -> ID ),
-		'posts_per_page' => $max_articles,
-		'category__in' => $category_id,
-		'orderby' => 'rand',
+		'post__not_in'     => array( $post -> ID ),
+		'posts_per_page'   => $max_articles,
+		'category__in'     => $category_id,
+		'orderby'          => 'rand',
+		'suppress_filters' => false,
+		'lang'             => get_locale(),
 	);
 	$related_posts = get_posts( $cat_args );
 	$posts_by_cats_count = 0;
@@ -67,10 +73,12 @@ if ( empty( $tags ) ) {
 	}
 
 	$cat_args = array(
-		'post__not_in' => $related_posts_not_in_id,
-		'posts_per_page' => ( $max_articles - $posts_by_cats_count ),
-		'category__in' => $category_id,
-		'orderby' => 'rand',
+		'post__not_in'     => $related_posts_not_in_id,
+		'posts_per_page'   => ( $max_articles - $posts_by_cats_count ),
+		'category__in'     => $category_id,
+		'orderby'          => 'rand',
+		'suppress_filters' => false,
+		'lang'             => get_locale(),
 	);
 	$posts_by_cats = get_posts( $cat_args );
 
