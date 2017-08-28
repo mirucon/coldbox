@@ -1,5 +1,5 @@
 === Coldbox ===
-Contributors: @mirucon, @mayukojpn
+Contributors: @mirucon
 Requires at least: version 4.5 or higher
 Tested up to: WordPress 4.8.1
 Version: 1.2.3
