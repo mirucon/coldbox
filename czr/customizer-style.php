@@ -19,21 +19,21 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = get_theme_mod( 'container_width' );
 			$czr_container_width = ".container { max-width: ${container_width}px; } ";
-			wp_add_inline_style( 'main-style', $czr_container_width );
+			wp_add_inline_style( 'coldbox-style', $czr_container_width );
 		}
 
 		// Font size for PC.
 		if ( get_theme_mod( 'global_font_size_pc', '17' ) !== '17' ) {
 			$font_size_pc = get_theme_mod( 'global_font_size_pc' );
 			$czr_font_size_pc = "body { font-size: ${font_size_pc}px; } ";
-			wp_add_inline_style( 'main-style', $czr_font_size_pc );
+			wp_add_inline_style( 'coldbox-style', $czr_font_size_pc );
 		}
 
 		// Font size for mobile devices.
 		if ( get_theme_mod( 'global_font_size_mobile', '16' ) !== '16' ) {
 			$font_size_mobile = get_theme_mod( 'global_font_size_mobile' );
 			$czr_font_size_mobile = "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
-			wp_add_inline_style( 'main-style', $czr_font_size_mobile );
+			wp_add_inline_style( 'coldbox-style', $czr_font_size_mobile );
 		}
 
 		// Add decorations to h tags.
@@ -43,7 +43,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			.entry h3 { margin: 1.6em -10px 1.1em; padding: 0 5px .4rem; border-bottom: 2px solid rgba(0, 0, 0, .5); overflow: hidden; }
 			.entry h4 { padding: 0 0 .4rem; border-bottom: 2px solid #bbb; overflow: hidden; }
 			.entry h5 { padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden; }';
-			wp_add_inline_style( 'main-style', $czr_style_htags );
+			wp_add_inline_style( 'coldbox-style', $czr_style_htags );
 		}
 
 		// Link Color.
@@ -55,21 +55,21 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			.comment-pages > a:hover, .comment-pages span, .post-pages > a:hover>span,.post-pages>span, ul.page-numbers span.page-numbers.current, ul.page-numbers a.page-numbers:hover { border-bottom-color: $color_link; }
 			::selection { background-color: $color_link; }
 			::moz-selection { background-color: $color_link; }";
-			wp_add_inline_style( 'main-style', $czr_color_link );
+			wp_add_inline_style( 'coldbox-style', $czr_color_link );
 		}
 
 		// Link Hover Color.
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = get_theme_mod( 'link_hover_color' );
 			$czr_color_hover = ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover, .widget .textwidget a:hover { color: $color_hover; }";
-			wp_add_inline_style( 'main-style', $czr_color_hover );
+			wp_add_inline_style( 'coldbox-style', $czr_color_hover );
 		}
 
 		// Header Background Color.
 		if ( get_theme_mod( 'header_color', '#ffffff' ) !== '#ffffff' ) {
 			$color_header = get_theme_mod( 'header_color' );
 			$czr_color_header = "#header { background-color: $color_header; } ";
-			wp_add_inline_style( 'main-style', $czr_color_header );
+			wp_add_inline_style( 'coldbox-style', $czr_color_header );
 		}
 
 		// Header text color.
@@ -91,21 +91,21 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$czr_header_textcolor = ".site-info,.site-title{color:#${header_textcolor};}.site-description{color:rgb(${r}, ${g}, ${b});}
 			#header-menu .menu-container > li > a{color:#${header_textcolor}}#header-menu .menu-container >  li:hover > a{color:rgb(${r_h}, ${g_h}, ${b_h})}
 			:root body .search-toggle span.icon.search{border-color:#${header_textcolor}}:root body .search-toggle span.icon.search::before,.nav-toggle .bottom, .nav-toggle .middle, .nav-toggle .top{background-color:#${header_textcolor}}";
-			wp_add_inline_style( 'main-style', $czr_header_textcolor );
+			wp_add_inline_style( 'coldbox-style', $czr_header_textcolor );
 		}
 
 		// Footer Background Color.
 		if ( get_theme_mod( 'footer_color', '#44463b' ) !== '#44463b' ) {
 			$color_footer = get_theme_mod( 'footer_color' );
 			$czr_color_footer = ".footer { background-color: $color_footer; } ";
-			wp_add_inline_style( 'main-style', $czr_color_footer );
+			wp_add_inline_style( 'coldbox-style', $czr_color_footer );
 		}
 
 		// Related Posts Columns.
 		if ( get_theme_mod( 'single_related_col', 3 ) !== 3 ) {
 			$rel_col = get_theme_mod( 'single_related_col' );
 			$czr_rel_col = " .related-posts .related-article { width: calc(100% / {$rel_col}); } ";
-			wp_add_inline_style( 'main-style', $czr_rel_col );
+			wp_add_inline_style( 'coldbox-style', $czr_rel_col );
 		}
 
 	}
