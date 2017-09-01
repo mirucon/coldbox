@@ -6,23 +6,24 @@
 
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
-**Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)
+**Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.2.3   
 **Requires at least**: version 4.5 or higher  
 **Tested up to**: WordPress 4.8.1  
-**License**: GPL v3.0  
-**License URI**: http://www.gnu.org/licenses/gpl-3.0.html  
+**Requires PHP**: 5.2.4  
+**License**: GPL v2.0 or later  
+**License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
 
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
 ## Getting Started
 You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) once after theme installed.  
-To get official child theme, visit [Coldbox Official Site](https://coldbox.miruc.co/)
+To get official child theme, visit the [Coldbox official site](https://coldbox.miruc.co/)
 <!-- **Documentation** -->
 
 ### Add-on Plugin
-The official Add-on Plugin is now available. Download from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
+The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
 
 The latest version has following features:
 
@@ -30,13 +31,13 @@ The latest version has following features:
 - Social share buttons
 
 ## Theme Author information
-The Coldbox theme is designed by Mirucon  
+The Coldbox theme is designed and created by Mirucon  
 WordPress.org Profile: [https://profiles.wordpress.org/mirucon/](https://profiles.wordpress.org/mirucon/)  
 Twitter: [@mirucons](https://twitter.com/@mirucons)  
 Email: i@miruc.co
 
 ## Copyright
-The Coldbox theme is under 100% [GNU v3.0](http://www.gnu.org/licenses/gpl-3.0.html).
+The Coldbox theme is under 100% [GNU v2.0](http://www.gnu.org/licenses/gpl-2.0.html).
 
 ### FontAwesome License
 Font License - SIL OFL 1.1  

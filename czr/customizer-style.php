@@ -89,7 +89,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$g = $g > 255 ? 255 : $g;
 			$b = $b > 255 ? 255 : $b;
 			$czr_header_textcolor = ".site-info,.site-title{color:#${header_textcolor};}.site-description{color:rgb(${r}, ${g}, ${b});}
-			#header-menu .menu-container > li > a{color:#${header_textcolor}}#header-menu .menu-container >  li:hover > a{color:rgb(${r_h}, ${g_h}, ${b_h})}
+			#header-menu .menu-container > li > a{color:#${header_textcolor}}#header-menu .menu-container > li:hover > a{color:rgb(${r_h}, ${g_h}, ${b_h})}
 			:root body .search-toggle span.icon.search{border-color:#${header_textcolor}}:root body .search-toggle span.icon.search::before,.nav-toggle .bottom, .nav-toggle .middle, .nav-toggle .top{background-color:#${header_textcolor}}";
 			wp_add_inline_style( 'coldbox-style', $czr_header_textcolor );
 		}
