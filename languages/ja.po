@@ -4,8 +4,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Coldbox Translation\n"
 "Report-Msgid-Bugs-To: https://miruc.co\n"
-"POT-Creation-Date: 2017-08-15 18:57+1200\n"
-"PO-Revision-Date: 2017-08-16 18:13+1200\n"
+"POT-Creation-Date: 2017-09-02 16:57+1200\n"
+"PO-Revision-Date: 2017-09-02 16:58+1200\n"
 "Last-Translator: \n"
 "Language-Team: Mirucon <admin@mirucon.com>\n"
 "Language: ja\n"
@@ -23,8 +23,8 @@ msgstr ""
 
 #: 404.php:26 dist/404.php:26
 msgid ""
-"The page does not exist, or has been moved. Try search or menus to find what "
-"you are looking for."
+"The page does not exist, or has been moved. Try search or use menus to find "
+"what you are looking for."
 msgstr ""
 "このページは存在しないか移動されました。お探しのものを見つけるには検索バーや"
 "メニューをお使いください。"
@@ -376,19 +376,37 @@ msgstr ""
 "[url] => サイトURLを表示<br/>\n"
 "[name] => サイト名を表示"
 
-#: czr/customizer.php:641 dist/czr/customizer.php:641
+#: czr/customizer.php:642 czr/customizer.php:990 dist/czr/customizer.php:642
+#: dist/czr/customizer.php:990
+#, php-format
+msgid "Powered by %s"
+msgstr "Powered by %s"
+
+#: czr/customizer.php:643 czr/customizer.php:991 dist/czr/customizer.php:643
+#: dist/czr/customizer.php:991
 msgid "https://coldbox.miruc.co/"
 msgstr "https://coldbox.miruc.co/japanese/"
 
-#: czr/customizer.php:641 dist/czr/customizer.php:641
+#: czr/customizer.php:643 czr/customizer.php:991 dist/czr/customizer.php:643
+#: dist/czr/customizer.php:991
+msgid "Coldbox theme"
+msgstr "Coldbox theme"
+
+#: czr/customizer.php:643 czr/customizer.php:991 dist/czr/customizer.php:643
+#: dist/czr/customizer.php:991
 msgid "https://miruc.co/"
 msgstr "https://miruc.co/"
 
-#: czr/customizer.php:646 dist/czr/customizer.php:646
+#: czr/customizer.php:643 czr/customizer.php:991 dist/czr/customizer.php:643
+#: dist/czr/customizer.php:991
+msgid "Mirucon"
+msgstr "Mirucon"
+
+#: czr/customizer.php:648 dist/czr/customizer.php:648
 msgid "Edit the Theme Credit Content"
 msgstr "テーマクレジットの内容を編集"
 
-#: czr/customizer.php:647 dist/czr/customizer.php:647
+#: czr/customizer.php:649 dist/czr/customizer.php:649
 #, php-format
 msgid ""
 "It will be displayed when above checked. You can use the following HTML "
@@ -396,23 +414,23 @@ msgid ""
 msgstr ""
 "上の設定がオンになっている場合に表示されます。以下の HTML が使用可能です: %s"
 
-#: czr/customizer.php:664 dist/czr/customizer.php:664
+#: czr/customizer.php:666 dist/czr/customizer.php:666
 msgid "Primary Color"
 msgstr "プライマリーカラー"
 
-#: czr/customizer.php:675 dist/czr/customizer.php:675
+#: czr/customizer.php:677 dist/czr/customizer.php:677
 msgid "Secondary Color"
 msgstr "セカンダリーカラー"
 
-#: czr/customizer.php:686 dist/czr/customizer.php:686
+#: czr/customizer.php:688 dist/czr/customizer.php:688
 msgid "Header Background Color"
 msgstr "ヘッダー背景色"
 
-#: czr/customizer.php:697 dist/czr/customizer.php:697
+#: czr/customizer.php:699 dist/czr/customizer.php:699
 msgid "Footer Background Color"
 msgstr "フッター背景色"
 
-#: czr/customizer.php:717 dist/czr/customizer.php:717
+#: czr/customizer.php:719 dist/czr/customizer.php:719
 msgid "Show the social links on the author box"
 msgstr "投稿者情報ボックス内にソーシャルリンクを表示"
 
@@ -482,11 +500,6 @@ msgstr "検索結果: "
 msgid "Daily Archive:"
 msgstr "Daily Archive:"
 
-# Time fomat: jS (day) F (month), Y (year) by default
-#: dist/parts/page-title.php:35 parts/page-title.php:35
-msgid "jS F, Y"
-msgstr "Y年 m月 j日"
-
 #: dist/parts/page-title.php:39 parts/page-title.php:39
 msgid "Monthly Archive:"
 msgstr "Monthly Archive:"
@@ -519,7 +532,7 @@ msgstr "前の投稿"
 msgid "Next Post"
 msgstr "次の投稿"
 
-#: dist/parts/related-posts.php:80 parts/related-posts.php:80
+#: dist/parts/related-posts.php:94 parts/related-posts.php:94
 msgid "Related Posts"
 msgstr "関連記事"
 
@@ -861,6 +874,10 @@ msgstr "Categories:"
 #: dist/single.php:81 single.php:81
 msgid "Tags:"
 msgstr "Tags:"
+
+# Time fomat: jS (day) F (month), Y (year) by default
+#~ msgid "jS F, Y"
+#~ msgstr "Y年 m月 j日"
 
 #~ msgid "Display Data"
 #~ msgstr "日時を表示"
