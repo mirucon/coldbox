@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: version 4.5 or higher
 Tested up to: WordPress 4.8.1
 Requires PHP: 5.2.4
-Version: 1.2.5
+Version: 1.2.6
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
