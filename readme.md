@@ -13,7 +13,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 **Requires PHP**: 5.2.4  
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
-**Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments
+**Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
 
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
