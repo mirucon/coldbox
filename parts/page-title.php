@@ -32,7 +32,7 @@ if ( is_category() ) : ?>
 
 
 	<?php elseif ( is_day() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'Daily Archive:', 'coldbox' ); ?>&#32;</span><?php the_time( _x( 'jS F, Y', 'Date Format', 'coldbox' ) ); ?></h1>
+		<h1><span class="title-description"><?php esc_html_e( 'Daily Archive:', 'coldbox' ); ?>&#32;</span><?php echo get_the_date( get_option( 'date_format' ) ); ?></h1>
 
 
 	<?php elseif ( is_month() ) : ?>

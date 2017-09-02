@@ -29,8 +29,8 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		}
 		wp_add_inline_script( 'cd-script', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		// Load Masonry for making responsive sidebar.
-		wp_enqueue_script( 'imagesloaded', includes_url( '/js/imagesloaded.min.js' ), array( 'jQuery' ), '', true );
-		wp_enqueue_script( 'masonry', includes_url( '/js/masonry.min.js' ), array( 'imagesloaded' ), '', true );
+		wp_enqueue_script( 'imagesloaded', 'imagesloaded', array( 'jQuery' ), '', true );
+		wp_enqueue_script( 'masonry', 'masonry', array( 'imagesloaded' ), '', true );
 		$masonry_resp_sidebar = "
 		jQuery(window).on('load resize', function() {
 			if ( window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches || jQuery('body').hasClass('bottom-sidebar-s1') ) {
@@ -665,7 +665,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 				}
 				$parent_rev = array_reverse( $parent );
 				foreach ( $parent_rev as $key => $value ) {
-					echo '<a href="' . esc_html( $value ) . '">' . esc_html( $key ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+					echo '<a href="' . esc_url( $value ) . '">' . esc_html( $key ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 				}
 				echo '<span>' . esc_html( $current_cat -> name ) . '</span>';
 			} else {

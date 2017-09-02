@@ -223,12 +223,19 @@ body.home #main, #main.home {
 
 /*   Index : Page Navigation
 /* -------------------------------------------------- */
+.pagination {
+  display: block;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 10px;
+}
+
 ul.page-numbers {
   display: flex;
   justify-content: center;
   position: relative;
   width: 100%;
-  margin: 0 auto 10px;
+  margin: 0 auto;
   border-bottom: 2px solid #ddd;
   color: $link;
   font-weight: bold;
