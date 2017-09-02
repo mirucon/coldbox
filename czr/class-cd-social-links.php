@@ -39,10 +39,10 @@ class CD_Social_Links extends WP_Widget {
 	 *
 	 * @since 1.1.1
 	 * @param array $args The titles user entered.
-	 * @param array $instance  Widget settings.
+	 * @param array $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) {
-		$title = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'] ) : '';
+		$title = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this -> id_base ) : '';
 		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {

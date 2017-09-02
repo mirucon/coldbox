@@ -6,10 +6,10 @@
  * @package coldbox
  */
 
-$max_articles = cd_single_related_max(); // It can be changed this on the theme customizer.
+$max_articles = cd_single_related_max(); // Its value can be changed on the theme customizer.
 $posts_per_page = get_option( 'posts_per_page' );
 
-// Uses the value of posts per page option as max articles if it's fewer than the value set on theme customizer.
+// Uses the value of posts per page option as the number of max articles if the number set on the customizer is fewer than posts per page option.
 if ( $posts_per_page < $max_articles ) {
 	$max_articles = $posts_per_page;
 }
@@ -63,7 +63,7 @@ if ( empty( $tags ) ) {
 	$related_posts = get_posts( $cat_args );
 	$posts_by_cats_count = 0;
 
-} elseif ( $max_articles > $posts_by_cats_count ) { // If it doesn't get enough articles by tags, then gets by categories as well.
+} elseif ( $max_articles > $posts_by_cats_count ) { // If it hasn't got enough articles by tags, then gets by categories as well.
 
 	$categories = get_the_category( $post -> ID );
 	$category_id = array();

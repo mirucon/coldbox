@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying previous/next posts links
+ * The template for displaying previous/next posts link
  *
  * @since 1.0.0
  * @package coldbox

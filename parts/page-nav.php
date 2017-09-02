@@ -8,7 +8,7 @@
 
 global $wp_query;
 
-$paginate_links = paginate_links( array(
+$paginate_links = the_posts_pagination( array(
 	'type'               => 'list',
 	'end_size'           => '2',
 	'mid_size'           => '3',
