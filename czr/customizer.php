@@ -638,9 +638,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'type'     => 'textarea',
 		)));
 		$wp_customize->add_setting( 'theme_credit_text', array(
-			'default'  => sprintf(
-			/* Translators: %s: WordPress. */ __( 'Powered by %s', 'coldbox' ), '<a href="' . esc_url( 'https://wordpress.org/' ) . '">WordPress</a>. ' ) .
-			'<a href="' . esc_url_raw( __( 'https://coldbox.miruc.co/', 'coldbox' ) ) . '">' . __( 'Coldbox theme', 'coldbox' ) . '</a> by <a href="' . esc_url_raw( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>',
+			'default'  => __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>',
 			'sanitize_callback' => 'wp_kses_post',
 			'priority' => 10,
 		));
@@ -987,8 +985,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 * @since 1.0.0
 	 */
 	function cd_theme_credit_text() {
-		return get_theme_mod( 'theme_credit_text', sprintf( /* Translators: %s: WordPress. */ __( 'Powered by %s', 'coldbox' ), '<a href="' . esc_url( 'https://wordpress.org/' ) . '">WordPress</a>. ' ) .
-		'<a href="' . esc_url_raw( __( 'https://coldbox.miruc.co/', 'coldbox' ) ) . '">' . __( 'Coldbox theme', 'coldbox' ) . '</a> by <a href="' . esc_url_raw( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>' );
+		return get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>' );
 	}
 	/**
 	 * Get the contents of the credit text.
