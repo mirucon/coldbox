@@ -5,7 +5,7 @@
  Version: 1.2.6
  Author: Toshihiro Kanai (Mirucon)
  Author URI: https://miruc.co/
- Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
+ Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, custom-logo, featured-images, full-width-template, post-formats, sticky-post, theme-options, editor-style, threaded-comments
  Text Domain: coldbox
  License: GNU General Public License v2.0
  License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -697,6 +697,10 @@ h6 {
 
 /*   Base : Forms
 /* -------------------------------------------------- */
+fieldset {
+  padding: .4em 1em;
+}
+
 input[type=text], input[type=password], input[type=email], input[type=url], input[type=search],
 input[type=tel], input[type=date], input[type=datetime], input[type=month], input[type=week],
 input[type=time], input[type=datetime-local], input[type=number] {
@@ -777,8 +781,8 @@ input[type=submit], input[type=button], button[type=submit], button[type=button]
 }
 
 input[type=submit]:hover, input[type=submit]:focus, input[type=button]:hover, input[type=button]:focus, button[type=submit]:hover, button[type=submit]:focus, button[type=button]:hover, button[type=button]:focus {
-  border: 1px solid #777;
-  background-color: #777;
+  border: 1px solid transparent;
+  background-color: #00619F;
   color: #fff;
 }
 
@@ -799,8 +803,8 @@ input[type=reset], button[type=reset] {
 }
 
 input[type=reset]:hover, input[type=reset]:focus, button[type=reset]:hover, button[type=reset]:focus {
-  border: 1px solid #444;
-  background-color: #666666;
+  /* border: 1px solid #444; */
+  background-color: #CB5823;
 }
 
 textarea {
