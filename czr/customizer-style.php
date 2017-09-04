@@ -73,7 +73,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		}
 
 		// Header text color.
-		if ( get_header_textcolor() !== '444444' ) {
+		if ( get_header_textcolor() !== '#444444' ) {
 			$header_textcolor = get_header_textcolor();
 			list( $r, $g, $b ) = sscanf( $header_textcolor, '%02x%02x%02x' );
 			$r_h = $r - 20;
