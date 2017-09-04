@@ -310,7 +310,9 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 		ob_start();
 		comments_template( '/comments.php', true );
 		$template = ob_get_clean();
+		// @codingStandardsIgnoreStart
 		echo apply_filters( 'cd_comments_template', $template );
+		// @codingStandardsIgnoreEnd
 	}
 }
 
@@ -808,7 +810,7 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		 */
 		function cd_header_image() {
 			$style = "#header { background-image: url('" . get_header_image() . "'); }";
-			echo '<style>' . $style . '</style>';
+			echo '<style>' . wp_kses_data( $style ) . '</style>';
 		}
 		add_action( 'wp_head', 'cd_header_image' );
 	}
