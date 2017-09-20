@@ -2,7 +2,7 @@
     "name": "mirucon/coldbox",
     "description": "A beautiful WordPress theme",
     "type": "WordPress-theme",
-    "license": "GPL-3.0",
+    "license": "GPL-2.0",
     "authors": [
         {
             "name": "mirucon",
