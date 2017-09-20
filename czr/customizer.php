@@ -664,7 +664,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'      => __( 'Primary Color', 'coldbox' ),
 			'section'    => 'colors',
 			'settings'   => 'link_color',
-			'priority' => 10,
+			'priority'   => 10,
 		)));
 		// Hover Link Color.
 		$wp_customize->add_setting( 'link_hover_color', array(
@@ -675,7 +675,40 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'label'     => __( 'Secondary Color', 'coldbox' ),
 			'section'   => 'colors',
 			'settings'  => 'link_hover_color',
-			'priority' => 20,
+			'priority'  => 20,
+		)));
+		// Title Box Color.
+		$wp_customize->add_setting( 'title_box_color', array(
+			'default'   => '#f8f8f8',
+			'sanitize_callback' => 'sanitize_hex_color',
+		));
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_box_color', array(
+			'label'     => __( 'Title Box Color', 'coldbox' ),
+			'section'   => 'colors',
+			'settings'  => 'title_box_color',
+			'priority' => 122,
+		)));
+		// Content Wrapper Color.
+		$wp_customize->add_setting( 'content_wrapper_color', array(
+			'default'   => '#fafafa',
+			'sanitize_callback' => 'sanitize_hex_color',
+		));
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'content_wrapper_color', array(
+			'label'     => __( 'Content Wrapper Color', 'coldbox' ),
+			'section'   => 'colors',
+			'settings'  => 'content_wrapper_color',
+			'priority' => 124,
+		)));
+		// Sidebar Wrapper Color.
+		$wp_customize->add_setting( 'sidebar_wrapper_color', array(
+			'default'   => '#fafafa',
+			'sanitize_callback' => 'sanitize_hex_color',
+		));
+		$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'sidebar_wrapper_color', array(
+			'label'     => __( 'Sidebar Wrapper Color', 'coldbox' ),
+			'section'   => 'colors',
+			'settings'  => 'sidebar_wrapper_color',
+			'priority' => 126,
 		)));
 		// Header Background Color.
 		$wp_customize->add_setting( 'header_color', array(
