@@ -67,6 +67,10 @@ Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
 
+1.2.7
+
+- Added: New customizer settigs to change background colors
+
 1.2.6
 
 - Minor bug fixes

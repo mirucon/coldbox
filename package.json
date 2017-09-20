@@ -1,6 +1,6 @@
 {
   "name": "coldbox",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "A beautiful WordPress theme.",
   "main": "index.js",
   "dependencies": {
@@ -35,7 +35,7 @@
   "scripts": {
     "start": "gulp default",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dist": "gulp dist"
+    "build": "gulp dist"
   },
   "repository": {
     "type": "git",
