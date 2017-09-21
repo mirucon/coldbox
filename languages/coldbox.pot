@@ -1,7 +1,8 @@
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: coldbox\n"
-"POT-Creation-Date: 2017-08-08 17:37+0900\n"
+"POT-Creation-Date: 2017-09-21 13:39+0900\n"
 "PO-Revision-Date: 2017-08-08 17:37+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://coldbox.miruc.co/\n"
@@ -9,8 +10,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.7.5\n"
-"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 2.0.3\n"
+"X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;_x;esc_html__;esc_html_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -20,333 +21,337 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-1: node_modules\n"
 "X-Poedit-SearchPathExcluded-2: *.js\n"
 
-#: 404.php:26
+#: 404.php:26 dist/404.php:26
 msgid ""
-"The page does not exist, or has been moved. Try search or menus to find what "
-"you are looking for."
+"The page does not exist, or has been moved. Try search or use menus to find "
+"what you are looking for."
 msgstr ""
 
-#: archive.php:51 index.php:48
+#: archive.php:51 dist/archive.php:51 dist/index.php:48 index.php:48
 msgid "Posts Not Found!"
 msgstr ""
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "No Responses"
 msgstr ""
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "1 Response"
 msgstr ""
 
-#: comments.php:21
+#: comments.php:21 dist/comments.php:21
 msgid "% Responses"
 msgstr ""
 
-#: comments.php:43
+#: comments.php:43 dist/comments.php:43
 msgid "Comments"
 msgstr ""
 
-#: comments.php:44
+#: comments.php:44 dist/comments.php:44
 msgid "Pingbacks"
 msgstr ""
 
-#: content-standard.php:46
+#: content-standard.php:46 dist/content-standard.php:46
 msgid "READ MORE"
 msgstr ""
 
-#: czr/class-cd-social-links.php:30
+#: czr/class-cd-social-links.php:30 dist/czr/class-cd-social-links.php:30
 msgid "[Coldbox] Social Links"
 msgstr ""
 
-#: czr/class-cd-social-links.php:32
+#: czr/class-cd-social-links.php:32 dist/czr/class-cd-social-links.php:32
 msgid "Show the social links you have entered on the customizer."
 msgstr ""
 
 #: czr/class-cd-social-links.php:51 czr/class-cd-social-links.php:69
+#: dist/czr/class-cd-social-links.php:51 dist/czr/class-cd-social-links.php:69
 msgid "Follow me"
 msgstr ""
 
-#: czr/class-cd-social-links.php:75
+#: czr/class-cd-social-links.php:75 dist/czr/class-cd-social-links.php:75
 msgid "Title:"
 msgstr ""
 
-#: czr/customizer.php:73
+#: czr/customizer.php:73 dist/czr/customizer.php:73
 msgid "Coldbox: Global Settings"
 msgstr ""
 
-#: czr/customizer.php:82
+#: czr/customizer.php:82 dist/czr/customizer.php:82
 msgid "Sidebar Position"
 msgstr ""
 
-#: czr/customizer.php:87
+#: czr/customizer.php:87 dist/czr/customizer.php:87
 msgid "Right Sidebar (default)"
 msgstr ""
 
-#: czr/customizer.php:88
+#: czr/customizer.php:88 dist/czr/customizer.php:88
 msgid "Left Sidebar"
 msgstr ""
 
-#: czr/customizer.php:89
+#: czr/customizer.php:89 dist/czr/customizer.php:89
 msgid "Bottom Sidebar"
 msgstr ""
 
-#: czr/customizer.php:90
+#: czr/customizer.php:90 dist/czr/customizer.php:90
 msgid "Hide Sidebar"
 msgstr ""
 
-#: czr/customizer.php:99
+#: czr/customizer.php:99 dist/czr/customizer.php:99
 msgid "Site Max-Width"
 msgstr ""
 
-#: czr/customizer.php:114
+#: czr/customizer.php:114 dist/czr/customizer.php:114
 msgid "Global Font Selecter"
 msgstr ""
 
-#: czr/customizer.php:140
+#: czr/customizer.php:140 dist/czr/customizer.php:140
 msgid "Custom Font-Family Value"
 msgstr ""
 
-#: czr/customizer.php:141
+#: czr/customizer.php:141 dist/czr/customizer.php:141
 #, php-format
 msgid "\"%s\" will be replaced with the font you've chosen above"
 msgstr ""
 
-#: czr/customizer.php:150
+#: czr/customizer.php:150 dist/czr/customizer.php:150
 msgid "Global Font Size for PC"
 msgstr ""
 
-#: czr/customizer.php:164
+#: czr/customizer.php:164 dist/czr/customizer.php:164
 msgid "Global Font Size for Mobile"
 msgstr ""
 
-#: czr/customizer.php:178
+#: czr/customizer.php:178 dist/czr/customizer.php:178
 msgid "Use minified CSS file"
 msgstr ""
 
-#: czr/customizer.php:179
+#: czr/customizer.php:179 dist/czr/customizer.php:179
 msgid ""
 "The theme will load minified CSS file. Minifying css stylesheets improves "
 "loading speed of your website. It should be used unless you need to modify "
 "the theme's stylesheet."
 msgstr ""
 
-#: czr/customizer.php:188
+#: czr/customizer.php:188 dist/czr/customizer.php:188
 msgid "Use minified JS file"
 msgstr ""
 
-#: czr/customizer.php:189
+#: czr/customizer.php:189 dist/czr/customizer.php:189
 msgid ""
 "The theme will load minified JS file. Minifying JavaScript file improves "
 "loading speed of your website. It should be used unless you need to modify "
 "the theme's stylesheet."
 msgstr ""
 
-#: czr/customizer.php:199
+#: czr/customizer.php:199 dist/czr/customizer.php:199
 msgid "Use highlight.js"
 msgstr ""
 
-#: czr/customizer.php:200
+#: czr/customizer.php:200 dist/czr/customizer.php:200
 msgid "The package contains 23 common languages."
 msgstr ""
 
-#: czr/customizer.php:209
+#: czr/customizer.php:209 dist/czr/customizer.php:209
 msgid "Use highlight.js with Web Package"
 msgstr ""
 
-#: czr/customizer.php:210
+#: czr/customizer.php:210 dist/czr/customizer.php:210
 msgid ""
 "The package contains the languages which often be used for web development. "
 "To use other languages, you may go to <a href=\"https://highlightjs.org/"
 "\">Highlight.js official site</a>."
 msgstr ""
 
-#: czr/customizer.php:221
+#: czr/customizer.php:221 dist/czr/customizer.php:221
 msgid "Coldbox: Header Settings"
 msgstr ""
 
-#: czr/customizer.php:230
+#: czr/customizer.php:230 dist/czr/customizer.php:230
 msgid "Display Site Title"
 msgstr ""
 
-#: czr/customizer.php:231
+#: czr/customizer.php:231 dist/czr/customizer.php:231
 msgid "Even this setting is unchecked, the logo will be still shown."
 msgstr ""
 
-#: czr/customizer.php:241
+#: czr/customizer.php:241 dist/czr/customizer.php:241
 msgid "Display Site Description"
 msgstr ""
 
-#: czr/customizer.php:251
+#: czr/customizer.php:251 dist/czr/customizer.php:251
 msgid "Header and Menu Direction"
 msgstr ""
 
-#: czr/customizer.php:255
+#: czr/customizer.php:255 dist/czr/customizer.php:255
 msgid "Vertical (column)"
 msgstr ""
 
-#: czr/customizer.php:256
+#: czr/customizer.php:256 dist/czr/customizer.php:256
 msgid "Horizontal (row)"
 msgstr ""
 
-#: czr/customizer.php:265
+#: czr/customizer.php:265 dist/czr/customizer.php:265
 msgid "Make Header Sticky"
 msgstr ""
 
-#: czr/customizer.php:266
+#: czr/customizer.php:266 dist/czr/customizer.php:266
 msgid ""
 "Only menus will be sticky when vertical is selected, or the whole header "
 "will be sticky with narrower padding when horizontal is selected."
 msgstr ""
 
-#: czr/customizer.php:277
+#: czr/customizer.php:277 dist/czr/customizer.php:277
 msgid "Coldbox: Archive Pages Settings"
 msgstr ""
 
-#: czr/customizer.php:286
+#: czr/customizer.php:286 dist/czr/customizer.php:286
 msgid "Front Page Style"
 msgstr ""
 
-#: czr/customizer.php:291 czr/customizer.php:306
+#: czr/customizer.php:291 czr/customizer.php:306 dist/czr/customizer.php:291
+#: dist/czr/customizer.php:306
 msgid "Grid Style (default)"
 msgstr ""
 
-#: czr/customizer.php:292 czr/customizer.php:307
+#: czr/customizer.php:292 czr/customizer.php:307 dist/czr/customizer.php:292
+#: dist/czr/customizer.php:307
 msgid "Standard Style"
 msgstr ""
 
-#: czr/customizer.php:301
+#: czr/customizer.php:301 dist/czr/customizer.php:301
 msgid "Archive Page Style"
 msgstr ""
 
-#: czr/customizer.php:316
+#: czr/customizer.php:316 dist/czr/customizer.php:316
 msgid "Excerpt Length"
 msgstr ""
 
-#: czr/customizer.php:328
+#: czr/customizer.php:328 dist/czr/customizer.php:328
 msgid "Excerpt Ending"
 msgstr ""
 
-#: czr/customizer.php:338
+#: czr/customizer.php:338 dist/czr/customizer.php:338
 msgid "Use Placefolder Images when no Featured Image"
 msgstr ""
 
-#: czr/customizer.php:348
+#: czr/customizer.php:348 dist/czr/customizer.php:348
 msgid "Display Post Date on Grid"
 msgstr ""
 
-#: czr/customizer.php:357
+#: czr/customizer.php:357 dist/czr/customizer.php:357
 msgid "Display Categories on Grid"
 msgstr ""
 
-#: czr/customizer.php:366
+#: czr/customizer.php:366 dist/czr/customizer.php:366
 msgid "Display Comments Count on Grid"
 msgstr ""
 
-#: czr/customizer.php:377
+#: czr/customizer.php:377 dist/czr/customizer.php:377
 msgid "Coldbox: Single Settings"
 msgstr ""
 
-#: czr/customizer.php:389
+#: czr/customizer.php:389 dist/czr/customizer.php:389
 msgid "Settings for Content"
 msgstr ""
 
-#: czr/customizer.php:397
+#: czr/customizer.php:397 dist/czr/customizer.php:397
 msgid "Add Decoration to H2-H5 Tags."
 msgstr ""
 
-#: czr/customizer.php:410
+#: czr/customizer.php:410 dist/czr/customizer.php:410
 msgid "Settings for Metas"
 msgstr ""
 
-#: czr/customizer.php:419 czr/customizer.php:584
+#: czr/customizer.php:419 czr/customizer.php:584 dist/czr/customizer.php:419
+#: dist/czr/customizer.php:584
 msgid "Display Post Dates"
 msgstr ""
 
-#: czr/customizer.php:429
+#: czr/customizer.php:429 dist/czr/customizer.php:429
 msgid "Display the last Modified Dates"
 msgstr ""
 
-#: czr/customizer.php:439
+#: czr/customizer.php:439 dist/czr/customizer.php:439
 msgid "Display Post Categories"
 msgstr ""
 
-#: czr/customizer.php:442
+#: czr/customizer.php:442 dist/czr/customizer.php:442
 msgid "Note: Categories are already shown on the breadcrum."
 msgstr ""
 
-#: czr/customizer.php:450
+#: czr/customizer.php:450 dist/czr/customizer.php:450
 msgid "Display Post Author"
 msgstr ""
 
-#: czr/customizer.php:460
+#: czr/customizer.php:460 dist/czr/customizer.php:460
 msgid "Display Comments Count"
 msgstr ""
 
-#: czr/customizer.php:470
+#: czr/customizer.php:470 dist/czr/customizer.php:470
 msgid "Display Post Tags on Bottom"
 msgstr ""
 
-#: czr/customizer.php:480
+#: czr/customizer.php:480 dist/czr/customizer.php:480
 msgid "Display Post Categories on Bottom"
 msgstr ""
 
-#: czr/customizer.php:490
+#: czr/customizer.php:490 dist/czr/customizer.php:490
 msgid "Display Author Box"
 msgstr ""
 
-#: czr/customizer.php:500
+#: czr/customizer.php:500 dist/czr/customizer.php:500
 msgid "Display Comments"
 msgstr ""
 
-#: czr/customizer.php:510
+#: czr/customizer.php:510 dist/czr/customizer.php:510
 msgid "Display Post Navigation"
 msgstr ""
 
-#: czr/customizer.php:523
+#: czr/customizer.php:523 dist/czr/customizer.php:523
 msgid "Settings for Related Posts"
 msgstr ""
 
-#: czr/customizer.php:532
+#: czr/customizer.php:532 dist/czr/customizer.php:532
 msgid "Display Related Posts"
 msgstr ""
 
-#: czr/customizer.php:542
+#: czr/customizer.php:542 dist/czr/customizer.php:542
 msgid "Related Post - Max Articles"
 msgstr ""
 
-#: czr/customizer.php:555
+#: czr/customizer.php:555 dist/czr/customizer.php:555
 msgid "Related Post - Columns"
 msgstr ""
 
-#: czr/customizer.php:569
+#: czr/customizer.php:569 dist/czr/customizer.php:569
 msgid "Coldbox: Static Pages Settings"
 msgstr ""
 
-#: czr/customizer.php:594
+#: czr/customizer.php:594 dist/czr/customizer.php:594
 msgid "Display Author Names"
 msgstr ""
 
-#: czr/customizer.php:604
+#: czr/customizer.php:604 dist/czr/customizer.php:604
 msgid "Display Comments Counts"
 msgstr ""
 
-#: czr/customizer.php:605
+#: czr/customizer.php:605 dist/czr/customizer.php:605
 msgid "It will be shown when comments are opened and shown."
 msgstr ""
 
-#: czr/customizer.php:616
+#: czr/customizer.php:616 dist/czr/customizer.php:616
 msgid "Coldbox: Footer Settings"
 msgstr ""
 
-#: czr/customizer.php:625
+#: czr/customizer.php:625 dist/czr/customizer.php:625
 msgid "Display Theme Credit"
 msgstr ""
 
-#: czr/customizer.php:635
+#: czr/customizer.php:635 dist/czr/customizer.php:635
 msgid "Edit the Credit Content"
 msgstr ""
 
-#: czr/customizer.php:636
+#: czr/customizer.php:636 dist/czr/customizer.php:636
 #, php-format
 msgid ""
 "It will be displayed in footer area. You can use the following HTML tags: %s."
@@ -354,153 +359,567 @@ msgid ""
 "> [url] -> This site's URL, <br/> [name] -> This site's name."
 msgstr ""
 
-#: czr/customizer.php:641
-msgid "https://coldbox.miruc.co/"
+#: czr/customizer.php:641 czr/customizer.php:1021 dist/czr/customizer.php:641
+#: dist/czr/customizer.php:1021
+msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: czr/customizer.php:641
+#: czr/customizer.php:641 czr/customizer.php:1021 dist/czr/customizer.php:641
+#: dist/czr/customizer.php:1021
 msgid "https://miruc.co/"
 msgstr ""
 
-#: czr/customizer.php:646
+#: czr/customizer.php:641 czr/customizer.php:1021 dist/czr/customizer.php:641
+#: dist/czr/customizer.php:1021
+msgid "Mirucon"
+msgstr ""
+
+#: czr/customizer.php:646 dist/czr/customizer.php:646
 msgid "Edit the Theme Credit Content"
 msgstr ""
 
-#: czr/customizer.php:647
+#: czr/customizer.php:647 dist/czr/customizer.php:647
 #, php-format
 msgid ""
 "It will be displayed when above checked. You can use the following HTML "
 "tags: %s"
 msgstr ""
 
-#: czr/customizer.php:664
+#: czr/customizer.php:664 dist/czr/customizer.php:664
 msgid "Primary Color"
 msgstr ""
 
-#: czr/customizer.php:675
+#: czr/customizer.php:675 dist/czr/customizer.php:675
 msgid "Secondary Color"
 msgstr ""
 
-#: czr/customizer.php:686
+#: czr/customizer.php:686 dist/czr/customizer.php:686
+msgid "Title Box Color"
+msgstr ""
+
+#: czr/customizer.php:697 dist/czr/customizer.php:697
+msgid "Content Wrapper Color"
+msgstr ""
+
+#: czr/customizer.php:708 dist/czr/customizer.php:708
+msgid "Sidebar Wrapper Color"
+msgstr ""
+
+#: czr/customizer.php:719 dist/czr/customizer.php:719
 msgid "Header Background Color"
 msgstr ""
 
-#: czr/customizer.php:697
+#: czr/customizer.php:730 dist/czr/customizer.php:730
 msgid "Footer Background Color"
 msgstr ""
 
-#: czr/customizer.php:717
+#: czr/customizer.php:750 dist/czr/customizer.php:750
 msgid "Show the social links on the author box"
 msgstr ""
 
-#: czr/social-links.php:56
+#: czr/social-links.php:56 dist/czr/social-links.php:56
 #, php-format
 msgid "<p>Your Feed URL is: </p>%s"
 msgstr ""
 
-#: czr/social-links.php:56
+#: czr/social-links.php:56 dist/czr/social-links.php:56
 #, php-format
 msgid "<p>Your Feedly URL is: </p>%s"
 msgstr ""
 
-#: czr/social-links.php:62
+#: czr/social-links.php:62 dist/czr/social-links.php:62
 msgid "Coldbox: Social Links"
 msgstr ""
 
-#: czr/social-links.php:63
+#: czr/social-links.php:63 dist/czr/social-links.php:63
 msgid "Add your social account profiles here. Please enter the full URL."
 msgstr ""
 
 #: czr/social-links.php:75 czr/social-links.php:172
+#: dist/czr/social-links.php:75 dist/czr/social-links.php:172
 msgid "RSS Feed"
 msgstr ""
 
 #: czr/social-links.php:81 czr/social-links.php:178
+#: dist/czr/social-links.php:81 dist/czr/social-links.php:178
 msgid "Contact Form"
 msgstr ""
 
 #: czr/social-links.php:83 czr/social-links.php:180
+#: dist/czr/social-links.php:83 dist/czr/social-links.php:180
 msgid "Push Notification"
 msgstr ""
 
-#: functions.php:141
+#: dist/functions.php:142 functions.php:142
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:367
+#: dist/functions.php:408 functions.php:408
+msgid "Sidebar"
+msgstr ""
+
+#: dist/functions.php:410 functions.php:410
 msgid "Add widgets here"
 msgstr ""
 
-#: page-templates/full-width.php:62 page.php:62
+#: dist/page.php:62 page-templates/full-width.php:62 page.php:62
 msgid "Pages:"
 msgstr ""
 
-#: parts/page-title.php:10
+#: dist/parts/page-title.php:10 parts/page-title.php:10
 msgid "Category:"
 msgstr ""
 
-#: parts/page-title.php:19
+#: dist/parts/page-title.php:19 parts/page-title.php:19
 msgid "Tag:"
 msgstr ""
 
-#: parts/page-title.php:28
+#: dist/parts/page-title.php:28 parts/page-title.php:28
 msgid "Search Results for:"
 msgstr ""
 
-#: parts/page-title.php:35
+#: dist/parts/page-title.php:35 parts/page-title.php:35
 msgid "Daily Archive:"
 msgstr ""
 
-# Date Format
-#: parts/page-title.php:35
-msgid "jS F, Y"
-msgstr ""
-
-#: parts/page-title.php:39
+#: dist/parts/page-title.php:39 parts/page-title.php:39
 msgid "Monthly Archive:"
 msgstr ""
 
-# Date Format
-#: parts/page-title.php:39
+#: dist/parts/page-title.php:39 parts/page-title.php:39
 msgid "F, Y"
 msgstr ""
 
-#: parts/page-title.php:43
+#: dist/parts/page-title.php:43 parts/page-title.php:43
 msgid "Yearly Archive:"
 msgstr ""
 
-#: parts/page-title.php:47
+#: dist/parts/page-title.php:47 parts/page-title.php:47
 msgid "Author:"
 msgstr ""
 
-#: parts/page-title.php:56
+#: dist/parts/page-title.php:56 parts/page-title.php:56
 msgid "ERROR 404."
 msgstr ""
 
-#: parts/page-title.php:56
+#: dist/parts/page-title.php:56 parts/page-title.php:56
 msgid "Sorry, Page Not Found."
 msgstr ""
 
-#: parts/post-nav.php:22
+#: dist/parts/post-nav.php:22 parts/post-nav.php:22
 msgid "Prev Post"
 msgstr ""
 
-#: parts/post-nav.php:32
+#: dist/parts/post-nav.php:32 parts/post-nav.php:32
 msgid "Next Post"
 msgstr ""
 
-#: parts/related-posts.php:80
+#: dist/parts/related-posts.php:94 parts/related-posts.php:94
 msgid "Related Posts"
 msgstr ""
 
-#: search.php:56
+#: dist/parts/tgm/class-tgm-plugin-activation.php:327
+#: parts/tgm/class-tgm-plugin-activation.php:327
+msgid "Install Required Plugins"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:328
+#: parts/tgm/class-tgm-plugin-activation.php:328
+msgid "Install Plugins"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:330
+#: parts/tgm/class-tgm-plugin-activation.php:330
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:332
+#: parts/tgm/class-tgm-plugin-activation.php:332
+#, php-format
+msgid "Updating Plugin: %s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:333
+#: parts/tgm/class-tgm-plugin-activation.php:333
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:385
+#: parts/tgm/class-tgm-plugin-activation.php:385
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:386
+#: dist/parts/tgm/class-tgm-plugin-activation.php:829
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2552
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3571
+#: parts/tgm/class-tgm-plugin-activation.php:386
+#: parts/tgm/class-tgm-plugin-activation.php:829
+#: parts/tgm/class-tgm-plugin-activation.php:2552
+#: parts/tgm/class-tgm-plugin-activation.php:3571
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:387
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3178
+#: parts/tgm/class-tgm-plugin-activation.php:387
+#: parts/tgm/class-tgm-plugin-activation.php:3178
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:388
+#: parts/tgm/class-tgm-plugin-activation.php:388
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:390
+#: parts/tgm/class-tgm-plugin-activation.php:390
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:392
+#: parts/tgm/class-tgm-plugin-activation.php:392
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:394
+#: parts/tgm/class-tgm-plugin-activation.php:394
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:395
+#: parts/tgm/class-tgm-plugin-activation.php:395
+msgid "Dismiss this notice"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:396
+#: parts/tgm/class-tgm-plugin-activation.php:396
+msgid ""
+"There are one or more required or recommended plugins to install, update or "
+"activate."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:397
+#: parts/tgm/class-tgm-plugin-activation.php:397
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:523
+#: parts/tgm/class-tgm-plugin-activation.php:523
+msgid "Update Required"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:937
+#: parts/tgm/class-tgm-plugin-activation.php:937
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:937
+#: dist/parts/tgm/class-tgm-plugin-activation.php:945
+#: parts/tgm/class-tgm-plugin-activation.php:937
+#: parts/tgm/class-tgm-plugin-activation.php:945
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:945
+#: parts/tgm/class-tgm-plugin-activation.php:945
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2001
+#: parts/tgm/class-tgm-plugin-activation.php:2001
+#, php-format
+msgid "TGMPA v%s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2292
+#: parts/tgm/class-tgm-plugin-activation.php:2292
+msgid "Required"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2295
+#: parts/tgm/class-tgm-plugin-activation.php:2295
+msgid "Recommended"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2311
+#: parts/tgm/class-tgm-plugin-activation.php:2311
+msgid "WordPress Repository"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2314
+#: parts/tgm/class-tgm-plugin-activation.php:2314
+msgid "External Source"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2317
+#: parts/tgm/class-tgm-plugin-activation.php:2317
+msgid "Pre-Packaged"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2334
+#: parts/tgm/class-tgm-plugin-activation.php:2334
+msgid "Not Installed"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2338
+#: parts/tgm/class-tgm-plugin-activation.php:2338
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2340
+#: parts/tgm/class-tgm-plugin-activation.php:2340
+msgid "Active"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2346
+#: parts/tgm/class-tgm-plugin-activation.php:2346
+msgid "Required Update not Available"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2349
+#: parts/tgm/class-tgm-plugin-activation.php:2349
+msgid "Requires Update"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2352
+#: parts/tgm/class-tgm-plugin-activation.php:2352
+msgid "Update recommended"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2361
+#: parts/tgm/class-tgm-plugin-activation.php:2361
+#, php-format
+msgid "%1$s, %2$s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2501
+#: parts/tgm/class-tgm-plugin-activation.php:2501
+msgid "unknown"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2509
+#: parts/tgm/class-tgm-plugin-activation.php:2509
+msgid "Installed version:"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2517
+#: parts/tgm/class-tgm-plugin-activation.php:2517
+msgid "Minimum required version:"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2529
+#: parts/tgm/class-tgm-plugin-activation.php:2529
+msgid "Available version:"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2552
+#: parts/tgm/class-tgm-plugin-activation.php:2552
+msgid "No plugins to install, update or activate."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2566
+#: parts/tgm/class-tgm-plugin-activation.php:2566
+msgid "Plugin"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2567
+#: parts/tgm/class-tgm-plugin-activation.php:2567
+msgid "Source"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2568
+#: parts/tgm/class-tgm-plugin-activation.php:2568
+msgid "Type"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2572
+#: parts/tgm/class-tgm-plugin-activation.php:2572
+msgid "Version"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2573
+#: parts/tgm/class-tgm-plugin-activation.php:2573
+msgid "Status"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2622
+#: parts/tgm/class-tgm-plugin-activation.php:2622
+#, php-format
+msgid "Install %2$s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2627
+#: parts/tgm/class-tgm-plugin-activation.php:2627
+#, php-format
+msgid "Update %2$s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2633
+#: parts/tgm/class-tgm-plugin-activation.php:2633
+#, php-format
+msgid "Activate %2$s"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2703
+#: parts/tgm/class-tgm-plugin-activation.php:2703
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2736
+#: parts/tgm/class-tgm-plugin-activation.php:2736
+msgid "Install"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2742
+#: parts/tgm/class-tgm-plugin-activation.php:2742
+msgid "Update"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2745
+#: parts/tgm/class-tgm-plugin-activation.php:2745
+msgid "Activate"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2776
+#: parts/tgm/class-tgm-plugin-activation.php:2776
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2778
+#: parts/tgm/class-tgm-plugin-activation.php:2778
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2819
+#: parts/tgm/class-tgm-plugin-activation.php:2819
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2821
+#: parts/tgm/class-tgm-plugin-activation.php:2821
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2927
+#: parts/tgm/class-tgm-plugin-activation.php:2927
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:2953
+#: parts/tgm/class-tgm-plugin-activation.php:2953
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3177
+#: parts/tgm/class-tgm-plugin-activation.php:3177
+msgid "Plugin activation failed."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3489
+#: parts/tgm/class-tgm-plugin-activation.php:3489
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3492
+#: parts/tgm/class-tgm-plugin-activation.php:3492
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3494
+#: parts/tgm/class-tgm-plugin-activation.php:3494
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3498
+#: parts/tgm/class-tgm-plugin-activation.php:3498
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3500
+#: parts/tgm/class-tgm-plugin-activation.php:3500
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3500
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3500
+#: parts/tgm/class-tgm-plugin-activation.php:3508
+msgid "Show Details"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3500
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3500
+#: parts/tgm/class-tgm-plugin-activation.php:3508
+msgid "Hide Details"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3501
+#: parts/tgm/class-tgm-plugin-activation.php:3501
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3503
+#: parts/tgm/class-tgm-plugin-activation.php:3503
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3506
+#: parts/tgm/class-tgm-plugin-activation.php:3506
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3508
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3509
+#: parts/tgm/class-tgm-plugin-activation.php:3509
+msgid "All installations have been completed."
+msgstr ""
+
+#: dist/parts/tgm/class-tgm-plugin-activation.php:3511
+#: parts/tgm/class-tgm-plugin-activation.php:3511
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: dist/parts/tgm/load-tgm.php:91 parts/tgm/load-tgm.php:91
+msgid "Install Recommended Plugins"
+msgstr ""
+
+#: dist/search.php:51 search.php:51
 msgid "No matches found."
 msgstr ""
 
-#: single.php:76
+#: dist/single.php:78 single.php:78
 msgid "Categories:"
 msgstr ""
 
-#: single.php:79
+#: dist/single.php:81 single.php:81
 msgid "Tags:"
 msgstr ""

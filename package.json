@@ -1,6 +1,6 @@
 {
   "name": "coldbox",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "A beautiful WordPress theme.",
   "main": "index.js",
   "dependencies": {
