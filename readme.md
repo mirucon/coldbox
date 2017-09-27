@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.2.8   
+**Version**: 1.2.9  
 **Requires at least**: version 4.5 or higher  
 **Tested up to**: WordPress 4.8.1  
 **Requires PHP**: 5.2.4  
@@ -66,6 +66,10 @@ URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
+
+1.2.9
+
+- Improved: Both logo and title can be shown in the same time
 
 1.2.8
 
