@@ -54,6 +54,10 @@ URL: http://tgmpluginactivation.com/
 
 == Changelog ==
 
+= 1.2.9 =
+
+* Improved: Both logo and title can be shown in the same time
+
 = 1.2.8 =
 
 * https://github.com/Mirucon/coldbox/releases/tag/v1.2.8
