@@ -606,6 +606,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'section'  => 'pages',
 			'type'     => 'checkbox',
 		)));
+		$wp_customize->get_control( 'custom_logo' )->description = sprintf(
+			/* translators: 1: Start of <a> tag, 2: The end of <a> tag. */
+			__( 'If you want to hide site title, go and uncheck the %1$s "Header Setting" > "Display Site Title" %2$s option.', 'coldbox' ),
+			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();">',
+			'</a>'
+		);
 
 		/*
 		 * ------------------------------------------------------------------------- *

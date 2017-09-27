@@ -27,6 +27,11 @@
   align-items: center;
   padding: 30px 20px;
   transition: all .4s;
+  a { display: block }
+}
+
+.site-info > *:not(:first-child) {
+  margin: 0 .7em;
 }
 
 .site-title {
@@ -37,12 +42,16 @@
   font-weight: 600;
   line-height: 1.2;
   a { display: block }
-  img { display: block; max-height: 60%; height: auto; margin: 0 auto; }
 }
+
+.site-logo img { display: block; max-height: 60%; height: auto; margin: 0 auto; }
+
 .site-description {
   display: inline-block;
+  position: relative;
+  top: 2px;
   max-width: 100%;
-  padding: 0 2rem;
+  // padding: 0 2rem;
   color: #666;
   font-weight: 300;
 }
