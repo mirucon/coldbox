@@ -4606,7 +4606,7 @@ ul.social-links {
   user-select: none;
 }
 
-.clearfix::after {
+.clearfix::after, .sidebar .widget::after {
   content: "";
   display: block;
   clear: both;
