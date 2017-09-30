@@ -307,6 +307,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'standard' => __( 'Standard Style','coldbox' ),
 			),
 		)));
+		// Grid Columns.
+		$wp_customize->add_setting( 'grid_columns', array(
+			'default'  => 2,
+			'sanitize_callback' => 'absint',
+		));
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'grid_columns', array(
+			'label'    => __( 'Grid Columns','coldbox' ),
+			'section'  => 'index',
+			'priority' => 2,
+			'type'     => 'number',
+		)));
 		// Excerpt Length Setting.
 		$wp_customize->add_setting( 'excerpt_length', array(
 			'default'  => '60',

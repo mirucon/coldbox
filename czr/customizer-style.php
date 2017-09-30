@@ -15,6 +15,8 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 	 */
 	function cd_customizer_style() {
 
+		$czr_style = '';
+
 		// Container Width.
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = get_theme_mod( 'container_width' );
@@ -44,6 +46,14 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			.entry h4 { padding: 0 0 .4rem; border-bottom: 2px solid #bbb; overflow: hidden; }
 			.entry h5 { padding: 0 0 .4rem; border-bottom: 1px dotted #bbb; overflow: hidden; }';
 			wp_add_inline_style( 'cd-style', $czr_style_htags );
+		}
+
+		// Add decorations to h tags.
+		if ( get_theme_mod( 'grid_columns', 2 ) !== 2 ) {
+			$grid_columns = get_theme_mod( 'grid_columns' );
+			$width_percents = 100 / $grid_columns . '%';
+			$czr_style .= ".grid-view .article { width: $width_percents; }";
+			wp_add_inline_style( 'cd-style', $czr_style );
 		}
 
 		// Link Color.
