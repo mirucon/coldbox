@@ -11,6 +11,10 @@
     &:last-child { margin-bottom: 0 }
   }
 
+  .widget::after {
+    @extend .clearfix;
+  }
+
 }
 
 // Tablet && Mobile
