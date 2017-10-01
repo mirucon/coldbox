@@ -702,37 +702,37 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
     display: block;
     visibility: hidden;
     position: absolute;
-    top: -35px;
+    top: -36px;
     right: -5px;
     z-index: 999;
-    padding: em(3px) em(12px);
+    padding: em(5px) em(14px);
     border-radius: 1px;
-    background-color: #f8f8f8;
+    background-color: #eee;
     color: #666;
-    font-size: .88em;
+    font-size: .94em;
     font-weight: 300;
     text-align: center;
     white-space: nowrap;
-    @include box-shadow($color: rgba(0, 0, 0, .2));
   }
   a::before {
     content: "";
     visibility: hidden;
     position: absolute;
     top: -10px;
-    right: calc(50% - .55em);
+    right: calc(50% - .72em);
     z-index: 998;
     width: 0; height: 0;
-    border: solid transparent 8px;
-    border-top-color: #f8f8f8;
+    border: solid transparent 13px;
+    border-top-color: #eee;
     border-bottom-width: 0;
-    @include box-shadow($color: rgba(0, 0, 0, .2));
   }
   a:hover::after, a:hover::before {
     visibility: visible;
   }
-  .feedly .icon-feedly { display: block; bottom: -1px; line-height: 1.06;
-  &::before { font-size: 1.06em } }
+  .feedly .icon-feedly {
+    display: block; bottom: -1px; line-height: 1.06;
+    &::before { font-size: 1.06em }
+  }
 
   @media screen and (max-width: $bpmax-mobile) {
     i { font-size: 2em }

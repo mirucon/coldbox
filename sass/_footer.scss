@@ -3,7 +3,7 @@
   min-height: 80px;
   font-weight: 300;
   font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  font-size: .94em;
+  font-size: .98em;
   transition: all .4s;
 
   .container {
@@ -27,6 +27,7 @@
     flex-grow: 1;
     padding: 0 .7em;
     justify-content: flex-end;
+    i { font-size: 1.8em }
   }
 }
 
