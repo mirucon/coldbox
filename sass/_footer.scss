@@ -1,9 +1,9 @@
 .footer {
   position: relative;
   min-height: 80px;
-  padding: 30px 20px;
-  background: $accent;
-  color: rgba(255, 255, 255, .6);
+  font-weight: 300;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  font-size: .94em;
   transition: all .4s;
 
   .container {
@@ -27,6 +27,30 @@
     flex-grow: 1;
     padding: 0 .7em;
     justify-content: flex-end;
+  }
+}
+
+.footer-bottom {
+  width: 100%;
+  padding: 30px 20px;
+  background-color: $accent;
+  color: rgba(255, 255, 255, .6);
+}
+
+
+.footer-menu {
+  background-color: #ddd;
+  @include box-shadow($y: -1px);
+
+  .container {
+    padding: 0;
+  }
+
+  a {
+    color: rgba(0, 0, 0, .8);
+  }
+  li:hover > .sub-menu {
+    top: -46px;
   }
 }
 
