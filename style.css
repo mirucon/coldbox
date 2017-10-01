@@ -2359,6 +2359,8 @@ ul.page-numbers a.page-numbers:hover {
           flex-flow: row wrap;
   position: relative;
   width: 100%;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  font-size: .98em;
 }
 
 .menu-container li {
@@ -2720,9 +2722,9 @@ ul.page-numbers a.page-numbers:hover {
 .footer {
   position: relative;
   min-height: 80px;
-  padding: 30px 20px;
-  background: #44463B;
-  color: rgba(255, 255, 255, .6);
+  font-weight: 300;
+  font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+  font-size: .94em;
   -webkit-transition: all .4s;
   transition: all .4s;
 }
@@ -2760,6 +2762,31 @@ ul.page-numbers a.page-numbers:hover {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.footer-bottom {
+  width: 100%;
+  padding: 30px 20px;
+  background-color: #44463B;
+  color: rgba(255, 255, 255, .6);
+}
+
+.footer-menu {
+  background-color: #ddd;
+  -webkit-box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, .2);
+          box-shadow: 0 -1px 6px 0 rgba(0, 0, 0, .2);
+}
+
+.footer-menu .container {
+  padding: 0;
+}
+
+.footer-menu a {
+  color: rgba(0, 0, 0, .8);
+}
+
+.footer-menu li:hover > .sub-menu {
+  top: -46px;
 }
 
 @media screen and (min-width: 640px) and (max-width: 980px) {

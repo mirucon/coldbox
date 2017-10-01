@@ -140,6 +140,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		register_nav_menus(
 			array(
 				'header-menu' => __( 'Header Menu', 'coldbox' ),
+				'footer-menu' => __( 'Footer Menu', 'coldbox' ),
 			)
 		);
 	}
@@ -198,6 +199,34 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 				);
 			$menu .= '</nav>';
 			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
+		}
+	}
+}
+
+if ( ! function_exists( 'cd_footer_menu' ) ) {
+
+		/**
+		 * Call the footer menu through a filter
+		 *
+		 * @since 1.3.0
+		 */
+	function cd_footer_menu() {
+
+		if ( has_nav_menu( 'footer-menu' ) ) {
+
+			$menu = '<nav id="footer-menu" class="footer-menu"><div class="container">';
+				$menu .= wp_nav_menu(
+					array(
+						'theme_location' => 'footer-menu',
+						'container'   => '',
+						'menu_class'  => '',
+						'fallback_cb' => 'wp_page_menu',
+						'echo'        => false,
+						'items_wrap'  => '<ul id="footer-nav" class="menu-container">%3$s</ul><!--/#footer-nav-->',
+					)
+				);
+			$menu .= '</div></nav>';
+			echo wp_kses_post( apply_filters( 'cd_footer_menu', $menu ) );
 		}
 	}
 }

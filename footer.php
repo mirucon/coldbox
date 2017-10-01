@@ -12,14 +12,18 @@ else :
 ?>
 
 <footer id="footer" class="footer">
-	<div class="container">
 
-		<div class="copyright">
+	<?php cd_footer_menu(); ?>
 
-			<p>
-				<?php
-				echo wp_kses(
-					cd_credit(), array(
+	<div class="footer-bottom">
+
+		<div class="container">
+
+			<div class="copyright">
+
+				<p>
+					<?php
+					$allowed_html = array(
 						'a' => array(
 							'href' => array(),
 							'onclick' => array(),
@@ -34,41 +38,25 @@ else :
 						'strong' => array(),
 						'b' => array(),
 						'small' => array(),
-					)
-				);
-				?>
-			</p>
-
-			<?php if ( cd_is_theme_credit() ) : ?>
-				<p>
-					<?php
-					echo wp_kses(
-						cd_theme_credit_text(), array(
-							'a' => array(
-								'href' => array(),
-								'onclick' => array(),
-								'target' => array(),
-							),
-							'p' => array(
-								'style' => array(),
-								'align' => array(),
-								'target' => array(),
-							),
-							'br' => array(),
-							'strong' => array(),
-							'b' => array(),
-							'small' => array(),
-						)
 					);
 					?>
+
+					<?php echo wp_kses( cd_credit(), $allowed_html ); ?>
 				</p>
-			<?php endif; ?>
+
+				<?php if ( cd_is_theme_credit() ) : ?>
+					<p>
+						<?php echo wp_kses( cd_theme_credit_text(), $allowed_html ); ?>
+					</p>
+				<?php endif; ?>
+
+			</div>
+
+			<?php cd_social_links(); ?>
 
 		</div>
 
-		<?php cd_social_links(); ?>
-
-	</div><!--/.container-->
+	</div><!--/.footer-bottom-->
 
 	<a id="back-to-top" class="noscroll" href="#"><span class="chevron-up"></span></a>
 
