@@ -2724,7 +2724,7 @@ ul.page-numbers a.page-numbers:hover {
   min-height: 80px;
   font-weight: 300;
   font-family: Lato, -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
-  font-size: .94em;
+  font-size: .98em;
   -webkit-transition: all .4s;
   transition: all .4s;
 }
@@ -2762,6 +2762,10 @@ ul.page-numbers a.page-numbers:hover {
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+
+.footer .social-links i {
+  font-size: 1.8em;
 }
 
 .footer-bottom {
@@ -4334,19 +4338,17 @@ html body .screen-reader-text {
   display: block;
   visibility: hidden;
   position: absolute;
-  top: -35px;
+  top: -36px;
   right: -5px;
   z-index: 999;
-  padding: 0.1875em 0.75em;
+  padding: 0.3125em 0.875em;
   border-radius: 1px;
-  background-color: #f8f8f8;
+  background-color: #eee;
   color: #666;
-  font-size: .88em;
+  font-size: .94em;
   font-weight: 300;
   text-align: center;
   white-space: nowrap;
-  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
-          box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
 }
 
 .social-links a::before {
@@ -4354,15 +4356,13 @@ html body .screen-reader-text {
   visibility: hidden;
   position: absolute;
   top: -10px;
-  right: calc(50% - 0.55em);
+  right: calc(50% - 0.72em);
   z-index: 998;
   width: 0;
   height: 0;
-  border: solid transparent 8px;
-  border-top-color: #f8f8f8;
+  border: solid transparent 13px;
+  border-top-color: #eee;
   border-bottom-width: 0;
-  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
-          box-shadow: 0 0 6px 0 rgba(0, 0, 0, .2);
 }
 
 .social-links a:hover::after, .social-links a:hover::before {

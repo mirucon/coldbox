@@ -394,6 +394,8 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) {
 			$classes[] = 'header-menu-enabled';
+		}if ( has_nav_menu( 'footer-menu' ) ) {
+			$classes[] = 'footer-menu-enabled';
 		}
 		if ( cd_header_sticky() ) {
 			$classes[] = 'sticky-header';

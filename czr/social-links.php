@@ -136,9 +136,10 @@ add_action( 'wp_enqueue_scripts', 'cd_load_icomoon' );
  * Output the social links got from the theme customizer
  *
  * @since 1.1.0
- * @param string $class Custom class that you can set as a parameter.
+ * @param string $class Custom class that can set as a parameter.
+ * @param string $inner_class Custom class that can set as a parameter.
  */
-function cd_social_links( $class = null ) {
+function cd_social_links( $class = null, $inner_class = null ) {
 
 	// @param string $key social account name.
 	// @param string $value social account profile URL user entered.
@@ -157,6 +158,10 @@ function cd_social_links( $class = null ) {
 		$count = count( $active_links );
 
 		echo '<ul class="social-links has-' . absint( $count ) . ' ' . esc_attr( $class ) . ' ">';
+
+		if ( isset( $inner_class ) ) {
+			echo '<div class="' . esc_attr( $inner_class ) . '">';
+		}
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
@@ -197,8 +202,11 @@ function cd_social_links( $class = null ) {
 			<?php
 		} // End foreach().
 
-		echo '</ul>';
+		if ( isset( $inner_class ) ) {
+			echo '</div>';
+		}
 
+		echo '</ul>';
 	} // End if().
 
 }
