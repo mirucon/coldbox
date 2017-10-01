@@ -12,7 +12,7 @@
 
 body #customize-controls h3.czr-heading {
   display: block;
-  margin-top: .6em;
+  margin-top: 0;
   margin-bottom: 0;
   color: #111;
   font-size: 1.14em;
@@ -58,4 +58,25 @@ li[id^='customize-control-sns_button_'] {
 }
 #customize-control-feed_url_info {
   word-wrap: break-word;
+}
+
+[id^='customize-control-'] {
+  padding: 8px 12px 10px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+}
+[id^='customize-control-'] p:nth-child(2) {
+  margin-top: 0;
+}
+
+#sub-accordion-section-single li:not(.customize-section-description-container) {
+  margin-bottom: 0;
+  padding: 8px 12px 10px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+}
+#customize-control-single_content, #customize-control-single_meta, #customize-control-single_related {
+  margin-top: 12px
 }
