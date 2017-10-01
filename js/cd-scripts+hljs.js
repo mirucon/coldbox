@@ -2286,7 +2286,7 @@ jQuery(function($) {
 		scrollHeight = $(document).height();
 		scrollPosition = $(window).height() + $(window).scrollTop();
 		btnHeight = $('a#back-to-top').innerHeight() / 2;
-		footHeight = $('.footer-bottom').innerHeight();
+		footHeight = $('.footer').innerHeight();
 		if ( scrollHeight - scrollPosition < footHeight) {
 			$('#back-to-top').css({'bottom': footHeight});
 			$('a#back-to-top').addClass('abs');
