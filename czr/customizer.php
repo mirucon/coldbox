@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function cd_czr_style() {
-	wp_enqueue_style( 'cd-czr-style', get_template_directory_uri() . '/czr/czr-style.css' );
+	wp_enqueue_style( 'cd-czr-style', get_template_directory_uri() . '/czr/czr-style.css', array(), '1.3.0' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 

@@ -61,8 +61,13 @@ function cd_register_required_plugins() {
 
 		// Load a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => 'Coldbox Addon',
+			'name'      => __( 'Coldbox Addon', 'coldbox' ),
 			'slug'      => 'coldbox-addon',
+			'required'  => false,
+		),
+		array(
+			'name'      => __( 'SNS Count Cache', 'coldbox' ),
+			'slug'      => 'sns-count-cache',
 			'required'  => false,
 		),
 
