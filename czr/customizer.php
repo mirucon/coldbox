@@ -217,6 +217,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 *  Header Settings
 		 * -------------------------------------------------------------------------
 		 */
+		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+
 		$wp_customize->add_section( 'header', array(
 			'title'    => __( 'Coldbox: Header Settings','coldbox' ),
 			'priority' => 1,

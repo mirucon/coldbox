@@ -104,7 +104,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		// Support RSS link.
 		add_theme_support( 'automatic-feed-links' );
 
-		// Support widgets shortcut on customizer.
+		// Support direct widgets editing shortcut on customizer.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
 		// Support all post format.
