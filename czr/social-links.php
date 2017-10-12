@@ -37,6 +37,14 @@ function cd_social_sites() {
 	return apply_filters( 'cd_social_sites', $social_sites );
 }
 
+/**
+ * Content of render_callback.
+ *
+ * @return string
+ **/
+function cd_social_links_render_callback() {
+	return '<a target="_blank" href="' . esc_url( get_theme_mod( 'twitter' ) ) . '"></a>';
+}
 
 /**
  * Register customzer setting for the social links
@@ -106,6 +114,14 @@ function cd_czr_social_links( $wp_customize ) {
 
 		$priority++;
 
+		// Support direct editing shortcut on the customizer for social icons.
+		if ( isset( $wp_customize->selective_refresh ) ) {
+			$wp_customize->selective_refresh->add_partial( $social_site, array(
+				'selector'            => '.social-links',
+				'container_inclusive' => false,
+				'render_callback' => cd_social_links_render_callback(),
+			));
+		}
 	} // End foreach().
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
