@@ -104,6 +104,9 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		// Support RSS link.
 		add_theme_support( 'automatic-feed-links' );
 
+		// Support widgets shortcut on customizer.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
 		// Support all post format.
 		add_theme_support( 'post-formats', array( 'audio', 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
