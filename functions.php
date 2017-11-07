@@ -899,6 +899,32 @@ if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'cd_prev_post_thumbnail' );
 
+if ( ! function_exists( 'cd_modify_archive_title' ) ) {
+	/**
+	 * Modify `the_archive_title()` function to output.
+	 *
+	 * @param string $title The archive title name
+	 * @return string
+	 **/
+	function cd_modify_archive_title( $title ) {
+		if ( is_category() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Category:', 'coldbox' ) . '&#32;</span>' . single_cat_title( '', false ) . '</h1>';
+		} elseif ( is_tag() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Tag:', 'coldbox' ) . '&#32;</span>' . single_tag_title( '', false ) . '</h1>';
+		} elseif ( is_day() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Daily Archive:', 'coldbox' ) . '&#32;</span>' . get_the_date( get_option( 'date_format' ) ) . '</h1>';
+		} elseif ( is_month() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Monthly Archive:', 'coldbox' ) . '&#32;</span>' . get_the_date( _x( 'F, Y', 'Date Format', 'coldbox' ) ) . '</h1>';
+		} elseif ( is_year() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Yearly Archive:', 'coldbox' ) . '&#32;</span>' . get_the_date( 'Y' ) . '</h1>';
+		} elseif ( is_author() ) {
+			$title = '<h1><span class="title-description">' . esc_html__( 'Author:', 'coldbox' ) . '&#32;</span>' . get_the_author_meta( 'display_name' ) . '</h1>';
+		}
+		return $title;
+	}
+}
+add_filter( 'get_the_archive_title', 'cd_modify_archive_title' );
+
 /*
  * -------------------------------------------------------------------------
  *  Theme definitions
