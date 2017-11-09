@@ -7,7 +7,7 @@
  */
 
 if ( is_category() ) : ?>
-	<h1><span class="title-description"><?php esc_html_e( 'Category:', 'coldbox' ); ?>&#32;</span><?php echo single_cat_title(); ?></h1>
+	<?php the_archive_title(); ?>
 	<?php if ( term_description() !== '' ) : ?>
 		<div class="taxonomy-description">
 			<?php echo term_description(); ?>
@@ -16,7 +16,7 @@ if ( is_category() ) : ?>
 
 
 <?php elseif ( is_tag() ) : ?>
-	<h1><span class="title-description"><?php esc_html_e( 'Tag:', 'coldbox' ); ?>&#32;</span><?php echo single_tag_title(); ?></h1>
+	<?php the_archive_title(); ?>
 	<?php if ( term_description() !== '' ) : ?>
 		<div class="taxonomy-description">
 			<?php echo term_description(); ?>
@@ -31,28 +31,28 @@ if ( is_category() ) : ?>
 		</div>
 
 
-	<?php elseif ( is_day() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'Daily Archive:', 'coldbox' ); ?>&#32;</span><?php echo get_the_date( get_option( 'date_format' ) ); ?></h1>
+<?php elseif ( is_day() ) : ?>
+	<?php the_archive_title(); ?>
 
 
-	<?php elseif ( is_month() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'Monthly Archive:', 'coldbox' ); ?>&#32;</span><?php the_time( _x( 'F, Y', 'Date Format', 'coldbox' ) ); ?></h1>
+<?php elseif ( is_month() ) : ?>
+	<?php the_archive_title(); ?>
 
 
-	<?php elseif ( is_year() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'Yearly Archive:', 'coldbox' ); ?>&#32;</span><?php the_time( 'Y' ); ?></h1>
+<?php elseif ( is_year() ) : ?>
+	<?php the_archive_title(); ?>
 
 
-	<?php elseif ( is_author() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'Author:', 'coldbox' ); ?>&#32;</span><?php the_author_meta( 'display_name' ); ?></h1>
-		<?php if ( strlen( the_author_meta( 'description' ) ) > 0 ) : ?>
-			<div class="taxonomy-description">
-				<?php the_author_meta( 'description' ); ?>
-			</div>
-		<?php endif; ?>
+<?php elseif ( is_author() ) : ?>
+	<?php the_archive_title(); ?>
+	<?php if ( strlen( the_author_meta( 'description' ) ) > 0 ) : ?>
+		<div class="taxonomy-description">
+			<?php the_author_meta( 'description' ); ?>
+		</div>
+	<?php endif; ?>
 
 
-	<?php elseif ( is_404() ) : ?>
-		<h1><span class="title-description"><?php esc_html_e( 'ERROR 404.', 'coldbox' ); ?>&#32;</span><?php esc_html_e( 'Sorry, Page Not Found.', 'coldbox' ); ?></h1>
+<?php elseif ( is_404() ) : ?>
+	<h1><span class="title-description"><?php esc_html_e( 'ERROR 404.', 'coldbox' ); ?>&#32;</span><?php esc_html_e( 'Sorry, Page Not Found.', 'coldbox' ); ?></h1>
 
 	<?php endif; ?>
