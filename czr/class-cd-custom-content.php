@@ -27,8 +27,8 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Conten
 		 * @since 1.1.1
 		 */
 		public function render_content() {
-			if ( isset( $this -> content ) ) {
-				echo wp_kses_post( $this -> content );
+			if ( isset( $this->content ) ) {
+				echo wp_kses_post( $this->content );
 			}
 		}
 	}

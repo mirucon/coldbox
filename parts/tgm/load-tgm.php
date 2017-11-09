@@ -61,14 +61,14 @@ function cd_register_required_plugins() {
 
 		// Load a plugin from the WordPress Plugin Repository.
 		array(
-			'name'      => __( 'Coldbox Addon', 'coldbox' ),
-			'slug'      => 'coldbox-addon',
-			'required'  => false,
+			'name'     => __( 'Coldbox Addon', 'coldbox' ),
+			'slug'     => 'coldbox-addon',
+			'required' => false,
 		),
 		array(
-			'name'      => __( 'SNS Count Cache', 'coldbox' ),
-			'slug'      => 'sns-count-cache',
-			'required'  => false,
+			'name'     => __( 'SNS Count Cache', 'coldbox' ),
+			'slug'     => 'sns-count-cache',
+			'required' => false,
 		),
 
 	);
@@ -93,7 +93,7 @@ function cd_register_required_plugins() {
 		'message'      => '',                      // Message to output right before the plugins table.
 
 		'strings'      => array(
-			'page_title'                      => __( 'Install Recommended Plugins', 'coldbox' ),
+			'page_title' => __( 'Install Recommended Plugins', 'coldbox' ),
 		),
 	);
 

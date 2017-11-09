@@ -24,20 +24,20 @@ else :
 				<p>
 					<?php
 					$allowed_html = array(
-						'a' => array(
-							'href' => array(),
+						'a'      => array(
+							'href'    => array(),
 							'onclick' => array(),
+							'target'  => array(),
+						),
+						'p'      => array(
+							'style'  => array(),
+							'align'  => array(),
 							'target' => array(),
 						),
-						'p' => array(
-							'style' => array(),
-							'align' => array(),
-							'target' => array(),
-						),
-						'br' => array(),
+						'br'     => array(),
 						'strong' => array(),
-						'b' => array(),
-						'small' => array(),
+						'b'      => array(),
+						'small'  => array(),
 					);
 					?>
 

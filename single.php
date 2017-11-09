@@ -35,12 +35,10 @@ while ( have_posts() ) :
 									<?php endif; ?>
 
 									<?php if ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
-
 										<?php if ( cd_is_meta_date() ) : ?>
-											 <span class="post-date"><?php the_date(); ?></span>
+											<span class="post-date"><?php the_date(); ?></span>
 										<?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
-										
 									<?php endif; ?>
 
 									<?php if ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_date() ) : ?>
@@ -66,10 +64,10 @@ while ( have_posts() ) :
 									<?php
 									wp_link_pages(
 										$defaults = array(
-											'before' => '<div class="post-pages">',
-											'after' => '</div>',
+											'before'      => '<div class="post-pages">',
+											'after'       => '</div>',
 											'link_before' => '<span class="page-number">',
-											'link_after' => '</span>',
+											'link_after'  => '</span>',
 										)
 									);
 									?>

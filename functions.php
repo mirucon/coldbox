@@ -189,18 +189,18 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) {
 
-			$menu = '<nav id="header-menu">';
+			$menu      = '<nav id="header-menu">';
 				$menu .= wp_nav_menu(
 					array(
 						'theme_location' => 'header-menu',
-						'container'   => '',
-						'menu_class'  => '',
-						'fallback_cb' => 'wp_page_menu',
-						'echo'        => false,
-						'items_wrap'  => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+						'container'      => '',
+						'menu_class'     => '',
+						'fallback_cb'    => 'wp_page_menu',
+						'echo'           => false,
+						'items_wrap'     => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
 					)
 				);
-			$menu .= '</nav>';
+			$menu     .= '</nav>';
 			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
 		}
 	}
@@ -217,18 +217,18 @@ if ( ! function_exists( 'cd_footer_menu' ) ) {
 
 		if ( has_nav_menu( 'footer-menu' ) ) {
 
-			$menu = '<nav id="footer-menu" class="footer-menu"><div class="container">';
+			$menu      = '<nav id="footer-menu" class="footer-menu"><div class="container">';
 				$menu .= wp_nav_menu(
 					array(
 						'theme_location' => 'footer-menu',
-						'container'   => '',
-						'menu_class'  => '',
-						'fallback_cb' => 'wp_page_menu',
-						'echo'        => false,
-						'items_wrap'  => '<ul id="footer-nav" class="menu-container">%3$s</ul><!--/#footer-nav-->',
+						'container'      => '',
+						'menu_class'     => '',
+						'fallback_cb'    => 'wp_page_menu',
+						'echo'           => false,
+						'items_wrap'     => '<ul id="footer-nav" class="menu-container">%3$s</ul><!--/#footer-nav-->',
 					)
 				);
-			$menu .= '</div></nav>';
+			$menu     .= '</div></nav>';
 			echo wp_kses_post( apply_filters( 'cd_footer_menu', $menu ) );
 		}
 	}
@@ -267,24 +267,24 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
 		}
 		$allowed_html = array(
-			'amp-img' => array(
-				'src' => array(),
+			'amp-img'         => array(
+				'src'    => array(),
 				'layout' => array(),
-				'alt' => array(),
+				'alt'    => array(),
 				'height' => array(),
-				'width' => array(),
-				'class' => array(),
+				'width'  => array(),
+				'class'  => array(),
 			),
 			'i-amphtml-sizer' => array(
 				'style' => array(),
 				'class' => array(),
 			),
-			'img' => array(
-				'alt' => array(),
-				'class' => array(),
-				'src' => array(),
+			'img'             => array(
+				'alt'    => array(),
+				'class'  => array(),
+				'src'    => array(),
 				'height' => array(),
-				'width' => array(),
+				'width'  => array(),
 			),
 		);
 		echo wp_kses( apply_filters( 'cd_middle_thumbnail', $thumbnail ), $allowed_html );
@@ -358,26 +358,26 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 	 */
 	function cd_get_avatar() {
 
-		$avater = get_avatar( get_the_author_meta( 'ID' ), 74 );
+		$avater       = get_avatar( get_the_author_meta( 'ID' ), 74 );
 		$allowed_html = array(
-			'amp-img' => array(
-				'src' => array(),
+			'amp-img'         => array(
+				'src'    => array(),
 				'layout' => array(),
-				'alt' => array(),
+				'alt'    => array(),
 				'height' => array(),
-				'width' => array(),
-				'class' => array(),
+				'width'  => array(),
+				'class'  => array(),
 			),
 			'i-amphtml-sizer' => array(
 				'style' => array(),
 				'class' => array(),
 			),
-			'img' => array(
-				'alt' => array(),
-				'class' => array(),
-				'src' => array(),
+			'img'             => array(
+				'alt'    => array(),
+				'class'  => array(),
+				'src'    => array(),
 				'height' => array(),
-				'width' => array(),
+				'width'  => array(),
 			),
 		);
 		echo wp_kses( apply_filters( 'cd_get_avatar', $avater ), $allowed_html );
@@ -552,14 +552,14 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 			$contents = '';
 			ob_start();
 			apply_filters( 'cd_single_middle_contents', $contents );
-			$contents = ob_get_clean();
+			$contents  = ob_get_clean();
 			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
 			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
 			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
-				$count = 1;
+				$count       = 1;
 				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
 			} elseif ( ! is_null( $h3_result ) ) { // If no h2 tag, but h3 tag is found.
-				$count = 1;
+				$count       = 1;
 				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
 			}
 		}
@@ -685,16 +685,16 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 		} elseif ( is_category() ) {
 			global $wp_query;
 			$current_cat = $wp_query->get_queried_object();
-			$cat = $wp_query->get_queried_object();
+			$cat         = $wp_query->get_queried_object();
 
-			if ( $cat -> parent ) { // If the category has parent category.
-				$parent = array();
+			if ( $cat->parent ) { // If the category has parent category.
+				$parent     = array();
 				$parent_url = array();
 				while ( $cat->parent ) {
-					$cat = get_category( $cat -> parent );
-					$cat_name = $cat -> name;
-					$cat_url = get_category_link( $cat -> cat_ID );
-					$parent = array_merge(
+					$cat      = get_category( $cat->parent );
+					$cat_name = $cat->name;
+					$cat_url  = get_category_link( $cat->cat_ID );
+					$parent   = array_merge(
 						$parent, array(
 							$cat_name => $cat_url,
 						)
@@ -704,7 +704,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 				foreach ( $parent_rev as $key => $value ) {
 					echo '<a href="' . esc_url( $value ) . '">' . esc_html( $key ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 				}
-				echo '<span>' . esc_html( $current_cat -> name ) . '</span>';
+				echo '<span>' . esc_html( $current_cat->name ) . '</span>';
 			} else {
 				echo esc_html( $cat->name );
 			}
@@ -881,14 +881,14 @@ if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
 		$next_post = get_next_post();
 
 		if ( ! empty( $prev_post ) && is_single() && cd_is_post_nav() ) {
-			$prevthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_previous_post() -> ID ), array( 600, 600 ), false, '' );
+			$prevthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_previous_post()->ID ), array( 600, 600 ), false, '' );
 
 			if ( $prevthumbnail ) {
 				wp_add_inline_style( 'cd-style', '.prev .post-thumbnail{background-image:url("' . $prevthumbnail[0] . '")}' );
 			}
 		}
 		if ( ! empty( $next_post ) && is_single() && cd_is_post_nav() ) {
-			$nextthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_next_post() -> ID ), array( 600, 600 ), false, '' );
+			$nextthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_next_post()->ID ), array( 600, 600 ), false, '' );
 
 			if ( $nextthumbnail ) {
 				wp_add_inline_style( 'cd-style', '.next .post-thumbnail{background-image:url("' . $nextthumbnail[0] . '")}' );
@@ -903,7 +903,7 @@ if ( ! function_exists( 'cd_modify_archive_title' ) ) {
 	/**
 	 * Modify `the_archive_title()` function to output.
 	 *
-	 * @param string $title The archive title name
+	 * @param string $title The archive title name.
 	 * @return string
 	 **/
 	function cd_modify_archive_title( $title ) {
