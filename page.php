@@ -59,10 +59,10 @@ while ( have_posts() ) :
 								<?php
 								wp_link_pages(
 									$defaults = array(
-										'before' => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ),
-										'after' => '</div>',
+										'before'      => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ),
+										'after'       => '</div>',
 										'link_before' => '<span class="page-number">',
-										'link_after' => '</span>',
+										'link_after'  => '</span>',
 									)
 								);
 								?>

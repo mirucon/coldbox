@@ -23,18 +23,18 @@ if ( have_comments() === false && comments_open() === false ) {
 		<?php
 		$commentcount = get_comments(
 			array(
-				'status' => 'approve',
+				'status'  => 'approve',
 				'post_id' => get_the_ID(),
-				'type' => 'comment',
-				'count' => true,
+				'type'    => 'comment',
+				'count'   => true,
 			)
 		);
-		$pingcount = get_comments(
+		$pingcount    = get_comments(
 			array(
-				'status' => 'approve',
+				'status'  => 'approve',
 				'post_id' => get_the_ID(),
-				'type' => 'pings',
-				'count' => true,
+				'type'    => 'pings',
+				'count'   => true,
 			)
 		);
 		?>
@@ -45,12 +45,12 @@ if ( have_comments() === false && comments_open() === false ) {
 		</ul>
 
 		<?php if ( ! empty( $comments_by_type['comment'] ) ) : ?>
-		
+
 			<ol id="comment-list">
 				<?php
 				wp_list_comments(
 					array(
-						'type' => 'comment',
+						'type'        => 'comment',
 						'avatar_size' => 42,
 					)
 				);
@@ -77,9 +77,9 @@ if ( have_comments() === false && comments_open() === false ) {
 				<?php
 				wp_list_comments(
 					array(
-						'type' => 'pings',
+						'type'        => 'pings',
 						'avatar_size' => 50,
-						'short_ping' => true,
+						'short_ping'  => true,
 					)
 				);
 				?>

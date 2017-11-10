@@ -23,8 +23,10 @@ class CD_Social_Links extends WP_Widget {
 
 	/**
 	 * Register the widget
+	 *
+	 * @access public
 	 */
-	function __construct() {
+	public function __construct() {
 		parent::__construct(
 			'cd_widget_social_links', // Base ID.
 			__( '[Coldbox] Social Links', 'coldbox' ), // Name.
@@ -42,7 +44,7 @@ class CD_Social_Links extends WP_Widget {
 	 * @param array $instance Widget settings.
 	 */
 	public function widget( $args, $instance ) {
-		$title = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this -> id_base ) : '';
+		$title = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) : '';
 		echo wp_kses_post( $args['before_widget'] );
 
 		if ( ! empty( $title ) ) {
@@ -88,7 +90,7 @@ class CD_Social_Links extends WP_Widget {
 	 * @return string title.
 	 **/
 	public function update( $new_instance, $old_instance ) {
-		$instance = array();
+		$instance          = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
 		return $instance;
 	}
