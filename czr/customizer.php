@@ -40,7 +40,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
 		}
 		/**
-		 * Define the sanitization function for radio bottom / select boxes.
+		 * Define the sanitization function for radio button / select boxes.
 		 *
 		 * @since 1.0.0
 		 * @param string $input The strings that will be checked.
