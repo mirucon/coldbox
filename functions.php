@@ -789,6 +789,10 @@ if ( ! function_exists( 'cd_excerpt_length' ) ) {
 	 * @param int $length The length.
 	 */
 	function cd_excerpt_length( $length ) {
+		if ( is_admin() ) {
+			return $length;
+		}
+
 		return cd_czr_excerpt_length( $length );
 	}
 }
@@ -803,6 +807,10 @@ if ( ! function_exists( 'cd_excerpt_more' ) ) {
 	 * @param string $more The ending strings.
 	 */
 	function cd_excerpt_more( $more ) {
+		if ( is_admin() ) {
+			return $more;
+		}
+
 		return cd_czr_excerpt_ending( $more );
 	}
 }
@@ -930,7 +938,7 @@ add_filter( 'get_the_archive_title', 'cd_modify_archive_title' );
  *  Theme definitions
  * -------------------------------------------------------------------------
  */
-define( 'CD_VER', '1.3.1' );
+define( 'CD_VER', '1.3.2' );
 
 /*
  * -------------------------------------------------------------------------

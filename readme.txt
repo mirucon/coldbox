@@ -1,9 +1,9 @@
 === Coldbox ===
 Contributors: mirucon
-Requires at least: version 4.5 or higher
-Tested up to: WordPress 4.8.1
+Requires at least: 4.5
+Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.3.1
+Version: 1.3.2
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -54,10 +54,15 @@ URL: http://tgmpluginactivation.com/
 
 == Changelog ==
 
+= 1.3.2 =
+
+* Fixed: Now the Coldbox theme uses more modern functions
+* Tested up to 4.9
+
 = 1.3.1 =
 
-- Added: Direct editing links for social links on customizer
-- Improved: Customizer
+* Added: Direct editing links for social links on customizer
+* Improved: Customizer
 
 = 1.3.0 =
 
