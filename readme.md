@@ -1,6 +1,6 @@
 # Coldbox
 
-[![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox)
+[![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ![coldbox-screenshot](/screenshot.jpg)
 
@@ -18,8 +18,8 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
 ## Getting Started
-You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) once after theme installed.  
-To get official child theme, visit the [Coldbox official site](https://coldbox.miruc.co/)
+You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) once the theme installed.  
+To get a base of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
 <!-- **Documentation** -->
 
 ### Add-on Plugin
