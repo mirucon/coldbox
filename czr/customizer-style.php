@@ -138,6 +138,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_color_footer );
 		}
 
+		// Footer Background Color.
+		if ( get_theme_mod( 'footer_menu_color', '#dddddd' ) !== '#dddddd' ) {
+			$color_footer_menu     = get_theme_mod( 'footer_menu_color' );
+			$czr_color_footer_menu = ".footer-menu { background-color: $color_footer_menu; } ";
+			wp_add_inline_style( 'cd-style', $czr_color_footer_menu );
+		}
+
 		// Related Posts Columns.
 		if ( get_theme_mod( 'single_related_col', 3 ) !== 3 ) {
 			$rel_col     = get_theme_mod( 'single_related_col' );

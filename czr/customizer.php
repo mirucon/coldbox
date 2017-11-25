@@ -1097,6 +1097,23 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Footer Menu Background Color.
+		$wp_customize->add_setting(
+			'footer_menu_color', array(
+				'default'           => '#dddddd',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'footer_menu_color', array(
+					'label'    => __( 'Footer Background Color', 'coldbox' ),
+					'section'  => 'colors',
+					'settings' => 'footer_color',
+					'priority' => 100,
+				)
+			)
+		);
 		$wp_customize->get_setting( 'header_textcolor' )->default  = '#444444';
 		$wp_customize->get_control( 'header_textcolor' )->priority = 50;
 		$wp_customize->get_control( 'background_color' )->priority = 22;
