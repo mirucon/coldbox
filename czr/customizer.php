@@ -422,7 +422,24 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'grid_columns', array(
-					'label'    => __( 'Grid Columns', 'coldbox' ),
+					'label'    => __( 'Grid Columns for Desktop & Tablet', 'coldbox' ),
+					'section'  => 'index',
+					'priority' => 2,
+					'type'     => 'number',
+				)
+			)
+		);
+		// Grid Columns for mobile.
+		$wp_customize->add_setting(
+			'grid_columns_mobile', array(
+				'default'           => 1,
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'grid_columns_mobile', array(
+					'label'    => __( 'Grid Columns for Mobile', 'coldbox' ),
 					'section'  => 'index',
 					'priority' => 2,
 					'type'     => 'number',
@@ -1073,6 +1090,23 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize, 'footer_color', array(
+					'label'    => __( 'Footer Background Color', 'coldbox' ),
+					'section'  => 'colors',
+					'settings' => 'footer_color',
+					'priority' => 100,
+				)
+			)
+		);
+		// Footer Menu Background Color.
+		$wp_customize->add_setting(
+			'footer_menu_color', array(
+				'default'           => '#dddddd',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'footer_menu_color', array(
 					'label'    => __( 'Footer Background Color', 'coldbox' ),
 					'section'  => 'colors',
 					'settings' => 'footer_color',
