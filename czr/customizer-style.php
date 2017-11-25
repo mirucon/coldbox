@@ -48,13 +48,19 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_style_htags );
 		}
 
-		// Add decorations to h tags.
+		// Change grid columns for desktop & tablet.
 		if ( get_theme_mod( 'grid_columns', 2 ) !== 2 ) {
 			$grid_columns   = get_theme_mod( 'grid_columns' );
 			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= ".grid-view .article { width: $width_percents; }";
+			$czr_style     .= ".grid-view .article{width: $width_percents;}";
 			wp_add_inline_style( 'cd-style', $czr_style );
 		}
+
+		// Change grid columns for mobile.
+		$grid_columns   = get_theme_mod( 'grid_columns_mobile', 2 );
+		$width_percents = 100 / $grid_columns . '%';
+		$czr_style     .= "@media screen and (max-width: 640px){.grid-view .article{width: $width_percents;}}";
+		wp_add_inline_style( 'cd-style', $czr_style );
 
 		// Link Color.
 		if ( get_theme_mod( 'link_color', '#00619f' ) !== '#00619f' ) {

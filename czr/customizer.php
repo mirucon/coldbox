@@ -422,7 +422,24 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'grid_columns', array(
-					'label'    => __( 'Grid Columns', 'coldbox' ),
+					'label'    => __( 'Grid Columns for Desktop & Tablet', 'coldbox' ),
+					'section'  => 'index',
+					'priority' => 2,
+					'type'     => 'number',
+				)
+			)
+		);
+		// Grid Columns for mobile.
+		$wp_customize->add_setting(
+			'grid_columns_mobile', array(
+				'default'           => 1,
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'grid_columns_mobile', array(
+					'label'    => __( 'Grid Columns for Mobile', 'coldbox' ),
 					'section'  => 'index',
 					'priority' => 2,
 					'type'     => 'number',
