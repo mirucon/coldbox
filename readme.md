@@ -67,6 +67,13 @@ Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
 
+1.3.3
+
+* Added: New customizer settings:
+  * Change the footer menu color
+  * Set the number of grid columns for mobile
+* Fixed: Archive pages layout when the number of grid columns is set more than one for mobile
+
 1.3.2
 
 - Fixed: Now the Coldbox theme uses more modern functions
