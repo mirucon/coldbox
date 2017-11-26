@@ -1107,7 +1107,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize, 'footer_menu_color', array(
-					'label'    => __( 'Footer Background Color', 'coldbox' ),
+					'label'    => __( 'Footer Menu Background Color', 'coldbox' ),
 					'section'  => 'colors',
 					'settings' => 'footer_color',
 					'priority' => 100,
