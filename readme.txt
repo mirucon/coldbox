@@ -1,6 +1,6 @@
 === Coldbox ===
 Contributors: mirucon
-Requires at least: 4.5
+Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
 Version: 1.3.3
