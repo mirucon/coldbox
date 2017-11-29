@@ -54,8 +54,8 @@ function cd_social_links_render_callback() {
  */
 function cd_czr_social_links( $wp_customize ) {
 
-	$feed_url   = esc_url_raw( get_bloginfo( 'rss2_url' ) );
-	$feedly_url = esc_url_raw( 'https://cloud.feedly.com/#subscription/feed/' . get_bloginfo( 'rss2_url' ) );
+	$feed_url   = get_bloginfo( 'rss2_url' );
+	$feedly_url = 'https://cloud.feedly.com/#subscription/feed/' . get_bloginfo( 'rss2_url' );
 
 	$wp_customize->add_setting(
 		'feed_url_info', array(
@@ -65,7 +65,7 @@ function cd_czr_social_links( $wp_customize ) {
 	$wp_customize->add_control(
 		new CD_Custom_Content(
 			$wp_customize, 'feed_url_info', array(
-				'content'  => sprintf( /* Translators: %s: The feed URL */ __( '<p>Your Feed URL is: </p>%s', 'coldbox' ), $feed_url ) . '<br>' . sprintf( /* Translators: %s: The feedly URL */ __( '<p>Your Feedly URL is: </p>%s', 'coldbox' ), $feedly_url ),
+				'content'  => sprintf( /* Translators: %s: The feed URL */ __( '<p>Your Feed URL is: </p>%s', 'coldbox' ), esc_url( $feed_url ) ) . '<br>' . sprintf( /* Translators: %s: The Feedly URL */ __( '<p>Your Feedly URL is: </p>%s', 'coldbox' ), esc_url( $feedly_url ) ),
 				'section'  => 'social_links',
 				'priority' => 1000,
 			)
@@ -104,7 +104,7 @@ function cd_czr_social_links( $wp_customize ) {
 		} elseif ( 'facebook-official' === $social_site ) {
 			$label = 'Facebook';
 		} elseif ( 'linkedin-square' === $social_site ) {
-			$label = 'Linkedin';
+			$label = 'LinkedIn';
 		}
 
 		$priority = 5;
@@ -242,4 +242,4 @@ function cd_social_links( $class = null, $inner_class = null ) {
 }
 
 // Load the widget template.
-get_template_part( 'czr/class-cd-social-links' );
+require_once get_theme_file_path( 'czr/class-cd-social-links.php' );

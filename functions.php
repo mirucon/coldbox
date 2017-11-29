@@ -76,7 +76,7 @@ if ( ! function_exists( 'cd_czr' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_czr() {
-		get_template_part( 'czr/customizer' );
+		require_once get_theme_file_path( 'czr/customizer.php' );
 	}
 }
 add_action( 'after_setup_theme', 'cd_czr' );
@@ -111,7 +111,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'post-formats', array( 'audio', 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
 		// Support HTML5.
-		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption' ) );
 
 		// Support custom header.
 		add_theme_support(
@@ -323,7 +323,7 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 		if ( has_post_thumbnail() ) {
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
 		} elseif ( cd_index_placefolder_image() ) {
-			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
 		} else {
 			return;
 		}
@@ -344,7 +344,7 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 		comments_template( '/comments.php', true );
 		$template = ob_get_clean();
 		// @codingStandardsIgnoreStart
-		echo apply_filters( 'cd_comments_template', $template );
+		echo apply_filters( 'cd_comments_template', $template ); // WPCS: XSS OK.
 		// @codingStandardsIgnoreEnd
 	}
 }
@@ -352,7 +352,7 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 if ( ! function_exists( 'cd_get_avatar' ) ) {
 
 	/**
-	 * Echo user avater for the author box.
+	 * Echo user avatar for the author box.
 	 *
 	 * @since 1.1.6
 	 */
@@ -456,10 +456,11 @@ add_action( 'widgets_init', 'cd_widgets_init' );
 if ( ! function_exists( 'cd_cat_widget_count' ) ) {
 
 	/**
-	 * Make the counts surround with brankets on category widgets.
+	 * Make the counts surround with brackets on category widgets.
 	 *
-	 * @param string $output Return the count with brankets.
+	 * @param string $output Return the count with brackets.
 	 * @param string $args The widget arguments.
+	 * @return string $output and $args with .count class.
 	 * @since 1.0.0
 	 */
 	function cd_cat_widget_count( $output, $args ) {

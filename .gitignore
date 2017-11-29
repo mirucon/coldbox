@@ -11,4 +11,5 @@ dist
 assets/js/cd-scripts.js
 
 composer.lock
+/.idea/
 /vendor/

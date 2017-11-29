@@ -61,8 +61,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			return sanitize_text_field( $text );
 		}
 
-		// To output HTML.
-		get_template_part( 'czr/class-cd-custom-content' );
+		// Load the file to use custom content.
+		require_once get_theme_file_path( 'czr/class-cd-custom-content.php' );
 
 		/*
 		 * -------------------------------------------------------------------------
@@ -1439,10 +1439,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 add_action( 'customize_register', 'cd_customize_register' );
 
 // Load Social Links Setting.
-get_template_part( 'czr/social-links' );
+require_once get_theme_file_path( 'czr/social-links.php' );
 
 // Load Font Setting.
-get_template_part( 'czr/customizer-font' );
+require_once get_theme_file_path( 'czr/customizer-font.php' );
 
 // Load the inline styles got from the theme customizer.
-get_template_part( 'czr/customizer-style' );
+require_once get_theme_file_path( 'czr/customizer-style.php' );
