@@ -24,7 +24,7 @@ Email: i@miruc.co
 
 == Copyright ==
 Coldbox WordPress Theme, Copyright 2017 Mirucon
-The Coldbox theme is distributed 100% under the GNU General Public License v2.0.
+The Coldbox theme is distributed 100% under the terms of GNU GPL.
 URL: http://www.gnu.org/licenses/gpl-2.0.html
 
 FontAwesome License
@@ -51,6 +51,12 @@ Created by @benjsperry
 TGM Plugin Activation License
 License - GPL v2 or later
 URL: http://tgmpluginactivation.com/
+
+All the photos used in the screenshots are all licensed CC0.
+* https://pixabay.com/en/computer-computer-code-screen-1209641/
+* https://unsplash.com/photos/Azli_kcxRNE
+* https://unsplash.com/photos/z06kuSSlIeY
+* https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
 
