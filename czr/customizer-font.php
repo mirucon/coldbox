@@ -55,7 +55,7 @@ if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 	 */
 	function cd_customizer_font_set() {
 
-		$font = get_theme_mod( 'global_font', 'sourcesanspro' );
+		$font = esc_html( get_theme_mod( 'global_font', 'sourcesanspro' ) );
 
 		if ( 'opensans' === $font ) {
 			$font = 'Open Sans';
