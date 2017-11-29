@@ -156,7 +156,7 @@ function cd_is_links_on_author_box() {
  */
 function cd_load_icomoon() {
 	if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
-		wp_enqueue_style( 'icomoon', get_template_directory_uri() . '/fonts/icomoon/icomoon.min.css' );
+		wp_enqueue_style( 'icomoon', get_theme_file_uri( 'fonts/icomoon/icomoon.min.css' ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'cd_load_icomoon' );

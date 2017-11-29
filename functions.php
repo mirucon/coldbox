@@ -14,18 +14,18 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_scripts() {
-		wp_enqueue_style( 'FontAwesome', get_template_directory_uri() . '/fonts/fontawesome/css/font-awesome.min.css' );
+		wp_enqueue_style( 'FontAwesome', get_theme_file_uri( 'fonts/fontawesome/css/font-awesome.min.css' ) );
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 		if ( cd_use_minified_css() ) {
-			wp_enqueue_style( 'cd-style', get_template_directory_uri() . '/assets/css/cd-style.min.css', array(), CD_VER );
+			wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/cd-style.min.css' ), array(), CD_VER );
 		} else {
-			wp_enqueue_style( 'cd-style', get_template_directory_uri() . '/style.css', array(), CD_VER );
+			wp_enqueue_style( 'cd-style', get_theme_file_uri( 'style.css' ), array(), CD_VER );
 		}
 		if ( cd_use_minified_js() ) {
-			wp_enqueue_script( 'cd-script', get_template_directory_uri() . '/assets/js/cd-scripts.min.js', array( 'jquery' ), CD_VER, true );
+			wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts.min.js' ), array( 'jquery' ), CD_VER, true );
 		} else {
-			wp_enqueue_script( 'cd-script', get_template_directory_uri() . '/js/cd-scripts.js', array( 'jquery' ), CD_VER, true );
+			wp_enqueue_script( 'cd-script', get_theme_file_uri( 'js/cd-scripts.js' ), array( 'jquery' ), CD_VER, true );
 		}
 		wp_add_inline_script( 'cd-script', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		// Load Masonry for making responsive sidebar.
@@ -61,7 +61,7 @@ if ( ! function_exists( 'cd_loads' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_loads() {
-		load_theme_textdomain( 'coldbox', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'coldbox', get_theme_file_path( 'languages' ) );
 		add_editor_style( 'parts/editor-style.min.css' );
 	}
 }
@@ -246,7 +246,7 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 		if ( has_post_thumbnail() ) {
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
 		} else {
-			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'img/thumb-standard.png' ) ) . '" alt="noimage" height="250" width="500">';
 		}
 		echo wp_kses_post( apply_filters( 'cd_standard_thumbnail', $thumbnail ) );
 	}
@@ -264,7 +264,7 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		if ( has_post_thumbnail() ) {
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
 		} else {
-			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'img/thumb-medium.png' ) ) . '" alt="noimage" height="250" width="500">';
 		}
 		$allowed_html = array(
 			'amp-img'         => array(
@@ -303,7 +303,7 @@ if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 		if ( has_post_thumbnail() ) {
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
 		} elseif ( cd_index_placefolder_image() ) {
-			$thumbnail = '<img src="' . esc_attr( get_template_directory_uri() . '/img/thumb-medium.png' ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'img/thumb-medium.png' ) ) . '" alt="noimage" height="250" width="500">';
 		} else {
 			return;
 		}
@@ -323,7 +323,7 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 		if ( has_post_thumbnail() ) {
 			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
 		} elseif ( cd_index_placefolder_image() ) {
-			$thumbnail = '<img src="' . esc_url( get_template_directory_uri() . '/img/thumb-standard.png' ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'img/thumb-standard.png' ) ) . '" alt="noimage" height="250" width="500">';
 		} else {
 			return;
 		}
@@ -736,24 +736,24 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs', get_template_directory_uri() . '/assets/js/cd-scripts+hljs.min.js', array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/cd-scripts+hljs.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight.js', array(), '9.12.0' );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'js/highlight.js' ), array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'js/highlight-web.js' ), array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_template_directory_uri() . '/assets/js/cd-scripts+hljs_web.min.js', array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_template_directory_uri() . '/js/highlight-web.js', array(), '9.12.0' );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'js/highlight-web.js' ), array(), '9.12.0' );
 				}
 			}
 
