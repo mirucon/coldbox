@@ -64,6 +64,13 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		// Load the file to use custom content.
 		require_once get_theme_file_path( 'czr/class-cd-custom-content.php' );
 
+		/**
+		 * Add postMessage support for site title and description for the Theme Customizer.
+		 */
+		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
+		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
 		/*
 		 * -------------------------------------------------------------------------
 		 *  Global Settings
