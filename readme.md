@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.3.3  
+**Version**: 1.4.0  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
