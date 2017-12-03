@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: coldbox\n"
-"POT-Creation-Date: 2017-11-29 20:36+1300\n"
+"POT-Creation-Date: 2017-12-03 19:05+1300\n"
 "PO-Revision-Date: 2017-08-08 17:37+0900\n"
 "Last-Translator: \n"
 "Language-Team: https://coldbox.miruc.co/\n"
@@ -370,15 +370,15 @@ msgid ""
 "> [url] -> This site's URL, <br/> [name] -> This site's name."
 msgstr ""
 
-#: czr/customizer.php:959 czr/customizer.php:1407
+#: czr/customizer.php:959 czr/customizer.php:1413
 msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: czr/customizer.php:959 czr/customizer.php:1407
+#: czr/customizer.php:959 czr/customizer.php:1413
 msgid "https://miruc.co/"
 msgstr ""
 
-#: czr/customizer.php:959 czr/customizer.php:1407
+#: czr/customizer.php:959 czr/customizer.php:1413
 msgid "Mirucon"
 msgstr ""
 
@@ -459,47 +459,51 @@ msgstr ""
 msgid "Push Notification"
 msgstr ""
 
-#: functions.php:145
+#: functions.php:174
 msgid "Header Menu"
 msgstr ""
 
-#: functions.php:146
+#: functions.php:175
 msgid "Footer Menu"
 msgstr ""
 
-#: functions.php:442
+#: functions.php:471
 msgid "Sidebar"
 msgstr ""
 
-#: functions.php:444
+#: functions.php:473
 msgid "Add widgets here"
 msgstr ""
 
-#: functions.php:920
+#: functions.php:712
+msgid "Attachment"
+msgstr ""
+
+#: functions.php:894
 msgid "Category:"
 msgstr ""
 
-#: functions.php:922
+#: functions.php:896
 msgid "Tag:"
 msgstr ""
 
-#: functions.php:924
+#: functions.php:898
 msgid "Daily Archive:"
 msgstr ""
 
-#: functions.php:926
+#: functions.php:900
 msgid "Monthly Archive:"
 msgstr ""
 
-#: functions.php:926
+#: functions.php:900
 msgid "F, Y"
 msgstr ""
 
-#: functions.php:928
+#: functions.php:902
 msgid "Yearly Archive:"
 msgstr ""
 
-#: functions.php:930
+#: functions.php:904
 msgid "Author:"
 msgstr ""
 
@@ -531,80 +535,80 @@ msgstr ""
 msgid "Related Posts"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:327
+#: parts/tgm/class-tgm-plugin-activation.php:326
 msgid "Install Required Plugins"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:328
+#: parts/tgm/class-tgm-plugin-activation.php:327
 msgid "Install Plugins"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:330
+#: parts/tgm/class-tgm-plugin-activation.php:329
 #, php-format
 msgid "Installing Plugin: %s"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:332
+#: parts/tgm/class-tgm-plugin-activation.php:331
 #, php-format
 msgid "Updating Plugin: %s"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:333
+#: parts/tgm/class-tgm-plugin-activation.php:332
 msgid "Something went wrong with the plugin API."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:385
+#: parts/tgm/class-tgm-plugin-activation.php:384
 msgid "Return to Required Plugins Installer"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:386
+#: parts/tgm/class-tgm-plugin-activation.php:385
 #: parts/tgm/class-tgm-plugin-activation.php:829
 #: parts/tgm/class-tgm-plugin-activation.php:2552
-#: parts/tgm/class-tgm-plugin-activation.php:3571
+#: parts/tgm/class-tgm-plugin-activation.php:3572
 msgid "Return to the Dashboard"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:387
-#: parts/tgm/class-tgm-plugin-activation.php:3178
+#: parts/tgm/class-tgm-plugin-activation.php:386
+#: parts/tgm/class-tgm-plugin-activation.php:3179
 msgid "Plugin activated successfully."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:388
+#: parts/tgm/class-tgm-plugin-activation.php:387
 msgid "The following plugin was activated successfully:"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:390
+#: parts/tgm/class-tgm-plugin-activation.php:389
 #, php-format
 msgid "No action taken. Plugin %1$s was already active."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:392
+#: parts/tgm/class-tgm-plugin-activation.php:391
 #, php-format
 msgid ""
 "Plugin not activated. A higher version of %s is needed for this theme. "
 "Please update the plugin."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:394
+#: parts/tgm/class-tgm-plugin-activation.php:393
 #, php-format
 msgid "All plugins installed and activated successfully. %1$s"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:395
+#: parts/tgm/class-tgm-plugin-activation.php:394
 msgid "Dismiss this notice"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:396
+#: parts/tgm/class-tgm-plugin-activation.php:395
 msgid ""
 "There are one or more required or recommended plugins to install, update or "
 "activate."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:397
+#: parts/tgm/class-tgm-plugin-activation.php:396
 msgid "Please contact the administrator of this site for help."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:523
+#: parts/tgm/class-tgm-plugin-activation.php:522
 msgid "Update Required"
 msgstr ""
 
@@ -768,79 +772,79 @@ msgstr ""
 msgid "No plugins are available to be updated at this time."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:2927
+#: parts/tgm/class-tgm-plugin-activation.php:2928
 msgid "No plugins were selected to be activated. No action taken."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:2953
+#: parts/tgm/class-tgm-plugin-activation.php:2954
 msgid "No plugins are available to be activated at this time."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3177
+#: parts/tgm/class-tgm-plugin-activation.php:3178
 msgid "Plugin activation failed."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3489
+#: parts/tgm/class-tgm-plugin-activation.php:3490
 #, php-format
 msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3492
+#: parts/tgm/class-tgm-plugin-activation.php:3493
 #, php-format
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3494
+#: parts/tgm/class-tgm-plugin-activation.php:3495
 #, php-format
 msgid "The installation of %1$s failed."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3498
+#: parts/tgm/class-tgm-plugin-activation.php:3499
 msgid ""
 "The installation and activation process is starting. This process may take a "
 "while on some hosts, so please be patient."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3500
+#: parts/tgm/class-tgm-plugin-activation.php:3501
 #, php-format
 msgid "%1$s installed and activated successfully."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3500
-#: parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3501
+#: parts/tgm/class-tgm-plugin-activation.php:3509
 msgid "Show Details"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3500
-#: parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3501
+#: parts/tgm/class-tgm-plugin-activation.php:3509
 msgid "Hide Details"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3501
+#: parts/tgm/class-tgm-plugin-activation.php:3502
 msgid "All installations and activations have been completed."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3503
+#: parts/tgm/class-tgm-plugin-activation.php:3504
 #, php-format
 msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3506
+#: parts/tgm/class-tgm-plugin-activation.php:3507
 msgid ""
 "The installation process is starting. This process may take a while on some "
 "hosts, so please be patient."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3508
+#: parts/tgm/class-tgm-plugin-activation.php:3509
 #, php-format
 msgid "%1$s installed successfully."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3509
+#: parts/tgm/class-tgm-plugin-activation.php:3510
 msgid "All installations have been completed."
 msgstr ""
 
-#: parts/tgm/class-tgm-plugin-activation.php:3511
+#: parts/tgm/class-tgm-plugin-activation.php:3512
 #, php-format
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
 msgstr ""
