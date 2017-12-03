@@ -33,7 +33,6 @@
 */
 
 // @codingStandardsIgnoreStart
-
 if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 	/**
@@ -282,7 +281,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *               (Inside this class context, the __set() method if not used as there is direct access.)
 		 */
 		public function __set( $name, $value ) {
-			return;
+			return; // WPCS: Empty statemment OK.
 		}
 
 		/**
@@ -331,38 +330,38 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				/* translators: %s: plugin name. */
 				'updating'                        => __( 'Updating Plugin: %s', 'coldbox' ),
 				'oops'                            => __( 'Something went wrong with the plugin API.', 'coldbox' ),
+				/* translators: 1: plugin name(s). */
 				'notice_can_install_required'     => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
 					'coldbox'
 				),
+				/* translators: 1: plugin name(s). */
 				'notice_can_install_recommended'  => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
 					'coldbox'
 				),
+				/* translators: 1: plugin name(s). */
 				'notice_ask_to_update'            => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
 					'coldbox'
 				),
+				/* translators: 1: plugin name(s). */
 				'notice_ask_to_update_maybe'      => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
 					'coldbox'
 				),
+				/* translators: 1: plugin name(s). */
 				'notice_can_activate_required'    => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
 					'coldbox'
 				),
+				/* translators: 1: plugin name(s). */
 				'notice_can_activate_recommended' => _n_noop(
-					/* translators: 1: plugin name(s). */
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
 					'coldbox'
@@ -740,7 +739,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 				$method = ''; // Leave blank so WP_Filesystem can populate it as necessary.
 
-				if ( false === ( $creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, array() ) ) ) {
+				$creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, array() );
+				if ( false === $creds ) {
 					return true;
 				}
 
@@ -2838,7 +2838,8 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				$method = ''; // Leave blank so WP_Filesystem can populate it as necessary.
 				$fields = array_keys( $_POST ); // Extra fields to pass to WP_Filesystem.
 
-				if ( false === ( $creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, $fields ) ) ) {
+				$creds = request_filesystem_credentials( esc_url_raw( $url ), $method, false, false, $fields );
+				if ( false === $creds ) {
 					return true; // Stop the normal page form from displaying, credential request form will be shown.
 				}
 
@@ -3749,4 +3750,4 @@ if ( ! class_exists( 'TGMPA_Utils' ) ) {
 		}
 	} // End of class TGMPA_Utils
 } // End of class_exists wrapper
-// @codingStandardsIgnoreEnd.
+// @codingStandardsIgnoreEnd
