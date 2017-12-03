@@ -117,9 +117,10 @@ gulp.task( 'sass-dev', function() {
 
 gulp.task( 'copy', function() {
   return gulp.src(
-    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
-      'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
-      'languages/coldbox.pot', 'assets/js/*.js', 'assets/css/*.css', 'parts/tgm/*.php', 'page-templates/*.php' ],
+    [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css',
+      'parts/*.php', 'parts/*.css', 'parts/tgm/*.php', 'page-templates/*.php', 'js/*.js', 'img/*.*', 'czr/*.*',
+      'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*',
+      'languages/coldbox.pot', 'assets/js/*.js', 'assets/css/*.css' ],
     { base: '.' }
   )
   .pipe( gulp.dest( 'dist' ) );
