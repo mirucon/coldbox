@@ -112,7 +112,7 @@ gulp.task( 'sass-dev', function() {
   return gulp.src(['sass/*.scss'])
   .pipe(sass({outputStyle: 'expanded',}))
   .pipe(postcss(processors))
-  .pipe(gulp.dest('.'));
+  .pipe(gulp.dest('assets/css/'));
 });
 
 gulp.task( 'copy', function() {
