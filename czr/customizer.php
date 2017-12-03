@@ -26,7 +26,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 * Register customzer settings.
 	 *
 	 * @since 1.0.0
-	 * @param string $wp_customize the customizations registered.
+	 * @param WP_Customize_Manager $wp_customize the customizations registered.
 	 */
 	function cd_customize_register( $wp_customize ) {
 
