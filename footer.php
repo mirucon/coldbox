@@ -3,7 +3,7 @@
  * The template for displaying footer
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( cd_is_amp() ) :

@@ -3,7 +3,7 @@
  * The template for getting and display related posts from query
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 $max_articles   = cd_single_related_max(); // Its value can be changed on the theme customizer.

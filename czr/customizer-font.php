@@ -3,7 +3,7 @@
  * The template for getting the font setting from the customizer and return the font family
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( ! function_exists( 'cd_customizer_font' ) ) {

@@ -3,7 +3,7 @@
  * The template for displaying 404 not found pages
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 get_header(); ?>

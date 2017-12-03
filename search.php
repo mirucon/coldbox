@@ -3,7 +3,7 @@
  * The template for displaying search results pages
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 get_header(); ?>

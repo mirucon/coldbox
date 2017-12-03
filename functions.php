@@ -3,7 +3,7 @@
  * Coldbox functions and definitions
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( ! function_exists( 'cd_scripts' ) ) {

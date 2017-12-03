@@ -3,7 +3,7 @@
  * The template for displaying title box of each pages
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( is_single() && ! is_attachment() ) {

@@ -3,7 +3,7 @@
  * The template for displaying comments
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( post_password_required() ) {

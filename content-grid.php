@@ -3,7 +3,7 @@
  * Inner part of the index pages when selecting grid style
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 ?>
@@ -11,7 +11,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?>>
 	<div class="post-inner flex-column">
 
-		 <a class="post-link" href="<?php the_permalink(); ?>">
+		<a class="post-link" href="<?php the_permalink(); ?>">
 
 			<div class="post-thumbnail"><figure>
 				<?php cd_middle_thumbnail_template(); ?>
@@ -23,7 +23,7 @@
 				<?php endif; ?>
 
 				<h2 class="post-title"><?php the_title(); ?></h2>
-				
+
 				<?php if ( get_the_excerpt() !== '' ) : ?>
 					<div class="post-excerpt"><?php the_excerpt(); ?></div>
 				<?php endif; ?>
