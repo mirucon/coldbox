@@ -50,7 +50,7 @@ function cd_social_links_render_callback() {
  * Register customzer setting for the social links
  *
  * @since 1.1.0
- * @param string $wp_customize Register customizations.
+ * @param WP_Customize_Manager $wp_customize Register customizations.
  */
 function cd_czr_social_links( $wp_customize ) {
 
