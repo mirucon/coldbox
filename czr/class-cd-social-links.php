@@ -3,7 +3,7 @@
  * The template for adding the social links widget
  *
  * @since 1.1.1
- * @package coldbox
+ * @package Coldbox
  */
 
 /**

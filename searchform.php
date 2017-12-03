@@ -3,7 +3,7 @@
  * The template for the search form part
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 ?>

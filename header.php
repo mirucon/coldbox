@@ -3,7 +3,7 @@
  * The template for displaying header
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( cd_is_amp() ) :
@@ -28,9 +28,9 @@ else :
 		<div class="header-inner container">
 
 			<div class="site-info">
-				
+
 				<?php cd_site_title(); ?>
-					
+
 				<?php if ( cd_is_site_desc() && display_header_text() ) : ?>
 					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 				<?php endif; ?>
@@ -40,7 +40,7 @@ else :
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
 			<?php endif; ?>
-			
+
 			<?php cd_header_menu(); ?>
 
 		</div>

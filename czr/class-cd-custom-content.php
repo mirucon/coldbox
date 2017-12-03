@@ -3,7 +3,7 @@
  * The custom class for output HTML on the customizer.
  *
  * @since 1.1.1
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {

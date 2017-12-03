@@ -3,7 +3,7 @@
  * The template for displaying paginate links
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 global $wp_query;

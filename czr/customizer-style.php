@@ -3,7 +3,7 @@
  * The template for displaying the styles got from the theme customizer
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( ! function_exists( 'cd_customizer_style' ) ) {

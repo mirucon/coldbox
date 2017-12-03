@@ -3,7 +3,7 @@
  * The template for displaying the title part of the archive pages
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( is_category() ) : ?>

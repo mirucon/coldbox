@@ -3,7 +3,7 @@
  * The template for displaying sidebar
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 if ( 'hide' === cd_sidebar_stg() ) {

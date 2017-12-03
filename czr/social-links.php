@@ -3,7 +3,7 @@
  * The template for registering and displaying the social links
  *
  * @since 1.1.0
- * @package coldbox
+ * @package Coldbox
  */
 
 /**

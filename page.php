@@ -3,7 +3,7 @@
  * The template for displaying pages
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 get_header(); ?>
@@ -45,12 +45,12 @@ while ( have_posts() ) :
 										<?php if ( cd_pages_meta_author() ) : ?>
 											<span class="post-author"><?php the_author_posts_link(); ?></span>
 										<?php endif; ?>
-										
+
 										<?php if ( cd_pages_meta_comments_count() && comments_open() && cd_is_post_single_comment() ) : ?>
 											<span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span>
 										<?php endif; ?>
 									</div>
-									
+
 								<?php endif; ?>
 
 								<div class="entry content-box">

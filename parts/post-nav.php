@@ -3,7 +3,7 @@
  * The template for displaying previous/next posts link
  *
  * @since 1.0.0
- * @package coldbox
+ * @package Coldbox
  */
 
 ?>
