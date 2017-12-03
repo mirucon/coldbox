@@ -1,0 +1,16 @@
+{
+    "name": "mirucon/coldbox",
+    "description": "A beautiful WordPress theme.",
+    "type": "wordpress-theme",
+    "require": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "mirucon",
+            "email": "i@miruc.co"
+        }
+    ],
+    "minimum-stability": "dev"
+}

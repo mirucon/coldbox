@@ -36,6 +36,21 @@ function _register_theme() {
 }
 tests_add_filter( 'muplugins_loaded', '_register_theme' );
 
+function _manually_load_environment() {
+
+	// Switch Coldbox theme.
+	switch_theme( 'coldbox' );
+
+	// Update array with plugins to include.
+	$plugins_to_active = array(
+		'coldbox-addon/coldbox-addon.php',
+	);
+
+	update_option( 'active_plugins', $plugins_to_active );
+
+}
+tests_add_filter( 'muplugins_loaded', '_manually_load_environment' );
+
 
 // Start up the WP testing environment.
 require $_tests_dir . '/includes/bootstrap.php';
