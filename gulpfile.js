@@ -16,19 +16,20 @@ var del = require('del');
 
 gulp.task( 'sass', function() {
   var processors = [
-    cssnext({browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009'})
+    cssnext({ browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009' })
   ];
   return gulp.src(['sass/*.scss'])
   .pipe(sourcemaps.init())
-  .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
-  .pipe(sass({outputStyle: 'expanded',}))
+  .pipe(plumber({ errorHandler: notify.onError('<%= error.message %>') }))
+  .pipe(sass({ outputStyle: 'expanded', }))
   .pipe(postcss(processors))
+  .pipe(rename({ prefix: 'cd-', }))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest('.'));
+  .pipe(gulp.dest('assets/css/'));
 });
 
 gulp.task( 'css-min', function () {
-  gulp.src( 'style.css' )
+  gulp.src( 'assets/css/style.css' )
   .pipe(cssmin())
   .pipe(rename({
     prefix: 'cd-',
@@ -37,35 +38,31 @@ gulp.task( 'css-min', function () {
   .pipe(gulp.dest('assets/css/'));
 });
 
-gulp.task( 'css-concat', ['css-min'], function () {
-  gulp.src( ['style.min.css', 'fonts/fontawesome/css/font-awesome.min.css'] )
-  .pipe( concat('main.min.css') )
-  .pipe(gulp.dest( '.' ));
-});
 
 gulp.task( 'js-min', function() {
-  return gulp.src( 'js/cd-scripts.js' )
+  return gulp.src( 'assets/js/cd-scripts.js' )
   .pipe( minify({ ext:{ min:'.min.js', }, }) )
   .pipe( gulp.dest( 'assets/js/' ) );
 });
 
 gulp.task( 'js-concat-hljs', ['js-min'], function() {
-  return gulp.src( ['js/highlight.js', 'js/cd-scripts.js'] )
+  return gulp.src( ['assets/js/highlight.js', 'assets/js/cd-scripts.js'] )
   .pipe( concat( 'cd-scripts+hljs.js' ) )
-  .pipe( gulp.dest( 'js/' )  );
+  .pipe( gulp.dest( 'assets/js/' )  );
 });
 
 gulp.task( 'js-concat-hljs-web', ['js-min'], function() {
-  return gulp.src( ['js/highlight-web.js', 'js/cd-scripts.js'] )
+  return gulp.src( ['assets/js/highlight-web.js', 'assets/js/cd-scripts.js'] )
   .pipe( concat( 'cd-scripts+hljs_web.js' ) )
-  .pipe( gulp.dest( 'js/' ) );
+  .pipe( gulp.dest( 'assets/js/' ) );
 });
 
 gulp.task( 'js-min-concat', ['js-concat-hljs', 'js-concat-hljs-web'], function() {
-  return gulp.src( ['js/cd-scripts+hljs.js', 'js/cd-scripts+hljs_web.js'] )
+  return gulp.src( ['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js'] )
   .pipe( minify({ ext:{ min:'.min.js', }, }) )
   .pipe( gulp.dest( 'assets/js' ) );
 });
+
 
 gulp.task( 'browser-sync', function () {
   browserSync({
@@ -105,7 +102,7 @@ gulp.task( 'default', ['browser-sync'], function () {
 });
 
 gulp.task( 'clean', function() {
-  del( ['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js', 'assets/js/cd-scripts.js', 'style.min.css'] );
+  del( ['style.min.css'] );
 });
 
 gulp.task( 'sass-dev', function() {
@@ -122,7 +119,7 @@ gulp.task( 'copy', function() {
   return gulp.src(
     [ '*.php', 'readme.txt', 'screenshot.jpg', '*.css', 'parts/*.php', 'parts/*.css', 'js/*.js', 'img/*.*',
       'czr/*.*', 'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*', 
-      'languages/coldbox.po', 'assets/js/*.min.js', 'assets/css/*.css', 'parts/tgm/*.php', 'page-templates/*.php' ],
+      'languages/coldbox.pot', 'assets/js/*.js', 'assets/css/*.css', 'parts/tgm/*.php', 'page-templates/*.php' ],
     { base: '.' }
   )
   .pipe( gulp.dest( 'dist' ) );
