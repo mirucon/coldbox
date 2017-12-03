@@ -709,7 +709,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	function cd_breadcrumb() {
 		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
-			echo __( 'Attachment', 'coldbox' );
+			esc_html_e( 'Attachment', 'coldbox' );
 		} elseif ( is_single() ) {
 			the_category( ' &#47; ' );
 		} elseif ( is_category() ) {
