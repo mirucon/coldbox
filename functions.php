@@ -528,6 +528,7 @@ if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 	 *
 	 * @param string $args return widget's argument without current post.
 	 * @since 1.0.0
+	 * @return array
 	 */
 	function cd_remove_current_post_on_recent_widgets( $args ) {
 		if ( is_single() ) {
@@ -553,6 +554,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 *
 	 * @since 1.1.6
 	 * @param string $the_content The post contents which are find from.
+	 * @return string
 	 */
 	function cd_single_h2_in_content( $the_content ) {
 		if ( preg_match( CD_H2_REG, $the_content, $h2_result ) ) { // Whether or not h2 tag is used.
@@ -564,6 +566,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 *
 	 * @since 1.1.6
 	 * @param string $the_content The post contents which are find from.
+	 * @return string
 	 */
 	function cd_single_h3_in_content( $the_content ) {
 		if ( preg_match( CD_H3_REG, $the_content, $h3_result ) ) { // Whether or not h3 tag is used.
@@ -576,6 +579,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 *
 	 * @since 1.1.6
 	 * @param string $the_content The post contents which are hooked.
+	 * @return string
 	 */
 	function cd_single_middle_contents( $the_content ) {
 		if ( is_single() ) {
@@ -630,9 +634,10 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 	 *
 	 * @since 1.1.6
 	 * @param string $contents The contents will be shown after the article contents.
+	 * @return string
 	 */
 	function cd_single_after_contents( $contents = null ) {
-		// You can add something through `cd_single_after_contents` filter.
+		// You can add something here through the `cd_single_after_contents` filter.
 		return $contents;
 	}
 }
@@ -640,7 +645,7 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the attachment pages through filter.
+	 * Call the the bottom parts of the attachment pages through filter.
 	 *
 	 * @since 1.1.2
 	 */
@@ -657,7 +662,7 @@ if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the static pages through filter.
+	 * Call the the bottom parts of the static pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -674,6 +679,7 @@ if ( ! function_exists( 'cd_archive_top_contents' ) ) {
 	 *
 	 * @since 1.1.6
 	 * @param string $contents The contents will be shown on top of the article contents.
+	 * @return string
 	 */
 	function cd_archive_top_contents( $contents = null ) {
 		// You can add something through `cd_archive_top_contents` filter.
@@ -684,7 +690,7 @@ if ( ! function_exists( 'cd_archive_top_contents' ) ) {
 if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the archive pages through filter.
+	 * Call the the bottom parts of the archive pages through filter.
 	 *
 	 * @since 1.1.1
 	 */
@@ -707,7 +713,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_breadcrumb() {
-		echo '<a href="' . esc_url( home_url() ) . '">Home</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+		echo '<a href="' . esc_url( home_url() ) . '">' . esc_html_e( 'Home', 'coldbox' ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
 			esc_html_e( 'Attachment', 'coldbox' );
 		} elseif ( is_single() ) {
@@ -719,7 +725,6 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 
 			if ( $cat->parent ) { // If the category has parent category.
 				$parent     = array();
-				$parent_url = array();
 				while ( $cat->parent ) {
 					$cat      = get_category( $cat->parent );
 					$cat_name = $cat->name;
@@ -762,6 +767,7 @@ if ( ! function_exists( 'cd_excerpt_length' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param int $length The length.
+	 * @return int
 	 */
 	function cd_excerpt_length( $length ) {
 		if ( is_admin() ) {
@@ -780,6 +786,7 @@ if ( ! function_exists( 'cd_excerpt_more' ) ) {
 	 *
 	 * @since 1.0.0
 	 * @param string $more The ending strings.
+	 * @return string
 	 */
 	function cd_excerpt_more( $more ) {
 		if ( is_admin() ) {
@@ -854,7 +861,7 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 
 if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
 	/**
-	 * Echo next / previous post thumbanil URL
+	 * Echo next / previous post thumbnail URL
 	 *
 	 * @since 1.1.6
 	 */
