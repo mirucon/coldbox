@@ -724,7 +724,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 			$cat         = $wp_query->get_queried_object();
 
 			if ( $cat->parent ) { // If the category has parent category.
-				$parent     = array();
+				$parent = array();
 				while ( $cat->parent ) {
 					$cat      = get_category( $cat->parent );
 					$cat_name = $cat->name;
