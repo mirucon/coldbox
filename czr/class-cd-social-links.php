@@ -87,7 +87,7 @@ class CD_Social_Links extends WP_Widget {
 	 * @since 1.1.1
 	 * @param string $new_instance A new instance.
 	 * @param string $old_instance A old instance.
-	 * @return string title.
+	 * @return array
 	 **/
 	public function update( $new_instance, $old_instance ) {
 		$instance          = array();

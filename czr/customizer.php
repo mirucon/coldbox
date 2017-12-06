@@ -23,7 +23,7 @@ add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
  */
 if ( ! function_exists( 'cd_customize_register' ) ) {
 	/**
-	 * Register customzer settings.
+	 * Register customizer settings.
 	 *
 	 * @since 1.0.0
 	 * @param WP_Customize_Manager $wp_customize the customizations registered.
@@ -35,6 +35,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 *
 		 * @since 1.0.0
 		 * @param bool $checked The strings that will be checked.
+		 * @return bool
 		 */
 		function cd_sanitize_checkbox( $checked ) {
 			return ( ( isset( $checked ) && true === $checked ) ? true : false );
@@ -45,6 +46,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 * @since 1.0.0
 		 * @param string $input The strings that will be checked.
 		 * @param string $setting The possible choices.
+		 * @return string
 		 */
 		function cd_sanitize_radio( $input, $setting ) {
 			$input   = sanitize_key( $input );
@@ -56,6 +58,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 *
 		 * @since 1.0.0
 		 * @param string $text The strings that will be checked.
+		 * @return string
 		 */
 		function cd_sanitize_text( $text ) {
 			return sanitize_text_field( $text );
@@ -1150,7 +1153,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	function cd_use_minified_css() {
 		$minified_css = get_theme_mod( 'minified_css', true );
 		$css_min      = $minified_css ? '.min' : '';
-		$css_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$css_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? $css_min : '.min';
 		return apply_filters( 'cd_css_min', $css_min );
 	}
 	/**
@@ -1161,7 +1164,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	function cd_use_minified_js() {
 		$minified_js = get_theme_mod( 'minified_js', true );
 		$js_min      = $minified_js ? '.min' : '';
-		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min';
+		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? $js_min : '.min';
 		return apply_filters( 'cd_js_min', $js_min );
 	}
 	/**
@@ -1221,7 +1224,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'header_sticky', true ) );
 	}
 	/**
-	 * Get whether using placefolder image or not.
+	 * Get whether using placeholder image or not.
 	 *
 	 * @since 1.1.2
 	 */
