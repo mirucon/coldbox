@@ -47,7 +47,7 @@ function cd_social_links_render_callback() {
 }
 
 /**
- * Register customzer setting for the social links
+ * Register customizer setting for the social links.
  *
  * @since 1.1.0
  * @param WP_Customize_Manager $wp_customize Register customizations.

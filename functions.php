@@ -682,7 +682,7 @@ if ( ! function_exists( 'cd_archive_top_contents' ) ) {
 	 * @return string
 	 */
 	function cd_archive_top_contents( $contents = null ) {
-		// You can add something through `cd_archive_top_contents` filter.
+		// You can add something here through `cd_archive_top_contents` filter.
 		return $contents;
 	}
 }
@@ -931,7 +931,7 @@ define( 'CD_VER', '1.4.0' );
 // Load TGM plugin activation file.
 require_once get_template_directory() . '/parts/tgm/load-tgm.php';
 
-if ( ! function_exists( 'cd_is_amp' ) ) {
+if ( ! function_exists( 'cd_is_active_addon' ) ) {
 	/**
 	 * Whether or not addon plugin is active.
 	 *
