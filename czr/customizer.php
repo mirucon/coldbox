@@ -1153,8 +1153,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	function cd_use_minified_css() {
 		$minified_css = get_theme_mod( 'minified_css', true );
 		$css_min      = $minified_css ? '.min' : '';
-		$css_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? $css_min : '.min';
-		return apply_filters( 'cd_css_min', $css_min );
+		$css_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $css_min;
+		return apply_filters( 'cd_use_minified_css', $css_min );
 	}
 	/**
 	 * Get whether using minified JS or not
@@ -1164,8 +1164,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	function cd_use_minified_js() {
 		$minified_js = get_theme_mod( 'minified_js', true );
 		$js_min      = $minified_js ? '.min' : '';
-		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? $js_min : '.min';
-		return apply_filters( 'cd_js_min', $js_min );
+		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min;
+		return apply_filters( 'cd_use_minified_js', $js_min );
 	}
 	/**
 	 * Get the sidebar position
