@@ -25,10 +25,12 @@ To get a base of child theme, visit the [Coldbox official site](https://coldbox.
 ### Add-on Plugin
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
 
-The latest version has following features:
+The latest version has following features. We highly recommend that you always use the plugin with the theme!
 
 - AMP pages
 - Social share buttons
+- Google Analytics integration
+- Automatic Open Graph tag
 
 ## Theme Author information
 The Coldbox theme is designed and created by Mirucon  
@@ -67,6 +69,12 @@ Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
 
+1.4.0
+
+* Improved: Start using a bit modern functions
+* Changed: Template hierarchy; all the CSS/JS files are now at assets folder
+* Fixed: Minor security bug
+
 1.3.3
 
 * Added: New customizer settings:
@@ -91,4 +99,4 @@ Copyright (c) 2011, Thomas Griffin
 - Improved: Customizer styling
 - Improved: Typograpy for menu
 
-*See CHANGELOG.md for older releases*
+*See [CHANGELOG.md](/CHANGELOG.md) for older releases*
