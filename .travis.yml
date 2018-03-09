@@ -5,9 +5,12 @@ language: php
 dist: precise
 
 notifications:
-  email:
-    on_success: never
-    on_failure: change
+  slack:
+    rooms:
+     - secure: "K2BZHOojnqKGoFMT7CRPh9h1wVAurmklC+5qI5cM7TIsAnfkQYfRV5t+otXXVN3gzvQDlvBT0LhB8mNnSEecglZQxun1OkIRCvdFMC646Nfd92iJBayPd/uf3uo/ByMbUWssdmySs01qtqDu3Ze6J4j4xBGm0vuH7y1skYukML0MLOeWplTMUE5g5jRzfYsOsTS9YUqNgQC/EP+0r9ldshu8KNx6FhMdlkuPCJa4PciFcXS0D19LsC+ht+ArTkzgQBshPm6VYmivxMk1idsU3QnmIXaoGmxRQzc+6IX27Xz0NJb70f+wXcudWrBhXfZ5VZUi454c4XEePxwDCNmnS2Cnamu+P4A2MObOKEpynx16eiesdfm4dmihinKl6iCYZ7AvfaCEzsVfa/bhN7dzvBZF5zW0qBtNV5dAaxSsuNZ+MDX0SoZRU02JoeiVJubXWJLBGCZ58T40kb7dSZ81kT6Z/GOIn4LyxvJSQr5AnERs2SsLoM2VvYV1t+dLigvgp0/5IlpjlPXTAR8zl4dSSFsyZ/H7ZnGSSFsvugYo2d41uk3fVMoSQDvtLn0bRWINCVa/pJeLyahMydKymVXzOsqv8L/lFluQYXhCZjSUJfUR/067uEJJu38ZGRl4UjqinGUyhaV8NRrENZbCmpO2AeDLxsuuYlk1EeF5u6v1epU="
+    on_success: change
+    on_failure: always
+  email: false
 
 env:
   global:
