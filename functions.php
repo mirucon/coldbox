@@ -32,7 +32,7 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		$masonry_resp_sidebar = 'jQuery(window).on("load resize",function(){window.matchMedia("(max-width: 980px) and (min-width: 641px)").matches||jQuery("body").hasClass("bottom-sidebar-s1")?jQuery("#sidebar-s1 .sidebar-inner").imagesLoaded(function(){jQuery("#sidebar-s1 .sidebar-inner").masonry({itemSelector:".widget",percentPosition:!0,isAnimated:!0}),jQuery(".widget").css({position:"absolute"})}):jQuery(".widget").css({position:"",top:"",left:""})});';
 		wp_add_inline_script( 'masonry', $masonry_resp_sidebar, 'after' );
 	}
-} // End if().
+} // End if.
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 
 if ( ! function_exists( 'cd_load_hljs' ) ) {
@@ -78,7 +78,7 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 			wp_add_inline_script( 'scripts-hljs-web', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		}
 	}
-} // End if().
+} // End if.
 add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
 
 
@@ -176,7 +176,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 			)
 		);
 	}
-} // End if().
+} // End if.
 add_action( 'after_setup_theme', 'cd_supports' );
 
 if ( ! function_exists( 'cd_pingback_header' ) ) {
@@ -749,7 +749,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 			the_title();
 		}
 	}
-} // End if().
+} // End if.
 
 /*
  * -------------------------------------------------------------------------
