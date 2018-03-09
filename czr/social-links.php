@@ -136,7 +136,7 @@ function cd_czr_social_links( $wp_customize ) {
 				)
 			);
 		}
-	} // End foreach().
+	} // End foreach.
 }
 add_action( 'customize_register', 'cd_czr_social_links' );
 
@@ -230,7 +230,7 @@ function cd_social_links( $class = null, $inner_class = null ) {
 				</a>
 			</li>
 			<?php
-		} // End foreach().
+		} // End foreach.
 
 		if ( isset( $inner_class ) ) {
 			echo '</div>';
