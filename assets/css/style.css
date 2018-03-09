@@ -1433,6 +1433,9 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   -webkit-flex-grow: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
   position: relative;
 }
 
