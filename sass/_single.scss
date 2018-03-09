@@ -360,9 +360,9 @@ p.post-btm-tags, p.post-btm-cats {
 .share-list-container {
   display: flex;
 }
-
 .balloon-btn {
   flex-grow: 1;
+  flex-basis: 0;
   position: relative;
 
   .share {
