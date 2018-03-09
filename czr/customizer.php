@@ -1443,7 +1443,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	function cd_use_web_hljs() {
 		return ( get_theme_mod( 'use_hljs_web_pack', false ) );
 	}
-} // End if().
+} // End if.
 
 add_action( 'customize_register', 'cd_customize_register' );
 

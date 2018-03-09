@@ -49,4 +49,4 @@ if ( is_single() && ! is_attachment() ) {
 		</div>
 	</div>
 	<?php
-} // End if().
+} // End if.

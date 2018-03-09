@@ -237,7 +237,7 @@ function cd_social_links( $class = null, $inner_class = null ) {
 		}
 
 		echo '</ul>';
-	} // End if().
+	} // End if.
 
 }
 
