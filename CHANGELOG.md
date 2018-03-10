@@ -1,3 +1,9 @@
+1.4.0
+
+* Improved: Start using a bit modern functions
+* Changed: Template hierarchy; all the CSS/JS files are now at assets folder
+* Fixed: Minor security bug
+
 1.3.3
 
 * Added: New customizer settings:

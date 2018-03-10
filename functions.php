@@ -507,10 +507,11 @@ add_filter( 'wp_list_categories', 'cd_cat_widget_count', 10, 2 );
 if ( ! function_exists( 'cd_archive_widget_count' ) ) {
 
 	/**
-	 * Make the counts surround with brankets on archive widgets.
+	 * Make the counts surround with parentheses on archive widgets.
 	 *
-	 * @param string $output return the count with brankets.
+	 * @param string $output return the count with parentheses.
 	 * @since 1.0.0
+	 * @return string Number of posts with parentheses.
 	 */
 	function cd_archive_widget_count( $output ) {
 		$output = str_replace( '</a>&nbsp;(', ' <span class="count">(', $output );
