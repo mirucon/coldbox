@@ -97,6 +97,6 @@ Copyright (c) 2011, Thomas Griffin
 - Added: New customizer setting for editing grid columns
 - Added: Support for footer menu
 - Improved: Customizer styling
-- Improved: Typograpy for menu
+- Improved: Typography for menu
 
-*See [CHANGELOG.md](/CHANGELOG.md) for older releases*
+*See [CHANGELOG.md](/CHANGELOG.md) for all the releases*
