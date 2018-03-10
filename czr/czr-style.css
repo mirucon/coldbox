@@ -80,3 +80,16 @@ li[id^='customize-control-sns_button_'] {
 #customize-control-single_content, #customize-control-single_meta, #customize-control-single_related {
   margin-top: 12px
 }
+
+/* For addon plugin options... */
+#customize-control-sns_button_twitter, #customize-control-sns_button_facebook, #customize-control-sns_button_hatena, #customize-control-sns_button_googleplus, #customize-control-sns_button_pocket, #customize-control-sns_button_feedly {
+  width: 92%;
+  float: none;
+  margin: 0 auto .4em;
+}
+#customize-control-sns_button_twitter {
+  margin-top: -.2em;
+}
+#customize-control-sns_button_feedly {
+  margin-bottom: .8em;
+}
