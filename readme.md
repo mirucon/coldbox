@@ -19,18 +19,17 @@ See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
 ## Getting Started
 You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) once the theme installed.  
-To get a base of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
-<!-- **Documentation** -->
+To get an example of child theme, visit [Coldbox official site](https://coldbox.miruc.co/).
 
 ### Add-on Plugin
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
 
-The latest version has following features. We highly recommend that you always use the plugin with the theme!
+The latest version has the following features. We highly recommend that you always use the plugin with the theme!
 
-- AMP pages
-- Social share buttons
-- Google Analytics integration
-- Automatic Open Graph tag
+* Automatic AMP pages generation
+* Social share buttons
+* Google Analytics integration
+* Automatic Open Graph tag output
 
 ## Theme Author information
 The Coldbox theme is designed and created by Mirucon  

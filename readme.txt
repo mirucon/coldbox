@@ -16,6 +16,17 @@ To get official child theme, visit https://coldbox.miruc.co/
 
 The theme is available on GitHub: https://github.com/Mirucon/coldbox
 
+= Add-On Plugin =
+
+The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)
+
+The latest version has the following features. We highly recommend that you always use the plugin with the theme!
+
+- Automatic AMP pages generation
+- Social share buttons
+- Google Analytics integration
+- Automatic Open Graph tag output
+
 = Author information =
 The Coldbox theme is designed and created by Mirucon  
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/

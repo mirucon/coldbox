@@ -65,11 +65,6 @@ function cd_register_required_plugins() {
 			'slug'     => 'coldbox-addon',
 			'required' => false,
 		),
-		array(
-			'name'     => __( 'SNS Count Cache', 'coldbox' ),
-			'slug'     => 'sns-count-cache',
-			'required' => false,
-		),
 
 	);
 
