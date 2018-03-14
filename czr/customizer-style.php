@@ -57,9 +57,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		}
 
 		// Change grid columns for mobile.
-		$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
-		$width_percents = 100 / $grid_columns . '%';
-		$czr_style     .= "@media screen and (max-width: 640px){.grid-view .article{width: $width_percents;}}";
+		if ( get_theme_mod( 'grid_columns_mobile', 1 ) !== 1 ) {
+			$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
+			$width_percents = 100 / $grid_columns . '%';
+			$czr_style     .= "@media screen and (max-width: 640px){.grid-view .article{width: $width_percents;}}";
+		} else {
+			$czr_style .= '@media screen and (max-width: 640px){.grid-view .article{width: 100%}}';
+		}
 		wp_add_inline_style( 'cd-style', $czr_style );
 
 		// Link Color.
