@@ -14,7 +14,7 @@
  Responsive Breakpoints
   961+     => PC
   960-641  => Tablet
-  639-     => Smartphone
+  639-     => Phones
 */
 /* ------------------------------------------------------------------------
  Table Of Contents
@@ -939,6 +939,8 @@ ul.social-links { padding-left: 0; list-style: none; }
 .fs15 { font-size: em(15px); }
 .fs17 { font-size: em(17px); }
 .fs20 { font-size: em(20px); }
+.red { color: #d8131c; }
+.blue { color: #00619F; }
 .sans-serif { font-family: Helvetica, Arial, sans-serif; }
 .serif { font-family: Georgia, serif; }
 .bold { font-weight: 700; }
@@ -963,6 +965,14 @@ ul.social-links { padding-left: 0; list-style: none; }
   padding: 4px 6px;
   background-color: #f0f0f0;
   & > a { display: block }
+}
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+}
+.flex-column {
+  display: flex;
+  flex-flow: column wrap;
 }
 .resp-unit {
   max-height: 300px;
