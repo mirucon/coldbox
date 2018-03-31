@@ -14,7 +14,7 @@
  Responsive Breakpoints
   961+     => PC
   960-641  => Tablet
-  639-     => Smartphone
+  639-     => Phones
 */
 /* ------------------------------------------------------------------------
  Table Of Contents
@@ -4660,6 +4660,14 @@ ul.social-links {
   font-size: 1.25em;
 }
 
+.red {
+  color: #d8131c;
+}
+
+.blue {
+  color: #00619F;
+}
+
 .sans-serif {
   font-family: Helvetica, Arial, sans-serif;
 }
@@ -4704,6 +4712,30 @@ ul.social-links {
 
 .link-box > a {
   display: block;
+}
+
+.flex-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: column wrap;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
 }
 
 .resp-unit {
