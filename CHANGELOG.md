@@ -1,3 +1,9 @@
+1.4.1
+
+* Fixed: Default option of a customizer option was not working properly
+* Fixed: Load non-minified CSS/JS when script debug is on
+* Updated: No more SNS Count Cache plugin recommendation
+
 1.4.0
 
 * Improved: Start using a bit modern functions

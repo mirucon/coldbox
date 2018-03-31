@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.4.0  
+**Version**: 1.4.1  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -67,6 +67,12 @@ URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
+
+1.4.1
+
+* Fixed: Default option of a customizer option was not working properly
+* Fixed: Load non-minified CSS/JS when script debug is on
+* Updated: No more SNS Count Cache plugin recommendation
 
 1.4.0
 
