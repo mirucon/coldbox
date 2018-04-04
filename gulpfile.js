@@ -92,7 +92,7 @@ gulp.task( 'editor-min', ['editor-sass'], function() {
 gulp.task( 'bs-reload', function () {
   browserSync.reload();
 });
-gulp.task( 'default', ['browser-sync'], function () {
+gulp.task( 'watch', ['browser-sync'], function () {
   gulp.watch("sass/*.scss", ['sass', 'bs-reload', 'css-min']);
   gulp.watch("js/*.*", ['bs-reload', 'js-min', 'js-concat-hljs-web', 'js-concat-hljs']);
   gulp.watch("parts/*.*", ['bs-reload']);

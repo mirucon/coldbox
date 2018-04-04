@@ -29,6 +29,7 @@
     "start": "gulp default",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "gulp sass && gulp css-min",
+    "dev": "gulp watch",
     "build": "gulp dist"
   },
   "repository": {
