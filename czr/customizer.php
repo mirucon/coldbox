@@ -284,6 +284,13 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
+		$wp_customize->get_control( 'custom_logo' )->section       = 'header';
+		$wp_customize->get_control( 'custom_logo' )->description   = sprintf(
+			/* translators: 1: Start of <a> tag, 2: The end of <a> tag. */
+			__( 'Use the %1$s "Display Site Title" %2$s option to hide site title,.', 'coldbox' ), // WPCS: OK.
+			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();">',
+			'</a>'
+		);
 
 		$wp_customize->add_section(
 			'header', array(
@@ -291,6 +298,24 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				'priority' => 1,
 			)
 		);
+
+		// Logo Width.
+		$wp_customize->add_setting(
+			'logo_width', array(
+				'default'           => '230',
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'logo_width', array(
+					'label'   => __( 'Custom Logo Width', 'coldbox' ),
+					'section' => 'header',
+					'type'    => 'number',
+				)
+			)
+		);
+
 		// Site Description.
 		$wp_customize->add_setting(
 			'site_title', array(
@@ -302,7 +327,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize, 'site_title', array(
 					'label'       => __( 'Display Site Title', 'coldbox' ),
-					'description' => __( 'Even this setting is unchecked, the logo will be still shown.', 'coldbox' ),
+					'description' => __( 'Your logo will be still shown when this is unchecked.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
 				)
@@ -905,12 +930,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 					'type'        => 'checkbox',
 				)
 			)
-		);
-		$wp_customize->get_control( 'custom_logo' )->description = sprintf(
-			/* translators: 1: Start of <a> tag, 2: The end of <a> tag. */
-			__( 'If you want to hide site title, go and uncheck the %1$s "Header Setting" > "Display Site Title" %2$s option.', 'coldbox' ),
-			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();">',
-			'</a>'
 		);
 
 		/*

@@ -135,6 +135,14 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_header_textcolor );
 		}
 
+		// Custom Logo Sizing.
+		if ( get_theme_mod( 'logo_width', '230' ) !== '230' ) {
+			$logo_width     = esc_html( get_theme_mod( 'logo_width' ) );
+			$czr_logo_width = ".site-info img{max-width:${logo_width}px}";
+			wp_add_inline_style( 'cd-style', $czr_logo_width );
+		}
+
+
 		// Footer Background Color.
 		if ( get_theme_mod( 'footer_color', '#44463b' ) !== '#44463b' ) {
 			$color_footer     = esc_html( get_theme_mod( 'footer_color' ) );
