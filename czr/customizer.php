@@ -147,17 +147,17 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 						'ptsans'          => 'PT Sans',
 						'lora'            => 'Lora',
 						'robotoslab'      => 'Roboto Slab',
-						'arial'           => 'Arial',
-						'helvetica'       => 'Helvetica',
-						'verdana'         => 'Verdana',
-						'tahoma'          => 'Tahoma',
+						'arial'           => 'Arial ' . esc_html__( '(Local)', 'coldbox' ), /* translators: Local font e.g. Arial or Helvetica */
+						'helvetica'       => 'Helvetica ' . esc_html__( '(Local)', 'coldbox' ), /* translators: Local font e.g. Arial or Helvetica */
+						'verdana'         => 'Verdana ' . esc_html__( '(Local)', 'coldbox' ), /* translators: Local font e.g. Arial or Helvetica */
+						'tahoma'          => 'Tahoma ' . esc_html__( '(Local)', 'coldbox' ), /* translators: Local font e.g. Arial or Helvetica */
 					),
 				)
 			)
 		);
 		$wp_customize->add_setting(
 			'custom_font', array(
-				'default'           => '[font], Arial, sans-serif',
+				'default'           => '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif',
 				'sanitize_callback' => 'cd_sanitize_text',
 			)
 		);

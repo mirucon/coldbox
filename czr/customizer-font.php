@@ -69,7 +69,7 @@ if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 			$font = 'Roboto Slab';
 		}
 
-		$custom_ff   = get_theme_mod( 'custom_font', '[font], Arial, sans-serif' );
+		$custom_ff   = get_theme_mod( 'custom_font', '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif' );
 		$custom_ff   = str_replace( '[font]', ucfirst( $font ), $custom_ff );
 		$font_family = "body { font-family: {$custom_ff}; }";
 

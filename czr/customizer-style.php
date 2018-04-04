@@ -142,7 +142,6 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_logo_width );
 		}
 
-
 		// Footer Background Color.
 		if ( get_theme_mod( 'footer_color', '#44463b' ) !== '#44463b' ) {
 			$color_footer     = esc_html( get_theme_mod( 'footer_color' ) );
