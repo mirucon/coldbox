@@ -55,7 +55,12 @@ if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 	 */
 	function cd_customizer_font_set() {
 
-		$font = esc_html( get_theme_mod( 'global_font', 'sourcesanspro' ) );
+		$font      = esc_html( get_theme_mod( 'global_font', 'sourcesanspro' ) );
+		$custom_ff = get_theme_mod( 'custom_font', '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif' );
+
+		if ( 'sourcesanspro' === $font && '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif' === $custom_ff ) {
+			return;
+		}
 
 		if ( 'opensans' === $font ) {
 			$font = 'Open Sans';
@@ -69,7 +74,6 @@ if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 			$font = 'Roboto Slab';
 		}
 
-		$custom_ff   = get_theme_mod( 'custom_font', '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif' );
 		$custom_ff   = str_replace( '[font]', ucfirst( $font ), $custom_ff );
 		$font_family = "body { font-family: {$custom_ff}; }";
 
