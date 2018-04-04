@@ -547,7 +547,6 @@ textarea {
   p { margin-bottom: 2em }
   h2 {
     padding: .8em 1.4em;
-    background-color: #f8f8f8;
   }
   .content-inner > & {
     padding-bottom: 16px;
@@ -884,6 +883,9 @@ ul.social-links { padding-left: 0; list-style: none; }
 .modal-search-closed {
   .modal-search-form {
     animation: fadeOut .4s;
+  }
+  .search-inner, .search-submit {
+    display: none;
   }
 }
 
