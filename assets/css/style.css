@@ -2245,6 +2245,7 @@ ul.page-numbers a.page-numbers:hover {
 
 .site-logo img {
   display: block;
+  max-width: 230px;
   max-height: 60%;
   height: auto;
   margin: 0 auto;

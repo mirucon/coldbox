@@ -156,8 +156,9 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support(
 			'custom-logo', array(
 				'height'      => 80,
-				'width'       => 270,
+				'width'       => 230,
 				'flex-height' => true,
+				'flex-width'  => true,
 			)
 		);
 
