@@ -2116,7 +2116,6 @@ ul.page-numbers a.page-numbers:hover {
 
 .error-messages h2 {
   padding: .8em 1.4em;
-  background-color: #f8f8f8;
 }
 
 .content-inner > .error-messages {
@@ -4592,6 +4591,10 @@ ul.social-links {
 .modal-search-closed .modal-search-form {
   -webkit-animation: fadeOut .4s;
           animation: fadeOut .4s;
+}
+
+.modal-search-closed .search-inner, .modal-search-closed .search-submit {
+  display: none;
 }
 
 /* READ MORE button */
