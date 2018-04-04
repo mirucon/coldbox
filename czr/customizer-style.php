@@ -60,9 +60,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'grid_columns_mobile', 1 ) !== 1 ) {
 			$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
 			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= "@media screen and (max-width: 640px){.grid-view .article{width: $width_percents;}}";
-		} else {
-			$czr_style .= '@media screen and (max-width: 640px){.grid-view .article{width: 100%}}';
+			$czr_style     .= "@media screen and (max-width: 640px){body .container .grid-view .article{width: $width_percents;}}";
 		}
 		wp_add_inline_style( 'cd-style', $czr_style );
 
@@ -114,7 +112,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		}
 
 		// Header text color.
-		if ( get_header_textcolor() !== '#444444' ) {
+		if ( get_theme_mod( 'header_textcolor', '#444444' ) !== '#444444' ) {
 			$header_textcolor     = esc_html( get_header_textcolor() );
 			list( $r, $g, $b )    = sscanf( $header_textcolor, '%02x%02x%02x' );
 			$r_h                  = $r - 20;
@@ -122,7 +120,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$b_h                  = $b - 20;
 			$r_h                  = $r_h < 0 ? 0 : $r_h;
 			$g_h                  = $g_h < 0 ? 0 : $g_h;
-			$r_h                  = $r_h < 0 ? 0 : $r_h;
+			$b_h                  = $b_h < 0 ? 0 : $b_h;
 			$r                   += 10;
 			$g                   += 10;
 			$b                   += 10;

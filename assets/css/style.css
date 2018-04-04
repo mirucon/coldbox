@@ -1827,6 +1827,12 @@ body.home #main, #main.home {
   color: #00619F;
 }
 
+@media screen and (max-width: 640px) {
+  body .container .grid-view .article {
+    width: 100%;
+  }
+}
+
 /*   Index : Standard View
 /* -------------------------------------------------- */
 .standard-view {

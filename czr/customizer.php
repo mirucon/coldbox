@@ -165,9 +165,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_control(
 				$wp_customize, 'custom_font', array(
 					'label'       => __( 'Custom Font-Family Value', 'coldbox' ),
-					'description' => sprintf( /* Translators: %s: [font](shortcode) */ __( '"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
+					'description' => sprintf( /* Translators: %s: [font] (shortcode) */ __( '"%s" will be replaced with the font you\'ve chosen above', 'coldbox' ), '[font]' ),
 					'section'     => 'global',
-					'type'        => 'text',
+					'type'        => 'textarea',
 				)
 			)
 		);
@@ -221,7 +221,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_control(
 				$wp_customize, 'minified_css', array(
 					'label'       => __( 'Use minified CSS file', 'coldbox' ),
-					'description' => __( 'The theme will load minified CSS file. Minifying css stylesheets improves loading speed of your website. It should be used unless you need to modify the theme\'s stylesheet.', 'coldbox' ),
+					'description' => __( 'The theme will load minified CSS files when this is on. Use of minified css files improves loading speed of your website. Highly recommended to use this option unless you directly modify the theme\'s stylesheet (which is not recommended).', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
@@ -236,8 +236,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_control(
 				$wp_customize, 'minified_js', array(
-					'label'       => __( 'Use minified JS file', 'coldbox' ),
-					'description' => __( 'The theme will load minified JS file. Minifying JavaScript file improves loading speed of your website. It should be used unless you need to modify the theme\'s stylesheet.', 'coldbox' ),
+					'label'       => __( 'Use minified JS files', 'coldbox' ),
+					'description' => __( 'The theme will load minified JS files when this is on. Use of minified JS files improves loading speed of your website. Highly recommended to use this option unless you directly modify the theme\'s stylesheet (which is not recommended).', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
@@ -269,8 +269,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'use_hljs_web_pack', array(
-					'label'       => __( 'Use highlight.js with Web Package', 'coldbox' ),
-					'description' => __( 'The package contains the languages which often be used for web development. To use other languages, you may go to <a href="https://highlightjs.org/">Highlight.js official site</a>.', 'coldbox' ),
+					'label'       => __( 'Use highlight.js Web Package', 'coldbox' ),
+					'description' => __( 'This selection of highlight.js contains the languages often used for web development.', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
@@ -287,8 +287,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->get_control( 'custom_logo' )->section       = 'header';
 		$wp_customize->get_control( 'custom_logo' )->description   = sprintf(
 			/* translators: 1: Start of <a> tag, 2: The end of <a> tag. */
-			__( 'Use the %1$s "Display Site Title" %2$s option to hide site title,.', 'coldbox' ), // WPCS: OK.
-			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();">',
+			__( 'Use the %1$s "Display Site Title" %2$s option to hide site title.', 'coldbox' ),
+			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();document.getElementById(\'customize-control-site_title\').classList.add(\'focused\');">',
 			'</a>'
 		);
 
@@ -327,7 +327,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize, 'site_title', array(
 					'label'       => __( 'Display Site Title', 'coldbox' ),
-					'description' => __( 'Your logo will be still shown when this is unchecked.', 'coldbox' ),
+					'description' => sprintf(
+						'%1$s' . __( 'Your logo will be still shown when this is unchecked.', 'coldbox' ) . '%2$s',
+						'<span onClick="document.getElementById(\'customize-control-site_title\').classList.remove(\'focused\');">',
+						'</span>'
+					),
 					'section'     => 'header',
 					'type'        => 'checkbox',
 				)
@@ -380,7 +384,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize, 'header_sticky', array(
 					'label'       => __( 'Make Header Sticky', 'coldbox' ),
-					'description' => __( 'Only menus will be sticky when vertical is selected, or the whole header will be sticky with narrower padding when horizontal is selected.', 'coldbox' ),
+					'description' => __( 'Only nav menu will be sticky if you\'ve selected "Vertical" direction, or whole header will be sticky with narrower padding if "Horizontal" direction is selected.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
 				)
@@ -578,7 +582,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 		$wp_customize->add_section(
 			'single', array(
-				'title'    => __( 'Coldbox: Single Settings', 'coldbox' ),
+				'title'    => __( 'Coldbox: Single Posts Settings', 'coldbox' ),
 				'priority' => 3,
 			)
 		);
@@ -925,7 +929,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize, 'pages_meta_comments_count', array(
 					'label'       => __( 'Display Comments Counts', 'coldbox' ),
-					'description' => __( 'It will be shown when comments are opened and shown.', 'coldbox' ),
+					'description' => __( 'It will be shown only when comments are opened and shown, and this option is checked.', 'coldbox' ),
 					'section'     => 'pages',
 					'type'        => 'checkbox',
 				)
@@ -969,8 +973,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'credit_text', array(
-					'label'       => __( 'Edit the Credit Content', 'coldbox' ),
-					'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'It will be displayed in footer area. You can use the following HTML tags: %s.<br/> Also some shortcodes you can use: <br/> [year] -> Shows this year, <br/> [url] -> This site\'s URL, <br/> [name] -> This site\'s name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+					'label'       => __( 'Edit the Credit', 'coldbox' ),
+					'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
 					'section'     => 'footer',
 					'type'        => 'textarea',
 				)
@@ -986,8 +990,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'theme_credit_text', array(
-					'label'       => __( 'Edit the Theme Credit Content', 'coldbox' ),
-					'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'It will be displayed when above checked. You can use the following HTML tags: %s', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
+					'label'       => __( 'Edit the Theme Credit', 'coldbox' ),
+					'description' => sprintf( /* Translators: %s: HTML Tags. */ __( 'It will be displayed only when the "Display Theme Credit" option is checked. You can use the following HTML tags: %s.', 'coldbox' ), '&lt;a&gt;, &lt;p&gt;, &lt;br&gt;, &lt;b&gt;, &lt;strong&gt; &lt;small&gt;' ),
 					'section'     => 'footer',
 					'type'        => 'textarea',
 				)
@@ -1044,7 +1048,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize, 'title_box_color', array(
-					'label'    => __( 'Title Box Color', 'coldbox' ),
+					'label'    => __( 'Title Box Background Color', 'coldbox' ),
 					'section'  => 'colors',
 					'settings' => 'title_box_color',
 					'priority' => 122,
@@ -1061,7 +1065,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize, 'content_wrapper_color', array(
-					'label'    => __( 'Content Wrapper Color', 'coldbox' ),
+					'label'    => __( 'Content Wrapper Background Color', 'coldbox' ),
 					'section'  => 'colors',
 					'settings' => 'content_wrapper_color',
 					'priority' => 124,
@@ -1078,7 +1082,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Color_Control(
 				$wp_customize, 'sidebar_wrapper_color', array(
-					'label'    => __( 'Sidebar Wrapper Color', 'coldbox' ),
+					'label'    => __( 'Sidebar Wrapper Background Color', 'coldbox' ),
 					'section'  => 'colors',
 					'settings' => 'sidebar_wrapper_color',
 					'priority' => 126,
