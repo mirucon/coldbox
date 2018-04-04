@@ -1,13 +1,7 @@
 *.DS_Store
-node_modules
-*.gitkeep
 *.git
-style.css.map
-dest
-composer.phar
-phpcs.xml
 dist
 
-composer.lock
 /.idea/
 /vendor/
+/node_modules/
