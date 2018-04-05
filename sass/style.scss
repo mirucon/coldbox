@@ -873,7 +873,7 @@ ul.social-links { padding-left: 0; list-style: none; }
 
 .modal-search-open {
   .modal-search-form {
-    animation: fadeIn .4s;
+    animation: fadeIn .26s;
     visibility: visible;
   }
   #main, #header, .footer {
@@ -882,7 +882,7 @@ ul.social-links { padding-left: 0; list-style: none; }
 }
 .modal-search-closed {
   .modal-search-form {
-    animation: fadeOut .4s;
+    animation: fadeOut .26s;
   }
   .search-inner, .search-submit {
     display: none;
