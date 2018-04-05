@@ -13,6 +13,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var concat = require("gulp-concat");
 var runSequence = require('run-sequence');
 var del = require('del');
+var stylus = require('gulp-stylus');
 
 gulp.task( 'sass', function() {
   var processors = [
@@ -66,9 +67,8 @@ gulp.task( 'js-min-concat', ['js-concat-hljs', 'js-concat-hljs-web'], function()
 
 gulp.task( 'browser-sync', function () {
   browserSync({
-    open: 'external',
-    notify: false,
-    proxy: "http://coldbox.vccw/",
+    notify: true,
+    proxy: "https://coldbox.fly/",
   });
 });
 
@@ -89,11 +89,27 @@ gulp.task( 'editor-min', ['editor-sass'], function() {
   .pipe(gulp.dest('parts'));
 });
 
+gulp.task('page-styl', function () {
+  return gulp.src('sass/page-style.styl')
+    .pipe(sourcemaps.init())
+    .pipe(stylus())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('assets/css/'));
+});
+
+gulp.task('page-styl-min', ['page-styl'], function() {
+  gulp.src('assets/css/page-style.css')
+    .pipe(cssmin())
+    .pipe(rename({suffix: '.min'}))
+    .pipe(gulp.dest('assets/css/'));
+});
+
 gulp.task( 'bs-reload', function () {
   browserSync.reload();
 });
 gulp.task( 'watch', ['browser-sync'], function () {
   gulp.watch("sass/*.scss", ['sass', 'bs-reload', 'css-min']);
+  gulp.watch("sass/*.styl", ['page-styl', 'bs-reload', 'page-styl-min']);
   gulp.watch("js/*.*", ['bs-reload', 'js-min', 'js-concat-hljs-web', 'js-concat-hljs']);
   gulp.watch("parts/*.*", ['bs-reload']);
   gulp.watch("parts/*.scss", ['editor-sass', 'editor-min'])
@@ -127,5 +143,5 @@ gulp.task( 'copy', function() {
 } );
 
 gulp.task( 'dist', function(cb){
-    return runSequence( ['sass-dev', 'editor-sass'], ['css-min', 'editor-min'], 'js-min-concat', 'clean', 'copy', cb );
+    return runSequence( ['sass-dev', 'editor-sass', 'page-styl'], ['css-min', 'editor-min', 'page-styl-min'], 'js-min-concat', 'clean', 'copy', cb );
 });

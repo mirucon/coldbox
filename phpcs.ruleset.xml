@@ -23,6 +23,7 @@
 	<exclude-pattern>*/*.min.js</exclude-pattern>
 	<exclude-pattern>*/*.min.css</exclude-pattern>
 	<exclude-pattern>parts/tgm/*.php</exclude-pattern>
+	<exclude-pattern>parts/Parsedown.php</exclude-pattern>
 	<exclude-pattern>*/vender/*</exclude-pattern>
 	<exclude-pattern>*/tests/*.php</exclude-pattern>
 </ruleset>
