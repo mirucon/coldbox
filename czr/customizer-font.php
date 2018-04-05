@@ -65,17 +65,19 @@ if ( ! function_exists( 'cd_customizer_font_set' ) ) {
 		if ( 'opensans' === $font ) {
 			$font = 'Open Sans';
 		} elseif ( 'sourcesanspro' === $font ) {
-			$font = 'Source Sans Pro';
+			$font = '"Source Sans Pro"';
 		} elseif ( 'josefinsans' === $font ) {
-			$font = 'Josefin Sans';
+			$font = '"Josefin Sans"';
 		} elseif ( 'ptsans' === $font ) {
-			$font = 'PT Sans';
+			$font = '"PT Sans"';
 		} elseif ( 'robotoslab' === $font ) {
-			$font = 'Roboto Slab';
+			$font = '"Roboto Slab"';
 		}
 
 		$custom_ff   = str_replace( '[font]', ucfirst( $font ), $custom_ff );
-		$font_family = "body { font-family: {$custom_ff}; }";
+		$font_family = "body { font-family: {$custom_ff} }";
+
+		$font_family = cd_css_minify( $font_family );
 
 		wp_add_inline_style( 'cd-style', $font_family );
 
