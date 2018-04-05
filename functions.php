@@ -38,7 +38,7 @@ add_action( 'wp_enqueue_scripts', 'cd_scripts' );
 if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 	/**
-	 * Load the highlight.js
+	 * Loads highlight.js
 	 *
 	 * @since 1.0.0
 	 */
@@ -452,16 +452,47 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 }
 add_filter( 'body_class', 'cd_body_class' );
 
+if ( ! function_exists( 'cd_load_welcome_page' ) ) {
+	/**
+	 * Loads the Welcome page.
+	 *
+	 * @since 1.5.0
+	 */
+	function cd_load_welcome_page() {
+		require_once get_theme_file_path( 'parts/about-coldbox.php' );
+	}
 
-/**
- * Loads the Welcome page.
- *
- * @since 1.5.0
- */
-function cd_load_welcome_page() {
-	require_once get_theme_file_path( 'parts/about-coldbox.php' );
+	add_action( 'init', 'cd_load_welcome_page' );
 }
-add_action( 'init', 'cd_load_welcome_page' );
+
+if ( ! function_exists( 'cd_css_minify' ) ) {
+	/**
+	 * Quick and dirty way to mostly minify CSS.
+	 *
+	 * @since 1.5.0
+	 * @author Gary Jones
+	 * @see https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
+	 * @license GPL
+	 *
+	 * @param string $css CSS to minify.
+	 *
+	 * @return string Minified CSS
+	 */
+	function cd_css_minify( $css ) {
+		$css = preg_replace( '/\s+/', ' ', $css );
+		$css = preg_replace( '/(\s+)(\/\*(.*?)\*\/)(\s+)/', '$2', $css );
+		$css = preg_replace( '~/\*(?![\!|\*])(.*?)\*/~', '', $css );
+		$css = preg_replace( '/;(?=\s*})/', '', $css );
+		$css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
+		$css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
+		$css = preg_replace( '/(:| )0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
+		$css = preg_replace( '/(:| )(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
+		$css = preg_replace( '/0 0 0 0/', '0', $css );
+		$css = preg_replace( '/#([a-f0-9])\\1([a-f0-9])\\2([a-f0-9])\\3/i', '#\1\2\3', $css );
+
+		return trim( $css );
+	}
+}
 
 /*
  * ----------------------------------------------------------------------
