@@ -63,6 +63,7 @@ function cd_register_required_plugins() {
 		array(
 			'name'     => __( 'Coldbox Addon', 'coldbox' ),
 			'slug'     => 'coldbox-addon',
+			'version'  => '1.1.3',
 			'required' => false,
 		),
 
