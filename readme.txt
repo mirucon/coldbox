@@ -63,6 +63,10 @@ TGM Plugin Activation License
 License - GPL v2 or later
 URL: http://tgmpluginactivation.com/
 
+Parsedown License
+License - MIT
+URL: https://github.com/erusev/parsedown
+
 All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/computer-computer-code-screen-1209641/
 * https://unsplash.com/photos/Azli_kcxRNE

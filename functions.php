@@ -417,10 +417,10 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 if ( ! function_exists( 'cd_body_class' ) ) {
 
 	/**
-	 * Adds classses to the body tag.
+	 * Adds classes to the body tag.
 	 *
 	 * @param string $classes The classes add to the body class.
-	 * @return The custom body classes.
+	 * @return array custom body classes.
 	 * @since 1.0.0
 	 **/
 	function cd_body_class( $classes ) {
@@ -452,6 +452,16 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 }
 add_filter( 'body_class', 'cd_body_class' );
 
+
+/**
+ * Loads the Welcome page.
+ *
+ * @since 1.5.0
+ */
+function cd_load_welcome_page() {
+	require_once get_theme_file_path( 'parts/about-coldbox.php' );
+}
+add_action( 'init', 'cd_load_welcome_page' );
 
 /*
  * ----------------------------------------------------------------------
@@ -926,7 +936,7 @@ define( 'CD_VER', '1.4.1' );
 
 /*
  * -------------------------------------------------------------------------
- *  Addon cooperation
+ *  Addon plugin integration
  * -------------------------------------------------------------------------
  */
 
