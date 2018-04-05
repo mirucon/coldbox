@@ -78,20 +78,20 @@ gulp.task('browser-sync', function () {
 })
 
 gulp.task('editor-sass', function () {
-  var processors = [ cssnext({browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009'}) ]
-  return gulp.src('parts/editor-style.scss')
+  var processors = [ cssnext({browsers: ['last 2 version'], flexbox: 'no-2009'}) ]
+  return gulp.src('sass/editor-style.scss')
     .pipe(sourcemaps.init())
     .pipe(plumber({errorHandler: notify.onError('<%= error.message %>')}))
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(postcss(processors))
-    .pipe(gulp.dest('parts'))
+    .pipe(gulp.dest('assets/css/'))
 })
 
 gulp.task('editor-min', ['editor-sass'], function () {
-  return gulp.src('parts/editor-style.css')
+  return gulp.src('assets/css/editor-style.css')
     .pipe(cssmin())
     .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('parts'))
+    .pipe(gulp.dest('assets/css/'))
 })
 
 gulp.task('page-styl', function () {
