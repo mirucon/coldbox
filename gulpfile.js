@@ -123,7 +123,7 @@ gulp.task('watch', ['browser-sync', 'js', 'sass'], function () {
 })
 
 gulp.task('clean', function () {
-  del(['style.min.css'])
+  del(['style.min.css', 'assets/css/style.css'])
 })
 
 gulp.task('sass-dev', function () {
