@@ -1,0 +1,100 @@
+/*
+/*   Styles for Theme Customizer
+/* -------------------------------------------------- */
+.customize-control select, .customize-control option {
+  width: 100%;
+}
+
+#accordion-section ul li {
+  margin: 2px 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+body #customize-controls h3.czr-heading {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #111;
+  font-size: 1.14em;
+  line-height: 24px;
+  font-weight: 600;
+}
+body #customize-controls h3.czr-heading.first {
+  margin-top: 0;
+}
+
+*[id^='customize-control-single_related_']:not(#customize-control-single_related_posts) label {
+  display: flex;
+}
+*[id^='customize-control-single_related_'] input[type=number] {
+  flex: 1;
+}
+*[id^='customize-control-single_related_'] .customize-control-title {
+  flex-grow: 1;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+li[id^='customize-control-sns_button_'] {
+  margin-bottom: .4em;
+}
+
+#sub-accordion-section-social_links > li:not(:nth-child(2)) > label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  max-width: 100%;
+}
+#sub-accordion-section-social_links > li > label .customize-control-title {
+  flex-shrink: 1;
+  padding-right: .4em;
+}
+#sub-accordion-section-social_links > li > label input[type=url] {
+  flex: 1;
+  max-width: 70%;
+}
+#customize-control-foursquare .customize-control-title, #customize-control-email-form .customize-control-title, #customize-control-bell .customize-control-title {
+  font-size: .96em;
+}
+#customize-control-feed_url_info {
+  word-wrap: break-word;
+}
+
+[id^='customize-control-'] {
+  padding: 8px 12px 10px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+}
+[id^='customize-control-'] p:nth-child(2) {
+  margin-top: 0;
+}
+
+#sub-accordion-section-single li:not(.customize-section-description-container) {
+  margin-bottom: 0;
+  padding: 8px 12px 10px;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+  box-sizing: border-box;
+}
+#customize-control-single_content, #customize-control-single_meta, #customize-control-single_related {
+  margin-top: 12px
+}
+
+/* More highlight on focus for Display Site Title option */
+#customize-control-site_title.focused {
+  box-shadow: 0 0 6px rgba(0, 0, 0, .6)
+}
+
+/* For addon plugin options... */
+#customize-control-sns_button_twitter, #customize-control-sns_button_facebook, #customize-control-sns_button_hatena, #customize-control-sns_button_googleplus, #customize-control-sns_button_pocket, #customize-control-sns_button_feedly {
+  width: 92%;
+  float: none;
+  margin: 0 auto .4em;
+}
+#customize-control-sns_button_twitter {
+  margin-top: -.2em;
+}
+#customize-control-sns_button_feedly {
+  margin-bottom: .8em;
+}
