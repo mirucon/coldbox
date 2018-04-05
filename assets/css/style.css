@@ -4577,8 +4577,8 @@ ul.social-links {
 }
 
 .modal-search-open .modal-search-form {
-  -webkit-animation: fadeIn .4s;
-          animation: fadeIn .4s;
+  -webkit-animation: fadeIn .26s;
+          animation: fadeIn .26s;
   visibility: visible;
 }
 
@@ -4589,8 +4589,8 @@ ul.social-links {
 }
 
 .modal-search-closed .modal-search-form {
-  -webkit-animation: fadeOut .4s;
-          animation: fadeOut .4s;
+  -webkit-animation: fadeOut .26s;
+          animation: fadeOut .26s;
 }
 
 .modal-search-closed .search-inner, .modal-search-closed .search-submit {
