@@ -130,9 +130,10 @@ gulp.task('sass-dev', function () {
   var processors = [
     cssnext({browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009'})
   ]
-  return gulp.src(['sass/*.scss'])
+  return gulp.src(['sass/style.scss'])
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(postcss(processors))
+    .pipe(rename({ prefix: 'cd-' }))
     .pipe(gulp.dest('assets/css/'))
 })
 
@@ -149,5 +150,5 @@ gulp.task('copy', function () {
 })
 
 gulp.task('dist', function (cb) {
-  return runSequence(['sass-dev', 'editor-sass', 'page-styl'], ['css-min', 'editor-min', 'page-styl-min'], ['js', 'js-min'], 'js-min-concat', 'clean', 'copy', cb)
+  return runSequence(['sass-dev', 'editor-sass', 'page-styl'], ['css-min', 'editor-min', 'page-styl-min'], 'js', 'js-min', 'js-min-concat', 'clean', 'copy', cb)
 })
