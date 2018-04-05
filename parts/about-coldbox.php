@@ -119,6 +119,19 @@ function cd_welcome_page_content() {
 	</div>
 
 	<div class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Need Help?', 'coldbox' ); ?></h2>
+		<?php
+			echo wp_kses_data( sprintf(
+				/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
+				esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s.', 'coldbox' ),
+				'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
+				'<a href="mailto:i@miruc.co">',
+				'</a>'
+			) );
+		?>
+	</div>
+
+	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, Go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>

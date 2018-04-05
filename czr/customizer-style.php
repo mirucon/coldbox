@@ -85,6 +85,11 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_use_narrower_padding );
 		}
 
+		/*
+		 * ------------------------------------------------------------------------- *
+		 *  COLOR SETTINGS
+		 * --------------------------------------------------------------------------
+		 */
 
 		// Link Color.
 		if ( get_theme_mod( 'link_color', '#00619f' ) !== '#00619f' ) {
