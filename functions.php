@@ -490,7 +490,7 @@ if ( ! function_exists( 'cd_css_minify' ) ) {
 		$css = preg_replace( '~/\*(?![\!|\*])(.*?)\*/~', '', $css );
 		$css = preg_replace( '/;(?=\s*})/', '', $css );
 		$css = preg_replace( '/(,|:|;|\{|}|\*\/|>) /', '$1', $css );
-		$css = preg_replace( '/ (,|;|\{|}|\(|\)|>)/', '$1', $css );
+		$css = preg_replace( '/ (,|;|\{|}|\)|>)/', '$1', $css );
 		$css = preg_replace( '/(:| )0\.([0-9]+)(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}.${2}${3}', $css );
 		$css = preg_replace( '/(:| )(\.?)0(%|em|ex|px|in|cm|mm|pt|pc)/i', '${1}0', $css );
 		$css = preg_replace( '/0 0 0 0/', '0', $css );
