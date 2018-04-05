@@ -98,28 +98,4 @@ Copyright (c) 2011, Thomas Griffin
 * Changed: Template hierarchy; all the CSS/JS files are now at assets folder
 * Fixed: Minor security bug
 
-1.3.3
-
-* Added: New customizer settings:
-  * Change the footer menu color
-  * Set the number of grid columns for mobile
-* Fixed: Archive pages layout when the number of grid columns is set more than one for mobile
-
-1.3.2
-
-- Fixed: Now the Coldbox theme uses more modern functions
-- Tested up to 4.9
-
-1.3.1
-
-- Added: Direct editing links for social links on customizer
-- Improved: Customizer
-
-1.3.0
-
-- Added: New customizer setting for editing grid columns
-- Added: Support for footer menu
-- Improved: Customizer styling
-- Improved: Typography for menu
-
-*See [CHANGELOG.md](/CHANGELOG.md) for all the releases*
+*See [CHANGELOG.md](/CHANGELOG.md) to see all the releases*

@@ -47,23 +47,29 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 		if ( cd_use_normal_hljs() || cd_use_web_hljs() ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
-				if ( cd_use_minified_js() ) {
+				if ( cd_use_minified_js() && cd_use_concat_js() ) {
 					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/cd-scripts+hljs.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
+				} elseif ( cd_use_minified_js() ) {
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight.min.js' ), array(), '9.12.0' );
 				} else {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight.js' ), array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
-				if ( cd_use_minified_js() ) {
+				if ( cd_use_minified_js() && cd_use_concat_js() ) {
 					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
+				} elseif ( cd_use_minified_js() ) {
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.min.js' ), array(), '9.12.0' );
 				} else {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.js' ), array(), '9.12.0' );
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
-				if ( cd_use_minified_js() ) {
+				if ( cd_use_minified_js() && cd_use_concat_js() ) {
 					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
 					wp_dequeue_script( 'cd-script' );
+				} elseif ( cd_use_minified_js() ) {
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.min.js' ), array(), '9.12.0' );
 				} else {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.js' ), array(), '9.12.0' );
 				}

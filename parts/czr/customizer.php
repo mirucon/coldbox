@@ -211,6 +211,22 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Show Coldbox button on the admin bar.
+		$wp_customize->add_setting(
+			'theme_button', array(
+				'default'           => 'true',
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'theme_button', array(
+					'label'   => __( 'Show "Coldbox" button on the admin bar', 'coldbox' ),
+					'section' => 'global',
+					'type'    => 'checkbox',
+				)
+			)
+		);
 		$wp_customize->add_setting(
 			'minified_css', array(
 				'default'           => true,
@@ -238,6 +254,23 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				$wp_customize, 'minified_js', array(
 					'label'       => __( 'Use minified JS files', 'coldbox' ),
 					'description' => __( 'The theme will load minified JS files when this is on. Use of minified JS files improves loading speed of your website. Highly recommended to use this option unless you directly modify the theme\'s stylesheet (which is not recommended).', 'coldbox' ),
+					'section'     => 'global',
+					'type'        => 'checkbox',
+				)
+			)
+		);
+		// Use concatenated JS files.
+		$wp_customize->add_setting(
+			'concat_js', array(
+				'default'           => true,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'concat_js', array(
+					'label'       => __( 'Use concatenated JS files', 'coldbox' ),
+					'description' => __( 'Use of concatenated JS files makes loading faster for the sites do not support HTTP/2. Recommended to set this ON if your website is not using https connection, or you are not sure whether this site supports HTTP/2.', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
@@ -1218,6 +1251,16 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 
 
 	/**
+	 * Returns theme_button.
+	 *
+	 * @since 1.5.0
+	 * @return bool
+	 */
+	function cd_show_theme_button() {
+		$theme_button = get_theme_mod( 'theme_button', true );
+		return $theme_button;
+	}
+	/**
 	 * Get whether using minified CSS or not
 	 *
 	 * @since 1.0.0
@@ -1238,6 +1281,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$js_min      = $minified_js ? '.min' : '';
 		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min;
 		return apply_filters( 'cd_use_minified_js', $js_min );
+	}
+	/**
+	 * Get whether using minified JS or not
+	 *
+	 * @since 1.5.0
+	 */
+	function cd_use_concat_js() {
+		$concat_js = get_theme_mod( 'concat_js', true );
+		return apply_filters( 'cd_use_concat_js', $concat_js );
 	}
 	/**
 	 * Get the sidebar position

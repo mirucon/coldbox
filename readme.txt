@@ -89,7 +89,6 @@ All the photos used in the screenshots are all licensed CC0.
 * Updated: Default font family value
 * Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
 
-
 = 1.4.1 =
 
 * Fixed: Default option of a customizer option was not working properly
@@ -102,30 +101,5 @@ All the photos used in the screenshots are all licensed CC0.
 * Changed: Template hierarchy; all the CSS/JS files are now at assets folder
 * Fixed: Minor security bug
 
-= 1.3.3 =
-
-* Added: New customizer settings:
-  * Change the footer menu color
-  * Set the number of grid columns for mobile
-* Fixed: Archive pages layout when the number of grid columns is set more than one for mobile
-
-= 1.3.2 =
-
-* Fixed: Now the Coldbox theme uses more modern functions
-* Fixed: Excerpt filter was effecting on admin side
-* Tested up to 4.9
-
-= 1.3.1 =
-
-* Added: Direct editing links for social links on customizer
-* Improved: Customizer
-
-= 1.3.0 =
-
-* Added: New customizer setting for editing grid columns
-* Added: Support for footer menu
-* Improved: Customizer styling
-* Improved: Typograpy for menu
-
-*See CHANGELOG.md for older releases*
+*See CHANGELOG.md to see full changelog*
 
