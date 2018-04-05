@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.4.1
+Version: 1.5.0-pre
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -74,6 +74,21 @@ All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.5.0 =
+
+* Added: "About Coldbox" page
+* Added: New customizer option to adjust the logo width
+* Added: New customizer option to select whether use narrower padding when scrolling
+* Added: New customizer option to change the header menu background color for mobile
+* Fixed: Post's published date was not showing when the published and modified date isn't same
+* Fixed: Site logo was being shown too big
+* Fixed: Flicker of the search modal
+* Improved: flex-width logo is now supported
+* Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
+* Updated: Default font family value
+* Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
+
 
 = 1.4.1 =
 

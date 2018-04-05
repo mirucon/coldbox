@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.4.1  
+**Version**: 1.5.0-pre  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -56,6 +56,10 @@ License - BSD 3-clause License
 URL: https://highlightjs.org/  
 Created by @highlightjs  
 
+### Parsedown License
+License - MIT
+URL: https://github.com/erusev/parsedown
+
 ### PlaceFolder Camera Icon License
 License - MIT License  
 URL: http://ionicons.com/  
@@ -67,6 +71,20 @@ URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
+
+1.5.0
+
+* Added: "About Coldbox" page
+* Added: New customizer option to adjust the logo width
+* Added: New customizer option to select whether use narrower padding when scrolling
+* Added: New customizer option to change the header menu background color for mobile
+* Fixed: Post's published date was not showing when the published and modified date isn't same
+* Fixed: Site logo was being shown too big
+* Fixed: Flicker of the search modal
+* Improved: flex-width logo is now supported
+* Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
+* Updated: Default font family value
+* Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
 
 1.4.1
 
