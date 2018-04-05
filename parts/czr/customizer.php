@@ -400,10 +400,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'header_padding', array(
-					'label'       => __( 'Custom Header Padding', 'coldbox' ),
-					'description' => __( 'Adjust the value of top and bottom padding.', 'coldbox' ),
-					'section'     => 'header',
-					'type'        => 'number',
+					'label'   => __( 'Custom Header Padding', 'coldbox' ),
+					'section' => 'header',
+					'type'    => 'number',
 				)
 			)
 		);
@@ -417,7 +416,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'use_narrower_padding', array(
-					'label'       => __( 'Use Narrower padding when Scrolling', 'coldbox' ),
+					'label'       => __( 'Use Narrower Padding when Scrolling', 'coldbox' ),
 					'description' => __( 'This works only when Horizontal menu direction selected. If this is off, the header won\'t narrower when scrolling the window. Recommended to set this off when you set the value of Custom Header Padding above narrower than 15px.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
