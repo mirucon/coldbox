@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function cd_czr_style() {
-	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'czr/czr-style.css' ), array(), '1.3.0' );
+	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style.css' ), array(), '1.3.0' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
@@ -65,7 +65,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		}
 
 		// Load the file to use custom content.
-		require_once get_theme_file_path( 'czr/class-cd-custom-content.php' );
+		require_once get_theme_file_path( 'parts/czr/class-cd-custom-content.php' );
 
 		/*
 		 * -------------------------------------------------------------------------
@@ -418,7 +418,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			new WP_Customize_Control(
 				$wp_customize, 'use_narrower_padding', array(
 					'label'       => __( 'Use Narrower padding when Scrolling', 'coldbox' ),
-					'description' => __( 'This works only when Horizontal menu direction selected. If this is off, the header won\'t narrower when scrolling the window. Recommended to set this off when you set the value of padding to narrower than 15px.', 'coldbox' ),
+					'description' => __( 'This works only when Horizontal menu direction selected. If this is off, the header won\'t narrower when scrolling the window. Recommended to set this off when you set the value of Custom Header Padding above narrower than 15px.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
 				)
@@ -1521,10 +1521,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 add_action( 'customize_register', 'cd_customize_register' );
 
 // Load Social Links Setting.
-require_once get_theme_file_path( 'czr/social-links.php' );
+require_once get_theme_file_path( 'parts/czr/social-links.php' );
 
 // Load Font Setting.
-require_once get_theme_file_path( 'czr/customizer-font.php' );
+require_once get_theme_file_path( 'parts/czr/customizer-font.php' );
 
 // Load the inline styles got from the theme customizer.
-require_once get_theme_file_path( 'czr/customizer-style.php' );
+require_once get_theme_file_path( 'parts/czr/customizer-style.php' );

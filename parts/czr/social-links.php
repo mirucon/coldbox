@@ -75,7 +75,7 @@ function cd_czr_social_links( $wp_customize ) {
 	$wp_customize->add_section(
 		'social_links', array(
 			'title'       => __( 'Coldbox: Social Links', 'coldbox' ),
-			'description' => __( 'Add your social account profiles here. Please enter the full URL.', 'coldbox' ),
+			'description' => __( 'You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs.', 'coldbox' ),
 			'priority'    => 5,
 		)
 	);
@@ -156,7 +156,7 @@ function cd_is_links_on_author_box() {
  */
 function cd_load_icomoon() {
 	if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
-		wp_enqueue_style( 'icomoon', get_theme_file_uri( 'fonts/icomoon/icomoon.min.css' ) );
+		wp_enqueue_style( 'icomoon', get_theme_file_uri( 'assets/fonts/icomoon/icomoon.min.css' ) );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'cd_load_icomoon' );
@@ -242,4 +242,4 @@ function cd_social_links( $class = null, $inner_class = null ) {
 }
 
 // Load the widget template.
-require_once get_theme_file_path( 'czr/class-cd-social-links.php' );
+require_once get_theme_file_path( 'parts/czr/class-cd-social-links.php' );

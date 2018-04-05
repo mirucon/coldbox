@@ -19,7 +19,7 @@ gulp.task('sass', function () {
   var processors = [
     cssnext({ browsers: ['last 2 version'], flexbox: 'no-2009' })
   ]
-  return gulp.src(['sass/*.scss'])
+  return gulp.src(['sass/style.scss'])
     .pipe(sourcemaps.init())
     .pipe(plumber({ errorHandler: notify.onError('<%= error.message %>') }))
     .pipe(sass({ outputStyle: 'expanded' }))
@@ -139,8 +139,9 @@ gulp.task('sass-dev', function () {
 gulp.task('copy', function () {
   return gulp.src(
     [ '*.php', '*.css', 'readme.txt', 'screenshot.jpg', 'CHANGELOG.md',
-      'parts/*.php', 'parts/*.css', 'parts/tgm/*.php', 'page-templates/*.php', 'img/*.*', 'czr/*.*',
-      'fonts/fontawesome/css/*.css', 'fonts/fontawesome/fonts/*.*', 'fonts/icomoon/*.css', 'fonts/icomoon/fonts/*.*',
+      'parts/*.php', 'parts/tgm/*.php', 'parts/czr/*.*', 'page-templates/*.php',
+      'assets/img/*.*', 'assets/fonts/fontawesome/css/*.css', 'assets/fonts/fontawesome/fonts/*.*',
+      'assets/fonts/icomoon/*.css', 'assets/fonts/icomoon/fonts/*.*',
       'languages/coldbox.pot', 'assets/js/*.js', '!assets/js/*.babel.js', 'assets/css/*.css' ],
     { base: '.' }
   )
