@@ -133,6 +133,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			wp_add_inline_style( 'cd-style', $czr_header_textcolor );
 		}
 
+		// Header Menu Background Color for Mobile devices.
+		if ( get_theme_mod( 'header_menu_background', '#51575d' ) !== '#51575d' ) {
+			$header_menu_background     = esc_html( get_theme_mod( 'header_menu_background' ) );
+			$czr_header_menu_background = "#header-nav{background-color:${header_menu_background}}";
+			wp_add_inline_style( 'cd-style', $czr_header_menu_background );
+		}
+
 		// Custom Logo Sizing.
 		if ( get_theme_mod( 'logo_width', '230' ) !== '230' ) {
 			$logo_width     = esc_html( get_theme_mod( 'logo_width' ) );
