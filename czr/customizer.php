@@ -1106,6 +1106,22 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Header Menu Background Color for Mobile devices.
+		$wp_customize->add_setting(
+			'header_menu_background', array(
+				'default'           => '#51575d',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'header_menu_background', array(
+					'label'    => __( 'Header Menu Background Color for Mobile', 'coldbox' ),
+					'section'  => 'colors',
+					'priority' => 51,
+				)
+			)
+		);
 		// Footer Background Color.
 		$wp_customize->add_setting(
 			'footer_color', array(
