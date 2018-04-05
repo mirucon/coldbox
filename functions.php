@@ -91,7 +91,7 @@ if ( ! function_exists( 'cd_loads' ) ) {
 	 **/
 	function cd_loads() {
 		load_theme_textdomain( 'coldbox', get_theme_file_path( 'languages' ) );
-		add_editor_style( 'parts/editor-style.min.css' );
+		add_editor_style( 'assets/css/editor-style.min.css' );
 	}
 }
 add_action( 'after_setup_theme', 'cd_loads' );
