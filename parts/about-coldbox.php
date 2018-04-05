@@ -131,17 +131,16 @@ function cd_welcome_page_content() {
 		?>
 	</div>
 
-	<div class="cdAdmin__section">
+	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, Go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>
+		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>
 	</div>
 
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></h2>
 	</div>
 	<?php
-	// phpcs:disable.
 	ob_start();
 	include_once get_theme_file_path( 'CHANGELOG.md' );
 	$changelog = ob_get_contents();
@@ -150,7 +149,36 @@ function cd_welcome_page_content() {
 	require_once get_theme_file_path( 'parts/Parsedown.php' );
 	$parsedown = new Parsedown();
 	echo wp_kses_post( $parsedown->text( $changelog ) );
-
-	// phpcs:enable.
 }
 
+/**
+ * Adds "Coldbox" info to the admin bar.
+ *
+ * @param string $wp_admin_bar Menu item to add.
+ */
+function customize_admin_bar_menu( $wp_admin_bar ) {
+	if ( ! current_user_can( 'edit_theme_options' ) || ! cd_show_theme_button() ) {
+		return;
+	}
+	global $wp_admin_bar;
+	$title = sprintf(
+		/* translators: %s: Theme version  */
+		esc_html__( 'Coldbox v%s', 'coldbox' ),
+		CD_VER
+	);
+	$wp_admin_bar->add_menu( array(
+		'parent' => 'top-secondary',
+		'id'     => 'coldbox-link',
+		'meta'   => array(),
+		'title'  => $title,
+		'href'   => admin_url( 'themes.php?page=welcome.php' ),
+	) );
+	$wp_admin_bar->add_menu( array(
+		'parent' => 'coldbox-link',
+		'id'     => 'coldbox-upgrade-notice',
+		'meta'   => array(),
+		'title'  => esc_html__( 'Upgrade Notices', 'coldbox' ),
+		'href'   => admin_url( 'themes.php?page=welcome.php#upgrade-notice' ),
+	) );
+}
+add_action( 'admin_bar_menu', 'customize_admin_bar_menu' );
