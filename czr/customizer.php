@@ -390,6 +390,40 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Custom Header Padding.
+		$wp_customize->add_setting(
+			'header_padding', array(
+				'default'           => '30',
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'header_padding', array(
+					'label'       => __( 'Custom Header Padding', 'coldbox' ),
+					'description' => __( 'Adjust the value of top and bottom padding.', 'coldbox' ),
+					'section'     => 'header',
+					'type'        => 'number',
+				)
+			)
+		);
+		// Use narrower padding when scrolling.
+		$wp_customize->add_setting(
+			'use_narrower_padding', array(
+				'default'           => true,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'use_narrower_padding', array(
+					'label'       => __( 'Use Narrower padding when Scrolling', 'coldbox' ),
+					'description' => __( 'This works only when Horizontal menu direction selected. If this is off, the header won\'t narrower when scrolling the window. Recommended to set this off when you set the value of padding to narrower than 15px.', 'coldbox' ),
+					'section'     => 'header',
+					'type'        => 'checkbox',
+				)
+			)
+		);
 
 		/*
 		 * -------------------------------------------------------------------------
