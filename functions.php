@@ -471,22 +471,6 @@ if ( ! function_exists( 'cd_load_welcome_page' ) ) {
 	add_action( 'init', 'cd_load_welcome_page' );
 }
 
-if ( ! function_exists( 'cd_load_welcome_page' ) ) {
-	/**
-	 * Overrides the number of grid columns when Bottom or Hide sidebar selected.
-	 *
-	 * @param WP_Customize_Manager $wp_customize Customizer.
-	 */
-	function cd_override_grid_columns( $wp_customize ) {
-		if ( cd_sidebar_stg() === 'hide' && cd_sidebar_stg() === 'bottom' ) {
-			$wp_customize->get_setting( 'grid_columns' )->default = 3;
-		} else {
-			$wp_customize->get_setting( 'grid_columns' )->default = 2;
-		}
-	}
-}
-	add_action( 'customize_register', 'cd_customize_register' );
-
 if ( ! function_exists( 'cd_css_minify' ) ) {
 	/**
 	 * Quick and dirty way to mostly minify CSS.
@@ -525,7 +509,7 @@ if ( ! function_exists( 'cd_css_minify' ) ) {
 if ( ! function_exists( 'cd_widgets_init' ) ) {
 
 	/**
-	 * Inits widgets area.
+	 * Init widgets area.
 	 *
 	 * @since 1.0.0
 	 **/
@@ -670,7 +654,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 
 	/**
-	 * Call the the buttom parts of the single articles through filter.
+	 * Call the the bottom parts of the single articles through filter.
 	 *
 	 * @since 1.1.0
 	 */
@@ -818,7 +802,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 
 /*
  * -------------------------------------------------------------------------
- *  Apparence
+ *  Appearance
  * -------------------------------------------------------------------------
  */
 
@@ -879,12 +863,12 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 
 		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 
-			echo '<a href="' . esc_url( home_url() ) . '" title="' , bloginfo( 'name' ) , '">';
+			echo '<a href="' . esc_url( home_url() ) . '" title="' . esc_html( get_bloginfo( 'name' ) ) . '">';
 
 			echo '<div class="site-logo">';
 
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-			echo '<img src="' . esc_url( $image[0] ) . '" alt="' , bloginfo( 'name' ) , '" />';
+			echo '<img src="' . esc_url( $image[0] ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" />';
 
 			echo '</div>';
 
@@ -894,7 +878,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 
 		if ( cd_is_site_title() && display_header_text() ) {
 
-			echo '<a href="' . esc_url( home_url() ) . '" title="' , bloginfo( 'name' ) , '">';
+			echo '<a href="' . esc_url( home_url() ) . '" title="' . esc_html( get_bloginfo( 'name' ) ) . '">';
 
 			echo '<h1 class="site-title">';
 
@@ -936,17 +920,17 @@ if ( ! function_exists( 'cd_prev_post_thumbnail' ) ) {
 		$next_post = get_next_post();
 
 		if ( ! empty( $prev_post ) && is_single() && cd_is_post_nav() ) {
-			$prevthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_previous_post()->ID ), array( 600, 600 ), false, '' );
+			$prev_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_previous_post()->ID ), array( 600, 600 ), false );
 
-			if ( $prevthumbnail ) {
-				wp_add_inline_style( 'cd-style', '.prev .post-thumbnail{background-image:url("' . $prevthumbnail[0] . '")}' );
+			if ( $prev_thumbnail ) {
+				wp_add_inline_style( 'cd-style', '.prev .post-thumbnail{background-image:url("' . $prev_thumbnail[0] . '")}' );
 			}
 		}
 		if ( ! empty( $next_post ) && is_single() && cd_is_post_nav() ) {
-			$nextthumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_next_post()->ID ), array( 600, 600 ), false, '' );
+			$next_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( get_next_post()->ID ), array( 600, 600 ), false );
 
-			if ( $nextthumbnail ) {
-				wp_add_inline_style( 'cd-style', '.next .post-thumbnail{background-image:url("' . $nextthumbnail[0] . '")}' );
+			if ( $next_thumbnail ) {
+				wp_add_inline_style( 'cd-style', '.next .post-thumbnail{background-image:url("' . $next_thumbnail[0] . '")}' );
 			}
 		}
 
@@ -989,7 +973,7 @@ define( 'CD_VER', '1.4.1' );
 
 /*
  * -------------------------------------------------------------------------
- *  Addon plugin integration
+ *  Addon plugin integrations
  * -------------------------------------------------------------------------
  */
 
