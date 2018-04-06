@@ -121,6 +121,8 @@ if ( empty( $tags ) ) {
 
 		</ul>
 
+		<?php do_action( 'cd_related_posts_bottom' ); ?>
+
 	</section>
 
 <?php endif; ?>
