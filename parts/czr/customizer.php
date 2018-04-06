@@ -13,6 +13,7 @@
  */
 function cd_czr_style() {
 	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style.css' ), array(), '1.3.0' );
+	wp_enqueue_script( 'cd-czr-scripts', get_theme_file_uri( 'assets/js/czr-scripts.js' ), array(), '1.5.0' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
@@ -259,23 +260,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		// Use concatenated JS files.
-		$wp_customize->add_setting(
-			'concat_js', array(
-				'default'           => true,
-				'sanitize_callback' => 'cd_sanitize_checkbox',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize, 'concat_js', array(
-					'label'       => __( 'Use concatenated JS files', 'coldbox' ),
-					'description' => __( 'Use of concatenated JS files makes loading faster for the sites do not support HTTP/2. Recommended to set this ON if your website is not using https connection, or you are not sure whether this site supports HTTP/2.', 'coldbox' ),
-					'section'     => 'global',
-					'type'        => 'checkbox',
-				)
-			)
-		);
 		// Use highlight.js.
 		$wp_customize->add_setting(
 			'does_use_hljs', array(
@@ -304,6 +288,23 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				$wp_customize, 'use_hljs_web_pack', array(
 					'label'       => __( 'Use highlight.js Web Package', 'coldbox' ),
 					'description' => __( 'This selection of highlight.js contains the languages often used for web development.', 'coldbox' ),
+					'section'     => 'global',
+					'type'        => 'checkbox',
+				)
+			)
+		);
+		// Use concatenated JS files.
+		$wp_customize->add_setting(
+			'concat_js', array(
+				'default'           => true,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'concat_js', array(
+					'label'       => __( 'Use concatenated JS files', 'coldbox' ),
+					'description' => __( 'Use of concatenated JS files makes loading faster for the sites do not support HTTP/2. Recommended to set this ON if your website is not using https connection, or you are not sure whether this site supports HTTP/2.', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
@@ -1222,9 +1223,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		$wp_customize->get_setting( 'header_textcolor' )->default  = '#444444';
-		$wp_customize->get_control( 'header_textcolor' )->priority = 50;
-		$wp_customize->get_control( 'background_color' )->priority = 22;
+		$wp_customize->get_setting( 'header_textcolor' )->default   = '#444444';
+		$wp_customize->get_control( 'header_textcolor' )->priority  = 50;
+		$wp_customize->get_control( 'background_color' )->priority  = 22;
+		$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 
 		/*
 		 * ------------------------------------------------------------------------- *
@@ -1248,7 +1250,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		);
 
 	} // End Customizer.
-
 
 	/**
 	 * Returns theme_button.
