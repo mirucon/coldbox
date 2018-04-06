@@ -471,6 +471,22 @@ if ( ! function_exists( 'cd_load_welcome_page' ) ) {
 	add_action( 'init', 'cd_load_welcome_page' );
 }
 
+if ( ! function_exists( 'cd_load_welcome_page' ) ) {
+	/**
+	 * Overrides the number of grid columns when Bottom or Hide sidebar selected.
+	 *
+	 * @param WP_Customize_Manager $wp_customize Customizer.
+	 */
+	function cd_override_grid_columns( $wp_customize ) {
+		if ( cd_sidebar_stg() === 'hide' && cd_sidebar_stg() === 'bottom' ) {
+			$wp_customize->get_setting( 'grid_columns' )->default = 3;
+		} else {
+			$wp_customize->get_setting( 'grid_columns' )->default = 2;
+		}
+	}
+}
+	add_action( 'customize_register', 'cd_customize_register' );
+
 if ( ! function_exists( 'cd_css_minify' ) ) {
 	/**
 	 * Quick and dirty way to mostly minify CSS.

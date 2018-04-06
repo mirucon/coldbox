@@ -109,13 +109,20 @@ gulp.task('page-styl-min', ['page-styl'], function () {
     .pipe(gulp.dest('assets/css/'))
 })
 
+gulp.task('czr-js', function () {
+  return gulp.src('assets/js/czr-scripts.babel.js')
+    .pipe(babel())
+    .pipe(rename('czr-scripts.js'))
+    .pipe(gulp.dest('assets/js/'))
+})
+
 gulp.task('bs-reload', function () {
   browserSync.reload()
 })
 gulp.task('watch', ['browser-sync', 'js', 'sass'], function () {
   gulp.watch('sass/*.scss', ['sass', 'bs-reload', 'css-min'])
   gulp.watch('sass/*.styl', ['page-styl', 'bs-reload', 'page-styl-min'])
-  gulp.watch('js/*.*', ['bs-reload', 'js', 'js-min', 'js-concat-hljs-web', 'js-concat-hljs'])
+  gulp.watch('assets/js/*.*', ['bs-reload', 'js', 'js-min', 'czr-js', 'js-concat-hljs-web', 'js-concat-hljs'])
   gulp.watch('parts/*.*', ['bs-reload'])
   gulp.watch('parts/*.scss', ['editor-sass', 'editor-min'])
   gulp.watch('czr/*.*', ['bs-reload'])
@@ -143,7 +150,7 @@ gulp.task('copy', function () {
       'parts/*.php', 'parts/tgm/*.php', 'parts/czr/*.*', 'page-templates/*.php',
       'assets/img/*.*', 'assets/fonts/fontawesome/css/*.css', 'assets/fonts/fontawesome/fonts/*.*',
       'assets/fonts/icomoon/*.css', 'assets/fonts/icomoon/fonts/*.*',
-      'languages/coldbox.pot', 'assets/js/*.js', '!assets/js/*.babel.js', 'assets/css/*.css' ],
+      'languages/coldbox.pot', 'assets/js/*.js', '!assets/js/*.babel.js', '!assets/js/czr-scripts.js', 'assets/css/*.css' ],
     { base: '.' }
   )
     .pipe(gulp.dest('dist'))
