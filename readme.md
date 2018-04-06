@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.5.0-pre  
+**Version**: 1.5.0  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -18,8 +18,8 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
 ## Getting Started
-You should run [Regenerate Thumbnails](https://ja.wordpress.org/plugins/regenerate-thumbnails/) once the theme installed.  
-To get an example of child theme, visit [Coldbox official site](https://coldbox.miruc.co/).
+You should run [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) once the theme installed.  
+To get an example of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
 
 ### Add-on Plugin
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
@@ -38,7 +38,7 @@ Twitter: [@mirucons](https://twitter.com/@mirucons)
 Email: i@miruc.co
 
 ## Copyright
-The Coldbox theme is under 100% [GNU v2.0](http://www.gnu.org/licenses/gpl-2.0.html).
+The Coldbox theme is under 100% [GNU v2.0](http://www.gnu.org/licenses/gpl-2.0.html) or later.
 
 ### FontAwesome License
 Font License - SIL OFL 1.1  
@@ -57,7 +57,7 @@ URL: https://highlightjs.org/
 Created by @highlightjs  
 
 ### Parsedown License
-License - MIT
+License - MIT  
 URL: https://github.com/erusev/parsedown
 
 ### PlaceFolder Camera Icon License
@@ -66,7 +66,7 @@ URL: http://ionicons.com/
 Created by @benjsperry
 
 ### TGM Plugin Activation License
-License - GPL v2  
+License - GPL v2 or later  
 URL: http://tgmpluginactivation.com/  
 Copyright (c) 2011, Thomas Griffin
 
@@ -78,13 +78,15 @@ Copyright (c) 2011, Thomas Griffin
 * Added: New customizer option to adjust the logo width
 * Added: New customizer option to select whether use narrower padding when scrolling
 * Added: New customizer option to change the header menu background color for mobile
+* Added: New customizer option to select whether use concatenated JS files
 * Fixed: Post's published date was not showing when the published and modified date isn't same
 * Fixed: Site logo was being shown too big
-* Fixed: Flicker of the search modal
+* Fixed: Flicker on the search modal
 * Improved: flex-width logo is now supported
 * Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
 * Updated: Default font family value
 * Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
+* And other small bug fixes and performance improvements.
 
 1.4.1
 
