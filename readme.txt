@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.5.0-pre
+Version: 1.5.0
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -81,6 +81,7 @@ All the photos used in the screenshots are all licensed CC0.
 * Added: New customizer option to adjust the logo width
 * Added: New customizer option to select whether use narrower padding when scrolling
 * Added: New customizer option to change the header menu background color for mobile
+* Added: New customizer option to select whether use concatenated JS files
 * Fixed: Post's published date was not showing when the published and modified date isn't same
 * Fixed: Site logo was being shown too big
 * Fixed: Flicker of the search modal
@@ -88,6 +89,7 @@ All the photos used in the screenshots are all licensed CC0.
 * Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
 * Updated: Default font family value
 * Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
+* And other small bug fixes and performance improvements.
 
 = 1.4.1 =
 

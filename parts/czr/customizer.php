@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function cd_czr_style() {
-	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style.css' ), array(), '1.3.0' );
+	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style.css' ), array(), '1.5.0' );
 	wp_enqueue_script( 'cd-czr-scripts', get_theme_file_uri( 'assets/js/czr-scripts.js' ), array(), '1.5.0' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );

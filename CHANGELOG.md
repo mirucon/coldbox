@@ -1,9 +1,10 @@
-### v1.5.0
+### v1.5.0 <small> - April 6th, 2018 </small>
 
 * Added: "About Coldbox" page
 * Added: New customizer option to adjust the logo width
 * Added: New customizer option to select whether use narrower padding when scrolling
 * Added: New customizer option to change the header menu background color for mobile
+* Added: New customizer option to select whether use concatenated JS files
 * Fixed: Post's published date was not showing when the published and modified date isn't same
 * Fixed: Site logo was being shown too big
 * Fixed: Flicker of the search modal
@@ -11,6 +12,7 @@
 * Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
 * Updated: Default font family value
 * Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
+* And other small bug fixes and performance improvements.
 
 ### v1.4.1 <small> - March 31st, 2018 </small>
 
