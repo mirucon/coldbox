@@ -38,6 +38,8 @@ get_header(); ?>
 								<?php get_template_part( 'content', 'standard' ); ?>
 							<?php endif; ?>
 
+							<?php do_action( 'cd_archive_midst_content', $count ); ?>
+
 						<?php endwhile; ?>
 
 							<?php
