@@ -73,6 +73,14 @@ jQuery(function ($) {
       let siteInfoHgt = $('.site-info').outerHeight()
       let scrollTop = $(window).scrollTop()
 
+      // Reset values on devices smaller than 768px.
+      if (!window.matchMedia('(min-width: 767px)').matches) {
+        $header.removeClass('sticky')
+        $body.css({paddingTop: ''})
+        $header.css({top: ''})
+        $searchToggle.css({top: '', height: ''})
+      }
+
       // When header row is set
       if ($body.hasClass('header-row')) {
         // Abort on devices smaller than 768px.
@@ -91,24 +99,20 @@ jQuery(function ($) {
 
       // When header column is set
       else if ($body.hasClass('header-column')) {
-        // Adjust search toggle behavior for the sticky header
-        if ($body.hasClass('header-menu-enabled')) { // If header menu is set
-          if (window.matchMedia('(min-width: 767px)').matches) { // On PC view
-            if (scrollTop > 0) { // On scroll
-              let headerMenuHeight = $('#header-menu').height()
-              $searchToggle.css({top: siteInfoHgt, height: headerMenuHeight})
-              $('.header-searchbar').css({top: siteInfoHgt + headerMenuHeight / 1.3})
-            } else { // Not on scroll
-              $searchToggle.css({top: scrollTop, height: ''})
-            }
-          } else { // On mobile view
-            $searchToggle.css({top: '', height: ''})
-          }
-        }
-
         // Abort on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
           return
+        }
+
+        // Adjust search toggle behavior for the sticky header
+        if ($body.hasClass('header-menu-enabled')) { // If header menu is set
+          if (scrollTop > 0) { // On scroll
+            let headerMenuHeight = $('#header-menu').height()
+            $searchToggle.css({top: siteInfoHgt, height: headerMenuHeight})
+            $('.header-searchbar').css({top: siteInfoHgt + headerMenuHeight / 1.3})
+          } else { // Not on scroll
+            $searchToggle.css({top: scrollTop, height: ''})
+          }
         }
 
         // Sticky header
