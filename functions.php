@@ -606,6 +606,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 * @return string
 	 */
 	function cd_single_middle_of_content( $the_content ) {
+
 		if ( is_single() ) {
 
 			preg_match_all( '/<h2.*?>/i', $the_content, $h2_result ); // Whether or not h2 tag is used.
@@ -615,9 +616,7 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 			$h2_count  = count( $h2_result );
 			$h3_count  = count( $h3_result );
 
-			$contents = '';
 			ob_start();
-			apply_filters( 'cd_single_middle_contents', $contents );
 			do_action( 'cd_single_middle_of_content' );
 			$middle_content = ob_get_clean();
 
@@ -678,7 +677,7 @@ if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
 	function cd_single_bottom_contents() {
 		if ( function_exists( 'cd_addon_sns_buttons' ) && function_exists( 'cd_use_snsb' ) ) {
 			if ( cd_use_snsb() ) {
-				cd_addon_sns_buttons_list( 'single-buttom' );
+				cd_addon_sns_buttons_list( 'single-bottom' );
 			}
 		}
 		if ( cd_is_post_related() ) {
