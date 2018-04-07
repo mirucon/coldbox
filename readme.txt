@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.5.0
+Version: 1.5.1
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -63,10 +63,6 @@ TGM Plugin Activation License
 License - GPL v2 or later
 URL: http://tgmpluginactivation.com/
 
-Parsedown License
-License - MIT
-URL: https://github.com/erusev/parsedown
-
 All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/computer-computer-code-screen-1209641/
 * https://unsplash.com/photos/Azli_kcxRNE
@@ -74,6 +70,11 @@ All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.5.1 =
+
+* Added: Action hooks can be used for putting some content in the single content
+* Updated: About Coldbox page
 
 = 1.5.0 =
 
