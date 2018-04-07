@@ -25,16 +25,17 @@ gulp.task('sass', function () {
     .pipe(plumber({ errorHandler: notify.onError('<%= error.message %>') }))
     .pipe(sass({ outputStyle: 'expanded' }))
     .pipe(postcss(processors))
-    .pipe(rename({ prefix: 'cd-' }))
+    .pipe(rename({
+      prefix: 'cd-'
+    }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('assets/css/'))
 })
 
 gulp.task('css-min', function () {
-  return gulp.src('assets/css/style.css')
+  return gulp.src('assets/css/cd-style.css')
     .pipe(cssmin())
     .pipe(rename({
-      prefix: 'cd-',
       suffix: '.min'
     }))
     .pipe(gulp.dest('assets/css/'))
