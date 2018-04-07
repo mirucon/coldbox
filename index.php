@@ -25,7 +25,9 @@ get_header(); ?>
 
 					<?php
 					if ( have_posts() ) :
+						$count = 0;
 						while ( have_posts() ) :
+							$count++;
 							the_post();
 						?>
 
@@ -34,6 +36,8 @@ get_header(); ?>
 						<?php elseif ( cd_index_style() === 'standard' ) : ?>
 							<?php get_template_part( 'content', 'standard' ); ?>
 						<?php endif; ?>
+
+						<?php do_action( 'cd_archive_midst_content', $count ); ?>
 
 					<?php endwhile; ?>
 
