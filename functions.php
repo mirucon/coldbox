@@ -596,30 +596,80 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10,
  */
 if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 
-	define( 'CD_H2_REG', '/<H2.*?>/i' );
-	define( 'CD_H3_REG', '/<H3.*?>/i' );
 	/**
-	 * Get h2 tags from the content.
+	 * Class Cd_Preg_Replace_Callback
 	 *
-	 * @since 1.1.6
-	 * @param string $the_content The post contents which are find from.
-	 * @return string
+	 * Used as helper class for cd_single_content_replace().
+	 *
+	 * @since 1.5.1
 	 */
-	function cd_single_h2_in_content( $the_content ) {
-		if ( preg_match( CD_H2_REG, $the_content, $h2_result ) ) { // Whether or not h2 tag is used.
-			return $h2_result[0];
+	class Cd_Preg_Replace_Callback {
+		/**
+		 * Variable passed from callback.
+		 *
+		 * @var string $count
+		 */
+		private $count;
+		/**
+		 * Variable passed from callback.
+		 *
+		 * @var string $content
+		 */
+		private $content;
+		/**
+		 * Variable passed from callback.
+		 *
+		 * @var string $array_length
+		 */
+		private $array_length;
+
+		/**
+		 * __construct.
+		 *
+		 * @param string $count Count number.
+		 * @param string $content Some content.
+		 * @param string $array_length Array length.
+		 */
+		public function __construct( $count, $content, $array_length = null ) {
+			$this->count        = $count;
+			$this->content      = $content;
+			$this->array_length = $array_length;
 		}
-	}
-	/**
-	 * Get h3 tags from the content.
-	 *
-	 * @since 1.1.6
-	 * @param string $the_content The post contents which are find from.
-	 * @return string
-	 */
-	function cd_single_h3_in_content( $the_content ) {
-		if ( preg_match( CD_H3_REG, $the_content, $h3_result ) ) { // Whether or not h3 tag is used.
-			return $h3_result[0];
+
+		/**
+		 * Callback function to search for 2nd occurrence.
+		 *
+		 * @param string $matches Matches.
+		 * @return string
+		 *
+		 * @since 1.5.1
+		 */
+		public function cd_single_content_replace( $matches ) {
+			$this->count++;
+
+			if ( 2 === $this->count ) {
+				return $this->content . $matches[0];
+			} else {
+				return $matches[0];
+			}
+		}
+
+		/**
+		 * Callback function to search for the last occurrence.
+		 *
+		 * @param string $matches Matches.
+		 * @return string
+		 *
+		 * @since 1.5.1
+		 */
+		public function cd_single_content_replace_last( $matches ) {
+			$this->count++;
+
+			if ( $this->count === $this->array_length ) {
+				return $this->content . $matches[0];
+			} else {
+				return $matches[0];
+			}
 		}
 	}
 
@@ -630,25 +680,67 @@ if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 	 * @param string $the_content The post contents which are hooked.
 	 * @return string
 	 */
-	function cd_single_middle_contents( $the_content ) {
+	function cd_single_middle_of_content( $the_content ) {
 		if ( is_single() ) {
+
+			preg_match_all( '/<h2.*?>/i', $the_content, $h2_result ); // Whether or not h2 tag is used.
+			preg_match_all( '/<h3.*?>/i', $the_content, $h3_result ); // Whether or not h3 tag is used.
+			$h2_result = $h2_result[0];
+			$h3_result = $h3_result[0];
+			$h2_count  = count( $h2_result );
+			$h3_count  = count( $h3_result );
+
 			$contents = '';
 			ob_start();
 			apply_filters( 'cd_single_middle_contents', $contents );
-			$contents  = ob_get_clean();
-			$h2_result = cd_single_h2_in_content( $the_content ); // Get h2 tag if any.
-			$h3_result = cd_single_h3_in_content( $the_content ); // Get h3 tag if any.
-			if ( ! is_null( $h2_result ) ) { // If h2 tag is present.
-				$count       = 1;
-				$the_content = preg_replace( CD_H2_REG, $contents . $h2_result, $the_content, 1 );
-			} elseif ( ! is_null( $h3_result ) ) { // If no h2 tag, but h3 tag is found.
-				$count       = 1;
-				$the_content = preg_replace( CD_H3_REG, $contents . $h3_result, $the_content, 1 );
+			do_action( 'cd_single_middle_of_content' );
+			$middle_content = ob_get_clean();
+
+			if ( ! empty( $h2_result[1] ) ) { // If h2 tag is present.
+				$count       = 0;
+				$callback    = new Cd_Preg_Replace_Callback( $count, $middle_content );
+				$the_content = preg_replace_callback(
+					'/<h2.*?>/i',
+					array( $callback, 'cd_single_content_replace' ),
+					$the_content,
+					2
+				);
+			} elseif ( ! empty( $h3_result[1] ) ) { // If no h2 tag, but h3 tag is found.
+				$count       = 0;
+				$callback    = new Cd_Preg_Replace_Callback( $count, $middle_content );
+				$the_content = preg_replace_callback(
+					'/<h3.*?>/i',
+					array( $callback, 'cd_single_content_replace' ),
+					$the_content,
+					2
+				);
+			}
+
+			ob_start();
+			do_action( 'cd_single_last_of_content' );
+			$last_content = ob_get_clean();
+
+			if ( ! empty( $h2_result ) && $h2_count >= 3 ) { // If h2 tag is present.
+				$count       = 0;
+				$callback    = new Cd_Preg_Replace_Callback( $count, $last_content, $h2_count );
+				$the_content = preg_replace_callback(
+					'/<h2.*?>/i',
+					array( $callback, 'cd_single_content_replace_last' ),
+					$the_content
+				);
+			} elseif ( ! empty( $h3_result ) && $h3_count >= 3 ) { // If no h2 tag, but h3 tag is found.
+				$count       = 0;
+				$callback    = new Cd_Preg_Replace_Callback( $count, $last_content, $h3_count );
+				$the_content = preg_replace_callback(
+					'/<h3.*?>/i',
+					array( $callback, 'cd_single_content_replace_last' ),
+					$the_content
+				);
 			}
 		}
 		return $the_content;
 	}
-	add_filter( 'the_content', 'cd_single_middle_contents' );
+	add_filter( 'the_content', 'cd_single_middle_of_content' );
 }
 
 if ( ! function_exists( 'cd_single_bottom_contents' ) ) {
