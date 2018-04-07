@@ -123,7 +123,7 @@ function cd_welcome_page_content() {
 		<?php
 			echo wp_kses_data( sprintf(
 				/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
-				esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s.', 'coldbox' ),
+				esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think found a bug, or have a feature request.', 'coldbox' ),
 				'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
 				'<a href="mailto:i@miruc.co">',
 				'</a>'
@@ -147,7 +147,7 @@ function cd_welcome_page_content() {
 						/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
 						__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
 						phpversion(),
-						'<a href="https://wordpress.org/about/requirements/">',
+						'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
 						'</a>'
 					), $allowed_html );
 				?>
