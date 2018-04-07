@@ -131,6 +131,32 @@ function cd_welcome_page_content() {
 		?>
 	</div>
 
+	<?php
+	if ( -1 === version_compare( phpversion(), '5.6.0' ) ) {
+		?>
+		<div id="upgrade-php" class="cdAdmin__section">
+			<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Your PHP!', 'coldbox' ); ?></h2>
+			<p>
+				<?php
+					$allowed_html = array(
+						'a' => array(
+							'href',
+						),
+					);
+					echo wp_kses( sprintf(
+						/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
+						__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
+						phpversion(),
+						'<a href="https://wordpress.org/about/requirements/">',
+						'</a>'
+					), $allowed_html );
+				?>
+			</p>
+		</div>
+		<?php
+	}
+	?>
+
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
@@ -140,15 +166,14 @@ function cd_welcome_page_content() {
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></h2>
 	</div>
+
 	<?php
 	ob_start();
-	include_once get_theme_file_path( 'CHANGELOG.md' );
+	include_once get_theme_file_path( 'assets/html/CHANGELOG.html' );
 	$changelog = ob_get_contents();
 	ob_end_clean();
 
-	require_once get_theme_file_path( 'parts/Parsedown.php' );
-	$parsedown = new Parsedown();
-	echo wp_kses_post( $parsedown->text( $changelog ) );
+	echo wp_kses_post( $changelog );
 }
 
 /**

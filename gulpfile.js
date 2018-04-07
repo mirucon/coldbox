@@ -5,6 +5,7 @@ var browserSync = require('browser-sync')
 var cssnext = require('postcss-cssnext')
 var notify = require('gulp-notify')
 var cssmin = require('gulp-cssmin')
+var markdown = require('gulp-markdown')
 var minify = require('gulp-minify')
 var rename = require('gulp-rename')
 var plumber = require('gulp-plumber')
@@ -94,6 +95,13 @@ gulp.task('editor-min', ['editor-sass'], function () {
     .pipe(gulp.dest('assets/css/'))
 })
 
+gulp.task('md', function () {
+  return gulp.src('CHANGELOG.md')
+    .pipe(markdown())
+    .pipe(rename({extname: '.html'}))
+    .pipe(gulp.dest('assets/html/'))
+})
+
 gulp.task('page-styl', function () {
   return gulp.src('sass/page-style.styl')
     .pipe(sourcemaps.init())
@@ -150,12 +158,12 @@ gulp.task('copy', function () {
       'parts/*.php', 'parts/tgm/*.php', 'parts/czr/*.*', 'page-templates/*.php',
       'assets/img/*.*', 'assets/fonts/fontawesome/css/*.css', 'assets/fonts/fontawesome/fonts/*.*',
       'assets/fonts/icomoon/*.css', 'assets/fonts/icomoon/fonts/*.*',
-      'languages/coldbox.pot', 'assets/js/*.js', '!assets/js/*.babel.js', '!assets/js/czr-scripts.js', 'assets/css/*.css' ],
+      'languages/coldbox.pot', 'assets/js/*.js', '!assets/js/*.babel.js', '!assets/js/czr-scripts.js', 'assets/css/*.css', 'assets/html/*.html' ],
     { base: '.' }
   )
     .pipe(gulp.dest('dist'))
 })
 
 gulp.task('dist', function (cb) {
-  return runSequence(['sass-dev', 'editor-sass', 'page-styl'], ['css-min', 'editor-min', 'page-styl-min'], 'js', 'js-min', 'js-min-concat', 'clean', 'copy', cb)
+  return runSequence(['sass-dev', 'editor-sass', 'page-styl'], ['css-min', 'editor-min', 'page-styl-min'], 'js', 'js-min', 'js-min-concat', 'md', 'clean', 'copy', cb)
 })

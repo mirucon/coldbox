@@ -7,7 +7,6 @@
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.24.1",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
@@ -19,18 +18,15 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
-    "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-csso": "^3.0.1",
-    "gulp-file-sync": "^2.0.0",
+    "gulp-markdown": "^2.0.1",
     "gulp-minify": "^2.1.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.0",
     "gulp-postcss": "^7.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.2.1",
-    "gulp-sourcemap": "^1.0.1",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-stylus": "^2.7.0",
     "postcss-cssnext": "^3.1.0",
@@ -54,6 +50,8 @@
   },
   "homepage": "https://coldbox.miruc.co/",
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "env"
+    ]
   }
 }
