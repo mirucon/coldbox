@@ -879,30 +879,26 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 
 		if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
 
-			echo '<a href="' . esc_url( home_url() ) . '" title="' . esc_html( get_bloginfo( 'name' ) ) . '">';
-
-			echo '<div class="site-logo">';
-
+			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+			$logo .= '<div class="site-logo">';
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-			echo '<img src="' . esc_url( $image[0] ) . '" alt="' . esc_html( get_bloginfo( 'name' ) ) . '" />';
+			$logo .= '<img src="' . esc_url( $image[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />';
+			$logo .= '</div>';
+			$logo .= '</a>';
 
-			echo '</div>';
-
-			echo '</a>';
+			add_filter( 'cd_custom_logo', $logo );
+			echo wp_kses_post( $logo );
 
 		}
 
 		if ( cd_is_site_title() && display_header_text() ) {
 
-			echo '<a href="' . esc_url( home_url() ) . '" title="' . esc_html( get_bloginfo( 'name' ) ) . '">';
+			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
+			$logo .= '<h1 class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</h1>';
+			$logo .= '</a>';
 
-			echo '<h1 class="site-title">';
-
-			echo esc_html( get_bloginfo( 'name' ) );
-
-			echo '</h1>';
-
-			echo '</a>';
+			add_filter( 'cd_site_title', $logo );
+			echo wp_kses_post( $logo );
 		}
 	}
 }
