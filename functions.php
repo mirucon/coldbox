@@ -716,7 +716,7 @@ if ( ! function_exists( 'cd_attachment_bottom_contents' ) ) {
 	 */
 	function cd_attachment_bottom_contents() {
 		if ( cd_is_post_single_comment() ) {
-			comments_template( '/comments.php', true );
+			cd_comments_template();
 		}
 		if ( cd_is_post_nav() ) {
 			get_template_part( 'parts/post-nav' );
@@ -733,7 +733,7 @@ if ( ! function_exists( 'cd_pages_bottom_contents' ) ) {
 	 */
 	function cd_pages_bottom_contents() {
 		if ( cd_is_post_single_comment() ) {
-			comments_template( '/comments.php', true );
+			cd_comments_template();
 		}
 	}
 }
