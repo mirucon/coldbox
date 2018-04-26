@@ -882,12 +882,11 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
 			$logo .= '<div class="site-logo">';
 			$image = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-			$logo .= '<img src="' . esc_url( $image[0] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />';
+			$logo .= '<img src="' . esc_url( $image[0] ) . '" width="' . absint( $image[1] ) . '" height="' . absint( $image[2] ) . '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" />';
 			$logo .= '</div>';
 			$logo .= '</a>';
 
-			add_filter( 'cd_custom_logo', $logo );
-			echo wp_kses_post( $logo );
+			echo wp_kses_post( apply_filters( 'cd_custom_logo', $logo ) );
 
 		}
 
@@ -897,8 +896,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			$logo .= '<h1 class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</h1>';
 			$logo .= '</a>';
 
-			add_filter( 'cd_site_title', $logo );
-			echo wp_kses_post( $logo );
+			echo wp_kses_post( apply_filters( 'cd_site_title', $logo ) );
 		}
 	}
 }
