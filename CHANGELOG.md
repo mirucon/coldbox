@@ -1,3 +1,8 @@
+### 1.5.2 <small> - May 6th, 2018 </small>
+
+* Added: New hook for logo images
+* Fixed: A few issues happened with the addon plugin
+
 ### 1.5.1 <small> - April 7th, 2018 </small>
 
 * Added: Action hooks can be used for putting some content in the single content
