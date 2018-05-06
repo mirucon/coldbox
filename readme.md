@@ -1,4 +1,4 @@
-# Coldbox
+# Coldbox v1.5.2
 
 [![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.5.1  
+**Version**: 1.5.2  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -67,6 +67,11 @@ URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin
 
 ## Changelog
+
+1.5.2
+
+* Added: New hook for logo images
+* Fixed: A few issues happened with the addon plugin
 
 1.5.1
 
