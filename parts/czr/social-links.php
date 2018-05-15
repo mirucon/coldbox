@@ -55,7 +55,7 @@ function cd_social_links_render_callback() {
 function cd_czr_social_links( $wp_customize ) {
 
 	$feed_url   = get_bloginfo( 'rss2_url' );
-	$feedly_url = 'https://cloud.feedly.com/#subscription/feed/' . get_bloginfo( 'rss2_url' );
+	$feedly_url = 'https://feedly.com/i/subscription/feed/' . get_bloginfo( 'rss2_url' );
 
 	$wp_customize->add_setting(
 		'feed_url_info', array(
