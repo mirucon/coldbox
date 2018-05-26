@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 not found pages
  *
- * @since 1.0.0
+ * @since   1.0.0
  * @package Coldbox
  */
 
@@ -12,7 +12,7 @@ get_header(); ?>
 
 	<section class="main-inner">
 
-		<?php get_template_part( 'parts/title-box' ); ?>
+	<?php get_template_part( 'parts/title-box' ); ?>
 
 		<div class="container-outer">
 			<div class="container">
@@ -24,7 +24,7 @@ get_header(); ?>
 						<div class="error-messages">
 
 							<p><?php esc_html_e( 'The page does not exist, or has been moved. Try search or use menus to find what you are looking for.', 'coldbox' ); ?></p>
-							<?php get_search_form(); ?>
+		<?php get_search_form(); ?>
 
 						</div>
 

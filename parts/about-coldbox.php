@@ -56,37 +56,43 @@ function cd_welcome_page_content() {
 		<p><?php esc_html_e( 'Thanks so much for using the Coldbox theme! Here are some quick tips to help you getting started with the theme.', 'coldbox' ); ?></p>
 		<p>
 			<?php
-				echo wp_kses_data( sprintf(
-					/* translators: %1$s: Opening strong tag, %2$s Closing strong tag, %3$s: Opening a tag, %4$s Closing a tag */
-					__( '%1$sIf you have just switched from other theme%2$s, we recommend you to regenerate all of your thumbnails with the %3$sRegenerate Thumbnails%4$s plugin. It will create consistent sizes of your thumbnails, with the appropriate size for this theme.', 'coldbox' ),
-					'<strong>',
-					'</strong>',
-					'<a href="' . esc_url( home_url() . '/wp-admin/plugin-install.php?s=regenerate+thumbnails&tab=search&type=term' ) . '">',
-					'</a>'
-				) );
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: Opening strong tag, %2$s Closing strong tag, %3$s: Opening a tag, %4$s Closing a tag */
+						__( '%1$sIf you have just switched from other theme%2$s, we recommend you to regenerate all of your thumbnails with the %3$sRegenerate Thumbnails%4$s plugin. It will create consistent sizes of your thumbnails, with the appropriate size for this theme.', 'coldbox' ),
+						'<strong>',
+						'</strong>',
+						'<a href="' . esc_url( home_url() . '/wp-admin/plugin-install.php?s=regenerate+thumbnails&tab=search&type=term' ) . '">',
+						'</a>'
+					)
+				);
 			?>
 		</p>
 		<p>
 			<?php
-				echo wp_kses_data( sprintf(
-					/* translators: %1$s: Opening strong tag, %2$s Closing strong tag */
-					__( '%1$sIf you just started your WordPress life with this theme%2$s, then there\'s no need to regenerate thumbnails. The theme will automatically create the appropriate size of your thumbnail every time you set a new thumbnail image.', 'coldbox' ),
-					'<strong>',
-					'</strong>'
-				) );
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: Opening strong tag, %2$s Closing strong tag */
+						__( '%1$sIf you just started your WordPress life with this theme%2$s, then there\'s no need to regenerate thumbnails. The theme will automatically create the appropriate size of your thumbnail every time you set a new thumbnail image.', 'coldbox' ),
+						'<strong>',
+						'</strong>'
+					)
+				);
 			?>
 		</p>
 
 		<p>
 			<?php
-				echo wp_kses_data( sprintf(
-					/* translators: %1$s: Opening a tag of customizer link, %2$s Closing a tag, %3$s: Opening strong tag, %4$s Closing strong tag */
-					__( 'Once you have regenerated the thumbnails, go ahead to the %1$sTheme Customizer%2$s to customize the theme as you like. Sections whose name started with "%3$sColdbox:%4$s" are the settings we have added for you to customize. Don\'t forget, there\'s also a section called Colors so you can customize some colors used in the theme.', 'coldbox' ),
-					'<a href="' . esc_url( admin_url( 'customize.php' ) ) . '">',
-					'</a>',
-					'<strong>',
-					'</strong>'
-				) );
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: Opening a tag of customizer link, %2$s Closing a tag, %3$s: Opening strong tag, %4$s Closing strong tag */
+						__( 'Once you have regenerated the thumbnails, go ahead to the %1$sTheme Customizer%2$s to customize the theme as you like. Sections whose name started with "%3$sColdbox:%4$s" are the settings we have added for you to customize. Don\'t forget, there\'s also a section called Colors so you can customize some colors used in the theme.', 'coldbox' ),
+						'<a href="' . esc_url( admin_url( 'customize.php' ) ) . '">',
+						'</a>',
+						'<strong>',
+						'</strong>'
+					)
+				);
 			?>
 		</p>
 	</div>
@@ -121,13 +127,15 @@ function cd_welcome_page_content() {
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Need Help?', 'coldbox' ); ?></h2>
 		<?php
-			echo wp_kses_data( sprintf(
-				/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
-				esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think found a bug, or have a feature request.', 'coldbox' ),
-				'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
-				'<a href="mailto:i@miruc.co">',
-				'</a>'
-			) );
+			echo wp_kses_data(
+				sprintf(
+					/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
+					esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think found a bug, or have a feature request.', 'coldbox' ),
+					'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
+					'<a href="mailto:i@miruc.co">',
+					'</a>'
+				)
+			);
 		?>
 	</div>
 
@@ -143,13 +151,15 @@ function cd_welcome_page_content() {
 							'href',
 						),
 					);
-					echo wp_kses( sprintf(
-						/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
-						__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
-						phpversion(),
-						'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
-						'</a>'
-					), $allowed_html );
+					echo wp_kses(
+						sprintf(
+							/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
+							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
+							phpversion(),
+							'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
+							'</a>'
+						), $allowed_html
+					);
 				?>
 			</p>
 		</div>
@@ -191,19 +201,23 @@ function customize_admin_bar_menu( $wp_admin_bar ) {
 		esc_html__( 'Coldbox v%s', 'coldbox' ),
 		CD_VER
 	);
-	$wp_admin_bar->add_menu( array(
-		'parent' => 'top-secondary',
-		'id'     => 'coldbox-link',
-		'meta'   => array(),
-		'title'  => $title,
-		'href'   => admin_url( 'themes.php?page=welcome.php' ),
-	) );
-	$wp_admin_bar->add_menu( array(
-		'parent' => 'coldbox-link',
-		'id'     => 'coldbox-upgrade-notice',
-		'meta'   => array(),
-		'title'  => esc_html__( 'Upgrade Notices', 'coldbox' ),
-		'href'   => admin_url( 'themes.php?page=welcome.php#upgrade-notice' ),
-	) );
+	$wp_admin_bar->add_menu(
+		array(
+			'parent' => 'top-secondary',
+			'id'     => 'coldbox-link',
+			'meta'   => array(),
+			'title'  => $title,
+			'href'   => admin_url( 'themes.php?page=welcome.php' ),
+		)
+	);
+	$wp_admin_bar->add_menu(
+		array(
+			'parent' => 'coldbox-link',
+			'id'     => 'coldbox-upgrade-notice',
+			'meta'   => array(),
+			'title'  => esc_html__( 'Upgrade Notices', 'coldbox' ),
+			'href'   => admin_url( 'themes.php?page=welcome.php#upgrade-notice' ),
+		)
+	);
 }
 add_action( 'admin_bar_menu', 'customize_admin_bar_menu' );
