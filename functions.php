@@ -379,9 +379,9 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 		ob_start();
 		comments_template( '/comments.php', true );
 		$template = ob_get_clean();
-     // @codingStandardsIgnoreStart
-     echo apply_filters( 'cd_comments_template', $template ); // WPCS: XSS OK.
-     // @codingStandardsIgnoreEnd
+		// @codingStandardsIgnoreStart
+		echo apply_filters( 'cd_comments_template', $template ); // WPCS: XSS OK.
+		// @codingStandardsIgnoreEnd
 	}
 }
 

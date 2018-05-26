@@ -2,70 +2,72 @@
 /**
  * The template for displaying archive pages
  *
- * @since   1.0.0
+ * @since 1.0.0
  * @package Coldbox
  */
 
 get_header(); ?>
 
-<main id="main">
+	<main id="main">
 
-	<section class="main-inner">
+		<section class="main-inner">
 
-	<?php get_template_part( 'parts/title-box' ); ?>
+			<?php get_template_part( 'parts/title-box' ); ?>
 
-		<div class="container-outer">
-			<div class="container">
+			<div class="container-outer">
 
-				<div class="content">
+				<div class="container">
 
-					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
+					<div class="content">
 
-		<?php
-		// Call the top parts.
-		apply_filters( 'cd_archive_top_contents', cd_archive_top_contents() );
-		?>
+						<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
 
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) :
-				the_post();
-			?>
+							<?php
+							// Call the top parts.
+							apply_filters( 'cd_archive_top_contents', cd_archive_top_contents() );
+							?>
 
-			<?php if ( cd_archive_style() === 'grid' ) : ?>
-								<?php get_template_part( 'content', 'grid' ); ?>
-		<?php elseif ( cd_archive_style() === 'standard' ) : ?>
-								<?php get_template_part( 'content', 'standard' ); ?>
-		<?php endif; ?>
+							<?php
+							if ( have_posts() ) :
+								while ( have_posts() ) :
+									the_post();
+									?>
 
-			<?php do_action( 'cd_archive_midst_content', $count ); ?>
+									<?php if ( cd_archive_style() === 'grid' ) : ?>
+										<?php get_template_part( 'content', 'grid' ); ?>
+									<?php elseif ( cd_archive_style() === 'standard' ) : ?>
+										<?php get_template_part( 'content', 'standard' ); ?>
+									<?php endif; ?>
 
-			<?php endwhile; ?>
+									<?php do_action( 'cd_archive_midst_content', $count ); ?>
 
-			<?php
-			// Call the bottom parts.
-			apply_filters( 'cd_archive_bottom_contents', cd_archive_bottom_contents() );
-			?>
+								<?php endwhile; ?>
 
-		<?php else : ?>
+								<?php
+								// Call the bottom parts.
+								apply_filters( 'cd_archive_bottom_contents', cd_archive_bottom_contents() );
+								?>
 
-							<div class="error-messages">
-								<h2><?php esc_html_e( 'Posts Not Found!', 'coldbox' ); ?></h2>
-							</div>
+							<?php else : ?>
 
-		<?php endif; ?>
+								<div class="error-messages">
+									<h2><?php esc_html_e( 'Posts Not Found!', 'coldbox' ); ?></h2>
+								</div>
 
-					</div>
+							<?php endif; ?>
 
-				</div><!--/.content-->
+						</div>
 
-				<?php get_sidebar(); ?>
+					</div><!--/.content-->
 
-			</div><!--/.container-->
-		</div><!--/.container-outer-->
+					<?php get_sidebar(); ?>
 
-	</section>
+				</div><!--/.container-->
 
-</main>
+			</div><!--/.container-outer-->
+
+		</section>
+
+	</main>
 
 <?php get_footer(); ?>
