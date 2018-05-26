@@ -63,6 +63,11 @@ TGM Plugin Activation License
 License - GPL v2 or later
 URL: http://tgmpluginactivation.com/
 
+CSS minifying function
+License - GPL
+URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
+Created by Gary Jones
+
 All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/computer-computer-code-screen-1209641/
 * https://unsplash.com/photos/Azli_kcxRNE

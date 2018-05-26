@@ -66,6 +66,11 @@ License - GPL v2 or later
 URL: http://tgmpluginactivation.com/  
 Copyright (c) 2011, Thomas Griffin
 
+### CSS minifying function
+License - GPL
+URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
+Created by Gary Jones
+
 ## Changelog
 
 1.5.2

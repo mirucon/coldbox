@@ -2,7 +2,7 @@
 /**
  * Coldbox functions and definitions
  *
- * @since 1.0.0
+ * @since   1.0.0
  * @package Coldbox
  */
 
@@ -111,7 +111,7 @@ if ( ! function_exists( 'cd_czr' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_czr() {
-		require_once get_theme_file_path( 'parts/czr/customizer.php' );
+		include_once get_theme_file_path( 'parts/czr/customizer.php' );
 	}
 }
 add_action( 'after_setup_theme', 'cd_czr' );
@@ -225,18 +225,18 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) {
 
-			$menu      = '<nav id="header-menu">';
-				$menu .= wp_nav_menu(
-					array(
-						'theme_location' => 'header-menu',
-						'container'      => '',
-						'menu_class'     => '',
-						'fallback_cb'    => 'wp_page_menu',
-						'echo'           => false,
-						'items_wrap'     => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
-					)
-				);
-			$menu     .= '</nav>';
+			$menu  = '<nav id="header-menu">';
+			$menu .= wp_nav_menu(
+				array(
+					'theme_location' => 'header-menu',
+					'container'      => '',
+					'menu_class'     => '',
+					'fallback_cb'    => 'wp_page_menu',
+					'echo'           => false,
+					'items_wrap'     => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+				)
+			);
+			$menu .= '</nav>';
 			echo wp_kses_post( apply_filters( 'cd_header_menu', $menu ) );
 		}
 	}
@@ -244,27 +244,27 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 
 if ( ! function_exists( 'cd_footer_menu' ) ) {
 
-		/**
-		 * Call the footer menu through a filter
-		 *
-		 * @since 1.3.0
-		 */
+	/**
+	 * Call the footer menu through a filter
+	 *
+	 * @since 1.3.0
+	 */
 	function cd_footer_menu() {
 
 		if ( has_nav_menu( 'footer-menu' ) ) {
 
-			$menu      = '<nav id="footer-menu" class="footer-menu"><div class="container">';
-				$menu .= wp_nav_menu(
-					array(
-						'theme_location' => 'footer-menu',
-						'container'      => '',
-						'menu_class'     => '',
-						'fallback_cb'    => 'wp_page_menu',
-						'echo'           => false,
-						'items_wrap'     => '<ul id="footer-nav" class="menu-container">%3$s</ul><!--/#footer-nav-->',
-					)
-				);
-			$menu     .= '</div></nav>';
+			$menu  = '<nav id="footer-menu" class="footer-menu"><div class="container">';
+			$menu .= wp_nav_menu(
+				array(
+					'theme_location' => 'footer-menu',
+					'container'      => '',
+					'menu_class'     => '',
+					'fallback_cb'    => 'wp_page_menu',
+					'echo'           => false,
+					'items_wrap'     => '<ul id="footer-nav" class="menu-container">%3$s</ul><!--/#footer-nav-->',
+				)
+			);
+			$menu .= '</div></nav>';
 			echo wp_kses_post( apply_filters( 'cd_footer_menu', $menu ) );
 		}
 	}
@@ -329,11 +329,11 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 
 if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 
-		/**
-		 * Echo the middle size thumbnail for template.
-		 *
-		 * @since 1.2.3
-		 */
+	/**
+	 * Echo the middle size thumbnail for template.
+	 *
+	 * @since 1.2.3
+	 */
 	function cd_middle_thumbnail_template() {
 
 		if ( has_post_thumbnail() ) {
@@ -349,11 +349,11 @@ if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 
 if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 
-		/**
-		 * Echo the standard size thumbnail for template.
-		 *
-		 * @since 1.2.3
-		 */
+	/**
+	 * Echo the standard size thumbnail for template.
+	 *
+	 * @since 1.2.3
+	 */
 	function cd_standard_thumbnail_template() {
 
 		if ( has_post_thumbnail() ) {
@@ -425,9 +425,9 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 	/**
 	 * Adds classes to the body tag.
 	 *
-	 * @param string $classes The classes add to the body class.
+	 * @param  string $classes The classes add to the body class.
 	 * @return array custom body classes.
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 **/
 	function cd_body_class( $classes ) {
 
@@ -465,7 +465,7 @@ if ( ! function_exists( 'cd_load_welcome_page' ) ) {
 	 * @since 1.5.0
 	 */
 	function cd_load_welcome_page() {
-		require_once get_theme_file_path( 'parts/about-coldbox.php' );
+		include_once get_theme_file_path( 'parts/about-coldbox.php' );
 	}
 
 	add_action( 'init', 'cd_load_welcome_page' );
@@ -475,9 +475,9 @@ if ( ! function_exists( 'cd_css_minify' ) ) {
 	/**
 	 * Quick and dirty way to mostly minify CSS.
 	 *
-	 * @since 1.5.0
-	 * @author Gary Jones
-	 * @see https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
+	 * @since   1.5.0
+	 * @author  Gary Jones
+	 * @see     https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
 	 * @license GPL
 	 *
 	 * @param string $css CSS to minify.
@@ -535,10 +535,10 @@ if ( ! function_exists( 'cd_cat_widget_count' ) ) {
 	/**
 	 * Make the counts surround with brackets on category widgets.
 	 *
-	 * @param string $output Return the count with brackets.
-	 * @param string $args The widget arguments.
+	 * @param  string $output Return the count with brackets.
+	 * @param  string $args   The widget arguments.
 	 * @return string $output and $args with .count class.
-	 * @since 1.0.0
+	 * @since  1.0.0
 	 */
 	function cd_cat_widget_count( $output, $args ) {
 		$replaced_text = preg_replace( '/<\/a> \(([0-9,]*)\)/', ' <span class="count">(${1})</span></a>', $output );
@@ -557,8 +557,8 @@ if ( ! function_exists( 'cd_archive_widget_count' ) ) {
 	/**
 	 * Make the counts surround with parentheses on archive widgets.
 	 *
-	 * @param string $output return the count with parentheses.
-	 * @since 1.0.0
+	 * @param  string $output return the count with parentheses.
+	 * @since  1.0.0
 	 * @return string Number of posts with parentheses.
 	 */
 	function cd_archive_widget_count( $output ) {
@@ -575,8 +575,8 @@ if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 	/**
 	 * Remove the current post when showing a single article from the recent posts widgets.
 	 *
-	 * @param string $args return widget's argument without current post.
-	 * @since 1.0.0
+	 * @param  string $args return widget's argument without current post.
+	 * @since  1.0.0
 	 * @return array
 	 */
 	function cd_remove_current_post_on_recent_widgets( $args ) {
@@ -596,13 +596,13 @@ add_filter( 'widget_posts_args', 'cd_remove_current_post_on_recent_widgets', 10,
  */
 if ( ! function_exists( 'cd_single_middle_contents' ) ) {
 
-	require_once get_theme_file_path( 'parts/class-cd-preg-replace-callback.php' );
+	include_once get_theme_file_path( 'parts/class-cd-preg-replace-callback.php' );
 
 	/**
 	 * The action hook for adding custom content on the first h2 or h3 tag on each single article through filter.
 	 *
-	 * @since 1.1.6
-	 * @param string $the_content The post contents which are hooked.
+	 * @since  1.1.6
+	 * @param  string $the_content The post contents which are hooked.
 	 * @return string
 	 */
 	function cd_single_middle_of_content( $the_content ) {
@@ -697,8 +697,8 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 	/**
 	 * The action hook for adding some contents after the article contents through filter.
 	 *
-	 * @since 1.1.6
-	 * @param string $contents The contents will be shown after the article contents.
+	 * @since  1.1.6
+	 * @param  string $contents The contents will be shown after the article contents.
 	 * @return string
 	 */
 	function cd_single_after_contents( $contents = null ) {
@@ -742,8 +742,8 @@ if ( ! function_exists( 'cd_archive_top_contents' ) ) {
 	/**
 	 * Call the top parts of the archive pages through filter.
 	 *
-	 * @since 1.1.6
-	 * @param string $contents The contents will be shown on top of the article contents.
+	 * @since  1.1.6
+	 * @param  string $contents The contents will be shown on top of the article contents.
 	 * @return string
 	 */
 	function cd_archive_top_contents( $contents = null ) {
@@ -830,8 +830,8 @@ if ( ! function_exists( 'cd_excerpt_length' ) ) {
 	/**
 	 * The length of the excerpt which set on the customizer.
 	 *
-	 * @since 1.0.0
-	 * @param int $length The length.
+	 * @since  1.0.0
+	 * @param  int $length The length.
 	 * @return int
 	 */
 	function cd_excerpt_length( $length ) {
@@ -849,8 +849,8 @@ if ( ! function_exists( 'cd_excerpt_more' ) ) {
 	/**
 	 * The ending of the excerpt which set on the customizer.
 	 *
-	 * @since 1.0.0
-	 * @param string $more The ending strings.
+	 * @since  1.0.0
+	 * @param  string $more The ending strings.
 	 * @return string
 	 */
 	function cd_excerpt_more( $more ) {
@@ -952,7 +952,7 @@ if ( ! function_exists( 'cd_modify_archive_title' ) ) {
 	/**
 	 * Modify `the_archive_title()` function to output.
 	 *
-	 * @param string $title The archive title name.
+	 * @param  string $title The archive title name.
 	 * @return string
 	 **/
 	function cd_modify_archive_title( $title ) {
