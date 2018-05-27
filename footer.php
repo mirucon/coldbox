@@ -43,7 +43,7 @@ else :
 
 					<?php echo wp_kses( cd_credit(), $allowed_html ); ?>
 
-					<?php if ( function_exists( 'the_privacy_policy_link' ) ) : ?>
+					<?php if ( function_exists( 'the_privacy_policy_link' ) && cd_is_privacy_policy_link_shown() ) : ?>
 						<?php the_privacy_policy_link( ' / ', '<span role="separator" aria-hidden="true"></span>' ); ?>
 					<?php endif; ?>
 

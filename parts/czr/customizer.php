@@ -19,6 +19,20 @@ function cd_czr_style() {
 }
 add_action( 'customize_controls_enqueue_scripts', 'cd_czr_style' );
 
+/**
+ * Determine if the site has privacy policy page or not.
+ *
+ * @return bool
+ */
+function cd_is_privacy_policy_set() {
+	if ( function_exists( 'get_privacy_policy_url' ) ) {
+		if ( get_privacy_policy_url() ) {
+			return true;
+		}
+	}
+	return false;
+}
+
 /*
  * -------------------------------------------------------------------------
  *  Theme Customizer
@@ -1066,6 +1080,32 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		if ( cd_is_privacy_policy_set() ) {
+			$ppp_desc = '';
+		} else {
+			$ppp_desc = sprintf(
+				/* Translators: 1: Opening a tag of link to "Settings" > "Privacy", 2: Closing a tag. */
+				esc_html__( 'Looks like you don\'t have the %1$sPrivacy Policy page%2$s yet. To show this link in footer, make sure to have a Privacy Policy page.', 'coldbox' ),
+				'<a href="' . esc_url( home_url() . '/wp-admin/privacy.php' ) . '">',
+				'</a>'
+			);
+		}
+		$wp_customize->add_setting(
+			'privacy_policy_page_link', array(
+				'default'           => true,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'privacy_policy_page_link', array(
+					'label'       => __( 'Show Privacy Policy Page Link', 'coldbox' ),
+					'description' => $ppp_desc,
+					'section'     => 'footer',
+					'type'        => 'checkbox',
+				)
+			)
+		);
 
 		/*
 		 * ------------------------------------------------------------------------- *
@@ -1553,6 +1593,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$text = str_replace( '[url]', esc_url( home_url() ), $text );
 		$text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
 		return $text;
+	}
+	/**
+	 * Get whether it shows the privacy policy link in footer or not.
+	 *
+	 * @since 1.5.3
+	 * @return bool
+	 */
+	function cd_is_privacy_policy_link_shown() {
+		return get_theme_mod( 'privacy_policy_page_link', true );
 	}
 	/**
 	 * Get whether using of the hljs or not.
