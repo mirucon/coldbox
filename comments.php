@@ -89,8 +89,10 @@ if ( have_comments() === false && comments_open() === false ) {
 	<?php endif; ?>
 
 	<?php
+
 	if ( comments_open() ) {
-		comment_form(); }
+		comment_form();
+	}
 ?>
 
 </section>
