@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.5.2
+Version: 1.5.3
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -28,15 +28,14 @@ The latest version has the following features. We highly recommend that you alwa
 - Automatic Open Graph tag output
 
 = Author information =
-The Coldbox theme is designed and created by Mirucon  
+The Coldbox theme is designed and created by mirucon
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
 Email: i@miruc.co
 
 == Copyright ==
-Coldbox WordPress Theme, Copyright 2017 Mirucon
-The Coldbox theme is distributed 100% under the terms of GNU GPL.
-URL: http://www.gnu.org/licenses/gpl-2.0.html
+Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
+The Coldbox theme is distributed under the terms of GNU GPL.
 
 FontAwesome License
 Font License - SIL OFL 1.1
@@ -75,6 +74,12 @@ All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.5.3 =
+
+* Added: Link to privacy policy page in footer
+* Added: New customizer option to choose whether it outputs the privacy policy page link
+* Fixed: Feedly subscription URL
 
 = 1.5.2 =
 

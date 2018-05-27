@@ -1,3 +1,9 @@
+### 1.5.3 <small> - May 27th, 2018</small>
+
+* Added: Link to privacy policy page in footer
+* Added: New customizer option to choose whether it outputs the privacy policy page link
+* Fixed: Feedly subscription URL
+
 ### 1.5.2 <small> - May 6th, 2018 </small>
 
 * Added: New hook for logo images
