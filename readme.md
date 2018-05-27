@@ -1,4 +1,4 @@
-# Coldbox v1.5.2
+# Coldbox v1.5.3
 
 [![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.5.2  
+**Version**: 1.5.3  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -18,7 +18,12 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
 ## Getting Started
-You should run [Regenerate Thumbnails](https://wordpress.org/plugins/regenerate-thumbnails/) once the theme installed.  
+If you switch from other theme to this theme, we recommend you to regenerate all of your thumbnails with the Regenerate Thumbnails plugin. It will create consistent sizes of your thumbnails, with the appropriate size for this theme.
+
+If you start your WordPress life with this theme, then there's no need to regenerate thumbnails. The theme will automatically create the appropriate size of your thumbnail every time you set a new thumbnail image.
+
+Then, go ahead to the Theme Customizer to customize the theme as you like. Sections whose name started with "Coldbox:" are the settings we have added for you to customize. Don't forget, there's also a section called Colors so you can customize some colors used in the theme.
+
 To get an example of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
 
 ### Add-on Plugin
@@ -32,13 +37,14 @@ The latest version has the following features. We highly recommend that you alwa
 * Automatic Open Graph tag output
 
 ## Theme Author information
-The Coldbox theme is designed and created by Mirucon  
+The Coldbox theme is designed and created by mirucon  
 WordPress.org Profile: [https://profiles.wordpress.org/mirucon/](https://profiles.wordpress.org/mirucon/)  
 Twitter: [@mirucons](https://twitter.com/@mirucons)  
 Email: i@miruc.co
 
 ## Copyright
-The Coldbox theme is under 100% [GNU v2.0](http://www.gnu.org/licenses/gpl-2.0.html) or later.
+Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
+The Coldbox theme is distributed under the terms of GNU GPL.
 
 ### FontAwesome License
 Font License - SIL OFL 1.1  
@@ -72,6 +78,12 @@ URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify
 Created by Gary Jones
 
 ## Changelog
+
+1.5.3
+
+* Added: Link to privacy policy page in footer
+* Added: New customizer option to choose whether it outputs the privacy policy page link
+* Fixed: Feedly subscription URL
 
 1.5.2
 
