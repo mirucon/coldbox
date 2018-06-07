@@ -172,7 +172,7 @@ function cd_welcome_page_content() {
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.3', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the "Social Links" section in the Customizer.', 'coldbox' ); ?></p>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>K
+		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>
 	</div>
 
 	<div class="cdAdmin__section">
@@ -185,7 +185,7 @@ function cd_welcome_page_content() {
 	$changelog = ob_get_contents();
 	ob_end_clean();
 
-	echo wp_kses_post( $changelog );
+	echo $changelog; // WPCS: XSS OK.
 }
 
 /**
