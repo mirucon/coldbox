@@ -1,6 +1,6 @@
 # Coldbox v1.5.3
 
-[![Build Status](https://travis-ci.org/Mirucon/coldbox.svg?branch=master)](https://travis-ci.org/Mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ![coldbox-screenshot](/screenshot.jpg)
 
@@ -73,8 +73,8 @@ URL: http://tgmpluginactivation.com/
 Copyright (c) 2011, Thomas Griffin
 
 ### CSS minifying function
-License - GPL
-URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
+License - GPL  
+URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php  
 Created by Gary Jones
 
 ## Changelog
