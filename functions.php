@@ -703,6 +703,7 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 	 */
 	function cd_single_after_contents( $contents = null ) {
 		// You can add something here through the `cd_single_after_contents` filter.
+		do_action( 'cd_single_after' );
 		return $contents;
 	}
 }
@@ -748,6 +749,7 @@ if ( ! function_exists( 'cd_archive_top_contents' ) ) {
 	 */
 	function cd_archive_top_contents( $contents = null ) {
 		// You can add something here through `cd_archive_top_contents` filter.
+		do_action( 'cd_archive_top' );
 		return $contents;
 	}
 }
@@ -761,6 +763,7 @@ if ( ! function_exists( 'cd_archive_bottom_contents' ) ) {
 	 */
 	function cd_archive_bottom_contents() {
 		get_template_part( 'parts/page-nav' );
+		do_action( 'cd_archive_bottom' );
 	}
 }
 

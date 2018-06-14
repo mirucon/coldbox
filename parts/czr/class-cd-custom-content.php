@@ -6,7 +6,7 @@
  * @package Coldbox
  */
 
-if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'cd_Custom_Content' ) ) {
+if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'CD_Custom_Content' ) ) {
 
 	/**
 	 * For adding HTML on the customizer.
