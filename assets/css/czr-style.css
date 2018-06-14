@@ -98,3 +98,57 @@ li[id^='customize-control-sns_button_'] {
 #customize-control-sns_button_feedly {
   margin-bottom: .8em;
 }
+
+body #customize-controls h4.czr-heading {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #111;
+  font-size: 1.07em;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+#customize-control-ads_auto_on_front_page,
+#customize-control-ads_auto_on_archive,
+#customize-control-ads_auto_on_single {
+  margin-bottom: 0;
+  margin-left: 1em;
+  width: calc(100% - 1em);
+}
+#customize-control-ads_auto_on_front_page {
+  margin-top: -.9em;
+}
+#customize-control-ads_auto_on_pages {
+  margin-left: 1em;
+  width: calc(100% - 1em);
+}
+body .customize-pane-parent #accordion-section-ads_addon .accordion-section-title {
+  background-color: #39c;
+  color: #fff;
+}
+body .customize-pane-parent #accordion-section-ads_addon .accordion-section-title:hover {
+  background-color: #0b64b5;
+  color: #fff;
+}
+
+body #customize-control-ads_slot_tags_heading {
+  margin-top: 1.4em;
+}
+
+#customize-control-ads_in_feed_layout {
+  margin-top: -1em;
+}
+#customize-control-ads_in_feed_num {
+  margin-top: -1em;
+}
+
+#customize-control-ads_auto_ads_heading .czr-heading + .customize-control-description {
+  display: none;
+}
+
+#customize-control-ad_single_mid2,
+#customize-control-ad_single_bottom_mobile,
+#customize-control-ad_archive_bottom_mobile {
+  margin-top: -1em;
+}
