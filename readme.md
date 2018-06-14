@@ -1,6 +1,7 @@
 # Coldbox v1.5.3
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield)
 
 ![coldbox-screenshot](/screenshot.jpg)
 
@@ -51,6 +52,9 @@ Font License - SIL OFL 1.1
 Code License - MIT License  
 URL: http://fontawesome.io/license/  
 Created by Dave Gandy  
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_large)
 
 ### IcoMoon License
 License - GPL / CC BY 4.0  
