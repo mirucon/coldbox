@@ -703,6 +703,7 @@ if ( ! function_exists( 'cd_single_after_contents' ) ) {
 	 */
 	function cd_single_after_contents( $contents = null ) {
 		// You can add something here through the `cd_single_after_contents` filter.
+		do_action( 'cd_single_after' );
 		return $contents;
 	}
 }
