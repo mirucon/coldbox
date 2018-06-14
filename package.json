@@ -47,7 +47,7 @@
     "type": "git",
     "url": "git+https://github.com/mirucon/coldbox"
   },
-  "author": "mirucon",
+  "author": "Toshihiro Kanai (mirucon)",
   "license": "GPL-2.0",
   "bugs": {
     "url": "https://github.com/mirucon/coldbox/issues"
