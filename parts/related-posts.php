@@ -84,6 +84,22 @@ if ( empty( $tags ) ) {
 
 	$related_posts = array_merge( $related_posts, $posts_by_cats );
 }
+
+/**
+ * Get the content of the `cd_related_posts_bottom` action and return true if it has been hooked.
+ *
+ * @return bool
+ */
+function cd_is_action_related_posts_bottom_hooked() {
+	ob_start();
+	do_action( 'cd_related_posts_bottom' );
+	$content = ob_get_clean();
+	if ( $content ) {
+		return true;
+	} else {
+		return false;
+	}
+}
 ?>
 
 
@@ -120,6 +136,16 @@ if ( empty( $tags ) ) {
 			<?php endforeach; ?>
 
 		</ul>
+
+		<?php do_action( 'cd_related_posts_bottom' ); ?>
+
+	</section>
+
+<?php elseif ( cd_is_action_related_posts_bottom_hooked() ) : ?>
+
+	<section class="related-posts content-box">
+
+		<h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
 
 		<?php do_action( 'cd_related_posts_bottom' ); ?>
 
