@@ -70,7 +70,7 @@ else :
 <div class="modal-search-form"><?php get_search_form(); ?><div class="close-toggle"><span class="top"></span><span class="bottom"></span><span class="label">Close</span></div></div>
 
 // phpcs:disable
-<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
 // phpcs:enable
 
 </body></html>
