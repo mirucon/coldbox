@@ -43,6 +43,14 @@
   margin-bottom: 3em;
 }
 
+/*   Single : thumbnail image
+/* -------------------------------------------------- */
+.entry-thumbnail-image {
+  $negative_margin: -20px;
+  margin-left: $negative_margin;
+  margin-right: $negative_margin;
+}
+
 /*   Single : Bottom Post Category, Tag
 /* -------------------------------------------------- */
 .btm-post-meta { margin-top: 3em; clear: both }

@@ -367,6 +367,24 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 	}
 }
 
+if ( ! function_exists( 'cd_large_thumbnail_template' ) ) {
+
+	/**
+	 * Echo the large size thumbnail for template.
+	 *
+	 * @since 1.5.4
+	 */
+	function cd_large_thumbnail_template() {
+
+		if ( has_post_thumbnail() ) {
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'large' );
+		} else {
+			return;
+		}
+		echo apply_filters( 'cd_large_thumbnail_template', $thumbnail ); // WPCS: XSS OK.
+	}
+}
+
 if ( ! function_exists( 'cd_comments_template' ) ) {
 
 	/**
