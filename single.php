@@ -30,24 +30,27 @@ while ( have_posts() ) :
 							<div class="content-inside">
 
 								<footer class="post-meta content-box">
+
 									<?php if ( has_post_format() ) : ?>
 										<span class="post-format"><?php echo esc_html( get_post_format() ); ?></span>
 									<?php endif; ?>
 
 									<?php // If the last modified date and the published date are NOT same and showing modified date, return the MODIFIED date with datetime. ?>
 									<?php if ( get_the_modified_time( 'Ymd' ) !== get_the_time( 'Ymd' ) && cd_is_meta_modified() ) : ?>
+
 										<?php if ( cd_is_meta_date() ) : ?>
 											<span class="post-date"><?php the_date(); ?></span>
 										<?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
 
-									<?php // If the last modified date and the published date are NOT same and NOT showing modified date, return the MODIFIED date with datetime. ?>
+										<?php // If the last modified date and the published date are NOT same and NOT showing modified date, return the MODIFIED date with datetime. ?>
 									<?php elseif ( get_the_modified_time( 'Ymd' ) !== get_the_time( 'Ymd' ) && ! cd_is_meta_modified() ) : ?>
+
 										<?php if ( cd_is_meta_date() ) : ?>
 											<span class="post-date"><?php the_date(); ?></span>
 										<?php endif; ?>
 
-									<?php // If the last modified date and the published date are same and showing either the modified or published date, return the PUBLISHED date with datetime. ?>
+										<?php // If the last modified date and the published date are same and showing either the modified or published date, return the PUBLISHED date with datetime. ?>
 									<?php elseif ( get_the_modified_time( 'Ymd' ) === get_the_time( 'Ymd' ) && cd_is_meta_date() || cd_is_meta_modified() ) : ?>
 										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php the_date(); ?></time>
 

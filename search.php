@@ -32,17 +32,17 @@ get_header(); ?>
 							while ( have_posts() ) :
 								$count++;
 								the_post();
-							?>
+								?>
 
-							<?php if ( cd_archive_style() === 'grid' ) : ?>
-								<?php get_template_part( 'content', 'grid' ); ?>
-							<?php elseif ( cd_archive_style() === 'standard' ) : ?>
-								<?php get_template_part( 'content', 'standard' ); ?>
-							<?php endif; ?>
+								<?php if ( cd_archive_style() === 'grid' ) : ?>
+									<?php get_template_part( 'content', 'grid' ); ?>
+								<?php elseif ( cd_archive_style() === 'standard' ) : ?>
+									<?php get_template_part( 'content', 'standard' ); ?>
+								<?php endif; ?>
 
-							<?php do_action( 'cd_archive_midst_content', $count ); ?>
+								<?php do_action( 'cd_archive_midst_content', $count ); ?>
 
-						<?php endwhile; ?>
+							<?php endwhile; ?>
 
 							<?php
 							// Call the bottom parts.
