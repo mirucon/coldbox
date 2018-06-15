@@ -80,7 +80,7 @@ body {
   background-color: #f8f8f8;
   color: #333;
   word-wrap: break-word;
-  font-size: 1.7em;
+  font-size: 1.6em;
   line-height: 1.4;
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -90,7 +90,7 @@ body {
 
 @media screen and (max-width: 640px) {
   body {
-    font-size: 1.6em;
+    font-size: 1.5em;
   }
 }
 
@@ -149,7 +149,7 @@ body {
 
 @media screen and (max-width: 640px) {
   .content-inner {
-    padding: 5px;
+    padding: 5px 0;
   }
 }
 
@@ -942,6 +942,15 @@ textarea:focus {
 
 .entry .post-meta {
   margin-bottom: 3em;
+}
+
+/*   Single : thumbnail image
+/* -------------------------------------------------- */
+.entry-thumbnail-image {
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
 
 /*   Single : Bottom Post Category, Tag
@@ -4956,7 +4965,7 @@ div[id^='ad-'][id$='-top'], div[class^='ad-'][class$='-top'] {
 /* ------------------------------------------------------------------------- *
 *  14. CJK Styling
 * -------------------------------------------------------------------------- */
-:lang(ja) .bradcrumb, :lang(ko) .bradcrumb, :lang(zh) .bradcrumb {
+:lang(ja) .breadcrumb, :lang(ko) .breadcrumb, :lang(zh) .breadcrumb {
   margin-bottom: .2em;
 }
 

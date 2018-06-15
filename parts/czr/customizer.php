@@ -190,7 +190,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		);
 		$wp_customize->add_setting(
 			'global_font_size_pc', array(
-				'default'           => 17,
+				'default'           => 16,
 				'sanitize_callback' => 'absint',
 			)
 		);
@@ -210,7 +210,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		);
 		$wp_customize->add_setting(
 			'global_font_size_mobile', array(
-				'default'           => 16,
+				'default'           => 15,
 				'sanitize_callback' => 'absint',
 			)
 		);
@@ -688,6 +688,21 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			)
 		);
 		$wp_customize->add_setting(
+			'thumbnail_image_on_single', array(
+				'default'           => false,
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'thumbnail_image_on_single', array(
+					'label'   => __( 'Show Thumbnail Image', 'coldbox' ),
+					'section' => 'single',
+					'type'    => 'checkbox',
+				)
+			)
+		);
+		$wp_customize->add_setting(
 			'decorate_htags', array(
 				'default'           => false,
 				'sanitize_callback' => 'cd_sanitize_checkbox',
@@ -696,7 +711,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'decorate_htags', array(
-					'label'   => __( 'Add Decoration to H2-H5 Tags.', 'coldbox' ),
+					'label'   => __( 'Add Decoration to H2-H5 Tags', 'coldbox' ),
 					'section' => 'single',
 					'type'    => 'checkbox',
 				)
@@ -1367,7 +1382,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		return ( get_theme_mod( 'site_title', true ) );
 	}
 	/**
-	 * Get whether dispyaing the site tagline or not
+	 * Get whether displaying the site tagline or not
 	 *
 	 * @since 1.0.0
 	 */
@@ -1437,6 +1452,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 */
 	function cd_czr_excerpt_ending() {
 		return ( get_theme_mod( 'excerpt_ending', '&#46;&#46;&#46;' ) );
+	}
+
+	/**
+	 * Get whether displaying thumbnail image on singel pages.
+	 *
+	 * @since 1.5.4
+	 **/
+	function cd_is_thumbnail_image_shown() {
+		return get_theme_mod( 'thumbnail_image_on_single', false );
 	}
 	/**
 	 * Get whether displaying the date on single pages.

@@ -69,6 +69,12 @@ while ( have_posts() ) :
 									<?php endif; ?>
 								</footer>
 
+								<?php if ( cd_is_thumbnail_image_shown() && has_post_thumbnail() ) : ?>
+									<div class="entry-thumbnail-image content-box">
+										<?php cd_large_thumbnail_template(); ?>
+									</div>
+								<?php endif; ?>
+
 
 								<div class="entry content-box">
 									<div class="entry-inner"><?php the_content(); ?></div>
