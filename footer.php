@@ -9,7 +9,7 @@
 if ( cd_is_amp() ) :
 	cd_addon_amp_footer();
 else :
-?>
+	?>
 
 <footer id="footer" class="footer">
 
@@ -69,8 +69,9 @@ else :
 
 <div class="modal-search-form"><?php get_search_form(); ?><div class="close-toggle"><span class="top"></span><span class="bottom"></span><span class="label">Close</span></div></div>
 
-
+// phpcs:ignore
 <?php wp_footer(); ?>
+
 </body></html>
 
 <?php endif; ?>

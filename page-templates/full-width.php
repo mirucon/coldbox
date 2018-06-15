@@ -55,17 +55,16 @@ while ( have_posts() ) :
 
 								<div class="entry content-box">
 									<div class="entry-inner"><?php the_content(); ?></div>
-								</div>
-								<?php
-								wp_link_pages(
+									<?php
 									$defaults = array(
 										'before'      => '<div class="post-pages">' . __( 'Pages:', 'coldbox' ),
 										'after'       => '</div>',
 										'link_before' => '<span class="page-number">',
 										'link_after'  => '</span>',
-									)
-								);
-								?>
+									);
+									wp_link_pages( $defaults );
+									?>
+								</div>
 
 								<?php
 								// Call the bottom parts.

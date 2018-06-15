@@ -28,7 +28,9 @@ get_header(); ?>
 
 						<?php
 						if ( have_posts() ) :
+							$count = 0;
 							while ( have_posts() ) :
+								$count++;
 								the_post();
 							?>
 

@@ -11,7 +11,7 @@ get_header(); ?>
 <?php
 while ( have_posts() ) :
 	the_post();
-?>
+	?>
 
 	<main id="main" class="main-single">
 
@@ -70,14 +70,13 @@ while ( have_posts() ) :
 								<div class="entry content-box">
 									<div class="entry-inner"><?php the_content(); ?></div>
 									<?php
-									wp_link_pages(
-										$defaults = array(
-											'before'      => '<div class="post-pages">',
-											'after'       => '</div>',
-											'link_before' => '<span class="page-number">',
-											'link_after'  => '</span>',
-										)
+									$defaults = array(
+										'before'      => '<div class="post-pages">',
+										'after'       => '</div>',
+										'link_before' => '<span class="page-number">',
+										'link_after'  => '</span>',
 									);
+									wp_link_pages( $defaults );
 									?>
 									<div class="btm-post-meta">
 										<?php if ( cd_is_meta_btm_cat() && ! is_attachment() ) : ?>

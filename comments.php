@@ -93,6 +93,6 @@ if ( have_comments() === false && comments_open() === false ) {
 	if ( comments_open() ) {
 		comment_form();
 	}
-?>
+	?>
 
 </section>
