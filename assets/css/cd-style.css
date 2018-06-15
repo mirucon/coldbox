@@ -4758,7 +4758,10 @@ ul.social-links {
 }
 
 .ad-label {
+  margin-bottom: .2em;
+  color: #555;
   text-align: center;
+  font-size: .92em;
 }
 
 .ads-double {

@@ -9,7 +9,8 @@
 if ( cd_is_amp() ) :
 	cd_addon_amp_head();
 else :
-?><!DOCTYPE html>
+	?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
