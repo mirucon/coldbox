@@ -69,10 +69,7 @@ else :
 
 <div class="modal-search-form"><?php get_search_form(); ?><div class="close-toggle"><span class="top"></span><span class="bottom"></span><span class="label">Close</span></div></div>
 
-<?php
-// phpcs:ignore
-wp_footer();
-?>
+	<?php wp_footer(); ?>
 
 </body></html>
 
