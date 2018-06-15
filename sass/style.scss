@@ -64,13 +64,13 @@ body {
   background-color: #f8f8f8;
   color: $text;
   word-wrap: break-word;
-  font-size: 1.7em;
+  font-size: 1.6em;
   line-height: 1.4;
   font-family: $main-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  @media screen and (max-width: $bpmax-mobile) { font-size: 1.6em }
+  @media screen and (max-width: $bpmax-mobile) { font-size: 1.5em }
 }
 #main {
   margin-bottom: 40px;
@@ -100,7 +100,7 @@ body {
   background-color: #fafafa;
   @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .05));
   @media screen and (max-width: $bpmax-mobile) {
-    padding: 5px;
+    padding: 5px 0;
   }
 }
 .sidebar-s1 {
@@ -1081,7 +1081,7 @@ div[id^='ad-'][id$='-top'], div[class^='ad-'][class$='-top'] {
 *  14. CJK Styling
 * -------------------------------------------------------------------------- */
 :lang(ja), :lang(ko), :lang(zh) {
-  .bradcrumb {
+  .breadcrumb {
     margin-bottom: .2em;
   }
   .entry, .comment-body {

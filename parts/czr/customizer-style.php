@@ -24,13 +24,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		}
 
 		// Font size for PC.
-		if ( get_theme_mod( 'global_font_size_pc', '17' ) !== '17' ) {
+		if ( get_theme_mod( 'global_font_size_pc', 16 ) !== 16 ) {
 			$font_size_pc = absint( get_theme_mod( 'global_font_size_pc' ) );
 			$czr_style   .= "body { font-size: ${font_size_pc}px; } ";
 		}
 
 		// Font size for mobile devices.
-		if ( get_theme_mod( 'global_font_size_mobile', '16' ) !== '16' ) {
+		if ( get_theme_mod( 'global_font_size_mobile', 15 ) !== 15 ) {
 			$font_size_mobile = get_theme_mod( 'global_font_size_mobile' );
 			$czr_style       .= "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
 		}

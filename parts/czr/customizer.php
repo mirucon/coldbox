@@ -190,7 +190,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		);
 		$wp_customize->add_setting(
 			'global_font_size_pc', array(
-				'default'           => 17,
+				'default'           => 16,
 				'sanitize_callback' => 'absint',
 			)
 		);
@@ -210,7 +210,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		);
 		$wp_customize->add_setting(
 			'global_font_size_mobile', array(
-				'default'           => 16,
+				'default'           => 15,
 				'sanitize_callback' => 'absint',
 			)
 		);

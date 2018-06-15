@@ -2,7 +2,7 @@
   "name": "coldbox",
   "version": "1.5.3",
   "description": "A beautiful WordPress theme.",
-  "main": "index.js",
+  "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^8.2.0",
     "babel-core": "^6.26.0",
@@ -48,7 +48,7 @@
     "url": "git+https://github.com/mirucon/coldbox"
   },
   "author": "Toshihiro Kanai (mirucon)",
-  "license": "GPL-2.0",
+  "license": "GPL-2.0+",
   "bugs": {
     "url": "https://github.com/mirucon/coldbox/issues"
   },
@@ -57,5 +57,9 @@
     "presets": [
       "env"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }
