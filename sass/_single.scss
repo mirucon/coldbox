@@ -337,10 +337,10 @@ p.post-btm-tags, p.post-btm-cats {
   width: 100%;
   margin: 10px auto 10px;
   border-bottom: 2px solid #ddd;
-  color: $link;
+  color: #555;
   font-weight: bold;
 
-  span {
+  .page-number {
     display: inline-block;
     position: relative;
     bottom: -2px;
@@ -353,7 +353,7 @@ p.post-btm-tags, p.post-btm-cats {
     display: block;
     transition: border .4s;
   }
-  & > span { color: #000; border-bottom: 2px solid $link; }
+  & > .current > .page-number { color: #584f4f; border-bottom: 2px solid $link; }
   & > a:hover > span { border-bottom: 2px solid $link; }
 }
 
