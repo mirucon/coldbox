@@ -1393,11 +1393,11 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   width: 100%;
   margin: 10px auto 10px;
   border-bottom: 2px solid #ddd;
-  color: #00619F;
+  color: #555;
   font-weight: bold;
 }
 
-.post-pages span {
+.post-pages .page-number {
   display: inline-block;
   position: relative;
   bottom: -2px;
@@ -1413,8 +1413,8 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   transition: border .4s;
 }
 
-.post-pages > span {
-  color: #000;
+.post-pages > .current > .page-number {
+  color: #584f4f;
   border-bottom: 2px solid #00619F;
 }
 
