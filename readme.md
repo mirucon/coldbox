@@ -1,4 +1,4 @@
-# Coldbox v1.5.3
+# Coldbox v1.5.4
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.5.3  
+**Version**: 1.5.4  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -23,6 +23,8 @@ If you switch from other theme to this theme, we recommend you to regenerate all
 If you start your WordPress life with this theme, then there's no need to regenerate thumbnails. The theme will automatically create the appropriate size of your thumbnail every time you set a new thumbnail image.
 
 Then, go ahead to the Theme Customizer to customize the theme as you like. Sections whose name started with "Coldbox:" are the settings we have added for you to customize. Don't forget, there's also a section called Colors so you can customize some colors used in the theme.
+
+See "About Coldbox" page after installing the theme :)
 
 To get an example of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
 

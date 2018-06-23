@@ -54,48 +54,48 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:537
+#: ../functions.php:538
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:539
+#: ../functions.php:540
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:802
+#: ../functions.php:803
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:804
+#: ../functions.php:805
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:981
+#: ../functions.php:982
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:983
+#: ../functions.php:984
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:985
+#: ../functions.php:986
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:987
+#: ../functions.php:988
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:987
+#: ../functions.php:988
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:989
+#: ../functions.php:990
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:991
+#: ../functions.php:992
 msgid "Author:"
 msgstr ""
 
@@ -143,95 +143,137 @@ msgstr ""
 msgid "The Add-on Plugin"
 msgstr ""
 
-#: ../parts/about-coldbox.php:102
-msgid "We are also developing the Addon plugin called Coldbox Addon, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: "
-msgstr ""
-
-#: ../parts/about-coldbox.php:105
-msgid "Automatic AMP pages generation"
+#: ../parts/about-coldbox.php:103
+msgid "We are also developing the Addon plugin called Coldbox Addons, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: "
 msgstr ""
 
 #: ../parts/about-coldbox.php:106
-msgid "Share buttons"
+msgid "Automatic AMP pages generation"
 msgstr ""
 
 #: ../parts/about-coldbox.php:107
-msgid "Google Analytics integration"
+msgid "Share buttons"
 msgstr ""
 
 #: ../parts/about-coldbox.php:108
+msgid "Google Analytics integration"
+msgstr ""
+
+#: ../parts/about-coldbox.php:109
 msgid "Automatic Open Graph Tag output"
 msgstr ""
 
-#: ../parts/about-coldbox.php:114
+#: ../parts/about-coldbox.php:115
 msgid "Great, you have already installed and activated the addon plugin! To customize some settings related to the addon plugin, go to the Theme Customizer."
 msgstr ""
 
-#: ../parts/about-coldbox.php:118
-msgid "Unfortunately, you have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!"
+#: ../parts/about-coldbox.php:119
+msgid "You have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!"
 msgstr ""
 
-#: ../parts/about-coldbox.php:120
+#: ../parts/about-coldbox.php:121
 msgid "Install Now"
 msgstr ""
 
-#: ../parts/about-coldbox.php:128
+#: ../parts/about-coldbox.php:129
+msgid "Coldbox Ads Extension Plugin"
+msgstr ""
+
+#: ../parts/about-coldbox.php:132
+msgid ""
+"We've developed an extension plugin for the Google AdSense ads for the Coldbox theme users. The plugin gives you the great experiences and engagements on Google AdSense without writing code at all.\n"
+"				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:"
+msgstr ""
+
+#: ../parts/about-coldbox.php:139
+msgid "About the Coldbox Ads Extension"
+msgstr ""
+
+#. translators: 1: opening a tag, 2: closing a tag
+#: ../parts/about-coldbox.php:151
+msgid "Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please see %1$sthis article%2$s"
+msgstr ""
+
+#: ../parts/about-coldbox.php:164
 msgid "Need Help?"
 msgstr ""
 
 #. translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag
-#: ../parts/about-coldbox.php:133
-msgid "If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think found a bug, or have a feature request."
+#: ../parts/about-coldbox.php:169
+msgid "If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request."
 msgstr ""
 
-#: ../parts/about-coldbox.php:134
+#: ../parts/about-coldbox.php:170
 msgid "forum"
 msgstr ""
 
-#: ../parts/about-coldbox.php:146
+#: ../parts/about-coldbox.php:182
 msgid "Upgrade Your PHP!"
 msgstr ""
 
 #. translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag.
-#: ../parts/about-coldbox.php:157
+#: ../parts/about-coldbox.php:193
 msgid "We've detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org."
 msgstr ""
 
-#: ../parts/about-coldbox.php:159
+#: ../parts/about-coldbox.php:195
 msgid "https://wordpress.org/about/requirements/"
 msgstr ""
 
-#: ../parts/about-coldbox.php:171
+#: ../parts/about-coldbox.php:207
 msgid "Upgrade Notice"
 msgstr ""
 
-#: ../parts/about-coldbox.php:172
+#: ../parts/about-coldbox.php:208
+msgid "v1.5.4"
+msgstr ""
+
+#: ../parts/about-coldbox.php:209
+msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
+msgstr ""
+
+#: ../parts/about-coldbox.php:210
 msgid "v1.5.3"
 msgstr ""
 
-#: ../parts/about-coldbox.php:173
+#: ../parts/about-coldbox.php:211
 msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
 msgstr ""
 
-#: ../parts/about-coldbox.php:174
+#: ../parts/about-coldbox.php:212
 msgid "v1.5.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:175
+#: ../parts/about-coldbox.php:213
 msgid "In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to \"Coldbox: Header Settings\" > \"Custom Logo Width\"."
 msgstr ""
 
-#: ../parts/about-coldbox.php:179
+#: ../parts/about-coldbox.php:217
 msgid "Changelog"
 msgstr ""
 
 #. translators: %s: Theme version
-#: ../parts/about-coldbox.php:203
+#: ../parts/about-coldbox.php:241
 msgid "Coldbox v%s"
 msgstr ""
 
-#: ../parts/about-coldbox.php:220
+#: ../parts/about-coldbox.php:258
 msgid "Upgrade Notices"
+msgstr ""
+
+#: ../parts/admin-notices.php:28
+msgid "We've released new extension plugin!"
+msgstr ""
+
+#. translators: 1: opening a tag, 2: closing a tag
+#: ../parts/admin-notices.php:35
+msgid ""
+"Thanks for using the Coldbox theme! We have released an extension plugin called Coldbox Ads Extension for the easy Google AdSense management and getting high revenue with it.\n"
+"					We believe this is the best choice to monetize your blog with the Coldbox theme. %1$sSee this article%2$s for more details."
+msgstr ""
+
+#: ../parts/admin-notices.php:44, ../parts/tgm/class-tgm-plugin-activation.php:394
+msgid "Dismiss this notice"
 msgstr ""
 
 #: ../parts/page-title.php:24
@@ -809,10 +851,6 @@ msgstr ""
 #. translators: 1: dashboard link.
 #: ../parts/tgm/class-tgm-plugin-activation.php:393
 msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: ../parts/tgm/class-tgm-plugin-activation.php:394
-msgid "Dismiss this notice"
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:395
