@@ -225,31 +225,39 @@ msgid "Upgrade Notice"
 msgstr ""
 
 #: ../parts/about-coldbox.php:208
-msgid "v1.5.3"
+msgid "v1.5.4"
 msgstr ""
 
 #: ../parts/about-coldbox.php:209
-msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
+msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
 msgstr ""
 
 #: ../parts/about-coldbox.php:210
-msgid "v1.5.0"
+msgid "v1.5.3"
 msgstr ""
 
 #: ../parts/about-coldbox.php:211
+msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
+msgstr ""
+
+#: ../parts/about-coldbox.php:212
+msgid "v1.5.0"
+msgstr ""
+
+#: ../parts/about-coldbox.php:213
 msgid "In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to \"Coldbox: Header Settings\" > \"Custom Logo Width\"."
 msgstr ""
 
-#: ../parts/about-coldbox.php:215
+#: ../parts/about-coldbox.php:217
 msgid "Changelog"
 msgstr ""
 
 #. translators: %s: Theme version
-#: ../parts/about-coldbox.php:239
+#: ../parts/about-coldbox.php:241
 msgid "Coldbox v%s"
 msgstr ""
 
-#: ../parts/about-coldbox.php:256
+#: ../parts/about-coldbox.php:258
 msgid "Upgrade Notices"
 msgstr ""
 
