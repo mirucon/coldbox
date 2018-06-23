@@ -99,7 +99,8 @@ function cd_welcome_page_content() {
 
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'The Add-on Plugin', 'coldbox' ); ?></h2>
-			<?php esc_html_e( 'We are also developing the Addon plugin called Coldbox Addon, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: ', 'coldbox' ); ?>
+		<p>
+			<?php esc_html_e( 'We are also developing the Addon plugin called Coldbox Addons, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: ', 'coldbox' ); ?>
 		</p>
 		<ul>
 			<li><?php esc_html_e( 'Automatic AMP pages generation', 'coldbox' ); ?></li>
@@ -115,10 +116,45 @@ function cd_welcome_page_content() {
 			<?php
 		} else {
 			?>
-			<p><?php esc_html_e( 'Unfortunately, you have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!', 'coldbox' ); ?></p>
+			<p><?php esc_html_e( 'You have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!', 'coldbox' ); ?></p>
 			<a href="<?php echo esc_url( admin_url( 'themes.php?page=tgmpa-install-plugins' ) ); ?>" class="cdAdmin__button">
 				<?php esc_html_e( 'Install Now', 'coldbox' ); ?>
 			</a>
+			<?php
+		}
+		?>
+	</div>
+
+	<div class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Coldbox Ads Extension Plugin', 'coldbox' ); ?></h2>
+		<p>
+			<?php
+				esc_html_e( 'We\'ve developed an extension plugin for the Google AdSense ads for the Coldbox theme users. The plugin gives you the great experiences and engagements on Google AdSense without writing code at all.
+				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:', 'coldbox' );
+			?>
+		</p>
+
+		<p>
+			<a href="<?php echo esc_url( __( 'https://coldbox.miruc.co/addons/google-adsense-extension/' ) ); ?>" class="cdAdmin__button">
+				<?php esc_html_e( 'About the Coldbox Ads Extension', 'coldbox' ); ?>
+			</a>
+		</p>
+
+		<?php
+		if ( is_plugin_active( 'coldbox-ads-extension/coldbox-ads-extension.php' ) ) {
+			?>
+			<p>
+				<strong>
+					<?php
+						printf(
+							/* translators: 1: opening a tag, 2: closing a tag */
+							esc_html__( 'Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please see %1$sthis article%2$s', 'coldbox' ),
+							'<a href="https://coldbox.miruc.co/docs/how-to-set-up-ads-extension" target="_blank">',
+							'<a>'
+						);
+					?>
+				</strong>
+			</p>
 			<?php
 		}
 		?>
@@ -130,7 +166,7 @@ function cd_welcome_page_content() {
 			echo wp_kses_data(
 				sprintf(
 					/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
-					esc_html__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think found a bug, or have a feature request.', 'coldbox' ),
+					__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request.', 'coldbox' ),
 					'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
 					'<a href="mailto:i@miruc.co">',
 					'</a>'
