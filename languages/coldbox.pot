@@ -185,6 +185,10 @@ msgid ""
 "				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:"
 msgstr ""
 
+#: ../parts/about-coldbox.php:138
+msgid "https://coldbox.miruc.co/addons/google-adsense-extension/"
+msgstr ""
+
 #: ../parts/about-coldbox.php:139
 msgid "About the Coldbox Ads Extension"
 msgstr ""

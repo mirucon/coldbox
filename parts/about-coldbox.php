@@ -135,7 +135,7 @@ function cd_welcome_page_content() {
 		</p>
 
 		<p>
-			<a href="<?php echo esc_url( __( 'https://coldbox.miruc.co/addons/google-adsense-extension/' ) ); ?>" class="cdAdmin__button">
+			<a href="<?php echo esc_url( __( 'https://coldbox.miruc.co/addons/google-adsense-extension/', 'coldbox' ) ); ?>" class="cdAdmin__button">
 				<?php esc_html_e( 'About the Coldbox Ads Extension', 'coldbox' ); ?>
 			</a>
 		</p>
