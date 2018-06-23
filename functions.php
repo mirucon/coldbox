@@ -484,6 +484,7 @@ if ( ! function_exists( 'cd_load_welcome_page' ) ) {
 	 */
 	function cd_load_welcome_page() {
 		include_once get_theme_file_path( 'parts/about-coldbox.php' );
+		require_once get_theme_file_path( 'parts/admin-notices.php' );
 	}
 
 	add_action( 'init', 'cd_load_welcome_page' );
