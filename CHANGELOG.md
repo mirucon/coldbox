@@ -1,3 +1,10 @@
+### 1.5.4 <small> - June 24th, 2018</small>
+
+* Added: You can now show post thumbnail image before the content on single pages
+* Changed: Default font size - 15px for mobile and 16px for desktop
+* Fixed: Some compatibilities with the newly released Coldbox Ads Extension plugin
+* And includes some bug fixes and performance improvements
+
 ### 1.5.3 <small> - May 27th, 2018</small>
 
 * Added: Link to privacy policy page in footer

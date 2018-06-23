@@ -205,6 +205,8 @@ function cd_welcome_page_content() {
 
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
+		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.4', 'coldbox' ); ?></h3>
+		<p><?php esc_html_e( 'I\'ve added the option to show thumbnail image on every single post which have been requested quite a few times!', 'coldbox' ); ?></p>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.3', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the "Social Links" section in the Customizer.', 'coldbox' ); ?></p>
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
@@ -217,7 +219,7 @@ function cd_welcome_page_content() {
 
 	<?php
 	ob_start();
-	include_once get_theme_file_path( 'assets/html/CHANGELOG.html' );
+	require_once get_theme_file_path( 'assets/html/CHANGELOG.html' );
 	$changelog = ob_get_contents();
 	ob_end_clean();
 
