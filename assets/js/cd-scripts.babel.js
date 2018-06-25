@@ -266,34 +266,57 @@ jQuery($ => {
     )
   }
 
-  /*   Comments : Comment Tab
+  /*   [NATIVE JS] Comments : Comment Tab
   /* -------------------------------------------------- */
-  $('#ping-list').hide()
-  $('.comment-tabmenu').append('<span class="action-bar"></span>')
-  $('.comment-tabmenu .action-bar').css({
-    width: $('.tabitem:first-of-type').outerWidth()
-  })
-  $('.comment-tabmenu li').click(function() {
-    $('.comment-tabmenu li').removeClass('active')
-    $(this).addClass('active')
-    $('#comments ol').hide()
-    $(
-      $(this)
-        .children('a')
-        .attr('href')
-    ).fadeIn()
-    $('.comment-tabmenu .action-bar').css({
-      width: $(this).outerWidth(),
-      left: $(this).position().left
-    })
-    return false
-  })
+  const tabmenu = document.querySelector('#comments .comment-tabmenu')
+  const tabItems = document.querySelectorAll('#comments .tabitem')
+  const actionBar = document.createElement('span')
+  const pingList = document.getElementById('ping-list')
+  const commentList = document.getElementById('comment-list')
+
+  actionBar.classList.add('action-bar')
+  tabmenu.insertBefore(actionBar, null)
+  actionBar.style.width = `${tabItems[0].clientWidth}px`
+
+  pingList.style.display = 'none'
+
+  const tabItemsHandler = event => {
+    const target = event.target
+
+    // Do nothing when clicked the item which is already active
+    if (target.parentNode.className.includes('active')) {
+      return
+    }
+
+    if (target.getAttribute('href').includes('#comment')) {
+      target.parentNode.classList.add('active')
+      tabItems[1].classList.remove('active')
+      commentList.classList.add('active')
+      pingList.classList.remove('active')
+
+      commentList.style.display = 'block'
+      pingList.style.display = 'none'
+    } else if (target.getAttribute('href').includes('#ping')) {
+      target.parentNode.classList.add('active')
+      tabItems[0].classList.remove('active')
+      commentList.classList.remove('active')
+      pingList.classList.add('active')
+
+      commentList.style.display = 'none'
+      pingList.style.display = 'block'
+    }
+
+    actionBar.style.width = `${target.offsetWidth}px`
+    actionBar.style.left = `${target.parentNode.offsetLeft}px`
+  }
+
+  for (const item of tabItems) {
+    item.addEventListener('click', tabItemsHandler)
+  }
 
   /*   [NATIVE JS] Recent Posts Widget : Adjust the date style
   /* -------------------------------------------------- */
   const dates = document.querySelectorAll('.widget_recent_entries .post-date')
-
-  console.log(dates)
 
   if (dates) {
     for (const date of dates) {
@@ -301,7 +324,6 @@ jQuery($ => {
         const parent = date.previousElementSibling
         const title = `<span class="recent_entries_post-title">${parent.textContent}</span>`
         parent.innerHTML = title
-        console.log(date.previousElementSibling.children)
         const titleNode = date.previousElementSibling.children[0]
         parent.insertBefore(date, titleNode)
       }

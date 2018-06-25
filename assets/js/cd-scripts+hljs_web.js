@@ -1774,11 +1774,14 @@ jQuery(function ($) {
 
   /*   Comments : Comment Tab
   /* -------------------------------------------------- */
-  $('#ping-list').hide();
-  $('.comment-tabmenu').append('<span class="action-bar"></span>');
-  $('.comment-tabmenu .action-bar').css({
-    width: $('.tabitem:first-of-type').outerWidth()
-  });
+  document.getElementById('ping-list').style.display = 'none';
+  var tabmenu = document.querySelector('#comments .comment-tabmenu');
+  var actionBar = document.createElement('span');
+  actionBar.classList.add('action-bar');
+  tabmenu.insertBefore(actionBar, null);
+
+  actionBar.style.width = document.querySelector('#comments .tabitem').clientWidth + 'px';
+
   $('.comment-tabmenu li').click(function () {
     $('.comment-tabmenu li').removeClass('active');
     $(this).addClass('active');
@@ -1791,11 +1794,9 @@ jQuery(function ($) {
     return false;
   });
 
-  /*   Recent Posts Widget : Adjust the date style
+  /*   [NATIVE JS] Recent Posts Widget : Adjust the date style
   /* -------------------------------------------------- */
   var dates = document.querySelectorAll('.widget_recent_entries .post-date');
-
-  console.log(dates);
 
   if (dates) {
     var _iteratorNormalCompletion = true;
@@ -1806,7 +1807,13 @@ jQuery(function ($) {
       for (var _iterator = dates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
         var date = _step.value;
 
-        console.log(date.previousElementSibling);
+        if (date.previousElementSibling.tagName === 'A') {
+          var parent = date.previousElementSibling;
+          var title = '<span class="recent_entries_post-title">' + parent.textContent + '</span>';
+          parent.innerHTML = title;
+          var titleNode = date.previousElementSibling.children[0];
+          parent.insertBefore(date, titleNode);
+        }
       }
     } catch (err) {
       _didIteratorError = true;
@@ -1823,14 +1830,4 @@ jQuery(function ($) {
       }
     }
   }
-
-  // if ($('.widget_recent_entries .post-date').length) {
-  //   $('.post-date').each(function(e) {
-  //     if ($(this).prev('a')) {
-  //       $(this)
-  //         .html($(this).html() + ' ')
-  //         .prependTo($(this).prev('a'))
-  //     }
-  //   })
-  // }
 });
