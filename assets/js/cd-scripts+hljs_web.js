@@ -1523,8 +1523,10 @@ hljs.registerLanguage("json", function(e) {
 /* eslint no-undef: 0, brace-style: 0. */
 jQuery(function ($) {
   var $body = $('body');
+  var body = document.body;
   var $wpadminbar = $('#wpadminbar');
   var $header = $('#header');
+  var header = document.getElementById('header');
   var $headerMenu = $('#header-nav');
   var $navToggle = $('.nav-toggle.header-menu');
   var $pageNumbers = $('ul.page-numbers');
@@ -1607,7 +1609,8 @@ jQuery(function ($) {
       }
 
       // When header row is set
-      if ($body.hasClass('header-row')) {
+      if (body.className.includes('header-row')) {
+
         // Abort on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
           return;
@@ -1615,11 +1618,11 @@ jQuery(function ($) {
 
         if (scrollTop > 0) {
           // On scroll
-          $header.addClass('sticky');
+          header.classList.add('sticky');
           $body.css({ paddingTop: $header.height() });
         } else {
           // Not on scroll
-          $header.removeClass('sticky');
+          header.classList.remove('sticky');
           $body.css({ paddingTop: '' });
         }
       }
@@ -1683,33 +1686,47 @@ jQuery(function ($) {
     }
   });
 
-  /*   Toggle : Search Toggle
+  /*   [NATIVE JS] Toggle : Search Toggle
   /* -------------------------------------------------- */
-  var searchCount = 0;
+  var toggleState = false;
+  var searchToggle = document.querySelector('.header-inner .search-toggle');
+  var closeToggle = document.querySelector('.modal-search-form .close-toggle');
 
-  $('.search-toggle, .close-toggle').not('.search-form').click(function () {
-    $(this).toggleClass('open');
-    $body.toggleClass('modal-search-open');
-    if ($body.hasClass('modal-search-open')) {
-      setTimeout(function () {
-        $('.modal-search-form .search-inner').focus();
+  // Search toggle
+  var searchToggleHandler = function searchToggleHandler() {
+    toggleState = true;
+    if (toggleState) {
+      searchToggle.classList.add('open');
+      body.classList.add('modal-search-open');
+      body.classList.remove('modal-search-closed');
+      if (searchToggle.className.includes('modal-search-open')) setTimeout(function () {
+        document.querySelector('.modal-search-form .search-inner').focus();
       }, 290);
     }
-    searchCount++;
-    if (searchCount % 2 === 0) {
-      $body.addClass('modal-search-closed');
-    }
-    if (searchCount % 2 === 1) {
-      $body.removeClass('modal-search-closed');
-    }
-  });
+  };
+  searchToggle.addEventListener('click', searchToggleHandler);
 
-  $(window).keyup(function (e) {
-    // Close the window when pressing esc key
-    if (e.keyCode === 27) {
-      $body.removeClass('modal-search-open');
+  var closeToggleHandler = function closeToggleHandler() {
+    toggleState = false;
+    if (!toggleState) {
+      searchToggle.classList.remove('open');
+      body.classList.remove('modal-search-open');
+      body.classList.add('modal-search-closed');
     }
-  });
+  };
+  closeToggle.addEventListener('click', closeToggleHandler);
+
+  document.onkeydown = function (event) {
+    event = event || window.event;
+    if (event.keyCode === 27) {
+      toggleState = false;
+      if (!toggleState) {
+        searchToggle.classList.remove('open');
+        body.classList.remove('modal-search-open');
+        body.classList.add('modal-search-closed');
+      }
+    }
+  };
 
   /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
@@ -1776,11 +1793,44 @@ jQuery(function ($) {
 
   /*   Recent Posts Widget : Adjust the date style
   /* -------------------------------------------------- */
-  if ($('.widget_recent_entries .post-date').length) {
-    $('.post-date').each(function (e) {
-      if ($(this).prev('a')) {
-        $(this).html($(this).html() + ' ').prependTo($(this).prev('a'));
+  var dates = document.querySelectorAll('.widget_recent_entries .post-date');
+
+  console.log(dates);
+
+  if (dates) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = dates[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var date = _step.value;
+
+        console.log(date.previousElementSibling);
       }
-    });
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
   }
+
+  // if ($('.widget_recent_entries .post-date').length) {
+  //   $('.post-date').each(function(e) {
+  //     if ($(this).prev('a')) {
+  //       $(this)
+  //         .html($(this).html() + ' ')
+  //         .prependTo($(this).prev('a'))
+  //     }
+  //   })
+  // }
 });

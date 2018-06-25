@@ -884,8 +884,8 @@ ul.social-links { padding-left: 0; list-style: none; }
   .modal-search-form {
     animation: fadeOut .26s;
   }
-  .search-inner, .search-submit {
-    display: none;
+  .search-form {
+    visibility: hidden;
   }
 }
 

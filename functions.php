@@ -23,7 +23,9 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
 		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/cd-style' . $css_min . '.css' ), array(), CD_VER );
-		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts' . $js_min . '.js' ), array( 'jquery' ), CD_VER, true );
+
+		// TODO: CHANGE BACK THIS.
+		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts.babel.js' ), array( 'jquery' ), CD_VER, true );
 		wp_add_inline_script( 'cd-script', "jQuery(function($){ $('.entry img').parent('a').css({'box-shadow':'none'});});" );
 
 		// Load Masonry for making responsive sidebar.

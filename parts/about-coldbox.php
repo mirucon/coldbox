@@ -149,7 +149,7 @@ function cd_welcome_page_content() {
 						printf(
 							/* translators: 1: opening a tag, 2: closing a tag */
 							esc_html__( 'Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please see %1$sthis article%2$s', 'coldbox' ),
-							'<a href="https://coldbox.miruc.co/docs/how-to-set-up-ads-extension" target="_blank">',
+							'<a href="' . esc_url( __( 'https://coldbox.miruc.co/docs/how-to-set-up-ads-extension/', 'coldbox' ) ) . '" target="_blank">',
 							'<a>'
 						);
 					?>
