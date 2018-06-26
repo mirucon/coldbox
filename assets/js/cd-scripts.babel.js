@@ -1,14 +1,14 @@
 /* eslint no-undef: 0, brace-style: 0. */
+// import smoothscroll from 'smoothscroll'
+// smoothscroll.polyfill()
+
 jQuery($ => {
   const $body = $('body')
   const body = document.body
-  const $wpadminbar = $('#wpadminbar')
   const wpAdminBar = document.getElementById('wpadminbar')
   const $header = $('#header')
   const header = document.getElementById('header')
   const siteInfo = document.querySelector('#header .site-info')
-  const $headerMenu = $('#header-nav')
-  const $searchToggle = $('.search-toggle')
   const navToggle = document.querySelector('.nav-toggle.header-menu')
   const searchToggle = document.querySelector('.header-inner .search-toggle')
 
@@ -44,40 +44,59 @@ jQuery($ => {
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
-  $('a[href*="#"]')
-    .not('.noscroll')
-    .not('a[href^="#comment-list"]')
-    .not('a[href^="#ping-list"]')
-    .click(function() {
-      let href = $(this).prop('href') // Get property of the link
-      let hrefPageUrl = href.split('#')[0]
-      let currentUrl = location.href
-      currentUrl = currentUrl.split('#')[0]
+  const headerInner = document.querySelector('#header .header-inner')
+  const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
-      if (hrefPageUrl === currentUrl) {
-        // If the link goes to current page
-        href = '#' + href.split('#').pop()
-        let target = $(href === '#' || href === '' ? 'html' : href) // Get where it goes
-        let position = target.offset().top // Get the offset value
-        if (window.matchMedia('(min-width: 767px)').matches) {
-          if ($wpadminbar.css('position') === 'fixed') {
-            // When the admin bar is shown.
-            position -= $wpadminbar.outerHeight()
-          }
-          if ($body.hasClass('sticky-header') && $body.hasClass('header-row')) {
-            // When the header is sticky.
-            position -= $header.height()
-          } else if (
-            $body.hasClass('sticky-header') &&
-            $body.hasClass('header-column')
-          ) {
-            position -= $headerMenu.height()
-          }
-        }
-        $('body, html').animate({ scrollTop: position }, 300) // Smooth Scroll
-        return false
+  const inPageLinkHandler = event => {
+    event.preventDefault()
+    let href = event.target.getAttribute('href') // Get href attr of the link
+    let hrefPageUrl = href.split('#')[0]
+    let currentUrl = location.href.split('#')[0]
+
+    if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
+      // If the link goes on the same page, run smooth scroll
+      href = href.split('#').pop()
+      let target
+      if (href === '#' || href === '') {
+        target = document.documentElement
+      } else {
+        target = document.getElementById(href)
       }
-    })
+      const rect = target.getBoundingClientRect()
+      let targetPosition = window.pageYOffset + rect.top
+      if (window.matchMedia('(min-width: 767px)').matches) {
+        if (
+          body.classList.contains('admin-bar') &&
+          window.getComputedStyle(wpAdminBar).getPropertyValue('position') ===
+            'fixed'
+        ) {
+          // When the admin bar is shown.
+          targetPosition -= wpAdminBar.clientHeight
+        }
+        if (
+          body.classList.contains('sticky-header') &&
+          body.classList.contains('header-row')
+        ) {
+          // When the header is sticky.
+          targetPosition -= headerInner.clientHeight
+        } else if (
+          body.classList.contains('sticky-header') &&
+          body.classList.contains('header-column') &&
+          body.classList.contains('header-menu-enabled')
+        ) {
+          targetPosition -= headerMenu.clientHeight
+        }
+      }
+      window.scroll({
+        top: targetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
+
+  for (const link of links) {
+    link.addEventListener('click', inPageLinkHandler)
+  }
 
   /*   [NATIVE JS] Sticky Header
   /* -------------------------------------------------- */
@@ -97,7 +116,6 @@ jQuery($ => {
 
       // When header row is set
       if (body.classList.contains('header-row')) {
-
         // Do nothing on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
           return
@@ -161,9 +179,9 @@ jQuery($ => {
 
   /*   [NATIVE JS] Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
-  const getMenuPaddingTop = () => {
+  const getMenuPaddingTop = (includesAdminBar = true) => {
     let height = siteInfo.offsetHeight
-    if (body.classList.contains('admin-bar')) {
+    if (body.classList.contains('admin-bar') && includesAdminBar) {
       height += wpAdminBar.clientHeight
     }
     return height
@@ -252,7 +270,7 @@ jQuery($ => {
       }
       navToggle.style.position = 'fixed'
       navToggle.style.top = `${top}px`
-      navToggle.style.height = `${getMenuPaddingTop()}px`
+      navToggle.style.height = `${getMenuPaddingTop(false)}px`
     } else if (navCount % 2 === 0) {
       navToggle.classList.remove('open')
       body.classList.remove('header-menu-closed')
@@ -319,6 +337,7 @@ jQuery($ => {
   }
 
   const tabItemsHandler = event => {
+    event.preventDefault()
     const target = event.target
 
     // Do nothing when clicked the item which is already active
@@ -329,19 +348,25 @@ jQuery($ => {
     if (target.getAttribute('href').includes('#comment')) {
       target.parentNode.classList.add('active')
       tabItems[1].classList.remove('active')
-      commentList.classList.add('active')
-      pingList.classList.remove('active')
-
-      commentList.style.display = 'block'
-      pingList.style.display = 'none'
+      if (commentList) {
+        commentList.classList.add('active')
+        commentList.style.display = 'block'
+      }
+      if (pingList) {
+        pingList.classList.remove('active')
+        pingList.style.display = 'none'
+      }
     } else if (target.getAttribute('href').includes('#ping')) {
       target.parentNode.classList.add('active')
       tabItems[0].classList.remove('active')
-      commentList.classList.remove('active')
-      pingList.classList.add('active')
-
-      commentList.style.display = 'none'
-      pingList.style.display = 'block'
+      if (pingList) {
+        pingList.classList.add('active')
+        pingList.style.display = 'block'
+      }
+      if (commentList) {
+        commentList.classList.remove('active')
+        commentList.style.display = 'none'
+      }
     }
 
     actionBar.style.width = `${target.offsetWidth}px`
@@ -360,7 +385,9 @@ jQuery($ => {
     for (const date of dates) {
       if (date.previousElementSibling.tagName === 'A') {
         const parent = date.previousElementSibling
-        parent.innerHTML = `<span class="recent_entries_post-title">${parent.textContent}</span>`
+        parent.innerHTML = `<span class="recent_entries_post-title">${
+          parent.textContent
+        }</span>`
         const titleNode = date.previousElementSibling.children[0]
         parent.insertBefore(date, titleNode)
       }
