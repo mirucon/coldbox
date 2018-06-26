@@ -3,13 +3,12 @@ jQuery($ => {
   const $body = $('body')
   const body = document.body
   const $wpadminbar = $('#wpadminbar')
+  const wpAdminBar = document.getElementById('wpadminbar')
   const $header = $('#header')
   const header = document.getElementById('header')
   const $headerMenu = $('#header-nav')
-  const $navToggle = $('.nav-toggle.header-menu')
-  const $pageNumbers = $('ul.page-numbers')
-  const $currentPageNumber = $('ul.page-numbers .current')
   const $searchToggle = $('.search-toggle')
+  const navToggle = document.querySelector('.nav-toggle.header-menu')
 
   /*   Back To Top
   /* -------------------------------------------------- */
@@ -157,22 +156,30 @@ jQuery($ => {
     })
   }
 
-  /*   Fix : Padding of the menu on mobile devices
+  /*   [NATIVE JS] Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
-  $(window).on('load resize', function() {
+  const getMenuPaddingTop = () => {
+    let height = document.querySelector('#header .site-info').offsetHeight
+    if (body.classList.contains('admin-bar')) {
+      height += wpAdminBar.clientHeight
+    }
+    return height
+  }
+
+  const headerNav = document.getElementById('header-nav')
+
+  const fixMobilePaddingOnMenu = () => {
     if (
-      $body.hasClass('header-menu-enabled') &&
+      body.classList.contains('header-menu-enabled') &&
       window.matchMedia('(max-width: 767px)').matches
     ) {
-      let padding = $('.site-info').outerHeight()
-      if ($body.hasClass('admin-bar')) {
-        padding += $wpadminbar.innerHeight()
-      }
-      $('#header-nav').css({ paddingTop: padding })
+      headerNav.style.paddingTop = `${getMenuPaddingTop()}px`
     } else {
-      $('#header-nav').css({ paddingTop: '' })
+      headerNav.style.paddingTop = '0'
     }
-  })
+  }
+  fixMobilePaddingOnMenu()
+  window.addEventListener('resize', fixMobilePaddingOnMenu)
 
   /*   [NATIVE JS] Toggle : Search Toggle
   /* -------------------------------------------------- */
@@ -187,14 +194,17 @@ jQuery($ => {
       searchToggle.classList.add('open')
       body.classList.add('modal-search-open')
       body.classList.remove('modal-search-closed')
-      if (searchToggle.className.includes('modal-search-open'))
+
+      if (body.className.includes('modal-search-open')) {
         setTimeout(() => {
           document.querySelector('.modal-search-form .search-inner').focus()
         }, 290)
+      }
     }
   }
   searchToggle.addEventListener('click', searchToggleHandler)
 
+  // Close toggle
   const closeToggleHandler = () => {
     toggleState = false
     if (!toggleState) {
@@ -205,7 +215,7 @@ jQuery($ => {
   }
   closeToggle.addEventListener('click', closeToggleHandler)
 
-  document.onkeydown = function(event) {
+  document.onkeydown = event => {
     event = event || window.event
     if (event.keyCode === 27) {
       toggleState = false
@@ -217,53 +227,75 @@ jQuery($ => {
     }
   }
 
-  /*   Toggle : Nav Menu Toggle
+  /*   [NATIVE JS] Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
   let navCount = 0
+  const headerMenu = document.getElementById('header-menu')
 
-  $('#header-menu').append('<span class="menu-overlay"></span>')
-  $navToggle.click(function() {
-    $(this).toggleClass('open')
+  const menuOverlay = document.createElement('div')
+  menuOverlay.classList.add('menu-overlay')
+  if (headerMenu) {
+    headerMenu.insertBefore(menuOverlay, null)
+  }
+
+  const navToggleHandler = () => {
+    let top = 0
     navCount++
-    if (navCount % 2 === 0) {
-      $body.addClass('header-menu-closed')
-    }
     if (navCount % 2 === 1) {
-      $body.removeClass('header-menu-closed')
-    }
-  })
+      navToggle.classList.add('open')
+      body.classList.add('header-menu-closed')
 
-  $('.menu-overlay').click(function() {
-    $navToggle.removeClass('open')
-    $navToggle.addClass('closed')
-    $body.addClass('header-menu-closed')
-  })
-
-  /*   Multipage Link : Underline Animate
-  /* -------------------------------------------------- */
-  if ($pageNumbers.length) {
-    $pageNumbers.append('<span class="action-bar"></span>')
-    $currentPageNumber.css({ borderBottom: 0 })
-    $('ul.page-numbers .action-bar').css({
-      width: $currentPageNumber.outerWidth(),
-      left: $currentPageNumber.parent('li').position().left
-    })
-    $('ul.page-numbers li').hover(
-      function() {
-        $('ul.page-numbers .action-bar')
-          .stop()
-          .css({
-            width: $(this).outerWidth(),
-            left: $(this).position().left
-          })
-      },
-      function() {
-        $('ul.page-numbers .action-bar').css({
-          width: $currentPageNumber.outerWidth(),
-          left: $currentPageNumber.parent('li').position().left
-        })
+      if (body.classList.contains('admin-bar')) {
+        top += wpAdminBar.clientHeight
       }
-    )
+      navToggle.style.position = 'fixed'
+      navToggle.style.top = `${top}px`
+      navToggle.style.height = `${getMenuPaddingTop()}px`
+    } else if (navCount % 2 === 0) {
+      navToggle.classList.remove('open')
+      body.classList.remove('header-menu-closed')
+    }
+  }
+  navToggle.addEventListener('click', navToggleHandler)
+
+  const menuOverlayHandler = () => {
+    navToggle.classList.remove('open')
+    navToggle.classList.add('closed')
+    body.classList.add('header-menu-closed')
+
+    navToggle.style.position = 'relative'
+    navToggle.style.top = 'auto'
+    navToggle.style.height = 'auto'
+  }
+  menuOverlay.addEventListener('click', menuOverlayHandler)
+
+  /*   [NATIVE JS} Pagination : Underline Animate
+  /* -------------------------------------------------- */
+  const pageNumbers = document.querySelector('ul.page-numbers')
+  const pageNumbersEls = document.querySelectorAll('ul.page-numbers li')
+  const currentPageNumber = document.querySelector('ul.page-numbers .current')
+
+  if (pageNumbers) {
+    const currentParent = currentPageNumber.parentNode
+    const actionBar = document.createElement('span')
+    actionBar.classList.add('action-bar')
+    actionBar.style.width = `${currentParent.offsetWidth}px`
+    actionBar.style.left = `${currentParent.offsetLeft}px`
+    pageNumbers.insertBefore(actionBar, null)
+    currentPageNumber.style.borderBottom = 0
+
+    const pageNumbersElHoverHandler = event => {
+      actionBar.style.width = `${event.target.parentNode.offsetWidth}px`
+      actionBar.style.left = `${event.target.parentNode.offsetLeft}px`
+    }
+    const pageNumbersElHoverOutHandler = () => {
+      actionBar.style.width = `${currentParent.offsetWidth}px`
+      actionBar.style.left = `${currentParent.offsetLeft}px`
+    }
+    for (const el of pageNumbersEls) {
+      el.addEventListener('mouseover', pageNumbersElHoverHandler)
+      el.addEventListener('mouseout', pageNumbersElHoverOutHandler)
+    }
   }
 
   /*   [NATIVE JS] Comments : Comment Tab
@@ -274,11 +306,15 @@ jQuery($ => {
   const pingList = document.getElementById('ping-list')
   const commentList = document.getElementById('comment-list')
 
-  actionBar.classList.add('action-bar')
-  tabmenu.insertBefore(actionBar, null)
-  actionBar.style.width = `${tabItems[0].clientWidth}px`
+  if (tabmenu) {
+    actionBar.classList.add('action-bar')
+    tabmenu.insertBefore(actionBar, null)
+    actionBar.style.width = `${tabItems[0].clientWidth}px`
+  }
 
-  pingList.style.display = 'none'
+  if (pingList) {
+    pingList.style.display = 'none'
+  }
 
   const tabItemsHandler = event => {
     const target = event.target
@@ -322,8 +358,7 @@ jQuery($ => {
     for (const date of dates) {
       if (date.previousElementSibling.tagName === 'A') {
         const parent = date.previousElementSibling
-        const title = `<span class="recent_entries_post-title">${parent.textContent}</span>`
-        parent.innerHTML = title
+        parent.innerHTML = `<span class="recent_entries_post-title">${parent.textContent}</span>`
         const titleNode = date.previousElementSibling.children[0]
         parent.insertBefore(date, titleNode)
       }
