@@ -6,9 +6,11 @@ jQuery($ => {
   const wpAdminBar = document.getElementById('wpadminbar')
   const $header = $('#header')
   const header = document.getElementById('header')
+  const siteInfo = document.querySelector('#header .site-info')
   const $headerMenu = $('#header-nav')
   const $searchToggle = $('.search-toggle')
   const navToggle = document.querySelector('.nav-toggle.header-menu')
+  const searchToggle = document.querySelector('.header-inner .search-toggle')
 
   /*   Back To Top
   /* -------------------------------------------------- */
@@ -77,25 +79,26 @@ jQuery($ => {
       }
     })
 
-  /*   Sticky Header
+  /*   [NATIVE JS] Sticky Header
   /* -------------------------------------------------- */
-  if ($body.hasClass('sticky-header')) {
-    $(window).on('load scroll resize', () => {
-      let siteInfoHgt = $('.site-info').outerHeight()
-      let scrollTop = $(window).scrollTop()
+  if (body.classList.contains('sticky-header')) {
+    const stickyHeaderHandler = () => {
+      const siteInfoHgt = siteInfo.offsetHeight
+      let scrollTop = window.pageYOffset
 
       // Reset values on devices smaller than 768px.
       if (!window.matchMedia('(min-width: 767px)').matches) {
-        $header.removeClass('sticky')
-        $body.css({ paddingTop: '' })
-        $header.css({ top: '' })
-        $searchToggle.css({ top: '', height: '' })
+        header.classList.remove('sticky')
+        body.style.paddingTop = ''
+        header.style.top = ''
+        searchToggle.style.top = ''
+        searchToggle.style.height = ''
       }
 
       // When header row is set
-      if (body.className.includes('header-row')) {
+      if (body.classList.contains('header-row')) {
 
-        // Abort on devices smaller than 768px.
+        // Do nothing on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
           return
         }
@@ -103,63 +106,63 @@ jQuery($ => {
         if (scrollTop > 0) {
           // On scroll
           header.classList.add('sticky')
-          $body.css({ paddingTop: $header.height() })
+          body.style.paddingTop = `${header.clientHeight}px`
         } else {
           // Not on scroll
           header.classList.remove('sticky')
-          $body.css({ paddingTop: '' })
+          body.style.paddingTop = ''
         }
       }
 
       // When header column is set
-      else if ($body.hasClass('header-column')) {
+      else if (body.classList.contains('header-column')) {
         // Abort on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
           return
         }
 
         // Adjust search toggle behavior for the sticky header
-        if ($body.hasClass('header-menu-enabled')) {
-          // If header menu is set
+        if (body.classList.contains('header-menu-enabled')) {
           if (scrollTop > 0) {
             // On scroll
-            let headerMenuHeight = $('#header-menu').height()
-            $searchToggle.css({ top: siteInfoHgt, height: headerMenuHeight })
-            $('.header-searchbar').css({
-              top: siteInfoHgt + headerMenuHeight / 1.3
-            })
+            const headerMenuHgt = headerMenu.clientHeight
+            searchToggle.style.top = `${siteInfoHgt}px`
+            searchToggle.style.height = `${headerMenuHgt}px`
           } else {
             // Not on scroll
-            $searchToggle.css({ top: scrollTop, height: '' })
+            searchToggle.style.top = scrollTop
+            searchToggle.style.height = ''
           }
         }
 
         // Sticky header
-        if (scrollTop > 0 + siteInfoHgt) {
+        if (scrollTop > siteInfoHgt) {
           // On scroll
-          $header.addClass('sticky')
+          header.classList.add('sticky')
           $body.css({ paddingTop: $header.height() })
-          if ($body.hasClass('admin-bar')) {
-            // When logging in
-            $header.css({ top: -siteInfoHgt + $wpadminbar.innerHeight() })
+          if (body.classList.contains('admin-bar')) {
+            // When user is logged in
+            header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
           } else {
-            $header.css({ top: -siteInfoHgt })
+            header.style.top = `${-siteInfoHgt}px`
           }
         } else {
-          // Not on scroll
-          // Remove sticky header
-          $header.removeClass('sticky')
-          $body.css({ paddingTop: '' })
-          $header.css({ top: '' })
+          // Not on scroll - Remove sticky header
+          header.classList.remove('sticky')
+          body.style.paddingTop = ''
+          header.style.top = ''
         }
       }
-    })
+    }
+    stickyHeaderHandler()
+    window.addEventListener('resize', stickyHeaderHandler)
+    window.addEventListener('scroll', stickyHeaderHandler)
   }
 
   /*   [NATIVE JS] Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   const getMenuPaddingTop = () => {
-    let height = document.querySelector('#header .site-info').offsetHeight
+    let height = siteInfo.offsetHeight
     if (body.classList.contains('admin-bar')) {
       height += wpAdminBar.clientHeight
     }
@@ -184,7 +187,6 @@ jQuery($ => {
   /*   [NATIVE JS] Toggle : Search Toggle
   /* -------------------------------------------------- */
   let toggleState = false
-  const searchToggle = document.querySelector('.header-inner .search-toggle')
   const closeToggle = document.querySelector('.modal-search-form .close-toggle')
 
   // Search toggle
