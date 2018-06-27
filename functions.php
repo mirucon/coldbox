@@ -23,13 +23,12 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
 		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/cd-style' . $css_min . '.css' ), array(), CD_VER );
-
-		// TODO: CHANGE BACK THIS.
-		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts.babel.js' ), array( 'jquery' ), CD_VER, true );
+		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts' . $js_min . '.js' ), array(), CD_VER, true );
 		wp_add_inline_script( 'cd-script', "jQuery(function($){ $('.entry img').parent('a').css({'box-shadow':'none'});});" );
+		wp_enqueue_script( 'smoothscroll-polyfill', get_theme_file_uri( 'assets/js/smoothscroll.js' ), array(), '0.4.2', true );
 
 		// Load Masonry for making responsive sidebar.
-		wp_enqueue_script( 'imagesloaded', 'imagesloaded', array( 'jQuery' ), '', true );
+		wp_enqueue_script( 'imagesloaded', 'imagesloaded', '', true );
 		wp_enqueue_script( 'masonry', 'masonry', array( 'imagesloaded' ), '', true );
 		$masonry_resp_sidebar = 'jQuery(window).on("load resize",function(){window.matchMedia("(max-width: 980px) and (min-width: 641px)").matches||jQuery("body").hasClass("bottom-sidebar-s1")?jQuery("#sidebar-s1 .sidebar-inner").imagesLoaded(function(){jQuery("#sidebar-s1 .sidebar-inner").masonry({itemSelector:".widget",percentPosition:!0,isAnimated:!0}),jQuery(".widget").css({position:"absolute"})}):jQuery(".widget").css({position:"",top:"",left:""})});';
 		wp_add_inline_script( 'masonry', $masonry_resp_sidebar, 'after' );
@@ -1003,7 +1002,7 @@ add_filter( 'get_the_archive_title', 'cd_modify_archive_title' );
  *  Theme definitions
  * -------------------------------------------------------------------------
  */
-define( 'CD_VER', '1.5.3' );
+define( 'CD_VER', '1.5.4' );
 
 /*
  * -------------------------------------------------------------------------
