@@ -244,6 +244,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Whether to use the minified CSS files.
 		$wp_customize->add_setting(
 			'minified_css', array(
 				'default'           => true,
@@ -260,6 +261,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Whether to use the minified JS files.
 		$wp_customize->add_setting(
 			'minified_js', array(
 				'default'           => true,
@@ -276,6 +278,24 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Whether not to use jQuery.
+		$wp_customize->add_setting(
+			'do_not_load_jquery', array(
+				'default'           => false,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'do_not_load_jquery', array(
+					'label'       => esc_html__( 'Do not load jQuery', 'coldbox' ),
+					'description' => esc_html__( 'This can make your website faster, but it might make some plugin\'s scripts requiring jQuery inoperative. Please be careful with this option as many plugins still using it, although the theme\'s scripts are working fine without jQuery since v1.6.0. (This won\'t remove jQuery in the admin pages)', 'coldbox' ),
+					'section'     => 'global',
+					'type'        => 'checkbox',
+				)
+			)
+		);
+
 		// Use highlight.js.
 		$wp_customize->add_setting(
 			'does_use_hljs', array(
@@ -1339,6 +1359,15 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$js_min      = $minified_js ? '.min' : '';
 		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min;
 		return apply_filters( 'cd_use_minified_js', $js_min );
+	}
+	/**
+	 * Get whether not to load jQuery or not
+	 *
+	 * @since 1.6.0
+	 */
+	function cd_do_not_load_jquery() {
+		$do_not_load_jquery = get_theme_mod( 'do_not_load_jquery', true );
+		return apply_filters( 'cd_do_not_load_jquery', $do_not_load_jquery );
 	}
 	/**
 	 * Get whether using minified JS or not
