@@ -185,7 +185,7 @@ msgid ""
 "				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:"
 msgstr ""
 
-#: ../parts/about-coldbox.php:138
+#: ../parts/about-coldbox.php:138, ../parts/admin-notices.php:37, ../parts/admin-notices.php:43
 msgid "https://coldbox.miruc.co/addons/google-adsense-extension/"
 msgstr ""
 
@@ -276,7 +276,11 @@ msgid ""
 "					We believe this is the best choice to monetize your blog with the Coldbox theme. %1$sSee this article%2$s for more details."
 msgstr ""
 
-#: ../parts/admin-notices.php:44, ../parts/tgm/class-tgm-plugin-activation.php:394
+#: ../parts/admin-notices.php:44
+msgid "See more about the extension"
+msgstr ""
+
+#: ../parts/admin-notices.php:47, ../parts/tgm/class-tgm-plugin-activation.php:394
 msgid "Dismiss this notice"
 msgstr ""
 
