@@ -2,11 +2,9 @@
 // import smoothscroll from 'smoothscroll'
 // smoothscroll.polyfill()
 
-jQuery($ => {
-  const $body = $('body')
+addEventListener('DOMContentLoaded', () => {
   const body = document.body
   const wpAdminBar = document.getElementById('wpadminbar')
-  const $header = $('#header')
   const header = document.getElementById('header')
   const siteInfo = document.querySelector('#header .site-info')
   const navToggle = document.querySelector('.nav-toggle.header-menu')
@@ -14,33 +12,45 @@ jQuery($ => {
 
   /*   Back To Top
   /* -------------------------------------------------- */
-  $(window).on('load scroll', function() {
-    if ($(this).scrollTop() > 100) {
-      $('a#back-to-top').fadeIn(600)
+  const backToTop = document.getElementById('back-to-top')
+
+  const showBackToTop = () => {
+    if (window.pageYOffset > 100) {
+      backToTop.style.display = 'block'
+      backToTop.classList.add('is-shown')
     } else {
-      $('a#back-to-top').fadeOut(600)
-      setTimeout(function() {
-        $('a#back-to-top').removeClass('clicked')
+      backToTop.style.display = 'none'
+      backToTop.classList.remove('is-shown')
+      setTimeout(() => {
+        backToTop.classList.remove('clicked')
       }, 400)
     }
-  })
-  $('a#back-to-top').click(function() {
-    $('html, body').animate({ scrollTop: 0 }, 'slow')
-    $('a#back-to-top').addClass('clicked')
-    return false
-  })
-  $(window).on('load scroll', function() {
-    let scrollHeight = $(document).height()
-    let scrollPosition = $(window).height() + $(window).scrollTop()
-    let footHeight = $('.footer-bottom').innerHeight()
-    if (scrollHeight - scrollPosition < footHeight) {
-      $('#back-to-top').css({ bottom: footHeight })
-      $('a#back-to-top').addClass('abs')
+  }
+  window.addEventListener('scroll', showBackToTop)
+
+  const scrollToTop = event => {
+    event.preventDefault()
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+    backToTop.classList.add('clicked')
+  }
+  backToTop.addEventListener('click', scrollToTop)
+
+  const stickBackToTopOnFooter = () => {
+    const scrollHeight = body.scrollHeight
+    const scrollPosition = window.pageYOffset + window.innerHeight
+    const footerHeight = document.getElementById('footer').clientHeight
+    if (scrollHeight - scrollPosition < footerHeight) {
+      backToTop.style.bottom = `${footerHeight}px`
+      backToTop.classList.add('abs')
     } else {
-      $('#back-to-top').css({ bottom: '' })
-      $('a#back-to-top').removeClass('abs')
+      backToTop.style.bottom = ''
+      backToTop.classList.remove('abs')
     }
-  })
+  }
+  addEventListener('scroll', stickBackToTopOnFooter)
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
@@ -157,7 +167,7 @@ jQuery($ => {
         if (scrollTop > siteInfoHgt) {
           // On scroll
           header.classList.add('sticky')
-          $body.css({ paddingTop: $header.height() })
+          body.style.paddingTop = `${header.clientHeight}px`
           if (body.classList.contains('admin-bar')) {
             // When user is logged in
             header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
