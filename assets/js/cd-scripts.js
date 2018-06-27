@@ -1,16 +1,116 @@
 'use strict';
 
-/* eslint no-undef: 0, brace-style: 0. */
-// import smoothscroll from 'smoothscroll'
-// smoothscroll.polyfill()
-
-addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
   var body = document.body;
   var wpAdminBar = document.getElementById('wpadminbar');
   var header = document.getElementById('header');
+  var headerMenu = document.getElementById('header-menu');
   var siteInfo = document.querySelector('#header .site-info');
-  var navToggle = document.querySelector('.nav-toggle.header-menu');
   var searchToggle = document.querySelector('.header-inner .search-toggle');
+
+  /*   Remove link shadows on images link
+  /* -------------------------------------------------- */
+  var images = document.querySelectorAll('.entry img');
+  if (images) {
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      for (var _iterator = images[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        var image = _step.value;
+
+        var parent = image.parentNode;
+        if (parent.tagName === 'A') {
+          parent.style.boxShadow = 'none';
+        }
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator.return) {
+          _iterator.return();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+  }
+
+  /*   Masonry responsive widgets
+  /* -------------------------------------------------- */
+  var sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner');
+  var widgets = document.querySelectorAll('.widget');
+  var masonryHandler = function masonryHandler() {
+    if (window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches || document.body.classList.contains('bottom-sidebar-s1')) {
+      var msnry = new Masonry(sidebarInner, {
+        itemSelector: '.widget',
+        percentPosition: !0,
+        isAnimated: !0
+      });
+      if (widgets) {
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+          for (var _iterator2 = widgets[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var widget = _step2.value;
+
+            widget.style.position = 'absolute';
+          }
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2.return) {
+              _iterator2.return();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
+        }
+      }
+    } else {
+      if (widgets) {
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
+
+        try {
+          for (var _iterator3 = widgets[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var _widget = _step3.value;
+
+            _widget.style.position = '';
+            _widget.style.top = '';
+            _widget.style.left = '';
+          }
+        } catch (err) {
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion3 && _iterator3.return) {
+              _iterator3.return();
+            }
+          } finally {
+            if (_didIteratorError3) {
+              throw _iteratorError3;
+            }
+          }
+        }
+      }
+    }
+  };
+  window.addEventListener('load', masonryHandler);
+  window.addEventListener('resize', masonryHandler);
 
   /*   Back To Top
   /* -------------------------------------------------- */
@@ -95,30 +195,30 @@ addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  var _iteratorNormalCompletion = true;
-  var _didIteratorError = false;
-  var _iteratorError = undefined;
+  var _iteratorNormalCompletion4 = true;
+  var _didIteratorError4 = false;
+  var _iteratorError4 = undefined;
 
   try {
-    for (var _iterator = links[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-      var link = _step.value;
+    for (var _iterator4 = links[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+      var link = _step4.value;
 
       link.addEventListener('click', inPageLinkHandler);
     }
 
-    /*   [NATIVE JS] Sticky Header
+    /*   Sticky Header
     /* -------------------------------------------------- */
   } catch (err) {
-    _didIteratorError = true;
-    _iteratorError = err;
+    _didIteratorError4 = true;
+    _iteratorError4 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion && _iterator.return) {
-        _iterator.return();
+      if (!_iteratorNormalCompletion4 && _iterator4.return) {
+        _iterator4.return();
       }
     } finally {
-      if (_didIteratorError) {
-        throw _iteratorError;
+      if (_didIteratorError4) {
+        throw _iteratorError4;
       }
     }
   }
@@ -200,7 +300,7 @@ addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', stickyHeaderHandler);
   }
 
-  /*   [NATIVE JS] Fix : Padding of the menu on mobile devices
+  /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   var getMenuPaddingTop = function getMenuPaddingTop() {
     var includesAdminBar = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
@@ -224,7 +324,7 @@ addEventListener('DOMContentLoaded', function () {
   fixMobilePaddingOnMenu();
   window.addEventListener('resize', fixMobilePaddingOnMenu);
 
-  /*   [NATIVE JS] Toggle : Search Toggle
+  /*   Toggle : Search Toggle
   /* -------------------------------------------------- */
   var toggleState = false;
   var closeToggle = document.querySelector('.modal-search-form .close-toggle');
@@ -237,7 +337,7 @@ addEventListener('DOMContentLoaded', function () {
       body.classList.add('modal-search-open');
       body.classList.remove('modal-search-closed');
 
-      if (body.className.includes('modal-search-open')) {
+      if (body.classList.contains('modal-search-open')) {
         setTimeout(function () {
           document.querySelector('.modal-search-form .search-inner').focus();
         }, 290);
@@ -269,10 +369,10 @@ addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  /*   [NATIVE JS] Toggle : Nav Menu Toggle
+  /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
   var navCount = 0;
-  var headerMenu = document.getElementById('header-menu');
+  var navToggle = document.querySelector('.nav-toggle.header-menu');
 
   var menuOverlay = document.createElement('div');
   menuOverlay.classList.add('menu-overlay');
@@ -296,6 +396,10 @@ addEventListener('DOMContentLoaded', function () {
     } else if (navCount % 2 === 0) {
       navToggle.classList.remove('open');
       body.classList.remove('header-menu-closed');
+
+      navToggle.style.position = 'relative';
+      navToggle.style.top = 'auto';
+      navToggle.style.height = 'auto';
     }
   };
   navToggle.addEventListener('click', navToggleHandler);
@@ -311,7 +415,7 @@ addEventListener('DOMContentLoaded', function () {
   };
   menuOverlay.addEventListener('click', menuOverlayHandler);
 
-  /*   [NATIVE JS} Pagination : Underline Animate
+  /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
   var pageNumbers = document.querySelector('ul.page-numbers');
   var pageNumbersEls = document.querySelectorAll('ul.page-numbers li');
@@ -334,34 +438,34 @@ addEventListener('DOMContentLoaded', function () {
       _actionBar.style.width = currentParent.offsetWidth + 'px';
       _actionBar.style.left = currentParent.offsetLeft + 'px';
     };
-    var _iteratorNormalCompletion2 = true;
-    var _didIteratorError2 = false;
-    var _iteratorError2 = undefined;
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
 
     try {
-      for (var _iterator2 = pageNumbersEls[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-        var el = _step2.value;
+      for (var _iterator5 = pageNumbersEls[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        var el = _step5.value;
 
         el.addEventListener('mouseover', pageNumbersElHoverHandler);
         el.addEventListener('mouseout', pageNumbersElHoverOutHandler);
       }
     } catch (err) {
-      _didIteratorError2 = true;
-      _iteratorError2 = err;
+      _didIteratorError5 = true;
+      _iteratorError5 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-          _iterator2.return();
+        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+          _iterator5.return();
         }
       } finally {
-        if (_didIteratorError2) {
-          throw _iteratorError2;
+        if (_didIteratorError5) {
+          throw _iteratorError5;
         }
       }
     }
   }
 
-  /*   [NATIVE JS] Comments : Comment Tab
+  /*   Comments : Comment Tab
   /* -------------------------------------------------- */
   var tabmenu = document.querySelector('#comments .comment-tabmenu');
   var tabItems = document.querySelectorAll('#comments .tabitem');
@@ -384,7 +488,7 @@ addEventListener('DOMContentLoaded', function () {
     var target = event.target;
 
     // Do nothing when clicked the item which is already active
-    if (target.parentNode.className.includes('active')) {
+    if (target.parentNode.classList.contains('active')) {
       return;
     }
 
@@ -416,30 +520,30 @@ addEventListener('DOMContentLoaded', function () {
     actionBar.style.left = target.parentNode.offsetLeft + 'px';
   };
 
-  var _iteratorNormalCompletion3 = true;
-  var _didIteratorError3 = false;
-  var _iteratorError3 = undefined;
+  var _iteratorNormalCompletion6 = true;
+  var _didIteratorError6 = false;
+  var _iteratorError6 = undefined;
 
   try {
-    for (var _iterator3 = tabItems[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-      var item = _step3.value;
+    for (var _iterator6 = tabItems[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+      var item = _step6.value;
 
       item.addEventListener('click', tabItemsHandler);
     }
 
-    /*   [NATIVE JS] Recent Posts Widget : Adjust the date style
+    /*   Recent Posts Widget : Adjust the date style
     /* -------------------------------------------------- */
   } catch (err) {
-    _didIteratorError3 = true;
-    _iteratorError3 = err;
+    _didIteratorError6 = true;
+    _iteratorError6 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion3 && _iterator3.return) {
-        _iterator3.return();
+      if (!_iteratorNormalCompletion6 && _iterator6.return) {
+        _iterator6.return();
       }
     } finally {
-      if (_didIteratorError3) {
-        throw _iteratorError3;
+      if (_didIteratorError6) {
+        throw _iteratorError6;
       }
     }
   }
@@ -447,32 +551,32 @@ addEventListener('DOMContentLoaded', function () {
   var dates = document.querySelectorAll('.widget_recent_entries .post-date');
 
   if (dates) {
-    var _iteratorNormalCompletion4 = true;
-    var _didIteratorError4 = false;
-    var _iteratorError4 = undefined;
+    var _iteratorNormalCompletion7 = true;
+    var _didIteratorError7 = false;
+    var _iteratorError7 = undefined;
 
     try {
-      for (var _iterator4 = dates[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-        var date = _step4.value;
+      for (var _iterator7 = dates[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+        var date = _step7.value;
 
         if (date.previousElementSibling.tagName === 'A') {
-          var parent = date.previousElementSibling;
-          parent.innerHTML = '<span class="recent_entries_post-title">' + parent.textContent + '</span>';
+          var _parent = date.previousElementSibling;
+          _parent.innerHTML = '<span class="recent_entries_post-title">' + _parent.textContent + '</span>';
           var titleNode = date.previousElementSibling.children[0];
-          parent.insertBefore(date, titleNode);
+          _parent.insertBefore(date, titleNode);
         }
       }
     } catch (err) {
-      _didIteratorError4 = true;
-      _iteratorError4 = err;
+      _didIteratorError7 = true;
+      _iteratorError7 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion4 && _iterator4.return) {
-          _iterator4.return();
+        if (!_iteratorNormalCompletion7 && _iterator7.return) {
+          _iterator7.return();
         }
       } finally {
-        if (_didIteratorError4) {
-          throw _iteratorError4;
+        if (_didIteratorError7) {
+          throw _iteratorError7;
         }
       }
     }
