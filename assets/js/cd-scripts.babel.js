@@ -1,14 +1,55 @@
-/* eslint no-undef: 0, brace-style: 0. */
-// import smoothscroll from 'smoothscroll'
-// smoothscroll.polyfill()
-
-addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const body = document.body
   const wpAdminBar = document.getElementById('wpadminbar')
   const header = document.getElementById('header')
+  const headerMenu = document.getElementById('header-menu')
   const siteInfo = document.querySelector('#header .site-info')
-  const navToggle = document.querySelector('.nav-toggle.header-menu')
   const searchToggle = document.querySelector('.header-inner .search-toggle')
+
+  /*   Remove link shadows on images link
+  /* -------------------------------------------------- */
+  const images = document.querySelectorAll('.entry img')
+  if (images) {
+    for (const image of images) {
+      const parent = image.parentNode
+      if (parent.tagName === 'A') {
+        parent.style.boxShadow = 'none'
+      }
+    }
+  }
+
+  /*   Masonry responsive widgets
+  /* -------------------------------------------------- */
+  const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
+  const widgets = document.querySelectorAll('.widget')
+  const masonryHandler = () => {
+    if (
+      window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches ||
+      document.body.classList.contains('bottom-sidebar-s1')
+    ) {
+      /* eslint-disable-next-line no-unused-vars, no-undef */
+      const msnry = new Masonry(sidebarInner, {
+        itemSelector: '.widget',
+        percentPosition: !0,
+        isAnimated: !0
+      })
+      if (widgets) {
+        for (const widget of widgets) {
+          widget.style.position = 'absolute'
+        }
+      }
+    } else {
+      if (widgets) {
+        for (const widget of widgets) {
+          widget.style.position = ''
+          widget.style.top = ''
+          widget.style.left = ''
+        }
+      }
+    }
+  }
+  window.addEventListener('load', masonryHandler)
+  window.addEventListener('resize', masonryHandler)
 
   /*   Back To Top
   /* -------------------------------------------------- */
@@ -108,7 +149,7 @@ addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', inPageLinkHandler)
   }
 
-  /*   [NATIVE JS] Sticky Header
+  /*   Sticky Header
   /* -------------------------------------------------- */
   if (body.classList.contains('sticky-header')) {
     const stickyHeaderHandler = () => {
@@ -187,7 +228,7 @@ addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', stickyHeaderHandler)
   }
 
-  /*   [NATIVE JS] Fix : Padding of the menu on mobile devices
+  /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   const getMenuPaddingTop = (includesAdminBar = true) => {
     let height = siteInfo.offsetHeight
@@ -212,7 +253,7 @@ addEventListener('DOMContentLoaded', () => {
   fixMobilePaddingOnMenu()
   window.addEventListener('resize', fixMobilePaddingOnMenu)
 
-  /*   [NATIVE JS] Toggle : Search Toggle
+  /*   Toggle : Search Toggle
   /* -------------------------------------------------- */
   let toggleState = false
   const closeToggle = document.querySelector('.modal-search-form .close-toggle')
@@ -225,7 +266,7 @@ addEventListener('DOMContentLoaded', () => {
       body.classList.add('modal-search-open')
       body.classList.remove('modal-search-closed')
 
-      if (body.className.includes('modal-search-open')) {
+      if (body.classList.contains('modal-search-open')) {
         setTimeout(() => {
           document.querySelector('.modal-search-form .search-inner').focus()
         }, 290)
@@ -257,10 +298,10 @@ addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /*   [NATIVE JS] Toggle : Nav Menu Toggle
+  /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
   let navCount = 0
-  const headerMenu = document.getElementById('header-menu')
+  const navToggle = document.querySelector('.nav-toggle.header-menu')
 
   const menuOverlay = document.createElement('div')
   menuOverlay.classList.add('menu-overlay')
@@ -284,6 +325,10 @@ addEventListener('DOMContentLoaded', () => {
     } else if (navCount % 2 === 0) {
       navToggle.classList.remove('open')
       body.classList.remove('header-menu-closed')
+
+      navToggle.style.position = 'relative'
+      navToggle.style.top = 'auto'
+      navToggle.style.height = 'auto'
     }
   }
   navToggle.addEventListener('click', navToggleHandler)
@@ -299,7 +344,7 @@ addEventListener('DOMContentLoaded', () => {
   }
   menuOverlay.addEventListener('click', menuOverlayHandler)
 
-  /*   [NATIVE JS} Pagination : Underline Animate
+  /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
   const pageNumbers = document.querySelector('ul.page-numbers')
   const pageNumbersEls = document.querySelectorAll('ul.page-numbers li')
@@ -328,7 +373,7 @@ addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /*   [NATIVE JS] Comments : Comment Tab
+  /*   Comments : Comment Tab
   /* -------------------------------------------------- */
   const tabmenu = document.querySelector('#comments .comment-tabmenu')
   const tabItems = document.querySelectorAll('#comments .tabitem')
@@ -351,7 +396,7 @@ addEventListener('DOMContentLoaded', () => {
     const target = event.target
 
     // Do nothing when clicked the item which is already active
-    if (target.parentNode.className.includes('active')) {
+    if (target.parentNode.classList.contains('active')) {
       return
     }
 
@@ -387,7 +432,7 @@ addEventListener('DOMContentLoaded', () => {
     item.addEventListener('click', tabItemsHandler)
   }
 
-  /*   [NATIVE JS] Recent Posts Widget : Adjust the date style
+  /*   Recent Posts Widget : Adjust the date style
   /* -------------------------------------------------- */
   const dates = document.querySelectorAll('.widget_recent_entries .post-date')
 
