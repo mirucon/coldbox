@@ -1,3 +1,6 @@
+import smoothscroll from 'smoothscroll-polyfill'
+smoothscroll.polyfill()
+
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body
   const wpAdminBar = document.getElementById('wpadminbar')
@@ -22,34 +25,38 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
   const widgets = document.querySelectorAll('.widget')
-  const masonryHandler = () => {
-    if (
-      window.matchMedia('(max-width: 980px) and (min-width: 641px)').matches ||
-      document.body.classList.contains('bottom-sidebar-s1')
-    ) {
-      /* eslint-disable-next-line no-unused-vars, no-undef */
-      const msnry = new Masonry(sidebarInner, {
-        itemSelector: '.widget',
-        percentPosition: !0,
-        isAnimated: !0
-      })
-      if (widgets) {
-        for (const widget of widgets) {
-          widget.style.position = 'absolute'
+
+  if (widgets) {
+    const masonryHandler = () => {
+      if (
+        window.matchMedia(
+          '(max-width: 980px) and (min-width: 641px)').matches ||
+        document.body.classList.contains('bottom-sidebar-s1')
+      ) {
+        /* eslint-disable-next-line no-unused-vars, no-undef */
+        const msnry = new Masonry(sidebarInner, {
+          itemSelector: '.widget',
+          percentPosition: !0,
+          isAnimated: !0
+        })
+        if (widgets) {
+          for (const widget of widgets) {
+            widget.style.position = 'absolute'
+          }
         }
-      }
-    } else {
-      if (widgets) {
-        for (const widget of widgets) {
-          widget.style.position = ''
-          widget.style.top = ''
-          widget.style.left = ''
+      } else {
+        if (widgets) {
+          for (const widget of widgets) {
+            widget.style.position = ''
+            widget.style.top = ''
+            widget.style.left = ''
+          }
         }
       }
     }
+    window.addEventListener('load', masonryHandler)
+    window.addEventListener('resize', masonryHandler)
   }
-  window.addEventListener('load', masonryHandler)
-  window.addEventListener('resize', masonryHandler)
 
   /*   Back To Top
   /* -------------------------------------------------- */
@@ -91,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
       backToTop.classList.remove('abs')
     }
   }
-  addEventListener('scroll', stickBackToTopOnFooter)
+  window.addEventListener('scroll', stickBackToTopOnFooter)
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
@@ -240,60 +247,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const headerNav = document.getElementById('header-nav')
 
-  const fixMobilePaddingOnMenu = () => {
-    if (
-      body.classList.contains('header-menu-enabled') &&
-      window.matchMedia('(max-width: 767px)').matches
-    ) {
-      headerNav.style.paddingTop = `${getMenuPaddingTop()}px`
-    } else {
-      headerNav.style.paddingTop = '0'
+  if (headerNav) {
+    const fixMobilePaddingOnMenu = () => {
+      if (
+        body.classList.contains('header-menu-enabled') &&
+        window.matchMedia('(max-width: 767px)').matches
+      ) {
+        headerNav.style.paddingTop = `${getMenuPaddingTop()}px`
+      } else {
+        headerNav.style.paddingTop = '0'
+      }
     }
+    fixMobilePaddingOnMenu()
+    window.addEventListener('resize', fixMobilePaddingOnMenu)
   }
-  fixMobilePaddingOnMenu()
-  window.addEventListener('resize', fixMobilePaddingOnMenu)
 
   /*   Toggle : Search Toggle
   /* -------------------------------------------------- */
   let toggleState = false
   const closeToggle = document.querySelector('.modal-search-form .close-toggle')
 
-  // Search toggle
-  const searchToggleHandler = () => {
-    toggleState = true
-    if (toggleState) {
-      searchToggle.classList.add('open')
-      body.classList.add('modal-search-open')
-      body.classList.remove('modal-search-closed')
+  if (searchToggle) {
+    // Search toggle
+    const searchToggleHandler = () => {
+      toggleState = true
+      if (toggleState) {
+        searchToggle.classList.add('open')
+        body.classList.add('modal-search-open')
+        body.classList.remove('modal-search-closed')
 
-      if (body.classList.contains('modal-search-open')) {
-        setTimeout(() => {
-          document.querySelector('.modal-search-form .search-inner').focus()
-        }, 290)
+        if (body.classList.contains('modal-search-open')) {
+          setTimeout(() => {
+            document.querySelector('.modal-search-form .search-inner').focus()
+          }, 290)
+        }
       }
     }
-  }
-  searchToggle.addEventListener('click', searchToggleHandler)
+    searchToggle.addEventListener('click', searchToggleHandler)
 
-  // Close toggle
-  const closeToggleHandler = () => {
-    toggleState = false
-    if (!toggleState) {
-      searchToggle.classList.remove('open')
-      body.classList.remove('modal-search-open')
-      body.classList.add('modal-search-closed')
-    }
-  }
-  closeToggle.addEventListener('click', closeToggleHandler)
-
-  document.onkeydown = event => {
-    event = event || window.event
-    if (event.keyCode === 27) {
+    // Close toggle
+    const closeToggleHandler = () => {
       toggleState = false
       if (!toggleState) {
         searchToggle.classList.remove('open')
         body.classList.remove('modal-search-open')
         body.classList.add('modal-search-closed')
+      }
+    }
+    closeToggle.addEventListener('click', closeToggleHandler)
+
+    document.onkeydown = event => {
+      event = event || window.event
+      if (event.keyCode === 27) {
+        toggleState = false
+        if (!toggleState) {
+          searchToggle.classList.remove('open')
+          body.classList.remove('modal-search-open')
+          body.classList.add('modal-search-closed')
+        }
       }
     }
   }
@@ -303,46 +314,48 @@ document.addEventListener('DOMContentLoaded', () => {
   let navCount = 0
   const navToggle = document.querySelector('.nav-toggle.header-menu')
 
-  const menuOverlay = document.createElement('div')
-  menuOverlay.classList.add('menu-overlay')
-  if (headerMenu) {
-    headerMenu.insertBefore(menuOverlay, null)
-  }
+  if (navToggle) {
+    const menuOverlay = document.createElement('div')
+    menuOverlay.classList.add('menu-overlay')
+    if (headerMenu) {
+      headerMenu.insertBefore(menuOverlay, null)
+    }
 
-  const navToggleHandler = () => {
-    let top = 0
-    navCount++
-    if (navCount % 2 === 1) {
-      navToggle.classList.add('open')
-      body.classList.add('header-menu-closed')
+    const navToggleHandler = () => {
+      let top = 0
+      navCount++
+      if (navCount % 2 === 1) {
+        navToggle.classList.add('open')
+        body.classList.add('header-menu-closed')
 
-      if (body.classList.contains('admin-bar')) {
-        top += wpAdminBar.clientHeight
+        if (body.classList.contains('admin-bar')) {
+          top += wpAdminBar.clientHeight
+        }
+        navToggle.style.position = 'fixed'
+        navToggle.style.top = `${top}px`
+        navToggle.style.height = `${getMenuPaddingTop(false)}px`
+      } else if (navCount % 2 === 0) {
+        navToggle.classList.remove('open')
+        body.classList.remove('header-menu-closed')
+
+        navToggle.style.position = 'relative'
+        navToggle.style.top = 'auto'
+        navToggle.style.height = 'auto'
       }
-      navToggle.style.position = 'fixed'
-      navToggle.style.top = `${top}px`
-      navToggle.style.height = `${getMenuPaddingTop(false)}px`
-    } else if (navCount % 2 === 0) {
+    }
+    navToggle.addEventListener('click', navToggleHandler)
+
+    const menuOverlayHandler = () => {
       navToggle.classList.remove('open')
-      body.classList.remove('header-menu-closed')
+      navToggle.classList.add('closed')
+      body.classList.add('header-menu-closed')
 
       navToggle.style.position = 'relative'
       navToggle.style.top = 'auto'
       navToggle.style.height = 'auto'
     }
+    menuOverlay.addEventListener('click', menuOverlayHandler)
   }
-  navToggle.addEventListener('click', navToggleHandler)
-
-  const menuOverlayHandler = () => {
-    navToggle.classList.remove('open')
-    navToggle.classList.add('closed')
-    body.classList.add('header-menu-closed')
-
-    navToggle.style.position = 'relative'
-    navToggle.style.top = 'auto'
-    navToggle.style.height = 'auto'
-  }
-  menuOverlay.addEventListener('click', menuOverlayHandler)
 
   /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
