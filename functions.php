@@ -23,14 +23,17 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 
 		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/cd-style' . $css_min . '.css' ), array(), CD_VER );
-		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts' . $js_min . '.js' ), array( 'jquery' ), CD_VER, true );
-		wp_add_inline_script( 'cd-script', "jQuery(function($){ $('.entry img').parent('a').css({'box-shadow':'none'});});" );
+		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/cd-scripts' . $js_min . '.js' ), array(), CD_VER );
+		wp_enqueue_script( 'smoothscroll-polyfill', get_theme_file_uri( 'assets/js/smoothscroll.js' ), array(), '0.4.2', true );
 
-		// Load Masonry for making responsive sidebar.
-		wp_enqueue_script( 'imagesloaded', 'imagesloaded', array( 'jQuery' ), '', true );
-		wp_enqueue_script( 'masonry', 'masonry', array( 'imagesloaded' ), '', true );
-		$masonry_resp_sidebar = 'jQuery(window).on("load resize",function(){window.matchMedia("(max-width: 980px) and (min-width: 641px)").matches||jQuery("body").hasClass("bottom-sidebar-s1")?jQuery("#sidebar-s1 .sidebar-inner").imagesLoaded(function(){jQuery("#sidebar-s1 .sidebar-inner").masonry({itemSelector:".widget",percentPosition:!0,isAnimated:!0}),jQuery(".widget").css({position:"absolute"})}):jQuery(".widget").css({position:"",top:"",left:""})});';
-		wp_add_inline_script( 'masonry', $masonry_resp_sidebar, 'after' );
+		// Load Masonry for responsive sidebar.
+		wp_enqueue_script( 'masonry', 'masonry', array(), '', true );
+
+		if ( cd_do_not_load_jquery() ) {
+			if ( ! is_admin() ) {
+				wp_deregister_script( 'jquery' );
+			}
+		}
 	}
 } // End if.
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
@@ -48,7 +51,7 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_minified_js() && cd_use_concat_js() ) {
-					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/cd-scripts+hljs.min.js' ), array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/cd-scripts+hljs.min.js' ), array(), '9.12.0' );
 					wp_dequeue_script( 'cd-script' );
 				} elseif ( cd_use_minified_js() ) {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight.min.js' ), array(), '9.12.0' );
@@ -57,7 +60,7 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() && cd_use_concat_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array(), '9.12.0' );
 					wp_dequeue_script( 'cd-script' );
 				} elseif ( cd_use_minified_js() ) {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.min.js' ), array(), '9.12.0' );
@@ -66,7 +69,7 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 				}
 			} elseif ( cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_minified_js() && cd_use_concat_js() ) {
-					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array( 'jquery' ), '9.12.0', true );
+					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/cd-scripts+hljs_web.min.js' ), array(), '9.12.0' );
 					wp_dequeue_script( 'cd-script' );
 				} elseif ( cd_use_minified_js() ) {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.min.js' ), array(), '9.12.0' );
@@ -74,19 +77,56 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/highlight-web.js' ), array(), '9.12.0' );
 				}
 			}
-
-			// Use hljs with only pre tag.
-			wp_add_inline_script( 'hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
-			wp_add_inline_script( 'scripts-hljs', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
-			wp_add_inline_script( 'scripts-hljs-web', 'jQuery(document).ready(function(a){a("pre").each(function(b,c){hljs.highlightBlock(c)})});' );
-			// Load scripts to stop lending shadows on link tags.
-			wp_add_inline_script( 'scripts-hljs', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
-			wp_add_inline_script( 'scripts-hljs-web', "jQuery(function($) { $('.entry img').parent('a').css({'box-shadow':'none'}); });" );
 		}
 	}
 } // End if.
 add_action( 'wp_enqueue_scripts', 'cd_load_hljs' );
 
+if ( ! function_exists( 'cd_add_attribute_defer' ) ) {
+
+	/**
+	 * Add `defer` to the enqueued scripts.
+	 *
+	 * @param string $tag Tag name.
+	 * @param string $handle Handle name.
+	 * @return string
+	 */
+	function cd_add_attribute_defer( $tag, $handle ) {
+		$scripts_to_defer = array( 'cd-script', 'scripts-hljs', 'scripts-hljs-web' );
+
+		foreach ( $scripts_to_defer as $defer_script ) {
+			if ( $defer_script === $handle ) {
+				return str_replace( ' src', ' defer src', $tag );
+			}
+		}
+
+		return $tag;
+	}
+}
+add_filter( 'script_loader_tag', 'cd_add_attribute_defer', 10, 2 );
+
+if ( ! function_exists( 'cd_add_attribute_async' ) ) {
+
+	/**
+	 * Add `async` to the enqueued scripts.
+	 *
+	 * @param string $tag Tag name.
+	 * @param string $handle Handle name.
+	 * @return string
+	 */
+	function cd_add_attribute_async( $tag, $handle ) {
+		$scripts_to_async = array( 'masonry', 'imagesloaded', 'smoothscroll-polyfill' );
+
+		foreach ( $scripts_to_async as $async_script ) {
+			if ( $async_script === $handle ) {
+				return str_replace( ' src', ' async src', $tag );
+			}
+		}
+
+		return $tag;
+	}
+}
+add_filter( 'script_loader_tag', 'cd_add_attribute_async', 10, 2 );
 
 if ( ! function_exists( 'cd_loads' ) ) {
 

@@ -2593,8 +2593,12 @@ ul.page-numbers a.page-numbers:hover {
   width: 62%;
   height: 1px;
   background: currentColor;
-  -webkit-transition: all .4s;
-  transition: all .4s;
+  -webkit-transition: .4s;
+  transition: .4s;
+  -webkit-transition-property: background, -webkit-transform;
+  transition-property: background, -webkit-transform;
+  transition-property: transform, background;
+  transition-property: transform, background, -webkit-transform;
 }
 
 .nav-toggle .top {
@@ -4603,8 +4607,8 @@ ul.social-links {
           animation: fadeOut .26s;
 }
 
-.modal-search-closed .search-inner, .modal-search-closed .search-submit {
-  display: none;
+.modal-search-closed .search-form {
+  visibility: hidden;
 }
 
 /* READ MORE button */
