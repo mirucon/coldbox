@@ -6,3 +6,20 @@ dist
 /.idea/
 /vendor/
 /node_modules/
+
+# Build files
+assets/css/cd-style.css
+assets/css/cd-style.min.css
+assets/css/editor-style.min.css
+assets/css/page-style.min.css
+assets/html/CHANGELOG.html
+
+assets/js/cd-scripts+hljs.js
+assets/js/cd-scripts+hljs.min.js
+assets/js/cd-scripts+hljs_web.js
+assets/js/cd-scripts+hljs_web.min.js
+assets/js/cd-scripts.js
+assets/js/cd-scripts.min.js
+assets/js/czr-scripts.js
+assets/js/highlight.min.js
+assets/js/highlight-web.min.js
