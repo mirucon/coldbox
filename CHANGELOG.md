@@ -1,3 +1,8 @@
+### 1.5.5 <small> - June 27th, 2018</small>
+
+* Fixed: Translation issues
+* Fixed: Version number in the admin bar has been updated
+
 ### 1.5.4 <small> - June 24th, 2018</small>
 
 * Added: You can now show post thumbnail image before the content on single pages
