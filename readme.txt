@@ -3,7 +3,7 @@ Contributors: mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.5.4
+Version: 1.5.5
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -74,6 +74,18 @@ All the photos used in the screenshots are all licensed CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.5.5 =
+
+* Fixed: Translation issues
+* Fixed: Version number in the admin bar has been updated
+
+= 1.5.4 =
+
+* Added: You can now show post thumbnail image before the content on single pages
+* Changed: Default font size - 15px for mobile and 16px for desktop
+* Fixed: Some compatibilities with the newly released Coldbox Ads Extension plugin
+* And includes some bug fixes and performance improvements
 
 = 1.5.3 =
 

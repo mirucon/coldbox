@@ -1,6 +1,6 @@
 {
   "name": "coldbox",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "description": "A beautiful WordPress theme.",
   "main": "gulpfile.js",
   "devDependencies": {
