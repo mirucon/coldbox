@@ -40,7 +40,7 @@
   "scripts": {
     "pot": "node bin/wppot.js",
     "copy": "bash bin/copy.sh",
-    "md": "showdown makehtml -i CHANGELOG.md -o assets/html/CHANGELOG.html",
+    "md": "mkdir -p assets/html/ && showdown makehtml -i CHANGELOG.md -o assets/html/CHANGELOG.html",
     "scss:compile": "node-sass-chokidar --output-style expanded --source-map true sass/style.scss assets/css/style.css",
     "scss-dev:autoprefixer": "postcss assets/css/style.css --use autoprefixer -o assets/css/style.css",
     "scss-dev:build": "npm-run-all -s scss:compile scss-dev:autoprefixer",
