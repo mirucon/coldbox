@@ -6,11 +6,9 @@ var cssnext = require('postcss-cssnext')
 var notify = require('gulp-notify')
 var cssmin = require('gulp-cssmin')
 var markdown = require('gulp-markdown')
-var minify = require('gulp-minify')
 var rename = require('gulp-rename')
 var plumber = require('gulp-plumber')
 var sourcemaps = require('gulp-sourcemaps')
-var concat = require('gulp-concat')
 var babel = require('gulp-babel')
 var runSequence = require('run-sequence')
 var del = require('del')
@@ -157,7 +155,9 @@ gulp.task('copy', function() {
         'assets/fonts/icomoon/*.css',
         'assets/fonts/icomoon/fonts/*.*',
         'assets/js/min/*.js',
-        'assets/js/public/*.js',
+        'assets/js/unmin/*.js',
+        'assets/js/*.js',
+        '!assets/js/czr-scripts.babel..js',
         'assets/css/*.css',
         'assets/html/*.html'
       ],

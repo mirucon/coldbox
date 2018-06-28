@@ -23,7 +23,7 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       path:
         mode === 'none'
-          ? path.join(__dirname, 'assets/js/public/')
+          ? path.join(__dirname, 'assets/js/unmin/')
           : path.join(__dirname, 'assets/js/min/')
     },
     devtool: mode === 'development' ? 'source-map' : 'none',

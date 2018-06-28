@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (widgets) {
     const masonryHandler = () => {
       if (
-        window.matchMedia(
-          '(max-width: 980px) and (min-width: 641px)').matches ||
+        window.matchMedia('(max-width: 980px) and (min-width: 641px)')
+          .matches ||
         document.body.classList.contains('bottom-sidebar-s1')
       ) {
         /* eslint-disable-next-line no-unused-vars, no-undef */
