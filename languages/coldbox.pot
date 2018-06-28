@@ -46,56 +46,56 @@ msgstr ""
 msgid "READ MORE"
 msgstr ""
 
-#: ../functions.php:221
+#: ../functions.php:215
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:222
+#: ../functions.php:216
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:578
+#: ../functions.php:572
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:580
+#: ../functions.php:574
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:843
+#: ../functions.php:837
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:845
+#: ../functions.php:839
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:1022
+#: ../functions.php:1016
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:1024
+#: ../functions.php:1018
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:1026
+#: ../functions.php:1020
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:1028
+#: ../functions.php:1022
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:1028
+#: ../functions.php:1022
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:1030
+#: ../functions.php:1024
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:1032
+#: ../functions.php:1026
 msgid "Author:"
 msgstr ""
 
@@ -659,15 +659,15 @@ msgstr ""
 msgid "This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1636
+#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
 msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1636
+#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
 msgid "https://miruc.co/"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1636
+#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
 msgid "Mirucon"
 msgstr ""
 
