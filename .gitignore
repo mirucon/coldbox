@@ -23,3 +23,6 @@ assets/js/cd-scripts.min.js
 assets/js/czr-scripts.js
 assets/js/highlight.min.js
 assets/js/highlight-web.min.js
+
+assets/js/min/
+assets/js/public/

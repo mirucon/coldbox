@@ -47,46 +47,6 @@ gulp.task('css-min', function() {
     .pipe(gulp.dest('assets/css/'))
 })
 
-gulp.task('js', function() {
-  return gulp
-    .src('assets/js/cd-scripts.babel.js')
-    .pipe(babel())
-    .pipe(rename('cd-scripts.js'))
-    .pipe(gulp.dest('assets/js/'))
-})
-
-gulp.task('js-min', ['js'], function() {
-  return gulp
-    .src('assets/js/cd-scripts.js')
-    .pipe(minify({ ext: { min: '.min.js' } }))
-    .pipe(gulp.dest('assets/js/'))
-})
-
-gulp.task('js-concat-hljs', ['js-min'], function() {
-  return gulp
-    .src(['assets/js/highlight.js', 'assets/js/cd-scripts.js'])
-    .pipe(concat('cd-scripts+hljs.js'))
-    .pipe(gulp.dest('assets/js/'))
-})
-
-gulp.task('js-concat-hljs-web', ['js-min'], function() {
-  return gulp
-    .src(['assets/js/highlight-web.js', 'assets/js/cd-scripts.js'])
-    .pipe(concat('cd-scripts+hljs_web.js'))
-    .pipe(gulp.dest('assets/js/'))
-})
-
-gulp.task(
-  'js-min-concat',
-  ['js-concat-hljs', 'js-concat-hljs-web'],
-  function() {
-    return gulp
-      .src(['assets/js/cd-scripts+hljs.js', 'assets/js/cd-scripts+hljs_web.js'])
-      .pipe(minify({ ext: { min: '.min.js' } }))
-      .pipe(gulp.dest('assets/js'))
-  }
-)
-
 gulp.task('browser-sync', function() {
   browserSync({
     notify: true,
@@ -154,14 +114,7 @@ gulp.task('bs-reload', function() {
 gulp.task('watch', ['browser-sync', 'js', 'sass'], function() {
   gulp.watch('sass/*.scss', ['sass', 'bs-reload', 'css-min'])
   gulp.watch('sass/*.styl', ['page-styl', 'bs-reload', 'page-styl-min'])
-  gulp.watch('assets/js/*.*', [
-    'bs-reload',
-    'js',
-    'js-min',
-    'czr-js',
-    'js-concat-hljs-web',
-    'js-concat-hljs'
-  ])
+  gulp.watch('assets/js/*.*', ['bs-reload', 'czr-js'])
   gulp.watch('parts/*.*', ['bs-reload'])
   gulp.watch('parts/*.scss', ['editor-sass', 'editor-min'])
   gulp.watch('czr/*.*', ['bs-reload'])
@@ -174,7 +127,7 @@ gulp.task('clean', function() {
 
 gulp.task('sass-dev', function() {
   var processors = [
-    cssnext({ browsers: ['last 2 version', 'iOS 8.4'], flexbox: 'no-2009' })
+    cssnext({ browsers: ['last 2 version'], flexbox: 'no-2009' })
   ]
   return gulp
     .src(['sass/style.scss'])
@@ -197,15 +150,14 @@ gulp.task('copy', function() {
         'parts/tgm/*.php',
         'parts/czr/*.*',
         'page-templates/*.php',
+        'languages/coldbox.pot',
         'assets/img/*.*',
         'assets/fonts/fontawesome/css/*.css',
         'assets/fonts/fontawesome/fonts/*.*',
         'assets/fonts/icomoon/*.css',
         'assets/fonts/icomoon/fonts/*.*',
-        'languages/coldbox.pot',
-        'assets/js/*.js',
-        '!assets/js/*.babel.js',
-        '!assets/js/czr-scripts.js',
+        'assets/js/min/*.js',
+        'assets/js/public/*.js',
         'assets/css/*.css',
         'assets/html/*.html'
       ],
@@ -218,9 +170,6 @@ gulp.task('dist', function(cb) {
   return runSequence(
     ['sass-dev', 'editor-sass', 'page-styl'],
     ['css-min', 'editor-min', 'page-styl-min'],
-    'js',
-    'js-min',
-    'js-min-concat',
     'md',
     'clean',
     'copy',

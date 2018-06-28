@@ -5,8 +5,9 @@
   "main": "gulpfile.js",
   "devDependencies": {
     "autoprefixer": "^8.2.0",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.7.0",
     "browser-sync": "^2.23.6",
     "del": "^3.0.0",
     "eslint": "^4.19.1",
@@ -35,6 +36,9 @@
     "prettier": "^1.12.1",
     "prettier-eslint": "^8.8.1",
     "run-sequence": "^2.2.1",
+    "webpack": "^4.12.2",
+    "webpack-cli": "^3.0.8",
+    "webpack-concat-plugin": "^3.0.0",
     "wp-pot": "^1.6.1"
   },
   "scripts": {
@@ -43,7 +47,10 @@
     "sass": "gulp sass && gulp css-min",
     "dev": "gulp watch",
     "pot": "node bin/wppot.js",
-    "build": "npm run pot && gulp dist"
+    "wp-dev": "node_modules/.bin/webpack --mode development",
+    "wp-build": "node_modules/.bin/webpack --mode production",
+    "wp-none": "node_modules/.bin/webpack --mode none",
+    "build": "npm run pot && npm run wp-build && npm run wp-none && gulp dist"
   },
   "repository": {
     "type": "git",
@@ -63,5 +70,9 @@
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "dependencies": {
+    "highlight.js": "^9.12.0",
+    "smoothscroll-polyfill": "^0.4.3"
   }
 }

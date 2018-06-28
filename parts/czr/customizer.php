@@ -1353,11 +1353,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 * Get whether using minified JS or not
 	 *
 	 * @since 1.0.0
+	 * @return string Return ".min" for true, empty for false.
 	 */
 	function cd_use_minified_js() {
 		$minified_js = get_theme_mod( 'minified_js', true );
 		$js_min      = $minified_js ? '.min' : '';
-		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min;
+		$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min; // If the SCRIPT_DEBUG is defined and set true, this should return empty value.
 		return apply_filters( 'cd_use_minified_js', $js_min );
 	}
 	/**
