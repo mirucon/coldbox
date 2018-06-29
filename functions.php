@@ -22,7 +22,7 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
 		wp_enqueue_script( 'comment-reply' );
 
-		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/cd-style' . $css_min . '.css' ), array(), CD_VER );
+		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/style' . $css_min . '.css' ), array(), CD_VER );
 
 		// phpcs:ignore
 		/** @var string $script_path Path to script, depending the `cd_use_minified_js()` status. */
@@ -146,6 +146,7 @@ if ( ! function_exists( 'cd_czr' ) ) {
 	 **/
 	function cd_czr() {
 		include_once get_theme_file_path( 'parts/czr/customizer.php' );
+		require_once get_theme_file_path( 'parts/czr/customizer-functions.php' );
 	}
 }
 add_action( 'after_setup_theme', 'cd_czr' );

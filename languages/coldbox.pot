@@ -46,56 +46,56 @@ msgstr ""
 msgid "READ MORE"
 msgstr ""
 
-#: ../functions.php:215
+#: ../functions.php:216
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:216
+#: ../functions.php:217
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:527
+#: ../functions.php:528
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:529
+#: ../functions.php:530
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:792
+#: ../functions.php:793
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:794
+#: ../functions.php:795
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:971
+#: ../functions.php:972
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:973
+#: ../functions.php:974
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:975
+#: ../functions.php:976
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:977
+#: ../functions.php:978
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:977
+#: ../functions.php:978
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:979
+#: ../functions.php:980
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:981
+#: ../functions.php:982
 msgid "Author:"
 msgstr ""
 
@@ -326,6 +326,18 @@ msgstr ""
 
 #: ../parts/czr/class-cd-social-links.php:77
 msgid "Title:"
+msgstr ""
+
+#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+msgid "Coldbox WordPress theme by"
+msgstr ""
+
+#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+msgid "https://miruc.co/"
+msgstr ""
+
+#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+msgid "Mirucon"
 msgstr ""
 
 #: ../parts/czr/customizer.php:94
@@ -657,18 +669,6 @@ msgstr ""
 #. translators: %s: HTML Tags.
 #: ../parts/czr/customizer.php:1095
 msgid "This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name."
-msgstr ""
-
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
-msgid "Coldbox WordPress theme by"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
-msgid "https://miruc.co/"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1103, ../parts/czr/customizer.php:1637
-msgid "Mirucon"
 msgstr ""
 
 #: ../parts/czr/customizer.php:1111
