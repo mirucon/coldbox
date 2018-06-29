@@ -44,7 +44,7 @@
     "scss:compile": "node-sass-chokidar --output-style expanded --source-map true sass/style.scss assets/css/style.css",
     "scss-dev:autoprefixer": "postcss assets/css/style.css --use autoprefixer -o assets/css/style.css",
     "scss-dev:build": "npm-run-all -s scss:compile scss-dev:autoprefixer",
-    "scss-dev:watch": "chokidar 'scss/*.scss' -c 'npm run sass-dev:build'",
+    "scss-dev:watch": "chokidar 'sass/*.scss' -c 'npm-run-all -p scss-dev:build scss:autoprefixer'",
     "scss:autoprefixer": "postcss --no-map assets/css/style.css --config postcss.config.js -o assets/css/style.min.css",
     "scss": "npm-run-all -s scss-dev:build scss:compile scss:autoprefixer",
     "editor-scss:compile": "node-sass-chokidar --output-style expanded --source-map true sass/editor-style.scss -o assets/css/",

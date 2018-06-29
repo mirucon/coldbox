@@ -262,3 +262,19 @@ ul.page-numbers {
   span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
   a.page-numbers:hover { border-bottom: 2px solid $link; }
 }
+
+/*   Index : No results
+/* -------------------------------------------------- */
+.view-no-results {
+  padding: 1.4em;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.coldbox-no-results {
+  padding: 0;
+  @media screen and (max-width: $bpmax-mobile) {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}

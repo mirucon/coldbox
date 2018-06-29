@@ -548,13 +548,7 @@ textarea {
   h2 {
     padding: .8em 1.4em;
   }
-  .content-inner > & {
-    padding-bottom: 16px;
-  }
   @media screen and (max-width: $bpmax-mobile) {
-    .content-inner > & {
-      padding-bottom: 2em;
-    }
     h2 {
       padding: .2em .8em;
     }

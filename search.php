@@ -19,7 +19,9 @@ get_header(); ?>
 
 				<div class="content">
 
-					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?>">
+					<?php $class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
+
+					<div class="content-inner <?php echo esc_attr( cd_archive_style() ) . '-view'; ?> <?php echo esc_attr( $class_status ); ?>">
 
 						<?php
 						// Call the top parts.
@@ -51,7 +53,7 @@ get_header(); ?>
 
 						<?php else : ?>
 
-							<div class="error-messages">
+							<div class="error-messages coldbox-no-results">
 								<h2><?php esc_html_e( 'No matches found.', 'coldbox' ); ?></h2>
 							</div>
 
