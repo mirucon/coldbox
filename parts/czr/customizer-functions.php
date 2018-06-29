@@ -18,7 +18,8 @@
  * @since 1.0.0
  */
 function cd_sidebar_stg() {
-	return ( get_theme_mod( 'sidebar_position', 'right' ) );
+	$sidebar_position = get_theme_mod( 'sidebar_position', 'right' );
+	return apply_filters( 'cd_sidebar_stg', $sidebar_position );
 }
 
 /**
@@ -30,7 +31,7 @@ function cd_sidebar_stg() {
 function cd_show_theme_button() {
 	$theme_button = get_theme_mod( 'theme_button', true );
 
-	return $theme_button;
+	return apply_filters( 'cd_show_theme_button', $theme_button );
 }
 
 /**
@@ -78,7 +79,9 @@ function cd_do_not_load_jquery() {
  * @since 1.0.0
  */
 function cd_use_normal_hljs() {
-	return ( get_theme_mod( 'does_use_hljs', false ) );
+	$hljs = get_theme_mod( 'does_use_hljs', false );
+
+	return apply_filters( 'cd_use_normal_hljs', $hljs );
 }
 
 /**
@@ -87,7 +90,9 @@ function cd_use_normal_hljs() {
  * @since 1.0.0
  */
 function cd_use_web_hljs() {
-	return ( get_theme_mod( 'use_hljs_web_pack', false ) );
+	$hljs_web = get_theme_mod( 'use_hljs_web_pack', false );
+
+	return apply_filters( 'cd_use_web_hljs', $hljs_web );
 }
 
 /**
@@ -113,7 +118,9 @@ function cd_use_concat_js() {
  * @since 1.0.0
  */
 function cd_header_direction() {
-	return ( get_theme_mod( 'header_direction', 'column' ) );
+	$header_direction = get_theme_mod( 'header_direction', 'column' );
+
+	return apply_filters( 'cd_header_direction', $header_direction );
 }
 
 /**
@@ -122,7 +129,9 @@ function cd_header_direction() {
  * @since 1.0.0
  */
 function cd_header_sticky() {
-	return ( get_theme_mod( 'header_sticky', true ) );
+	$sticky = get_theme_mod( 'header_sticky', true );
+
+	return apply_filters( 'cd_header_sticky', $sticky );
 }
 
 /**
@@ -131,7 +140,9 @@ function cd_header_sticky() {
  * @since 1.0.2
  */
 function cd_is_site_title() {
-	return ( get_theme_mod( 'site_title', true ) );
+	$title = get_theme_mod( 'site_title', true );
+
+	return apply_filters( 'cd_is_site_title', $title );
 }
 
 /**
@@ -140,7 +151,9 @@ function cd_is_site_title() {
  * @since 1.0.0
  */
 function cd_is_site_desc() {
-	return ( get_theme_mod( 'site_desc', true ) );
+	$desc = get_theme_mod( 'site_desc', true );
+
+	return apply_filters( 'cd_is_site_desc', $desc );
 }
 
 /*
@@ -396,24 +409,29 @@ function cd_pages_meta_comments_count() {
  * Get whether displaying theme credit or not.
  *
  * @since 1.0.0
+ * @return bool
  */
 function cd_is_theme_credit() {
-	return ( get_theme_mod( 'theme_credit', true ) );
+	$credit = get_theme_mod( 'theme_credit', true );
+	return apply_filters( 'cd_is_theme_credit', $credit );
 }
 
 /**
  * Get the contents of the theme credit text.
  *
  * @since 1.0.0
+ * @return string
  */
 function cd_theme_credit_text() {
-	return get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>' );
+	$text = get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>' );
+	return apply_filters( 'cd_theme_credit_text', $text );
 }
 
 /**
  * Get the contents of the credit text.
  *
  * @since 1.0.0
+ * @return string
  */
 function cd_credit() {
 	$text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
@@ -421,7 +439,7 @@ function cd_credit() {
 	$text = str_replace( '[url]', esc_url( home_url() ), $text );
 	$text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
 
-	return $text;
+	return apply_filters( 'cd_credit', $text );
 }
 
 /**
@@ -431,5 +449,6 @@ function cd_credit() {
  * @return bool
  */
 function cd_is_privacy_policy_link_shown() {
-	return get_theme_mod( 'privacy_policy_page_link', true );
+	$link = get_theme_mod( 'privacy_policy_page_link', true );
+	return apply_filters( 'cd_is_privacy_policy_link_shown', $link );
 }
