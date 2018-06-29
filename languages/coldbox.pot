@@ -54,48 +54,48 @@ msgstr ""
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:572
+#: ../functions.php:527
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:574
+#: ../functions.php:529
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:837
+#: ../functions.php:792
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:839
+#: ../functions.php:794
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:1016
+#: ../functions.php:971
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:1018
+#: ../functions.php:973
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:1020
+#: ../functions.php:975
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:1022
+#: ../functions.php:977
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:1022
+#: ../functions.php:977
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:1024
+#: ../functions.php:979
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:1026
+#: ../functions.php:981
 msgid "Author:"
 msgstr ""
 
@@ -746,15 +746,15 @@ msgstr ""
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:91, ../parts/czr/social-links.php:207
+#: ../parts/czr/social-links.php:91, ../parts/czr/social-links.php:206
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:97, ../parts/czr/social-links.php:213
+#: ../parts/czr/social-links.php:97, ../parts/czr/social-links.php:212
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:215
+#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:214
 msgid "Push Notification"
 msgstr ""
 

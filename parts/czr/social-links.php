@@ -200,7 +200,6 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			} else {
 				$class = 'fa fa-' . $key;
 			}
-			$label = $key;
 			if ( 'google-plus-official' === $key ) {
 				$label = 'Google+';
 			} elseif ( 'rss' === $key ) {
