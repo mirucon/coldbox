@@ -18,7 +18,7 @@ msgstr ""
 msgid "The page does not exist, or has been moved. Try search or use menus to find what you are looking for."
 msgstr ""
 
-#: ../archive.php:56, ../index.php:52
+#: ../archive.php:58, ../index.php:54
 msgid "Posts Not Found!"
 msgstr ""
 
@@ -328,15 +328,15 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+#: ../parts/czr/customizer-functions.php:426, ../parts/czr/customizer.php:1103
 msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+#: ../parts/czr/customizer-functions.php:426, ../parts/czr/customizer.php:1103
 msgid "https://miruc.co/"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:410, ../parts/czr/customizer.php:1103
+#: ../parts/czr/customizer-functions.php:426, ../parts/czr/customizer.php:1103
 msgid "Mirucon"
 msgstr ""
 
@@ -1157,7 +1157,7 @@ msgstr ""
 msgid "Install Recommended Plugins"
 msgstr ""
 
-#: ../search.php:55
+#: ../search.php:57
 msgid "No matches found."
 msgstr ""
 

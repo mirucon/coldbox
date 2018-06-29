@@ -1790,6 +1790,25 @@ ul.page-numbers a.page-numbers:hover {
   border-bottom: 2px solid #00619F;
 }
 
+/*   Index : No results
+/* -------------------------------------------------- */
+.view-no-results {
+  padding: 1.4em;
+  background-color: #fafafa;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.coldbox-no-results {
+  padding: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .coldbox-no-results {
+    padding-top: 2em;
+    padding-bottom: 2em;
+  }
+}
+
 /* ------------------------------------------------------------------------- *
 *  5. Archive
 * ------------------------------------------------------------------------- */
@@ -1862,14 +1881,7 @@ ul.page-numbers a.page-numbers:hover {
   padding: .8em 1.4em;
 }
 
-.content-inner > .error-messages {
-  padding-bottom: 16px;
-}
-
 @media screen and (max-width: 640px) {
-  .content-inner > .error-messages {
-    padding-bottom: 2em;
-  }
   .error-messages h2 {
     padding: .2em .8em;
   }
