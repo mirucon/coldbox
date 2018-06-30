@@ -45,7 +45,7 @@
     "scss:compile": "node-sass-chokidar --output-style expanded --source-map true sass/style.scss assets/css/style.css",
     "scss-dev:autoprefixer": "postcss assets/css/style.css --use autoprefixer -o assets/css/style.css",
     "scss-dev:build": "npm-run-all -s scss:compile scss-dev:autoprefixer",
-    "scss-dev:watch": "chokidar 'sass/*.scss' -c 'npm-run-all -p scss-dev:build scss:autoprefixer'",
+    "scss:watch": "chokidar 'sass/*.scss' -c 'npm-run-all -p scss:compile'",
     "scss:autoprefixer": "postcss --no-map assets/css/style.css --config postcss.config.js -o assets/css/style.min.css",
     "scss": "npm-run-all -s scss-dev:build scss:compile scss:autoprefixer",
     "editor-scss:compile": "node-sass-chokidar --output-style expanded --source-map true sass/editor-style.scss -o assets/css/",
@@ -61,6 +61,8 @@
     "wp:dev": "node_modules/.bin/webpack --mode development",
     "wp:build": "node_modules/.bin/webpack --mode production",
     "wp:none": "node_modules/.bin/webpack --mode none",
+    "wp:watch": "webpack -w --mode development",
+    "watch": "npm-run-all -p scss:watch wp:watch",
     "build": "npm-run-all -p pot wp:build wp:none scss editor-scss page-stylus czr-style md && npm run copy"
   },
   "repository": {
