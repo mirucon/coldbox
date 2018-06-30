@@ -32,7 +32,7 @@ else :
 
 				<?php cd_site_title(); ?>
 
-				<?php if ( cd_is_site_desc() && display_header_text() ) : ?>
+				<?php if ( cd_is_site_desc() ) : ?>
 					<p class="site-description"><?php bloginfo( 'description' ); ?></p>
 				<?php endif; ?>
 			</div>

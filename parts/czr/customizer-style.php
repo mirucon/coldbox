@@ -17,6 +17,12 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 
 		$czr_style = '';
 
+		/*
+		 * -------------------------------------------------------------------------
+		 *  Global
+		 * -------------------------------------------------------------------------
+		 */
+
 		// Container Width.
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = absint( get_theme_mod( 'container_width' ) );
@@ -33,6 +39,18 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'global_font_size_mobile', 15 ) !== 15 ) {
 			$font_size_mobile = get_theme_mod( 'global_font_size_mobile' );
 			$czr_style       .= "@media screen and ( max-width: 767px ) { body { font-size: ${font_size_mobile}px; } } ";
+		}
+
+		/*
+		 * -------------------------------------------------------------------------
+		 *  Header
+		 * -------------------------------------------------------------------------
+		 */
+
+		if ( ! display_header_text() ) {
+			$czr_style .= '.site-title, .site-description {
+			   position: absolute; width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;
+			}';
 		}
 
 		// Add decorations to h tags.
