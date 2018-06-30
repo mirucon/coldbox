@@ -11,7 +11,7 @@ if ( cd_is_amp() ) :
 else :
 	?>
 
-<footer id="footer" class="footer">
+<footer id="footer" class="footer" role="contentinfo">
 
 	<?php cd_footer_menu(); ?>
 
@@ -67,7 +67,7 @@ else :
 
 </footer>
 
-<div class="modal-search-form">
+<div class="modal-search-form" role="application">
 	<?php get_search_form(); ?>
 
 	<button class="close-toggle">

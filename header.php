@@ -24,7 +24,7 @@ else :
 
 <?php endif; ?>
 
-	<header id="header" class="header">
+	<header id="header" class="header" role="banner">
 
 		<div class="header-inner container">
 

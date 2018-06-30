@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main id="main">
+<main id="main" role="main">
 
 	<section class="main-inner">
 

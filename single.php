@@ -13,7 +13,7 @@ while ( have_posts() ) :
 	the_post();
 	?>
 
-	<main id="main" class="main-single">
+	<main id="main" class="main-single" role="main">
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class( 'main-inner' ); ?>>
 

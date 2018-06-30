@@ -260,7 +260,7 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) {
 
-			$menu  = '<nav id="header-menu">';
+			$menu  = '<nav id="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
 			$menu .= wp_nav_menu(
 				array(
 					'theme_location' => 'header-menu',
@@ -288,7 +288,7 @@ if ( ! function_exists( 'cd_footer_menu' ) ) {
 
 		if ( has_nav_menu( 'footer-menu' ) ) {
 
-			$menu  = '<nav id="footer-menu" class="footer-menu"><div class="container">';
+			$menu  = '<nav id="footer-menu" class="footer-menu" role="navigation" aria-label="' . esc_attr__( 'Footer Menu', 'coldbox' ) . '"><div class="container">';
 			$menu .= wp_nav_menu(
 				array(
 					'theme_location' => 'footer-menu',

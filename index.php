@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main id="main" class="home">
+<main id="main" class="home" role="main">
 
 	<div class="container-outer">
 
