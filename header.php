@@ -37,9 +37,17 @@ else :
 				<?php endif; ?>
 			</div>
 
-			<div class="search-toggle"><span class="icon search"></span></div>
+			<button class="search-toggle">
+				<span class="icon search"></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Search Toggle', 'coldbox' ); ?></span>
+			</button>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open">
+					<span class="top"></span>
+					<span class="middle"></span>
+					<span class="bottom"></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'coldbox' ); ?></span>
+				</button>
 			<?php endif; ?>
 
 			<?php cd_header_menu(); ?>

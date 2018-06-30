@@ -845,15 +845,20 @@ ul.social-links { padding-left: 0; list-style: none; }
   }
 
   .close-toggle {
+    display: block;
     position: fixed;
     top: 12px; right: 12px;
     width: 50px;
     height: 70px;
+    border: 0;
+    background-color: transparent;
     cursor: pointer;
+    text-align: center;
 
     .top {
       position: absolute;
       top: 25px; // Half of the width value
+      right: 0;
       height: 1px;
       width: 100%;
       background-color: #fff;
@@ -862,14 +867,15 @@ ul.social-links { padding-left: 0; list-style: none; }
     .bottom {
       position: absolute;
       top: 25px;
+      right: 0;
       height: 1px;
       width: 100%;
       background-color: #fff;
       transform: rotate(45deg);
     }
     .label {
-      position: relative;
-      bottom: -58%;
+      position: absolute;
+      top: 49px;
       left: calc(50% - 19px);
       color: rgba(255, 255, 255, .86);
       font-size: .7em;

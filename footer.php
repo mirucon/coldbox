@@ -67,7 +67,15 @@ else :
 
 </footer>
 
-<div class="modal-search-form"><?php get_search_form(); ?><div class="close-toggle"><span class="top"></span><span class="bottom"></span><span class="label">Close</span></div></div>
+<div class="modal-search-form">
+	<?php get_search_form(); ?>
+
+	<button class="close-toggle">
+		<span class="top"></span>
+		<span class="bottom"></span>
+		<span class="label"><?php esc_html_e( 'Close', 'coldbox' ); ?></span>
+	</button>
+</div>
 
 	<?php wp_footer(); ?>
 

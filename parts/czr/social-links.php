@@ -224,7 +224,7 @@ function cd_social_links( $class = null, $inner_class = null ) {
 				$label = ucfirst( $key );
 			} ?>
 			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
-				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" target="_blank">
+				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php do_action( 'cd_social_links_attr' ); ?>>
 					<i class="<?php echo esc_attr( $class ); ?>"></i>
 				</a>
 			</li>

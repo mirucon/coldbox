@@ -310,7 +310,7 @@
   }
 }
 .search-toggle {
-  align-self: stretch; position: relative; top: 0; width: 50px; height: auto; cursor: pointer; transition: all .4s ease-in;
+  align-self: stretch; position: relative; top: 0; width: 50px; height: auto; border: 0 transparent; background-color: transparent; cursor: pointer; transition: all .4s ease-in;
   -webkit-tap-highlight-color: rgba(68, 68, 68, .3);
   .icon.search { width: 20px; height: 20px; top: calc(50% - 10px); left: calc(50% - 12px); border-color: #444; transition: all .4s;
     &::before { top: 20px; left: 9px; height: 9px; background-color: #444; transition: all .4s; }
