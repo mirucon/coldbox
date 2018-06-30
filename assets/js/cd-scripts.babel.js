@@ -62,43 +62,50 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   const backToTop = document.getElementById('back-to-top')
 
-  const showBackToTop = () => {
-    if (window.pageYOffset > 100) {
-      backToTop.style.display = 'block'
-      backToTop.classList.add('is-shown')
-    } else {
-      backToTop.style.display = 'none'
-      backToTop.classList.remove('is-shown')
-      setTimeout(() => {
-        backToTop.classList.remove('clicked')
-      }, 400)
-    }
-  }
-  window.addEventListener('scroll', showBackToTop)
+  if (backToTop) {
 
-  const scrollToTop = event => {
-    event.preventDefault()
-    window.scroll({
-      top: 0,
-      behavior: 'smooth'
-    })
-    backToTop.classList.add('clicked')
-  }
-  backToTop.addEventListener('click', scrollToTop)
-
-  const stickBackToTopOnFooter = () => {
-    const scrollHeight = body.scrollHeight
-    const scrollPosition = window.pageYOffset + window.innerHeight
-    const footerHeight = document.getElementById('footer').clientHeight
-    if (scrollHeight - scrollPosition < footerHeight) {
-      backToTop.style.bottom = `${footerHeight}px`
-      backToTop.classList.add('abs')
-    } else {
-      backToTop.style.bottom = ''
-      backToTop.classList.remove('abs')
+    const showBackToTop = () => {
+      if (window.pageYOffset > 100) {
+        backToTop.style.display = 'block'
+        backToTop.classList.remove('is-hidden')
+        backToTop.classList.add('is-shown')
+      } else {
+        backToTop.classList.add('is-hidden')
+        backToTop.classList.remove('is-shown')
+        setTimeout(() => {
+          backToTop.classList.remove('clicked')
+        }, 400)
+      }
     }
+    window.addEventListener('scroll', showBackToTop)
+
+    const scrollToTop = event => {
+      event.preventDefault()
+      if (event.target.classList.contains('is-hidden')) {
+        return
+      }
+      window.scroll({
+        top: 0,
+        behavior: 'smooth'
+      })
+      backToTop.classList.add('clicked')
+    }
+    backToTop.addEventListener('click', scrollToTop)
+
+    const stickBackToTopOnFooter = () => {
+      const scrollHeight = body.scrollHeight
+      const scrollPosition = window.pageYOffset + window.innerHeight
+      const footerHeight = document.getElementById('footer').clientHeight
+      if (scrollHeight - scrollPosition < footerHeight) {
+        backToTop.style.bottom = `${footerHeight}px`
+        backToTop.classList.add('abs')
+      } else {
+        backToTop.style.bottom = ''
+        backToTop.classList.remove('abs')
+      }
+    }
+    window.addEventListener('scroll', stickBackToTopOnFooter)
   }
-  window.addEventListener('scroll', stickBackToTopOnFooter)
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
