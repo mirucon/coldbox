@@ -7,14 +7,16 @@ module.exports = (env, argv) => {
   return {
     mode: 'development',
     entry: {
-      scripts: './assets/js/cd-scripts.babel.js',
-      hljs: './assets/js/hljs.js',
-      hljs_web: './assets/js/hljs_web.js',
+      scripts: ['babel-polyfill', './assets/js/cd-scripts.babel.js'],
+      hljs: ['babel-polyfill', './assets/js/hljs.js'],
+      hljs_web: ['babel-polyfill', './assets/js/hljs_web.js'],
       'scripts+hljs': [
+        'babel-polyfill',
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs.js'
       ],
       'scripts+hljs_web': [
+        'babel-polyfill',
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs_web.js'
       ]
@@ -39,7 +41,8 @@ module.exports = (env, argv) => {
             {
               loader: 'babel-loader',
               options: {
-                presets: [['env', { modules: false }]]
+                presets: [['env', { modules: false }]],
+                plugins: 'transform-es2015-for-of'
               }
             }
           ]

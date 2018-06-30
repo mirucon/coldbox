@@ -13,6 +13,7 @@
     "autoprefixer": "^8.6.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chokidar-cli": "^1.2.0",
     "cssnano": "^3.10.0",
