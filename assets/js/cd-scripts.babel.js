@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const scrollPosition = window.pageYOffset + window.innerHeight
       const footerHeight = document.getElementById('footer').clientHeight
       if (scrollHeight - scrollPosition < footerHeight) {
-        backToTop.style.bottom = `${footerHeight}px`
+        backToTop.style.bottom = `${footerHeight + 5}px`
         backToTop.classList.add('abs')
       } else {
         backToTop.style.bottom = ''
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (body.classList.contains('modal-search-open')) {
           setTimeout(() => {
             document.querySelector('.modal-search-form .search-inner').focus()
-          }, 290)
+          }, 160)
         }
       }
     }
