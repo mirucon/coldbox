@@ -63,7 +63,7 @@ else :
 
 	</div><!--/.footer-bottom-->
 
-	<a id="back-to-top" class="noscroll" href="#"><span class="chevron-up"></span></a>
+	<a id="back-to-top" class="noscroll is-hidden back-to-top" href="#"><span class="chevron-up"></span></a>
 
 </footer>
 

@@ -902,7 +902,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 
 		}
 
-		if ( cd_is_site_title() && display_header_text() ) {
+		if ( cd_is_site_title() ) {
 
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
 			$logo .= '<h1 class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</h1>';

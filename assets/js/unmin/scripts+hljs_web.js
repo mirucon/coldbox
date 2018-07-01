@@ -9224,7 +9224,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var scrollPosition = window.pageYOffset + window.innerHeight;
       var footerHeight = document.getElementById('footer').clientHeight;
       if (scrollHeight - scrollPosition < footerHeight) {
-        backToTop.style.bottom = footerHeight + 'px';
+        backToTop.style.bottom = footerHeight + 5 + 'px';
         backToTop.classList.add('abs');
       } else {
         backToTop.style.bottom = '';
@@ -9423,7 +9423,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (body.classList.contains('modal-search-open')) {
           setTimeout(function () {
             document.querySelector('.modal-search-form .search-inner').focus();
-          }, 290);
+          }, 160);
         }
       }
     };

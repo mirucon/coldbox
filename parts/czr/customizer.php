@@ -352,10 +352,13 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 *  Header Settings
 		 * -------------------------------------------------------------------------
 		 */
-		$wp_customize->get_setting( 'blogname' )->transport        = 'postMessage';
-		$wp_customize->get_setting( 'blogdescription' )->transport = 'postMessage';
-		$wp_customize->get_control( 'custom_logo' )->section       = 'header';
-		$wp_customize->get_control( 'custom_logo' )->description   = sprintf(
+		$wp_customize->get_control( 'display_header_text' )->section     = 'header';
+		$wp_customize->get_control( 'display_header_text' )->priority    = 25;
+		$wp_customize->get_control( 'display_header_text' )->description = esc_html__( 'This will only **hide** the site title and description, whereas the two options above make the title/description not to be output.', 'coldbox' );
+		$wp_customize->get_setting( 'blogname' )->transport              = 'postMessage';
+		$wp_customize->get_setting( 'blogdescription' )->transport       = 'postMessage';
+		$wp_customize->get_control( 'custom_logo' )->section             = 'header';
+		$wp_customize->get_control( 'custom_logo' )->description         = sprintf(
 			/* translators: 1: Start of <a> tag, 2: The end of <a> tag. */
 			__( 'Use the %1$s "Display Site Title" %2$s option to hide site title.', 'coldbox' ),
 			'<a href="javascript:wp.customize.control( \'site_title\' ).focus();document.getElementById(\'customize-control-site_title\').classList.add(\'focused\');">',
@@ -379,9 +382,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'logo_width', array(
-					'label'   => __( 'Custom Logo Width', 'coldbox' ),
-					'section' => 'header',
-					'type'    => 'number',
+					'label'    => __( 'Custom Logo Width', 'coldbox' ),
+					'section'  => 'header',
+					'type'     => 'number',
+					'priority' => 10,
 				)
 			)
 		);
@@ -404,6 +408,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 					),
 					'section'     => 'header',
 					'type'        => 'checkbox',
+					'priority'    => 15,
 				)
 			)
 		);
@@ -417,9 +422,10 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'site_desc', array(
-					'label'   => __( 'Display Site Description', 'coldbox' ),
-					'section' => 'header',
-					'type'    => 'checkbox',
+					'label'    => __( 'Display Site Description', 'coldbox' ),
+					'section'  => 'header',
+					'type'     => 'checkbox',
+					'priority' => 20,
 				)
 			)
 		);
@@ -433,13 +439,14 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'header_direction', array(
-					'label'   => __( 'Header and Menu Direction', 'coldbox' ),
-					'section' => 'header',
-					'type'    => 'radio',
-					'choices' => array(
+					'label'    => __( 'Header and Menu Direction', 'coldbox' ),
+					'section'  => 'header',
+					'type'     => 'radio',
+					'choices'  => array(
 						'column' => __( 'Vertical (column)', 'coldbox' ),
 						'row'    => __( 'Horizontal (row)', 'coldbox' ),
 					),
+					'priority' => 25,
 				)
 			)
 		);
@@ -457,6 +464,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 					'description' => __( 'Only nav menu will be sticky if you\'ve selected "Vertical" direction, or whole header will be sticky with narrower padding if "Horizontal" direction is selected.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
+					'priority'    => 30,
 				)
 			)
 		);
@@ -490,6 +498,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 					'description' => __( 'This works only when Horizontal menu direction selected. If this is off, the header won\'t narrower when scrolling the window. Recommended to set this off when you set the value of Custom Header Padding above narrower than 15px.', 'coldbox' ),
 					'section'     => 'header',
 					'type'        => 'checkbox',
+					'priority'    => 35,
 				)
 			)
 		);
