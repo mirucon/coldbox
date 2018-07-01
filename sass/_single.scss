@@ -129,8 +129,8 @@ p.post-btm-tags, p.post-btm-cats {
       list-style-type: none;
       margin-bottom: 0;
       font-size: .82em;
-      a > i { color: #777 }
-      a:hover > i { color: #222; }
+      a > .fa { color: #777 }
+      a:hover > .fa { color: #222; }
     }
     a::before, a::after { content: none }
   }

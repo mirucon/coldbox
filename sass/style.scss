@@ -704,7 +704,7 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   li {
     position: relative;
   }
-  i {
+  .fa {
     font-size: 1.55em;
   }
   & > li:not(:first-child) { margin-left: .5em; }
@@ -903,7 +903,7 @@ ul.social-links { padding-left: 0; list-style: none; }
   .modal-search-form {
     animation: fadeOut .26s;
   }
-  .search-form {
+  .modal-search-form .search-form {
     visibility: hidden;
   }
 }

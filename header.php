@@ -38,11 +38,11 @@ else :
 			</div>
 
 			<button class="search-toggle">
-				<span class="icon search"></span>
+				<span class="icon search" aria-hidden="true"></span>
 				<span class="screen-reader-text"><?php esc_html_e( 'Search Toggle', 'coldbox' ); ?></span>
 			</button>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open">
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
 					<span class="top"></span>
 					<span class="middle"></span>
 					<span class="bottom"></span>

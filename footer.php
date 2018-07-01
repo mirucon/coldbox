@@ -63,7 +63,10 @@ else :
 
 	</div><!--/.footer-bottom-->
 
-	<a id="back-to-top" class="noscroll is-hidden back-to-top" href="#"><span class="chevron-up"></span></a>
+	<a id="back-to-top" class="noscroll is-hidden back-to-top" href="#">
+		<span class="chevron-up" aria-hidden="true"></span>
+		<span class="screen-reader-text"><?php esc_html_e( 'Back To Top', 'coldbox' ); ?></span>
+	</a>
 
 </footer>
 
@@ -71,8 +74,8 @@ else :
 	<?php get_search_form(); ?>
 
 	<button class="close-toggle">
-		<span class="top"></span>
-		<span class="bottom"></span>
+		<span class="top" aria-hidden="true"></span>
+		<span class="bottom" aria-hidden="true"></span>
 		<span class="label"><?php esc_html_e( 'Close', 'coldbox' ); ?></span>
 	</button>
 </div>

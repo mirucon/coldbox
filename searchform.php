@@ -12,7 +12,7 @@
 	<label for="s" class="screen-reader-text"><?php esc_html_e( 'Search', 'coldbox' ); ?></label>
 	<input type="search" class="search-inner" name="s" placeholder="<?php esc_attr_e( 'Search this site', 'coldbox' ); ?>" value="<?php echo esc_attr( trim( get_search_query() ) ); ?>"/>
 	<button type="submit" class="search-submit">
-		<span class="icon search"></span>
+		<span class="icon search" aria-hidden="true"></span>
 		<span class="screen-reader-text"><?php esc_html_e( 'Search', 'coldbox' ); ?></span>
 	</button>
 </form>
