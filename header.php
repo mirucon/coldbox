@@ -22,6 +22,10 @@ else :
 
 <body <?php body_class(); ?>>
 
+<a class="skip-link screen-reader-text" href="#content">
+	<?php esc_html_e( 'Skip to content', 'coldbox' ); ?>
+</a>
+
 <?php endif; ?>
 
 	<header id="header" class="header" role="banner">
@@ -43,9 +47,9 @@ else :
 			</button>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
-					<span class="top"></span>
-					<span class="middle"></span>
-					<span class="bottom"></span>
+					<span class="top" aria-hidden="true"></span>
+					<span class="middle" aria-hidden="true"></span>
+					<span class="bottom" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'coldbox' ); ?></span>
 				</button>
 			<?php endif; ?>

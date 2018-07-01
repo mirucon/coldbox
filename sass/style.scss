@@ -948,6 +948,22 @@ ul.social-links { padding-left: 0; list-style: none; }
   }
 }
 
+/* Skip link for accessibility purposes */
+.skip-link {
+  background-color: #f1f1f1;
+  color: $link;
+  font-weight: bold;
+  font-size: 1.2em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  z-index: 9999999;
+  &:focus {
+    width: auto;
+    height: auto;
+    padding: .8em 1em;
+    clip: auto;
+  }
+}
+
 /* Custom Classes for several usage */
 .select-none {
   -moz-user-select: none; -webkit-user-select: none; -ms-user-select: none; user-select: none;

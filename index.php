@@ -14,7 +14,7 @@ get_header(); ?>
 
 		<div class="container">
 
-			<div class="content">
+			<div id="content" class="content">
 
 				<?php $class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
 

@@ -23,7 +23,7 @@ while ( have_posts() ) :
 
 				<div class="container">
 
-					<div class="content">
+					<div id="content" class="content">
 
 						<div class="content-inner">
 
