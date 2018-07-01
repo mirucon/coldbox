@@ -8,8 +8,8 @@ module.exports = (env, argv) => {
     mode: 'development',
     entry: {
       scripts: ['babel-polyfill', './assets/js/cd-scripts.babel.js'],
-      hljs: ['babel-polyfill', './assets/js/hljs.js'],
-      hljs_web: ['babel-polyfill', './assets/js/hljs_web.js'],
+      hljs: ['./assets/js/hljs.js'],
+      hljs_web: ['./assets/js/hljs_web.js'],
       'scripts+hljs': [
         'babel-polyfill',
         './assets/js/cd-scripts.babel.js',
