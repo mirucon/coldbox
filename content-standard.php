@@ -43,7 +43,18 @@
 
 			</div>
 
-			<p class="more"><a href="<?php the_permalink(); ?>"><?php esc_html_e( 'READ MORE', 'coldbox' ); ?><i class="fa"></i></a></p>
+			<p class="more">
+				<a href="<?php the_permalink(); ?>">
+					<?php
+						printf(
+							/* translators: 1: Post title (screen render text) */
+							esc_html__( 'READ MORE%s', 'coldbox' ),
+							'<span class="screen-reader-text">  ' . get_the_title() . '</span>'
+						);
+					?>
+					<span class="fa"></span>
+				</a>
+			</p>
 
 		</div>
 
