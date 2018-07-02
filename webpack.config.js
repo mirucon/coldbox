@@ -2,14 +2,19 @@ const path = require('path')
 
 module.exports = (env, argv) => {
   const isModeNone = argv.mode === 'none'
+  const isModeDev = argv.mode === 'development'
   const mode = argv.mode
 
-  return {
-    mode: 'development',
-    entry: {
+  let entries
+  if (isModeDev) {
+    entries = {
+      scripts: './assets/js/cd-scripts.babel.js'
+    }
+  } else {
+    entries = {
       scripts: ['babel-polyfill', './assets/js/cd-scripts.babel.js'],
-      hljs: ['babel-polyfill', './assets/js/hljs.js'],
-      hljs_web: ['babel-polyfill', './assets/js/hljs_web.js'],
+      hljs: './assets/js/hljs.js',
+      hljs_web: './assets/js/hljs_web.js',
       'scripts+hljs': [
         'babel-polyfill',
         './assets/js/cd-scripts.babel.js',
@@ -20,7 +25,12 @@ module.exports = (env, argv) => {
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs_web.js'
       ]
-    },
+    }
+  }
+
+  return {
+    mode: 'development',
+    entry: entries,
     output: {
       filename: '[name].js',
       path:
