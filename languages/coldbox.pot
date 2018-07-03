@@ -42,7 +42,7 @@ msgstr ""
 msgid "Pingbacks"
 msgstr ""
 
-#: ../comments.php:97
+#: ../comments.php:96
 msgid "Post comment"
 msgstr ""
 
