@@ -299,6 +299,19 @@
 
 }
 
+.close-mobile-menu {
+  padding-top: .4em;
+  padding-bottom: .4em;
+  display: block;
+  font-size: 1.2em;
+  &:focus {
+    position: relative;
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+
 /*   Header : Header toggles
 /* -------------------------------------------------- */
 .nav-toggle {

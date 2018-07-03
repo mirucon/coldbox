@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   let navCount = 0
   const navToggle = document.querySelector('.nav-toggle.header-menu')
+  const menuCloseButton = document.getElementById('close-mobile-menu')
 
   if (navToggle) {
     const menuOverlay = document.createElement('div')
@@ -391,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.style.height = 'auto'
     }
     menuOverlay.addEventListener('click', menuOverlayHandler)
+    menuCloseButton.addEventListener('click', menuOverlayHandler)
   }
 
   /*   Pagination : Underline Animate
