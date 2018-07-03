@@ -42,64 +42,93 @@ msgstr ""
 msgid "Pingbacks"
 msgstr ""
 
-#: ../content-standard.php:46
-msgid "READ MORE"
+#: ../comments.php:96
+msgid "Post comment"
 msgstr ""
 
-#: ../functions.php:216
+#. translators: 1: Post title (screen render text)
+#: ../content-standard.php:51
+msgid "READ MORE%s"
+msgstr ""
+
+#: ../footer.php:68
+msgid "Back To Top"
+msgstr ""
+
+#: ../footer.php:79
+msgid "Close"
+msgstr ""
+
+#: ../functions.php:216, ../functions.php:264
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:217
+#: ../functions.php:217, ../functions.php:292
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:528
+#: ../functions.php:263
+msgid "Close menu"
+msgstr ""
+
+#: ../functions.php:529
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:530
+#: ../functions.php:531
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:793
+#: ../functions.php:794
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:795
+#: ../functions.php:796
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:972
+#: ../functions.php:973
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:974
+#: ../functions.php:975
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:976
+#: ../functions.php:977
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:978
+#: ../functions.php:979
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:978
+#: ../functions.php:979
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:980
+#: ../functions.php:981
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:982
+#: ../functions.php:983
 msgid "Author:"
 msgstr ""
 
-#: ../page.php:60
+#: ../header.php:26
+msgid "Skip to content"
+msgstr ""
+
+#: ../header.php:46
+msgid "Search Toggle"
+msgstr ""
+
+#: ../header.php:53
+msgid "Menu"
+msgstr ""
+
+#: ../page.php:61
 msgid "Pages:"
 msgstr ""
 
@@ -1165,7 +1194,11 @@ msgstr ""
 msgid "No matches found."
 msgstr ""
 
-#: ../searchform.php:12
+#: ../searchform.php:12, ../searchform.php:16
+msgid "Search"
+msgstr ""
+
+#: ../searchform.php:13
 msgid "Search this site"
 msgstr ""
 

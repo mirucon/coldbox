@@ -666,12 +666,12 @@ input[type=tel], input[type=date], input[type=datetime], input[type=month], inpu
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
   -webkit-appearance: none;
-  -moz-apperance: none;
+  -moz-appearance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
   background-color: #fefefe;
-  color: #777;
+  color: #717171;
   outline: 0;
   transition: all .2s;
 }
@@ -991,11 +991,11 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   font-size: .82em;
 }
 
-.author-box .author-links .social-links a > i {
+.author-box .author-links .social-links a > .fa {
   color: #777;
 }
 
-.author-box .author-links .social-links a:hover > i {
+.author-box .author-links .social-links a:hover > .fa {
   color: #222;
 }
 
@@ -1014,11 +1014,13 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
-.content-box > h4, .sns-buttons.single-bottom > h4 {
+.content-box > h4, .sns-buttons.single-bottom > h4,
+.content-box-heading {
   position: relative;
   margin: .2em 0 .7em 0;
-  text-transform: capitalize;
+  font-size: 1.34em;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 /*   Single : Related Posts
@@ -1102,6 +1104,16 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 
 .related-posts .post:hover .post-title {
   color: #00619F;
+}
+
+.related-posts .post-thumbnail > a:focus {
+  opacity: .8;
+  outline: 4px;
+}
+
+.related-posts .post-title a:focus {
+  color: #00619F;
+  outline: 4px;
 }
 
 @media screen and (max-width: 640px) {
@@ -1477,8 +1489,8 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 *  4. Index
 * ------------------------------------------------------------------------- */
 .post-excerpt {
-  color: #aaa;
-  font-size: .85em;
+  color: #777676;
+  font-size: .83em;
   line-height: 1.4;
 }
 
@@ -1560,7 +1572,7 @@ body.home #main, #main.home {
 .grid-view .post-date {
   position: relative;
   margin: 4px 0;
-  color: #777;
+  color: #434343;
   font-size: .9em;
   line-height: 1;
   text-align: center;
@@ -1667,6 +1679,7 @@ body.home #main, #main.home {
 
 .standard-view .post-title {
   margin-bottom: 12px;
+  color: #070707;
   font-size: 1.4em;
   line-height: 1.3;
   font-weight: bold;
@@ -2102,7 +2115,9 @@ ul.page-numbers a.page-numbers:hover {
     color: black;
   }
   .menu-container .sub-menu {
-    display: none;
+    position: absolute;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
     width: 200px;
     position: absolute;
     top: 0;
@@ -2119,11 +2134,18 @@ ul.page-numbers a.page-numbers:hover {
   .menu-container .sub-menu li > a {
     padding: 8px 14px;
   }
-  .menu-container li:hover > .sub-menu {
-    display: block;
+  .menu-container li:hover > .sub-menu,
+  .menu-container li.is-sub-menu-shown > .sub-menu {
+    position: absolute;
+    height: auto;
+    clip: auto;
     top: 50px;
   }
-  .menu-container li > .sub-menu > li:hover > .sub-menu {
+  .menu-container li > .sub-menu > li:hover > .sub-menu,
+  .menu-container li.is-sub-menu-shown .sub-menu > li > .sub-menu {
+    position: absolute;
+    height: auto;
+    clip: auto;
     top: -4px;
     left: 200px;
   }
@@ -2251,6 +2273,20 @@ ul.page-numbers a.page-numbers:hover {
   }
 }
 
+.close-mobile-menu {
+  padding-top: .4em;
+  padding-bottom: .4em;
+  display: block;
+  font-size: 1.2em;
+}
+
+.close-mobile-menu:focus {
+  position: relative;
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+
 /*   Header : Header toggles
 /* -------------------------------------------------- */
 .nav-toggle {
@@ -2316,6 +2352,8 @@ ul.page-numbers a.page-numbers:hover {
   top: 0;
   width: 50px;
   height: auto;
+  border: 0 transparent;
+  background-color: transparent;
   cursor: pointer;
   transition: all .4s ease-in;
   -webkit-tap-highlight-color: rgba(68, 68, 68, 0.3);
@@ -2455,7 +2493,7 @@ ul.page-numbers a.page-numbers:hover {
   width: 100%;
   padding: 30px 20px;
   background-color: #44463B;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.72);
 }
 
 .footer-menu {
@@ -2469,10 +2507,6 @@ ul.page-numbers a.page-numbers:hover {
 
 .footer-menu a {
   color: rgba(0, 0, 0, 0.8);
-}
-
-.footer-menu li:hover > .sub-menu {
-  top: -46px;
 }
 
 @media screen and (min-width: 640px) and (max-width: 980px) {
@@ -2560,7 +2594,7 @@ ul.page-numbers a.page-numbers:hover {
 }
 
 .widget a {
-  color: #888;
+  color: #6b6b6b;
 }
 
 .widget a:hover {
@@ -3161,7 +3195,7 @@ ul.page-numbers a.page-numbers:hover {
   margin-left: .4em;
   padding: 0 .28em;
   background-color: #ddd;
-  color: #666;
+  color: #5d5d5d;
   border-radius: 2px;
   font-size: .94em;
   line-height: 1;
@@ -3209,7 +3243,7 @@ ul.page-numbers a.page-numbers:hover {
 
 #comment-list .comment-meta {
   margin-bottom: 1.6em;
-  color: #888;
+  color: #777676;
   font-size: .96em;
 }
 
@@ -3825,7 +3859,7 @@ html body .screen-reader-text {
   position: relative;
 }
 
-.social-links i {
+.social-links .fa {
   font-size: 1.55em;
 }
 
@@ -4005,17 +4039,22 @@ ul.social-links {
 }
 
 .modal-search-form .close-toggle {
+  display: block;
   position: fixed;
   top: 12px;
   right: 12px;
   width: 50px;
   height: 70px;
+  border: 0;
+  background-color: transparent;
   cursor: pointer;
+  text-align: center;
 }
 
 .modal-search-form .close-toggle .top {
   position: absolute;
   top: 25px;
+  right: 0;
   height: 1px;
   width: 100%;
   background-color: #fff;
@@ -4025,6 +4064,7 @@ ul.social-links {
 .modal-search-form .close-toggle .bottom {
   position: absolute;
   top: 25px;
+  right: 0;
   height: 1px;
   width: 100%;
   background-color: #fff;
@@ -4032,8 +4072,8 @@ ul.social-links {
 }
 
 .modal-search-form .close-toggle .label {
-  position: relative;
-  bottom: -58%;
+  position: absolute;
+  top: 49px;
   left: calc(50% - 19px);
   color: rgba(255, 255, 255, 0.86);
   font-size: .7em;
@@ -4065,7 +4105,7 @@ ul.social-links {
   animation: fadeOut .26s;
 }
 
-.modal-search-closed .search-form {
+.modal-search-closed .modal-search-form .search-form {
   visibility: hidden;
 }
 
@@ -4112,6 +4152,23 @@ ul.social-links {
   visibility: visible;
   opacity: 1;
   padding-left: .5em;
+}
+
+/* Skip link for accessibility purposes */
+.skip-link {
+  background-color: #f1f1f1;
+  color: #00619F;
+  font-weight: bold;
+  font-size: 1.2em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  z-index: 9999999;
+}
+
+.skip-link:focus {
+  width: auto;
+  height: auto;
+  padding: .8em 1em;
+  clip: auto;
 }
 
 /* Custom Classes for several usage */

@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 358);
+/******/ 	return __webpack_require__(__webpack_require__.s = 356);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -9190,7 +9190,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var backToTop = document.getElementById('back-to-top');
 
   if (backToTop) {
-
     var showBackToTop = function showBackToTop() {
       if (window.pageYOffset > 100) {
         backToTop.style.display = 'block';
@@ -9380,6 +9379,81 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', stickyHeaderHandler);
   }
 
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  var menuItems = document.querySelectorAll('.menu-item.menu-item-has-children');
+
+  if (menuItems) {
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
+
+    try {
+      var _loop = function _loop() {
+        var item = _step5.value;
+
+        if (!item.parentNode.classList.contains('sub-menu')) {
+          var menuLinks = item.querySelectorAll('a');
+          var submenuOnFocusHandler = function submenuOnFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl !== -1) {
+              item.classList.add('is-sub-menu-shown');
+            }
+          };
+          var submenuOutFocusHandler = function submenuOutFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl) {
+              item.classList.remove('is-sub-menu-shown');
+            }
+          };
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = menuLinks[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var link = _step6.value;
+
+              link.addEventListener('blur', submenuOutFocusHandler);
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
+          item.addEventListener('focusin', submenuOnFocusHandler);
+        }
+      };
+
+      for (var _iterator5 = menuItems[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError5 = true;
+      _iteratorError5 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+          _iterator5.return();
+        }
+      } finally {
+        if (_didIteratorError5) {
+          throw _iteratorError5;
+        }
+      }
+    }
+  }
+
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   var getMenuPaddingTop = function getMenuPaddingTop() {
@@ -9457,6 +9531,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -------------------------------------------------- */
   var navCount = 0;
   var navToggle = document.querySelector('.nav-toggle.header-menu');
+  var menuCloseButton = document.getElementById('close-mobile-menu');
 
   if (navToggle) {
     var menuOverlay = document.createElement('div');
@@ -9499,6 +9574,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navToggle.style.height = 'auto';
     };
     menuOverlay.addEventListener('click', menuOverlayHandler);
+    menuCloseButton.addEventListener('click', menuOverlayHandler);
   }
 
   /*   Pagination : Underline Animate
@@ -9524,28 +9600,28 @@ document.addEventListener('DOMContentLoaded', function () {
       _actionBar.style.width = currentParent.offsetWidth + 'px';
       _actionBar.style.left = currentParent.offsetLeft + 'px';
     };
-    var _iteratorNormalCompletion5 = true;
-    var _didIteratorError5 = false;
-    var _iteratorError5 = undefined;
+    var _iteratorNormalCompletion7 = true;
+    var _didIteratorError7 = false;
+    var _iteratorError7 = undefined;
 
     try {
-      for (var _iterator5 = pageNumbersEls[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-        var el = _step5.value;
+      for (var _iterator7 = pageNumbersEls[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+        var el = _step7.value;
 
         el.addEventListener('mouseover', pageNumbersElHoverHandler);
         el.addEventListener('mouseout', pageNumbersElHoverOutHandler);
       }
     } catch (err) {
-      _didIteratorError5 = true;
-      _iteratorError5 = err;
+      _didIteratorError7 = true;
+      _iteratorError7 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion5 && _iterator5.return) {
-          _iterator5.return();
+        if (!_iteratorNormalCompletion7 && _iterator7.return) {
+          _iterator7.return();
         }
       } finally {
-        if (_didIteratorError5) {
-          throw _iteratorError5;
+        if (_didIteratorError7) {
+          throw _iteratorError7;
         }
       }
     }
@@ -9606,30 +9682,30 @@ document.addEventListener('DOMContentLoaded', function () {
     actionBar.style.left = target.parentNode.offsetLeft + 'px';
   };
 
-  var _iteratorNormalCompletion6 = true;
-  var _didIteratorError6 = false;
-  var _iteratorError6 = undefined;
+  var _iteratorNormalCompletion8 = true;
+  var _didIteratorError8 = false;
+  var _iteratorError8 = undefined;
 
   try {
-    for (var _iterator6 = tabItems[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-      var item = _step6.value;
+    for (var _iterator8 = tabItems[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+      var _item = _step8.value;
 
-      item.addEventListener('click', tabItemsHandler);
+      _item.addEventListener('click', tabItemsHandler);
     }
 
     /*   Recent Posts Widget : Adjust the date style
     /* -------------------------------------------------- */
   } catch (err) {
-    _didIteratorError6 = true;
-    _iteratorError6 = err;
+    _didIteratorError8 = true;
+    _iteratorError8 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion6 && _iterator6.return) {
-        _iterator6.return();
+      if (!_iteratorNormalCompletion8 && _iterator8.return) {
+        _iterator8.return();
       }
     } finally {
-      if (_didIteratorError6) {
-        throw _iteratorError6;
+      if (_didIteratorError8) {
+        throw _iteratorError8;
       }
     }
   }
@@ -9637,13 +9713,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var dates = document.querySelectorAll('.widget_recent_entries .post-date');
 
   if (dates) {
-    var _iteratorNormalCompletion7 = true;
-    var _didIteratorError7 = false;
-    var _iteratorError7 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-      for (var _iterator7 = dates[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-        var date = _step7.value;
+      for (var _iterator9 = dates[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+        var date = _step9.value;
 
         if (date.previousElementSibling.tagName === 'A') {
           var _parent = date.previousElementSibling;
@@ -9653,16 +9729,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     } catch (err) {
-      _didIteratorError7 = true;
-      _iteratorError7 = err;
+      _didIteratorError9 = true;
+      _iteratorError9 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion7 && _iterator7.return) {
-          _iterator7.return();
+        if (!_iteratorNormalCompletion9 && _iterator9.return) {
+          _iterator9.return();
         }
       } finally {
-        if (_didIteratorError7) {
-          throw _iteratorError7;
+        if (_didIteratorError9) {
+          throw _iteratorError9;
         }
       }
     }
@@ -10112,94 +10188,93 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 /***/ }),
-/* 330 */,
-/* 331 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _highlight = __webpack_require__(332);
+var _highlight = __webpack_require__(331);
 
 var _highlight2 = _interopRequireDefault(_highlight);
 
-var _css = __webpack_require__(333);
+var _css = __webpack_require__(332);
 
 var _css2 = _interopRequireDefault(_css);
 
-var _http = __webpack_require__(334);
+var _http = __webpack_require__(333);
 
 var _http2 = _interopRequireDefault(_http);
 
-var _javascript = __webpack_require__(335);
+var _javascript = __webpack_require__(334);
 
 var _javascript2 = _interopRequireDefault(_javascript);
 
-var _ruby = __webpack_require__(336);
+var _ruby = __webpack_require__(335);
 
 var _ruby2 = _interopRequireDefault(_ruby);
 
-var _bash = __webpack_require__(337);
+var _bash = __webpack_require__(336);
 
 var _bash2 = _interopRequireDefault(_bash);
 
-var _ini = __webpack_require__(338);
+var _ini = __webpack_require__(337);
 
 var _ini2 = _interopRequireDefault(_ini);
 
-var _makefile = __webpack_require__(339);
+var _makefile = __webpack_require__(338);
 
 var _makefile2 = _interopRequireDefault(_makefile);
 
-var _php = __webpack_require__(340);
+var _php = __webpack_require__(339);
 
 var _php2 = _interopRequireDefault(_php);
 
-var _sql = __webpack_require__(341);
+var _sql = __webpack_require__(340);
 
 var _sql2 = _interopRequireDefault(_sql);
 
-var _cs = __webpack_require__(342);
+var _cs = __webpack_require__(341);
 
 var _cs2 = _interopRequireDefault(_cs);
 
-var _diff = __webpack_require__(343);
+var _diff = __webpack_require__(342);
 
 var _diff2 = _interopRequireDefault(_diff);
 
-var _json = __webpack_require__(344);
+var _json = __webpack_require__(343);
 
 var _json2 = _interopRequireDefault(_json);
 
-var _markdown = __webpack_require__(345);
+var _markdown = __webpack_require__(344);
 
 var _markdown2 = _interopRequireDefault(_markdown);
 
-var _perl = __webpack_require__(346);
+var _perl = __webpack_require__(345);
 
 var _perl2 = _interopRequireDefault(_perl);
 
-var _powershell = __webpack_require__(347);
+var _powershell = __webpack_require__(346);
 
 var _powershell2 = _interopRequireDefault(_powershell);
 
-var _cpp = __webpack_require__(348);
+var _cpp = __webpack_require__(347);
 
 var _cpp2 = _interopRequireDefault(_cpp);
 
-var _java = __webpack_require__(349);
+var _java = __webpack_require__(348);
 
 var _java2 = _interopRequireDefault(_java);
 
-var _python = __webpack_require__(350);
+var _python = __webpack_require__(349);
 
 var _python2 = _interopRequireDefault(_python);
 
-var _objectivec = __webpack_require__(351);
+var _objectivec = __webpack_require__(350);
 
 var _objectivec2 = _interopRequireDefault(_objectivec);
 
-var _xml = __webpack_require__(352);
+var _xml = __webpack_require__(351);
 
 var _xml2 = _interopRequireDefault(_xml);
 
@@ -10261,7 +10336,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /***/ }),
-/* 332 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -11072,7 +11147,7 @@ https://highlightjs.org/
 
 
 /***/ }),
-/* 333 */
+/* 332 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11181,7 +11256,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 334 */
+/* 333 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11226,7 +11301,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 335 */
+/* 334 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11401,7 +11476,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 336 */
+/* 335 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11582,7 +11657,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 337 */
+/* 336 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11661,7 +11736,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 338 */
+/* 337 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11731,7 +11806,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 339 */
+/* 338 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11816,7 +11891,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 340 */
+/* 339 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -11947,7 +12022,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 341 */
+/* 340 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12111,7 +12186,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 342 */
+/* 341 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12292,7 +12367,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 343 */
+/* 342 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12336,7 +12411,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 344 */
+/* 343 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12377,7 +12452,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 345 */
+/* 344 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12489,7 +12564,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 346 */
+/* 345 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12650,7 +12725,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 347 */
+/* 346 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12735,7 +12810,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 348 */
+/* 347 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -12914,7 +12989,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 349 */
+/* 348 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -13026,7 +13101,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 350 */
+/* 349 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -13146,7 +13221,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 351 */
+/* 350 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -13241,7 +13316,7 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
-/* 352 */
+/* 351 */
 /***/ (function(module, exports) {
 
 module.exports = function(hljs) {
@@ -13348,17 +13423,16 @@ module.exports = function(hljs) {
 };
 
 /***/ }),
+/* 352 */,
 /* 353 */,
 /* 354 */,
 /* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(1);
 __webpack_require__(328);
-module.exports = __webpack_require__(331);
+module.exports = __webpack_require__(330);
 
 
 /***/ })

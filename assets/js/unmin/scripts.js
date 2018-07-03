@@ -9197,7 +9197,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var backToTop = document.getElementById('back-to-top');
 
   if (backToTop) {
-
     var showBackToTop = function showBackToTop() {
       if (window.pageYOffset > 100) {
         backToTop.style.display = 'block';
@@ -9387,6 +9386,81 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', stickyHeaderHandler);
   }
 
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  var menuItems = document.querySelectorAll('.menu-item.menu-item-has-children');
+
+  if (menuItems) {
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
+
+    try {
+      var _loop = function _loop() {
+        var item = _step5.value;
+
+        if (!item.parentNode.classList.contains('sub-menu')) {
+          var menuLinks = item.querySelectorAll('a');
+          var submenuOnFocusHandler = function submenuOnFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl !== -1) {
+              item.classList.add('is-sub-menu-shown');
+            }
+          };
+          var submenuOutFocusHandler = function submenuOutFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl) {
+              item.classList.remove('is-sub-menu-shown');
+            }
+          };
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = menuLinks[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var link = _step6.value;
+
+              link.addEventListener('blur', submenuOutFocusHandler);
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
+          item.addEventListener('focusin', submenuOnFocusHandler);
+        }
+      };
+
+      for (var _iterator5 = menuItems[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError5 = true;
+      _iteratorError5 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+          _iterator5.return();
+        }
+      } finally {
+        if (_didIteratorError5) {
+          throw _iteratorError5;
+        }
+      }
+    }
+  }
+
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   var getMenuPaddingTop = function getMenuPaddingTop() {
@@ -9464,6 +9538,7 @@ document.addEventListener('DOMContentLoaded', function () {
   /* -------------------------------------------------- */
   var navCount = 0;
   var navToggle = document.querySelector('.nav-toggle.header-menu');
+  var menuCloseButton = document.getElementById('close-mobile-menu');
 
   if (navToggle) {
     var menuOverlay = document.createElement('div');
@@ -9506,6 +9581,7 @@ document.addEventListener('DOMContentLoaded', function () {
       navToggle.style.height = 'auto';
     };
     menuOverlay.addEventListener('click', menuOverlayHandler);
+    menuCloseButton.addEventListener('click', menuOverlayHandler);
   }
 
   /*   Pagination : Underline Animate
@@ -9531,28 +9607,28 @@ document.addEventListener('DOMContentLoaded', function () {
       _actionBar.style.width = currentParent.offsetWidth + 'px';
       _actionBar.style.left = currentParent.offsetLeft + 'px';
     };
-    var _iteratorNormalCompletion5 = true;
-    var _didIteratorError5 = false;
-    var _iteratorError5 = undefined;
+    var _iteratorNormalCompletion7 = true;
+    var _didIteratorError7 = false;
+    var _iteratorError7 = undefined;
 
     try {
-      for (var _iterator5 = pageNumbersEls[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-        var el = _step5.value;
+      for (var _iterator7 = pageNumbersEls[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+        var el = _step7.value;
 
         el.addEventListener('mouseover', pageNumbersElHoverHandler);
         el.addEventListener('mouseout', pageNumbersElHoverOutHandler);
       }
     } catch (err) {
-      _didIteratorError5 = true;
-      _iteratorError5 = err;
+      _didIteratorError7 = true;
+      _iteratorError7 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion5 && _iterator5.return) {
-          _iterator5.return();
+        if (!_iteratorNormalCompletion7 && _iterator7.return) {
+          _iterator7.return();
         }
       } finally {
-        if (_didIteratorError5) {
-          throw _iteratorError5;
+        if (_didIteratorError7) {
+          throw _iteratorError7;
         }
       }
     }
@@ -9613,30 +9689,30 @@ document.addEventListener('DOMContentLoaded', function () {
     actionBar.style.left = target.parentNode.offsetLeft + 'px';
   };
 
-  var _iteratorNormalCompletion6 = true;
-  var _didIteratorError6 = false;
-  var _iteratorError6 = undefined;
+  var _iteratorNormalCompletion8 = true;
+  var _didIteratorError8 = false;
+  var _iteratorError8 = undefined;
 
   try {
-    for (var _iterator6 = tabItems[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-      var item = _step6.value;
+    for (var _iterator8 = tabItems[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+      var _item = _step8.value;
 
-      item.addEventListener('click', tabItemsHandler);
+      _item.addEventListener('click', tabItemsHandler);
     }
 
     /*   Recent Posts Widget : Adjust the date style
     /* -------------------------------------------------- */
   } catch (err) {
-    _didIteratorError6 = true;
-    _iteratorError6 = err;
+    _didIteratorError8 = true;
+    _iteratorError8 = err;
   } finally {
     try {
-      if (!_iteratorNormalCompletion6 && _iterator6.return) {
-        _iterator6.return();
+      if (!_iteratorNormalCompletion8 && _iterator8.return) {
+        _iterator8.return();
       }
     } finally {
-      if (_didIteratorError6) {
-        throw _iteratorError6;
+      if (_didIteratorError8) {
+        throw _iteratorError8;
       }
     }
   }
@@ -9644,13 +9720,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var dates = document.querySelectorAll('.widget_recent_entries .post-date');
 
   if (dates) {
-    var _iteratorNormalCompletion7 = true;
-    var _didIteratorError7 = false;
-    var _iteratorError7 = undefined;
+    var _iteratorNormalCompletion9 = true;
+    var _didIteratorError9 = false;
+    var _iteratorError9 = undefined;
 
     try {
-      for (var _iterator7 = dates[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-        var date = _step7.value;
+      for (var _iterator9 = dates[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+        var date = _step9.value;
 
         if (date.previousElementSibling.tagName === 'A') {
           var _parent = date.previousElementSibling;
@@ -9660,16 +9736,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     } catch (err) {
-      _didIteratorError7 = true;
-      _iteratorError7 = err;
+      _didIteratorError9 = true;
+      _iteratorError9 = err;
     } finally {
       try {
-        if (!_iteratorNormalCompletion7 && _iterator7.return) {
-          _iterator7.return();
+        if (!_iteratorNormalCompletion9 && _iterator9.return) {
+          _iterator9.return();
         }
       } finally {
-        if (_didIteratorError7) {
-          throw _iteratorError7;
+        if (_didIteratorError9) {
+          throw _iteratorError9;
         }
       }
     }
