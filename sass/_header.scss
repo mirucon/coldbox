@@ -113,6 +113,17 @@
 
 /*   Header : Navigation Menu
 /* -------------------------------------------------- */
+@mixin hidden() {
+  position: absolute;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+@mixin shown() {
+  position: absolute;
+  height: auto;
+  clip: auto;
+}
+
 #header-menu { align-self: center; width: 100% }
 .menu-container {
   display: flex;
@@ -143,7 +154,7 @@
 
     // Sub Menu
     .sub-menu {
-      display: none;
+      @include hidden;
       width: 200px;
       position: absolute;
       top: 0; left: 0; z-index: 1000;
@@ -158,11 +169,16 @@
         }
       }
     }
-    li:hover > .sub-menu {
-      display: block; top: 50px;
+    li:hover > .sub-menu,
+    li.is-sub-menu-shown > .sub-menu {
+      @include shown;
+      top: 50px;
     }
-    li > .sub-menu > li:hover > .sub-menu {
-      top: -4px; left: 200px;
+    li > .sub-menu > li:hover > .sub-menu,
+    li.is-sub-menu-shown .sub-menu > li > .sub-menu {
+      @include shown;
+      top: -4px;
+      left: 200px;
     }
     .sub-menu li:hover > a {
       background-color: #4b4b4b;
@@ -208,7 +224,6 @@
       transition: all .4s;
     }
     & > li.menu-item-has-children:hover > a::after { top: 0; transform: rotate(225deg); }
-    & > li.menu-item-has-children li.menu-item-has-children:hover > a::after {}
   }
 
 }
@@ -284,6 +299,19 @@
 
 }
 
+.close-mobile-menu {
+  padding-top: .4em;
+  padding-bottom: .4em;
+  display: block;
+  font-size: 1.2em;
+  &:focus {
+    position: relative;
+    clip: auto;
+    width: auto;
+    height: auto;
+  }
+}
+
 /*   Header : Header toggles
 /* -------------------------------------------------- */
 .nav-toggle {
@@ -310,7 +338,7 @@
   }
 }
 .search-toggle {
-  align-self: stretch; position: relative; top: 0; width: 50px; height: auto; cursor: pointer; transition: all .4s ease-in;
+  align-self: stretch; position: relative; top: 0; width: 50px; height: auto; border: 0 transparent; background-color: transparent; cursor: pointer; transition: all .4s ease-in;
   -webkit-tap-highlight-color: rgba(68, 68, 68, .3);
   .icon.search { width: 20px; height: 20px; top: calc(50% - 10px); left: calc(50% - 12px); border-color: #444; transition: all .4s;
     &::before { top: 20px; left: 9px; height: 9px; background-color: #444; transition: all .4s; }

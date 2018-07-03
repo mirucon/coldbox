@@ -8,13 +8,13 @@
 
 get_header(); ?>
 
-<main id="main" class="home">
+<main id="main" class="home" role="main">
 
 	<div class="container-outer">
 
 		<div class="container">
 
-			<div class="content">
+			<div id="content" class="content">
 
 				<?php $class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
 

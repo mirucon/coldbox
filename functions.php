@@ -260,7 +260,8 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 
 		if ( has_nav_menu( 'header-menu' ) ) {
 
-			$menu  = '<nav id="header-menu">';
+			$close_button = __( 'Close menu', 'coldbox' );
+			$menu  = '<nav id="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
 			$menu .= wp_nav_menu(
 				array(
 					'theme_location' => 'header-menu',
@@ -268,7 +269,7 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 					'menu_class'     => '',
 					'fallback_cb'    => 'wp_page_menu',
 					'echo'           => false,
-					'items_wrap'     => '<ul id="header-nav" class="menu-container">%3$s</ul><!--/#header-nav-->',
+					'items_wrap'     => '<ul id="header-nav" class="menu-container">%3$s<li class="menu-item"><button id="close-mobile-menu" class="screen-reader-text close-mobile-menu">' . esc_html( $close_button ) . '</button></li></ul><!--/#header-nav-->',
 				)
 			);
 			$menu .= '</nav>';
@@ -288,7 +289,7 @@ if ( ! function_exists( 'cd_footer_menu' ) ) {
 
 		if ( has_nav_menu( 'footer-menu' ) ) {
 
-			$menu  = '<nav id="footer-menu" class="footer-menu"><div class="container">';
+			$menu  = '<nav id="footer-menu" class="footer-menu" role="navigation" aria-label="' . esc_attr__( 'Footer Menu', 'coldbox' ) . '"><div class="container">';
 			$menu .= wp_nav_menu(
 				array(
 					'theme_location' => 'footer-menu',

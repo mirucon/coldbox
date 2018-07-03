@@ -107,7 +107,7 @@ function cd_is_action_related_posts_bottom_hooked() {
 
 	<section class="related-posts content-box">
 
-		<h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
+		<h2 class="related-head content-box-heading"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h2>
 		<ul class="related-posts-list">
 
 
@@ -127,7 +127,7 @@ function cd_is_action_related_posts_bottom_hooked() {
 
 						<div class="post-content">
 							<div class="post-category"><?php the_category( ' / ' ); ?></div>
-							<h5 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
+							<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 						</div>
 
 					</article>

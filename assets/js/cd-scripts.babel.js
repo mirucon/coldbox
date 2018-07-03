@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const backToTop = document.getElementById('back-to-top')
 
   if (backToTop) {
-
     const showBackToTop = () => {
       if (window.pageYOffset > 100) {
         backToTop.style.display = 'block'
@@ -242,6 +241,36 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', stickyHeaderHandler)
   }
 
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  const menuItems = document.querySelectorAll(
+    '.menu-item.menu-item-has-children'
+  )
+
+  if (menuItems) {
+    for (const item of menuItems) {
+      if (!item.parentNode.classList.contains('sub-menu')) {
+        const menuLinks = item.querySelectorAll('a')
+        const submenuOnFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl !== -1) {
+            item.classList.add('is-sub-menu-shown')
+          }
+        }
+        const submenuOutFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl) {
+            item.classList.remove('is-sub-menu-shown')
+          }
+        }
+        for (const link of menuLinks) {
+          link.addEventListener('blur', submenuOutFocusHandler)
+        }
+        item.addEventListener('focusin', submenuOnFocusHandler)
+      }
+    }
+  }
+
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   const getMenuPaddingTop = (includesAdminBar = true) => {
@@ -320,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   let navCount = 0
   const navToggle = document.querySelector('.nav-toggle.header-menu')
+  const menuCloseButton = document.getElementById('close-mobile-menu')
 
   if (navToggle) {
     const menuOverlay = document.createElement('div')
@@ -362,6 +392,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.style.height = 'auto'
     }
     menuOverlay.addEventListener('click', menuOverlayHandler)
+    menuCloseButton.addEventListener('click', menuOverlayHandler)
   }
 
   /*   Pagination : Underline Animate

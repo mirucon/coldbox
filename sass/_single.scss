@@ -129,8 +129,8 @@ p.post-btm-tags, p.post-btm-cats {
       list-style-type: none;
       margin-bottom: 0;
       font-size: .82em;
-      a > i { color: #777 }
-      a:hover > i { color: #222; }
+      a > .fa { color: #777 }
+      a:hover > .fa { color: #222; }
     }
     a::before, a::after { content: none }
   }
@@ -149,11 +149,13 @@ p.post-btm-tags, p.post-btm-cats {
 
 /*   Single : entry footer
 /* -------------------------------------------------- */
-.content-box > h4 {
+.content-box > h4,
+.content-box-heading {
   position: relative;
   margin: .2em 0 .7em 0;
-  text-transform: capitalize;
+  font-size: 1.34em;
   font-weight: 300;
+  text-transform: capitalize;
 }
 
 /*   Single : Related Posts
@@ -214,6 +216,14 @@ p.post-btm-tags, p.post-btm-cats {
     .post-title {
       color: $link;
     }
+  }
+  .post-thumbnail > a:focus {
+    opacity: .8;
+    outline: 4px;
+  }
+  .post-title a:focus {
+    color: $link;
+    outline: 4px;
   }
 
   @media screen and (max-width: $bpmax-mobile) {
