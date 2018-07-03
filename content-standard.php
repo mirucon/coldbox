@@ -51,7 +51,7 @@
 							esc_html__( 'READ MORE%s', 'coldbox' ),
 							'<span class="screen-reader-text">  ' . get_the_title() . '</span>'
 						);
-					?>
+						?>
 					<span class="fa" aria-hidden="true"></span>
 				</a>
 			</p>
