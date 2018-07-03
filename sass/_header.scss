@@ -299,16 +299,26 @@
 
 }
 
-.close-mobile-menu {
-  padding-top: .4em;
-  padding-bottom: .4em;
-  display: block;
-  font-size: 1.2em;
-  &:focus {
-    position: relative;
-    clip: auto;
-    width: auto;
-    height: auto;
+@media screen and (max-width: 767px) {
+  .close-mobile-menu {
+    display: block;
+    padding-top: .4em;
+    padding-bottom: .4em;
+    border: 0;
+    font-size: 1.2em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    &:focus {
+      position: relative;
+      clip: auto;
+      width: auto;
+      height: auto;
+    }
+  }
+}
+@media screen and (min-width: 768px) {
+  .close-mobile-menu {
+    display: none;
   }
 }
 

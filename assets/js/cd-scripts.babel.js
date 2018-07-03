@@ -241,36 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', stickyHeaderHandler)
   }
 
-  /*   Menu : Submenu handling on focus
-  /* -------------------------------------------------- */
-  const menuItems = document.querySelectorAll(
-    '.menu-item.menu-item-has-children'
-  )
-
-  if (menuItems) {
-    for (const item of menuItems) {
-      if (!item.parentNode.classList.contains('sub-menu')) {
-        const menuLinks = item.querySelectorAll('a')
-        const submenuOnFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl !== -1) {
-            item.classList.add('is-sub-menu-shown')
-          }
-        }
-        const submenuOutFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl) {
-            item.classList.remove('is-sub-menu-shown')
-          }
-        }
-        for (const link of menuLinks) {
-          link.addEventListener('blur', submenuOutFocusHandler)
-        }
-        item.addEventListener('focusin', submenuOnFocusHandler)
-      }
-    }
-  }
-
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   const getMenuPaddingTop = (includesAdminBar = true) => {
@@ -393,6 +363,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     menuOverlay.addEventListener('click', menuOverlayHandler)
     menuCloseButton.addEventListener('click', menuOverlayHandler)
+  }
+
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  const menuItems = document.querySelectorAll(
+    '.menu-item.menu-item-has-children'
+  )
+
+  if (menuItems) {
+    for (const item of menuItems) {
+      if (!item.parentNode.classList.contains('sub-menu')) {
+        const menuLinks = item.querySelectorAll('a')
+        const submenuOnFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl !== -1) {
+            item.classList.add('is-sub-menu-shown')
+          }
+        }
+        const submenuOutFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl === -1) {
+            item.classList.remove('is-sub-menu-shown')
+          }
+        }
+        for (const link of menuLinks) {
+          link.addEventListener('blur', submenuOutFocusHandler)
+        }
+        item.addEventListener('focusin', submenuOnFocusHandler)
+      }
+    }
   }
 
   /*   Pagination : Underline Animate
