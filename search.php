@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main id="main">
+<main id="main" role="main">
 
 	<section class="main-inner">
 
@@ -17,7 +17,7 @@ get_header(); ?>
 		<div class="container-outer">
 			<div class="container">
 
-				<div class="content">
+				<div id="content" class="content">
 
 					<?php $class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
 

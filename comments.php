@@ -18,7 +18,7 @@ if ( have_comments() === false && comments_open() === false ) {
 
 	<?php if ( have_comments() ) : ?>
 
-		<h4 class="comment-head"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h4>
+		<h2 class="comment-head content-box-heading"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h2>
 
 		<?php
 		$commentcount = get_comments(
@@ -91,7 +91,11 @@ if ( have_comments() === false && comments_open() === false ) {
 	<?php
 
 	if ( comments_open() ) {
-		comment_form();
+		comment_form(
+			$args = array(
+				'submit_field'       => '<p class="form-submit">%1$s %2$s<span class="screen-reader-text">' . esc_html__( 'Post comment', 'coldbox' ) . '</span></p>',
+			)
+		);
 	}
 	?>
 

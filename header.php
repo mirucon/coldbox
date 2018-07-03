@@ -22,9 +22,13 @@ else :
 
 <body <?php body_class(); ?>>
 
+<a class="skip-link screen-reader-text" href="#content">
+	<?php esc_html_e( 'Skip to content', 'coldbox' ); ?>
+</a>
+
 <?php endif; ?>
 
-	<header id="header" class="header">
+	<header id="header" class="header" role="banner">
 
 		<div class="header-inner container">
 
@@ -37,9 +41,17 @@ else :
 				<?php endif; ?>
 			</div>
 
-			<div class="search-toggle"><span class="icon search"></span></div>
+			<button class="search-toggle">
+				<span class="icon search" aria-hidden="true"></span>
+				<span class="screen-reader-text"><?php esc_html_e( 'Search Toggle', 'coldbox' ); ?></span>
+			</button>
 			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open"><span class="top"></span><span class="middle"></span><span class="bottom"></span></button>
+				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
+					<span class="top" aria-hidden="true"></span>
+					<span class="middle" aria-hidden="true"></span>
+					<span class="bottom" aria-hidden="true"></span>
+					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'coldbox' ); ?></span>
+				</button>
 			<?php endif; ?>
 
 			<?php cd_header_menu(); ?>

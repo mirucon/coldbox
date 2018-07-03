@@ -417,12 +417,12 @@ input[type=tel], input[type=date], input[type=datetime], input[type=month], inpu
 input[type=time], input[type=datetime-local], input[type=number] {
   display: inline-block;
   -webkit-appearance: none;
-  -moz-apperance: none;
+  -moz-appearance: none;
   max-width: 100%;
   padding: 4px 6px;
   border: 1px solid #ddd;
   background-color: #fefefe;
-  color: #777;
+  color: #717171;
   outline: 0;
   transition: all .2s;
   &:focus { border-color: currentColor; background-color: #fff; }
@@ -704,7 +704,7 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   li {
     position: relative;
   }
-  i {
+  .fa {
     font-size: 1.55em;
   }
   & > li:not(:first-child) { margin-left: .5em; }
@@ -845,15 +845,20 @@ ul.social-links { padding-left: 0; list-style: none; }
   }
 
   .close-toggle {
+    display: block;
     position: fixed;
     top: 12px; right: 12px;
     width: 50px;
     height: 70px;
+    border: 0;
+    background-color: transparent;
     cursor: pointer;
+    text-align: center;
 
     .top {
       position: absolute;
       top: 25px; // Half of the width value
+      right: 0;
       height: 1px;
       width: 100%;
       background-color: #fff;
@@ -862,14 +867,15 @@ ul.social-links { padding-left: 0; list-style: none; }
     .bottom {
       position: absolute;
       top: 25px;
+      right: 0;
       height: 1px;
       width: 100%;
       background-color: #fff;
       transform: rotate(45deg);
     }
     .label {
-      position: relative;
-      bottom: -58%;
+      position: absolute;
+      top: 49px;
       left: calc(50% - 19px);
       color: rgba(255, 255, 255, .86);
       font-size: .7em;
@@ -897,7 +903,7 @@ ul.social-links { padding-left: 0; list-style: none; }
   .modal-search-form {
     animation: fadeOut .26s;
   }
-  .search-form {
+  .modal-search-form .search-form {
     visibility: hidden;
   }
 }
@@ -939,6 +945,22 @@ ul.social-links { padding-left: 0; list-style: none; }
     visibility: visible;
     opacity: 1;
     padding-left: .5em;
+  }
+}
+
+/* Skip link for accessibility purposes */
+.skip-link {
+  background-color: #f1f1f1;
+  color: $link;
+  font-weight: bold;
+  font-size: 1.2em;
+  box-shadow: 0 0 3px rgba(0, 0, 0, .3);
+  z-index: 9999999;
+  &:focus {
+    width: auto;
+    height: auto;
+    padding: .8em 1em;
+    clip: auto;
   }
 }
 

@@ -17,7 +17,7 @@ if ( function_exists( 'cd_is_amp' ) ) {
 
 <?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 
-	<aside id="sidebar-s1" class="sidebar-s1">
+	<aside id="sidebar-s1" class="sidebar-s1" role="complementary">
 
 		<div class="sidebar">
 
