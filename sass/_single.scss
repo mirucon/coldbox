@@ -217,6 +217,14 @@ p.post-btm-tags, p.post-btm-cats {
       color: $link;
     }
   }
+  .post-thumbnail > a:focus {
+    opacity: .8;
+    outline: 4px;
+  }
+  .post-title a:focus {
+    color: $link;
+    outline: 4px;
+  }
 
   @media screen and (max-width: $bpmax-mobile) {
     .related-posts-list {
