@@ -2357,6 +2357,8 @@ ul.page-numbers a.page-numbers:hover {
   cursor: pointer;
   transition: all .4s ease-in;
   -webkit-tap-highlight-color: rgba(68, 68, 68, 0.3);
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 .search-toggle .icon.search {
