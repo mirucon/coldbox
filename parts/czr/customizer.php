@@ -288,8 +288,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize, 'do_not_load_jquery', array(
-					'label'       => esc_html__( 'Do not load jQuery', 'coldbox' ),
-					'description' => esc_html__( 'This can make your website faster, but it might make some plugin\'s scripts requiring jQuery inoperative. Please be careful with this option as many plugins still using it, although the theme\'s scripts are working fine without jQuery since v1.6.0. (This won\'t remove jQuery in the admin pages)', 'coldbox' ),
+					'label'       => esc_html__( 'Enforce not to load jQuery', 'coldbox' ),
+					'description' => esc_html__( 'Since the Coldbox theme\'s scripts do not require jQuery to work, other plugin\'s scripts require jQuery to operate if the site loads jQuery. This option can enforce not to load jQuery, but please be careful as this might make some scripts inoperative. This won\'t remove it from admin pages.', 'coldbox' ),
 					'section'     => 'global',
 					'type'        => 'checkbox',
 				)
