@@ -261,7 +261,7 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 		if ( has_nav_menu( 'header-menu' ) ) {
 
 			$close_button = __( 'Close menu', 'coldbox' );
-			$menu         = '<nav id="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
+			$menu         = '<nav id="header-menu" class="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
 			$menu        .= wp_nav_menu(
 				array(
 					'theme_location' => 'header-menu',

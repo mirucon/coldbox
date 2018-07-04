@@ -327,6 +327,16 @@ p.post-btm-tags, p.post-btm-cats {
     .post-thumbnail { filter: blur(2px); }
     .chevron-left { left: 18px; }
   }
+  .next a:focus {
+    background: rgba(0, 0, 0, .55);
+    .post-thumbnail { filter: blur(2px); }
+    .chevron-right { right: 18px; }
+  }
+  .prev a:focus {
+    background: rgba(0, 0, 0, .55);
+    .post-thumbnail { filter: blur(2px); }
+    .chevron-left { left: 18px; }
+  }
 }
 @media screen and (max-width: $bpmax-mobile) {
   .post-nav ul {

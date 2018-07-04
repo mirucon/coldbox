@@ -110,6 +110,33 @@
 }
 @media screen and (max-width: $bpmax-mobile) { .site-info { padding-right: 20px; padding-left: 20px } }
 
+.header-inner {
+  @media screen and (min-width: 768px) {
+    & > .site-info {
+      order: 1;
+    }
+    & > .search-toggle {
+      order: 2;
+    }
+    & > #header-menu {
+      order: 3;
+    }
+  }
+  @media screen and (max-width: 767px) {
+    & > .site-info {
+      order: 1;
+    }
+    & > .search-toggle {
+      order: 2;
+      nav-index: 2;
+    }
+    & > .header-menu {
+      order: 3;
+      nav-index: 3;
+    }
+  }
+}
+
 
 /*   Header : Navigation Menu
 /* -------------------------------------------------- */
@@ -228,9 +255,7 @@
 
 }
 
-
 @media screen and (max-width: 767px) {
-
   #header-menu {
     position: fixed;
     visibility: hidden;
@@ -247,7 +272,7 @@
     overflow-y: auto;
 
     &.menu-container {
-      a {
+      li a {
         color: #fff;
       }
       &:hover {
@@ -325,7 +350,7 @@
 /*   Header : Header toggles
 /* -------------------------------------------------- */
 .nav-toggle {
-  align-self: stretch; position: relative; right: 0; z-index: 1000; width: 50px; height: auto; border: 0 transparent; background-color: transparent; cursor: pointer; transition: all .4s;
+  align-self: stretch; position: relative; right: 0; z-index: 1004; width: 50px; height: auto; border: 0 transparent; background-color: transparent; cursor: pointer; transition: all .4s;
   -webkit-tap-highlight-color: transparent; -webkit-appearance: none;
   .top, .middle, .bottom {
     position: absolute;
@@ -394,6 +419,7 @@
 /* -------------------------------------------------- */
 @media screen and (max-width: 767px) {
   #header-menu {
+    z-index: 1001;
     opacity: 0;
     visibility: hidden;
   }
