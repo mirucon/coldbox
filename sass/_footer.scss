@@ -14,7 +14,7 @@
   a {
     color: #00d1b2;
     &:hover {
-        color: #009881;
+        color: #aebfbb;
     }
   }
 
@@ -49,6 +49,9 @@
 
   a {
     color: rgba(0, 0, 0, .8);
+    &:hover {
+      color: #009881;
+    }
   }
 }
 
