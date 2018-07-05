@@ -241,36 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', stickyHeaderHandler)
   }
 
-  /*   Menu : Submenu handling on focus
-  /* -------------------------------------------------- */
-  const menuItems = document.querySelectorAll(
-    '.menu-item.menu-item-has-children'
-  )
-
-  if (menuItems) {
-    for (const item of menuItems) {
-      if (!item.parentNode.classList.contains('sub-menu')) {
-        const menuLinks = item.querySelectorAll('a')
-        const submenuOnFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl !== -1) {
-            item.classList.add('is-sub-menu-shown')
-          }
-        }
-        const submenuOutFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl) {
-            item.classList.remove('is-sub-menu-shown')
-          }
-        }
-        for (const link of menuLinks) {
-          link.addEventListener('blur', submenuOutFocusHandler)
-        }
-        item.addEventListener('focusin', submenuOnFocusHandler)
-      }
-    }
-  }
-
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   const getMenuPaddingTop = (includesAdminBar = true) => {
@@ -395,6 +365,36 @@ document.addEventListener('DOMContentLoaded', () => {
     menuCloseButton.addEventListener('click', menuOverlayHandler)
   }
 
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  const menuItems = document.querySelectorAll(
+    '.menu-item.menu-item-has-children'
+  )
+
+  if (menuItems) {
+    for (const item of menuItems) {
+      if (!item.parentNode.classList.contains('sub-menu')) {
+        const menuLinks = item.querySelectorAll('a')
+        const submenuOnFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl !== -1) {
+            item.classList.add('is-sub-menu-shown')
+          }
+        }
+        const submenuOutFocusHandler = () => {
+          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
+          if (isFocusedEl === -1) {
+            item.classList.remove('is-sub-menu-shown')
+          }
+        }
+        for (const link of menuLinks) {
+          link.addEventListener('blur', submenuOutFocusHandler)
+        }
+        item.addEventListener('focusin', submenuOnFocusHandler)
+      }
+    }
+  }
+
   /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
   const pageNumbers = document.querySelector('ul.page-numbers')
@@ -403,11 +403,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (pageNumbers) {
     const currentParent = currentPageNumber.parentNode
+    const actionBarWrapper = document.createElement('li')
+    actionBarWrapper.classList.add('action-bar-wrapper')
     const actionBar = document.createElement('span')
     actionBar.classList.add('action-bar')
     actionBar.style.width = `${currentParent.offsetWidth}px`
     actionBar.style.left = `${currentParent.offsetLeft}px`
-    pageNumbers.insertBefore(actionBar, null)
+    actionBarWrapper.appendChild(actionBar)
+    pageNumbers.insertBefore(actionBarWrapper, null)
     currentPageNumber.style.borderBottom = 0
 
     const pageNumbersElHoverHandler = event => {

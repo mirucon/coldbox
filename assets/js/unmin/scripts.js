@@ -9386,81 +9386,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', stickyHeaderHandler);
   }
 
-  /*   Menu : Submenu handling on focus
-  /* -------------------------------------------------- */
-  var menuItems = document.querySelectorAll('.menu-item.menu-item-has-children');
-
-  if (menuItems) {
-    var _iteratorNormalCompletion5 = true;
-    var _didIteratorError5 = false;
-    var _iteratorError5 = undefined;
-
-    try {
-      var _loop = function _loop() {
-        var item = _step5.value;
-
-        if (!item.parentNode.classList.contains('sub-menu')) {
-          var menuLinks = item.querySelectorAll('a');
-          var submenuOnFocusHandler = function submenuOnFocusHandler() {
-            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
-            if (isFocusedEl !== -1) {
-              item.classList.add('is-sub-menu-shown');
-            }
-          };
-          var submenuOutFocusHandler = function submenuOutFocusHandler() {
-            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
-            if (isFocusedEl) {
-              item.classList.remove('is-sub-menu-shown');
-            }
-          };
-          var _iteratorNormalCompletion6 = true;
-          var _didIteratorError6 = false;
-          var _iteratorError6 = undefined;
-
-          try {
-            for (var _iterator6 = menuLinks[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-              var link = _step6.value;
-
-              link.addEventListener('blur', submenuOutFocusHandler);
-            }
-          } catch (err) {
-            _didIteratorError6 = true;
-            _iteratorError6 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion6 && _iterator6.return) {
-                _iterator6.return();
-              }
-            } finally {
-              if (_didIteratorError6) {
-                throw _iteratorError6;
-              }
-            }
-          }
-
-          item.addEventListener('focusin', submenuOnFocusHandler);
-        }
-      };
-
-      for (var _iterator5 = menuItems[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-        _loop();
-      }
-    } catch (err) {
-      _didIteratorError5 = true;
-      _iteratorError5 = err;
-    } finally {
-      try {
-        if (!_iteratorNormalCompletion5 && _iterator5.return) {
-          _iterator5.return();
-        }
-      } finally {
-        if (_didIteratorError5) {
-          throw _iteratorError5;
-        }
-      }
-    }
-  }
-
   /*   Fix : Padding of the menu on mobile devices
   /* -------------------------------------------------- */
   var getMenuPaddingTop = function getMenuPaddingTop() {
@@ -9584,6 +9509,81 @@ document.addEventListener('DOMContentLoaded', function () {
     menuCloseButton.addEventListener('click', menuOverlayHandler);
   }
 
+  /*   Menu : Submenu handling on focus
+  /* -------------------------------------------------- */
+  var menuItems = document.querySelectorAll('.menu-item.menu-item-has-children');
+
+  if (menuItems) {
+    var _iteratorNormalCompletion5 = true;
+    var _didIteratorError5 = false;
+    var _iteratorError5 = undefined;
+
+    try {
+      var _loop = function _loop() {
+        var item = _step5.value;
+
+        if (!item.parentNode.classList.contains('sub-menu')) {
+          var menuLinks = item.querySelectorAll('a');
+          var submenuOnFocusHandler = function submenuOnFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl !== -1) {
+              item.classList.add('is-sub-menu-shown');
+            }
+          };
+          var submenuOutFocusHandler = function submenuOutFocusHandler() {
+            var isFocusedEl = [].indexOf.call(menuLinks, document.activeElement);
+            if (isFocusedEl === -1) {
+              item.classList.remove('is-sub-menu-shown');
+            }
+          };
+          var _iteratorNormalCompletion6 = true;
+          var _didIteratorError6 = false;
+          var _iteratorError6 = undefined;
+
+          try {
+            for (var _iterator6 = menuLinks[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+              var link = _step6.value;
+
+              link.addEventListener('blur', submenuOutFocusHandler);
+            }
+          } catch (err) {
+            _didIteratorError6 = true;
+            _iteratorError6 = err;
+          } finally {
+            try {
+              if (!_iteratorNormalCompletion6 && _iterator6.return) {
+                _iterator6.return();
+              }
+            } finally {
+              if (_didIteratorError6) {
+                throw _iteratorError6;
+              }
+            }
+          }
+
+          item.addEventListener('focusin', submenuOnFocusHandler);
+        }
+      };
+
+      for (var _iterator5 = menuItems[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError5 = true;
+      _iteratorError5 = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion5 && _iterator5.return) {
+          _iterator5.return();
+        }
+      } finally {
+        if (_didIteratorError5) {
+          throw _iteratorError5;
+        }
+      }
+    }
+  }
+
   /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
   var pageNumbers = document.querySelector('ul.page-numbers');
@@ -9592,11 +9592,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (pageNumbers) {
     var currentParent = currentPageNumber.parentNode;
+    var actionBarWrapper = document.createElement('li');
+    actionBarWrapper.classList.add('action-bar-wrapper');
     var _actionBar = document.createElement('span');
     _actionBar.classList.add('action-bar');
     _actionBar.style.width = currentParent.offsetWidth + 'px';
     _actionBar.style.left = currentParent.offsetLeft + 'px';
-    pageNumbers.insertBefore(_actionBar, null);
+    actionBarWrapper.appendChild(_actionBar);
+    pageNumbers.insertBefore(actionBarWrapper, null);
     currentPageNumber.style.borderBottom = 0;
 
     var pageNumbersElHoverHandler = function pageNumbersElHoverHandler(event) {

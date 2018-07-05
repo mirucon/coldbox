@@ -261,7 +261,7 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 		if ( has_nav_menu( 'header-menu' ) ) {
 
 			$close_button = __( 'Close menu', 'coldbox' );
-			$menu         = '<nav id="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
+			$menu         = '<nav id="header-menu" class="header-menu" role="navigation" aria-label="' . esc_attr__( 'Header Menu', 'coldbox' ) . '">';
 			$menu        .= wp_nav_menu(
 				array(
 					'theme_location' => 'header-menu',
@@ -791,7 +791,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_breadcrumb() {
-		echo '<a href="' . esc_url( home_url() ) . '">' . esc_html_e( 'Home', 'coldbox' ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+		echo '<a href="' . esc_url( home_url() ) . '">' . esc_html__( 'Home', 'coldbox' ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
 			esc_html_e( 'Attachment', 'coldbox' );
 		} elseif ( is_single() ) {

@@ -41,20 +41,28 @@ else :
 				<?php endif; ?>
 			</div>
 
-			<button class="search-toggle">
-				<span class="icon search" aria-hidden="true"></span>
-				<span class="screen-reader-text"><?php esc_html_e( 'Search Toggle', 'coldbox' ); ?></span>
-			</button>
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<button class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
+			<?php
+			$nav_toggle    =
+				'<button id="header-nav-toggle" class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
 					<span class="top" aria-hidden="true"></span>
 					<span class="middle" aria-hidden="true"></span>
 					<span class="bottom" aria-hidden="true"></span>
-					<span class="screen-reader-text"><?php esc_html_e( 'Menu', 'coldbox' ); ?></span>
-				</button>
-			<?php endif; ?>
+					<span class="screen-reader-text">' . esc_html__( 'Menu', 'coldbox' ) . '</span>
+				</button>';
+			$search_toggle =
+				'<button class="search-toggle">
+					<span class="icon search" aria-hidden="true"></span>
+					<span class="screen-reader-text">' . esc_html__( 'Search Toggle', 'coldbox' ) . '</span>
+				</button>';
+				?>
 
 			<?php cd_header_menu(); ?>
+
+			<?php echo $search_toggle; // WPCS: XSS OK. ?>
+
+			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+				<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+			<?php endif; ?>
 
 		</div>
 
