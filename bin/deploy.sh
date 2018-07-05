@@ -18,7 +18,7 @@ if [[ "7.2" != "$TRAVIS_PHP_VERSION" ]]; then
 fi
  
 git clone -b dist --quiet "https://github.com/${TRAVIS_REPO_SLUG}.git" dist
-npm run build
+yarn build
 cd dist
 git add -A
 git commit -m "Update from travis $TRAVIS_COMMIT"
