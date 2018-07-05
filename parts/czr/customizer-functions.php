@@ -423,7 +423,7 @@ function cd_is_theme_credit() {
  * @return string
  */
 function cd_theme_credit_text() {
-	$text = get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>' );
+	$text = get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'mirucon', 'coldbox' ) . '</a>' );
 	return apply_filters( 'cd_theme_credit_text', $text );
 }
 

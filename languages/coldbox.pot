@@ -337,7 +337,7 @@ msgstr ""
 msgid "Next Post"
 msgstr ""
 
-#: ../parts/related-posts.php:110, ../parts/related-posts.php:148
+#: ../parts/related-posts.php:113, ../parts/related-posts.php:151
 msgid "Related Posts"
 msgstr ""
 
@@ -365,8 +365,8 @@ msgstr ""
 msgid "https://miruc.co/"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:426, ../parts/czr/customizer.php:1112
-msgid "Mirucon"
+#: ../parts/czr/customizer-functions.php:426
+msgid "mirucon"
 msgstr ""
 
 #: ../parts/czr/customizer.php:94
@@ -704,6 +704,10 @@ msgstr ""
 msgid "This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name."
 msgstr ""
 
+#: ../parts/czr/customizer.php:1112
+msgid "Mirucon"
+msgstr ""
+
 #: ../parts/czr/customizer.php:1120
 msgid "Edit the Theme Credit"
 msgstr ""
@@ -779,15 +783,15 @@ msgstr ""
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:91, ../parts/czr/social-links.php:206
+#: ../parts/czr/social-links.php:93, ../parts/czr/social-links.php:206
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:97, ../parts/czr/social-links.php:212
+#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:212
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:214
+#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:214
 msgid "Push Notification"
 msgstr ""
 
