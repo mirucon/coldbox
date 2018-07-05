@@ -1,4 +1,4 @@
-# Coldbox v1.5.5
+# Coldbox v1.6.0
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,13 +7,13 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.5.5  
+**Version**: 1.6.0  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
-**Tags**: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
+**Tags**: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
 
 See the demo: [https://coldbox.miruc.co/demo/](https://coldbox.miruc.co/demo/)
 
@@ -26,7 +26,7 @@ Then, go ahead to the Theme Customizer to customize the theme as you like. Secti
 
 See "About Coldbox" page after installing the theme :)
 
-To get an example of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
+To get a bootstrap of child theme, visit the [Coldbox official site](https://coldbox.miruc.co/).
 
 ### Add-on Plugin
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
@@ -45,7 +45,7 @@ Twitter: [@mirucons](https://twitter.com/@mirucons)
 Email: i@miruc.co
 
 ## Copyright
-Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
+Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.  
 The Coldbox theme is distributed under the terms of GNU GPL.
 
 ### FontAwesome License
@@ -80,11 +80,30 @@ URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify
 Created by Gary Jones
 
 ### Smooth Scroll behavior polyfill
-License - MIT
-URL: https://github.com/iamdustan/smoothscroll
+License - MIT  
+URL: https://github.com/iamdustan/smoothscroll  
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.6.0
+
+* Added: Webpack modules
+* Added: New customizer option enforce not to load jQuery
+* Added: New customizer option to only hide the site title/description
+* Improved: Replaced all jQuery codes with native JavaScript
+* Improved: Accessibility items
+  * Added: Corresponding form labels
+  * Added: Skip to content link
+  * Added: Close menu link at the end of menu on mobile
+  * Added: Corresponding ARIA landmark
+  * Added: Fallback text for icons
+  * Fixed: HTML outline
+  * Improved: Color Contrasts
+  * Improved: Styling on :focus
+* Improved: Redesign back to top icon
+* Improved: Archive page design when no results found
+* And includes many small bug fixes and improvements
 
 1.5.5
 

@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function cd_czr_style() {
-	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style' . cd_use_minified_css() . '.css' ), array(), '1.5.5' );
+	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style' . cd_use_minified_css() . '.css' ), array(), '1.6.0' );
 	// phpcs:disable
 	// wp_enqueue_script( 'cd-czr-scripts', get_theme_file_uri( 'assets/js/czr-scripts.js' ), array(), '1.5.1' );
 	// phpcs:enable

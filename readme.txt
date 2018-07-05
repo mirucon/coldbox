@@ -3,10 +3,10 @@ Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.5.5
+Version: 1.6.0
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
+Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
 
 == Description ==
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
@@ -79,6 +79,25 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.6.0 =
+
+* Added: Webpack modules
+* Added: New customizer option enforce not to load jQuery
+* Added: New customizer option to only hide the site title/description
+* Improved: Replaced all jQuery codes with native JavaScript
+* Improved: Accessibility items
+  * Added: Corresponding form labels
+  * Added: Skip to content link
+  * Added: Close menu link at the end of menu on mobile
+  * Added: Corresponding ARIA landmark
+  * Added: Fallback text for icons
+  * Fixed: HTML outline
+  * Improved: Color Contrasts
+  * Improved: Styling on :focus
+* Improved: Redesign back to top icon
+* Improved: Archive page design when no results found
+* And includes many small bug fixes and improvements
 
 = 1.5.5 =
 
