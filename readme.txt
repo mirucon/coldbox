@@ -1,5 +1,5 @@
 === Coldbox ===
-Contributors: mirucon
+Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
@@ -14,7 +14,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 See the demo: https://coldbox.miruc.co/demo/
 To get official child theme, visit https://coldbox.miruc.co/
 
-The theme is available on GitHub: https://github.com/Mirucon/coldbox
+The theme is available on GitHub: https://github.com/mirucon/coldbox
 
 = Add-On Plugin =
 
@@ -67,7 +67,12 @@ License - GPL
 URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
 Created by Gary Jones
 
-All the photos used in the screenshots are all licensed CC0.
+Smooth Scroll behavior polyfill
+License - MIT
+URL: https://github.com/iamdustan/smoothscroll
+Created by Dustan Kasten and Jeremias Menichelli
+
+All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/computer-computer-code-screen-1209641/
 * https://unsplash.com/photos/Azli_kcxRNE
 * https://unsplash.com/photos/z06kuSSlIeY

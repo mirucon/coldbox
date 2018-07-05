@@ -82,6 +82,8 @@ function cd_czr_social_links( $wp_customize ) {
 
 	$social_sites = cd_social_sites();
 
+	$priority = 5;
+
 	foreach ( $social_sites as $social_site => $value ) {
 
 		$label = ucfirst( $social_site );
@@ -106,8 +108,6 @@ function cd_czr_social_links( $wp_customize ) {
 		} elseif ( 'linkedin-square' === $social_site ) {
 			$label = 'LinkedIn';
 		}
-
-		$priority = 5;
 
 		$wp_customize->add_setting(
 			$social_site, array(

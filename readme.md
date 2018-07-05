@@ -79,6 +79,11 @@ License - GPL
 URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php  
 Created by Gary Jones
 
+### Smooth Scroll behavior polyfill
+License - MIT
+URL: https://github.com/iamdustan/smoothscroll
+Created by Dustan Kasten and Jeremias Menichelli
+
 ## Changelog
 
 1.5.5

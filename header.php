@@ -54,7 +54,7 @@ else :
 					<span class="icon search" aria-hidden="true"></span>
 					<span class="screen-reader-text">' . esc_html__( 'Search Toggle', 'coldbox' ) . '</span>
 				</button>';
-				?>
+			?>
 
 			<?php cd_header_menu(); ?>
 
