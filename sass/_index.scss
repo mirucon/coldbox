@@ -247,19 +247,19 @@ ul.page-numbers {
   color: $link;
   font-weight: bold;
 
-  li {
+  li:not(.action-bar-wrapper) {
     display: inline-block;
     position: relative;
     bottom: -2px;
   }
 
-  li > * {
+  li > *:not(.action-bar) {
     display: block;
     padding: 6px 10px;
     border-bottom: 2px solid #ddd;
     transition: border .4s;
   }
-  li > span { color: #444 }
+  li > span:not(.action-bar) { color: #444 }
   span.page-numbers.current { color: #000; border-bottom: 2px solid $link; }
   a.page-numbers:hover { border-bottom: 2px solid $link; }
 }

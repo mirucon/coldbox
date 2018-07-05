@@ -403,11 +403,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (pageNumbers) {
     const currentParent = currentPageNumber.parentNode
+    const actionBarWrapper = document.createElement('li')
+    actionBarWrapper.classList.add('action-bar-wrapper')
     const actionBar = document.createElement('span')
     actionBar.classList.add('action-bar')
     actionBar.style.width = `${currentParent.offsetWidth}px`
     actionBar.style.left = `${currentParent.offsetLeft}px`
-    pageNumbers.insertBefore(actionBar, null)
+    actionBarWrapper.appendChild(actionBar)
+    pageNumbers.insertBefore(actionBarWrapper, null)
     currentPageNumber.style.borderBottom = 0
 
     const pageNumbersElHoverHandler = event => {

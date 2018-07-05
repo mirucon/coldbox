@@ -791,7 +791,7 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 	 * @since 1.0.0
 	 **/
 	function cd_breadcrumb() {
-		echo '<a href="' . esc_url( home_url() ) . '">' . esc_html_e( 'Home', 'coldbox' ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
+		echo '<a href="' . esc_url( home_url() ) . '">' . esc_html__( 'Home', 'coldbox' ) . '</a>&nbsp;&nbsp;&gt;&nbsp;&nbsp;';
 		if ( is_attachment() ) {
 			esc_html_e( 'Attachment', 'coldbox' );
 		} elseif ( is_single() ) {

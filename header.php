@@ -56,13 +56,13 @@ else :
 				</button>';
 				?>
 
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<?php echo $nav_toggle; // WPCS: XSS OK. ?>
-			<?php endif; ?>
-
 			<?php cd_header_menu(); ?>
 
 			<?php echo $search_toggle; // WPCS: XSS OK. ?>
+
+			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+				<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+			<?php endif; ?>
 
 		</div>
 
