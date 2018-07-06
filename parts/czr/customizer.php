@@ -278,23 +278,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		// Whether not to use jQuery.
-		$wp_customize->add_setting(
-			'do_not_load_jquery', array(
-				'default'           => false,
-				'sanitize_callback' => 'cd_sanitize_checkbox',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize, 'do_not_load_jquery', array(
-					'label'       => esc_html__( 'Enforce not to load jQuery', 'coldbox' ),
-					'description' => esc_html__( 'Since the Coldbox theme\'s scripts do not require jQuery to work, other plugin\'s scripts require jQuery to operate if the site loads jQuery. This option can enforce not to load jQuery, but please be careful as this might make some scripts inoperative. This won\'t remove it from admin pages.', 'coldbox' ),
-					'section'     => 'global',
-					'type'        => 'checkbox',
-				)
-			)
-		);
 
 		// Use highlight.js.
 		$wp_customize->add_setting(

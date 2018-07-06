@@ -83,7 +83,6 @@ All the photos used in the screenshots are all licensed under CC0.
 = 1.6.0 =
 
 * Added: Webpack modules
-* Added: New customizer option enforce not to load jQuery
 * Added: New customizer option to only hide the site title/description
 * Improved: Replaced all jQuery codes with native JavaScript
 * Improved: Accessibility items

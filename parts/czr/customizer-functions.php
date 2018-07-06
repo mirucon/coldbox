@@ -63,17 +63,6 @@ function cd_use_minified_js() {
 }
 
 /**
- * Get whether not to load jQuery or not
- *
- * @since 1.6.0
- */
-function cd_do_not_load_jquery() {
-	$do_not_load_jquery = get_theme_mod( 'do_not_load_jquery', true );
-
-	return apply_filters( 'cd_do_not_load_jquery', $do_not_load_jquery );
-}
-
-/**
  * Get whether using of the hljs or not.
  *
  * @since 1.0.0
