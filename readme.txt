@@ -80,6 +80,25 @@ All the photos used in the screenshots are all licensed under CC0.
 
 == Changelog ==
 
+= 1.6.0 =
+
+* Added: Webpack modules
+* Added: New customizer option enforce not to load jQuery
+* Added: New customizer option to only hide the site title/description
+* Improved: Replaced all jQuery codes with native JavaScript
+* Improved: Accessibility items
+  * Added: Corresponding form labels
+  * Added: Skip to content link
+  * Added: Close menu link at the end of menu on mobile
+  * Added: Corresponding ARIA landmark
+  * Added: Fallback text for icons
+  * Fixed: HTML outline
+  * Improved: Color Contrasts
+  * Improved: Styling on :focus
+* Improved: Redesign back to top icon
+* Improved: Archive page design when no results found
+* And includes many small bug fixes and improvements
+
 = 1.5.5 =
 
 * Fixed: Translation issues
