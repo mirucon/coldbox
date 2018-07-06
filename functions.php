@@ -31,12 +31,6 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 
 		// Load Masonry for responsive sidebar.
 		wp_enqueue_script( 'masonry', 'masonry', array(), '', true );
-
-		if ( cd_do_not_load_jquery() ) {
-			if ( ! is_admin() ) {
-				wp_deregister_script( 'jquery' );
-			}
-		}
 	}
 } // End if.
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
