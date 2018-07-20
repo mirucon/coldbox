@@ -423,12 +423,12 @@
     opacity: 0;
     visibility: hidden;
   }
-  .nav-toggle.header-menu.open + #header-menu {
+  #header-menu.open {
     opacity: 1;
     visibility: visible;
     transition: opacity .4s, visibility .4s;
   }
-  .nav-toggle.header-menu.open + #header-menu > #header-nav {
+  #header-menu.open > #header-nav {
     animation: fadeInRight .4s;
     visibility: visible;
   }
