@@ -9470,7 +9470,8 @@ document.addEventListener('DOMContentLoaded', function () {
       navCount++;
       if (navCount % 2 === 1) {
         navToggle.classList.add('open');
-        body.classList.add('header-menu-closed');
+        headerMenu.classList.add('open');
+        body.classList.remove('header-menu-closed');
 
         if (body.classList.contains('admin-bar')) {
           top += wpAdminBar.clientHeight;
@@ -9480,7 +9481,8 @@ document.addEventListener('DOMContentLoaded', function () {
         navToggle.style.height = getMenuPaddingTop(false) + 'px';
       } else if (navCount % 2 === 0) {
         navToggle.classList.remove('open');
-        body.classList.remove('header-menu-closed');
+        headerMenu.classList.remove('open');
+        body.classList.add('header-menu-closed');
 
         navToggle.style.position = 'relative';
         navToggle.style.top = 'auto';
@@ -9491,6 +9493,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var menuOverlayHandler = function menuOverlayHandler() {
       navToggle.classList.remove('open');
+      headerMenu.classList.remove('open');
+      headerMenu.classList.add('closed');
       navToggle.classList.add('closed');
       body.classList.add('header-menu-closed');
 
