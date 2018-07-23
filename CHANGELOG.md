@@ -1,4 +1,11 @@
-### 1.6.0
+### 1.6.1 <small> - July 23rd, 2018</small>
+
+* Added: function to prevent the users from navigating outside of the search modal
+* Fixed: the menu toggle is not working on mobile
+* Fixed: HTML outline
+* Improved: Not to use alt attribute inside of block link
+
+### 1.6.0 <small> - July 6th, 2018</small>
 
 * Added: Webpack modules
 * Added: New customizer option to only hide the site title/description

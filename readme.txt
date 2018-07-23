@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.6.0
+Version: 1.6.1
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -79,6 +79,13 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.6.1 =
+
+* Added: function to prevent the users from navigating outside of the search modal
+* Fixed: the menu toggle is not working on mobile
+* Fixed: HTML outline
+* Improved: Not to use alt attribute inside of block link
 
 = 1.6.0 =
 
