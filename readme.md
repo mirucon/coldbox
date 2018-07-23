@@ -1,4 +1,4 @@
-# Coldbox v1.6.0
+# Coldbox v1.6.1
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.6.0  
+**Version**: 1.6.1  
 **Requires at least**: Version 4.7 or higher  
 **Tested up to**: WordPress 4.9  
 **Requires PHP**: 5.2.4  
@@ -86,6 +86,13 @@ Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
 
+1.6.1
+
+* Added: function to prevent the users from navigating outside of the search modal
+* Fixed: the menu toggle is not working on mobile
+* Fixed: HTML outline
+* Improved: Not to use alt attribute inside of block link
+
 1.6.0
 
 * Added: Webpack modules
@@ -147,17 +154,5 @@ Created by Dustan Kasten and Jeremias Menichelli
 * Updated: Default font family value
 * Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
 * And other small bug fixes and performance improvements.
-
-1.4.1
-
-* Fixed: Default option of a customizer option was not working properly
-* Fixed: Load non-minified CSS/JS when script debug is on
-* Updated: No more SNS Count Cache plugin recommendation
-
-1.4.0
-
-* Improved: Start using a bit modern functions
-* Changed: Template hierarchy; all the CSS/JS files are now at assets folder
-* Fixed: Minor security bug
 
 *See [CHANGELOG.md](/CHANGELOG.md) to see all the releases*
