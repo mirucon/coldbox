@@ -14,7 +14,7 @@
 		<a class="post-link" href="<?php the_permalink(); ?>">
 
 			<div class="post-thumbnail"><figure>
-				<?php cd_middle_thumbnail_template(false); ?>
+				<?php cd_middle_thumbnail_template( false ); ?>
 			</figure></div>
 
 			<div class="post-content">

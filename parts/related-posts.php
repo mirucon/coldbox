@@ -124,7 +124,7 @@ function cd_is_action_related_posts_bottom_hooked() {
 
 						<figure class="post-thumbnail">
 							<a href="<?php the_permalink(); ?>">
-								<?php cd_middle_thumbnail(false); ?>
+								<?php cd_middle_thumbnail( false ); ?>
 							</a>
 						</figure>
 
