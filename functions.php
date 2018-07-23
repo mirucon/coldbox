@@ -308,17 +308,17 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 	 * @since 1.1.6
 	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_standard_thumbnail($alt = true) {
+	function cd_standard_thumbnail( $alt = true ) {
 
-		if (!$alt) {
+		if ( ! $alt ) {
 			$thumbnail_attr = array(
 				'alt' => '',
 			);
-			$noimage_alt = '';
+			$noimage_alt    = '';
 		} else {
 			$thumbnail_attr = array();
-			$noimage_alt = 'noimage';
-			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+			$noimage_alt    = 'noimage';
+			$noimage_alt    = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
 		}
 
 		if ( has_post_thumbnail() ) {
@@ -338,17 +338,17 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 	 * @since 1.1.6
 	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_middle_thumbnail($alt = true) {
+	function cd_middle_thumbnail( $alt = true ) {
 
-		if (!$alt) {
+		if ( ! $alt ) {
 			$thumbnail_attr = array(
 				'alt' => '',
 			);
-			$noimage_alt = '';
+			$noimage_alt    = '';
 		} else {
 			$thumbnail_attr = array();
-			$noimage_alt = 'noimage';
-			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+			$noimage_alt    = 'noimage';
+			$noimage_alt    = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
 		}
 
 		if ( has_post_thumbnail() ) {
@@ -368,17 +368,17 @@ if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 	 * @since 1.2.3
 	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_middle_thumbnail_template($alt = true) {
+	function cd_middle_thumbnail_template( $alt = true ) {
 
-		if (!$alt) {
+		if ( ! $alt ) {
 			$thumbnail_attr = array(
 				'alt' => '',
 			);
-			$noimage_alt = '';
+			$noimage_alt    = '';
 		} else {
 			$thumbnail_attr = array();
-			$noimage_alt = 'noimage';
-			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+			$noimage_alt    = 'noimage';
+			$noimage_alt    = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
 		}
 
 		if ( has_post_thumbnail() ) {
@@ -400,17 +400,17 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 	 * @since 1.2.3
 	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_standard_thumbnail_template($alt = true) {
+	function cd_standard_thumbnail_template( $alt = true ) {
 
-		if (!$alt) {
+		if ( ! $alt ) {
 			$thumbnail_attr = array(
 				'alt' => '',
 			);
-			$noimage_alt = '';
+			$noimage_alt    = '';
 		} else {
 			$thumbnail_attr = array();
-			$noimage_alt = 'noimage';
-			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+			$noimage_alt    = 'noimage';
+			$noimage_alt    = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
 		}
 
 		if ( has_post_thumbnail() ) {
@@ -432,9 +432,9 @@ if ( ! function_exists( 'cd_large_thumbnail_template' ) ) {
 	 * @since 1.5.4
 	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_large_thumbnail_template($alt = true) {
+	function cd_large_thumbnail_template( $alt = true ) {
 
-		if (!$alt) {
+		if ( ! $alt ) {
 			$thumbnail_attr = array(
 				'alt' => '',
 			);
