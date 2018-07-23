@@ -899,8 +899,14 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 
 		if ( cd_is_site_title() ) {
 
+			if ( is_front_page() ) {
+				$title_tagname = 'h1';
+			} else {
+				$title_tagname = 'h2';
+			}
+
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
-			$logo .= '<h1 class="site-title">' . esc_html( get_bloginfo( 'name' ) ) . '</h1>';
+			$logo .= "<${title_tagname} class=\"site-title\">" . esc_html( get_bloginfo( 'name' ) ) . "</${title_tagname}>";
 			$logo .= '</a>';
 
 			echo apply_filters( 'cd_site_title', $logo ); // WPCS: XSS OK.
