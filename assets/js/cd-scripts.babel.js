@@ -112,12 +112,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
   const inPageLinkHandler = event => {
-    event.preventDefault()
     let href = event.target.getAttribute('href') // Get href attr of the link
     let hrefPageUrl = href.split('#')[0]
     let currentUrl = location.href.split('#')[0]
 
     if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
+      event.preventDefault()
       // If the link goes on the same page, run smooth scroll
       href = href.split('#').pop()
       let target
