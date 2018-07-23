@@ -306,13 +306,25 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 	 * Echo the middle size thumbnail.
 	 *
 	 * @since 1.1.6
+	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_standard_thumbnail() {
+	function cd_standard_thumbnail($alt = true) {
+
+		if (!$alt) {
+			$thumbnail_attr = array(
+				'alt' => '',
+			);
+			$noimage_alt = '';
+		} else {
+			$thumbnail_attr = array();
+			$noimage_alt = 'noimage';
+			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+		}
 
 		if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard', $thumbnail_attr );
 		} else {
-			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-standard.png' ) ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-standard.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		}
 		echo apply_filters( 'cd_standard_thumbnail', $thumbnail ); // WPCS: XSS OK.
 	}
@@ -324,13 +336,25 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 	 * Echo the standard size thumbnail.
 	 *
 	 * @since 1.1.6
+	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_middle_thumbnail() {
+	function cd_middle_thumbnail($alt = true) {
+
+		if (!$alt) {
+			$thumbnail_attr = array(
+				'alt' => '',
+			);
+			$noimage_alt = '';
+		} else {
+			$thumbnail_attr = array();
+			$noimage_alt = 'noimage';
+			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+		}
 
 		if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium', $thumbnail_attr );
 		} else {
-			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-medium.png' ) ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-medium.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		}
 		echo apply_filters( 'cd_middle_thumbnail', $thumbnail ); // WPCS: XSS OK.
 	}
@@ -342,13 +366,25 @@ if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 	 * Echo the middle size thumbnail for template.
 	 *
 	 * @since 1.2.3
+	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_middle_thumbnail_template() {
+	function cd_middle_thumbnail_template($alt = true) {
+
+		if (!$alt) {
+			$thumbnail_attr = array(
+				'alt' => '',
+			);
+			$noimage_alt = '';
+		} else {
+			$thumbnail_attr = array();
+			$noimage_alt = 'noimage';
+			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+		}
 
 		if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium' );
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-medium', $thumbnail_attr );
 		} elseif ( cd_index_placefolder_image() ) {
-			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-medium.png' ) ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-medium.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		} else {
 			return;
 		}
@@ -362,13 +398,25 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 	 * Echo the standard size thumbnail for template.
 	 *
 	 * @since 1.2.3
+	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_standard_thumbnail_template() {
+	function cd_standard_thumbnail_template($alt = true) {
+
+		if (!$alt) {
+			$thumbnail_attr = array(
+				'alt' => '',
+			);
+			$noimage_alt = '';
+		} else {
+			$thumbnail_attr = array();
+			$noimage_alt = 'noimage';
+			$noimage_alt = apply_filters( 'cd_noimage_alt_text', $noimage_alt );
+		}
 
 		if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard' );
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'cd-standard', $thumbnail_attr );
 		} elseif ( cd_index_placefolder_image() ) {
-			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-standard.png' ) ) . '" alt="noimage" height="250" width="500">';
+			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-standard.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		} else {
 			return;
 		}
@@ -382,11 +430,20 @@ if ( ! function_exists( 'cd_large_thumbnail_template' ) ) {
 	 * Echo the large size thumbnail for template.
 	 *
 	 * @since 1.5.4
+	 * @param bool $alt Whether or not to include alt string.
 	 */
-	function cd_large_thumbnail_template() {
+	function cd_large_thumbnail_template($alt = true) {
+
+		if (!$alt) {
+			$thumbnail_attr = array(
+				'alt' => '',
+			);
+		} else {
+			$thumbnail_attr = array();
+		}
 
 		if ( has_post_thumbnail() ) {
-			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'large' );
+			$thumbnail = get_the_post_thumbnail( get_the_ID(), 'large', $thumbnail_attr );
 		} else {
 			return;
 		}
