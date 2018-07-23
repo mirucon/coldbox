@@ -70,7 +70,7 @@ else :
 
 </footer>
 
-<div class="modal-search-form" role="application">
+<div class="modal-search-form" id="modal-search-form" role="dialog" aria-modal="true">
 	<?php get_search_form(); ?>
 
 	<button class="close-toggle">

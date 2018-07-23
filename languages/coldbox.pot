@@ -71,48 +71,48 @@ msgstr ""
 msgid "Close menu"
 msgstr ""
 
-#: ../functions.php:523
+#: ../functions.php:580
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:525
+#: ../functions.php:582
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:788
+#: ../functions.php:845
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:790
+#: ../functions.php:847
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:967
+#: ../functions.php:1030
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:969
+#: ../functions.php:1032
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:971
+#: ../functions.php:1034
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:973
+#: ../functions.php:1036
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:973
+#: ../functions.php:1036
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:975
+#: ../functions.php:1038
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:977
+#: ../functions.php:1040
 msgid "Author:"
 msgstr ""
 

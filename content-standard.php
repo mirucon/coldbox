@@ -12,7 +12,7 @@
 	<div class="post-inner">
 
 		<figure class="post-thumbnail">
-			<?php cd_standard_thumbnail(); ?>
+			<?php cd_standard_thumbnail(false); ?>
 		</figure>
 
 		<div class="post-content">

@@ -272,15 +272,31 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   let toggleState = false
   const closeToggle = document.querySelector('.modal-search-form .close-toggle')
+  const modalSearchDialog = document.getElementById('modal-search-form')
 
   if (searchToggle) {
-    // Search toggle
+    // Open Search toggle
     const searchToggleHandler = () => {
       toggleState = true
       if (toggleState) {
         searchToggle.classList.add('open')
         body.classList.add('modal-search-open')
         body.classList.remove('modal-search-closed')
+
+        // Keyboard navigation - prevent from navigating outside of modal
+        if (!modalSearchDialog.querySelector('#modal-search-backdrop')) {
+          const backdrop = document.createElement('div')
+          backdrop.setAttribute('id', 'modal-search-backdrop')
+          backdrop.setAttribute('tabindex', '0')
+          modalSearchDialog.appendChild(backdrop)
+
+          const moveTabFirstEl = () => {
+            document.querySelector('.modal-search-form .search-inner').focus()
+            console.log('focused')
+          }
+          console.log('focused')
+          backdrop.addEventListener('focus', moveTabFirstEl)
+        }
 
         if (body.classList.contains('modal-search-open')) {
           setTimeout(() => {
@@ -298,10 +314,13 @@ document.addEventListener('DOMContentLoaded', () => {
         searchToggle.classList.remove('open')
         body.classList.remove('modal-search-open')
         body.classList.add('modal-search-closed')
+        searchToggle.focus()
+        const backdrop = document.getElementById('modal-search-backdrop')
       }
     }
     closeToggle.addEventListener('click', closeToggleHandler)
 
+    // Close toggle when pressing `esc` key
     document.onkeydown = event => {
       event = event || window.event
       if (event.keyCode === 27) {

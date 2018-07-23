@@ -93,7 +93,9 @@ if ( have_comments() === false && comments_open() === false ) {
 	if ( comments_open() ) {
 		comment_form(
 			array(
-				'submit_field' => '<p class="form-submit">%1$s %2$s<span class="screen-reader-text">' . esc_html__( 'Post comment', 'coldbox' ) . '</span></p>',
+				'submit_field'       => '<p class="form-submit">%1$s %2$s<span class="screen-reader-text">' . esc_html__( 'Post comment', 'coldbox' ) . '</span></p>',
+				'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
+				'title_reply_after'  => '</h2>',
 			)
 		);
 	}
