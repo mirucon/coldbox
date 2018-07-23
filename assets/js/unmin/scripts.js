@@ -9246,12 +9246,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var links = document.querySelectorAll('a[href*="#"]:not(.noscroll)');
 
   var inPageLinkHandler = function inPageLinkHandler(event) {
-    event.preventDefault();
     var href = event.target.getAttribute('href'); // Get href attr of the link
     var hrefPageUrl = href.split('#')[0];
     var currentUrl = location.href.split('#')[0];
 
     if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
+      event.preventDefault();
       // If the link goes on the same page, run smooth scroll
       href = href.split('#').pop();
       var target = void 0;
