@@ -60,10 +60,9 @@
     "czr-style": "npm-run-all czr-style:*",
     "wp:dev": "node_modules/.bin/webpack --mode development",
     "wp:build": "node_modules/.bin/webpack --mode production",
-    "wp:none": "node_modules/.bin/webpack --mode none",
     "wp:watch": "chokidar 'assets/js/*.js' -c 'npm-run-all -p wp:dev'",
     "watch": "npm-run-all -p scss:watch wp:watch",
-    "build": "npm-run-all -p pot wp:build wp:none scss editor-scss page-stylus czr-style md && npm run copy"
+    "build": "npm-run-all -p pot wp:build scss editor-scss page-stylus czr-style md && npm run copy"
   },
   "repository": {
     "type": "git",

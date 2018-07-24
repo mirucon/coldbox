@@ -10,7 +10,6 @@ mkdir -p dist/assets/img/
 mkdir -p dist/assets/html/
 mkdir -p dist/assets/js/
 mkdir -p dist/assets/js/min/
-mkdir -p dist/assets/js/unmin/
 
 cp *.php                    dist/
 cp *.css                    dist/
@@ -24,11 +23,10 @@ cp page-templates/*.php     dist/page-templates/
 cp languages/coldbox.pot    dist/languages/
 
 cp assets/img/*.*           dist/assets/img/
-cp -r assets/fonts/         dist/assets/
+cp -r assets/fonts/         dist/assets/fonts/
 cp assets/js/min/*.js       dist/assets/js/min/
-cp assets/js/unmin/*.js     dist/assets/js/unmin/
 cp assets/js/*.js           dist/assets/js/
-cp assets/css/*.css         dist/assets/css/
+cp assets/css/*.min.css     dist/assets/css/
 cp assets/html/*.html       dist/assets/html/
 
 rm dist/assets/js/czr-scripts.babel.js

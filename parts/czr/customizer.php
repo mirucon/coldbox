@@ -12,7 +12,7 @@
  * @since 1.0.0
  */
 function cd_czr_style() {
-	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style' . cd_use_minified_css() . '.css' ), array(), '1.6.1' );
+	wp_enqueue_style( 'cd-czr-style', get_theme_file_uri( 'assets/css/czr-style.min.css' ), array(), '1.6.1' );
 	// phpcs:disable
 	// wp_enqueue_script( 'cd-czr-scripts', get_theme_file_uri( 'assets/js/czr-scripts.js' ), array(), '1.5.1' );
 	// phpcs:enable
@@ -241,40 +241,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 					'label'   => __( 'Show "Coldbox" button on the admin bar', 'coldbox' ),
 					'section' => 'global',
 					'type'    => 'checkbox',
-				)
-			)
-		);
-		// Whether to use the minified CSS files.
-		$wp_customize->add_setting(
-			'minified_css', array(
-				'default'           => true,
-				'sanitize_callback' => 'cd_sanitize_checkbox',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_control(
-				$wp_customize, 'minified_css', array(
-					'label'       => __( 'Use minified CSS file', 'coldbox' ),
-					'description' => __( 'The theme will load minified CSS files when this is on. Use of minified css files improves loading speed of your website. Highly recommended to use this option unless you directly modify the theme\'s stylesheet (which is not recommended).', 'coldbox' ),
-					'section'     => 'global',
-					'type'        => 'checkbox',
-				)
-			)
-		);
-		// Whether to use the minified JS files.
-		$wp_customize->add_setting(
-			'minified_js', array(
-				'default'           => true,
-				'sanitize_callback' => 'cd_sanitize_checkbox',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_control(
-				$wp_customize, 'minified_js', array(
-					'label'       => __( 'Use minified JS files', 'coldbox' ),
-					'description' => __( 'The theme will load minified JS files when this is on. Use of minified JS files improves loading speed of your website. Highly recommended to use this option unless you directly modify the theme\'s stylesheet (which is not recommended).', 'coldbox' ),
-					'section'     => 'global',
-					'type'        => 'checkbox',
 				)
 			)
 		);
