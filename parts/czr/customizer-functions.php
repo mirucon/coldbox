@@ -41,9 +41,7 @@ function cd_show_theme_button() {
  * @return string Return ".min" for true, empty for false.
  */
 function cd_use_minified_css() {
-	$minified_css = get_theme_mod( 'minified_css', true );
-	$css_min      = $minified_css ? '.min' : '';
-	$css_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $css_min;
+	$css_min = '.min';
 
 	return apply_filters( 'cd_use_minified_css', $css_min );
 }
@@ -55,9 +53,7 @@ function cd_use_minified_css() {
  * @return string Return ".min" for true, empty for false.
  */
 function cd_use_minified_js() {
-	$minified_js = get_theme_mod( 'minified_js', true );
-	$js_min      = $minified_js ? '.min' : '';
-	$js_min      = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : $js_min; // If the SCRIPT_DEBUG is defined and set true, this should return empty value.
+	$js_min = '.min';
 
 	return apply_filters( 'cd_use_minified_js', $js_min );
 }
