@@ -22,11 +22,12 @@ cp parts/czr/*.php          dist/parts/czr/
 cp page-templates/*.php     dist/page-templates/
 cp languages/coldbox.pot    dist/languages/
 
-cp assets/img/*.*           dist/assets/img/
-cp -r assets/fonts/         dist/assets/fonts/
-cp assets/js/min/*.js       dist/assets/js/min/
-cp assets/js/*.js           dist/assets/js/
-cp assets/css/*.min.css     dist/assets/css/
-cp assets/html/*.html       dist/assets/html/
+cp assets/img/*.*               dist/assets/img/
+cp -r assets/fonts/fontawesome  dist/assets/fonts/
+cp -r assets/fonts/icomoon      dist/assets/fonts/
+cp assets/js/min/*.js           dist/assets/js/min/
+cp assets/js/*.js               dist/assets/js/
+cp assets/css/*.min.css         dist/assets/css/
+cp assets/html/*.html           dist/assets/html/
 
 rm dist/assets/js/czr-scripts.babel.js
