@@ -15,15 +15,15 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 	 **/
 	function cd_scripts() {
 
-		wp_enqueue_style( 'FontAwesome', get_theme_file_uri( 'assets/fonts/fontawesome/css/font-awesome.min.css' ) );
-		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700' );
+		wp_enqueue_style( 'FontAwesome', get_theme_file_uri( 'assets/fonts/fontawesome/css/font-awesome.min.css' ), array(), '4.6.3' );
+		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700', array(), '1.0.0' );
 		wp_enqueue_script( 'comment-reply' );
 
 		wp_enqueue_style( 'cd-style', get_theme_file_uri( 'assets/css/style.min.css' ), array(), CD_VER );
-		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/min/scripts.js' ), array(), CD_VER );
+		wp_enqueue_script( 'cd-script', get_theme_file_uri( 'assets/js/min/scripts.js' ), array(), CD_VER, false );
 
 		// Load Masonry for responsive sidebar.
-		wp_enqueue_script( 'masonry', 'masonry', array(), '', true );
+		wp_enqueue_script( 'masonry', 'masonry', array(), '3.3.2', true );
 	}
 } // End if.
 add_action( 'wp_enqueue_scripts', 'cd_scripts' );
@@ -41,17 +41,17 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 
 			if ( cd_use_normal_hljs() && ! cd_use_web_hljs() ) {
 				if ( cd_use_concat_js() ) { // Normal hljs with concat JS.
-					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/min/scripts+hljs.js' ), array(), CD_VER );
+					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/min/scripts+hljs.js' ), array(), CD_VER, false );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs.js' ), array(), '9.12.0' );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs.js' ), array(), '9.12.0', false );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() || cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_concat_js() ) { // Web hljs with concat JS.
-					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/min/scripts+hljs_web.js' ), array(), CD_VER );
+					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/min/scripts+hljs_web.js' ), array(), CD_VER, false );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs_web.js' ), array(), '9.12.0' );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs_web.js' ), array(), '9.12.0', false );
 				}
 			}
 		}

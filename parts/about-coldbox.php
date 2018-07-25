@@ -33,7 +33,7 @@ function cd_enqueue_welcome_page_style( $hook ) {
 	if ( 'appearance_page_welcome' !== $hook ) {
 		return;
 	}
-	wp_enqueue_style( 'cd-welcome-page-style', get_theme_file_uri( 'assets/css/page-style.min.css' ) );
+	wp_enqueue_style( 'cd-welcome-page-style', get_theme_file_uri( 'assets/css/page-style.min.css' ), array(), CD_VER );
 }
 add_action( 'admin_enqueue_scripts', 'cd_enqueue_welcome_page_style' );
 

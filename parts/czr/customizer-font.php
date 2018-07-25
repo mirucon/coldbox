@@ -17,28 +17,28 @@ if ( ! function_exists( 'cd_customizer_font' ) ) {
 		$font = get_theme_mod( 'global_font', 'sourcesanspro' );
 
 		if ( 'opensans' === $font ) {
-			wp_enqueue_style( 'OpenSans', '//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i' );
+			wp_enqueue_style( 'OpenSans', '//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i', array(), '1.0.0' );
 		} elseif ( 'lato' === $font ) {
 			wp_deregister_style( 'GoogleFonts' );
-			wp_enqueue_style( 'Lato', '//fonts.googleapis.com/css?family=Lato:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'Lato', '//fonts.googleapis.com/css?family=Lato:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'roboto' === $font ) {
-			wp_enqueue_style( 'Roboto', '//fonts.googleapis.com/css?family=Roboto:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'Roboto', '//fonts.googleapis.com/css?family=Roboto:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'robotocondensed' === $font ) {
-			wp_enqueue_style( 'RobotoCondensed', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'RobotoCondensed', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'ubuntu' === $font ) {
-			wp_enqueue_style( 'Ubuntu', '//fonts.googleapis.com/css?family=Ubuntu:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'Ubuntu', '//fonts.googleapis.com/css?family=Ubuntu:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'raleway' === $font ) {
-			wp_enqueue_style( 'Raleway', '//fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'Raleway', '//fonts.googleapis.com/css?family=Raleway:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'sourcesanspro' === $font ) {
-			wp_enqueue_style( 'SourceSansPro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'SourceSansPro', '//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'josefinsans' === $font ) {
-			wp_enqueue_style( 'JosefinSans', '//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'JosefinSans', '//fonts.googleapis.com/css?family=Josefin+Sans:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'ptsans' === $font ) {
-			wp_enqueue_style( 'PTSans', '//fonts.googleapis.com/css?family=PT+Sans:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'PTSans', '//fonts.googleapis.com/css?family=PT+Sans:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'lora' === $font ) {
-			wp_enqueue_style( 'Lora', '//fonts.googleapis.com/css?family=Lora:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'Lora', '//fonts.googleapis.com/css?family=Lora:300,400,400i,600,600i,700', array(), '1.0.0' );
 		} elseif ( 'robotoslab' === $font ) {
-			wp_enqueue_style( 'RobotoSlab', '//fonts.googleapis.com/css?family=Roboto+Slab:300,400,400i,600,600i,700' );
+			wp_enqueue_style( 'RobotoSlab', '//fonts.googleapis.com/css?family=Roboto+Slab:300,400,400i,600,600i,700', array(), '1.0.0' );
 		}
 
 	}
