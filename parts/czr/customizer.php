@@ -47,6 +47,9 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 	 */
 	function cd_customize_register( $wp_customize ) {
 
+		// Load validator functions.
+		require_once get_theme_file_path( 'parts/czr/customizer-validators.php' );
+
 		/**
 		 * Define the sanitization function for checkboxes.
 		 *
@@ -510,6 +513,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'grid_columns', array(
 				'default'           => 2,
 				'sanitize_callback' => 'absint',
+				'validate_callback' => 'cd_validator_grid_columns',
 			)
 		);
 		$wp_customize->add_control(
@@ -527,6 +531,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 			'grid_columns_mobile', array(
 				'default'           => 1,
 				'sanitize_callback' => 'absint',
+				'validate_callback' => 'cd_validator_grid_columns',
 			)
 		);
 		$wp_customize->add_control(
