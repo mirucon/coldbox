@@ -711,34 +711,38 @@ msgid "Secondary Color"
 msgstr ""
 
 #: ../parts/czr/customizer.php:1153
-msgid "Title Box Background Color"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1170
-msgid "Content Wrapper Background Color"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1187
-msgid "Sidebar Wrapper Background Color"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1204
 msgid "Header Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1221
+#: ../parts/czr/customizer.php:1170
+msgid "Header Menu Text Color for Mobile"
+msgstr ""
+
+#: ../parts/czr/customizer.php:1186
 msgid "Header Menu Background Color for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1237
-msgid "Footer Background Color"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1254
+#: ../parts/czr/customizer.php:1203
 msgid "Footer Menu Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1280
+#: ../parts/czr/customizer.php:1220
+msgid "Footer Background Color"
+msgstr ""
+
+#: ../parts/czr/customizer.php:1238
+msgid "Title Box Background Color"
+msgstr ""
+
+#: ../parts/czr/customizer.php:1255
+msgid "Content Wrapper Background Color"
+msgstr ""
+
+#: ../parts/czr/customizer.php:1272
+msgid "Sidebar Wrapper Background Color"
+msgstr ""
+
+#: ../parts/czr/customizer.php:1298
 msgid "Show the social links on the author box"
 msgstr ""
 
