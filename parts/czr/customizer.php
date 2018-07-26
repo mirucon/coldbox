@@ -1106,7 +1106,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 * -------------------------------------------------------------------------
 		 */
 
-		// Link Color.
+		// Primary Color, used as link color etc.
 		$wp_customize->add_setting(
 			'link_color', array(
 				'default'           => '#00619f',
@@ -1123,7 +1123,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		// Hover Link Color.
+		// Secondary color, used as link hover color etc.
 		$wp_customize->add_setting(
 			'link_hover_color', array(
 				'default'           => '#2e4453',
@@ -1140,6 +1140,91 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Header Background Color.
+		$wp_customize->add_setting(
+			'header_color', array(
+				'default'           => '#ffffff',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'header_color', array(
+					'label'    => __( 'Header Background Color', 'coldbox' ),
+					'section'  => 'colors',
+					'settings' => 'header_color',
+					'priority' => 30,
+				)
+			)
+		);
+		// Header Menu Color for Mobile devices.
+		$wp_customize->add_setting(
+			'header_menu_mobile', array(
+				'default'           => '#ffffff',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'header_menu_mobile', array(
+					'label'    => __( 'Header Menu Text Color for Mobile', 'coldbox' ),
+					'section'  => 'colors',
+					'priority' => 50,
+				)
+			)
+		);
+		// Header Menu Background Color for Mobile devices.
+		$wp_customize->add_setting(
+			'header_menu_background', array(
+				'default'           => '#51575d',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'header_menu_background', array(
+					'label'    => __( 'Header Menu Background Color for Mobile', 'coldbox' ),
+					'section'  => 'colors',
+					'priority' => 51,
+				)
+			)
+		);
+
+		// Footer Menu Background Color.
+		$wp_customize->add_setting(
+			'footer_menu_color', array(
+				'default'           => '#dddddd',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'footer_menu_color', array(
+					'label'    => __( 'Footer Menu Background Color', 'coldbox' ),
+					'section'  => 'colors',
+					'settings' => 'footer_color',
+					'priority' => 100,
+				)
+			)
+		);
+		// Footer Background Color.
+		$wp_customize->add_setting(
+			'footer_color', array(
+				'default'           => '#44463b',
+				'sanitize_callback' => 'sanitize_hex_color',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Color_Control(
+				$wp_customize, 'footer_color', array(
+					'label'    => __( 'Footer Background Color', 'coldbox' ),
+					'section'  => 'colors',
+					'settings' => 'footer_color',
+					'priority' => 105,
+				)
+			)
+		);
+
 		// Title Box Color.
 		$wp_customize->add_setting(
 			'title_box_color', array(
@@ -1191,75 +1276,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		// Header Background Color.
-		$wp_customize->add_setting(
-			'header_color', array(
-				'default'           => '#ffffff',
-				'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize, 'header_color', array(
-					'label'    => __( 'Header Background Color', 'coldbox' ),
-					'section'  => 'colors',
-					'settings' => 'header_color',
-					'priority' => 30,
-				)
-			)
-		);
-		// Header Menu Background Color for Mobile devices.
-		$wp_customize->add_setting(
-			'header_menu_background', array(
-				'default'           => '#51575d',
-				'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize, 'header_menu_background', array(
-					'label'    => __( 'Header Menu Background Color for Mobile', 'coldbox' ),
-					'section'  => 'colors',
-					'priority' => 51,
-				)
-			)
-		);
-		// Footer Background Color.
-		$wp_customize->add_setting(
-			'footer_color', array(
-				'default'           => '#44463b',
-				'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize, 'footer_color', array(
-					'label'    => __( 'Footer Background Color', 'coldbox' ),
-					'section'  => 'colors',
-					'settings' => 'footer_color',
-					'priority' => 100,
-				)
-			)
-		);
-		// Footer Menu Background Color.
-		$wp_customize->add_setting(
-			'footer_menu_color', array(
-				'default'           => '#dddddd',
-				'sanitize_callback' => 'sanitize_hex_color',
-			)
-		);
-		$wp_customize->add_control(
-			new WP_Customize_Color_Control(
-				$wp_customize, 'footer_menu_color', array(
-					'label'    => __( 'Footer Menu Background Color', 'coldbox' ),
-					'section'  => 'colors',
-					'settings' => 'footer_color',
-					'priority' => 100,
-				)
-			)
-		);
 		$wp_customize->get_setting( 'header_textcolor' )->default   = '#444444';
-		$wp_customize->get_control( 'header_textcolor' )->priority  = 50;
+		$wp_customize->get_control( 'header_textcolor' )->priority  = 25;
 		$wp_customize->get_control( 'background_color' )->priority  = 22;
 		$wp_customize->get_setting( 'background_color' )->transport = 'postMessage';
 

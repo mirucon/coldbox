@@ -88,10 +88,16 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$czr_style     .= "body .site-info { padding-top:${header_padding}px; padding-bottom:${header_padding}px }";
 		}
 
-		// Use narrower padding.
+		// Whether to use narrower padding.
 		if ( ! get_theme_mod( 'use_narrower_padding', true ) ) {
 			$header_padding = absint( get_theme_mod( 'header_padding', '30' ) );
 			$czr_style     .= "body.header-row .sticky .site-info { padding-top:${header_padding}px; padding-bottom:${header_padding}px }";
+		}
+
+		// Custom Logo Sizing.
+		if ( get_theme_mod( 'logo_width', '230' ) !== '230' ) {
+			$logo_width = esc_html( get_theme_mod( 'logo_width' ) );
+			$czr_style .= ".site-info img{max-width:${logo_width}px}";
 		}
 
 		/*
@@ -115,30 +121,6 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = esc_html( get_theme_mod( 'link_hover_color' ) );
 			$czr_style  .= ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover, .widget .textwidget a:hover { color: $color_hover; }";
-		}
-
-		// Title Box Color.
-		if ( get_theme_mod( 'title_box_color', '#f8f8f8' ) !== '#f8f8f8' ) {
-			$color_title_box = esc_html( get_theme_mod( 'title_box_color' ) );
-			$czr_style      .= ".title-box { background-color: $color_title_box; }";
-		}
-
-		// Content Wrapper Color.
-		if ( get_theme_mod( 'content_wrapper_color', '#fafafa' ) !== '#fafafa' ) {
-			$color_content_wrapper = esc_html( get_theme_mod( 'content_wrapper_color' ) );
-			$czr_style            .= ".content-inner { background-color: $color_content_wrapper; }";
-		}
-
-		// Sidebar Wrapper Color.
-		if ( get_theme_mod( 'sidebar_wrapper_color', '#fafafa' ) !== '#fafafa' ) {
-			$color_sidebar_wrapper = esc_html( get_theme_mod( 'sidebar_wrapper_color' ) );
-			$czr_style            .= ".sidebar { background-color: $color_sidebar_wrapper; }";
-		}
-
-		// Header Background Color.
-		if ( get_theme_mod( 'header_color', '#ffffff' ) !== '#ffffff' ) {
-			$color_header = esc_html( get_theme_mod( 'header_color' ) );
-			$czr_style   .= "#header { background-color: $color_header; } ";
 		}
 
 		// Header text color.
@@ -165,16 +147,32 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			:root body .search-toggle span.icon.search::before,.nav-toggle .bottom, .nav-toggle .middle, .nav-toggle .top{background-color:#${header_textcolor}}";
 		}
 
+		// Header Background Color.
+		if ( get_theme_mod( 'header_color', '#ffffff' ) !== '#ffffff' ) {
+			$color_header = esc_html( get_theme_mod( 'header_color' ) );
+			$czr_style   .= "#header { background-color: $color_header; } ";
+		}
+
+		// Header menu text color for mobile.
+		if ( get_theme_mod( 'header_menu_mobile', '#ffffff' ) !== '#ffffff' ) {
+			$header_text_color = esc_html( get_theme_mod( 'header_menu_mobile' ) );
+			$czr_style        .= "@media screen and (max-width: 767px) {
+				body #header-nav.menu-container li a {
+			        color: ${header_text_color};
+		        }
+			}";
+		}
+
 		// Header Menu Background Color for Mobile devices.
 		if ( get_theme_mod( 'header_menu_background', '#51575d' ) !== '#51575d' ) {
 			$header_menu_background = esc_html( get_theme_mod( 'header_menu_background' ) );
 			$czr_style             .= "@media screen and (max-width: 767px){#header-nav{background-color:${header_menu_background}}}";
 		}
 
-		// Custom Logo Sizing.
-		if ( get_theme_mod( 'logo_width', '230' ) !== '230' ) {
-			$logo_width = esc_html( get_theme_mod( 'logo_width' ) );
-			$czr_style .= ".site-info img{max-width:${logo_width}px}";
+		// Footer Menu Background Color.
+		if ( get_theme_mod( 'footer_menu_color', '#dddddd' ) !== '#dddddd' ) {
+			$color_footer_menu = esc_html( get_theme_mod( 'footer_menu_color' ) );
+			$czr_style        .= ".footer-menu { background-color: $color_footer_menu; } ";
 		}
 
 		// Footer Background Color.
@@ -183,10 +181,22 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$czr_style   .= ".footer-bottom { background-color: $color_footer; } ";
 		}
 
-		// Footer Background Color.
-		if ( get_theme_mod( 'footer_menu_color', '#dddddd' ) !== '#dddddd' ) {
-			$color_footer_menu = esc_html( get_theme_mod( 'footer_menu_color' ) );
-			$czr_style        .= ".footer-menu { background-color: $color_footer_menu; } ";
+		// Title Box Color.
+		if ( get_theme_mod( 'title_box_color', '#f8f8f8' ) !== '#f8f8f8' ) {
+			$color_title_box = esc_html( get_theme_mod( 'title_box_color' ) );
+			$czr_style      .= ".title-box { background-color: $color_title_box; }";
+		}
+
+		// Content Wrapper Color.
+		if ( get_theme_mod( 'content_wrapper_color', '#fafafa' ) !== '#fafafa' ) {
+			$color_content_wrapper = esc_html( get_theme_mod( 'content_wrapper_color' ) );
+			$czr_style            .= ".content-inner { background-color: $color_content_wrapper; }";
+		}
+
+		// Sidebar Wrapper Color.
+		if ( get_theme_mod( 'sidebar_wrapper_color', '#fafafa' ) !== '#fafafa' ) {
+			$color_sidebar_wrapper = esc_html( get_theme_mod( 'sidebar_wrapper_color' ) );
+			$czr_style            .= ".sidebar { background-color: $color_sidebar_wrapper; }";
 		}
 
 		$czr_style = cd_css_minify( $czr_style );
