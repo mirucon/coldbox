@@ -7,7 +7,7 @@
  */
 
 /**
- * Wrapper function of validator for grid columns.
+ * Validator function for grid columns.
  *
  * @param array $validity Validity.
  * @param int   $value Number of columns to be validated.

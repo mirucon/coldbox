@@ -50,39 +50,8 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		// Load validator functions.
 		require_once get_theme_file_path( 'parts/czr/customizer-validators.php' );
 
-		/**
-		 * Define the sanitization function for checkboxes.
-		 *
-		 * @since 1.0.0
-		 * @param bool $checked The strings that will be checked.
-		 * @return bool
-		 */
-		function cd_sanitize_checkbox( $checked ) {
-			return ( ( isset( $checked ) && true === $checked ) ? true : false );
-		}
-		/**
-		 * Define the sanitization function for radio button / select boxes.
-		 *
-		 * @since 1.0.0
-		 * @param string $input The strings that will be checked.
-		 * @param string $setting The possible choices.
-		 * @return string
-		 */
-		function cd_sanitize_radio( $input, $setting ) {
-			$input   = sanitize_key( $input );
-			$choices = $setting->manager->get_control( $setting->id )->choices;
-			return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
-		}
-		/**
-		 * Define the sanitization function for text.
-		 *
-		 * @since 1.0.0
-		 * @param string $text The strings that will be checked.
-		 * @return string
-		 */
-		function cd_sanitize_text( $text ) {
-			return sanitize_text_field( $text );
-		}
+		// Load sanitization functions.
+		require_once get_theme_file_path( 'parts/czr/customizer-sanitizers.php' );
 
 		// Load the file to use custom content.
 		require_once get_theme_file_path( 'parts/czr/class-cd-custom-content.php' );
@@ -178,7 +147,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_setting(
 			'custom_font', array(
 				'default'           => '[font], -apple-system, BlinkMacSystemFont, \'Helvetica Neue\', Arial, sans-serif',
-				'sanitize_callback' => 'cd_sanitize_text',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
@@ -566,7 +535,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_setting(
 			'excerpt_ending', array(
 				'default'           => '...',
-				'sanitize_callback' => 'cd_sanitize_text',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
@@ -659,7 +628,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 		$wp_customize->add_setting(
 			'single_content', array(
-				'sanitize_callback' => 'cd_sanitize_text',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
@@ -707,7 +676,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		*/
 		$wp_customize->add_setting(
 			'single_meta', array(
-				'sanitize_callback' => 'cd_sanitize_text',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
@@ -884,7 +853,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		 */
 		$wp_customize->add_setting(
 			'single_related', array(
-				'sanitize_callback' => 'cd_sanitize_text',
+				'sanitize_callback' => 'sanitize_text_field',
 			)
 		);
 		$wp_customize->add_control(
