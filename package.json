@@ -58,9 +58,9 @@
     "page-stylus": "npm-run-all page-stylus:* page-stylus-dev:*",
     "czr-style:autoprefixer": "postcss --no-map assets/css/czr-style.css --config postcss.config.js -o assets/css/czr-style.min.css",
     "czr-style": "npm-run-all czr-style:*",
-    "wp:dev": "node_modules/.bin/webpack --mode development",
-    "wp:build": "node_modules/.bin/webpack --mode production",
-    "wp:watch": "chokidar 'assets/js/*.js' -c 'npm-run-all -p wp:dev'",
+    "wp:dev": "webpack --mode development",
+    "wp:build": "webpack --mode production",
+    "wp:watch": "webpack --mode development -w",
     "watch": "npm-run-all -p scss:watch wp:watch",
     "build": "npm-run-all -p pot wp:build scss editor-scss page-stylus czr-style md && npm run copy"
   },
