@@ -43,7 +43,7 @@ else :
 
 			<?php
 			$nav_toggle    =
-				'<button id="header-nav-toggle" class="nav-toggle header-menu" on="tap:amp-sidebar.open" aria-hidden="true">
+				'<button id="header-nav-toggle" class="nav-toggle header-menu" on="tap:amp-sidebar.open">
 					<span class="top" aria-hidden="true"></span>
 					<span class="middle" aria-hidden="true"></span>
 					<span class="bottom" aria-hidden="true"></span>
@@ -56,13 +56,28 @@ else :
 				</button>';
 			?>
 
-			<?php cd_header_menu(); ?>
+			<?php if ( wp_is_mobile() ) : ?>
 
-			<?php echo $search_toggle; // WPCS: XSS OK. ?>
+				<?php echo $search_toggle; // WPCS: XSS OK. ?>
 
-			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-				<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+					<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+				<?php endif; ?>
+
+				<?php cd_header_menu(); ?>
+
+			<?php else : ?>
+
+				<?php cd_header_menu(); ?>
+
+				<?php echo $search_toggle; // WPCS: XSS OK. ?>
+
+				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+					<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+				<?php endif; ?>
+
 			<?php endif; ?>
+
 
 		</div>
 
