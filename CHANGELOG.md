@@ -1,3 +1,11 @@
+### 1.6.2 <small> - August 1st, 2018</small>
+
+* Added: New customizer option to change header menu color for mobile
+* Added: Customizer validator to prevent PHP warnings
+* Fixed: Aria-hidden attribute of nav toggle
+* Fixed: Smooth scroll script intercepts any link with inline target
+* Removed: Customizer option to use un-minified files
+
 ### 1.6.1 <small> - July 23rd, 2018</small>
 
 * Added: function to prevent the users from navigating outside of the search modal
