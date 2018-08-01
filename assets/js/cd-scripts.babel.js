@@ -292,9 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
           const moveTabFirstEl = () => {
             document.querySelector('.modal-search-form .search-inner').focus()
-            console.log('focused')
           }
-          console.log('focused')
           backdrop.addEventListener('focus', moveTabFirstEl)
         }
 
@@ -315,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
         body.classList.remove('modal-search-open')
         body.classList.add('modal-search-closed')
         searchToggle.focus()
-        const backdrop = document.getElementById('modal-search-backdrop')
       }
     }
     closeToggle.addEventListener('click', closeToggleHandler)
@@ -336,56 +333,70 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
-  let navCount = 0
-  const navToggle = document.querySelector('.nav-toggle.header-menu')
-  const menuCloseButton = document.getElementById('close-mobile-menu')
+  {
+    let navCount = 0
+    const navToggle = document.querySelector('.nav-toggle.header-menu')
+    const menuCloseButton = document.getElementById('close-mobile-menu')
 
-  if (navToggle) {
-    const menuOverlay = document.createElement('div')
-    menuOverlay.classList.add('menu-overlay')
-    if (headerMenu) {
-      headerMenu.insertBefore(menuOverlay, null)
-    }
+    if (navToggle) {
+      const menuOverlay = document.createElement('div')
+      menuOverlay.classList.add('menu-overlay')
+      if (headerMenu) {
+        headerMenu.insertBefore(menuOverlay, null)
+      }
 
-    const navToggleHandler = () => {
-      let top = 0
-      navCount++
-      if (navCount % 2 === 1) {
-        navToggle.classList.add('open')
-        headerMenu.classList.add('open')
-        body.classList.remove('header-menu-closed')
+      const navToggleHandler = () => {
+        let top = 0
+        navCount++
+        if (navCount % 2 === 1) {
+          // Opens menu.
+          navToggle.classList.add('open')
+          headerMenu.classList.add('open')
+          body.classList.remove('header-menu-closed')
 
-        if (body.classList.contains('admin-bar')) {
-          top += wpAdminBar.clientHeight
+          if (body.classList.contains('admin-bar')) {
+            top += wpAdminBar.clientHeight
+          }
+          navToggle.style.position = 'fixed'
+          navToggle.style.top = `${top}px`
+          navToggle.style.height = `${getMenuPaddingTop(false)}px`
+        } else if (navCount % 2 === 0) {
+          navToggle.classList.remove('open')
+          headerMenu.classList.remove('open')
+          body.classList.add('header-menu-closed')
+
+          navToggle.style.position = 'relative'
+          navToggle.style.top = 'auto'
+          navToggle.style.height = 'auto'
         }
-        navToggle.style.position = 'fixed'
-        navToggle.style.top = `${top}px`
-        navToggle.style.height = `${getMenuPaddingTop(false)}px`
-      } else if (navCount % 2 === 0) {
+      }
+      navToggle.addEventListener('click', navToggleHandler)
+
+      const menuOverlayHandler = () => {
         navToggle.classList.remove('open')
         headerMenu.classList.remove('open')
+        headerMenu.classList.add('closed')
+        navToggle.classList.add('closed')
         body.classList.add('header-menu-closed')
 
         navToggle.style.position = 'relative'
         navToggle.style.top = 'auto'
         navToggle.style.height = 'auto'
       }
+      menuOverlay.addEventListener('click', menuOverlayHandler)
+      menuCloseButton.addEventListener('click', menuOverlayHandler)
     }
-    navToggle.addEventListener('click', navToggleHandler)
 
-    const menuOverlayHandler = () => {
-      navToggle.classList.remove('open')
-      headerMenu.classList.remove('open')
-      headerMenu.classList.add('closed')
-      navToggle.classList.add('closed')
-      body.classList.add('header-menu-closed')
-
-      navToggle.style.position = 'relative'
-      navToggle.style.top = 'auto'
-      navToggle.style.height = 'auto'
+    const handleAriaAttribute = () => {
+      if (window.matchMedia('(min-width: 768px)').matches) {
+        navToggle.setAttribute('aria-hidden', 'true')
+        console.log('true')
+      } else {
+        navToggle.removeAttribute('aria-hidden')
+      }
     }
-    menuOverlay.addEventListener('click', menuOverlayHandler)
-    menuCloseButton.addEventListener('click', menuOverlayHandler)
+    window.addEventListener('resize', handleAriaAttribute)
+    handleAriaAttribute()
   }
 
   /*   Menu : Submenu handling on focus
