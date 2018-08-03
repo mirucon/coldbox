@@ -390,13 +390,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const handleAriaAttribute = () => {
       if (window.matchMedia('(min-width: 768px)').matches) {
         navToggle.setAttribute('aria-hidden', 'true')
-        console.log('true')
       } else {
         navToggle.removeAttribute('aria-hidden')
       }
     }
     window.addEventListener('resize', handleAriaAttribute)
     handleAriaAttribute()
+
+    const setElementOrder = () => {
+      const items = document.querySelector('#header > .header-inner')
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        if (items.childNodes[3].id === 'header-menu') {
+          items.insertBefore(
+            items.childNodes[3],
+            items.childNodes[items.childNodes.length - 1]
+          )
+        }
+      } else {
+        const possibleKeys = [3, 4, 5, 6]
+        for (const key of possibleKeys) {
+          if (
+            items.childNodes[key].classList &&
+            items.childNodes[key].classList.contains('search-toggle')
+          ) {
+            items.insertBefore(
+              items.childNodes[key],
+              items.childNodes[items.childNodes.length - 1]
+            )
+          }
+        }
+      }
+    }
+    setElementOrder()
+    window.addEventListener('resize', setElementOrder)
   }
 
   /*   Menu : Submenu handling on focus
