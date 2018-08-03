@@ -11,234 +11,244 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Remove link shadows on images link
   /* -------------------------------------------------- */
-  const images = document.querySelectorAll('.entry img')
-  if (images) {
-    for (const image of images) {
-      const parent = image.parentNode
-      if (parent.tagName === 'A') {
-        parent.style.boxShadow = 'none'
+  {
+    const images = document.querySelectorAll('.entry img')
+    if (images) {
+      for (const image of images) {
+        const parent = image.parentNode
+        if (parent.tagName === 'A') {
+          parent.style.boxShadow = 'none'
+        }
       }
     }
   }
 
   /*   Masonry responsive widgets
   /* -------------------------------------------------- */
-  const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
-  const widgets = document.querySelectorAll('.widget')
+  {
+    const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
+    const widgets = document.querySelectorAll('.widget')
 
-  if (widgets) {
-    const masonryHandler = () => {
-      if (
-        window.matchMedia('(max-width: 980px) and (min-width: 641px)')
-          .matches ||
-        document.body.classList.contains('bottom-sidebar-s1')
-      ) {
-        /* eslint-disable-next-line no-unused-vars, no-undef */
-        const msnry = new Masonry(sidebarInner, {
-          itemSelector: '.widget',
-          percentPosition: !0,
-          isAnimated: !0
-        })
-        if (widgets) {
-          for (const widget of widgets) {
-            widget.style.position = 'absolute'
+    if (widgets) {
+      const masonryHandler = () => {
+        if (
+          window.matchMedia('(max-width: 980px) and (min-width: 641px)')
+            .matches ||
+          document.body.classList.contains('bottom-sidebar-s1')
+        ) {
+          /* eslint-disable-next-line no-unused-vars, no-undef */
+          const msnry = new Masonry(sidebarInner, {
+            itemSelector: '.widget',
+            percentPosition: !0,
+            isAnimated: !0
+          })
+          if (widgets) {
+            for (const widget of widgets) {
+              widget.style.position = 'absolute'
+            }
           }
-        }
-      } else {
-        if (widgets) {
-          for (const widget of widgets) {
-            widget.style.position = ''
-            widget.style.top = ''
-            widget.style.left = ''
+        } else {
+          if (widgets) {
+            for (const widget of widgets) {
+              widget.style.position = ''
+              widget.style.top = ''
+              widget.style.left = ''
+            }
           }
         }
       }
+      window.addEventListener('load', masonryHandler)
+      window.addEventListener('resize', masonryHandler)
     }
-    window.addEventListener('load', masonryHandler)
-    window.addEventListener('resize', masonryHandler)
   }
 
   /*   Back To Top
   /* -------------------------------------------------- */
-  const backToTop = document.getElementById('back-to-top')
+  {
+    const backToTop = document.getElementById('back-to-top')
 
-  if (backToTop) {
-    const showBackToTop = () => {
-      if (window.pageYOffset > 100) {
-        backToTop.style.display = 'block'
-        backToTop.classList.remove('is-hidden')
-        backToTop.classList.add('is-shown')
-      } else {
-        backToTop.classList.add('is-hidden')
-        backToTop.classList.remove('is-shown')
-        setTimeout(() => {
-          backToTop.classList.remove('clicked')
-        }, 400)
+    if (backToTop) {
+      const showBackToTop = () => {
+        if (window.pageYOffset > 100) {
+          backToTop.style.display = 'block'
+          backToTop.classList.remove('is-hidden')
+          backToTop.classList.add('is-shown')
+        } else {
+          backToTop.classList.add('is-hidden')
+          backToTop.classList.remove('is-shown')
+          setTimeout(() => {
+            backToTop.classList.remove('clicked')
+          }, 400)
+        }
       }
-    }
-    window.addEventListener('scroll', showBackToTop)
+      window.addEventListener('scroll', showBackToTop)
 
-    const scrollToTop = event => {
-      event.preventDefault()
-      if (event.target.classList.contains('is-hidden')) {
-        return
+      const scrollToTop = event => {
+        event.preventDefault()
+        if (event.target.classList.contains('is-hidden')) {
+          return
+        }
+        window.scroll({
+          top: 0,
+          behavior: 'smooth'
+        })
+        backToTop.classList.add('clicked')
       }
-      window.scroll({
-        top: 0,
-        behavior: 'smooth'
-      })
-      backToTop.classList.add('clicked')
-    }
-    backToTop.addEventListener('click', scrollToTop)
+      backToTop.addEventListener('click', scrollToTop)
 
-    const stickBackToTopOnFooter = () => {
-      const scrollHeight = body.scrollHeight
-      const scrollPosition = window.pageYOffset + window.innerHeight
-      const footerHeight = document.getElementById('footer').clientHeight
-      if (scrollHeight - scrollPosition < footerHeight) {
-        backToTop.style.bottom = `${footerHeight + 5}px`
-        backToTop.classList.add('abs')
-      } else {
-        backToTop.style.bottom = ''
-        backToTop.classList.remove('abs')
+      const stickBackToTopOnFooter = () => {
+        const scrollHeight = body.scrollHeight
+        const scrollPosition = window.pageYOffset + window.innerHeight
+        const footerHeight = document.getElementById('footer').clientHeight
+        if (scrollHeight - scrollPosition < footerHeight) {
+          backToTop.style.bottom = `${footerHeight + 5}px`
+          backToTop.classList.add('abs')
+        } else {
+          backToTop.style.bottom = ''
+          backToTop.classList.remove('abs')
+        }
       }
+      window.addEventListener('scroll', stickBackToTopOnFooter)
     }
-    window.addEventListener('scroll', stickBackToTopOnFooter)
   }
 
   /*   Smooth Scroll
   /* -------------------------------------------------- */
-  const headerInner = document.querySelector('#header .header-inner')
-  const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
+  {
+    const headerInner = document.querySelector('#header .header-inner')
+    const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
-  const inPageLinkHandler = event => {
-    let href = event.target.getAttribute('href') // Get href attr of the link
-    let hrefPageUrl = href.split('#')[0]
-    let currentUrl = location.href.split('#')[0]
+    const inPageLinkHandler = event => {
+      let href = event.target.getAttribute('href') // Get href attr of the link
+      let hrefPageUrl = href.split('#')[0]
+      let currentUrl = location.href.split('#')[0]
 
-    if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
-      event.preventDefault()
-      // If the link goes on the same page, run smooth scroll
-      href = href.split('#').pop()
-      let target
-      if (href === '#' || href === '') {
-        target = document.documentElement
-      } else {
-        target = document.getElementById(href)
-      }
-      const rect = target.getBoundingClientRect()
-      let targetPosition = window.pageYOffset + rect.top
-      if (window.matchMedia('(min-width: 767px)').matches) {
-        if (
-          body.classList.contains('admin-bar') &&
-          window.getComputedStyle(wpAdminBar).getPropertyValue('position') ===
-            'fixed'
-        ) {
-          // When the admin bar is shown.
-          targetPosition -= wpAdminBar.clientHeight
+      if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
+        event.preventDefault()
+        // If the link goes on the same page, run smooth scroll
+        href = href.split('#').pop()
+        let target
+        if (href === '#' || href === '') {
+          target = document.documentElement
+        } else {
+          target = document.getElementById(href)
         }
-        if (
-          body.classList.contains('sticky-header') &&
-          body.classList.contains('header-row')
-        ) {
-          // When the header is sticky.
-          targetPosition -= headerInner.clientHeight
-        } else if (
-          body.classList.contains('sticky-header') &&
-          body.classList.contains('header-column') &&
-          body.classList.contains('header-menu-enabled')
-        ) {
-          targetPosition -= headerMenu.clientHeight
+        const rect = target.getBoundingClientRect()
+        let targetPosition = window.pageYOffset + rect.top
+        if (window.matchMedia('(min-width: 767px)').matches) {
+          if (
+            body.classList.contains('admin-bar') &&
+            window.getComputedStyle(wpAdminBar).getPropertyValue('position') ===
+              'fixed'
+          ) {
+            // When the admin bar is shown.
+            targetPosition -= wpAdminBar.clientHeight
+          }
+          if (
+            body.classList.contains('sticky-header') &&
+            body.classList.contains('header-row')
+          ) {
+            // When the header is sticky.
+            targetPosition -= headerInner.clientHeight
+          } else if (
+            body.classList.contains('sticky-header') &&
+            body.classList.contains('header-column') &&
+            body.classList.contains('header-menu-enabled')
+          ) {
+            targetPosition -= headerMenu.clientHeight
+          }
         }
+        window.scroll({
+          top: targetPosition,
+          behavior: 'smooth'
+        })
       }
-      window.scroll({
-        top: targetPosition,
-        behavior: 'smooth'
-      })
     }
-  }
 
-  for (const link of links) {
-    link.addEventListener('click', inPageLinkHandler)
+    for (const link of links) {
+      link.addEventListener('click', inPageLinkHandler)
+    }
   }
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  if (body.classList.contains('sticky-header')) {
-    const stickyHeaderHandler = () => {
-      const siteInfoHgt = siteInfo.offsetHeight
-      let scrollTop = window.pageYOffset
+  {
+    if (body.classList.contains('sticky-header')) {
+      const stickyHeaderHandler = () => {
+        const siteInfoHgt = siteInfo.offsetHeight
+        let scrollTop = window.pageYOffset
 
-      // Reset values on devices smaller than 768px.
-      if (!window.matchMedia('(min-width: 767px)').matches) {
-        header.classList.remove('sticky')
-        body.style.paddingTop = ''
-        header.style.top = ''
-        searchToggle.style.top = ''
-        searchToggle.style.height = ''
-      }
-
-      // When header row is set
-      if (body.classList.contains('header-row')) {
-        // Do nothing on devices smaller than 768px.
+        // Reset values on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
-          return
-        }
-
-        if (scrollTop > 0) {
-          // On scroll
-          header.classList.add('sticky')
-          body.style.paddingTop = `${header.clientHeight}px`
-        } else {
-          // Not on scroll
-          header.classList.remove('sticky')
-          body.style.paddingTop = ''
-        }
-      }
-
-      // When header column is set
-      else if (body.classList.contains('header-column')) {
-        // Abort on devices smaller than 768px.
-        if (!window.matchMedia('(min-width: 767px)').matches) {
-          return
-        }
-
-        // Adjust search toggle behavior for the sticky header
-        if (body.classList.contains('header-menu-enabled')) {
-          if (scrollTop > 0) {
-            // On scroll
-            const headerMenuHgt = headerMenu.clientHeight
-            searchToggle.style.top = `${siteInfoHgt}px`
-            searchToggle.style.height = `${headerMenuHgt}px`
-          } else {
-            // Not on scroll
-            searchToggle.style.top = scrollTop
-            searchToggle.style.height = ''
-          }
-        }
-
-        // Sticky header
-        if (scrollTop > siteInfoHgt) {
-          // On scroll
-          header.classList.add('sticky')
-          body.style.paddingTop = `${header.clientHeight}px`
-          if (body.classList.contains('admin-bar')) {
-            // When user is logged in
-            header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
-          } else {
-            header.style.top = `${-siteInfoHgt}px`
-          }
-        } else {
-          // Not on scroll - Remove sticky header
           header.classList.remove('sticky')
           body.style.paddingTop = ''
           header.style.top = ''
+          searchToggle.style.top = ''
+          searchToggle.style.height = ''
+        }
+
+        // When header row is set
+        if (body.classList.contains('header-row')) {
+          // Do nothing on devices smaller than 768px.
+          if (!window.matchMedia('(min-width: 767px)').matches) {
+            return
+          }
+
+          if (scrollTop > 0) {
+            // On scroll
+            header.classList.add('sticky')
+            body.style.paddingTop = `${header.clientHeight}px`
+          } else {
+            // Not on scroll
+            header.classList.remove('sticky')
+            body.style.paddingTop = ''
+          }
+        }
+
+        // When header column is set
+        else if (body.classList.contains('header-column')) {
+          // Abort on devices smaller than 768px.
+          if (!window.matchMedia('(min-width: 767px)').matches) {
+            return
+          }
+
+          // Adjust search toggle behavior for the sticky header
+          if (body.classList.contains('header-menu-enabled')) {
+            if (scrollTop > 0) {
+              // On scroll
+              const headerMenuHgt = headerMenu.clientHeight
+              searchToggle.style.top = `${siteInfoHgt}px`
+              searchToggle.style.height = `${headerMenuHgt}px`
+            } else {
+              // Not on scroll
+              searchToggle.style.top = scrollTop
+              searchToggle.style.height = ''
+            }
+          }
+
+          // Sticky header
+          if (scrollTop > siteInfoHgt) {
+            // On scroll
+            header.classList.add('sticky')
+            body.style.paddingTop = `${header.clientHeight}px`
+            if (body.classList.contains('admin-bar')) {
+              // When user is logged in
+              header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
+            } else {
+              header.style.top = `${-siteInfoHgt}px`
+            }
+          } else {
+            // Not on scroll - Remove sticky header
+            header.classList.remove('sticky')
+            body.style.paddingTop = ''
+            header.style.top = ''
+          }
         }
       }
+      stickyHeaderHandler()
+      window.addEventListener('resize', stickyHeaderHandler)
+      window.addEventListener('scroll', stickyHeaderHandler)
     }
-    stickyHeaderHandler()
-    window.addEventListener('resize', stickyHeaderHandler)
-    window.addEventListener('scroll', stickyHeaderHandler)
   }
 
   /*   Fix : Padding of the menu on mobile devices
@@ -270,62 +280,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Toggle : Search Toggle
   /* -------------------------------------------------- */
-  let toggleState = false
-  const closeToggle = document.querySelector('.modal-search-form .close-toggle')
-  const modalSearchDialog = document.getElementById('modal-search-form')
+  {
+    let toggleState = false
+    const closeToggle = document.querySelector(
+      '.modal-search-form .close-toggle'
+    )
+    const modalSearchDialog = document.getElementById('modal-search-form')
 
-  if (searchToggle) {
-    // Open Search toggle
-    const searchToggleHandler = () => {
-      toggleState = true
-      if (toggleState) {
-        searchToggle.classList.add('open')
-        body.classList.add('modal-search-open')
-        body.classList.remove('modal-search-closed')
+    if (searchToggle) {
+      // Open Search toggle
+      const searchToggleHandler = () => {
+        toggleState = true
+        if (toggleState) {
+          searchToggle.classList.add('open')
+          body.classList.add('modal-search-open')
+          body.classList.remove('modal-search-closed')
 
-        // Keyboard navigation - prevent from navigating outside of modal
-        if (!modalSearchDialog.querySelector('#modal-search-backdrop')) {
-          const backdrop = document.createElement('div')
-          backdrop.setAttribute('id', 'modal-search-backdrop')
-          backdrop.setAttribute('tabindex', '0')
-          modalSearchDialog.appendChild(backdrop)
+          // Keyboard navigation - prevent from navigating outside of modal
+          if (!modalSearchDialog.querySelector('#modal-search-backdrop')) {
+            const backdrop = document.createElement('div')
+            backdrop.setAttribute('id', 'modal-search-backdrop')
+            backdrop.setAttribute('tabindex', '0')
+            modalSearchDialog.appendChild(backdrop)
 
-          const moveTabFirstEl = () => {
-            document.querySelector('.modal-search-form .search-inner').focus()
+            const moveTabFirstEl = () => {
+              document.querySelector('.modal-search-form .search-inner').focus()
+            }
+            backdrop.addEventListener('focus', moveTabFirstEl)
           }
-          backdrop.addEventListener('focus', moveTabFirstEl)
-        }
 
-        if (body.classList.contains('modal-search-open')) {
-          setTimeout(() => {
-            document.querySelector('.modal-search-form .search-inner').focus()
-          }, 160)
+          if (body.classList.contains('modal-search-open')) {
+            setTimeout(() => {
+              document.querySelector('.modal-search-form .search-inner').focus()
+            }, 160)
+          }
         }
       }
-    }
-    searchToggle.addEventListener('click', searchToggleHandler)
+      searchToggle.addEventListener('click', searchToggleHandler)
 
-    // Close toggle
-    const closeToggleHandler = () => {
-      toggleState = false
-      if (!toggleState) {
-        searchToggle.classList.remove('open')
-        body.classList.remove('modal-search-open')
-        body.classList.add('modal-search-closed')
-        searchToggle.focus()
-      }
-    }
-    closeToggle.addEventListener('click', closeToggleHandler)
-
-    // Close toggle when pressing `esc` key
-    document.onkeydown = event => {
-      event = event || window.event
-      if (event.keyCode === 27) {
+      // Close toggle
+      const closeToggleHandler = () => {
         toggleState = false
         if (!toggleState) {
           searchToggle.classList.remove('open')
           body.classList.remove('modal-search-open')
           body.classList.add('modal-search-closed')
+          searchToggle.focus()
+        }
+      }
+      closeToggle.addEventListener('click', closeToggleHandler)
+
+      // Close toggle when pressing `esc` key
+      document.onkeydown = event => {
+        event = event || window.event
+        if (event.keyCode === 27) {
+          toggleState = false
+          if (!toggleState) {
+            searchToggle.classList.remove('open')
+            body.classList.remove('modal-search-open')
+            body.classList.add('modal-search-closed')
+          }
         }
       }
     }
@@ -427,138 +441,152 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Menu : Submenu handling on focus
   /* -------------------------------------------------- */
-  const menuItems = document.querySelectorAll(
-    '.menu-item.menu-item-has-children'
-  )
+  {
+    const menuItems = document.querySelectorAll(
+      '.menu-item.menu-item-has-children'
+    )
 
-  if (menuItems) {
-    for (const item of menuItems) {
-      if (!item.parentNode.classList.contains('sub-menu')) {
-        const menuLinks = item.querySelectorAll('a')
-        const submenuOnFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl !== -1) {
-            item.classList.add('is-sub-menu-shown')
+    if (menuItems) {
+      for (const item of menuItems) {
+        if (!item.parentNode.classList.contains('sub-menu')) {
+          const menuLinks = item.querySelectorAll('a')
+          const submenuOnFocusHandler = () => {
+            const isFocusedEl = [].indexOf.call(
+              menuLinks,
+              document.activeElement
+            )
+            if (isFocusedEl !== -1) {
+              item.classList.add('is-sub-menu-shown')
+            }
           }
-        }
-        const submenuOutFocusHandler = () => {
-          const isFocusedEl = [].indexOf.call(menuLinks, document.activeElement)
-          if (isFocusedEl === -1) {
-            item.classList.remove('is-sub-menu-shown')
+          const submenuOutFocusHandler = () => {
+            const isFocusedEl = [].indexOf.call(
+              menuLinks,
+              document.activeElement
+            )
+            if (isFocusedEl === -1) {
+              item.classList.remove('is-sub-menu-shown')
+            }
           }
+          for (const link of menuLinks) {
+            link.addEventListener('blur', submenuOutFocusHandler)
+          }
+          item.addEventListener('focusin', submenuOnFocusHandler)
         }
-        for (const link of menuLinks) {
-          link.addEventListener('blur', submenuOutFocusHandler)
-        }
-        item.addEventListener('focusin', submenuOnFocusHandler)
       }
     }
   }
 
   /*   Pagination : Underline Animate
   /* -------------------------------------------------- */
-  const pageNumbers = document.querySelector('ul.page-numbers')
-  const pageNumbersEls = document.querySelectorAll('ul.page-numbers li')
-  const currentPageNumber = document.querySelector('ul.page-numbers .current')
+  {
+    const pageNumbers = document.querySelector('ul.page-numbers')
+    const pageNumbersEls = document.querySelectorAll('ul.page-numbers li')
+    const currentPageNumber = document.querySelector('ul.page-numbers .current')
 
-  if (pageNumbers) {
-    const currentParent = currentPageNumber.parentNode
-    const actionBarWrapper = document.createElement('li')
-    actionBarWrapper.classList.add('action-bar-wrapper')
-    const actionBar = document.createElement('span')
-    actionBar.classList.add('action-bar')
-    actionBar.style.width = `${currentParent.offsetWidth}px`
-    actionBar.style.left = `${currentParent.offsetLeft}px`
-    actionBarWrapper.appendChild(actionBar)
-    pageNumbers.insertBefore(actionBarWrapper, null)
-    currentPageNumber.style.borderBottom = 0
-
-    const pageNumbersElHoverHandler = event => {
-      actionBar.style.width = `${event.target.parentNode.offsetWidth}px`
-      actionBar.style.left = `${event.target.parentNode.offsetLeft}px`
-    }
-    const pageNumbersElHoverOutHandler = () => {
+    if (pageNumbers) {
+      const currentParent = currentPageNumber.parentNode
+      const actionBarWrapper = document.createElement('li')
+      actionBarWrapper.classList.add('action-bar-wrapper')
+      const actionBar = document.createElement('span')
+      actionBar.classList.add('action-bar')
       actionBar.style.width = `${currentParent.offsetWidth}px`
       actionBar.style.left = `${currentParent.offsetLeft}px`
-    }
-    for (const el of pageNumbersEls) {
-      el.addEventListener('mouseover', pageNumbersElHoverHandler)
-      el.addEventListener('mouseout', pageNumbersElHoverOutHandler)
+      actionBarWrapper.appendChild(actionBar)
+      pageNumbers.insertBefore(actionBarWrapper, null)
+      currentPageNumber.style.borderBottom = 0
+
+      const pageNumbersElHoverHandler = event => {
+        actionBar.style.width = `${event.target.parentNode.offsetWidth}px`
+        actionBar.style.left = `${event.target.parentNode.offsetLeft}px`
+      }
+      const pageNumbersElHoverOutHandler = () => {
+        actionBar.style.width = `${currentParent.offsetWidth}px`
+        actionBar.style.left = `${currentParent.offsetLeft}px`
+      }
+      for (const el of pageNumbersEls) {
+        el.addEventListener('mouseover', pageNumbersElHoverHandler)
+        el.addEventListener('mouseout', pageNumbersElHoverOutHandler)
+      }
     }
   }
 
   /*   Comments : Comment Tab
   /* -------------------------------------------------- */
-  const tabmenu = document.querySelector('#comments .comment-tabmenu')
-  const tabItems = document.querySelectorAll('#comments .tabitem')
-  const actionBar = document.createElement('span')
-  const pingList = document.getElementById('ping-list')
-  const commentList = document.getElementById('comment-list')
+  {
+    const tabmenu = document.querySelector('#comments .comment-tabmenu')
+    const tabItems = document.querySelectorAll('#comments .tabitem')
+    const actionBar = document.createElement('span')
+    const pingList = document.getElementById('ping-list')
+    const commentList = document.getElementById('comment-list')
 
-  if (tabmenu) {
-    actionBar.classList.add('action-bar')
-    tabmenu.insertBefore(actionBar, null)
-    actionBar.style.width = `${tabItems[0].clientWidth}px`
-  }
-
-  if (pingList) {
-    pingList.style.display = 'none'
-  }
-
-  const tabItemsHandler = event => {
-    event.preventDefault()
-    const target = event.target
-
-    // Do nothing when clicked the item which is already active
-    if (target.parentNode.classList.contains('active')) {
-      return
+    if (tabmenu) {
+      actionBar.classList.add('action-bar')
+      tabmenu.insertBefore(actionBar, null)
+      actionBar.style.width = `${tabItems[0].clientWidth}px`
     }
 
-    if (target.getAttribute('href').includes('#comment')) {
-      target.parentNode.classList.add('active')
-      tabItems[1].classList.remove('active')
-      if (commentList) {
-        commentList.classList.add('active')
-        commentList.style.display = 'block'
-      }
-      if (pingList) {
-        pingList.classList.remove('active')
-        pingList.style.display = 'none'
-      }
-    } else if (target.getAttribute('href').includes('#ping')) {
-      target.parentNode.classList.add('active')
-      tabItems[0].classList.remove('active')
-      if (pingList) {
-        pingList.classList.add('active')
-        pingList.style.display = 'block'
-      }
-      if (commentList) {
-        commentList.classList.remove('active')
-        commentList.style.display = 'none'
-      }
+    if (pingList) {
+      pingList.style.display = 'none'
     }
 
-    actionBar.style.width = `${target.offsetWidth}px`
-    actionBar.style.left = `${target.parentNode.offsetLeft}px`
-  }
+    const tabItemsHandler = event => {
+      event.preventDefault()
+      const target = event.target
 
-  for (const item of tabItems) {
-    item.addEventListener('click', tabItemsHandler)
+      // Do nothing when clicked the item which is already active
+      if (target.parentNode.classList.contains('active')) {
+        return
+      }
+
+      if (target.getAttribute('href').includes('#comment')) {
+        target.parentNode.classList.add('active')
+        tabItems[1].classList.remove('active')
+        if (commentList) {
+          commentList.classList.add('active')
+          commentList.style.display = 'block'
+        }
+        if (pingList) {
+          pingList.classList.remove('active')
+          pingList.style.display = 'none'
+        }
+      } else if (target.getAttribute('href').includes('#ping')) {
+        target.parentNode.classList.add('active')
+        tabItems[0].classList.remove('active')
+        if (pingList) {
+          pingList.classList.add('active')
+          pingList.style.display = 'block'
+        }
+        if (commentList) {
+          commentList.classList.remove('active')
+          commentList.style.display = 'none'
+        }
+      }
+
+      actionBar.style.width = `${target.offsetWidth}px`
+      actionBar.style.left = `${target.parentNode.offsetLeft}px`
+    }
+
+    for (const item of tabItems) {
+      item.addEventListener('click', tabItemsHandler)
+    }
   }
 
   /*   Recent Posts Widget : Adjust the date style
   /* -------------------------------------------------- */
-  const dates = document.querySelectorAll('.widget_recent_entries .post-date')
+  {
+    const dates = document.querySelectorAll('.widget_recent_entries .post-date')
 
-  if (dates) {
-    for (const date of dates) {
-      if (date.previousElementSibling.tagName === 'A') {
-        const parent = date.previousElementSibling
-        parent.innerHTML = `<span class="recent_entries_post-title">${
-          parent.textContent
-        }</span>`
-        const titleNode = date.previousElementSibling.children[0]
-        parent.insertBefore(date, titleNode)
+    if (dates) {
+      for (const date of dates) {
+        if (date.previousElementSibling.tagName === 'A') {
+          const parent = date.previousElementSibling
+          parent.innerHTML = `<span class="recent_entries_post-title">${
+            parent.textContent
+          }</span>`
+          const titleNode = date.previousElementSibling.children[0]
+          parent.insertBefore(date, titleNode)
+        }
       }
     }
   }
