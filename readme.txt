@@ -80,6 +80,10 @@ All the photos used in the screenshots are all licensed under CC0.
 
 == Changelog ==
 
+= 1.6.3 =
+
+* Fixed: Non-keyboard users friendly menu on mobile
+
 = 1.6.2 =
 
 * Added: New customizer option to change header menu color for mobile
