@@ -399,17 +399,17 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       menuOverlay.addEventListener('click', menuOverlayHandler)
       menuCloseButton.addEventListener('click', menuOverlayHandler)
-    }
 
-    const handleAriaAttribute = () => {
-      if (window.matchMedia('(min-width: 768px)').matches) {
-        navToggle.setAttribute('aria-hidden', 'true')
-      } else {
-        navToggle.removeAttribute('aria-hidden')
+      const handleAriaAttribute = () => {
+        if (window.matchMedia('(min-width: 768px)').matches) {
+          navToggle.setAttribute('aria-hidden', 'true')
+        } else {
+          navToggle.removeAttribute('aria-hidden')
+        }
       }
+      window.addEventListener('resize', handleAriaAttribute)
+      handleAriaAttribute()
     }
-    window.addEventListener('resize', handleAriaAttribute)
-    handleAriaAttribute()
 
     const setElementOrder = () => {
       const items = document.querySelector('#header > .header-inner')
