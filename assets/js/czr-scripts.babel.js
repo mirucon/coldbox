@@ -1,3 +1,5 @@
+/* eslint no-undef: 0 */
+
 let czr = () => {
   const _api = wp.customize
 

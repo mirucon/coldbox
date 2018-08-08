@@ -39,6 +39,8 @@
     "wp-pot": "^1.6.1"
   },
   "scripts": {
+    "lint": "eslint assets/js/*.js",
+    "fix": "eslint --fix assets/js/*.js",
     "pot": "mkdir -p languages && node bin/wppot.js",
     "copy": "bash bin/copy.sh",
     "md": "mkdir -p assets/html/ && showdown makehtml -i CHANGELOG.md -o assets/html/CHANGELOG.html",

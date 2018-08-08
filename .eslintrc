@@ -6,6 +6,9 @@
   "plugins": [
     "prettier"
   ],
+  "globals": {
+    "location": true
+  },
   "rules": {
     "prettier/prettier": [
       "error",
