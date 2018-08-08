@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   {
     const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
-    const widgets = document.querySelectorAll('.widget')
+    const widgets = document.querySelectorAll('#sidebar-s1 .widget')
 
     if (widgets) {
       const masonryHandler = () => {

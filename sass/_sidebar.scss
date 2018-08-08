@@ -19,25 +19,25 @@
 
 // Tablet && Mobile
 @media screen and (max-width: $bpmax-tablet) {
-  .sidebar {
+  .sidebar:not(.footer-sidebar) {
     margin-top: 40px;
-  }
-  .sidebar-inner {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
+    .sidebar-inner {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: flex-start;
+    }
   }
 }
 // Tablet
 @media screen and (max-width: $bpmax-tablet) and (min-width: $bpmin-tablet) {
-  .sidebar .widget {
+  .sidebar:not(.footer-sidebar) .widget {
     width: calc(50% - 10px);
     margin: 5px;
   }
 }
 // Mobile
 @media screen and (max-width: $bpmax-mobile) {
-  .sidebar {
+  .sidebar:not(.footer-sidebar) {
     display: block;
     padding-left: 1em;
 
@@ -342,15 +342,6 @@
   .widgets-list-layout li:hover {
     a { color: $link; }
     img { opacity: .8 }
-  }
-
-
-
-
-  @media screen and (max-width: $bpmax-mobile) {
-
-    
-
   }
 
 }

@@ -38,6 +38,44 @@
   color: rgba(255, 255, 255, .72);
 }
 
+.footer-widget-area {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #fcfcfc;
+  @box-shadow($blur: 3px);
+  
+  .container {
+    flex-flow: row wrap;
+  }
+  .footer-sidebar-container {
+    flex-grow: 1;
+  }
+  .sidebar {
+    padding: 5px;
+    box-shadow: none;
+  }
+
+  @media screen and (max-width: $bpmax-tablet) and (min-width: $bpmin-tablet) {
+    &.has-4 {
+      .footer-sidebar-container {
+        width: 50%;
+      }
+    }
+  }
+
+  @media screen and (max-width: $bpmax-mobile) {
+    padding-right: 10px;
+    padding-left: 10px;
+
+    .container {
+      flex-flow: column wrap;
+    }
+    .footer-sidebar-container {
+      width: 100%;
+    }
+  }
+}
+
 
 .footer-menu {
   background-color: #ddd;
