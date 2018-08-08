@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const stickBackToTopOnFooter = () => {
         const scrollHeight = body.scrollHeight
         const scrollPosition = window.pageYOffset + window.innerHeight
-        const footerHeight = document.getElementById('footer').clientHeight
+        const footerHeight = document.querySelector('.footer-bottom').clientHeight
         if (scrollHeight - scrollPosition < footerHeight) {
           backToTop.style.bottom = `${footerHeight + 5}px`
           backToTop.classList.add('abs')
