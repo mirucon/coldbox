@@ -35,24 +35,24 @@ while ( have_posts() ) :
 										<span class="post-format"><?php echo esc_html( get_post_format() ); ?></span>
 									<?php endif; ?>
 
-									<?php // If the last modified date and the published date are NOT same and showing modified date, return the MODIFIED date with datetime. ?>
-									<?php if ( get_the_modified_time( 'Ymd' ) !== get_the_time( 'Ymd' ) && cd_is_meta_modified() ) : ?>
+									<?php // If the modified date and the published date are NOT same and showing modified date, show both published and modified dates. ?>
+									<?php if ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
 
 										<?php if ( cd_is_meta_date() ) : ?>
-											<span class="post-date"><?php the_date(); ?></span>
+											<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
 										<?php endif; ?>
 										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
 
-										<?php // If the last modified date and the published date are NOT same and NOT showing modified date, return the MODIFIED date with datetime. ?>
-									<?php elseif ( get_the_modified_time( 'Ymd' ) !== get_the_time( 'Ymd' ) && ! cd_is_meta_modified() ) : ?>
+										<?php // If the modified date and the published date are NOT same and NOT showing modified date, only show the published date. ?>
+									<?php elseif ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && ! cd_is_meta_modified() ) : ?>
 
 										<?php if ( cd_is_meta_date() ) : ?>
-											<span class="post-date"><?php the_date(); ?></span>
+											<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
 										<?php endif; ?>
 
-										<?php // If the last modified date and the published date are same and showing either the modified or published date, return the PUBLISHED date with datetime. ?>
-									<?php elseif ( get_the_modified_time( 'Ymd' ) === get_the_time( 'Ymd' ) && cd_is_meta_date() || cd_is_meta_modified() ) : ?>
-										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php the_date(); ?></time>
+										<?php // If the last modified date and the published date are same and showing either the modified or published date, show the date as published date. ?>
+									<?php elseif ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_date() || cd_is_meta_modified() ) : ?>
+										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
 
 									<?php endif; ?>
 
