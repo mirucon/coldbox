@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* -------------------------------------------------- */
   {
     const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
-    const widgets = document.querySelectorAll('.widget')
+    const widgets = document.querySelectorAll('#sidebar-s1 .widget')
 
     if (widgets) {
       const masonryHandler = () => {
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const stickBackToTopOnFooter = () => {
         const scrollHeight = body.scrollHeight
         const scrollPosition = window.pageYOffset + window.innerHeight
-        const footerHeight = document.getElementById('footer').clientHeight
+        const footerHeight = document.querySelector('.footer-bottom').clientHeight
         if (scrollHeight - scrollPosition < footerHeight) {
           backToTop.style.bottom = `${footerHeight + 5}px`
           backToTop.classList.add('abs')

@@ -13,6 +13,36 @@ else :
 
 <footer id="footer" class="footer" role="contentinfo">
 
+	<div class="footer-widget-area has-<?php echo absint( cd_get_number_of_footer_sidebar() ); ?>">
+
+		<div class="container">
+
+			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+
+				<?php if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
+
+					<aside id="footer-<?php echo absint( $i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $i ); ?>" role="complementary">
+
+						<div class="footer-sidebar sidebar">
+
+							<div class="sidebar-inner">
+
+								<?php dynamic_sidebar( 'footer-' . $i ); ?>
+
+							</div>
+
+						</div>
+
+					</aside><!--/.sidebar-->
+
+				<?php endif; ?>
+
+			<?php endfor; ?>
+
+		</div>
+
+	</div>
+
 	<?php cd_footer_menu(); ?>
 
 	<div class="footer-bottom">
