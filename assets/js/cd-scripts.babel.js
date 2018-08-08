@@ -172,83 +172,81 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  {
-    if (body.classList.contains('sticky-header')) {
-      const stickyHeaderHandler = () => {
-        const siteInfoHgt = siteInfo.offsetHeight
-        let scrollTop = window.pageYOffset
+  if (body.classList.contains('sticky-header')) {
+    const stickyHeaderHandler = () => {
+      const siteInfoHgt = siteInfo.offsetHeight
+      let scrollTop = window.pageYOffset
 
-        // Reset values on devices smaller than 768px.
+      // Reset values on devices smaller than 768px.
+      if (!window.matchMedia('(min-width: 767px)').matches) {
+        header.classList.remove('sticky')
+        body.style.paddingTop = ''
+        header.style.top = ''
+        searchToggle.style.top = ''
+        searchToggle.style.height = ''
+      }
+
+      // When header row is set
+      if (body.classList.contains('header-row')) {
+        // Do nothing on devices smaller than 768px.
         if (!window.matchMedia('(min-width: 767px)').matches) {
+          return
+        }
+
+        if (scrollTop > 0) {
+          // On scroll
+          header.classList.add('sticky')
+          body.style.paddingTop = `${header.clientHeight}px`
+        } else {
+          // Not on scroll
+          header.classList.remove('sticky')
+          body.style.paddingTop = ''
+        }
+      }
+
+      // When header column is set
+      else if (body.classList.contains('header-column')) {
+        // Abort on devices smaller than 768px.
+        if (!window.matchMedia('(min-width: 767px)').matches) {
+          return
+        }
+
+        // Adjust search toggle behavior for the sticky header
+        if (body.classList.contains('header-menu-enabled')) {
+          if (scrollTop > 0) {
+            // On scroll
+            const headerMenuHgt = headerMenu.clientHeight
+            searchToggle.style.top = `${siteInfoHgt}px`
+            searchToggle.style.height = `${headerMenuHgt}px`
+          } else {
+            // Not on scroll
+            searchToggle.style.top = scrollTop
+            searchToggle.style.height = ''
+          }
+        }
+
+        // Sticky header
+        if (scrollTop > siteInfoHgt) {
+          // On scroll
+          header.classList.add('sticky')
+          body.style.paddingTop = `${header.clientHeight}px`
+          if (body.classList.contains('admin-bar')) {
+            // When user is logged in
+            header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
+          } else {
+            header.style.top = `${-siteInfoHgt}px`
+          }
+        } else {
+          // Not on scroll - Remove sticky header
           header.classList.remove('sticky')
           body.style.paddingTop = ''
           header.style.top = ''
-          searchToggle.style.top = ''
-          searchToggle.style.height = ''
-        }
-
-        // When header row is set
-        if (body.classList.contains('header-row')) {
-          // Do nothing on devices smaller than 768px.
-          if (!window.matchMedia('(min-width: 767px)').matches) {
-            return
-          }
-
-          if (scrollTop > 0) {
-            // On scroll
-            header.classList.add('sticky')
-            body.style.paddingTop = `${header.clientHeight}px`
-          } else {
-            // Not on scroll
-            header.classList.remove('sticky')
-            body.style.paddingTop = ''
-          }
-        }
-
-        // When header column is set
-        else if (body.classList.contains('header-column')) {
-          // Abort on devices smaller than 768px.
-          if (!window.matchMedia('(min-width: 767px)').matches) {
-            return
-          }
-
-          // Adjust search toggle behavior for the sticky header
-          if (body.classList.contains('header-menu-enabled')) {
-            if (scrollTop > 0) {
-              // On scroll
-              const headerMenuHgt = headerMenu.clientHeight
-              searchToggle.style.top = `${siteInfoHgt}px`
-              searchToggle.style.height = `${headerMenuHgt}px`
-            } else {
-              // Not on scroll
-              searchToggle.style.top = scrollTop
-              searchToggle.style.height = ''
-            }
-          }
-
-          // Sticky header
-          if (scrollTop > siteInfoHgt) {
-            // On scroll
-            header.classList.add('sticky')
-            body.style.paddingTop = `${header.clientHeight}px`
-            if (body.classList.contains('admin-bar')) {
-              // When user is logged in
-              header.style.top = `${-siteInfoHgt + wpAdminBar.clientHeight}px`
-            } else {
-              header.style.top = `${-siteInfoHgt}px`
-            }
-          } else {
-            // Not on scroll - Remove sticky header
-            header.classList.remove('sticky')
-            body.style.paddingTop = ''
-            header.style.top = ''
-          }
         }
       }
-      stickyHeaderHandler()
-      window.addEventListener('resize', stickyHeaderHandler)
-      window.addEventListener('scroll', stickyHeaderHandler)
     }
+    stickyHeaderHandler()
+    window.addEventListener('resize', stickyHeaderHandler)
+    window.addEventListener('scroll', stickyHeaderHandler)
   }
 
   /*   Fix : Padding of the menu on mobile devices
@@ -302,11 +300,26 @@ document.addEventListener('DOMContentLoaded', () => {
             backdrop.setAttribute('id', 'modal-search-backdrop')
             backdrop.setAttribute('tabindex', '0')
             modalSearchDialog.appendChild(backdrop)
-
-            const moveTabFirstEl = () => {
+            const focusBackToFirstElInModal = () => {
               document.querySelector('.modal-search-form .search-inner').focus()
             }
-            backdrop.addEventListener('focus', moveTabFirstEl)
+            backdrop.addEventListener('focus', focusBackToFirstElInModal)
+          }
+
+          if (
+            !modalSearchDialog.querySelector('#modal-search-forward-focus-trap')
+          ) {
+            const forwardTrap = document.createElement('div')
+            forwardTrap.setAttribute('id', 'modal-search-forward-focus-trap')
+            forwardTrap.setAttribute('tabindex', '0')
+            modalSearchDialog.insertBefore(
+              forwardTrap,
+              modalSearchDialog.childNodes[0]
+            )
+            const focusToFirstElInModal = () => {
+              document.querySelector('.modal-search-form .search-inner').focus()
+            }
+            forwardTrap.addEventListener('focus', focusToFirstElInModal)
           }
 
           if (body.classList.contains('modal-search-open')) {
