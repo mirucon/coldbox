@@ -1,3 +1,15 @@
+### 1.6.4 <small> - August 9th, 2018</small>
+
+* Added: Footer widget area
+* Fixed: The user was able to navigate outside of modal even when it's active
+* Fixed: Search form issue
+* Fixed: JavaScript notice when no header menu present
+* Fixed: Better HTML elements
+
+### 1.6.3 <small> - August 8th, 2018</small>
+
+* Fixed: Non-keyboard-users-friendly menu on mobile
+
 ### 1.6.2 <small> - August 1st, 2018</small>
 
 * Added: New customizer option to change header menu color for mobile

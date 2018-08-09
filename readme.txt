@@ -3,18 +3,20 @@ Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.6.2
+Version: 1.6.4
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
 
 == Description ==
-A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
+A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and any social networks. It provides you with easy to customize, lightweight, SEO friendly, quick load, and so much more! This theme is fully laid out with the flexbox module so that it is compatible with any screen sizes.
 
 See the demo: https://coldbox.miruc.co/demo/
 To get official child theme, visit https://coldbox.miruc.co/
 
 The theme is available on GitHub: https://github.com/mirucon/coldbox
+
+To get started, see the "About Coldbox" page from the "Appearance" menu after installed the theme.
 
 = Add-On Plugin =
 
@@ -22,10 +24,10 @@ The official Add-on Plugin is now available. Download it from the WP.org plugin 
 
 The latest version has the following features. We highly recommend that you always use the plugin with the theme!
 
-- Automatic AMP pages generation
-- Social share buttons
-- Google Analytics integration
-- Automatic Open Graph tag output
+* Automatic AMP pages generation
+* Social share buttons
+* Google Analytics integration
+* Automatic Open Graph tag output
 
 = Author information =
 The Coldbox theme is designed and created by mirucon
@@ -79,6 +81,14 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.6.4 =
+
+* Added: Footer widget areas
+* Fixed: The user was able to navigate outside of modal even when it's active
+* Fixed: Search form issue
+* Fixed: JavaScript notice when no header menu present
+* Fixed: Better HTML elements
 
 = 1.6.3 =
 
