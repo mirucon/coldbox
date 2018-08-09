@@ -13,35 +13,39 @@ else :
 
 <footer id="footer" class="footer" role="contentinfo">
 
-	<div class="footer-widget-area has-<?php echo absint( cd_get_number_of_footer_sidebar() ); ?>">
+	<?php if ( cd_get_number_of_footer_sidebar() ) : ?>
 
-		<div class="container">
+		<div class="footer-widget-area has-<?php echo absint( cd_get_number_of_footer_sidebar() ); ?>">
 
-			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+			<div class="container">
 
-				<?php if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
+				<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
 
-					<aside id="footer-<?php echo absint( $i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $i ); ?>" role="complementary">
+					<?php if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
 
-						<div class="footer-sidebar sidebar">
+						<aside id="footer-<?php echo absint( $i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $i ); ?>" role="complementary">
 
-							<div class="sidebar-inner">
+							<div class="footer-sidebar sidebar">
 
-								<?php dynamic_sidebar( 'footer-' . $i ); ?>
+								<div class="sidebar-inner">
+
+									<?php dynamic_sidebar( 'footer-' . $i ); ?>
+
+								</div>
 
 							</div>
 
-						</div>
+						</aside><!--/.sidebar-->
 
-					</aside><!--/.sidebar-->
+					<?php endif; ?>
 
-				<?php endif; ?>
+				<?php endfor; ?>
 
-			<?php endfor; ?>
+			</div>
 
 		</div>
 
-	</div>
+	<?php endif; ?>
 
 	<?php cd_footer_menu(); ?>
 
