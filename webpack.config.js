@@ -78,7 +78,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        fileName: '[name].min.css'
+        fileName: '[name].css'
       })
     ],
     module: {
@@ -115,7 +115,8 @@ module.exports = (env, argv) => {
               loader: 'file-loader',
               options: {
                 name: '[name].[ext]',
-                outputPath: 'fonts/fontawesome/fonts/'
+                outputPath: 'fonts/fontawesome/fonts/',
+                publicPath: './fonts/'
               }
             }
           ]
