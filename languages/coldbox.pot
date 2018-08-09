@@ -51,11 +51,11 @@ msgstr ""
 msgid "READ MORE%s"
 msgstr ""
 
-#: ../footer.php:98
+#: ../footer.php:102
 msgid "Back To Top"
 msgstr ""
 
-#: ../footer.php:109
+#: ../footer.php:113
 msgid "Close"
 msgstr ""
 
