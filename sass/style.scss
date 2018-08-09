@@ -260,9 +260,9 @@ h6 { font-size: 1.12em }
       position: absolute;
       top: 15px; left: 16px;
       color: #aaa;
-      font-family: FontAwesome;
-      font-weight: 300;
-      font-size: 1.6em;
+      font-family: Font Awesome\ 5 Free;
+      font-weight: 900;
+      font-size: 1.4em;
       line-height: 1;
       font-style: normal;
     }
@@ -704,8 +704,11 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   li {
     position: relative;
   }
-  .fa {
+  .fab, .fas {
     font-size: 1.55em;
+  }
+  .icon-feedly {
+    font-size: 1.52em;
   }
   & > li:not(:first-child) { margin-left: .5em; }
   a, a:hover { box-shadow: none; }
@@ -744,10 +747,6 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   .feedly .icon-feedly {
     display: block; bottom: -1px; line-height: 1.06;
     &::before { font-size: 1.06em }
-  }
-
-  @media screen and (max-width: $bpmax-mobile) {
-    i { font-size: 2em }
   }
 }
 ul.social-links { padding-left: 0; list-style: none; }
@@ -937,7 +936,10 @@ ul.social-links { padding-left: 0; list-style: none; }
     transition: visibility 0s, font-size 0s, opacity .7s ease-in-out, padding .7s ease-in-out;
     &::after {
       content: "\f061";
-      font-family: FontAwesome;
+      position: relative;
+      top: 1px; left: -2px;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
     }
   }
   a:hover .fa {

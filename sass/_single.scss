@@ -16,16 +16,8 @@
     white-space: nowrap;
     &:hover { color: $link; }
   }
-  & > *[class^=post-] { display: inline-block; padding-right: 10px; }
-  & > *[class^=post-]::before { display: inline-block; position: relative; padding-right: .2em; font-family: FontAwesome; line-height: 1; }
-  .post-date::before { content: "\f017"; }
-  .post-category::before { content: "\f07b"; }
-  .post-modified::before { content: "\f1da"; }
-  .post-tag::before { content: "\f02b"; }
-  .post-author::before { content: "\f007"; }
-  .post-edit::before { content: "\f040"; }
-  .post-update::before { content: "\f021"; }
-  .post-comment a::before { content: "\f075"; display: inline-block; position: relative; padding-right: .2em; font-family: FontAwesome; line-height: 1; }
+  & > *[class^='post-'] { display: inline-block; padding-right: 10px; }
+  & > *[class^='post-'] > span[class*='fa'] { display: inline-block; position: relative; padding-right: .12em; line-height: 1; }
 }
 
 /*   Single : entry header
@@ -62,7 +54,6 @@ p.post-btm-tags, p.post-btm-cats {
   margin-bottom: .1em;
   font-size: .88em;
   line-height: 1.6;
-  .fa { margin-right: .2em; width: 16px }
   a {
     display: inline-block;
     margin: 0 .4em .3em 0;
@@ -129,8 +120,8 @@ p.post-btm-tags, p.post-btm-cats {
       list-style-type: none;
       margin-bottom: 0;
       font-size: .82em;
-      a > .fa { color: #777 }
-      a:hover > .fa { color: #222; }
+      a > .fab, a > .fas, a > .icon-feedly { color: #777 }
+      a:hover > .fab, a:hover > .fas, a:hover > .icon-feedly { color: #222; }
     }
     a::before, a::after { content: none }
   }

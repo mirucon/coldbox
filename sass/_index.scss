@@ -97,12 +97,7 @@ body.home #main, #main.home {
     padding: 0 4px;
   }
   .post-meta > *[class^=post-] { padding-right: 6px }
-  .post-category {
-    &::before { content: "\f114"; padding-right: 0 }
-  }
-  .post-comment {
-    a::before { content: "\f0e5"; display: inline-block; padding-right: .2em; font-family: FontAwesome; }
-  }
+  .post-meta > *[class^='post-'] > .fa-folder { margin-right: -3px; padding-right: 0 }
 
   // Hover Animations
   .post-inner:hover {

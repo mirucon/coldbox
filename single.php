@@ -39,33 +39,60 @@ while ( have_posts() ) :
 									<?php if ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && cd_is_meta_modified() ) : ?>
 
 										<?php if ( cd_is_meta_date() ) : ?>
-											<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
+											<p class="post-date-wrapper">
+												<span class="far fa-clock" aria-hidden="true"></span>
+												<span class="screen-reader-text"><?php esc_html_e( 'Published date', 'coldbox' ); ?></span>
+												<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo esc_html( get_the_date( get_option( 'date_format' ) ) ); ?></time>
+											</p>
 										<?php endif; ?>
-										<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
+										<p class="post-modified-wrapper">
+											<span class="fas fa-history" aria-hidden="true"></span>
+											<span class="screen-reader-text"><?php esc_html_e( 'Last modified date', 'coldbox' ); ?></span>
+											<time class="post-modified" datetime="<?php the_modified_time( 'c' ); ?>"><?php the_modified_date(); ?></time>
+										</p>
 
 										<?php // If the modified date and the published date are NOT same and NOT showing modified date, only show the published date. ?>
 									<?php elseif ( get_the_modified_time( 'c' ) !== get_the_time( 'c' ) && ! cd_is_meta_modified() ) : ?>
 
 										<?php if ( cd_is_meta_date() ) : ?>
-											<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
+											<p class="post-date-wrapper">
+												<span class="far fa-clock" aria-hidden="true"></span>
+												<span class="screen-reader-text"><?php esc_html_e( 'Published date', 'coldbox' ); ?></span>
+												<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo esc_html( get_the_date( get_option( 'date_format' ) ) ); ?></time>
+											</p>
 										<?php endif; ?>
 
 										<?php // If the last modified date and the published date are same and showing either the modified or published date, show the date as published date. ?>
 									<?php elseif ( get_the_modified_time( 'c' ) === get_the_time( 'c' ) && cd_is_meta_date() || cd_is_meta_modified() ) : ?>
-										<time class="post-date" datetime="<?php get_the_date( 'c' ); ?>"><?php echo get_the_date( get_option( 'date_format' ) ); ?></time>
+										<p class="post-date-wrapper">
+											<span class="far fa-clock" aria-hidden="true"></span>
+											<span class="screen-reader-text"><?php esc_html_e( 'Published date', 'coldbox' ); ?></span>
+											<time class="post-date" datetime="<?php the_date( 'c' ); ?>"><?php echo esc_html( get_the_date( get_option( 'date_format' ) ) ); ?></time>
+										</p>
 
 									<?php endif; ?>
 
 									<?php if ( cd_is_meta_cat() ) : ?>
-										<p class="post-category"><?php the_category( ' / ' ); ?> </p>
+										<p class="post-category">
+											<span class="fas fa-folder" aria-hidden="true"></span>
+											<span class="screen-reader-text"><?php esc_html_e( 'Categories', 'coldbox' ); ?></span>
+											<?php the_category( ' / ' ); ?>
+										</p>
 									<?php endif; ?>
 
 									<?php if ( cd_is_meta_author() ) : ?>
-										<span class="post-author"><?php the_author_posts_link(); ?></span>
+										<p class="post-author">
+											<span class="fas fa-user" aria-hidden="true"></span>
+											<span class="screen-reader-text"><?php esc_html_e( 'Author', 'coldbox' ); ?></span>
+											<?php the_author_posts_link(); ?>
+										</p>
 									<?php endif; ?>
 
 									<?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ) : ?>
-										<span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span>
+										<p class="post-comment">
+											<span class="fas fa-comment" aria-hidden="true"></span>
+											<?php comments_popup_link( 'Comments: 0', 'Comment: 1', 'Comments: %' ); ?>
+										</p>
 									<?php endif; ?>
 								</footer>
 

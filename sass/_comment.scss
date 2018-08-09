@@ -28,8 +28,7 @@
     font-size: .94em;
     line-height: 1;
   }
-  .tabitem > a[href^='#comment-list']::before { content: "\f075"; padding-right: .2em; font-family: FontAwesome; }
-  .tabitem > a[href^='#ping-list']::before { content: "\f064"; padding-right: .2em; font-family: FontAwesome; }
+  .tabitem > a > .fas { padding-right: .2em; }
 
   @media screen and (max-width: 374px) {
     .tabitem {
@@ -79,9 +78,10 @@
   .bypostauthor > article .fn {
     &::after {
       content: "\f007";
-      margin: 0 .2em;
+      margin: 0 .3em;
       color: #66673b;
-      font-family: "fontAwesome";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
       text-transform: uppercase;
     }
   }
@@ -287,11 +287,11 @@
       content: "\f10d";
       display: block;
       position: absolute;
-      top: 10px; left: 12px;
+      top: 15px; left: 16px;
       color: #aaa;
-      font-family: FontAwesome;
-      font-weight: 300;
-      font-size: 1.6em;
+      font-family: Font Awesome\ 5 Free;
+      font-weight: 900;
+      font-size: 1.4em;
       line-height: 1;
       font-style: normal;
     }
