@@ -1,6 +1,6 @@
 {
   "name": "coldbox",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "A beautiful WordPress theme.",
   "author": "Toshihiro Kanai (mirucon)",
   "license": "GPL-2.0+",
@@ -10,6 +10,8 @@
     "smoothscroll-polyfill": "^0.4.3"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome": "^1.1.8",
+    "@fortawesome/fontawesome-free-brands": "^5.0.13",
     "autoprefixer": "^8.6.4",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
