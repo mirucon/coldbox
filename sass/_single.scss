@@ -461,12 +461,13 @@ p.post-btm-tags, p.post-btm-cats {
 /*   Single : post formats
 /* -------------------------------------------------- */
 .format-aside { .post-title-box { display: none } }
+.post-format::before { font-family: "Font Awesome 5 Free"; padding-right: .24em }
 .format-aside .post-format::before { content: "\f111"; }
 .format-gallery .post-format::before { content: "\f1c5"; }
 .format-link .post-format::before { content: "\f0c1"; }
 .format-image .post-format::before { content: "\f03e"; }
 .format-quote .post-format::before { content: "\f10d"; }
-.format-status .post-format::before { content: "\f005" }
+.format-status .post-format::before { content: "\f005"; }
 .format-video .post-format::before { content: "\f008"; }
 .format-audio .post-format::before { content: "\f028"; }
 .format-chat .post-format::before { content: "\f086"; }
