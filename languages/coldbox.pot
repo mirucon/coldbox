@@ -34,20 +34,28 @@ msgstr ""
 msgid "% Responses"
 msgstr ""
 
-#: ../comments.php:43
+#: ../comments.php:46
 msgid "Comments"
 msgstr ""
 
-#: ../comments.php:44
+#: ../comments.php:53
 msgid "Pingbacks"
 msgstr ""
 
-#: ../comments.php:96
+#: ../comments.php:108
 msgid "Post comment"
 msgstr ""
 
+#: ../content-grid.php:38, ../content-standard.php:38, ../single.php:78
+msgid "Categories"
+msgstr ""
+
+#: ../content-standard.php:30, ../single.php:44, ../single.php:60, ../single.php:69
+msgid "Published date"
+msgstr ""
+
 #. translators: 1: Post title (screen render text)
-#: ../content-standard.php:51
+#: ../content-standard.php:62
 msgid "READ MORE%s"
 msgstr ""
 
@@ -783,15 +791,15 @@ msgstr ""
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:93, ../parts/czr/social-links.php:206
+#: ../parts/czr/social-links.php:93, ../parts/czr/social-links.php:218
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:212
+#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:224
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:214
+#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:226
 msgid "Push Notification"
 msgstr ""
 
@@ -1206,10 +1214,18 @@ msgstr ""
 msgid "Search this site"
 msgstr ""
 
-#: ../single.php:92
+#: ../single.php:50
+msgid "Last modified date"
+msgstr ""
+
+#: ../single.php:86
+msgid "Author"
+msgstr ""
+
+#: ../single.php:119
 msgid "Categories:"
 msgstr ""
 
-#: ../single.php:95
+#: ../single.php:122
 msgid "Tags:"
 msgstr ""

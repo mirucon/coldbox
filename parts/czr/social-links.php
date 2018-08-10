@@ -197,8 +197,20 @@ function cd_social_links( $class = null, $inner_class = null ) {
 		foreach ( $active_links as $key => $value ) {
 			if ( 'feedly' === $key ) {
 				$class = 'icon-feedly';
+			} elseif ( 'bell' === $key ) {
+				$class = 'fas fa-bell';
+			} elseif ( 'envelope' === $key ) {
+				$class = 'fas fa-envelope';
+			} elseif ( 'rss' === $key ) {
+				$class = 'fas fa-rss';
+			} elseif ( 'facebook-official' === $key ) {
+				$class = 'fab fa-facebook';
+			} elseif ( 'google-plus-official' === $key ) {
+				$class = 'fab fa-google-plus-g';
+			} elseif ( 'linkedin-square' === $key ) {
+				$class = 'fab fa-linkedin';
 			} else {
-				$class = 'fa fa-' . $key;
+				$class = 'fab fa-' . $key;
 			}
 			if ( 'google-plus-official' === $key ) {
 				$label = 'Google+';

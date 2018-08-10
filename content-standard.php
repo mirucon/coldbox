@@ -25,15 +25,26 @@
 
 				<p class="post-meta">
 					<?php if ( cd_index_meta_date() ) : ?>
-						<span class="post-date"><?php echo get_the_date(); ?></span>
+						<span class="post-date">
+							<span class="far fa-clock" aria-hidden="true"></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Published date', 'coldbox' ); ?></span>
+							<?php echo get_the_date(); ?>
+						</span>
 					<?php endif; ?>
 
 					<?php if ( 'post' === get_post_type() && cd_index_meta_cat() ) : ?>
-						<span class="post-category"><?php the_category( ' / ' ); ?></span>
+						<span class="post-category">
+							<span class="fas fa-folder" aria-hidden="true"></span>
+							<span class="screen-reader-text"><?php esc_html_e( 'Categories', 'coldbox' ); ?></span>
+							<?php the_category( ' / ' ); ?>
+						</span>
 					<?php endif; ?>
 
 					<?php if ( comments_open() && cd_is_post_single_comment() && cd_index_meta_comment() ) : ?>
-						<span class="post-comment"><?php comments_popup_link( '0', '1', '%' ); ?></span>
+						<span class="post-comment">
+							<span class="far fa-comment" aria-hidden="true"></span>
+							<?php comments_popup_link( 'Comments: 0', 'Comment: 1', 'Comments: %' ); ?>
+						</span>
 					<?php endif; ?>
 				</p>
 
