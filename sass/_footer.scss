@@ -56,12 +56,14 @@
       display: flex;
       flex-flow: column wrap;
     }
-    .social-links {
-      padding-top: .9em;
-      justify-content: space-around;
-    }
-    .copyright {
-      text-align: center;
+    .footer-bottom {
+      .social-links {
+        padding-top: .9em;
+        justify-content: space-around;
+      }
+      .copyright {
+        text-align: center;
+      }
     }
   }
 
