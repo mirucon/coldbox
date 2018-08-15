@@ -39,8 +39,11 @@
     "prettier-eslint": "^8.8.2",
     "sass-loader": "^7.0.3",
     "showdown": "^1.8.6",
+    "simple-icons": "^1.8.3",
+    "style-loader": "^0.22.1",
     "stylus": "^0.54.5",
     "uglifyjs-webpack-plugin": "^1.2.7",
+    "webfonts-loader": "^4.1.0",
     "webpack": "^4.15.0",
     "webpack-cli": "^3.0.8",
     "wp-pot": "^1.6.1"

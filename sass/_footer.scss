@@ -17,18 +17,6 @@
         color: #aebfbb;
     }
   }
-
-  .copyright {
-    flex-shrink: 1;
-    line-height: 1.6;
-  }
-
-  .social-links {
-    flex-grow: 1;
-    padding: 0 .7em;
-    justify-content: flex-end;
-    i { font-size: 1.8em }
-  }
 }
 
 .footer-bottom {
@@ -36,6 +24,18 @@
   padding: 30px 20px;
   background-color: $accent;
   color: rgba(255, 255, 255, .72);
+
+  .social-links {
+    flex-grow: 1;
+    padding: 0 .7em;
+    justify-content: flex-end;
+    i { font-size: 1.8em }
+  }
+
+  .copyright {
+    flex-shrink: 1;
+    line-height: 1.6;
+  }
 }
 
 

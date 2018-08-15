@@ -19,7 +19,8 @@ module.exports = (env, argv) => {
   let entries
   if (isModeDev) {
     entries = {
-      scripts: './assets/js/cd-scripts.babel.js'
+      'js/min/scripts': './assets/js/cd-scripts.babel.js',
+      'fonts/simple-icons/simple-icons': './assets/js/simple-icons.js'
     }
   } else {
     entries = {
@@ -36,7 +37,8 @@ module.exports = (env, argv) => {
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs_web.js'
       ],
-      'fonts/fontawesome/font-awesome': './assets/js/font-awesome.js'
+      'fonts/fontawesome/font-awesome': './assets/js/font-awesome.js',
+      'fonts/simple-icons/simple-icons': './assets/js/simple-icons.js'
     }
   }
 
@@ -109,7 +111,7 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+          test: /((?<=\d00)\.svg|\.(woff(2)?|ttf|eot))(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
               loader: 'file-loader',
@@ -120,6 +122,22 @@ module.exports = (env, argv) => {
               }
             }
           ]
+        },
+        {
+          test: /(?<!\d00)\.svg(\?v=\d+\.\d+\.\d+)?$/,
+          use: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[ext]',
+                outputPath: 'fonts/simple-icons/icons/'
+              }
+            }
+          ]
+        },
+        {
+          test: /\.font\.js/,
+          use: ['style-loader', 'css-loader', 'webfonts-loader']
         }
       ]
     }

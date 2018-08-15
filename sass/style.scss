@@ -695,6 +695,30 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   transition: all .4s;
 }
 
+/* Simple Icons */
+@font-face {
+  font-family: 'simple-icons';
+  src: url("../fonts/simple-icons/fonts/simple-icons.eot?#iefix") format("embedded-opentype"),
+       url("../fonts/simple-icons/fonts/simple-icons.woff") format("woff"),
+       url("../fonts/simple-icons/fonts/simple-icons.woff2") format("woff2"),
+       url("../fonts/simple-icons/fonts/simple-icons.ttf") format("truetype");
+}
+.si {
+  line-height: 1;
+}
+.si:before {
+  font-family: 'simple-icons';
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: top;
+}
+.si-feedly:before {
+  content: "\F101";
+}
+.si-hatenabookmark:before {
+  content: "\F102";
+}
+
 /* Social Links */
 .social-links {
   display: flex;
@@ -704,7 +728,7 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   li {
     position: relative;
   }
-  .fab, .fas {
+  .fab, .fas, .si {
     font-size: 1.55em;
   }
   .icon-feedly {
@@ -743,10 +767,6 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
   }
   a:hover::after, a:hover::before {
     visibility: visible;
-  }
-  .feedly .icon-feedly {
-    display: block; bottom: -1px; line-height: 1.06;
-    &::before { font-size: 1.06em }
   }
 }
 ul.social-links { padding-left: 0; list-style: none; }

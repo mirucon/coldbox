@@ -265,7 +265,7 @@
         li { flex-grow: 1 }
       }
       li {
-        flex-basis: 25%;
+        width: 25%;
         &:not(:first-child) { margin-left: 0; }
        }
        a {
