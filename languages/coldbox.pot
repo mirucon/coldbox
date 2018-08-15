@@ -791,15 +791,15 @@ msgstr ""
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:93, ../parts/czr/social-links.php:218
+#: ../parts/czr/social-links.php:93, ../parts/czr/social-links.php:206
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:224
+#: ../parts/czr/social-links.php:99, ../parts/czr/social-links.php:212
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:226
+#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:214
 msgid "Push Notification"
 msgstr ""
 

@@ -149,18 +149,6 @@ function cd_is_links_on_author_box() {
 	return get_theme_mod( 'links_on_author_box', true );
 }
 
-/**
- * Load Icomoon web font if feedly social link is set.
- *
- * @since 1.1.0
- */
-function cd_load_icomoon() {
-	if ( strlen( get_theme_mod( 'feedly', '' ) ) ) {
-		wp_enqueue_style( 'icomoon', get_theme_file_uri( 'assets/fonts/icomoon/icomoon.min.css' ), array(), '1.0.0' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'cd_load_icomoon' );
-
 
 /**
  * Output the social links got from the theme customizer
@@ -196,7 +184,7 @@ function cd_social_links( $class = null, $inner_class = null ) {
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
 			if ( 'feedly' === $key ) {
-				$class = 'icon-feedly';
+				$class = 'si si-feedly';
 			} elseif ( 'bell' === $key ) {
 				$class = 'fas fa-bell';
 			} elseif ( 'envelope' === $key ) {
