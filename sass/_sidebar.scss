@@ -262,7 +262,7 @@
   &_cd_widget_social_links {
     .social-links {
       &.has-1, &.has-2, &.has-3 {
-        li { flex-grow: 1 }
+        li { flex: 1 }
       }
       li {
         width: 25%;

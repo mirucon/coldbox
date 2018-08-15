@@ -120,8 +120,8 @@ p.post-btm-tags, p.post-btm-cats {
       list-style-type: none;
       margin-bottom: 0;
       font-size: .82em;
-      a > .fab, a > .fas, a > .icon-feedly { color: #777 }
-      a:hover > .fab, a:hover > .fas, a:hover > .icon-feedly { color: #222; }
+      a > .fab, a > .fas, a > .si { color: #777 }
+      a:hover > .fab, a:hover > .fas, a:hover > .si { color: #222; }
     }
     a::before, a::after { content: none }
   }
@@ -200,7 +200,7 @@ p.post-btm-tags, p.post-btm-cats {
   }
 
   .post:hover {
-    @include box-shadow($y: 3px, $blur: 3px, $color: rgba(0, 0, 0, .15));
+    @include box-shadow($y: 1px, $blur: 3px, $color: rgba(0, 0, 0, .1));
     .post-thumbnail img {
       opacity: .8;
     }
