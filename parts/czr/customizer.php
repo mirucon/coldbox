@@ -350,7 +350,11 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-		// Priority for hiding site title/description is 25 //
+
+		/**
+		 * Priority for hiding site title/description is 25
+		 */
+
 		// Site title font size.
 		$wp_customize->add_setting(
 			'site_title_size', array(
@@ -368,7 +372,6 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
-
 
 		// Header Direction.
 		$wp_customize->add_setting(
