@@ -99,7 +99,8 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.css$/,
+          // Loader for Font Awesome CSS
+          test: /all\.min\.css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
@@ -111,6 +112,7 @@ module.exports = (env, argv) => {
           ]
         },
         {
+          // Loader for Font Awesome Fonts
           test: /((?<=\d00)\.svg|\.(woff(2)?|ttf|eot))(\?v=\d+\.\d+\.\d+)?$/,
           use: [
             {
@@ -124,18 +126,7 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /(?<!\d00)\.svg(\?v=\d+\.\d+\.\d+)?$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/simple-icons/icons/'
-              }
-            }
-          ]
-        },
-        {
+          // Loader for webfonts-loader
           test: /\.font\.js/,
           use: ['style-loader', 'css-loader', 'webfonts-loader']
         }

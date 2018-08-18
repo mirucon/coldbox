@@ -350,6 +350,26 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Priority for hiding site title/description is 25 //
+		// Site title font size.
+		$wp_customize->add_setting(
+			'site_title_size', array(
+				'default'           => 185,
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize, 'site_title_size', array(
+					'label'       => esc_html__( 'Font Size for Site Title', 'coldbox' ),
+					'description' => esc_html__( 'Relative value (%) to global font size', 'coldbox' ),
+					'section'     => 'header',
+					'type'        => 'number',
+				)
+			)
+		);
+
+
 		// Header Direction.
 		$wp_customize->add_setting(
 			'header_direction', array(
