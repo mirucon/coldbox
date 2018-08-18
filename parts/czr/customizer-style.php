@@ -61,6 +61,18 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			}';
 		}
 
+		// The font size for site title.
+		if (
+			get_theme_mod( 'site_title_size', 185 ) !== 185 ||
+			get_theme_mod( 'site_title_size', 185 ) !== 0
+		) {
+			$size      = absint( get_theme_mod( 'site_title_size' ) );
+			$size_em   = $size / 100;
+			$czr_style = "body .site-title {
+				font-size: ${size_em}em;
+			}";
+		}
+
 		// Whether to add decoration to headings.
 		if ( get_theme_mod( 'decorate_htags', false ) ) {
 			$czr_style .= '.entry h2 { margin: 2em -40px 1.3em; padding: 1.3rem 30px; border-style: solid; border-width: 1px 0; overflow: hidden; }
