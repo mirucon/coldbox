@@ -65,13 +65,15 @@
     "page-stylus:autoprefixer": "postcss --no-map assets/css/page-style.css --config postcss.config.js -o assets/css/page-style.min.css",
     "page-stylus-dev:watch": "stylus -m -w sass/page-style.styl -o assets/css/page-style.min.css",
     "page-stylus": "npm-run-all page-stylus:*",
-    "czr-style:autoprefixer": "postcss --no-map assets/css/czr-style.css --config postcss.config.js -o assets/css/czr-style.min.css",
-    "czr-style": "npm-run-all czr-style:*",
+    "czr-stylus:compile": "stylus -m < sass/czr-style.styl > assets/css/czr-style.css",
+    "czr-stylus:autoprefixer": "postcss --no-map assets/css/czr-style.css --config postcss.config.js -o assets/css/czr-style.min.css",
+    "czr-stylus-dev:watch": "stylus -m -w sass/czr-style.styl -o assets/css/czr-style.min.css",
+    "czr-stylus": "npm-run-all czr-stylus:*",
     "wp:dev": "webpack --mode development",
     "wp:watch": "webpack --mode development -w",
     "wp:build": "webpack --mode production",
     "watch": "npm-run-all -p wp:watch editor-stylus-dev:watch page-stylus-dev:watch",
-    "build": "npm-run-all -p pot wp:build editor-stylus page-stylus czr-style md && npm run copy"
+    "build": "npm-run-all -p pot wp:build editor-stylus page-stylus czr-stylus md && npm run copy"
   },
   "repository": {
     "type": "git",
