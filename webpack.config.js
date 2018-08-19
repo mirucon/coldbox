@@ -144,6 +144,7 @@ module.exports = (env, argv) => {
           test: /\.font\.js/,
           use: [
             'style-loader',
+            MiniCssExtractPlugin.loader,
             'css-loader',
             'postcss-loader',
             {
