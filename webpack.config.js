@@ -98,7 +98,7 @@ module.exports = (env, argv) => {
           ]
         },
         {
-          test: /\.scss$/,
+          test: /\.(sc|sa|c)ss$/,
           exclude: /node_modules/,
           use: [
             {
