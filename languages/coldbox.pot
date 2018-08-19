@@ -67,76 +67,76 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: ../functions.php:199, ../functions.php:247
+#: ../functions.php:198, ../functions.php:246
 msgid "Header Menu"
 msgstr ""
 
-#: ../functions.php:200, ../functions.php:275
+#: ../functions.php:199, ../functions.php:274
 msgid "Footer Menu"
 msgstr ""
 
-#: ../functions.php:246
+#: ../functions.php:245
 msgid "Close menu"
 msgstr ""
 
-#: ../functions.php:569
+#: ../functions.php:568
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:571, ../functions.php:582, ../functions.php:593, ../functions.php:604, ../functions.php:615
+#: ../functions.php:570, ../functions.php:581, ../functions.php:592, ../functions.php:603, ../functions.php:614
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:580
+#: ../functions.php:579
 msgid "Footer Sidebar One"
 msgstr ""
 
-#: ../functions.php:591
+#: ../functions.php:590
 msgid "Footer Sidebar Two"
 msgstr ""
 
-#: ../functions.php:602
+#: ../functions.php:601
 msgid "Footer Sidebar Three"
 msgstr ""
 
-#: ../functions.php:613
+#: ../functions.php:612
 msgid "Footer Sidebar Four"
 msgstr ""
 
-#: ../functions.php:898
+#: ../functions.php:897
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:900
+#: ../functions.php:899
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:1083
+#: ../functions.php:1082
 msgid "Category:"
 msgstr ""
 
-#: ../functions.php:1085
+#: ../functions.php:1084
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:1087
+#: ../functions.php:1086
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:1089
+#: ../functions.php:1088
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:1089
+#: ../functions.php:1088
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:1091
+#: ../functions.php:1090
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:1093
+#: ../functions.php:1092
 msgid "Author:"
 msgstr ""
 
