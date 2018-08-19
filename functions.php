@@ -15,7 +15,6 @@ if ( ! function_exists( 'cd_scripts' ) ) {
 	 **/
 	function cd_scripts() {
 
-		wp_enqueue_style( 'FontAwesome', get_theme_file_uri( 'assets/fonts/fontawesome/font-awesome.css' ), array(), '5.2.0' );
 		wp_enqueue_style( 'GoogleFonts', '//fonts.googleapis.com/css?family=Lato:300,400,700', array(), '1.0.0' );
 		wp_enqueue_script( 'comment-reply' );
 

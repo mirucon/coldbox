@@ -10,15 +10,8 @@ dist
 # Build files
 languages/coldbox.pot
 *.map
-assets/css/style.css
-assets/css/style.min.css
-assets/css/editor-style.css
-assets/css/editor-style.min.css
-assets/css/page-style.css
-assets/css/page-style.min.css
-assets/css/czr-style.min.css
+assets/css/
 assets/html/CHANGELOG.html
-
 assets/fonts/
 
 assets/js/min/

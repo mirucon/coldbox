@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
   if (isModeDev) {
     entries = {
       'js/min/scripts': './assets/js/cd-scripts.babel.js',
-      'fonts/simple-icons/simple-icons': './assets/js/simple-icons.js'
+      'css/style.min': './assets/js/style.js'
     }
   } else {
     entries = {
@@ -37,8 +37,7 @@ module.exports = (env, argv) => {
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs_web.js'
       ],
-      'fonts/fontawesome/font-awesome': './assets/js/font-awesome.js',
-      'fonts/simple-icons/simple-icons': './assets/js/simple-icons.js'
+      'css/style.min': './assets/js/style.js'
     }
   }
 
@@ -99,13 +98,28 @@ module.exports = (env, argv) => {
           ]
         },
         {
+          test: /\.scss$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: './assets/'
+              }
+            },
+            'css-loader',
+            'postcss-loader',
+            'sass-loader'
+          ]
+        },
+        {
           // Loader for Font Awesome CSS
           test: /all\.min\.css$/,
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: './fonts/fontawesome/'
+                publicPath: '../fonts/fontawesome/'
               }
             },
             'css-loader'
@@ -120,7 +134,7 @@ module.exports = (env, argv) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'fonts/fontawesome/fonts/',
-                publicPath: './fonts/'
+                publicPath: '../fonts/fontawesome/fonts/'
               }
             }
           ]
@@ -128,7 +142,17 @@ module.exports = (env, argv) => {
         {
           // Loader for webfonts-loader
           test: /\.font\.js/,
-          use: ['style-loader', 'css-loader', 'webfonts-loader']
+          use: [
+            'style-loader',
+            'css-loader',
+            'postcss-loader',
+            {
+              loader: 'webfonts-loader',
+              options: {
+                publicPath: '../'
+              }
+            }
+          ]
         }
       ]
     }

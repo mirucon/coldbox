@@ -698,10 +698,9 @@ html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; cli
 /* Simple Icons */
 @font-face {
   font-family: 'simple-icons';
-  src: url("../fonts/simple-icons/fonts/simple-icons.eot?#iefix") format("embedded-opentype"),
-       url("../fonts/simple-icons/fonts/simple-icons.woff") format("woff"),
-       url("../fonts/simple-icons/fonts/simple-icons.woff2") format("woff2"),
-       url("../fonts/simple-icons/fonts/simple-icons.ttf") format("truetype");
+  src: url("../assets/fonts/simple-icons/fonts/simple-icons.eot?#iefix") format("embedded-opentype"),
+       url("../assets/fonts/simple-icons/fonts/simple-icons.woff2") format("woff2"),
+       url("../assets/fonts/simple-icons/fonts/simple-icons.ttf") format("truetype");
 }
 .si {
   line-height: 1;
