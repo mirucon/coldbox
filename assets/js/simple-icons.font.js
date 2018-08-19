@@ -7,5 +7,5 @@ module.exports = {
   classPrefix: 'si-',
   baseSelector: 'si',
   types: ['eot', 'woff', 'woff2', 'ttf'],
-  fileName: './fonts/simple-icons/fonts/[fontname].[ext]'
+  fileName: './fonts/[fontname].[ext]'
 }

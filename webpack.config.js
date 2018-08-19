@@ -119,7 +119,7 @@ module.exports = (env, argv) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '../fonts/fontawesome/'
+                publicPath: '../assets/css/'
               }
             },
             'css-loader'
@@ -133,8 +133,8 @@ module.exports = (env, argv) => {
               loader: 'file-loader',
               options: {
                 name: '[name].[ext]',
-                outputPath: 'fonts/fontawesome/fonts/',
-                publicPath: '../fonts/fontawesome/fonts/'
+                outputPath: 'fonts/',
+                publicPath: '../fonts/'
               }
             }
           ]
