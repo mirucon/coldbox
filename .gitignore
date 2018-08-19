@@ -11,6 +11,7 @@ dist
 languages/coldbox.pot
 *.map
 assets/css/
+!assets/css/czr-style.css
 assets/html/CHANGELOG.html
 assets/fonts/
 
