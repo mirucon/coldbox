@@ -144,7 +144,12 @@ module.exports = (env, argv) => {
           test: /\.font\.js/,
           use: [
             'style-loader',
-            MiniCssExtractPlugin.loader,
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                publicPath: './assets/'
+              }
+            },
             'css-loader',
             'postcss-loader',
             {
@@ -152,7 +157,7 @@ module.exports = (env, argv) => {
               options: {
                 publicPath: '../'
               }
-            }
+            },
           ]
         }
       ]
