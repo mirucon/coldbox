@@ -1,0 +1,138 @@
+body
+  font-family 'Open Sans', Arial, sans-serif
+  font-size 15px
+  line-height 1.6
+
+  a
+    color #00619F
+    box-shadow 0 1px 0 0 currentColor
+    text-decoration none
+    &:hover
+      color #2e4453
+      box-shadow 0 2px 0 0 black
+
+  dt
+    font-weight bold
+  dd
+    margin-bottom 1em
+  hr
+    margin 1em 0
+  iframe
+    margin-bottom 1em
+  p
+    margin-bottom 1em
+  p > iframe
+    margin-bottom 0
+
+  h1, h2, h3, h4, h5, h6
+    color #111
+    font-weight bold
+    line-height 1.4
+    letter-spacing -.03em
+  h1
+    margin 1.8em 0 1em
+    font-size 1.875em
+  h2
+    margin 1.6em 0 1em
+    font-size 1.56em
+  h3
+    margin 1.5em 0 1em
+    font-size 1.43em
+  h4
+    margin 1.4em 0 .9em
+    font-size 1.34em
+  h5
+    margin 1.3em 0 .8em
+    font-size 1.25em
+  h6
+    margin 1.2em 0 .8em
+    font-size 1.12em
+
+  ul
+    list-style square
+    position relative
+    margin-bottom 1em
+    padding-left 30px
+  ol
+    list-style decimal
+    position relative
+    margin-bottom 1em
+    padding-left 30px
+
+  blockquote
+    position relative
+    margin-bottom 1em
+    padding 10px 10px 10px 48px
+    border-radius 1px
+    color #666
+    font-style italic
+    box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.1)
+    &::before
+      content "\f122"
+      display block
+      position absolute
+      top 10px
+      left 12px
+      color #aaa
+      font-family dashicons
+      font-weight 300
+      font-size 1.6em
+      line-height 1
+      font-style normal
+
+  pre
+    position relative
+    margin 1em 0
+    padding 1em 1.2em
+    background #44463B
+    color #E5E5EB
+    white-space pre
+    overflow-x auto
+    overflow-y hidden
+    font-size .96em
+    line-height 1.4
+    font-family 'Source Code Pro', Monaco, Consolas, monospace
+    box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.1)
+  pre > code
+    display block
+    padding 0
+    background transparent
+    color inherit
+    white-space inherit
+
+  code
+    background-color #f0f0f0
+    padding 0 3px
+    border-radius 1px
+    font-size .9em
+    font-family 'Source Code Pro', Monaco, Consolas, monospace
+
+  kbd
+    background-color #f0f0f0
+    padding 0 3px
+    border 1px solid #44463B
+    border-radius 1px
+    font-size .9em
+    font-family 'Source Code Pro', Monaco, Consolas, monospace
+
+  table
+    width 100%
+    margin-bottom 1em
+    font-size .95em
+    text-align center
+    overflow-x auto
+    box-shadow 0 1px 1px 0 rgba(0, 0, 0, 0.08)
+    td, th
+      border-bottom 1px solid #ddd
+    th
+      padding 7px 10px
+      border-top 1px solid #ddd
+      background #f6f6f6
+      font-weight bold
+    td
+      padding 6px
+      vertical-align middle
+
+  address
+    margin-bottom 1em
+    font-style italic
