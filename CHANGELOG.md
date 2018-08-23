@@ -1,3 +1,14 @@
+### 1.7.0 <small> - August 23rd, 2018</small>
+
+* Added: New option to use custom font size for the site title
+* Fixed: Alignment of footer sidebars
+* Fixed: Alignment of social links widget on footer sidebars
+* Updated: Font Awesome version 5.2 from 4
+* Improved: Remove Icomoon icon fonts which included unused icons and replace with Simple Icons
+* Improved: Replace icons in pseudo elements with span elements
+* Improved: Use Webpack to compile theme stylesheet
+* Improved: Bundle theme stylesheet, Font Awesome and Simple Icons into one CSS file for better performance
+
 ### 1.6.4 <small> - August 9th, 2018</small>
 
 * Added: Footer widget area

@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.6.4
+Version: 1.7.0
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -81,6 +81,17 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.7.0 =
+
+* Added: New option to use custom font size for the site title
+* Fixed: Alignment of footer sidebars
+* Fixed: Alignment of social links widget on footer sidebars
+* Updated: Font Awesome version 5.2 from 4
+* Improved: Remove Icomoon icon fonts which included unused icons and replace with Simple Icons
+* Improved: Replace icons in pseudo elements with span elements
+* Improved: Use Webpack to compile theme stylesheet
+* Improved: Bundle theme stylesheet, Font Awesome and Simple Icons into one CSS file for better performance
 
 = 1.6.4 =
 
