@@ -1108,6 +1108,8 @@ if ( ! function_exists( 'cd_post_format_icon' ) ) {
 	 * @param string $format Name of post format.
 	 *
 	 * @return string
+	 *
+	 * @since 1.7.0
 	 */
 	function cd_post_format_icon( $format ) {
 		if ( 'aside' === $format ) {
@@ -1142,7 +1144,7 @@ if ( ! function_exists( 'cd_post_format_icon' ) ) {
  *  Theme definitions
  * -------------------------------------------------------------------------
  */
-define( 'CD_VER', '1.7.0-alpha-2' );
+define( 'CD_VER', '1.7.0' );
 
 /*
  * -------------------------------------------------------------------------
