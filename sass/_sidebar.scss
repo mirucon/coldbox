@@ -148,7 +148,7 @@
       position: absolute;
       right: 0;
     }
-    li a::before { content: "\f133"; position: relative; top: -1px; padding-right: .5em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
+    li a::before { content: "\F133"; position: relative; top: -1px; padding-right: .5em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
   }
 
   &_categories {
@@ -158,7 +158,7 @@
       padding: 10px 8px;
       border-bottom: 1px solid $border;
       line-height: 1.5;
-      &::before { content: "\f07c"; padding-right: .4em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
+      &::before { content: "\F07c"; padding-right: .4em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
     } li:first-of-type a { border-top: 1px solid $border }
     .count {
       position: absolute;
@@ -167,7 +167,7 @@
     .children {
       padding-left: 1em;
       &:first-of-type a { border-top: 0 }
-      li a::before { content: "\f07b"; padding-right: .4em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
+      li a::before { content: "\F07b"; padding-right: .4em; font-family: 'Font Awesome\ 5 Free'; font-size: .8em }
     }
   }
 

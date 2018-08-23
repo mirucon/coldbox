@@ -63,7 +63,7 @@
 							'<span class="screen-reader-text">  ' . get_the_title() . '</span>'
 						);
 						?>
-					<span class="fa" aria-hidden="true"></span>
+					<span class="fas fa-arrow-right more-icon" aria-hidden="true"></span>
 				</a>
 			</p>
 

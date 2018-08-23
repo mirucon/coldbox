@@ -1097,6 +1097,47 @@ if ( ! function_exists( 'cd_modify_archive_title' ) ) {
 add_filter( 'get_the_archive_title', 'cd_modify_archive_title' );
 
 /*
+ *  FontAwesome Icon
+ * --------------------------------------------------
+ */
+if ( ! function_exists( 'cd_post_format_icon' ) ) {
+
+	/**
+	 * Get FontAwesome icon class for specific post format.
+	 *
+	 * @param string $format Name of post format.
+	 *
+	 * @return string
+	 */
+	function cd_post_format_icon( $format ) {
+		if ( 'aside' === $format ) {
+			$icon = 'fas fa-circle';
+		} elseif ( 'gallery' === $format ) {
+			$icon = 'fas fa-file-image';
+		} elseif ( 'icon' === $format ) {
+			$icon = 'fas fa-link';
+		} elseif ( 'image' === $format ) {
+			$icon = 'fas fa-image';
+		} elseif ( 'quote' === $format ) {
+			$icon = 'fas fa-quote-left';
+		} elseif ( 'status' === $format ) {
+			$icon = 'fas fa-star';
+		} elseif ( 'video' === $format ) {
+			$icon = 'fas fa-video';
+		} elseif ( 'audio' === $format ) {
+			$icon = 'fas fa-file-audio';
+		} elseif ( 'chat' === $format ) {
+			$icon = 'fas fa-comment-alt';
+		} elseif ( 'link' === $format ) {
+			$icon = 'fas fa-link';
+		} else {
+			$icon = '';
+		}
+		return $icon;
+	}
+}
+
+/*
  * -------------------------------------------------------------------------
  *  Theme definitions
  * -------------------------------------------------------------------------
