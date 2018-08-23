@@ -46,11 +46,11 @@ msgstr ""
 msgid "Post comment"
 msgstr ""
 
-#: ../content-grid.php:38, ../content-standard.php:38, ../single.php:78
+#: ../content-grid.php:38, ../content-standard.php:38, ../single.php:81
 msgid "Categories"
 msgstr ""
 
-#: ../content-standard.php:30, ../single.php:44, ../single.php:60, ../single.php:69
+#: ../content-standard.php:30, ../single.php:47, ../single.php:63, ../single.php:72
 msgid "Published date"
 msgstr ""
 
@@ -1222,18 +1222,18 @@ msgstr ""
 msgid "Search this site"
 msgstr ""
 
-#: ../single.php:50
+#: ../single.php:53
 msgid "Last modified date"
 msgstr ""
 
-#: ../single.php:86
+#: ../single.php:89
 msgid "Author"
 msgstr ""
 
-#: ../single.php:119
+#: ../single.php:122
 msgid "Categories:"
 msgstr ""
 
-#: ../single.php:122
+#: ../single.php:125
 msgid "Tags:"
 msgstr ""

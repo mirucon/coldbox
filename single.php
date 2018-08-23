@@ -32,7 +32,10 @@ while ( have_posts() ) :
 								<footer class="post-meta content-box">
 
 									<?php if ( has_post_format() ) : ?>
-										<span class="post-format"><?php echo esc_html( get_post_format() ); ?></span>
+										<span class="post-format">
+											<span class="<?php echo esc_attr( cd_post_format_icon( get_post_format() ) ); ?>" aria-hidden="true"></span>
+											<?php echo esc_html( get_post_format() ); ?>
+										</span>
 									<?php endif; ?>
 
 									<?php // If the modified date and the published date are NOT same and showing modified date, show both published and modified dates. ?>
