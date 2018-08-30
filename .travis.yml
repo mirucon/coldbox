@@ -85,7 +85,9 @@ script:
     fi
 
 after_script:
-  - greenkeeper-lockfile-upload
+  - |
+    if [[ "$TRAVIS_PHP_VERSION" !== "5.3" ]] ; then
+      greenkeeper-lockfile-upload
 
 after_success:
   # Run npm build task.
