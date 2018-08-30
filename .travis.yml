@@ -29,9 +29,12 @@ cache:
     - $HOME/.composer/cache
     - node_modules
 
-install:
+before_install:
   - nvm install 10
   - npm i -g yarn
+  - yarn global add greenkeeper-lockfile
+
+install:
   - yarn install
 
 matrix:
@@ -53,6 +56,7 @@ matrix:
       dist: precise
 
 before_script:
+  - greenkeeper-lockfile-update
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
@@ -79,6 +83,9 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
     fi
+
+after_script:
+  - greenkeeper-lockfile-upload
 
 after_success:
   # Run npm build task.
