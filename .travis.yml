@@ -21,6 +21,7 @@ env:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 
 cache:
   directories:
