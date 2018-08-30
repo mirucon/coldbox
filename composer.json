@@ -3,7 +3,11 @@
     "description": "A beautiful WordPress theme.",
     "type": "wordpress-theme",
     "require": {
-        "phpunit/phpunit": "^6.5"
+        "php": "> 5.2.0",
+        "phpunit/phpunit": "^6.5",
+        "squizlabs/php_codesniffer": "> 3.1",
+        "wp-coding-standards/wpcs": "1.*",
+        "phpcompatibility/php-compatibility": "*"
     },
     "license": "GPL-2.0+",
     "authors": [
@@ -12,5 +16,10 @@
             "email": "i@miruc.co"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "scripts": {
+        "set-config": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility,vendor/wp-coding-standards/wpcs",
+        "lint": "\"vendor/bin/phpcs\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml",
+        "fix": "\"vendor/bin/phpcbf\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml"
+    }
 }

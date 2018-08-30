@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<ruleset name="WordPress Theme Coding Standards">
+
+	<description>A custom set of code standard rules to check for WordPress themes.</description>
+
+	<arg value="ps"/>
+
+	<arg name="basepath" value="./"/>
+
+	<arg name="parallel" value="8"/>
+
+	<arg name="extensions" value="php"/>
+
+	<file>.</file>
+
+	<rule ref="WordPress" />
+
+
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array" value="coldbox"/>
+		</properties>
+	</rule>
+
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="is_theme" value="true"/>
+		</properties>
+	</rule>
+
+
+	<config name="minimum_supported_wp_version" value="4.7"/>
+
+	<!-- Verify that everything in the global namespace is prefixed with a theme specific prefix.
+		 Multiple valid prefixes can be provided as a comma-delimited list. -->
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array" value="cd" />
+		</properties>
+	</rule>
+
+
+	<!--
+	#############################################################################
+	USE THE PHPCompatibility RULESET
+	#############################################################################
+	-->
+
+
+	<config name="testVersion" value="5.2-99.0"/>
+	<rule ref="PHPCompatibility">
+		<!-- Whitelist PHP native classes, interfaces, functions and constants which
+			 are back-filled by WP.
+			 Based on:
+			 * /wp-includes/compat.php
+			 * /wp-includes/random_compat/random.php
+		-->
+		<exclude name="PHPCompatibility.PHP.NewClasses.errorFound"/>
+		<exclude name="PHPCompatibility.PHP.NewClasses.typeerrorFound"/>
+
+		<exclude name="PHPCompatibility.PHP.NewConstants.json_pretty_printFound"/>
+		<exclude name="PHPCompatibility.PHP.NewConstants.php_version_idFound"/>
+
+		<exclude name="PHPCompatibility.PHP.NewFunctions.hash_equalsFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.json_last_error_msgFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.random_intFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.random_bytesFound"/>
+		<exclude name="PHPCompatibility.PHP.NewFunctions.array_replace_recursiveFound"/>
+
+		<exclude name="PHPCompatibility.PHP.NewInterfaces.jsonserializableFound"/>
+	</rule>
+
+	<!-- Whitelist the WP Core mysql_to_rfc3339() function. -->
+	<rule ref="PHPCompatibility.PHP.RemovedExtensions">
+		<properties>
+			<property name="functionWhitelist" type="array" value="mysql_to_rfc3339"/>
+		</properties>
+	</rule>
+
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/dist/*</exclude-pattern>
+	<exclude-pattern>*/assets/*</exclude-pattern>
+	<exclude-pattern>parts/tgm/*.php</exclude-pattern>
+	<exclude-pattern>*/tests/*.php</exclude-pattern>
+</ruleset>
