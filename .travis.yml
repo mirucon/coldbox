@@ -86,7 +86,7 @@ script:
 
 after_script:
   - |
-    if [[ "$TRAVIS_PHP_VERSION" != "5.3" ]] ; then
+    if [[ "7.2" == "$TRAVIS_PHP_VERSION"  ]] ; then
       greenkeeper-lockfile-upload
 
 after_success:
