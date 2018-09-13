@@ -56,7 +56,10 @@ matrix:
       dist: precise
 
 before_script:
-  - greenkeeper-lockfile-update
+  - |
+    if [[ "7.2" == "$TRAVIS_PHP_VERSION" ]] ; then
+      greenkeeper-lockfile-update
+    fi
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
@@ -69,8 +72,8 @@ before_script:
     fi
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      composer global require wp-coding-standards/wpcs
-      phpcs --config-set installed_paths $HOME/.composer/vendor/wp-coding-standards/wpcs
+      composer install
+      composer run set-config
     fi
 
 script:
@@ -81,13 +84,14 @@ script:
     fi
   - |
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
-      phpcs --standard=phpcs.ruleset.xml $(find . -name '*.php')
+      composer run lint
     fi
 
 after_script:
   - |
-    if [[ "$TRAVIS_PHP_VERSION" != "5.3" ]] ; then
+    if [[ "7.2" == "$TRAVIS_PHP_VERSION" ]] ; then
       greenkeeper-lockfile-upload
+    fi
 
 after_success:
   # Run npm build task.
