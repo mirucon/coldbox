@@ -167,7 +167,8 @@ if ( ! function_exists( 'cd_supports' ) ) {
 
 		// Support custom header.
 		add_theme_support(
-			'custom-header', array(
+			'custom-header',
+			array(
 				'width'       => 980,
 				'height'      => 100,
 				'flex-height' => true,
@@ -177,7 +178,8 @@ if ( ! function_exists( 'cd_supports' ) ) {
 
 		// Support custom logo.
 		add_theme_support(
-			'custom-logo', array(
+			'custom-logo',
+			array(
 				'height'      => 80,
 				'width'       => 230,
 				'flex-height' => true,
@@ -222,6 +224,7 @@ if ( ! function_exists( 'cd_pingback_header' ) ) {
 
 // Set the content width.
 if ( ! isset( $content_width ) ) {
+	// phpcs:ignore
 	$content_width = 680;
 }
 
@@ -911,7 +914,8 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
 					$cat_name = $cat->name;
 					$cat_url  = get_category_link( $cat->cat_ID );
 					$parent   = array_merge(
-						$parent, array(
+						$parent,
+						array(
 							$cat_name => $cat_url,
 						)
 					);

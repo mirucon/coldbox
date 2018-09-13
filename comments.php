@@ -21,7 +21,7 @@ if ( have_comments() === false && comments_open() === false ) {
 		<h2 class="comment-head content-box-heading"><?php comments_number( __( 'No Responses', 'coldbox' ), __( '1 Response', 'coldbox' ), __( '% Responses', 'coldbox' ) ); ?></h2>
 
 		<?php
-		$commentcount = get_comments(
+		$cd_comment_count = get_comments(
 			array(
 				'status'  => 'approve',
 				'post_id' => get_the_ID(),
@@ -29,7 +29,7 @@ if ( have_comments() === false && comments_open() === false ) {
 				'count'   => true,
 			)
 		);
-		$pingcount    = get_comments(
+		$cd_ping_count    = get_comments(
 			array(
 				'status'  => 'approve',
 				'post_id' => get_the_ID(),
@@ -44,14 +44,14 @@ if ( have_comments() === false && comments_open() === false ) {
 				<a class="noscroll" href="#comment-list">
 					<span class="fas fa-comment" aria-hidden="true"></span>
 					<?php esc_html_e( 'Comments', 'coldbox' ); ?>
-					<span class="count"><?php echo absint( $commentcount ); ?></span>
+					<span class="count"><?php echo absint( $cd_comment_count ); ?></span>
 				</a>
 			</li>
 			<li class="tabitem">
 				<a class="noscroll" href="#ping-list">
 					<span class="fas fa-share" aria-hidden="true"></span>
 					<?php esc_html_e( 'Pingbacks', 'coldbox' ); ?>
-					<span class="count"><?php echo absint( $pingcount ); ?></span>
+					<span class="count"><?php echo absint( $cd_ping_count ); ?></span>
 				</a>
 			</li>
 		</ul>

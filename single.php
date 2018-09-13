@@ -109,13 +109,13 @@ while ( have_posts() ) :
 								<div class="entry content-box">
 									<div class="entry-inner"><?php the_content(); ?></div>
 									<?php
-									$defaults = array(
+									$cd_defaults = array(
 										'before'      => '<div class="post-pages">',
 										'after'       => '</div>',
 										'link_before' => '<span class="page-number">',
 										'link_after'  => '</span>',
 									);
-									wp_link_pages( $defaults );
+									wp_link_pages( $cd_defaults );
 									?>
 									<div class="btm-post-meta">
 										<?php if ( cd_is_meta_btm_cat() && ! is_attachment() ) : ?>

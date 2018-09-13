@@ -32,8 +32,11 @@ function cd_admin_notice_ads_extension() {
 			<?php
 				printf(
 					/* translators: 1: opening a tag, 2: closing a tag */
-					esc_html__( 'Thanks for using the Coldbox theme! We have released an extension plugin called Coldbox Ads Extension for the easy Google AdSense management and getting high revenue with it.
-					We believe this is the best choice to monetize your blog with the Coldbox theme. %1$sSee this article%2$s for more details.', 'coldbox' ),
+					esc_html__(
+						'Thanks for using the Coldbox theme! We have released an extension plugin called Coldbox Ads Extension for the easy Google AdSense management and getting high revenue with it.
+					We believe this is the best choice to monetize your blog with the Coldbox theme. %1$sSee this article%2$s for more details.',
+						'coldbox'
+					),
 					'<a href="' . esc_url( __( 'https://coldbox.miruc.co/addons/google-adsense-extension/', 'coldbox' ) ) . '">',
 					'</a>'
 				)

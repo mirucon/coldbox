@@ -19,17 +19,17 @@ else :
 
 			<div class="container">
 
-				<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
+				<?php for ( $cd_i = 1; $cd_i <= 4; $cd_i++ ) : ?>
 
-					<?php if ( is_active_sidebar( 'footer-' . $i ) ) : ?>
+					<?php if ( is_active_sidebar( 'footer-' . $cd_i ) ) : ?>
 
-						<aside id="footer-<?php echo absint( $i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $i ); ?>" role="complementary">
+						<aside id="footer-<?php echo absint( $cd_i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $cd_i ); ?>" role="complementary">
 
 							<div class="footer-sidebar sidebar">
 
 								<div class="sidebar-inner">
 
-									<?php dynamic_sidebar( 'footer-' . $i ); ?>
+									<?php dynamic_sidebar( 'footer-' . $cd_i ); ?>
 
 								</div>
 
@@ -57,7 +57,7 @@ else :
 
 				<p>
 					<?php
-					$allowed_html = array(
+					$cd_allowed_html = array(
 						'a'      => array(
 							'href'    => array(),
 							'onclick' => array(),
@@ -75,7 +75,7 @@ else :
 					);
 					?>
 
-					<?php echo wp_kses( cd_credit(), $allowed_html ); ?>
+					<?php echo wp_kses( cd_credit(), $cd_allowed_html ); ?>
 
 					<?php if ( function_exists( 'the_privacy_policy_link' ) && cd_is_privacy_policy_link_shown() ) : ?>
 						<?php the_privacy_policy_link( ' / ', '<span role="separator" aria-hidden="true"></span>' ); ?>
@@ -85,7 +85,7 @@ else :
 
 				<?php if ( cd_is_theme_credit() ) : ?>
 					<p>
-						<?php echo wp_kses( cd_theme_credit_text(), $allowed_html ); ?>
+						<?php echo wp_kses( cd_theme_credit_text(), $cd_allowed_html ); ?>
 					</p>
 				<?php endif; ?>
 

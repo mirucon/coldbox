@@ -16,9 +16,9 @@ get_header(); ?>
 
 			<div id="content" class="content">
 
-				<?php $class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
+				<?php $cd_class_status = have_posts() ? 'view-has-post' : 'view-no-results'; ?>
 
-				<div class="content-inner <?php echo esc_attr( cd_index_style() ) . '-view'; ?> <?php echo esc_attr( $class_status ); ?>">
+				<div class="content-inner <?php echo esc_attr( cd_index_style() ) . '-view'; ?> <?php echo esc_attr( $cd_class_status ); ?>">
 
 					<?php
 					// Call the top parts.
@@ -27,9 +27,9 @@ get_header(); ?>
 
 					<?php
 					if ( have_posts() ) :
-						$count = 0;
+						$cd_post_count = 0;
 						while ( have_posts() ) :
-							$count++;
+							$cd_post_count++;
 							the_post();
 							?>
 
@@ -39,7 +39,7 @@ get_header(); ?>
 								<?php get_template_part( 'content', 'standard' ); ?>
 							<?php endif; ?>
 
-							<?php do_action( 'cd_archive_midst_content', $count ); ?>
+							<?php do_action( 'cd_archive_midst_content', $cd_post_count ); ?>
 
 						<?php endwhile; ?>
 

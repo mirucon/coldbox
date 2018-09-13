@@ -42,14 +42,14 @@ else :
 			</div>
 
 			<?php
-			$nav_toggle    =
+			$cd_nav_toggle    =
 				'<button id="header-nav-toggle" class="nav-toggle header-menu" on="tap:amp-sidebar.open">
 					<span class="top" aria-hidden="true"></span>
 					<span class="middle" aria-hidden="true"></span>
 					<span class="bottom" aria-hidden="true"></span>
 					<span class="screen-reader-text">' . esc_html__( 'Menu', 'coldbox' ) . '</span>
 				</button>';
-			$search_toggle =
+			$cd_search_toggle =
 				'<button class="search-toggle">
 					<span class="icon search" aria-hidden="true"></span>
 					<span class="screen-reader-text">' . esc_html__( 'Search Toggle', 'coldbox' ) . '</span>
@@ -58,10 +58,10 @@ else :
 
 			<?php if ( wp_is_mobile() ) : ?>
 
-				<?php echo $search_toggle; // WPCS: XSS OK. ?>
+				<?php echo $cd_search_toggle; // WPCS: XSS OK. ?>
 
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-					<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+					<?php echo $cd_nav_toggle; // WPCS: XSS OK. ?>
 				<?php endif; ?>
 
 				<?php cd_header_menu(); ?>
@@ -70,10 +70,10 @@ else :
 
 				<?php cd_header_menu(); ?>
 
-				<?php echo $search_toggle; // WPCS: XSS OK. ?>
+				<?php echo $cd_search_toggle; // WPCS: XSS OK. ?>
 
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-					<?php echo $nav_toggle; // WPCS: XSS OK. ?>
+					<?php echo $cd_nav_toggle; // WPCS: XSS OK. ?>
 				<?php endif; ?>
 
 			<?php endif; ?>
