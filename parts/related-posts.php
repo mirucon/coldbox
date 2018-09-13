@@ -6,8 +6,9 @@
  * @package Coldbox
  */
 
-// phpcs:ignore
-/** @noinspection PhpUndefinedVariableInspection */
+// phpcs:disable
+// TODO- Redesign the logic
+
 
 $max_articles   = cd_single_related_max(); // Its value can be changed on the theme customizer.
 $posts_per_page = get_option( 'posts_per_page' );

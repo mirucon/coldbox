@@ -58,13 +58,16 @@ function cd_czr_social_links( $wp_customize ) {
 	$feedly_url = 'https://feedly.com/i/subscription/feed/' . get_bloginfo( 'rss2_url' );
 
 	$wp_customize->add_setting(
-		'feed_url_info', array(
+		'feed_url_info',
+		array(
 			'sanitize_callback' => 'sanitize_text_field',
 		)
 	);
 	$wp_customize->add_control(
 		new CD_Custom_Content(
-			$wp_customize, 'feed_url_info', array(
+			$wp_customize,
+			'feed_url_info',
+			array(
 				'content'  => sprintf( /* Translators: %s: The feed URL */ __( '<p>Your Feed URL is: </p>%s', 'coldbox' ), esc_url( $feed_url ) ) . '<br>' . sprintf( /* Translators: %s: The Feedly URL */ __( '<p>Your Feedly URL is: </p>%s', 'coldbox' ), esc_url( $feedly_url ) ),
 				'section'  => 'social_links',
 				'priority' => 1000,
@@ -73,7 +76,8 @@ function cd_czr_social_links( $wp_customize ) {
 	);
 
 	$wp_customize->add_section(
-		'social_links', array(
+		'social_links',
+		array(
 			'title'       => __( 'Coldbox: Social Links', 'coldbox' ),
 			'description' => __( 'You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs.', 'coldbox' ),
 			'priority'    => 5,
@@ -110,13 +114,15 @@ function cd_czr_social_links( $wp_customize ) {
 		}
 
 		$wp_customize->add_setting(
-			$social_site, array(
+			$social_site,
+			array(
 				'sanitize_callback' => 'esc_url_raw',
 			)
 		);
 
 		$wp_customize->add_control(
-			$social_site, array(
+			$social_site,
+			array(
 				'type'     => 'url',
 				'label'    => $label,
 				'section'  => 'social_links',
@@ -129,7 +135,8 @@ function cd_czr_social_links( $wp_customize ) {
 		// Support direct editing shortcut on the customizer for social icons.
 		if ( isset( $wp_customize->selective_refresh ) ) {
 			$wp_customize->selective_refresh->add_partial(
-				$social_site, array(
+				$social_site,
+				array(
 					'selector'            => '.social-links',
 					'container_inclusive' => false,
 					'render_callback'     => cd_social_links_render_callback(),

@@ -129,8 +129,11 @@ function cd_welcome_page_content() {
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Coldbox Ads Extension Plugin', 'coldbox' ); ?></h2>
 		<p>
 			<?php
-				esc_html_e( 'We\'ve developed an extension plugin for the Google AdSense ads for the Coldbox theme users. The plugin gives you the great experiences and engagements on Google AdSense without writing code at all.
-				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:', 'coldbox' );
+				esc_html_e(
+					'We\'ve developed an extension plugin for the Google AdSense ads for the Coldbox theme users. The plugin gives you the great experiences and engagements on Google AdSense without writing code at all.
+				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:',
+					'coldbox'
+				);
 			?>
 		</p>
 
@@ -194,7 +197,8 @@ function cd_welcome_page_content() {
 							phpversion(),
 							'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
 							'</a>'
-						), $allowed_html
+						),
+						$allowed_html
 					);
 				?>
 			</p>
@@ -237,7 +241,7 @@ function cd_welcome_page_content() {
  *
  * @param string $wp_admin_bar Menu item to add.
  */
-function customize_admin_bar_menu( $wp_admin_bar ) {
+function cd_customize_admin_bar_menu( $wp_admin_bar ) {
 	if ( ! current_user_can( 'edit_theme_options' ) || ! cd_show_theme_button() ) {
 		return;
 	}
@@ -266,4 +270,4 @@ function customize_admin_bar_menu( $wp_admin_bar ) {
 		)
 	);
 }
-add_action( 'admin_bar_menu', 'customize_admin_bar_menu' );
+add_action( 'admin_bar_menu', 'cd_customize_admin_bar_menu' );
