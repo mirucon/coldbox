@@ -43,7 +43,7 @@
     "style-loader": "^0.23.0",
     "stylus": "^0.54.5",
     "sugarss": "^2.0.0",
-    "uglifyjs-webpack-plugin": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^1.2.7",
     "webfonts-loader": "^4.1.0",
     "webpack": "^4.17.1",
     "webpack-cli": "^3.0.8",
