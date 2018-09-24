@@ -1,6 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const recursiveIssuer = m => {
@@ -51,8 +51,7 @@ module.exports = (env, argv) => {
     devtool: isModeDev ? 'source-map' : 'none',
     optimization: {
       minimizer: [
-        new UglifyJsPlugin({
-          cache: true,
+        new TerserPlugin({
           parallel: true,
           sourceMap: true
         }),
@@ -157,7 +156,7 @@ module.exports = (env, argv) => {
               options: {
                 publicPath: '../'
               }
-            },
+            }
           ]
         }
       ]
