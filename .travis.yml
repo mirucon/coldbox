@@ -87,6 +87,7 @@ script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       composer run lint
     fi
+  - yarn build
 
 after_script:
   - |
