@@ -106,7 +106,13 @@ module.exports = (env, argv) => {
                 publicPath: './assets/'
               }
             },
-            'css-loader',
+
+            {
+              loader: 'css-loader',
+              options: {
+                modules: 'global'
+              }
+            },
             'postcss-loader',
             'sass-loader'
           ]
