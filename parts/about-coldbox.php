@@ -233,7 +233,7 @@ function cd_welcome_page_content() {
 	$changelog = ob_get_contents();
 	ob_end_clean();
 
-	echo wp_kses_post( $changelog ); // WPCS: XSS OK.
+	echo wp_kses_post( $changelog ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**

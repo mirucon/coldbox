@@ -217,12 +217,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCompatibility/PHPCompatibility.git",
-                "reference": "9d43adb3218821ac820d313efbdde298a29eb943"
+                "reference": "4487042f114bcc7298c61143a24cd774f47a7b63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/9d43adb3218821ac820d313efbdde298a29eb943",
-                "reference": "9d43adb3218821ac820d313efbdde298a29eb943",
+                "url": "https://api.github.com/repos/PHPCompatibility/PHPCompatibility/zipball/4487042f114bcc7298c61143a24cd774f47a7b63",
+                "reference": "4487042f114bcc7298c61143a24cd774f47a7b63",
                 "shasum": ""
             },
             "require": {
@@ -267,7 +267,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2018-12-23T03:30:49+00:00"
+            "time": "2018-12-31T15:58:44+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
@@ -742,12 +742,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "4eba199f3760640fa43b84dba65c1251e014c5a8"
+                "reference": "ce7d22a77dbb9c35ac12a1e082877733a12a5a3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/4eba199f3760640fa43b84dba65c1251e014c5a8",
-                "reference": "4eba199f3760640fa43b84dba65c1251e014c5a8",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/ce7d22a77dbb9c35ac12a1e082877733a12a5a3c",
+                "reference": "ce7d22a77dbb9c35ac12a1e082877733a12a5a3c",
                 "shasum": ""
             },
             "require": {
@@ -815,7 +815,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2018-12-28T13:39:52+00:00"
+            "time": "2019-01-02T16:22:09+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1589,20 +1589,22 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards.git",
-                "reference": "f328bcafd97377e8e5e5d7b244d5ddbf301a3a5c"
+                "reference": "c0877a9d08ff0d31b38b58eed5eb16cac1b21b4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/f328bcafd97377e8e5e5d7b244d5ddbf301a3a5c",
-                "reference": "f328bcafd97377e8e5e5d7b244d5ddbf301a3a5c",
+                "url": "https://api.github.com/repos/WordPress-Coding-Standards/WordPress-Coding-Standards/zipball/c0877a9d08ff0d31b38b58eed5eb16cac1b21b4b",
+                "reference": "c0877a9d08ff0d31b38b58eed5eb16cac1b21b4b",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3",
-                "squizlabs/php_codesniffer": "^2.9.0 || ^3.0.2"
+                "php": ">=5.4",
+                "squizlabs/php_codesniffer": "^3.3.1"
             },
             "require-dev": {
-                "phpcompatibility/php-compatibility": "^9.0"
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+                "phpcompatibility/php-compatibility": "^9.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "suggest": {
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.4.3 || This Composer plugin will sort out the PHPCS 'installed_paths' automatically."
@@ -1624,7 +1626,7 @@
                 "standards",
                 "wordpress"
             ],
-            "time": "2018-12-18T09:43:51+00:00"
+            "time": "2018-12-30T23:11:56+00:00"
         }
     ],
     "packages-dev": [],

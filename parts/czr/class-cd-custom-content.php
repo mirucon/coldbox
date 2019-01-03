@@ -28,7 +28,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'CD_Custom_Conten
 		 */
 		public function render_content() {
 			if ( isset( $this->content ) ) {
-				echo $this->content; // WPCS: XSS OK.
+				echo $this->content; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
 		}
 	}
