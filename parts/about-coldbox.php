@@ -210,6 +210,9 @@ function cd_welcome_page_content() {
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 
+		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.7.1', 'coldbox' ); ?></h3>
+		<p><?php esc_html_e( 'Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn\'t be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)', 'coldbox' ); ?></p>
+
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.7.0', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required.', 'coldbox' ); ?></p>
 
