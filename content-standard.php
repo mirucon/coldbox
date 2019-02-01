@@ -60,7 +60,7 @@
 						printf(
 							/* translators: 1: Post title (screen render text) */
 							esc_html__( 'READ MORE%s', 'coldbox' ),
-							'<span class="screen-reader-text">  ' . get_the_title() . '</span>'
+							'<span class="screen-reader-text">  ' . esc_html( get_the_title() ) . '</span>'
 						);
 						?>
 					<span class="fas fa-arrow-right more-icon" aria-hidden="true"></span>

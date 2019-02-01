@@ -58,10 +58,10 @@ else :
 
 			<?php if ( wp_is_mobile() ) : ?>
 
-				<?php echo $cd_search_toggle; // WPCS: XSS OK. ?>
+				<?php echo $cd_search_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-					<?php echo $cd_nav_toggle; // WPCS: XSS OK. ?>
+					<?php echo $cd_nav_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php endif; ?>
 
 				<?php cd_header_menu(); ?>
@@ -70,10 +70,10 @@ else :
 
 				<?php cd_header_menu(); ?>
 
-				<?php echo $cd_search_toggle; // WPCS: XSS OK. ?>
+				<?php echo $cd_search_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
 				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-					<?php echo $cd_nav_toggle; // WPCS: XSS OK. ?>
+					<?php echo $cd_nav_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php endif; ?>
 
 			<?php endif; ?>

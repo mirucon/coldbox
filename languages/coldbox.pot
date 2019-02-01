@@ -1,4 +1,4 @@
-# Copyright (C) 2018 Coldbox
+# Copyright (C) 2019 Coldbox
 # This file is distributed under the same license as the Coldbox package.
 msgid ""
 msgstr ""
@@ -286,47 +286,55 @@ msgid "Upgrade Notice"
 msgstr ""
 
 #: ../parts/about-coldbox.php:213
-msgid "v1.7.0"
+msgid "v1.7.1"
 msgstr ""
 
 #: ../parts/about-coldbox.php:214
-msgid "The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required."
+msgid "Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn't be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)"
 msgstr ""
 
 #: ../parts/about-coldbox.php:216
-msgid "v1.5.4"
+msgid "v1.7.0"
 msgstr ""
 
 #: ../parts/about-coldbox.php:217
-msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
+msgid "The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required."
 msgstr ""
 
 #: ../parts/about-coldbox.php:219
-msgid "v1.5.3"
+msgid "v1.5.4"
 msgstr ""
 
 #: ../parts/about-coldbox.php:220
-msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
+msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
 msgstr ""
 
 #: ../parts/about-coldbox.php:222
-msgid "v1.5.0"
+msgid "v1.5.3"
 msgstr ""
 
 #: ../parts/about-coldbox.php:223
+msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
+msgstr ""
+
+#: ../parts/about-coldbox.php:225
+msgid "v1.5.0"
+msgstr ""
+
+#: ../parts/about-coldbox.php:226
 msgid "In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to \"Coldbox: Header Settings\" > \"Custom Logo Width\"."
 msgstr ""
 
-#: ../parts/about-coldbox.php:227
+#: ../parts/about-coldbox.php:230
 msgid "Changelog"
 msgstr ""
 
 #. translators: %s: Theme version
-#: ../parts/about-coldbox.php:251
+#: ../parts/about-coldbox.php:254
 msgid "Coldbox v%s"
 msgstr ""
 
-#: ../parts/about-coldbox.php:268
+#: ../parts/about-coldbox.php:271
 msgid "Upgrade Notices"
 msgstr ""
 
@@ -791,31 +799,31 @@ msgid "Show the social links on the author box"
 msgstr ""
 
 #. translators: %s: The Feedly URL
-#: ../parts/czr/social-links.php:71
+#: ../parts/czr/social-links.php:72
 msgid "<p>Your Feed URL is: </p>%s"
 msgstr ""
 
-#: ../parts/czr/social-links.php:71
+#: ../parts/czr/social-links.php:72
 msgid "<p>Your Feedly URL is: </p>%s"
 msgstr ""
 
-#: ../parts/czr/social-links.php:81
+#: ../parts/czr/social-links.php:82
 msgid "Coldbox: Social Links"
 msgstr ""
 
-#: ../parts/czr/social-links.php:82
+#: ../parts/czr/social-links.php:83
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:97, ../parts/czr/social-links.php:213
+#: ../parts/czr/social-links.php:98, ../parts/czr/social-links.php:214
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:103, ../parts/czr/social-links.php:219
+#: ../parts/czr/social-links.php:104, ../parts/czr/social-links.php:220
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:105, ../parts/czr/social-links.php:221
+#: ../parts/czr/social-links.php:106, ../parts/czr/social-links.php:222
 msgid "Push Notification"
 msgstr ""
 

@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 4.7
 Tested up to: WordPress 4.9
 Requires PHP: 5.2.4
-Version: 1.7.0
+Version: 1.7.1
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -81,6 +81,13 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.7.1 =
+
+* Upgrade Slack icon to their new logo
+* feat: Implement new social link for Telegram
+* fix: JS notice when header menu doesn't exist
+* And small bug fixes and performance improvements
 
 = 1.7.0 =
 

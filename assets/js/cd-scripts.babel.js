@@ -436,6 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         const possibleKeys = [3, 4, 5, 6]
         for (const key of possibleKeys) {
+          if (!items.childNodes[key]) {
+            return
+          }
           if (
             items.childNodes[key].classList &&
             items.childNodes[key].classList.contains('search-toggle')

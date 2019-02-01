@@ -20,6 +20,7 @@ function cd_social_sites() {
 		'youtube'              => 'cd_youtube_profile',
 		'tumblr'               => 'cd_tumblr_profile',
 		'instagram'            => 'cd_instagram_profile',
+		'telegram'             => 'cd_telegram_profile',
 		'codepen'              => 'cd_codepen_profile',
 		'github'               => 'cd_github_profile',
 		'wordpress'            => 'cd_wordpress_profile',

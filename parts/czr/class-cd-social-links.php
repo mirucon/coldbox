@@ -45,17 +45,17 @@ class CD_Social_Links extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		$title = isset( $instance['title'] ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) : '';
-		echo $args['before_widget']; // WPCS: XSS OK.
+		echo $args['before_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		if ( ! empty( $title ) ) {
-			echo $args['before_title'] . $title . $args['after_title']; // WPCS: XSS OK.
+			echo $args['before_title'] . $title . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {
-			echo $args['before_title'] . esc_html__( 'Follow me', 'coldbox' ) . $args['after_title']; // WPCS: XSS OK.
+			echo $args['before_title'] . esc_html__( 'Follow me', 'coldbox' ) . $args['after_title']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 
 		cd_social_links();
 
-		echo $args['after_widget']; // WPCS: XSS OK.
+		echo $args['after_widget']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 
 	/**

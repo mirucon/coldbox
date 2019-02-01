@@ -258,7 +258,7 @@ if ( ! function_exists( 'cd_header_menu' ) ) {
 				)
 			);
 			$menu        .= '</nav>';
-			echo apply_filters( 'cd_header_menu', $menu ); // WPCS: XSS OK.
+			echo apply_filters( 'cd_header_menu', $menu ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -286,7 +286,7 @@ if ( ! function_exists( 'cd_footer_menu' ) ) {
 				)
 			);
 			$menu .= '</div></nav>';
-			echo apply_filters( 'cd_footer_menu', $menu ); // WPCS: XSS OK.
+			echo apply_filters( 'cd_footer_menu', $menu ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -317,7 +317,7 @@ if ( ! function_exists( 'cd_standard_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-standard.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_standard_thumbnail', $thumbnail ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_standard_thumbnail', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -347,7 +347,7 @@ if ( ! function_exists( 'cd_middle_thumbnail' ) ) {
 		} else {
 			$thumbnail = '<img src="' . esc_url( get_theme_file_uri( 'assets/img/thumb-medium.png' ) ) . '" alt="' . $noimage_alt . '" height="250" width="500">';
 		}
-		echo apply_filters( 'cd_middle_thumbnail', $thumbnail ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_middle_thumbnail', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -379,7 +379,7 @@ if ( ! function_exists( 'cd_middle_thumbnail_template' ) ) {
 		} else {
 			return;
 		}
-		echo apply_filters( 'cd_middle_thumbnail_template', $thumbnail ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_middle_thumbnail_template', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -411,7 +411,7 @@ if ( ! function_exists( 'cd_standard_thumbnail_template' ) ) {
 		} else {
 			return;
 		}
-		echo apply_filters( 'cd_standard_thumbnail_template', $thumbnail ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_standard_thumbnail_template', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -438,7 +438,7 @@ if ( ! function_exists( 'cd_large_thumbnail_template' ) ) {
 		} else {
 			return;
 		}
-		echo apply_filters( 'cd_large_thumbnail_template', $thumbnail ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_large_thumbnail_template', $thumbnail ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -453,7 +453,7 @@ if ( ! function_exists( 'cd_comments_template' ) ) {
 		ob_start();
 		comments_template( '/comments.php', true );
 		$template = ob_get_clean();
-		echo apply_filters( 'cd_comments_template', $template ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_comments_template', $template ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -467,7 +467,7 @@ if ( ! function_exists( 'cd_get_avatar' ) ) {
 	function cd_get_avatar() {
 
 		$avatar = get_avatar( get_the_author_meta( 'ID' ), 74 );
-		echo apply_filters( 'cd_get_avatar', $avatar ); // WPCS: XSS OK.
+		echo apply_filters( 'cd_get_avatar', $avatar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -1006,7 +1006,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			$logo .= '</div>';
 			$logo .= '</a>';
 
-			echo apply_filters( 'cd_custom_logo', $logo ); // WPCS: XSS OK.
+			echo apply_filters( 'cd_custom_logo', $logo ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
 		}
 
@@ -1022,7 +1022,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			$logo .= "<${title_tagname} class=\"site-title\">" . esc_html( get_bloginfo( 'name' ) ) . "</${title_tagname}>";
 			$logo .= '</a>';
 
-			echo apply_filters( 'cd_site_title', $logo ); // WPCS: XSS OK.
+			echo apply_filters( 'cd_site_title', $logo ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
 }
@@ -1037,7 +1037,7 @@ if ( ! function_exists( 'cd_header_image' ) ) {
 		 */
 		function cd_header_image() {
 			$style = "#header { background-image: url('" . get_header_image() . "'); }";
-			echo '<style>' . $style . '</style>'; // WPCS: XSS OK.
+			echo '<style>' . $style . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 		add_action( 'wp_head', 'cd_header_image' );
 	}
@@ -1148,7 +1148,7 @@ if ( ! function_exists( 'cd_post_format_icon' ) ) {
  *  Theme definitions
  * -------------------------------------------------------------------------
  */
-define( 'CD_VER', '1.7.0' );
+define( 'CD_VER', '1.7.1' );
 
 /*
  * -------------------------------------------------------------------------
