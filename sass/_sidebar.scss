@@ -289,6 +289,7 @@
        *[class^=youtube] a { background-color: #bb0000; @include box-shadow-sns( $color: #bb0000 );  &:hover { @include box-shadow-sns-hover(); } }
        *[class^=linkedin] a { background-color: #007bb6; @include box-shadow-sns( $color: #007bb6 ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=instagram] a { background-color: #517fa4; @include box-shadow-sns( $color: #517fa4 ); &:hover { @include box-shadow-sns-hover(); } }
+       *[class^=telegram] a { background-color: #0088cc; @include box-shadow-sns( $color: #0088cc ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=pinterest] a { background-color: #cb2027; @include box-shadow-sns( $color: #cb2027 ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=vine] a { background-color: #00bf8f; @include box-shadow-sns( $color: #00bf8f ); &:hover { @include box-shadow-sns-hover(); } }
        *[class^=snapchat] a { background-color: #fffc00; @include box-shadow-sns( $color: #fffc00 ); &:hover { @include box-shadow-sns-hover(); } }
