@@ -86,7 +86,7 @@ All the photos used in the screenshots are all licensed under CC0.
 
 * Upgrade Slack icon to their new logo
 * feat: Implement new social link for Telegram
-* fix: JS notice when header menu isn't existed
+* fix: JS notice when header menu doesn't exist
 * And small bug fixes and performance improvements
 
 = 1.7.0 =

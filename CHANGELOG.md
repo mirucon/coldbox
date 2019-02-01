@@ -1,3 +1,10 @@
+### 1.7.1 <small> - February 1st, 2019</small>
+
+* Upgrade Slack icon to their new logo
+* feat: Implement new social link for Telegram
+* fix: JS notice when header menu doesn't exist
+* And small bug fixes and performance improvements
+
 ### 1.7.0 <small> - August 23rd, 2018</small>
 
 * Added: New option to use custom font size for the site title
