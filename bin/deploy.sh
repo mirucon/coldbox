@@ -16,7 +16,8 @@ if [[ "7.2" != "$TRAVIS_PHP_VERSION" ]]; then
     echo "Deploy only works on PHP 7.2."
     exit
 fi
- 
+
+rm -rf dist
 git clone -b dist --quiet "https://github.com/${TRAVIS_REPO_SLUG}.git" dist
 yarn build
 cd dist
