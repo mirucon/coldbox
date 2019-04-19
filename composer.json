@@ -18,7 +18,6 @@
     ],
     "minimum-stability": "dev",
     "scripts": {
-        "set-config": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility,vendor/wp-coding-standards/wpcs",
         "lint": "\"vendor/bin/phpcs\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml",
         "fix": "\"vendor/bin/phpcbf\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml"
     }

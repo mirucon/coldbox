@@ -7,6 +7,8 @@
 
 	<arg name="basepath" value="./"/>
 
+	<config name="installed_paths" value="vendor/phpcompatibility/php-compatibility/PHPCompatibility,vendor/wp-coding-standards/wpcs"/>
+
 	<arg name="parallel" value="8"/>
 
 	<arg name="extensions" value="php"/>
