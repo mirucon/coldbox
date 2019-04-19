@@ -13,27 +13,26 @@
  */
 function cd_social_sites() {
 	$social_sites = array(
-		'twitter'              => 'cd_twitter_profile',
-		'facebook-official'    => 'cd_facebook_profile',
-		'google-plus-official' => 'cd_googleplus_profile',
-		'linkedin-square'      => 'cd_linkedin_profile',
-		'youtube'              => 'cd_youtube_profile',
-		'tumblr'               => 'cd_tumblr_profile',
-		'instagram'            => 'cd_instagram_profile',
-		'telegram'             => 'cd_telegram_profile',
-		'codepen'              => 'cd_codepen_profile',
-		'github'               => 'cd_github_profile',
-		'wordpress'            => 'cd_wordpress_profile',
-		'steam'                => 'cd_steam_profile',
-		'foursquare'           => 'cd_foursquare_profile',
-		'slack'                => 'cd_slack_profile',
-		'skype'                => 'cd_skype_profile',
-		'paypal'               => 'cd_paypal_profile',
-		'500px'                => 'cd_500px_profile',
-		'rss'                  => 'cd_rss_profile',
-		'feedly'               => 'cd_feedly_profile',
-		'envelope'             => 'cd_email_form_profile',
-		'bell'                 => 'cd_push_profile',
+		'twitter'           => 'cd_twitter_profile',
+		'facebook-official' => 'cd_facebook_profile',
+		'linkedin-square'   => 'cd_linkedin_profile',
+		'youtube'           => 'cd_youtube_profile',
+		'tumblr'            => 'cd_tumblr_profile',
+		'instagram'         => 'cd_instagram_profile',
+		'telegram'          => 'cd_telegram_profile',
+		'codepen'           => 'cd_codepen_profile',
+		'github'            => 'cd_github_profile',
+		'wordpress'         => 'cd_wordpress_profile',
+		'steam'             => 'cd_steam_profile',
+		'foursquare'        => 'cd_foursquare_profile',
+		'slack'             => 'cd_slack_profile',
+		'skype'             => 'cd_skype_profile',
+		'paypal'            => 'cd_paypal_profile',
+		'500px'             => 'cd_500px_profile',
+		'rss'               => 'cd_rss_profile',
+		'feedly'            => 'cd_feedly_profile',
+		'envelope'          => 'cd_email_form_profile',
+		'bell'              => 'cd_push_profile',
 	);
 	return apply_filters( 'cd_social_sites', $social_sites );
 }
@@ -92,9 +91,7 @@ function cd_czr_social_links( $wp_customize ) {
 	foreach ( $social_sites as $social_site => $value ) {
 
 		$label = ucfirst( $social_site );
-		if ( 'google-plus-official' === $social_site ) {
-			$label = 'Google+';
-		} elseif ( 'rss' === $social_site ) {
+		if ( 'rss' === $social_site ) {
 			$label = __( 'RSS Feed', 'coldbox' );
 		} elseif ( 'codepen' === $social_site ) {
 			$label = 'CodePen';
@@ -201,16 +198,12 @@ function cd_social_links( $class = null, $inner_class = null ) {
 				$class = 'fas fa-rss';
 			} elseif ( 'facebook-official' === $key ) {
 				$class = 'fab fa-facebook';
-			} elseif ( 'google-plus-official' === $key ) {
-				$class = 'fab fa-google-plus-g';
 			} elseif ( 'linkedin-square' === $key ) {
 				$class = 'fab fa-linkedin';
 			} else {
 				$class = 'fab fa-' . $key;
 			}
-			if ( 'google-plus-official' === $key ) {
-				$label = 'Google+';
-			} elseif ( 'rss' === $key ) {
+			if ( 'rss' === $key ) {
 				$label = __( 'RSS Feed', 'coldbox' );
 			} elseif ( 'codepen' === $key ) {
 				$label = 'CodePen';
