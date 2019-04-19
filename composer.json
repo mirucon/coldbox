@@ -3,11 +3,13 @@
     "description": "A beautiful WordPress theme.",
     "type": "wordpress-theme",
     "require": {
-        "php": "> 5.2.0",
+        "php": "> 5.2.0"
+    },
+    "require-dev": {
+        "phpcompatibility/phpcompatibility-wp": "*",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*",
-        "wp-coding-standards/wpcs": "*",
-        "phpcompatibility/php-compatibility": "*"
+        "wp-coding-standards/wpcs": "*"
     },
     "license": "GPL-2.0+",
     "authors": [
