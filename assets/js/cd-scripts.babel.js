@@ -488,6 +488,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('blur', submenuOutFocusHandler)
           }
           item.addEventListener('focusin', submenuOnFocusHandler)
+          item.addEventListener('mousedown', e => e.preventDefault())
         }
       }
     }
