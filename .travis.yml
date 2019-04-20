@@ -74,7 +74,6 @@ before_script:
     if [[ "$WP_TRAVISCI" == "phpcs" ]] ; then
       rm -f composer.lock
       composer install
-      composer run set-config
     fi
 
 script:
