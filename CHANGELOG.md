@@ -1,3 +1,10 @@
+### 1.7.2 <small> - April 22nd, 2019</small>
+
+* fix: Center the feature photo in posts by default
+* fix: Menu item is not closing when holding with mouse
+* fix: Delete Google Plus things
+* And small bug fixes
+
 ### 1.7.1 <small> - February 1st, 2019</small>
 
 * Upgrade Slack icon to their new logo
