@@ -799,31 +799,31 @@ msgid "Show the social links on the author box"
 msgstr ""
 
 #. translators: %s: The Feedly URL
-#: ../parts/czr/social-links.php:72
+#: ../parts/czr/social-links.php:71
 msgid "<p>Your Feed URL is: </p>%s"
 msgstr ""
 
-#: ../parts/czr/social-links.php:72
+#: ../parts/czr/social-links.php:71
 msgid "<p>Your Feedly URL is: </p>%s"
 msgstr ""
 
-#: ../parts/czr/social-links.php:82
+#: ../parts/czr/social-links.php:81
 msgid "Coldbox: Social Links"
 msgstr ""
 
-#: ../parts/czr/social-links.php:83
+#: ../parts/czr/social-links.php:82
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:98, ../parts/czr/social-links.php:214
+#: ../parts/czr/social-links.php:95, ../parts/czr/social-links.php:207
 msgid "RSS Feed"
 msgstr ""
 
-#: ../parts/czr/social-links.php:104, ../parts/czr/social-links.php:220
+#: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:213
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:106, ../parts/czr/social-links.php:222
+#: ../parts/czr/social-links.php:103, ../parts/czr/social-links.php:215
 msgid "Push Notification"
 msgstr ""
 
