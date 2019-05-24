@@ -3,7 +3,7 @@
     "description": "A beautiful WordPress theme.",
     "type": "wordpress-theme",
     "require": {
-        "php": "> 5.2.0"
+        "php": "> 5.6.0"
     },
     "require-dev": {
         "phpcompatibility/phpcompatibility-wp": "*",
