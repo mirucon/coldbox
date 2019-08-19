@@ -85,6 +85,9 @@
       "@babel/preset-env"
     ]
   },
+  "browserslist": [
+    "last 2 versions"
+  ],
   "prettier": {
     "semi": false,
     "singleQuote": true

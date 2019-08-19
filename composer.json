@@ -6,10 +6,10 @@
         "php": "> 5.6.0"
     },
     "require-dev": {
-        "phpcompatibility/phpcompatibility-wp": "*",
-        "phpunit/phpunit": "*",
-        "squizlabs/php_codesniffer": "*",
-        "wp-coding-standards/wpcs": "*"
+        "phpcompatibility/phpcompatibility-wp": "2.*",
+        "phpunit/phpunit": "7.*",
+        "squizlabs/php_codesniffer": "3.*",
+        "wp-coding-standards/wpcs": "2.1.1"
     },
     "license": "GPL-2.0+",
     "authors": [
