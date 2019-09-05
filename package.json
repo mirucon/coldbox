@@ -43,7 +43,7 @@
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
     "sugarss": "^2.0.0",
-    "terser-webpack-plugin": "^1.4.1",
+    "terser-webpack-plugin": "^2.0.0",
     "webfonts-loader": "^4.4.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.6",
