@@ -23,6 +23,9 @@ branches:
     - master
     - /^greenkeeper/.*$/
 
+services:
+  - mysql
+
 cache:
   directories:
     - vendor
