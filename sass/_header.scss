@@ -202,7 +202,7 @@
       top: 50px;
     }
     li > .sub-menu > li:hover > .sub-menu,
-    li.is-sub-menu-shown .sub-menu > li > .sub-menu {
+    li > .sub-menu > li.is-sub-menu-shown > .sub-menu {
       @include shown;
       top: -4px;
       left: 200px;

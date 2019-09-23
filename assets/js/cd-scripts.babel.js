@@ -458,40 +458,90 @@ document.addEventListener('DOMContentLoaded', () => {
   /*   Menu : Submenu handling on focus
   /* -------------------------------------------------- */
   {
-    const menuItems = document.querySelectorAll(
-      '.menu-item.menu-item-has-children'
+    /**
+     * Find the most parent in the nested sub menu.
+     *
+     * @param {HTMLElement} el
+     * @return {HTMLElement}
+     */
+    const getTheParent = el => {
+      const parent = el.parentElement
+
+      if (parent.classList.contains('menu-container')) {
+        return el
+      }
+
+      return getTheParent(parent)
+    }
+
+    /**
+     * @private
+     * @param {HTMLElement} el
+     * @return {boolean|HTMLElement}
+     */
+    const findClosestSubMenu = el => {
+      if (
+        el.parentElement.classList.contains('menu-container') ||
+        !el.parentElement
+      ) {
+        return false
+      }
+      if (el.parentElement.classList.contains('menu-item-has-children')) {
+        return el.parentElement
+      }
+      return findClosestSubMenu(el.parentElement)
+    }
+
+    /**
+     * Get all the parent menu items.
+     *
+     * @param {HTMLElement} el
+     * @return {Array<HTMLElement>|[]}
+     */
+    const getAllParentSubMenus = el => {
+      const parents = []
+
+      let res = el
+      do {
+        res = findClosestSubMenu(res)
+        if (res) {
+          parents.push(res)
+        }
+      } while (res)
+
+      return parents
+    }
+
+    const parentMenus = document.querySelectorAll(
+      '.menu-container li'
     )
 
-    if (menuItems) {
-      for (const item of menuItems) {
-        if (!item.parentNode.classList.contains('sub-menu')) {
-          const menuLinks = item.querySelectorAll('a')
-          const submenuOnFocusHandler = () => {
-            const isFocusedEl = [].indexOf.call(
-              menuLinks,
-              document.activeElement
-            )
-            if (isFocusedEl !== -1) {
-              item.classList.add('is-sub-menu-shown')
+    parentMenus.forEach(parentEl => {
+      const allMenus = getAllParentSubMenus(parentEl)
+      const mostParent = getTheParent(parentEl)
+      const allMenuLinks = mostParent.querySelectorAll('a')
+
+      ;[...parentEl.children]
+        .filter(childEl => {
+          return childEl.tagName === 'A' || childEl.tagName === 'a'
+        })
+        .forEach(linkEl => {
+          linkEl.addEventListener('focusin', () => {
+            if ([...allMenuLinks].includes(document.activeElement)) {
+              allMenus.forEach(subMenu => {
+                subMenu.classList.add('is-sub-menu-shown')
+              })
             }
-          }
-          const submenuOutFocusHandler = () => {
-            const isFocusedEl = [].indexOf.call(
-              menuLinks,
-              document.activeElement
-            )
-            if (isFocusedEl === -1) {
-              item.classList.remove('is-sub-menu-shown')
+          })
+          linkEl.addEventListener('blur', () => {
+            if (![...allMenuLinks].includes(document.activeElement)) {
+              allMenus.forEach(subMenu => {
+                subMenu.classList.remove('is-sub-menu-shown')
+              })
             }
-          }
-          for (const link of menuLinks) {
-            link.addEventListener('blur', submenuOutFocusHandler)
-          }
-          item.addEventListener('focusin', submenuOnFocusHandler)
-          item.addEventListener('mousedown', e => e.preventDefault())
-        }
-      }
-    }
+          })
+        })
+    })
   }
 
   /*   Pagination : Underline Animate
@@ -598,9 +648,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (const date of dates) {
         if (date.previousElementSibling.tagName === 'A') {
           const parent = date.previousElementSibling
-          parent.innerHTML = `<span class="recent_entries_post-title">${
-            parent.textContent
-          }</span>`
+          parent.innerHTML = `<span class="recent_entries_post-title">${parent.textContent}</span>`
           const titleNode = date.previousElementSibling.children[0]
           parent.insertBefore(date, titleNode)
         }
