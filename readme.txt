@@ -82,6 +82,11 @@ All the photos used in the screenshots are all licensed under CC0.
 
 == Changelog ==
 
+= 1.8.0 =
+
+* Theme now requires WP version 5.0 or higher
+* fix: babel-polyfill is conflicting with Gutenberg or some other plugins
+
 = 1.7.3 =
 
 * feat: Don't open all the sub-menus when focused on menu item

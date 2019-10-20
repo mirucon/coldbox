@@ -210,6 +210,9 @@ function cd_welcome_page_content() {
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 
+		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.0', 'coldbox' ); ?></h3>
+		<p><?php esc_html_e( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ); ?></p>
+
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.7.1', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn\'t be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)', 'coldbox' ); ?></p>
 
