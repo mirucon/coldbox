@@ -24,16 +24,14 @@ module.exports = (env, argv) => {
     }
   } else {
     entries = {
-      'js/min/scripts': ['@babel/polyfill', './assets/js/cd-scripts.babel.js'],
+      'js/min/scripts': ['./assets/js/cd-scripts.babel.js'],
       'js/min/hljs': './assets/js/hljs.js',
       'js/min/hljs_web': './assets/js/hljs_web.js',
       'js/min/scripts+hljs': [
-        '@babel/polyfill',
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs.js'
       ],
       'js/min/scripts+hljs_web': [
-        '@babel/polyfill',
         './assets/js/cd-scripts.babel.js',
         './assets/js/hljs_web.js'
       ],
