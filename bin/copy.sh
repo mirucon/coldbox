@@ -27,6 +27,7 @@ cp languages/coldbox.pot    dist/languages/
 cp assets/img/*.*       dist/assets/img/
 cp assets/fonts/*.*     dist/assets/fonts/
 cp assets/js/*.js       dist/assets/js/
+cp assets/js/min/*.js   dist/assets/js/min/
 cp assets/css/*.min.css dist/assets/css/
 cp assets/html/*.html   dist/assets/html/
 
