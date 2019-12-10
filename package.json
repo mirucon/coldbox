@@ -38,7 +38,7 @@
     "prettier-eslint": "^9.0.0",
     "sass-loader": "^8.0.0",
     "showdown": "^1.9.0",
-    "simple-icons": "^1.18.0",
+    "simple-icons": "^2.0.0",
     "smoothscroll-polyfill": "^0.4.3",
     "style-loader": "^1.0.0",
     "stylus": "^0.54.7",
