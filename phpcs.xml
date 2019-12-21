@@ -42,6 +42,7 @@
 		<properties>
 			<property name="prefixes" type="array" value="cd" />
 		</properties>
+		<exclude name="WordPress.NamingConventions.PrefixAllGlobals.ShortPrefixPassed"/>
 	</rule>
 
 
