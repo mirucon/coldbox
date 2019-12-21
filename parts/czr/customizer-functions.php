@@ -420,6 +420,7 @@ function cd_theme_credit_text() {
  */
 function cd_credit() {
 	$text = get_theme_mod( 'credit_text', '&copy;[year] <a href="[url]">[name]</a>' );
+	// phpcs:ignore WordPress.DateTime.RestrictedFunctions.date_date
 	$text = str_replace( '[year]', esc_html( date( 'Y' ) ), $text );
 	$text = str_replace( '[url]', esc_url( home_url() ), $text );
 	$text = str_replace( '[name]', esc_html( get_bloginfo( 'name' ) ), $text );
