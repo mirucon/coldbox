@@ -43,7 +43,13 @@
 					<?php if ( comments_open() && cd_is_post_single_comment() && cd_index_meta_comment() ) : ?>
 						<span class="post-comment">
 							<span class="far fa-comment" aria-hidden="true"></span>
-							<?php comments_popup_link( 'Comments: 0', 'Comment: 1', 'Comments: %' ); ?>
+						<?php
+							comments_popup_link(
+								esc_html__( 'Comments: 0', 'coldbox' ),
+								esc_html__( 'Comment: 1', 'coldbox' ),
+								esc_html__( 'Comments: %', 'coldbox' )
+							);
+						?>
 						</span>
 					<?php endif; ?>
 				</p>

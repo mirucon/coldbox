@@ -50,12 +50,24 @@ msgstr ""
 msgid "Categories"
 msgstr ""
 
+#: ../content-grid.php:48, ../content-standard.php:48, ../single.php:99
+msgid "Comments: 0"
+msgstr ""
+
+#: ../content-grid.php:49, ../content-standard.php:49, ../single.php:100
+msgid "Comment: 1"
+msgstr ""
+
+#: ../content-grid.php:50, ../content-standard.php:50, ../single.php:101
+msgid "Comments: %"
+msgstr ""
+
 #: ../content-standard.php:30, ../single.php:47, ../single.php:63, ../single.php:72
 msgid "Published date"
 msgstr ""
 
 #. translators: 1: Post title (screen render text)
-#: ../content-standard.php:62
+#: ../content-standard.php:68
 msgid "READ MORE%s"
 msgstr ""
 
@@ -1254,10 +1266,10 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: ../single.php:122
+#: ../single.php:128
 msgid "Categories:"
 msgstr ""
 
-#: ../single.php:125
+#: ../single.php:131
 msgid "Tags:"
 msgstr ""

@@ -94,7 +94,13 @@ while ( have_posts() ) :
 									<?php if ( cd_is_meta_com() && comments_open() && cd_is_post_single_comment() ) : ?>
 										<p class="post-comment">
 											<span class="fas fa-comment" aria-hidden="true"></span>
-											<?php comments_popup_link( 'Comments: 0', 'Comment: 1', 'Comments: %' ); ?>
+											<?php
+												comments_popup_link(
+													esc_html__( 'Comments: 0', 'coldbox' ),
+													esc_html__( 'Comment: 1', 'coldbox' ),
+													esc_html__( 'Comments: %', 'coldbox' )
+												);
+											?>
 										</p>
 									<?php endif; ?>
 								</footer>
