@@ -1,9 +1,9 @@
 === Coldbox ===
 Contributors: @mirucon
-Requires at least: 4.7
-Tested up to: WordPress 4.9
+Requires at least: 5.0
+Tested up to: WordPress 5.3
 Requires PHP: 5.2.4
-Version: 1.7.3
+Version: 1.8.1
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -81,6 +81,11 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.8.1 =
+
+* fix: Make the heading text for "Comments" translatable
+* fix: Apply grid width for classes named post/page
 
 = 1.8.0 =
 

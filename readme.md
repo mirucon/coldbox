@@ -1,4 +1,4 @@
-# Coldbox v1.8.0
+# Coldbox v1.8.1
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Greenkeeper badge](https://badges.greenkeeper.io/mirucon/coldbox.svg)](https://greenkeeper.io/)
 
@@ -7,9 +7,9 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.8.0    
+**Version**: 1.8.1    
 **Requires at least**: Version 5.0 or higher  
-**Tested up to**: WordPress 5.2  
+**Tested up to**: WordPress 5.3  
 **Requires PHP**: 5.2.4  
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
@@ -85,6 +85,11 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.8.1
+
+* fix: Make the heading text for "Comments" translatable
+* fix: Apply grid width for classes named post/page
 
 1.8.0
 
