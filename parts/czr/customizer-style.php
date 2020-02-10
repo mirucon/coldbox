@@ -87,7 +87,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'grid_columns', 2 ) !== 2 ) {
 			$grid_columns   = absint( get_theme_mod( 'grid_columns', 2 ) );
 			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= ".grid-view .article{width: $width_percents;}";
+			$czr_style     .= ".grid-view .article, .grid-view .page, .grid-view .post { width: $width_percents }";
 		}
 
 		// Change the number of grid columns for mobile.
@@ -208,7 +208,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'header_menu_background', '#51575d' ) !== '#51575d' ) {
 			$header_menu_background = esc_html( get_theme_mod( 'header_menu_background' ) );
 			$czr_style             .= "@media screen and (max-width: 767px) {
-				#header-nav { 
+				#header-nav {
 					background-color:${header_menu_background}
 				}
 			}";
