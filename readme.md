@@ -1,4 +1,4 @@
-# Coldbox v1.8.1
+# Coldbox v1.8.2
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Greenkeeper badge](https://badges.greenkeeper.io/mirucon/coldbox.svg)](https://greenkeeper.io/)
 
@@ -85,6 +85,10 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.8.2
+
+* fix: Apply grid width for classes named post/page on mobile
 
 1.8.1
 
