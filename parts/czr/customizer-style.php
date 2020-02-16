@@ -94,7 +94,11 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'grid_columns_mobile', 1 ) !== 1 ) {
 			$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
 			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= "@media screen and (max-width: 640px){body .container .grid-view .article{width: $width_percents;}}";
+			$czr_style     .= "@media screen and (max-width: 640px) {
+				body .container .grid-view .article, body .container .grid-view .page, body .container .grid-view .post {
+					width: $width_percents;
+				}
+			}";
 		}
 
 		// Related posts the number of columns.
