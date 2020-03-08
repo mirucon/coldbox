@@ -19,6 +19,9 @@ body.home #main, #main.home {
   .post, .page, .article {
     width: 50%;
     margin-bottom: 1.6em;
+    @media screen and (max-width: $bpmax-mobile) {
+      width: 100%;
+    }
   }
 
   @media screen and (max-width: $bpmax-mobile) {
@@ -26,9 +29,6 @@ body.home #main, #main.home {
     flex-wrap: wrap;
     flex-flow: row wrap;
     padding: 2em 20px 0;
-    .post, .page {
-      width: 100%;
-    }
   }
 
   .post-inner {
@@ -113,10 +113,6 @@ body.home #main, #main.home {
     }
   }
 
-}
-
-@media screen and (max-width: 640px){
-  body .container .grid-view .article{width: 100%}
 }
 
 /*   Index : Standard View
