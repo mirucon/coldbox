@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 5.0
 Tested up to: WordPress 5.3
 Requires PHP: 5.2.4
-Version: 1.8.2
+Version: 1.8.3
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
