@@ -1,3 +1,27 @@
+### 1.8.3 <small> - March 9th, 2020</small>
+
+* fix: Do not enforce 100% grid width on mobile
+
+### 1.8.2 <small> - February 16th, 2020</small>
+
+* fix: Apply grid width for classes named post/page on mobile
+
+### 1.8.1 <small> - February 10th, 2020/small>
+
+* fix: Make the heading text for "Comments" translatable
+* fix: Apply grid width for classes named post/page
+
+### 1.8.0 <small> - October 20th, 2019</small>
+
+* Theme now requires WP version 5.0 or higher
+* fix: babel-polyfill is conflicting with Gutenberg or some other plugins
+
+### 1.7.3 <small> - September 24nd, 2019</small>
+
+* feat: Don't open all the sub-menus when focused on menu item 
+* fix: Menu items are not clickable when having more than two sub-menus in the same parent menu
+* And small bug fixes
+
 ### 1.7.2 <small> - April 22nd, 2019</small>
 
 * fix: Center the feature photo in posts by default

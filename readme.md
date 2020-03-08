@@ -1,4 +1,4 @@
-# Coldbox v1.8.2
+# Coldbox v1.8.3
 
 [![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Greenkeeper badge](https://badges.greenkeeper.io/mirucon/coldbox.svg)](https://greenkeeper.io/)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.8.1    
+**Version**: 1.8.3    
 **Requires at least**: Version 5.0 or higher  
 **Tested up to**: WordPress 5.3  
 **Requires PHP**: 5.2.4  
@@ -85,6 +85,10 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.8.3
+
+* fix: Do not enforce 100% grid width on mobile
 
 1.8.2
 
@@ -176,49 +180,5 @@ Created by Dustan Kasten and Jeremias Menichelli
 * Improved: Redesign back to top icon
 * Improved: Archive page design when no results found
 * And includes many small bug fixes and improvements
-
-1.5.5
-
-* Fixed: Translation issues
-* Fixed: Version number in the admin bar has been updated
-
-1.5.4
-
-* Added: You can now show post thumbnail image before the content on single pages
-* Changed: Default font size - 15px for mobile and 16px for desktop
-* Fixed: Some compatibilities with the newly released Coldbox Ads Extension plugin
-* And includes some bug fixes and performance improvements
-
-1.5.3
-
-* Added: Link to privacy policy page in footer
-* Added: New customizer option to choose whether it outputs the privacy policy page link
-* Fixed: Feedly subscription URL
-
-1.5.2
-
-* Added: New hook for logo images
-* Fixed: A few issues happened with the addon plugin
-
-1.5.1
-
-* Added: Action hooks can be used for putting some content in the single content
-* Updated: About Coldbox page
-
-1.5.0
-
-* Added: "About Coldbox" page
-* Added: New customizer option to adjust the logo width
-* Added: New customizer option to select whether use narrower padding when scrolling
-* Added: New customizer option to change the header menu background color for mobile
-* Added: New customizer option to select whether use concatenated JS files
-* Fixed: Post's published date was not showing when the published and modified date isn't same
-* Fixed: Site logo was being shown too big
-* Fixed: Flicker on the search modal
-* Improved: flex-width logo is now supported
-* Updated: Moved the customizer option "Logo" to the "Coldbox: Header Settings" from "Site Identity"
-* Updated: Default font family value
-* Updated: Template Hierarchy; img/ and fonts/ directories are now at assets/ folder, and czr/ directory is now at parts/ folder.
-* And other small bug fixes and performance improvements.
 
 *See [CHANGELOG.md](/CHANGELOG.md) to see all the releases*
