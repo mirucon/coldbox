@@ -46,8 +46,9 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       path: path.join(__dirname, 'assets/')
     },
-    devtool: isModeDev ? 'source-map' : 'none',
+    devtool: isModeDev ? 'cheap-module-source-map' : 'none',
     optimization: {
+      minimize: !isModeDev,
       minimizer: [
         new TerserPlugin({
           sourceMap: true
@@ -75,7 +76,8 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        fileName: '[name].css'
+        fileName: '[name].css',
+        chunkFilename: '[id].css',
       })
     ],
     module: {
@@ -103,15 +105,23 @@ module.exports = (env, argv) => {
                 publicPath: './assets/'
               }
             },
-
             {
               loader: 'css-loader',
               options: {
-                modules: 'global'
+                modules: 'global',
+                sourceMap: isModeDev,
+                importLoaders: 2
               }
             },
             'postcss-loader',
-            'sass-loader'
+            {
+              loader: 'sass-loader',
+              options: {
+                sassOptions: {
+                  outputStyle: 'expanded'
+                }
+              }
+            }
           ]
         },
         {
