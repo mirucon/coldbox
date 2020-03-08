@@ -35,30 +35,6 @@ function cd_show_theme_button() {
 }
 
 /**
- * Get whether using minified CSS or not
- *
- * @since 1.0.0
- * @return string Return ".min" for true, empty for false.
- */
-function cd_use_minified_css() {
-	$css_min = '.min';
-
-	return apply_filters( 'cd_use_minified_css', $css_min );
-}
-
-/**
- * Get whether using minified JS or not
- *
- * @since 1.0.0
- * @return string Return ".min" for true, empty for false.
- */
-function cd_use_minified_js() {
-	$js_min = '.min';
-
-	return apply_filters( 'cd_use_minified_js', $js_min );
-}
-
-/**
  * Get whether using of the hljs or not.
  *
  * @since 1.0.0

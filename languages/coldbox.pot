@@ -417,15 +417,15 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:411, ../parts/czr/customizer.php:1217
+#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1217
 msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:411, ../parts/czr/customizer.php:1217
+#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1217
 msgid "https://miruc.co/"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:411
+#: ../parts/czr/customizer-functions.php:387
 msgid "mirucon"
 msgstr ""
 

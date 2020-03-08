@@ -82,6 +82,10 @@ All the photos used in the screenshots are all licensed under CC0.
 
 == Changelog ==
 
+= 1.8.3 =
+
+* fix: Do not enforce 100% grid width on mobile
+
 = 1.8.2 =
 
 * fix: Apply grid width for classes named post/page on mobile
