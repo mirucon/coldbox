@@ -87,19 +87,21 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		if ( get_theme_mod( 'grid_columns', 2 ) !== 2 ) {
 			$grid_columns   = absint( get_theme_mod( 'grid_columns', 2 ) );
 			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= ".grid-view .article, .grid-view .page, .grid-view .post { width: $width_percents }";
+			$czr_style     .=
+				".grid-view .article, .grid-view .page, .grid-view .post {
+					width: $width_percents;
+				}";
 		}
 
 		// Change the number of grid columns for mobile.
-		if ( get_theme_mod( 'grid_columns_mobile', 1 ) !== 1 ) {
-			$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
-			$width_percents = 100 / $grid_columns . '%';
-			$czr_style     .= "@media screen and (max-width: 640px) {
-				body .container .grid-view .article, body .container .grid-view .page, body .container .grid-view .post {
-					width: $width_percents;
-				}
-			}";
-		}
+		// Always output this to avoid that the value above applies to mobile.
+		$grid_columns   = absint( get_theme_mod( 'grid_columns_mobile', 1 ) );
+		$width_percents = 100 / $grid_columns . '%';
+		$czr_style     .= "@media screen and (max-width: 640px) {
+			.grid-view .article, .grid-view .page, .grid-view .post {
+				width: $width_percents;
+			}
+		}";
 
 		// Related posts the number of columns.
 		if ( get_theme_mod( 'single_related_col', 3 ) !== 3 ) {
