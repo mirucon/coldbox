@@ -205,6 +205,9 @@ function cd_welcome_page_content() {
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 
+		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.4', 'coldbox' ); ?></h3>
+		<p><?php esc_html_e( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ); ?></p>
+
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.0', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ); ?></p>
 

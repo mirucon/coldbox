@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 5.0
 Tested up to: WordPress 5.3
 Requires PHP: 5.2.4
-Version: 1.8.3
+Version: 1.8.4
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -81,6 +81,10 @@ All the photos used in the screenshots are all licensed under CC0.
 * https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
 
 == Changelog ==
+
+= 1.8.4 =
+
+* fix: Do not apply tablet/PC grid column setting to mobile
 
 = 1.8.3 =
 
