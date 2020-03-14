@@ -179,7 +179,7 @@ function cd_welcome_page_content() {
 	</div>
 
 	<?php
-	if ( -1 === version_compare( phpversion(), '5.6.0' ) ) {
+	if ( -1 === version_compare( phpversion(), '7.2.0' ) ) {
 		?>
 		<div id="upgrade-php" class="cdAdmin__section">
 			<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Your PHP!', 'coldbox' ); ?></h2>
