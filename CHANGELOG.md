@@ -1,3 +1,7 @@
+### 1.8.4 <small> - March 14th, 2020</small>
+
+* fix: Do not apply tablet/PC grid column setting to mobile
+
 ### 1.8.3 <small> - March 9th, 2020</small>
 
 * fix: Do not enforce 100% grid width on mobile

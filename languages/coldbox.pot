@@ -258,103 +258,106 @@ msgstr ""
 msgid "About the Coldbox Ads Extension"
 msgstr ""
 
-#. translators: 1: opening a tag, 2: closing a tag
-#: ../parts/about-coldbox.php:154
-msgid "Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please see %1$sthis article%2$s"
+#: ../parts/about-coldbox.php:152
+msgid "Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please contact me from the contact information below."
 msgstr ""
 
-#: ../parts/about-coldbox.php:155
-msgid "https://coldbox.miruc.co/docs/how-to-set-up-ads-extension/"
-msgstr ""
-
-#: ../parts/about-coldbox.php:167
+#: ../parts/about-coldbox.php:162
 msgid "Need Help?"
 msgstr ""
 
 #. translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag
-#: ../parts/about-coldbox.php:172
+#: ../parts/about-coldbox.php:167
 msgid "If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request."
 msgstr ""
 
-#: ../parts/about-coldbox.php:173
+#: ../parts/about-coldbox.php:168
 msgid "forum"
 msgstr ""
 
-#: ../parts/about-coldbox.php:185
+#: ../parts/about-coldbox.php:180
 msgid "Upgrade Your PHP!"
 msgstr ""
 
 #. translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag.
-#: ../parts/about-coldbox.php:196
+#: ../parts/about-coldbox.php:191
 msgid "We've detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org."
 msgstr ""
 
-#: ../parts/about-coldbox.php:198
+#: ../parts/about-coldbox.php:193
 msgid "https://wordpress.org/about/requirements/"
 msgstr ""
 
-#: ../parts/about-coldbox.php:211
+#: ../parts/about-coldbox.php:206
 msgid "Upgrade Notice"
 msgstr ""
 
-#: ../parts/about-coldbox.php:213
+#: ../parts/about-coldbox.php:208
+msgid "v1.8.4"
+msgstr ""
+
+#: ../parts/about-coldbox.php:209
+msgid "I've fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused."
+msgstr ""
+
+#: ../parts/about-coldbox.php:211
 msgid "v1.8.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:214
+#: ../parts/about-coldbox.php:212
 msgid "In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher."
 msgstr ""
 
-#: ../parts/about-coldbox.php:216
+#: ../parts/about-coldbox.php:214
 msgid "v1.7.1"
 msgstr ""
 
-#: ../parts/about-coldbox.php:217
+#: ../parts/about-coldbox.php:215
 msgid "Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn't be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)"
 msgstr ""
 
-#: ../parts/about-coldbox.php:219
+#: ../parts/about-coldbox.php:217
 msgid "v1.7.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:220
+#: ../parts/about-coldbox.php:218
 msgid "The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required."
 msgstr ""
 
-#: ../parts/about-coldbox.php:222
+#: ../parts/about-coldbox.php:220
 msgid "v1.5.4"
 msgstr ""
 
-#: ../parts/about-coldbox.php:223
+#: ../parts/about-coldbox.php:221
 msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
 msgstr ""
 
-#: ../parts/about-coldbox.php:225
+#: ../parts/about-coldbox.php:223
 msgid "v1.5.3"
 msgstr ""
 
-#: ../parts/about-coldbox.php:226
+#: ../parts/about-coldbox.php:224
 msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
 msgstr ""
 
-#: ../parts/about-coldbox.php:228
+#: ../parts/about-coldbox.php:226
 msgid "v1.5.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:229
+#: ../parts/about-coldbox.php:227
 msgid "In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to \"Coldbox: Header Settings\" > \"Custom Logo Width\"."
 msgstr ""
 
-#: ../parts/about-coldbox.php:233
+#: ../parts/about-coldbox.php:231
 msgid "Changelog"
 msgstr ""
 
 #. translators: %s: Theme version
-#: ../parts/about-coldbox.php:257
+#: ../parts/about-coldbox.php:255
 msgid "Coldbox v%s"
 msgstr ""
 
-#: ../parts/about-coldbox.php:274
+#: ../parts/about-coldbox.php:272
 msgid "Upgrade Notices"
 msgstr ""
 

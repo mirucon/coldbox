@@ -149,12 +149,7 @@ function cd_welcome_page_content() {
 			<p>
 				<strong>
 					<?php
-						printf(
-							/* translators: 1: opening a tag, 2: closing a tag */
-							esc_html__( 'Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please see %1$sthis article%2$s', 'coldbox' ),
-							'<a href="' . esc_url( __( 'https://coldbox.miruc.co/docs/how-to-set-up-ads-extension/', 'coldbox' ) ) . '" target="_blank">',
-							'<a>'
-						);
+						esc_html__( 'Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please contact me from the contact information below.', 'coldbox' );
 					?>
 				</strong>
 			</p>
@@ -179,7 +174,7 @@ function cd_welcome_page_content() {
 	</div>
 
 	<?php
-	if ( -1 === version_compare( phpversion(), '5.6.0' ) ) {
+	if ( -1 === version_compare( phpversion(), '7.2.0' ) ) {
 		?>
 		<div id="upgrade-php" class="cdAdmin__section">
 			<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Your PHP!', 'coldbox' ); ?></h2>
@@ -209,6 +204,9 @@ function cd_welcome_page_content() {
 
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
+
+		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.4', 'coldbox' ); ?></h3>
+		<p><?php esc_html_e( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ); ?></p>
 
 		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.0', 'coldbox' ); ?></h3>
 		<p><?php esc_html_e( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ); ?></p>
