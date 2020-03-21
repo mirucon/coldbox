@@ -34,7 +34,7 @@
     "postcss-cli": "^7.1.0",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.0",
     "prettier-eslint": "^9.0.1",
     "sass-loader": "^8.0.2",
     "showdown": "^1.9.1",
