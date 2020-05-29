@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const msnry = new Masonry(sidebarInner, {
             itemSelector: '.widget',
             percentPosition: !0,
-            isAnimated: !0
+            isAnimated: !0,
           })
           if (widgets) {
             for (const widget of widgets) {
@@ -83,14 +83,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       window.addEventListener('scroll', showBackToTop)
 
-      const scrollToTop = event => {
+      const scrollToTop = (event) => {
         event.preventDefault()
         if (event.target.classList.contains('is-hidden')) {
           return
         }
         window.scroll({
           top: 0,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
         backToTop.classList.add('clicked')
       }
@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const stickBackToTopOnFooter = () => {
         const scrollHeight = body.scrollHeight
         const scrollPosition = window.pageYOffset + window.innerHeight
-        const footerHeight = document.querySelector('.footer-bottom').clientHeight
+        const footerHeight = document.querySelector('.footer-bottom')
+          .clientHeight
         if (scrollHeight - scrollPosition < footerHeight) {
           backToTop.style.bottom = `${footerHeight + 5}px`
           backToTop.classList.add('abs')
@@ -118,10 +119,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const headerInner = document.querySelector('#header .header-inner')
     const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
-    const inPageLinkHandler = event => {
+    const inPageLinkHandler = (event) => {
       let href = event.target.getAttribute('href') // Get href attr of the link
-      let hrefPageUrl = href.split('#')[0]
-      let currentUrl = location.href.split('#')[0]
+      const hrefPageUrl = href.split('#')[0]
+      const currentUrl = location.href.split('#')[0]
 
       if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
         event.preventDefault()
@@ -160,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         window.scroll({
           top: targetPosition,
-          behavior: 'smooth'
+          behavior: 'smooth',
         })
       }
     }
@@ -175,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (body.classList.contains('sticky-header')) {
     const stickyHeaderHandler = () => {
       const siteInfoHgt = siteInfo.offsetHeight
-      let scrollTop = window.pageYOffset
+      const scrollTop = window.pageYOffset
 
       // Reset values on devices smaller than 768px.
       if (!window.matchMedia('(min-width: 767px)').matches) {
@@ -344,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
       closeToggle.addEventListener('click', closeToggleHandler)
 
       // Close toggle when pressing `esc` key
-      document.onkeydown = event => {
+      document.onkeydown = (event) => {
         event = event || window.event
         if (event.keyCode === 27) {
           toggleState = false
@@ -464,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {HTMLElement} el
      * @return {HTMLElement}
      */
-    const getTheParent = el => {
+    const getTheParent = (el) => {
       const parent = el.parentElement
 
       if (parent.classList.contains('menu-container')) {
@@ -479,7 +480,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {HTMLElement} el
      * @return {boolean|HTMLElement}
      */
-    const findClosestSubMenu = el => {
+    const findClosestSubMenu = (el) => {
       if (
         el.parentElement.classList.contains('menu-container') ||
         !el.parentElement
@@ -498,7 +499,7 @@ document.addEventListener('DOMContentLoaded', () => {
      * @param {HTMLElement} el
      * @return {Array<HTMLElement>|[]}
      */
-    const getAllParentSubMenus = el => {
+    const getAllParentSubMenus = (el) => {
       const parents = []
 
       let res = el
@@ -512,30 +513,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return parents
     }
 
-    const parentMenus = document.querySelectorAll(
-      '.menu-container li'
-    )
+    const parentMenus = document.querySelectorAll('.menu-container li')
 
-    parentMenus.forEach(parentEl => {
+    parentMenus.forEach((parentEl) => {
       const allMenus = getAllParentSubMenus(parentEl)
       const mostParent = getTheParent(parentEl)
       const allMenuLinks = mostParent.querySelectorAll('a')
 
       ;[...parentEl.children]
-        .filter(childEl => {
+        .filter((childEl) => {
           return childEl.tagName === 'A' || childEl.tagName === 'a'
         })
-        .forEach(linkEl => {
+        .forEach((linkEl) => {
           linkEl.addEventListener('focusin', () => {
             if ([...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach(subMenu => {
+              allMenus.forEach((subMenu) => {
                 subMenu.classList.add('is-sub-menu-shown')
               })
             }
           })
           linkEl.addEventListener('blur', () => {
             if (![...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach(subMenu => {
+              allMenus.forEach((subMenu) => {
                 subMenu.classList.remove('is-sub-menu-shown')
               })
             }
@@ -563,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pageNumbers.insertBefore(actionBarWrapper, null)
       currentPageNumber.style.borderBottom = 0
 
-      const pageNumbersElHoverHandler = event => {
+      const pageNumbersElHoverHandler = (event) => {
         actionBar.style.width = `${event.target.parentNode.offsetWidth}px`
         actionBar.style.left = `${event.target.parentNode.offsetLeft}px`
       }
@@ -597,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
       pingList.style.display = 'none'
     }
 
-    const tabItemsHandler = event => {
+    const tabItemsHandler = (event) => {
       event.preventDefault()
       const target = event.target
 
