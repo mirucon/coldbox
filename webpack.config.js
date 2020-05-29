@@ -3,7 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
-const recursiveIssuer = m => {
+const recursiveIssuer = (m) => {
   if (m.issuer) {
     return recursiveIssuer(m.issuer)
   } else if (m.name) {
@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
   if (isModeDev) {
     entries = {
       'js/min/scripts': './assets/js/cd-scripts.babel.js',
-      'css/style.min': './assets/js/style.js'
+      'css/style.min': './assets/js/style.js',
     }
   } else {
     entries = {
@@ -29,13 +29,13 @@ module.exports = (env, argv) => {
       'js/min/hljs_web': './assets/js/hljs_web.js',
       'js/min/scripts+hljs': [
         './assets/js/cd-scripts.babel.js',
-        './assets/js/hljs.js'
+        './assets/js/hljs.js',
       ],
       'js/min/scripts+hljs_web': [
         './assets/js/cd-scripts.babel.js',
-        './assets/js/hljs_web.js'
+        './assets/js/hljs_web.js',
       ],
-      'css/style.min': './assets/js/style.js'
+      'css/style.min': './assets/js/style.js',
     }
   }
 
@@ -44,22 +44,22 @@ module.exports = (env, argv) => {
     entry: entries,
     output: {
       filename: '[name].js',
-      path: path.join(__dirname, 'assets/')
+      path: path.join(__dirname, 'assets/'),
     },
     devtool: isModeDev ? 'cheap-module-source-map' : 'none',
     optimization: {
       minimize: !isModeDev,
       minimizer: [
         new TerserPlugin({
-          sourceMap: true
+          sourceMap: true,
         }),
         new OptimizeCssAssetsPlugin({
           assetNameRegExp: /\.css$/,
           cssProcessor: require('cssnano'),
           cssProcessorPluginOptions: {
-            preset: ['default', { discardComments: { removeAll: true } }]
-          }
-        })
+            preset: ['default', { discardComments: { removeAll: true } }],
+          },
+        }),
       ],
       splitChunks: {
         cacheGroups: {
@@ -69,16 +69,16 @@ module.exports = (env, argv) => {
               m.constructor.name === 'CssModule' &&
               recursiveIssuer(m) === entry,
             chunks: 'all',
-            enforce: true
-          }
-        }
-      }
+            enforce: true,
+          },
+        },
+      },
     },
     plugins: [
       new MiniCssExtractPlugin({
         fileName: '[name].css',
         chunkFilename: '[id].css',
-      })
+      }),
     ],
     module: {
       rules: [
@@ -90,10 +90,10 @@ module.exports = (env, argv) => {
               loader: 'babel-loader',
               options: {
                 presets: [['@babel/preset-env', { modules: false }]],
-                plugins: ['@babel/plugin-transform-for-of']
-              }
-            }
-          ]
+                plugins: ['@babel/plugin-transform-for-of'],
+              },
+            },
+          ],
         },
         {
           test: /\.(sc|sa|c)ss$/,
@@ -102,27 +102,27 @@ module.exports = (env, argv) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: './assets/'
-              }
+                publicPath: './assets/',
+              },
             },
             {
               loader: 'css-loader',
               options: {
                 modules: 'global',
                 sourceMap: isModeDev,
-                importLoaders: 2
-              }
+                importLoaders: 2,
+              },
             },
             'postcss-loader',
             {
               loader: 'sass-loader',
               options: {
                 sassOptions: {
-                  outputStyle: 'expanded'
-                }
-              }
-            }
-          ]
+                  outputStyle: 'expanded',
+                },
+              },
+            },
+          ],
         },
         {
           // Loader for Font Awesome CSS
@@ -131,11 +131,11 @@ module.exports = (env, argv) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: '../assets/css/'
-              }
+                publicPath: '../assets/css/',
+              },
             },
-            'css-loader'
-          ]
+            'css-loader',
+          ],
         },
         {
           // Loader for Font Awesome Fonts
@@ -146,10 +146,10 @@ module.exports = (env, argv) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'fonts/',
-                publicPath: '../fonts/'
-              }
-            }
-          ]
+                publicPath: '../fonts/',
+              },
+            },
+          ],
         },
         {
           // Loader for webfonts-loader
@@ -159,20 +159,20 @@ module.exports = (env, argv) => {
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: './assets/'
-              }
+                publicPath: './assets/',
+              },
             },
             'css-loader',
             'postcss-loader',
             {
               loader: 'webfonts-loader',
               options: {
-                publicPath: '../'
-              }
-            }
-          ]
-        }
-      ]
-    }
+                publicPath: '../',
+              },
+            },
+          ],
+        },
+      ],
+    },
   }
 }
