@@ -33,7 +33,7 @@ cache:
     - node_modules
 
 before_install:
-  - nvm install 10
+  - nvm install 12
   - npm i -g yarn
   - yarn global add greenkeeper-lockfile
 
