@@ -35,7 +35,7 @@
     "postcss-import": "12.0.1",
     "postcss-loader": "3.0.0",
     "prettier": "2.0.5",
-    "prettier-eslint": "10.1.1",
+    "prettier-eslint": "11.0.0",
     "sass-loader": "8.0.2",
     "showdown": "1.9.1",
     "simple-icons": "2.15.0",
