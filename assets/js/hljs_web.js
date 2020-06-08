@@ -1,4 +1,4 @@
-import highlight from 'highlight.js/lib/highlight'
+import highlight from 'highlight.js/lib/core'
 
 import css from 'highlight.js/lib/languages/css'
 import javascript from 'highlight.js/lib/languages/javascript'
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const codeTags = document.querySelectorAll('pre code')
   const preTags = document.querySelectorAll('pre')
   const tags = [...codeTags, ...preTags]
-  if (tags) {
+  if (tags.length) {
     for (const tag of tags) {
       highlight.highlightBlock(tag)
     }

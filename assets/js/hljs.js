@@ -1,4 +1,4 @@
-import highlight from 'highlight.js/lib/highlight'
+import highlight from 'highlight.js/lib/core'
 
 import css from 'highlight.js/lib/languages/css'
 import http from 'highlight.js/lib/languages/http'
@@ -9,7 +9,7 @@ import ini from 'highlight.js/lib/languages/ini'
 import makefile from 'highlight.js/lib/languages/makefile'
 import php from 'highlight.js/lib/languages/php'
 import sql from 'highlight.js/lib/languages/sql'
-import cs from 'highlight.js/lib/languages/cs'
+import csharp from 'highlight.js/lib/languages/csharp'
 import diff from 'highlight.js/lib/languages/diff'
 import json from 'highlight.js/lib/languages/json'
 import markdown from 'highlight.js/lib/languages/markdown'
@@ -30,7 +30,7 @@ highlight.registerLanguage('ini', ini)
 highlight.registerLanguage('makefile', makefile)
 highlight.registerLanguage('php', php)
 highlight.registerLanguage('sql', sql)
-highlight.registerLanguage('cs', cs)
+highlight.registerLanguage('csharp', csharp)
 highlight.registerLanguage('diff', diff)
 highlight.registerLanguage('json', json)
 highlight.registerLanguage('markdown', markdown)
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const codeTags = document.querySelectorAll('pre code')
   const preTags = document.querySelectorAll('pre')
   const tags = [...codeTags, ...preTags]
-  if (tags) {
+  if (tags.length) {
     for (const tag of tags) {
       highlight.highlightBlock(tag)
     }
