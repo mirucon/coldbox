@@ -62,7 +62,7 @@ msgstr ""
 msgid "Comments: %"
 msgstr ""
 
-#: ../content-standard.php:30, ../single.php:47, ../single.php:63, ../single.php:72
+#: ../content-standard.php:30, ../single.php:72, ../single.php:63, ../single.php:47
 msgid "Published date"
 msgstr ""
 
@@ -123,16 +123,12 @@ msgstr ""
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:1086
-msgid "Category:"
+#: ../functions.php:1096
+msgid "Author:"
 msgstr ""
 
-#: ../functions.php:1088
-msgid "Tag:"
-msgstr ""
-
-#: ../functions.php:1090
-msgid "Daily Archive:"
+#: ../functions.php:1094
+msgid "Yearly Archive:"
 msgstr ""
 
 #: ../functions.php:1092
@@ -144,12 +140,16 @@ msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:1094
-msgid "Yearly Archive:"
+#: ../functions.php:1090
+msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:1096
-msgid "Author:"
+#: ../functions.php:1088
+msgid "Tag:"
+msgstr ""
+
+#: ../functions.php:1086
+msgid "Category:"
 msgstr ""
 
 #: ../header.php:26
@@ -228,16 +228,16 @@ msgstr ""
 msgid "Automatic Open Graph Tag output"
 msgstr ""
 
-#: ../parts/about-coldbox.php:115
-msgid "Great, you have already installed and activated the addon plugin! To customize some settings related to the addon plugin, go to the Theme Customizer."
-msgstr ""
-
 #: ../parts/about-coldbox.php:119
 msgid "You have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!"
 msgstr ""
 
 #: ../parts/about-coldbox.php:121
 msgid "Install Now"
+msgstr ""
+
+#: ../parts/about-coldbox.php:115
+msgid "Great, you have already installed and activated the addon plugin! To customize some settings related to the addon plugin, go to the Theme Customizer."
 msgstr ""
 
 #: ../parts/about-coldbox.php:129
@@ -380,16 +380,16 @@ msgstr ""
 msgid "Dismiss this notice"
 msgstr ""
 
-#: ../parts/page-title.php:24
-msgid "Search Results for:"
-msgstr ""
-
 #: ../parts/page-title.php:49
 msgid "ERROR 404."
 msgstr ""
 
 #: ../parts/page-title.php:50
 msgid "Sorry, Page Not Found."
+msgstr ""
+
+#: ../parts/page-title.php:24
+msgid "Search Results for:"
 msgstr ""
 
 #: ../parts/post-nav.php:22
@@ -400,7 +400,7 @@ msgstr ""
 msgid "Next Post"
 msgstr ""
 
-#: ../parts/related-posts.php:114, ../parts/related-posts.php:152
+#: ../parts/related-posts.php:152, ../parts/related-posts.php:114
 msgid "Related Posts"
 msgstr ""
 
@@ -838,16 +838,16 @@ msgstr ""
 msgid "You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs."
 msgstr ""
 
-#: ../parts/czr/social-links.php:95, ../parts/czr/social-links.php:207
-msgid "RSS Feed"
+#: ../parts/czr/social-links.php:103, ../parts/czr/social-links.php:215
+msgid "Push Notification"
 msgstr ""
 
 #: ../parts/czr/social-links.php:101, ../parts/czr/social-links.php:213
 msgid "Contact Form"
 msgstr ""
 
-#: ../parts/czr/social-links.php:103, ../parts/czr/social-links.php:215
-msgid "Push Notification"
+#: ../parts/czr/social-links.php:95, ../parts/czr/social-links.php:207
+msgid "RSS Feed"
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:326
@@ -981,16 +981,16 @@ msgstr ""
 msgid "Update Required"
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:937
-msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
+#: ../parts/tgm/class-tgm-plugin-activation.php:945
+msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:937, ../parts/tgm/class-tgm-plugin-activation.php:945
+#: ../parts/tgm/class-tgm-plugin-activation.php:945, ../parts/tgm/class-tgm-plugin-activation.php:937
 msgid "Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines."
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:945
-msgid "The remote plugin package consists of more than one file, but the files are not packaged in a folder."
+#: ../parts/tgm/class-tgm-plugin-activation.php:937
+msgid "The remote plugin package does not contain a folder with the desired slug and renaming did not work."
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:1133, ../parts/tgm/class-tgm-plugin-activation.php:2968
@@ -1027,24 +1027,24 @@ msgstr ""
 msgid "Not Installed"
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:2338
-msgid "Installed But Not Activated"
-msgstr ""
-
 #: ../parts/tgm/class-tgm-plugin-activation.php:2340
 msgid "Active"
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:2346
-msgid "Required Update not Available"
+#: ../parts/tgm/class-tgm-plugin-activation.php:2338
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:2352
+msgid "Update recommended"
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:2349
 msgid "Requires Update"
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:2352
-msgid "Update recommended"
+#: ../parts/tgm/class-tgm-plugin-activation.php:2346
+msgid "Required Update not Available"
 msgstr ""
 
 #. translators: 1: install status, 2: update status
@@ -1124,11 +1124,6 @@ msgid "Status"
 msgstr ""
 
 #. translators: %2$s: plugin name in screen reader markup
-#: ../parts/tgm/class-tgm-plugin-activation.php:2622
-msgid "Install %2$s"
-msgstr ""
-
-#. translators: %2$s: plugin name in screen reader markup
 #: ../parts/tgm/class-tgm-plugin-activation.php:2627
 msgid "Update %2$s"
 msgstr ""
@@ -1136,6 +1131,10 @@ msgstr ""
 #. translators: %2$s: plugin name in screen reader markup
 #: ../parts/tgm/class-tgm-plugin-activation.php:2633
 msgid "Activate %2$s"
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:2622
+msgid "Install %2$s"
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:2703
@@ -1154,20 +1153,20 @@ msgstr ""
 msgid "Activate"
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:2776
-msgid "No plugins were selected to be installed. No action taken."
-msgstr ""
-
 #: ../parts/tgm/class-tgm-plugin-activation.php:2778
 msgid "No plugins were selected to be updated. No action taken."
 msgstr ""
 
-#: ../parts/tgm/class-tgm-plugin-activation.php:2819
-msgid "No plugins are available to be installed at this time."
+#: ../parts/tgm/class-tgm-plugin-activation.php:2776
+msgid "No plugins were selected to be installed. No action taken."
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:2821
 msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:2819
+msgid "No plugins are available to be installed at this time."
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:2928
@@ -1182,11 +1181,6 @@ msgstr ""
 msgid "Plugin activation failed."
 msgstr ""
 
-#. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: ../parts/tgm/class-tgm-plugin-activation.php:3490
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
 #. translators: 1: plugin name, 2: error message.
 #: ../parts/tgm/class-tgm-plugin-activation.php:3493
 msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
@@ -1195,32 +1189,6 @@ msgstr ""
 #. translators: 1: plugin name.
 #: ../parts/tgm/class-tgm-plugin-activation.php:3495
 msgid "The installation of %1$s failed."
-msgstr ""
-
-#: ../parts/tgm/class-tgm-plugin-activation.php:3499
-msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
-msgstr ""
-
-#. translators: 1: plugin name.
-#: ../parts/tgm/class-tgm-plugin-activation.php:3501
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: ../parts/tgm/class-tgm-plugin-activation.php:3501, ../parts/tgm/class-tgm-plugin-activation.php:3509
-msgid "Show Details"
-msgstr ""
-
-#: ../parts/tgm/class-tgm-plugin-activation.php:3501, ../parts/tgm/class-tgm-plugin-activation.php:3509
-msgid "Hide Details"
-msgstr ""
-
-#: ../parts/tgm/class-tgm-plugin-activation.php:3502
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#. translators: 1: plugin name, 2: action number 3: total number of actions.
-#: ../parts/tgm/class-tgm-plugin-activation.php:3504
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: ../parts/tgm/class-tgm-plugin-activation.php:3507
@@ -1232,6 +1200,14 @@ msgstr ""
 msgid "%1$s installed successfully."
 msgstr ""
 
+#: ../parts/tgm/class-tgm-plugin-activation.php:3509, ../parts/tgm/class-tgm-plugin-activation.php:3501
+msgid "Show Details"
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3509, ../parts/tgm/class-tgm-plugin-activation.php:3501
+msgid "Hide Details"
+msgstr ""
+
 #: ../parts/tgm/class-tgm-plugin-activation.php:3510
 msgid "All installations have been completed."
 msgstr ""
@@ -1239,6 +1215,26 @@ msgstr ""
 #. translators: 1: plugin name, 2: action number 3: total number of actions.
 #: ../parts/tgm/class-tgm-plugin-activation.php:3512
 msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3499
+msgid "The installation and activation process is starting. This process may take a while on some hosts, so please be patient."
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3501
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3502
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3504
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: ../parts/tgm/class-tgm-plugin-activation.php:3490
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
 msgstr ""
 
 #: ../parts/tgm/load-tgm.php:64
