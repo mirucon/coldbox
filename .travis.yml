@@ -21,7 +21,6 @@ env:
 branches:
   only:
     - master
-    - /^greenkeeper/.*$/
 
 services:
   - mysql
@@ -35,7 +34,6 @@ cache:
 before_install:
   - nvm install 12
   - npm i -g yarn
-  - yarn global add greenkeeper-lockfile
 
 install:
   - yarn install
@@ -60,10 +58,6 @@ matrix:
       env: WP_VERSION=latest
 
 before_script:
-  - |
-    if [[ "7.2" == "$TRAVIS_PHP_VERSION" ]] ; then
-      greenkeeper-lockfile-update
-    fi
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
@@ -91,12 +85,6 @@ script:
       composer run lint
     fi
   - yarn build
-
-after_script:
-  - |
-    if [[ "7.2" == "$TRAVIS_PHP_VERSION" ]] ; then
-      greenkeeper-lockfile-upload
-    fi
 
 after_success:
   # Run npm build task.
