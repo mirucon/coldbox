@@ -420,11 +420,11 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1217
+#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1242
 msgid "Coldbox WordPress theme by"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1217
+#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1242
 msgid "https://miruc.co/"
 msgstr ""
 
@@ -465,7 +465,7 @@ msgid "Site Max-Width"
 msgstr ""
 
 #: ../parts/czr/customizer.php:134
-msgid "Global Font Selecter"
+msgid "Global Font Selector"
 msgstr ""
 
 #. translators: Local font e.g. Arial or Helvetica
@@ -476,348 +476,358 @@ msgstr ""
 msgid "(Local)"
 msgstr ""
 
-#: ../parts/czr/customizer.php:169
+#: ../parts/czr/customizer.php:170
+msgid "Show fallback font during download of web fonts"
+msgstr ""
+
+#: ../parts/czr/customizer.php:171
+msgid ""
+"When this setting is enabled, during the download of web fonts, browsers will show fallback font, instead of showing blank.\n"
+"                         Highly recommended to keep this option enabled to ensure that users can read your text all the time."
+msgstr ""
+
+#: ../parts/czr/customizer.php:194
 msgid "Custom Font-Family Value"
 msgstr ""
 
 #. translators: %s: [font] (shortcode)
-#: ../parts/czr/customizer.php:170
+#: ../parts/czr/customizer.php:195
 msgid "\"%s\" will be replaced with the font you've chosen above"
 msgstr ""
 
-#: ../parts/czr/customizer.php:188
+#: ../parts/czr/customizer.php:213
 msgid "Global Font Size for PC"
 msgstr ""
 
-#: ../parts/czr/customizer.php:211
+#: ../parts/czr/customizer.php:236
 msgid "Global Font Size for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:235
+#: ../parts/czr/customizer.php:260
 msgid "Show \"Coldbox\" button on the admin bar"
 msgstr ""
 
-#: ../parts/czr/customizer.php:255
+#: ../parts/czr/customizer.php:280
 msgid "Use highlight.js"
 msgstr ""
 
-#: ../parts/czr/customizer.php:256
+#: ../parts/czr/customizer.php:281
 msgid "The package contains 23 common languages."
 msgstr ""
 
-#: ../parts/czr/customizer.php:274
+#: ../parts/czr/customizer.php:299
 msgid "Use highlight.js Web Package"
 msgstr ""
 
-#: ../parts/czr/customizer.php:275
+#: ../parts/czr/customizer.php:300
 msgid "This selection of highlight.js contains the languages often used for web development."
 msgstr ""
 
-#: ../parts/czr/customizer.php:294
+#: ../parts/czr/customizer.php:319
 msgid "Use concatenated JS files"
 msgstr ""
 
-#: ../parts/czr/customizer.php:295
+#: ../parts/czr/customizer.php:320
 msgid "Use of concatenated JS files makes loading faster for the sites do not support HTTP/2. Recommended to set this ON if your website is not using https connection, or you are not sure whether this site supports HTTP/2."
 msgstr ""
 
-#: ../parts/czr/customizer.php:309
+#: ../parts/czr/customizer.php:334
 msgid "This will only **hide** the site title and description, whereas the two options above make the title/description not to be output."
 msgstr ""
 
 #. translators: 1: Start of <a> tag, 2: The end of <a> tag.
-#: ../parts/czr/customizer.php:315
+#: ../parts/czr/customizer.php:340
 msgid "Use the %1$s \"Display Site Title\" %2$s option to hide site title."
 msgstr ""
 
-#: ../parts/czr/customizer.php:323
+#: ../parts/czr/customizer.php:348
 msgid "Coldbox: Header Settings"
 msgstr ""
 
-#: ../parts/czr/customizer.php:341
+#: ../parts/czr/customizer.php:366
 msgid "Custom Logo Width"
 msgstr ""
 
-#: ../parts/czr/customizer.php:362
+#: ../parts/czr/customizer.php:387
 msgid "Display Site Title"
 msgstr ""
 
-#: ../parts/czr/customizer.php:364
+#: ../parts/czr/customizer.php:389
 msgid "Your logo will be still shown when this is unchecked."
 msgstr ""
 
-#: ../parts/czr/customizer.php:387
+#: ../parts/czr/customizer.php:412
 msgid "Display Site Description"
 msgstr ""
 
-#: ../parts/czr/customizer.php:412
+#: ../parts/czr/customizer.php:437
 msgid "Font Size for Site Title"
 msgstr ""
 
-#: ../parts/czr/customizer.php:413
+#: ../parts/czr/customizer.php:438
 msgid "Relative value (%) to global font size"
 msgstr ""
 
-#: ../parts/czr/customizer.php:433
+#: ../parts/czr/customizer.php:458
 msgid "Header and Menu Direction"
 msgstr ""
 
-#: ../parts/czr/customizer.php:437
+#: ../parts/czr/customizer.php:462
 msgid "Vertical (column)"
 msgstr ""
 
-#: ../parts/czr/customizer.php:438
+#: ../parts/czr/customizer.php:463
 msgid "Horizontal (row)"
 msgstr ""
 
-#: ../parts/czr/customizer.php:457
+#: ../parts/czr/customizer.php:482
 msgid "Make Header Sticky"
 msgstr ""
 
-#: ../parts/czr/customizer.php:458
+#: ../parts/czr/customizer.php:483
 msgid "Only nav menu will be sticky if you've selected \"Vertical\" direction, or whole header will be sticky with narrower padding if \"Horizontal\" direction is selected."
 msgstr ""
 
-#: ../parts/czr/customizer.php:478
+#: ../parts/czr/customizer.php:503
 msgid "Custom Header Padding"
 msgstr ""
 
-#: ../parts/czr/customizer.php:497
+#: ../parts/czr/customizer.php:522
 msgid "Use Narrower Padding when Scrolling"
 msgstr ""
 
-#: ../parts/czr/customizer.php:498
+#: ../parts/czr/customizer.php:523
 msgid "This works only when Horizontal menu direction selected. If this is off, the header won't narrower when scrolling the window. Recommended to set this off when you set the value of Custom Header Padding above narrower than 15px."
 msgstr ""
 
-#: ../parts/czr/customizer.php:514
+#: ../parts/czr/customizer.php:539
 msgid "Coldbox: Archive Pages Settings"
 msgstr ""
 
-#: ../parts/czr/customizer.php:531
+#: ../parts/czr/customizer.php:556
 msgid "Front Page Style"
 msgstr ""
 
-#: ../parts/czr/customizer.php:536, ../parts/czr/customizer.php:560
+#: ../parts/czr/customizer.php:561, ../parts/czr/customizer.php:585
 msgid "Grid Style (default)"
 msgstr ""
 
-#: ../parts/czr/customizer.php:537, ../parts/czr/customizer.php:561
+#: ../parts/czr/customizer.php:562, ../parts/czr/customizer.php:586
 msgid "Standard Style"
 msgstr ""
 
-#: ../parts/czr/customizer.php:555
+#: ../parts/czr/customizer.php:580
 msgid "Archive Page Style"
 msgstr ""
 
-#: ../parts/czr/customizer.php:580
+#: ../parts/czr/customizer.php:605
 msgid "Grid Columns for Desktop & Tablet"
 msgstr ""
 
-#: ../parts/czr/customizer.php:601
+#: ../parts/czr/customizer.php:626
 msgid "Grid Columns for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:621
+#: ../parts/czr/customizer.php:646
 msgid "Excerpt Length"
 msgstr ""
 
-#: ../parts/czr/customizer.php:642
+#: ../parts/czr/customizer.php:667
 msgid "Excerpt Ending"
 msgstr ""
 
-#: ../parts/czr/customizer.php:661
+#: ../parts/czr/customizer.php:686
 msgid "Use Placefolder Images when no Featured Image"
 msgstr ""
 
-#: ../parts/czr/customizer.php:680
+#: ../parts/czr/customizer.php:705
 msgid "Display Post Date on Grid"
 msgstr ""
 
-#: ../parts/czr/customizer.php:698
+#: ../parts/czr/customizer.php:723
 msgid "Display Categories on Grid"
 msgstr ""
 
-#: ../parts/czr/customizer.php:716
+#: ../parts/czr/customizer.php:741
 msgid "Display Comments Count on Grid"
 msgstr ""
 
-#: ../parts/czr/customizer.php:731
+#: ../parts/czr/customizer.php:756
 msgid "Coldbox: Single Posts Settings"
 msgstr ""
 
-#: ../parts/czr/customizer.php:751
+#: ../parts/czr/customizer.php:776
 msgid "Settings for Content"
 msgstr ""
 
-#: ../parts/czr/customizer.php:768
+#: ../parts/czr/customizer.php:793
 msgid "Show Thumbnail Image"
 msgstr ""
 
-#: ../parts/czr/customizer.php:786
+#: ../parts/czr/customizer.php:811
 msgid "Add Decoration to H2-H5 Tags"
 msgstr ""
 
-#: ../parts/czr/customizer.php:808
+#: ../parts/czr/customizer.php:833
 msgid "Settings for Metas"
 msgstr ""
 
-#: ../parts/czr/customizer.php:826, ../parts/czr/customizer.php:1117
+#: ../parts/czr/customizer.php:851, ../parts/czr/customizer.php:1142
 msgid "Display Post Dates"
 msgstr ""
 
-#: ../parts/czr/customizer.php:845
+#: ../parts/czr/customizer.php:870
 msgid "Display the last Modified Dates"
 msgstr ""
 
-#: ../parts/czr/customizer.php:864
+#: ../parts/czr/customizer.php:889
 msgid "Display Post Categories"
 msgstr ""
 
-#: ../parts/czr/customizer.php:867
+#: ../parts/czr/customizer.php:892
 msgid "Note: Categories are already shown on the breadcrum."
 msgstr ""
 
-#: ../parts/czr/customizer.php:884
+#: ../parts/czr/customizer.php:909
 msgid "Display Post Author"
 msgstr ""
 
-#: ../parts/czr/customizer.php:903
+#: ../parts/czr/customizer.php:928
 msgid "Display Comments Count"
 msgstr ""
 
-#: ../parts/czr/customizer.php:922
+#: ../parts/czr/customizer.php:947
 msgid "Display Post Tags on Bottom"
 msgstr ""
 
-#: ../parts/czr/customizer.php:941
+#: ../parts/czr/customizer.php:966
 msgid "Display Post Categories on Bottom"
 msgstr ""
 
-#: ../parts/czr/customizer.php:958
+#: ../parts/czr/customizer.php:983
 msgid "Display Author Box"
 msgstr ""
 
-#: ../parts/czr/customizer.php:976
+#: ../parts/czr/customizer.php:1001
 msgid "Display Comments"
 msgstr ""
 
-#: ../parts/czr/customizer.php:995
+#: ../parts/czr/customizer.php:1020
 msgid "Display Post Navigation"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1017
+#: ../parts/czr/customizer.php:1042
 msgid "Settings for Related Posts"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1035
+#: ../parts/czr/customizer.php:1060
 msgid "Display Related Posts"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1054
+#: ../parts/czr/customizer.php:1079
 msgid "Related Post - Max Articles"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1076
+#: ../parts/czr/customizer.php:1101
 msgid "Related Post - Columns"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1094
+#: ../parts/czr/customizer.php:1119
 msgid "Coldbox: Static Pages Settings"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1136
+#: ../parts/czr/customizer.php:1161
 msgid "Display Author Names"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1155
+#: ../parts/czr/customizer.php:1180
 msgid "Display Comments Counts"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1156
+#: ../parts/czr/customizer.php:1181
 msgid "It will be shown only when comments are opened and shown, and this option is checked."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1171
+#: ../parts/czr/customizer.php:1196
 msgid "Coldbox: Footer Settings"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1188
+#: ../parts/czr/customizer.php:1213
 msgid "Display Theme Credit"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1207
+#: ../parts/czr/customizer.php:1232
 msgid "Edit the Credit"
 msgstr ""
 
 #. translators: %s: HTML Tags.
-#: ../parts/czr/customizer.php:1208
+#: ../parts/czr/customizer.php:1233
 msgid "This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1217
+#: ../parts/czr/customizer.php:1242
 msgid "Mirucon"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1227
+#: ../parts/czr/customizer.php:1252
 msgid "Edit the Theme Credit"
 msgstr ""
 
 #. translators: %s: HTML Tags.
-#: ../parts/czr/customizer.php:1228
+#: ../parts/czr/customizer.php:1253
 msgid "It will be displayed only when the \"Display Theme Credit\" option is checked. You can use the following HTML tags: %s."
 msgstr ""
 
 #. translators: 1: Opening a tag of link to "Settings" > "Privacy", 2: Closing a tag.
-#: ../parts/czr/customizer.php:1239
+#: ../parts/czr/customizer.php:1264
 msgid "Looks like you don't have the %1$sPrivacy Policy page%2$s yet. To show this link in footer, make sure to have a Privacy Policy page."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1256
+#: ../parts/czr/customizer.php:1281
 msgid "Show Privacy Policy Page Link"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1283
+#: ../parts/czr/customizer.php:1308
 msgid "Primary Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1303
+#: ../parts/czr/customizer.php:1328
 msgid "Secondary Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1323
+#: ../parts/czr/customizer.php:1348
 msgid "Header Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1343
+#: ../parts/czr/customizer.php:1368
 msgid "Header Menu Text Color for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1362
+#: ../parts/czr/customizer.php:1387
 msgid "Header Menu Background Color for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1382
+#: ../parts/czr/customizer.php:1407
 msgid "Footer Menu Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1402
+#: ../parts/czr/customizer.php:1427
 msgid "Footer Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1423
+#: ../parts/czr/customizer.php:1448
 msgid "Title Box Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1443
+#: ../parts/czr/customizer.php:1468
 msgid "Content Wrapper Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1463
+#: ../parts/czr/customizer.php:1488
 msgid "Sidebar Wrapper Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1491
+#: ../parts/czr/customizer.php:1516
 msgid "Show the social links on the author box"
 msgstr ""
 
