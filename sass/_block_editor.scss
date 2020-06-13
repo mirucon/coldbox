@@ -1,0 +1,188 @@
+/*   Block Editor : General
+/* -------------------------------------------------- */
+.alignleft,
+.alignright {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/*   Block Editor : Group
+/* -------------------------------------------------- */
+.wp-block-group {
+  margin-bottom: 1em;
+}
+
+/*   Block Editor : Paragraph
+/* -------------------------------------------------- */
+.has-drop-cap:not(:focus) {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/*   Block Editor : Quote
+/* -------------------------------------------------- */
+.wp-block-quote.is-style-large {
+  margin-bottom: 1em;
+  padding: 1em 1em 1em 3.2em;
+}
+
+/*   Block Editor : Button Block
+/* -------------------------------------------------- */
+.wp-block-button {
+  margin-bottom: 1em;
+
+  .wp-block-button__link {
+    border-color: $accent;
+    background-color: $accent;
+    color: #fff;
+
+    &:hover {
+      color: #fff;
+      opacity: 0.9;
+    }
+  }
+
+  &.is-style-outline {
+    .wp-block-button__link {
+      background-color: transparent;
+      color: $text;
+    }
+  }
+}
+
+/*   Block Editor : Media
+/* -------------------------------------------------- */
+.wp-block-media-text {
+  margin-bottom: 1em;
+
+  p {
+    margin: {
+      top: 1em;
+      bottom: 1em;
+    }
+  }
+}
+
+/*   Block Editor : Gallery
+/* -------------------------------------------------- */
+.blocks-gallery-grid.blocks-gallery-grid {
+  padding-left: 0;
+}
+
+/*   Block Editor : Image Block
+/* -------------------------------------------------- */
+@mixin caption-text {
+  font-style: italic;
+  text-align: center;
+  font-size: 0.94em;
+  line-height: 1.4;
+}
+
+.blocks-gallery-item figure {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+}
+
+.wp-block-image figcaption {
+  @include caption-text;
+}
+
+/*   Block Editor : Video Block
+/* -------------------------------------------------- */
+.wp-block-video figcaption {
+  @include caption-text;
+}
+
+/*   Block Editor : Cover Text Block
+/* -------------------------------------------------- */
+.wp-block-cover p:not(.has-text-color) {
+  color: #fff;
+}
+
+/*   Block Editor : Separator
+/* -------------------------------------------------- */
+.wp-block-separator {
+  &:not(.is-style-wide):not(.is-style-dots) {
+    max-width: 30%;
+    margin: auto;
+    border-bottom-width: 2px;
+  }
+}
+
+/*   Block Editor : Widgets
+/* -------------------------------------------------- */
+.wp-block-archives {
+  margin-bottom: 2em;
+}
+
+.wp-block-calendar {
+  margin-bottom: 2em;
+  .wp-calendar-table {
+    margin-bottom: 0.2em;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+.wp-block-categories {
+  margin-bottom: 2em;
+}
+
+.wp-block-latest-comments.wp-block-latest-comments {
+  margin-bottom: 2em;
+}
+
+.wp-block-latest-posts.wp-block-latest-posts {
+  margin-bottom: 2em;
+}
+
+.wp-block-rss.wp-block-rss {
+  margin-bottom: 2em;
+}
+
+.wp-block-search {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 2em;
+
+  .wp-block-search__input {
+    padding: 6px 6px;
+    border-right-style: none;
+    border-radius: 2px 0 0 2px;
+    font-size: 0.96em;
+    line-height: normal;
+  }
+
+  .wp-block-search__button {
+    margin-left: 0;
+    padding: {
+      right: 0.7em;
+      left: 0.7em;
+    }
+    background-color: #444;
+    border-radius: 0 2px 2px 0;
+
+    &:hover {
+      background-color: #777;
+      box-shadow: none;
+    }
+  }
+}
+
+.wp-block-tag-cloud.wp-block-tag-cloud {
+  margin-bottom: 2em;
+}
+
+/*   Block Editor : Cover Block
+/* -------------------------------------------------- */
+.wp-block-cover {
+  margin-bottom: 1em;
+}

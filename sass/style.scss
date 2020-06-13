@@ -175,7 +175,7 @@ h6 { font-size: 1.12em }
   dt { font-weight: bold }
   dd { margin-bottom: 1em }
   hr { margin: 1em 0; }
-  iframe { margin-bottom: 1em }
+  iframe, figure { margin-bottom: 1em }
   p { margin-bottom: 1em }
   p > iframe { margin-bottom: 0 }
   .mejs-container { margin-bottom: 1em }
@@ -616,6 +616,10 @@ textarea {
 .alignleft { float: left; max-width: 100%; margin-right: 1em }
 .clearfix:after {	content: ""; 	display: block;	clear: both; }
 html body .screen-reader-text { position: absolute;	width: 1px; height: 1px; clip: rect(1px, 1px, 1px, 1px); overflow: hidden;	}
+
+/*   WP : Gutenberg Block Editor
+/* -------------------------------------------------- */
+@import 'block_editor';
 
 /*   WP : Gallery
 /* -------------------------------------------------- */
