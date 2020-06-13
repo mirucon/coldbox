@@ -8,4 +8,5 @@ module.exports = {
   baseSelector: '.si',
   types: ['eot', 'woff', 'woff2', 'ttf'],
   fileName: './fonts/[fontname].[ext]',
+  cssTemplate: 'webfonts-generator-template.hbs',
 }
