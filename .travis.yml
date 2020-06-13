@@ -42,10 +42,14 @@ install:
 
 matrix:
   include:
+    - php: 7.4
+      env: WP_VERSION=latest
+    - php: 7.4
+      env: WP_TRAVISCI=phpcs
     - php: 7.3
       env: WP_VERSION=latest
     - php: 7.3
-      env: WP_TRAVISCI=phpcs
+      env: WP_VERSION=trunk
     - php: 7.2
       env: WP_VERSION=latest
     - php: 7.1
@@ -54,8 +58,6 @@ matrix:
       env: WP_VERSION=latest
     - php: 5.6
       env: WP_VERSION=latest
-    - php: 5.6
-      env: WP_VERSION=trunk
 
 before_script:
   - |
