@@ -131,7 +131,7 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				$wp_customize,
 				'global_font',
 				array(
-					'label'   => __( 'Global Font Selecter', 'coldbox' ),
+					'label'   => __( 'Global Font Selector', 'coldbox' ),
 					'section' => 'global',
 					'type'    => 'select',
 					'choices' => array(
@@ -154,6 +154,31 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 				)
 			)
 		);
+		// Google Font Swapping setting.
+		$wp_customize->add_setting(
+			'google_font_swap_setting',
+			array(
+				'default'           => true,
+				'sanitize_callback' => 'cd_sanitize_checkbox',
+			)
+		);
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'google_font_swap_setting',
+				array(
+					'label'       => esc_html__( 'Show fallback font during download of web fonts', 'coldbox' ),
+					'description' => esc_html__(
+						'When this setting is enabled, during the download of web fonts, browsers will show fallback font, instead of showing blank.
+                         Highly recommended to keep this option enabled to ensure that users can read your text all the time.',
+						'coldbox'
+					),
+					'section'     => 'global',
+					'type'        => 'checkbox',
+				)
+			)
+		);
+		// Font Family customization.
 		$wp_customize->add_setting(
 			'custom_font',
 			array(
