@@ -10,7 +10,7 @@
 
 * fix: Apply grid width for classes named post/page on mobile
 
-### 1.8.1 <small> - February 10th, 2020/small>
+### 1.8.1 <small> - February 10th, 2020</small>
 
 * fix: Make the heading text for "Comments" translatable
 * fix: Apply grid width for classes named post/page
