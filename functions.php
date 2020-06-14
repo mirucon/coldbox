@@ -518,6 +518,8 @@ if ( ! function_exists( 'cd_load_welcome_page' ) ) {
 	function cd_load_welcome_page() {
 		require_once get_theme_file_path( 'parts/about-coldbox.php' );
 		require_once get_theme_file_path( 'parts/admin-notices.php' );
+		require_once get_theme_file_path( 'parts/class-cd-admin-notice-upgrades.php' );
+		require_once get_theme_file_path( 'parts/class-cd-admin-notice-new-install.php' );
 	}
 
 	add_action( 'init', 'cd_load_welcome_page' );
