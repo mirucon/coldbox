@@ -188,7 +188,7 @@ function cd_welcome_page_content() {
 					echo wp_kses(
 						sprintf(
 							/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
-							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
+							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 7.2 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
 							phpversion(),
 							'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
 							'</a>'
@@ -202,30 +202,54 @@ function cd_welcome_page_content() {
 	}
 	?>
 
+	<?php
+		$upgrade_notices = array(
+			array(
+				'version'     => esc_html__( 'v1.9.0', 'coldbox' ),
+				'description' => esc_html__( 'To be announced', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.8.4', 'coldbox' ),
+				'description' => esc_html__( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.8.0', 'coldbox' ),
+				'description' => esc_html__( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.7.1', 'coldbox' ),
+				'description' => esc_html__( 'Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn\'t be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.7.0', 'coldbox' ),
+				'description' => esc_html__( 'The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.4', 'coldbox' ),
+				'description' => esc_html__( 'I\'ve added the option to show thumbnail image on every single post which have been requested quite a few times!', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.3', 'coldbox' ),
+				'description' => esc_html__( 'Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the "Social Links" section in the Customizer.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.0', 'coldbox' ),
+				'description' => esc_html__( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ),
+			),
+		);
+		?>
+
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
 
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.4', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.8.0', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.7.1', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn\'t be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.7.0', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required.', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.4', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'I\'ve added the option to show thumbnail image on every single post which have been requested quite a few times!', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.3', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the "Social Links" section in the Customizer.', 'coldbox' ); ?></p>
-
-		<h3 class="cdAdmin__h3"><?php esc_html_e( 'v1.5.0', 'coldbox' ); ?></h3>
-		<p><?php esc_html_e( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ); ?></p>
-	</div>
+		<?php
+		foreach ( $upgrade_notices as $notice ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<h3 class="cdAdmin__h3">' . $notice['version'] . '</h3>';
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<p>' . $notice['description'] . '</p>';
+		}
+		?>
 
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></h2>
