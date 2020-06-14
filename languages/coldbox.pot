@@ -91,64 +91,64 @@ msgstr ""
 msgid "Close menu"
 msgstr ""
 
-#: ../functions.php:571
+#: ../functions.php:573
 msgid "Sidebar"
 msgstr ""
 
-#: ../functions.php:573, ../functions.php:584, ../functions.php:595, ../functions.php:606, ../functions.php:617
+#: ../functions.php:575, ../functions.php:586, ../functions.php:597, ../functions.php:608, ../functions.php:619
 msgid "Add widgets here"
 msgstr ""
 
-#: ../functions.php:582
+#: ../functions.php:584
 msgid "Footer Sidebar One"
 msgstr ""
 
-#: ../functions.php:593
+#: ../functions.php:595
 msgid "Footer Sidebar Two"
 msgstr ""
 
-#: ../functions.php:604
+#: ../functions.php:606
 msgid "Footer Sidebar Three"
 msgstr ""
 
-#: ../functions.php:615
+#: ../functions.php:617
 msgid "Footer Sidebar Four"
 msgstr ""
 
-#: ../functions.php:900
+#: ../functions.php:902
 msgid "Home"
 msgstr ""
 
-#: ../functions.php:902
+#: ../functions.php:904
 msgid "Attachment"
 msgstr ""
 
-#: ../functions.php:1096
+#: ../functions.php:1098
 msgid "Author:"
 msgstr ""
 
-#: ../functions.php:1094
+#: ../functions.php:1096
 msgid "Yearly Archive:"
 msgstr ""
 
-#: ../functions.php:1092
+#: ../functions.php:1094
 msgid "Monthly Archive:"
 msgstr ""
 
-#: ../functions.php:1092
+#: ../functions.php:1094
 msgctxt "Date Format"
 msgid "F, Y"
 msgstr ""
 
-#: ../functions.php:1090
+#: ../functions.php:1092
 msgid "Daily Archive:"
 msgstr ""
 
-#: ../functions.php:1088
+#: ../functions.php:1090
 msgid "Tag:"
 msgstr ""
 
-#: ../functions.php:1086
+#: ../functions.php:1088
 msgid "Category:"
 msgstr ""
 
@@ -168,7 +168,7 @@ msgstr ""
 msgid "Pages:"
 msgstr ""
 
-#: ../parts/about-coldbox.php:16, ../parts/about-coldbox.php:17
+#: ../parts/about-coldbox.php:16, ../parts/about-coldbox.php:17, ../parts/class-cd-admin-notice-new-install.php:130, ../parts/class-cd-admin-notice-upgrades.php:138
 msgid "About Coldbox"
 msgstr ""
 
@@ -275,89 +275,110 @@ msgstr ""
 msgid "forum"
 msgstr ""
 
-#: ../parts/about-coldbox.php:180
+#: ../parts/about-coldbox.php:175
+msgid "Please first consider to post your question on the forum, as posting on forum can help the other users having the same problem. Email me if you want to share images with me or your question is private."
+msgstr ""
+
+#: ../parts/about-coldbox.php:183
+msgid "Rate this theme"
+msgstr ""
+
+#. translators: %1$s: Link to this theme's review page on WP.org, %2$s: Closing a tag
+#: ../parts/about-coldbox.php:188
+msgid "If you liked this theme, please %1$spost your review on WordPress.org%2$s! Reviews definitely help to motivate me to continue support on this theme."
+msgstr ""
+
+#: ../parts/about-coldbox.php:200
 msgid "Upgrade Your PHP!"
 msgstr ""
 
 #. translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag.
-#: ../parts/about-coldbox.php:191
-msgid "We've detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 5.6 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org."
+#: ../parts/about-coldbox.php:211
+msgid "We've detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 7.2 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org."
 msgstr ""
 
-#: ../parts/about-coldbox.php:193
+#: ../parts/about-coldbox.php:213
 msgid "https://wordpress.org/about/requirements/"
 msgstr ""
 
-#: ../parts/about-coldbox.php:206
-msgid "Upgrade Notice"
+#: ../parts/about-coldbox.php:228
+msgid "v1.9.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:208
+#: ../parts/about-coldbox.php:229
+msgid "To be announced"
+msgstr ""
+
+#: ../parts/about-coldbox.php:232
 msgid "v1.8.4"
 msgstr ""
 
-#: ../parts/about-coldbox.php:209
+#: ../parts/about-coldbox.php:233
 msgid "I've fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused."
 msgstr ""
 
-#: ../parts/about-coldbox.php:211
+#: ../parts/about-coldbox.php:236
 msgid "v1.8.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:212
+#: ../parts/about-coldbox.php:237
 msgid "In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher."
 msgstr ""
 
-#: ../parts/about-coldbox.php:214
+#: ../parts/about-coldbox.php:240
 msgid "v1.7.1"
 msgstr ""
 
-#: ../parts/about-coldbox.php:215
+#: ../parts/about-coldbox.php:241
 msgid "Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn't be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)"
 msgstr ""
 
-#: ../parts/about-coldbox.php:217
+#: ../parts/about-coldbox.php:244
 msgid "v1.7.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:218
+#: ../parts/about-coldbox.php:245
 msgid "The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required."
 msgstr ""
 
-#: ../parts/about-coldbox.php:220
+#: ../parts/about-coldbox.php:248
 msgid "v1.5.4"
 msgstr ""
 
-#: ../parts/about-coldbox.php:221
+#: ../parts/about-coldbox.php:249
 msgid "I've added the option to show thumbnail image on every single post which have been requested quite a few times!"
 msgstr ""
 
-#: ../parts/about-coldbox.php:223
+#: ../parts/about-coldbox.php:252
 msgid "v1.5.3"
 msgstr ""
 
-#: ../parts/about-coldbox.php:224
+#: ../parts/about-coldbox.php:253
 msgid "Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the \"Social Links\" section in the Customizer."
 msgstr ""
 
-#: ../parts/about-coldbox.php:226
+#: ../parts/about-coldbox.php:256
 msgid "v1.5.0"
 msgstr ""
 
-#: ../parts/about-coldbox.php:227
+#: ../parts/about-coldbox.php:257
 msgid "In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to \"Coldbox: Header Settings\" > \"Custom Logo Width\"."
 msgstr ""
 
-#: ../parts/about-coldbox.php:231
+#: ../parts/about-coldbox.php:263
+msgid "Upgrade Notice"
+msgstr ""
+
+#: ../parts/about-coldbox.php:275
 msgid "Changelog"
 msgstr ""
 
 #. translators: %s: Theme version
-#: ../parts/about-coldbox.php:255
+#: ../parts/about-coldbox.php:299
 msgid "Coldbox v%s"
 msgstr ""
 
-#: ../parts/about-coldbox.php:272
+#: ../parts/about-coldbox.php:316
 msgid "Upgrade Notices"
 msgstr ""
 
@@ -376,8 +397,27 @@ msgstr ""
 msgid "See more about the extension"
 msgstr ""
 
-#: ../parts/admin-notices.php:50, ../parts/tgm/class-tgm-plugin-activation.php:394
+#: ../parts/admin-notices.php:50, ../parts/class-cd-admin-notice-new-install.php:92, ../parts/class-cd-admin-notice-upgrades.php:110, ../parts/tgm/class-tgm-plugin-activation.php:394
 msgid "Dismiss this notice"
+msgstr ""
+
+#: ../parts/class-cd-admin-notice-new-install.php:52
+msgid "Welcome to the Coldbox theme!"
+msgstr ""
+
+#. translators: %s: Page link to About Coldbox page.
+#: ../parts/class-cd-admin-notice-new-install.php:61
+msgid "Thanks for installing the Coldbox theme! Please visit the %s page to learn how to get started with the theme."
+msgstr ""
+
+#. translators: %s: Version number.
+#: ../parts/class-cd-admin-notice-upgrades.php:68
+msgid "Coldbox theme has been upgraded to %s!"
+msgstr ""
+
+#. translators: %s: Page link to About Coldbox page.
+#: ../parts/class-cd-admin-notice-upgrades.php:79
+msgid "Your theme has just been updated. Please check the %s page to see what has been changed in this version."
 msgstr ""
 
 #: ../parts/page-title.php:49
