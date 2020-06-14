@@ -170,6 +170,26 @@ function cd_welcome_page_content() {
 					'</a>'
 				)
 			);
+
+			echo ' ';
+			esc_html_e(
+				'Please first consider to post your question on the forum, as posting on forum can help the other users having the same problem. Email me if you want to share images with me or your question is private.',
+				'coldbox'
+			);
+		?>
+	</div>
+
+	<div class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Rate this theme', 'coldbox' ); ?></h2>
+		<?php
+			echo wp_kses_data(
+				sprintf(
+					/* translators: %1$s: Link to this theme's review page on WP.org, %2$s: Closing a tag */
+					__( 'If you liked this theme, please %1$spost your review on WordPress.org%2$s! Reviews definitely help to motivate me to continue support on this theme.', 'coldbox' ),
+					'<a href="https://wordpress.org/support/theme/coldbox/reviews/#new-post">',
+					'</a>'
+				)
+			);
 		?>
 	</div>
 
