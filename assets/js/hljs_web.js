@@ -32,7 +32,9 @@ highlight.registerLanguage('typescript', typescript)
 
 document.addEventListener('DOMContentLoaded', () => {
   const codeTags = document.querySelectorAll('pre code')
-  const preTags = document.querySelectorAll('pre')
+  const preTags = document.querySelectorAll(
+    'pre:not(.wp-block-verse):not(.wp-block-preformatted)'
+  )
   const tags = [...codeTags, ...preTags]
   if (tags.length) {
     for (const tag of tags) {
