@@ -1,5 +1,12 @@
 {
   "extends": [
     "config:base"
+  ],
+  "packageRules": [
+    {
+      "packagePatterns": ["^eslint", "^@babel", "^postcss", "-loader$"],
+      "updateTypes": ["minor", "patch"],
+      "automerge": true
+    }
   ]
 }
