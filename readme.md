@@ -1,16 +1,16 @@
-# Coldbox v1.8.4
+# Coldbox v1.9.0
 
-[![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html) [![Greenkeeper badge](https://badges.greenkeeper.io/mirucon/coldbox.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ![coldbox-screenshot](/screenshot.jpg)
 
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.8.4    
+**Version**: 1.9.0    
 **Requires at least**: Version 5.0 or higher  
 **Tested up to**: WordPress 5.4  
-**Requires PHP**: 5.2.4  
+**Requires PHP**: 5.6  
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags**: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -85,6 +85,14 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.9.0
+
+* feat: Better styling for Gutenberg Block Editor
+* feat: New option for using "font-display: swap" on Google Fonts
+  * This new option appears in the global settings
+* feat: Show notifications when the theme has got updated or installed
+* And some small bug fixes and improvements
 
 1.8.4
 

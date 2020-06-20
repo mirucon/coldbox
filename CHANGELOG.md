@@ -1,3 +1,11 @@
+### 1.9.0 <small> - June 20th, 2020</small>
+
+* feat: Better styling for Gutenberg Block Editor
+* feat: New option for using "font-display: swap" on Google Fonts
+    * This new option appears in the global settings
+* feat: Show notifications when the theme has got updated or installed
+* And some small bug fixes and improvements
+
 ### 1.8.4 <small> - March 14th, 2020</small>
 
 * fix: Do not apply tablet/PC grid column setting to mobile
