@@ -460,16 +460,14 @@ msgstr ""
 msgid "Title:"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1242
-msgid "Coldbox WordPress theme by"
+#. translators: 1: Starting a tag (links to theme's official website), 2: Ending a tag.
+#. translators: 1: Starting a tag (links to theme's official website), 2: Ending a tag.
+#: ../parts/czr/customizer-functions.php:389, ../parts/czr/customizer.php:1244
+msgid "%1$sColdbox WordPress theme%2$s by mirucon"
 msgstr ""
 
-#: ../parts/czr/customizer-functions.php:387, ../parts/czr/customizer.php:1242
-msgid "https://miruc.co/"
-msgstr ""
-
-#: ../parts/czr/customizer-functions.php:387
-msgid "mirucon"
+#: ../parts/czr/customizer-functions.php:390, ../parts/czr/customizer.php:1245
+msgid "https://coldbox.miruc.co/"
 msgstr ""
 
 #: ../parts/czr/customizer-validators.php:18
@@ -805,69 +803,65 @@ msgstr ""
 msgid "This will be displayed in your footer area. You can use the following HTML tags: %s.<br/> Also there are some shortcodes you can use: <br/> [year] -> Displays this year, <br/> [url] -> Displays site URL, <br/> [name] -> Displays site name."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1242
-msgid "Mirucon"
-msgstr ""
-
-#: ../parts/czr/customizer.php:1252
+#: ../parts/czr/customizer.php:1257
 msgid "Edit the Theme Credit"
 msgstr ""
 
 #. translators: %s: HTML Tags.
-#: ../parts/czr/customizer.php:1253
+#: ../parts/czr/customizer.php:1258
 msgid "It will be displayed only when the \"Display Theme Credit\" option is checked. You can use the following HTML tags: %s."
 msgstr ""
 
 #. translators: 1: Opening a tag of link to "Settings" > "Privacy", 2: Closing a tag.
-#: ../parts/czr/customizer.php:1264
+#: ../parts/czr/customizer.php:1269
 msgid "Looks like you don't have the %1$sPrivacy Policy page%2$s yet. To show this link in footer, make sure to have a Privacy Policy page."
 msgstr ""
 
-#: ../parts/czr/customizer.php:1281
+#: ../parts/czr/customizer.php:1286
 msgid "Show Privacy Policy Page Link"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1308
+#: ../parts/czr/customizer.php:1313
 msgid "Primary Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1328
+#: ../parts/czr/customizer.php:1333
 msgid "Secondary Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1348
+#: ../parts/czr/customizer.php:1353
 msgid "Header Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1368
+#: ../parts/czr/customizer.php:1373
 msgid "Header Menu Text Color for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1387
+#: ../parts/czr/customizer.php:1392
 msgid "Header Menu Background Color for Mobile"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1407
+#: ../parts/czr/customizer.php:1412
 msgid "Footer Menu Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1427
+#: ../parts/czr/customizer.php:1432
 msgid "Footer Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1448
+#: ../parts/czr/customizer.php:1453
 msgid "Title Box Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1468
+#: ../parts/czr/customizer.php:1473
 msgid "Content Wrapper Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1488
+#: ../parts/czr/customizer.php:1493
 msgid "Sidebar Wrapper Background Color"
 msgstr ""
 
-#: ../parts/czr/customizer.php:1516
+#: ../parts/czr/customizer.php:1521
 msgid "Show the social links on the author box"
 msgstr ""
 
