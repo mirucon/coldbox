@@ -53,7 +53,7 @@ function cd_welcome_page_content() {
 
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Getting Started', 'coldbox' ); ?></h2>
-		<p><?php esc_html_e( 'Thanks so much for using the Coldbox theme! Here are some quick tips to help you getting started with the theme.', 'coldbox' ); ?></p>
+		<p><?php esc_html_e( 'Thanks so much for using the Coldbox theme! Here are some quick tips to help you get started with the theme.', 'coldbox' ); ?></p>
 		<p>
 			<?php
 				echo wp_kses_data(
@@ -160,37 +160,41 @@ function cd_welcome_page_content() {
 
 	<div class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Need Help?', 'coldbox' ); ?></h2>
-		<?php
-			echo wp_kses_data(
-				sprintf(
-					/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
-					__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request.', 'coldbox' ),
-					'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
-					'<a href="mailto:i@miruc.co">',
-					'</a>'
-				)
-			);
+		<p>
+			<?php
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
+						__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request.', 'coldbox' ),
+						'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
+						'<a href="mailto:i@miruc.co">',
+						'</a>'
+					)
+				);
 
-			echo ' ';
-			esc_html_e(
-				'Please first consider to post your question on the forum, as posting on forum can help the other users having the same problem. Email me if you want to share images with me or your question is private.',
-				'coldbox'
-			);
-		?>
+				echo ' ';
+				esc_html_e(
+					'Please first consider to post your question on the forum, as posting on forum can help the other users having the same problem. Email me if you want to share images with me or your question is private.',
+					'coldbox'
+				);
+			?>
+		</p>
 	</div>
 
 	<div class="cdAdmin__section">
-		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Rate this theme', 'coldbox' ); ?></h2>
-		<?php
-			echo wp_kses_data(
-				sprintf(
-					/* translators: %1$s: Link to this theme's review page on WP.org, %2$s: Closing a tag */
-					__( 'If you liked this theme, please %1$spost your review on WordPress.org%2$s! Reviews definitely help to motivate me to continue support on this theme.', 'coldbox' ),
-					'<a href="https://wordpress.org/support/theme/coldbox/reviews/#new-post">',
-					'</a>'
-				)
-			);
-		?>
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Rate this theme!', 'coldbox' ); ?></h2>
+		<p>
+			<?php
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: Link to this theme's review page on WP.org, %2$s: Closing a tag */
+						__( 'If you liked this theme, please %1$spost your review on WordPress.org%2$s! Reviews definitely help to motivate me to continue support on this theme.', 'coldbox' ),
+						'<a href="https://wordpress.org/support/theme/coldbox/reviews/#new-post">',
+						'</a>'
+					)
+				);
+			?>
+		</p>
 	</div>
 
 	<?php
@@ -226,8 +230,24 @@ function cd_welcome_page_content() {
 		$upgrade_notices = array(
 			array(
 				'version'     => esc_html__( 'v1.9.0', 'coldbox' ),
-				'description' => esc_html__( 'To be announced', 'coldbox' ),
+				'description' =>
+								sprintf(
+									/* translators: This text shows as a upgrade notice of v1.9.0. / placeholders: 1: Starting a tag, 2: Ending a tag. */
+									esc_html__(
+										'Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s.',
+										'coldbox'
+									),
+									'<a href="https://coldbox.miruc.co/demo/category/block/">',
+									'</a>'
+								)
+							. '<br/>' .
+								/* translators: This text shows as a upgrade notice of v1.9.0. */
+								esc_html__(
+									'Note: At this time, the AMP feature in my addon plugin does not support Block Editor yet. If you want to use the Block Editor\'s features a lot (like columns, buttons, or gallery), please disable generating the AMP pages as a workaround.',
+									'coldbox'
+								),
 			),
+
 			array(
 				'version'     => esc_html__( 'v1.8.4', 'coldbox' ),
 				'description' => esc_html__( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ),

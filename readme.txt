@@ -82,6 +82,14 @@ All the photos used in the screenshots are all licensed under CC0.
 
 == Changelog ==
 
+= 1.9.0 =
+
+* feat: Better styling for Gutenberg Block Editor
+* feat: New option for using "font-display: swap" on Google Fonts
+  * This new option appears in the global settings
+* feat: Show notifications when the theme has got updated or installed
+* And some small bug fixes and improvements
+
 = 1.8.4 =
 
 * fix: Do not apply tablet/PC grid column setting to mobile
