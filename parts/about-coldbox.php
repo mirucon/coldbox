@@ -208,7 +208,7 @@ function cd_welcome_page_content() {
 					echo wp_kses(
 						sprintf(
 							/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
-							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 7.2 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
+							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 7.4 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.2 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
 							phpversion(),
 							'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
 							'</a>'
