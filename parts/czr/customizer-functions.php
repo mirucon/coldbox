@@ -384,7 +384,13 @@ function cd_is_theme_credit() {
  * @return string
  */
 function cd_theme_credit_text() {
-	$text = get_theme_mod( 'theme_credit_text', __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'mirucon', 'coldbox' ) . '</a>' );
+	$default_text = sprintf(
+		/* translators: 1: Starting a tag (links to theme's official website), 2: Ending a tag. */
+		esc_html__( '%1$sColdbox WordPress theme%2$s by mirucon', 'coldbox' ),
+		'<a href="' . esc_url( __( 'https://coldbox.miruc.co/', 'coldbox' ) ) . '">',
+		'</a>'
+	);
+	$text = get_theme_mod( 'theme_credit_text', $default_text );
 	return apply_filters( 'cd_theme_credit_text', $text );
 }
 

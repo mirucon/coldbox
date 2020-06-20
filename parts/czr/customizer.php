@@ -1239,7 +1239,12 @@ if ( ! function_exists( 'cd_customize_register' ) ) {
 		$wp_customize->add_setting(
 			'theme_credit_text',
 			array(
-				'default'           => __( 'Coldbox WordPress theme by', 'coldbox' ) . ' <a href="' . esc_url( __( 'https://miruc.co/', 'coldbox' ) ) . '">' . __( 'Mirucon', 'coldbox' ) . '</a>',
+				'default'           => sprintf(
+					/* translators: 1: Starting a tag (links to theme's official website), 2: Ending a tag. */
+					esc_html__( '%1$sColdbox WordPress theme%2$s by mirucon', 'coldbox' ),
+					'<a href="' . esc_url( __( 'https://coldbox.miruc.co/', 'coldbox' ) ) . '">',
+					'</a>'
+				),
 				'sanitize_callback' => 'wp_kses_post',
 				'priority'          => 10,
 			)
