@@ -152,15 +152,15 @@ msgstr ""
 msgid "Category:"
 msgstr ""
 
-#: ../header.php:26
+#: ../header.php:28
 msgid "Skip to content"
 msgstr ""
 
-#: ../header.php:50
+#: ../header.php:52
 msgid "Menu"
 msgstr ""
 
-#: ../header.php:55
+#: ../header.php:57
 msgid "Search Toggle"
 msgstr ""
 
@@ -307,7 +307,7 @@ msgstr ""
 
 #. translators: This text shows as a upgrade notice of v1.9.0. / placeholders: 1: Starting a tag, 2: Ending a tag.
 #: ../parts/about-coldbox.php:236
-msgid "Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s."
+msgid "Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s. If you still see something is broken or looks not so nice, please let me know."
 msgstr ""
 
 #. translators: This text shows as a upgrade notice of v1.9.0.

@@ -74,11 +74,11 @@ License - MIT
 URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
-All the photos used in the screenshots are all licensed under CC0.
-* https://pixabay.com/en/computer-computer-code-screen-1209641/
-* https://unsplash.com/photos/Azli_kcxRNE
-* https://unsplash.com/photos/z06kuSSlIeY
-* https://pixabay.com/en/pizza-basil-garlic-crust-sauce-1209748/
+All the photos used in the screenshot are all licensed under CC0.
+* Top-left photo: Taken by me.
+* Top-right photo: https://visualhunt.com/photo3/166445/
+* Bottom-left photo: https://pxhere.com/en/photo/983724
+* Bottom-right photo: https://www.pexels.com/photo/beverage-breakfast-brewed-coffee-caffeine-374885/
 
 == Changelog ==
 
