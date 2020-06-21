@@ -22,7 +22,7 @@ else :
 
 <body <?php body_class(); ?>>
 
-<?php wp_body_open(); ?>
+	<?php wp_body_open(); ?>
 
 <a class="skip-link screen-reader-text noscroll" href="#content">
 	<?php esc_html_e( 'Skip to content', 'coldbox' ); ?>
