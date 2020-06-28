@@ -17,8 +17,10 @@ function cd_social_sites() {
 		'facebook-official' => 'cd_facebook_profile',
 		'linkedin-square'   => 'cd_linkedin_profile',
 		'youtube'           => 'cd_youtube_profile',
-		'tumblr'            => 'cd_tumblr_profile',
 		'instagram'         => 'cd_instagram_profile',
+		'pinterest'         => 'cd_pinterest_profile',
+		'vk'                => 'cd_vk_profile',
+		'tumblr'            => 'cd_tumblr_profile',
 		'telegram'          => 'cd_telegram_profile',
 		'codepen'           => 'cd_codepen_profile',
 		'github'            => 'cd_github_profile',
@@ -33,6 +35,7 @@ function cd_social_sites() {
 		'feedly'            => 'cd_feedly_profile',
 		'envelope'          => 'cd_email_form_profile',
 		'bell'              => 'cd_push_profile',
+
 	);
 	return apply_filters( 'cd_social_sites', $social_sites );
 }
@@ -109,6 +112,10 @@ function cd_czr_social_links( $wp_customize ) {
 			$label = 'Facebook';
 		} elseif ( 'linkedin-square' === $social_site ) {
 			$label = 'LinkedIn';
+		} elseif ( 'vk' === $social_site ) {
+			$label = 'VK';
+		} elseif ( 'pinterest' === $social_site ) {
+			$label = 'Pinterest';
 		}
 
 		$wp_customize->add_setting(
@@ -221,6 +228,10 @@ function cd_social_links( $class = null, $inner_class = null ) {
 				$label = 'Facebook';
 			} elseif ( 'linkedin-square' === $key ) {
 				$label = 'Linkedin';
+			} elseif ( 'vk' === $key ) {
+				$label = 'VK';
+			} elseif ( 'pinterest' === $key ) {
+				$label = 'Pinterest';
 			} else {
 				$label = ucfirst( $key );
 			} ?>
