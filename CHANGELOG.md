@@ -1,3 +1,7 @@
+### 1.9.1 <small> - June 28th, 2020</small>
+
+* feat: Added VK and Pinterest on the social link (Thanks [Asif](https://github.com/asifaziz1)!)
+
 ### 1.9.0 <small> - June 20th, 2020</small>
 
 * feat: Better styling for Gutenberg Block Editor
