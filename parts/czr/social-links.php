@@ -35,7 +35,7 @@ function cd_social_sites() {
 		'feedly'            => 'cd_feedly_profile',
 		'envelope'          => 'cd_email_form_profile',
 		'bell'              => 'cd_push_profile',
-		
+
 	);
 	return apply_filters( 'cd_social_sites', $social_sites );
 }
