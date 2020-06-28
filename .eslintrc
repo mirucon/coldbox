@@ -1,21 +1,10 @@
 {
   "extends": [
     "standard",
-    "prettier"
-  ],
-  "plugins": [
-    "prettier"
+    "plugin:prettier/recommended",
+    "prettier/standard"
   ],
   "globals": {
     "location": true
-  },
-  "rules": {
-    "prettier/prettier": [
-      "error",
-      {
-        "singleQuote": true,
-        "semi": false
-      }
-    ]
   }
 }
