@@ -4,12 +4,6 @@
   ],
   "packageRules": [
     {
-      "packagePatterns": ["^eslint", "^@babel", "^postcss", "-loader$"],
-      "updateTypes": ["minor", "patch"],
-      "automerge": true
-    },
-    {
-      "packageNames": ["simple-icons"],
       "updateTypes": ["minor", "patch"],
       "automerge": true
     }
