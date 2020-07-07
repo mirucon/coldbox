@@ -34,7 +34,7 @@
     "prettier": "2.0.5",
     "prettier-eslint": "11.0.0",
     "sass": "1.26.10",
-    "sass-loader": "9.0.1",
+    "sass-loader": "9.0.2",
     "showdown": "1.9.1",
     "simple-icons": "3.0.1",
     "smoothscroll-polyfill": "0.4.4",
