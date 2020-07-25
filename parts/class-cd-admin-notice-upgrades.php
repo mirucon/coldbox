@@ -153,7 +153,7 @@ class Cd_Admin_Notice_Upgrades {
 	 * @since 1.9.0
 	 */
 	private function get_current_theme_version() {
-		$theme = wp_get_theme();
+		$theme = wp_get_theme( 'coldbox' );
 
 		return $theme->get( 'Version' );
 	}
