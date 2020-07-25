@@ -62,9 +62,13 @@ else :
 
 				<?php echo $cd_search_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 
-				<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-					<?php echo $cd_nav_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php endif; ?>
+				<?php
+				if ( has_nav_menu( 'header-menu' ) ) {
+					if ( ! Cd_Max_Mega_Menu_Support::is_enabled_for_header_menu() ) {
+						echo $cd_nav_toggle; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					}
+				}
+				?>
 
 				<?php cd_header_menu(); ?>
 

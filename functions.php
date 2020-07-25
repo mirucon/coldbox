@@ -133,6 +133,18 @@ if ( ! function_exists( 'cd_czr' ) ) {
 }
 add_action( 'after_setup_theme', 'cd_czr' );
 
+if ( ! function_exists( 'cd_load_files' ) ) {
+
+	/**
+	 * Load the necessaries for the theme.
+	 *
+	 * @since 1.0.0
+	 **/
+	function cd_load_files() {
+		include_once get_theme_file_path( 'parts/class-cd-max-mega-menu-support.php' );
+	}
+}
+add_action( 'after_setup_theme', 'cd_load_files' );
 
 if ( ! function_exists( 'cd_supports' ) ) {
 
@@ -476,12 +488,12 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 	/**
 	 * Adds classes to the body tag.
 	 *
-	 * @param  string $classes The classes add to the body class.
+	 * @param  array $classes The classes add to the body class.
 	 * @return array custom body classes.
 	 * @since  1.0.0
 	 **/
 	function cd_body_class( $classes ) {
-
+		// Menu things.
 		if ( has_nav_menu( 'header-menu' ) ) {
 			$classes[] = 'header-menu-enabled';
 		}if ( has_nav_menu( 'footer-menu' ) ) {
@@ -490,6 +502,8 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 		if ( cd_header_sticky() ) {
 			$classes[] = 'sticky-header';
 		}
+
+		// Sidebar things.
 		if ( cd_sidebar_stg() === 'right' ) {
 			$classes[] = 'right-sidebar-s1';
 		} elseif ( cd_sidebar_stg() === 'left' ) {
@@ -499,6 +513,8 @@ if ( ! function_exists( 'cd_body_class' ) ) {
 		} elseif ( cd_sidebar_stg() === 'hide' ) {
 			$classes[] = 'hide-sidebar-s1';
 		}
+
+		// Header things.
 		if ( cd_header_direction() === 'column' ) {
 			$classes[] = 'header-column';
 		} elseif ( cd_header_direction() === 'row' ) {
@@ -693,7 +709,7 @@ if ( ! function_exists( 'cd_remove_current_post_on_recent_widgets' ) ) {
 	/**
 	 * Remove the current post when showing a single article from the recent posts widgets.
 	 *
-	 * @param  string $args return widget's argument without current post.
+	 * @param  array $args return widget's argument without current post.
 	 * @since  1.0.0
 	 * @return array
 	 */
