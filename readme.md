@@ -86,6 +86,12 @@ Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
 
+1.9.2
+
+* feat: Support Max Mega Menu plugin 
+* fix: Issue with the version name of upgrade notice is not shown correctly when using child theme
+* fix: Back-to-top bottom is overlapping footer menu when footer menu is active
+
 1.9.1
 
 * feat: Added VK and Pinterest on the social link (Thanks [Asif](https://github.com/asifaziz1)!)
