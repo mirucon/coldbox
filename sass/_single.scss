@@ -38,13 +38,14 @@
 /*   Single : thumbnail image
 /* -------------------------------------------------- */
 .entry-thumbnail-image {
-  $negative_margin: -16px;
   $padding: 1em;
-  margin-left: $negative_margin;
-  margin-right: $negative_margin;
   padding-top: $padding;
   padding-bottom: $padding;
   text-align: center;
+  @media screen and (max-width: $bpmax-mobile) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 /*   Single : Bottom Post Category, Tag
