@@ -1,3 +1,7 @@
+### 1.9.3 <small> - August 10th, 2020</small>
+
+* fix: Adjust styling of in-post thumbnail
+
 ### 1.9.2 <small> - July 27th, 2020</small>
 
 * feat: Support Max Mega Menu plugin 
