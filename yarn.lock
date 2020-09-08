@@ -7623,10 +7623,10 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
-wp-pot@1.9.4:
-  version "1.9.4"
-  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.4.tgz#564745b718ff6d22d6712818bbe9d6a5205f9d36"
-  integrity sha512-l6uZQXxHAYRlNIuZsMMmyjtbsfReAfWYM5xEfsTsOIdQRixXLoFeqKR4wH1+4N394kLPLzqSkoTyVqDN1DJIWA==
+wp-pot@1.9.6:
+  version "1.9.6"
+  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.6.tgz#24153939c75a2cc01db9e3f783bccc337193ad2a"
+  integrity sha512-nNhn4vzJ/hg7j3lbG8NGzFyzDfbsmw1HE2Qoy8qw+esAZwgt6kibkelc/p0FduZd1VziVQ0kT0PM/AoZMLoyig==
   dependencies:
     matched "^5.0.0"
     path-sort "^0.1.0"
