@@ -41,7 +41,7 @@
     "style-loader": "1.2.1",
     "stylus": "0.54.8",
     "sugarss": "2.0.0",
-    "terser-webpack-plugin": "4.1.0",
+    "terser-webpack-plugin": "4.2.0",
     "webfonts-loader": "5.2.2",
     "webpack": "4.44.1",
     "webpack-cli": "3.3.12",
