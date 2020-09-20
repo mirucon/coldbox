@@ -5780,7 +5780,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@8.0.5:
+postcss@8.0.5, postcss@^8.0.2:
   version "8.0.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.0.5.tgz#8210e2363f85c35a88a188ce7a0828e93b1088d4"
   integrity sha512-3rDm6KR0jHstte3aL3ugrCyFA1UXY90SWNwRZ2WTmRf/QpOqM35mm0FrRR+HHZQ5fY9+nXFat1nl2ekYJf0P4w==
@@ -5790,7 +5790,7 @@ postcss@8.0.5:
     nanoid "^3.1.12"
     source-map "^0.6.1"
 
-postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.2, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6, postcss@^7.0.7:
+postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.27, postcss@^7.0.5, postcss@^7.0.6, postcss@^7.0.7:
   version "7.0.31"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.31.tgz#332af45cb73e26c0ee2614d7c7fb02dfcc2bd6dd"
   integrity sha512-a937VDHE1ftkjk+8/7nj/mrjtmkn69xxzJgRETXdAUU+IgOYPQNJF17haGWbeDxSyk++HA14UA98FurvPyBJOA==
@@ -6927,12 +6927,12 @@ stylus@0.54.8:
     semver "^6.3.0"
     source-map "^0.7.3"
 
-sugarss@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-2.0.0.tgz#ddd76e0124b297d40bf3cca31c8b22ecb43bc61d"
-  integrity sha512-WfxjozUk0UVA4jm+U1d736AUpzSrNsQcIbyOkoE364GrtWmIrFdk5lksEupgWMD4VaT/0kVx1dobpiDumSgmJQ==
+sugarss@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.0.tgz#fb490f9d6f5f60e0a14209a7c8e611d2ddbde489"
+  integrity sha512-9FkDUV3kQp7GHv56WHdPR11/OWTS6nf8OWnHrlkxPG9qQaOBlacB/Wb+zK3uBApUGwbwf7CFHQGlmCu3ljF1fQ==
   dependencies:
-    postcss "^7.0.2"
+    postcss "^8.0.2"
 
 supports-color@^2.0.0:
   version "2.0.0"
