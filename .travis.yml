@@ -18,10 +18,6 @@ env:
     - GIT_AUTHOR_EMAIL=i@miruc.co
     - secure: "jZ03RQsfz68oTLnGDw5NeWrwtu3eqSuSfzxFgTQ7QtWLfRPNqhlDkw32puoMFOnLLDPlT5YiiHatiD4uKLMyOYobKXkwPc+rQOs65vw75fI2OH+XFyKzmuA77WN0A1JncX2GypvDCdS4dSWEzb4tOcyE42WWnlNchpFQRLLz5f7xc1trQR1w6fZlNyhKJdVPpEt9qtJlwXQlAMZOCDMkQevCB4WEnQbiw4973CYRL2rL/YkqpmMfnwCjwvRXHgcQJb7H1setLcBfYlK4LmzNL9FJ6JF7h/MoKM/CDE88cuQAdGDe8neJPBBamneGssBkJM7+t4GMmjWpXHDXpNwInZZEC+ARgB1A/pdJN3XBHMaCpsoBjiaiTI5ebeH320qTy+koGjHwIortJ1olsoS51iPNrZFj1MYeBIigVsU2eJ3b/XX7wR0gGLdles4p7h41yNYJZisr5pTFbXlJiIkKQHYgWHWGhzkfqaUNKhqQu692hkl8IiJOPbepXUhkCAx8JE+NsMg7Ap+e6GdQQRMEXfvd5A2k2cAfFVMNENC7mq3bhAnAO7Pmd8xKdU4LsdvnSvQaXaZYZ9Aj4QRYoagS162gE+fTx4catRDRr5DlhyHneFQAkA/mLjq3/hIXlmbVOkvpoin/WINrcgnmc9cggkEmveNcBKxSgwqv39honvM="
 
-branches:
-  only:
-    - master
-
 services:
   - mysql
 
