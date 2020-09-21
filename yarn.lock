@@ -7539,10 +7539,10 @@ watchpack@^1.7.4:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.0"
 
-webfonts-loader@7.0.0:
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.0.0.tgz#c555e17112f1f79274edcd004d29e8fbd85fdd93"
-  integrity sha512-HZE8WG4f10nDxMT7oRYAYOEY+6ZOXKSx8a/lVWnfeDbK+BRRPJDxOoxYk8HoBBHBoFKfRh/VjkMN1RjGhFWAPA==
+webfonts-loader@7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.0.1.tgz#0aa004295805c6a92594c0e6cbdcce786af1f595"
+  integrity sha512-PGzea+DftJVoXgKZduL+xsAJ5KfINqkdtSZ9bUQA+/GLrHVD8Yxjw4k1rQE1CWADWA0XqG9VtlTWynC1T6kzsg==
   dependencies:
     "@vusion/webfonts-generator" "^0.6.1"
     github-sponsors "^1.0.1"
