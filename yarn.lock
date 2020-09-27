@@ -5819,7 +5819,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@8.1.0:
+postcss@8.1.0, postcss@^8.1.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.0.tgz#1be330c7f6971d49726059b9f51785f45273fa70"
   integrity sha512-d3RppIo1DI66oHxA1vdckr5qciQbMIrHvyzuvp2cLJHOLwJHg7X9ncrfw2Ri6Sgiwv/GoXtOwEHJ9E9VSRxXWQ==
@@ -5846,16 +5846,6 @@ postcss@^7.0.32:
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
-
-postcss@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.0.tgz#1be330c7f6971d49726059b9f51785f45273fa70"
-  integrity sha512-d3RppIo1DI66oHxA1vdckr5qciQbMIrHvyzuvp2cLJHOLwJHg7X9ncrfw2Ri6Sgiwv/GoXtOwEHJ9E9VSRxXWQ==
-  dependencies:
-    colorette "^1.2.1"
-    line-column "^1.0.2"
-    nanoid "^3.1.12"
-    source-map "^0.6.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -6567,10 +6557,10 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha512-VUJ49FC8U1OxwZLxIbTTrDvLnf/6TDgxZcK8wxR8zs13xpx7xbG60ndBlhNrFi2EMuFRoeDoJO7wthSLq42EjA==
 
-simple-icons@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-3.9.0.tgz#73bac48005888d41d00dece0d11a40c0aea88747"
-  integrity sha512-/xmuSTw1zovEXCRJIBLlOS9naC41yI4Uk5RmZU1DEc7qu0BrnNkMNtoOvOaj+Vrh4Wzlz6oS0o+sMfDvI9IoYQ==
+simple-icons@3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-3.10.0.tgz#7086a82ddcaddba06c8ab0fc2e873289e3f7bc87"
+  integrity sha512-UpIxtPxImzfgO4tW6mCcDW94X3Vl/yArz6H8wAVaeyB10jEzKglr+shXqpm1vXjMCLKcZ10JCE1X6SjBjJjAzA==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"
