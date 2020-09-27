@@ -41,7 +41,7 @@
     "smoothscroll-polyfill": "0.4.4",
     "style-loader": "1.2.1",
     "stylus": "0.54.8",
-    "sugarss": "3.0.0",
+    "sugarss": "3.0.1",
     "terser-webpack-plugin": "4.2.2",
     "webfonts-loader": "7.0.1",
     "webpack": "4.44.2",
