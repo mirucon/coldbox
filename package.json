@@ -39,7 +39,7 @@
     "showdown": "1.9.1",
     "simple-icons": "3.10.0",
     "smoothscroll-polyfill": "0.4.4",
-    "style-loader": "1.2.1",
+    "style-loader": "1.3.0",
     "stylus": "0.54.8",
     "sugarss": "3.0.1",
     "terser-webpack-plugin": "4.2.2",
