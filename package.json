@@ -6,7 +6,7 @@
   "license": "GPL-2.0+",
   "homepage": "https://coldbox.miruc.co/",
   "devDependencies": {
-    "@babel/core": "7.12.1",
+    "@babel/core": "7.12.3",
     "@babel/plugin-transform-for-of": "7.12.1",
     "@babel/polyfill": "7.12.1",
     "@babel/preset-env": "7.12.1",
