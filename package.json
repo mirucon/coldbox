@@ -43,7 +43,7 @@
     "stylus": "0.54.8",
     "sugarss": "3.0.1",
     "terser-webpack-plugin": "4.2.3",
-    "webfonts-loader": "7.0.1",
+    "webfonts-loader": "7.1.0",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
     "wp-pot": "1.9.6"
