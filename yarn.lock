@@ -4808,11 +4808,6 @@ nan@^2.10.0, nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.1.tgz#d7be34dfa3105b91494c3147089315eff8874b01"
   integrity sha512-isWHgVjnFjh2x2yuJ/tj3JbwoHu3UC2dX5G/88Cm24yB6YopVgxvBObDY7n5xW6ExmFhJpSEQqFPvq9zaXc8Jw==
 
-nanoid@^3.1.12:
-  version "3.1.12"
-  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.12.tgz#6f7736c62e8d39421601e4a0c77623a97ea69654"
-  integrity sha512-1qstj9z5+x491jfiC4Nelk+f8XBad7LN20PmyWINJEMRSf3wcAjAWysw1qaA8z6NSKe2sjq1hRSDpBH5paCb6A==
-
 nanoid@^3.1.16:
   version "3.1.16"
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.16.tgz#b21f0a7d031196faf75314d7c65d36352beeef64"
@@ -5787,7 +5782,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@8.1.5:
+postcss@8.1.5, postcss@^8.1.5:
   version "8.1.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.5.tgz#09ef688ee97fae9b0914bff01ffe5a3dba48bd68"
   integrity sha512-sRcAWfjft1LGYx086un0I7XRnkhtKsNuau08mvrCC2ntuahZrLXe4iQ4PiAtQ+lhFWnTt+0gtA7omE4InCobMg==
@@ -5814,16 +5809,6 @@ postcss@^7.0.32:
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
-
-postcss@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.0.tgz#1be330c7f6971d49726059b9f51785f45273fa70"
-  integrity sha512-d3RppIo1DI66oHxA1vdckr5qciQbMIrHvyzuvp2cLJHOLwJHg7X9ncrfw2Ri6Sgiwv/GoXtOwEHJ9E9VSRxXWQ==
-  dependencies:
-    colorette "^1.2.1"
-    line-column "^1.0.2"
-    nanoid "^3.1.12"
-    source-map "^0.6.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -6970,12 +6955,12 @@ stylus@0.54.8:
     semver "^6.3.0"
     source-map "^0.7.3"
 
-sugarss@3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.1.tgz#1e4e315b3b321eec477ef9617c8964bcf3833b0c"
-  integrity sha512-xW0tTjuJdd3VSsPH2dLgNDzESka1+Ul3GYVziyhX7GyXQboOARDaeEU++IjhOZPnoKoMENsU0tvtrCKr1sJwlw==
+sugarss@3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.2.tgz#1665ef9ade10acc2ef04e014dead03c4bcc29b90"
+  integrity sha512-ZkHjBT8KLsevaVl5gJPgvlBGhwpFrS7/ioGtHk7j3UGtzLM8AJnPgvrD7+ynpgmWXvR9NoMOc0mWfKjaKbcIEg==
   dependencies:
-    postcss "^8.1.0"
+    postcss "^8.1.5"
 
 supports-color@^2.0.0:
   version "2.0.0"
