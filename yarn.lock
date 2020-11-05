@@ -5782,7 +5782,7 @@ postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0:
   resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-4.1.0.tgz#443f6a20ced6481a2bda4fa8532a6e55d789a2cb"
   integrity sha512-97DXOFbQJhk71ne5/Mt6cOu6yxsSfM0QGQyl0L25Gca4yGWEGJaig7l7gbCX623VqTBNGLRLaVUCnNkcedlRSQ==
 
-postcss@8.1.5, postcss@^8.1.5:
+postcss@8.1.5:
   version "8.1.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.5.tgz#09ef688ee97fae9b0914bff01ffe5a3dba48bd68"
   integrity sha512-sRcAWfjft1LGYx086un0I7XRnkhtKsNuau08mvrCC2ntuahZrLXe4iQ4PiAtQ+lhFWnTt+0gtA7omE4InCobMg==
@@ -5809,6 +5809,16 @@ postcss@^7.0.32:
     chalk "^2.4.2"
     source-map "^0.6.1"
     supports-color "^6.1.0"
+
+postcss@^8.1.6:
+  version "8.1.6"
+  resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.1.6.tgz#b022ba2cfb8701da234d073ed3128c5a384c35ff"
+  integrity sha512-JuifSl4h8dJ70SiMXKjzCxhalE6p2TnMHuq9G8ftyXj2jg6SXzqCsEuxMj9RkmJoO5D+Z9YrWunNkxqpRT02qg==
+  dependencies:
+    colorette "^1.2.1"
+    line-column "^1.0.2"
+    nanoid "^3.1.16"
+    source-map "^0.6.1"
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -6955,12 +6965,12 @@ stylus@0.54.8:
     semver "^6.3.0"
     source-map "^0.7.3"
 
-sugarss@3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.2.tgz#1665ef9ade10acc2ef04e014dead03c4bcc29b90"
-  integrity sha512-ZkHjBT8KLsevaVl5gJPgvlBGhwpFrS7/ioGtHk7j3UGtzLM8AJnPgvrD7+ynpgmWXvR9NoMOc0mWfKjaKbcIEg==
+sugarss@3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/sugarss/-/sugarss-3.0.3.tgz#bb2489961b98fbd15e4e35d6b9f4f2ee5547a6cb"
+  integrity sha512-uxa2bbuc+w7ov7DyYIhF6bM0qZF3UkFT5/nE8AJgboiVnKsBDbwxs++dehEIe1JNhpMaGJc37wGQ2QrrWey2Sg==
   dependencies:
-    postcss "^8.1.5"
+    postcss "^8.1.6"
 
 supports-color@^2.0.0:
   version "2.0.0"
