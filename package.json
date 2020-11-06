@@ -46,7 +46,7 @@
     "webfonts-loader": "7.1.0",
     "webpack": "4.44.2",
     "webpack-cli": "3.3.12",
-    "wp-pot": "1.9.6"
+    "wp-pot": "1.9.7"
   },
   "scripts": {
     "lint": "eslint assets/js/*.js",
