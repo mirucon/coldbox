@@ -62,7 +62,7 @@ before_script:
         composer global require "phpunit/phpunit=5.*"
       elif [ "$TRAVIS_PHP_VERSION" = "7.0" ]; then
         composer global require "phpunit/phpunit=6.*"
-      elif [ "$TRAVIS_PHP_VERSION" = "7.1" ] || [ "$TRAVIS_PHP_VERSION" = "7.2" ] || [ "$TRAVIS_PHP_VERSION" = "7.3" ]; then
+      elif [ "$TRAVIS_PHP_VERSION" = "7.1" ] || [ "$TRAVIS_PHP_VERSION" = "7.2" ] || [ "$TRAVIS_PHP_VERSION" = "7.3" ] || [ "$TRAVIS_PHP_VERSION" = "7.4" ]; then
         composer global require "phpunit/phpunit=7.*"
       else
         composer global require "phpunit/phpunit=8.*"
