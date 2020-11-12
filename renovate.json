@@ -9,7 +9,6 @@
     }
   ],
   "schedule": [
-    "schedule:earlyMondays",
-    "schedule:earlyWednesdays"
+    "schedule:earlyMondays"
   ]
 }
