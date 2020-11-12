@@ -7,5 +7,9 @@
       "updateTypes": ["minor", "patch"],
       "automerge": true
     }
+  ],
+  "schedule": [
+    "schedule:earlyMondays",
+    "schedule:earlyWednesdays"
   ]
 }
