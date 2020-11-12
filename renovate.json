@@ -9,6 +9,7 @@
     }
   ],
   "schedule": [
-    "schedule:earlyMondays"
+    "before 3am on Monday",
+    "before 3am on Wednesday"
   ]
 }
