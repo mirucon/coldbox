@@ -77,9 +77,8 @@ before_script:
 script:
   - |
     if [[ ! -z "$WP_VERSION" ]] ; then
-      gwhere phpunit
-      phpunit --version
-      phpunit
+      $HOME/.composer/vendor/bin/phpunit --version
+      $HOME/.composer/vendor/bin/phpunit
       WP_MULTISITE=1 phpunit
     fi
   - |
