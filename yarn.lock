@@ -7757,10 +7757,10 @@ worker-farm@^1.7.0:
   dependencies:
     errno "~0.1.7"
 
-wp-pot@1.9.7:
-  version "1.9.7"
-  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.7.tgz#aeff40528ea3e464d5570fa45796045a6cf18f17"
-  integrity sha512-ntkly73taV61/UGx/EKORatAL+Owf30t+kiDWCJyWg7hrPdN1pa/58EjoqpHH/R/MsOvxC7Rv3W42RqNW/CX9Q==
+wp-pot@1.9.8:
+  version "1.9.8"
+  resolved "https://registry.yarnpkg.com/wp-pot/-/wp-pot-1.9.8.tgz#cd99256ed4f928a13e6d5a9b8c821d4b6044d162"
+  integrity sha512-F861Rx872AW57paoX9Pi8yQA9GW4grw/g7Koe//LSL2G1W0z3T+M/xMSFd2e//vWv2DAsoeiIkNpztpWhLxkTg==
   dependencies:
     matched "^5.0.0"
     path-sort "^0.1.0"
