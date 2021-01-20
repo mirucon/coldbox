@@ -10,7 +10,7 @@
     "@babel/plugin-transform-for-of": "7.12.1",
     "@babel/polyfill": "7.12.1",
     "@babel/preset-env": "7.12.11",
-    "@fortawesome/fontawesome-free": "5.15.1",
+    "@fortawesome/fontawesome-free": "5.15.2",
     "autoprefixer": "10.2.1",
     "babel-loader": "8.2.2",
     "css-loader": "4.3.0",
