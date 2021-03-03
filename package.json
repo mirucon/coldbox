@@ -9,7 +9,7 @@
     "@babel/core": "7.13.8",
     "@babel/plugin-transform-for-of": "7.13.0",
     "@babel/polyfill": "7.12.1",
-    "@babel/preset-env": "7.13.8",
+    "@babel/preset-env": "7.13.9",
     "@fortawesome/fontawesome-free": "5.15.2",
     "autoprefixer": "10.2.4",
     "babel-loader": "8.2.2",
