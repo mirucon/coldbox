@@ -1,0 +1,34 @@
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Deploy:
+    name: Copy necessary files
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: dist
+
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+
+      - name: Build
+        run: rm -rf dist; yarn build
+      - name: Change directory
+        run: cd dist
+
+      - name: Set commit author
+        run: |
+          git config --global user.name 'Toshihiro Kanai'
+          git config --global user.email 'mirucon@users.noreply.github.com'
+
+      - name: Commit
+        run: git commit -am "Update from travis ${{ steps.vars.outputs.sha_short }}"
+
+      - name: Push
+        run: git push ${{ steps.extract_branch.outputs.branch }}:dist
