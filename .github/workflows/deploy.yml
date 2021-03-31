@@ -1,3 +1,4 @@
+name: Deploy to dist branch
 on:
   push:
     branches:
@@ -9,18 +10,38 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+
+      - name: Get Node version
+        id: node_version
+        run: |
+          VERSION=`cat .nvmrc`
+          echo ::set-output name=value::$VERSION
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ steps.node_version.outputs.value }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn
+          restore-keys: ${{ runner.os }}-yarn
+
+      - name: yarn install
+        run: yarn install --prefer-offline
+
+      - uses: actions/checkout@v2
         with:
           ref: dist
-
-      - name: Extract branch name
-        shell: bash
-        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        id: extract_branch
+          path: dist
 
       - name: Build
-        run: rm -rf dist; yarn build
-      - name: Change directory
-        run: cd dist
+        run: yarn build
 
       - name: Set commit author
         run: |
@@ -28,7 +49,9 @@ jobs:
           git config --global user.email 'mirucon@users.noreply.github.com'
 
       - name: Commit
-        run: git commit -am "Update from travis ${{ steps.vars.outputs.sha_short }}"
+        working-directory: ./dist
+        run: git commit -am "Update from travis ${{ github.shagst }}"
 
       - name: Push
-        run: git push ${{ steps.extract_branch.outputs.branch }}:dist
+        working-directory: ./dist
+        run: git push origin dist:dist
