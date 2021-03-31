@@ -51,6 +51,7 @@ jobs:
       - name: Commit
         working-directory: ./dist
         run: git commit -am "Update from travis ${{ github.shagst }}"
+        continue-on-error: true
 
       - name: Push
         working-directory: ./dist
