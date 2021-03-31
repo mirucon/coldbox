@@ -35,8 +35,11 @@ jobs:
     runs-on: ubuntu-18.04
     strategy:
       matrix:
-        wp-versions: ['latest', 'trunk']
+        wp-versions: ['latest']
         php-versions: [ '5.6', '7.0', '7.1', '7.2', '7.3', '7.4' ]
+        include:
+          - php-versions: '7.4'
+            wp-versions: 'trunk'
     services:
       mysql:
         image: mysql:5.7
