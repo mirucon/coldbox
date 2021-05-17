@@ -6,10 +6,10 @@
   "license": "GPL-2.0+",
   "homepage": "https://coldbox.miruc.co/",
   "devDependencies": {
-    "@babel/core": "7.14.0",
+    "@babel/core": "7.14.2",
     "@babel/plugin-transform-for-of": "7.13.0",
     "@babel/polyfill": "7.12.1",
-    "@babel/preset-env": "7.14.1",
+    "@babel/preset-env": "7.14.2",
     "@fortawesome/fontawesome-free": "5.15.3",
     "autoprefixer": "10.2.5",
     "babel-loader": "8.2.2",
