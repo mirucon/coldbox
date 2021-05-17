@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "group:allNonMajor"
   ],
   "packageRules": [
     {
@@ -8,8 +9,8 @@
       "automerge": true
     }
   ],
+  timezone: "Asia/Tokyo",
   "schedule": [
-    "before 3am on Monday",
-    "before 3am on Wednesday"
+    "before 7am on Saturday"
   ]
 }
