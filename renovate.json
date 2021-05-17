@@ -9,7 +9,7 @@
       "automerge": true
     }
   ],
-  timezone: "Asia/Tokyo",
+  "timezone": "Asia/Tokyo",
   "schedule": [
     "before 7am on Saturday"
   ]
