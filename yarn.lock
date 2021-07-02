@@ -1245,10 +1245,10 @@
     semver "^7.3.2"
     tsutils "^3.17.1"
 
-"@vusion/webfonts-generator@^0.7.0":
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/@vusion/webfonts-generator/-/webfonts-generator-0.7.0.tgz#47e7230565e8e9903aa4791189a35f07121bcc00"
-  integrity sha512-RoIpfZks/uFG/zvtTo7wW6H5v2UMFnscdjJSvhSh3/1Q6PmPv+EYbPcVimjRlP10d+bqoNzi7UL8CvyrJK2Pdw==
+"@vusion/webfonts-generator@^0.7.2":
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/@vusion/webfonts-generator/-/webfonts-generator-0.7.3.tgz#f940348b6251edfba4b2961097f44a391670e63d"
+  integrity sha512-0qDx8stMupH3s4WDVw2y347XEMvR+OSZIOYEdoD9YIw7ZRq9GA+B2GtR7KPPoGHbzWWR+VGkzplPO5tfukewiw==
   dependencies:
     handlebars "^4.0.11"
     mkdirp "^1.0.4"
@@ -6371,10 +6371,10 @@ prettier-linter-helpers@^1.0.0:
   dependencies:
     fast-diff "^1.1.2"
 
-prettier@2.3.1:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.1.tgz#76903c3f8c4449bc9ac597acefa24dc5ad4cbea6"
-  integrity sha512-p+vNbgpLjif/+D+DwAZAbndtRrR0md0MwfmOVN9N+2RgyACMT+7tfaRnT+WDPkqnuVwleyuBIG2XBxKDme3hPA==
+prettier@2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.3.2.tgz#ef280a05ec253712e486233db5c6f23441e7342d"
+  integrity sha512-lnJzDfJ66zkMy58OL5/NY5zp70S7Nz6KqcKkXYzn2tMVrNxvbqaBpg7H3qHaLxCJ5lNMsGuM8+ohS7cZrthdLQ==
 
 prettier@^2.0.0:
   version "2.0.5"
@@ -8133,12 +8133,12 @@ watchpack@^1.7.4:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.0"
 
-webfonts-loader@7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.2.0.tgz#365850549e4adce2d27a444d1610bf83595868b4"
-  integrity sha512-s/D47tsLsYnOMir/czYsd0L2sQhiRIjlcIliaJOmo2xKbUYduXZ9Yqp9vuJuvrl45IYiBjcQyZTZ79Rq2wX2Zg==
+webfonts-loader@7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/webfonts-loader/-/webfonts-loader-7.3.0.tgz#a720fd919aad090ddb56252384035aa6fb882d99"
+  integrity sha512-vnqy8inrc5mvVXmyehCAZLy+yW1ir9MerPmklt3+2BL5f1QiD1HXtC/owyoQbjlWE6XAN+ev3JCJzaMoC+nuJg==
   dependencies:
-    "@vusion/webfonts-generator" "^0.7.0"
+    "@vusion/webfonts-generator" "^0.7.2"
     glob "^7.1.6"
     loader-utils "^2.0.0"
 
