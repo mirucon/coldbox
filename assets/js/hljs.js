@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tags = [...codeTags, ...preTags]
   if (tags.length) {
     for (const tag of tags) {
-      highlight.highlightBlock(tag)
+      highlight.highlightElement(tag)
     }
   }
 })
