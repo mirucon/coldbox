@@ -2,7 +2,7 @@
   "extends": [
     "standard",
     "plugin:prettier/recommended",
-    "prettier/standard"
+    "prettier"
   ],
   "globals": {
     "location": true
