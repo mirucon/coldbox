@@ -1,4 +1,4 @@
-# Copyright (C) 2021 Coldbox
+# Copyright (C) 2022 Coldbox
 # This file is distributed under the same license as the Coldbox package.
 msgid ""
 msgstr ""
