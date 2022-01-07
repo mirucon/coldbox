@@ -86,13 +86,34 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.js$/,
-          exclude: /node_modules/,
+          exclude: /node_modules\/(?!highlight.js)/,
           use: [
             {
               loader: 'babel-loader',
               options: {
                 presets: [['@babel/preset-env', { modules: false }]],
                 plugins: ['@babel/plugin-transform-for-of'],
+              },
+            },
+          ],
+        },
+        {
+          // Loader for Simple icon CSS & Fonts
+          test: /\.font\.js/,
+          use: [
+            'style-loader',
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                esModule: false,
+              },
+            },
+            'css-loader',
+            'postcss-loader',
+            {
+              loader: 'webfonts-loader',
+              options: {
+                publicPath: '../',
               },
             },
           ],
@@ -140,27 +161,6 @@ module.exports = (env, argv) => {
           generator: {
             filename: './fonts/[name][ext]',
           },
-        },
-        {
-          // Loader for Simple icon CSS & Fonts
-          test: /\.font\.js/,
-          use: [
-            'style-loader',
-            {
-              loader: MiniCssExtractPlugin.loader,
-              options: {
-                esModule: false,
-              },
-            },
-            'css-loader',
-            'postcss-loader',
-            {
-              loader: 'webfonts-loader',
-              options: {
-                publicPath: '../',
-              },
-            },
-          ],
         },
       ],
     },
