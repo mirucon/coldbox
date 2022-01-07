@@ -46,13 +46,11 @@ module.exports = (env, argv) => {
       filename: '[name].js',
       path: path.join(__dirname, 'assets/'),
     },
-    devtool: isModeDev ? 'cheap-module-source-map' : 'none',
+    devtool: isModeDev ? 'cheap-module-source-map' : false,
     optimization: {
       minimize: !isModeDev,
       minimizer: [
-        new TerserPlugin({
-          sourceMap: true,
-        }),
+        new TerserPlugin(),
         new CssMinimizerPlugin({
           test: /\.css$/,
           minimizerOptions: {
@@ -75,7 +73,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        fileName: '[name].css',
+        filename: '[name].css',
         chunkFilename: '[id].css',
       }),
     ],
