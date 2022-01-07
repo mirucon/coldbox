@@ -1,5 +1,10 @@
 name: CI
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
 
 jobs:
   Lint:
@@ -72,6 +77,9 @@ jobs:
       - name: Install PHPUnit for PHP 7.1 - 7.4
         if: matrix.php-versions == '7.1' ||matrix.php-versions == '7.2' ||matrix.php-versions == '7.3' ||matrix.php-versions == '7.4'
         run: composer global require "phpunit/phpunit=7.*"
+
+      - name: Install phpunit-polyfills
+        run: composer global require yoast/phpunit-polyfills
 
       - run: phpunit --version
 
