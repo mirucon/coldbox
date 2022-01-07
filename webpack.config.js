@@ -1,7 +1,7 @@
 const path = require('path')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 
 const recursiveIssuer = (m) => {
   if (m.issuer) {
@@ -53,10 +53,9 @@ module.exports = (env, argv) => {
         new TerserPlugin({
           sourceMap: true,
         }),
-        new OptimizeCssAssetsPlugin({
-          assetNameRegExp: /\.css$/,
-          cssProcessor: require('cssnano'),
-          cssProcessorPluginOptions: {
+        new CssMinimizerPlugin({
+          test: /\.css$/,
+          minimizerOptions: {
             preset: ['default', { discardComments: { removeAll: true } }],
           },
         }),
