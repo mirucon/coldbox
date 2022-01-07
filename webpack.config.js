@@ -42,17 +42,20 @@ module.exports = (env, argv) => {
   return {
     mode: 'development',
     entry: entries,
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname),
+      },
+    },
     output: {
       filename: '[name].js',
       path: path.join(__dirname, 'assets/'),
     },
-    devtool: isModeDev ? 'cheap-module-source-map' : 'none',
+    devtool: isModeDev ? 'cheap-module-source-map' : false,
     optimization: {
       minimize: !isModeDev,
       minimizer: [
-        new TerserPlugin({
-          sourceMap: true,
-        }),
+        new TerserPlugin(),
         new CssMinimizerPlugin({
           test: /\.css$/,
           minimizerOptions: {
@@ -75,7 +78,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new MiniCssExtractPlugin({
-        fileName: '[name].css',
+        filename: '[name].css',
         chunkFilename: '[id].css',
       }),
     ],
@@ -100,9 +103,6 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: './assets/',
-              },
             },
             {
               loader: 'css-loader',
@@ -129,9 +129,6 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: '../assets/css/',
-              },
             },
             'css-loader',
           ],
@@ -139,26 +136,20 @@ module.exports = (env, argv) => {
         {
           // Loader for Font Awesome Fonts
           test: /((?<=\d00)\.svg|\.(woff(2)?|ttf|eot))(\?v=\d+\.\d+\.\d+)?$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {
-                name: '[name].[ext]',
-                outputPath: 'fonts/',
-                publicPath: '../fonts/',
-              },
-            },
-          ],
+          type: 'asset/resource',
+          generator: {
+            filename: './fonts/[name][ext]',
+          },
         },
         {
-          // Loader for webfonts-loader
+          // Loader for Simple icon CSS & Fonts
           test: /\.font\.js/,
           use: [
             'style-loader',
             {
               loader: MiniCssExtractPlugin.loader,
               options: {
-                publicPath: './assets/',
+                esModule: false,
               },
             },
             'css-loader',
