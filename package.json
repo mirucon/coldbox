@@ -44,7 +44,7 @@
     "sugarss": "4.0.1",
     "terser-webpack-plugin": "4.2.3",
     "webfonts-loader": "7.4.0",
-    "webpack": "4.46.0",
+    "webpack": "5.65.0",
     "webpack-cli": "3.3.12",
     "wp-pot": "1.9.9"
   },
