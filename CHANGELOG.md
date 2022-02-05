@@ -1,3 +1,7 @@
+### 1.9.4 <small> - February 5th, 2022</small>
+
+* fix: Update dependency libraries (such as hightlight.js and Font Awesome) to latest
+
 ### 1.9.3 <small> - August 10th, 2020</small>
 
 * fix: Adjust styling of in-post thumbnail
