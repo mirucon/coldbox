@@ -15,6 +15,7 @@
   ],
   "lockFileMaintenance": {
     "enabled": true,
+    "automerge": true,
     "schedule": [
       "on the 2nd and 4th day instance on Saturday before 7am"
     ]
