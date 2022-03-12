@@ -9,7 +9,7 @@ jobs:
     name: Copy necessary files
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Get Node version
         id: node_version
@@ -35,7 +35,7 @@ jobs:
       - name: yarn install
         run: yarn install --prefer-offline
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           ref: dist
           path: dist
