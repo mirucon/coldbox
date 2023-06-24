@@ -18,7 +18,7 @@
     "cssnano": "5.1.14",
     "eslint": "8.31.0",
     "eslint-config-prettier": "8.6.0",
-    "eslint-config-standard": "16.0.3",
+    "eslint-config-standard": "17.1.0",
     "eslint-plugin-import": "2.27.0",
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.2.1",
