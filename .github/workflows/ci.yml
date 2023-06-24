@@ -9,7 +9,7 @@ on:
 jobs:
   Lint:
     name: lint check
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
@@ -37,7 +37,7 @@ jobs:
 
   PHPUnit:
     name: PHPUnit check for PHP ${{ matrix.php-versions }} and WP ${{ matrix.wp-versions }}
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         wp-versions: ['latest']
@@ -91,7 +91,7 @@ jobs:
 
   Build:
     name: Build check
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
 
