@@ -1,6 +1,6 @@
 # Coldbox v1.9.4
 
-[![Build Status](https://travis-ci.org/mirucon/coldbox.svg?branch=master)](https://travis-ci.org/mirucon/coldbox) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
+[![CI](https://github.com/mirucon/coldbox/actions/workflows/ci.yml/badge.svg)](https://github.com/mirucon/coldbox/actions/workflows/ci.yml) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ![coldbox-screenshot](/screenshot.jpg)
 
