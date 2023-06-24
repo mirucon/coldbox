@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Setup php 7.4
+      - name: Setup php 8.2
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '7.4'
+          php-version: '8.2'
           extensions: curl, dom, exif, fileinfo, hash, json, mbstring, mysqli, sodium, openssl, pcre, imagick, xml, zip
           ini-values: assert.exception=1, zend.assertions=1
       - name: Get composer cache directory
@@ -73,9 +73,21 @@ jobs:
         if: matrix.php-versions == '7.0'
         run: composer global require "phpunit/phpunit=6.*"
 
-      - name: Install PHPUnit for PHP 7.1 - 7.4
-        if: matrix.php-versions == '7.1' ||matrix.php-versions == '7.2' ||matrix.php-versions == '7.3' ||matrix.php-versions == '7.4'
+      - name: Install PHPUnit for PHP 7.1
+        if: matrix.php-versions == '7.1'
         run: composer global require "phpunit/phpunit=7.*"
+
+      - name: Install PHPUnit for PHP 7.2
+        if: matrix.php-versions == '7.2'
+        run: composer global require "phpunit/phpunit=8.*"
+
+      - name: Install PHPUnit for PHP 7.3 - PHP 8.0
+        if: matrix.php-versions == '7.3' || matrix.php-versions == '7.4' || matrix.php-versions == '8.0'
+        run: composer global require "phpunit/phpunit=9.*"
+
+      - name: Install PHPUnit for PHP 8.1 - 8.2
+        if: matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
+        run: composer global require "phpunit/phpunit=10.*"
 
       - name: Install phpunit-polyfills
         run: composer global require yoast/phpunit-polyfills
