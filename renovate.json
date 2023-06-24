@@ -11,13 +11,13 @@
   ],
   "timezone": "Asia/Tokyo",
   "schedule": [
-    "on the 2nd and 4th day instance on Saturday before 7am"
+    "on the 2nd day instance on Saturday before 7am"
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
     "schedule": [
-      "on the 2nd and 4th day instance on Saturday before 7am"
+      "on the 2nd day instance on Saturday before 7am"
     ]
   }
 }
