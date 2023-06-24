@@ -9,7 +9,6 @@ module.exports = {
   classPrefix: 'si-',
   baseSelector: '.si',
   types: ['eot', 'woff', 'woff2', 'ttf'],
-  // Path from `assets` (Specified in webpack.config.js)
   fileName: './fonts/[fontname].[ext]',
   cssTemplate: 'webfonts-generator-template.hbs',
 }

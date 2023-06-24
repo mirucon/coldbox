@@ -46,6 +46,7 @@ module.exports = (env, argv) => {
       alias: {
         '~': path.resolve(__dirname),
       },
+      extensions: ['.js', '.ts', '.scss', '.woff', '.woff2', '.ttf', '.eot'],
     },
     output: {
       filename: '[name].js',
@@ -113,8 +114,8 @@ module.exports = (env, argv) => {
             {
               loader: 'webfonts-loader',
               options: {
-                publicPath: '../',
-              },
+                publicPath: '~/assets/',
+              }
             },
           ],
         },
