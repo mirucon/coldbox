@@ -26,13 +26,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Container Width.
 		if ( get_theme_mod( 'container_width', '1140' ) !== '1140' ) {
 			$container_width = absint( get_theme_mod( 'container_width' ) );
-			$czr_style      .= ".container { max-width: ${container_width}px; } ";
+			$czr_style      .= ".container { max-width: {$container_width}px; } ";
 		}
 
 		// Font size for PC.
 		if ( get_theme_mod( 'global_font_size_pc', 16 ) !== 16 ) {
 			$font_size_pc = absint( get_theme_mod( 'global_font_size_pc' ) );
-			$czr_style   .= "body { font-size: ${font_size_pc}px; } ";
+			$czr_style   .= "body { font-size: {$font_size_pc}px; } ";
 		}
 
 		// Font size for mobile devices.
@@ -40,7 +40,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$font_size_mobile = get_theme_mod( 'global_font_size_mobile' );
 			$czr_style       .= "@media screen and ( max-width: 767px ) {
 				body {
-					font-size: ${font_size_mobile}px;
+					font-size: {$font_size_mobile}px;
 				}
 			}";
 		}
@@ -70,7 +70,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$size      = absint( get_theme_mod( 'site_title_size' ) );
 			$size_em   = $size / 100;
 			$czr_style = "body .site-title {
-				font-size: ${size_em}em;
+				font-size: {$size_em}em;
 			}";
 		}
 
@@ -112,22 +112,22 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Change .site-info padding.
 		if ( get_theme_mod( 'header_padding', 30 ) !== 30 ) {
 			$header_padding = absint( get_theme_mod( 'header_padding', 30 ) );
-			$czr_style     .= "body .site-info { padding-top:${header_padding}px; padding-bottom:${header_padding}px }";
+			$czr_style     .= "body .site-info { padding-top:{$header_padding}px; padding-bottom:{$header_padding}px }";
 		}
 
 		// Whether to use narrower padding when scrolling.
 		if ( ! get_theme_mod( 'use_narrower_padding', true ) ) {
 			$header_padding = absint( get_theme_mod( 'header_padding', 30 ) );
 			$czr_style     .= "body.header-row .sticky .site-info {
-				padding-top: ${header_padding}px;
-				padding-bottom: ${header_padding}px;
+				padding-top: {$header_padding}px;
+				padding-bottom: {$header_padding}px;
 			}";
 		}
 
 		// Custom Logo Sizing.
 		if ( get_theme_mod( 'logo_width', 230 ) !== 230 ) {
 			$logo_width = esc_html( get_theme_mod( 'logo_width', 230 ) );
-			$czr_style .= ".site-info img { max-width: ${logo_width}px }";
+			$czr_style .= ".site-info img { max-width: {$logo_width}px }";
 		}
 
 		/*
@@ -144,27 +144,27 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			.standard-view .post-title:hover, ul.page-numbers, .widget #wp-calendar a, .widget .widgets-list-layout li:hover a,
 			#comment-list .comment-author .fn a, #respond .logged-in-as a:hover, .comment-pages, .comment-pages a,.comment-pages span,
 			.comment-body a, .comment-tabmenu .active > a, .standard-view .post-inner:hover .post-title, .widget .textwidget a {
-				color: ${color_link};
+				color: {$color_link};
 			}
 			#comments input[type=submit], .post-tags a, .post-tags a, .main-archive .post-date, .action-bar,input[type=submit]:hover,
 			input[type=submit]:focus, input[type=button]:hover, input[type=button]:focus, button[type=submit]:hover, button[type=submit]:focus,
 			button[type=button]:hover, button[type=button]:focus {
-				background-color: ${color_link};
+				background-color: {$color_link};
 			}
 			.comment-pages > a:hover, .comment-pages span, .post-pages > a:hover>span,.post-pages>span,
 			ul.page-numbers span.page-numbers.current,ul.page-numbers a.page-numbers:hover {
-				border-bottom-color: ${color_link};
+				border-bottom-color: {$color_link};
 			}
-			textarea:focus { border-color: ${color_link}; }
-			::selection { background-color: ${color_link}; }
-			::moz-selection { background-color: ${color_link}; }";
+			textarea:focus { border-color: {$color_link}; }
+			::selection { background-color: {$color_link}; }
+			::moz-selection { background-color: {$color_link}; }";
 		}
 
 		// Link Hover Color.
 		if ( get_theme_mod( 'link_hover_color', '#2e4453' ) !== '#2e4453' ) {
 			$color_hover = esc_html( get_theme_mod( 'link_hover_color' ) );
 			$czr_style  .= ".entry a:hover, .comment-body a:hover, .sidebar #wp-calender a:hover, .widget .textwidget a:hover {
-				color: ${color_hover};
+				color: {$color_hover};
 			}";
 		}
 
@@ -184,13 +184,13 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$r                 = $r > 255 ? 255 : $r;
 			$g                 = $g > 255 ? 255 : $g;
 			$b                 = $b > 255 ? 255 : $b;
-			$czr_style        .= ".site-info,.site-title { color: #${header_textcolor}; }
-			.site-description{ color: rgb(${r}, ${g}, ${b}); }
-			.header-menu .menu-container > li > a { color: #${header_textcolor} }
-			.header-menu .menu-container > li:hover > a { color: rgb(${r_h}, ${g_h}, ${b_h}) }
-			:root body .search-toggle span.icon.search { border-color: #${header_textcolor} }
+			$czr_style        .= ".site-info,.site-title { color: #{$header_textcolor}; }
+			.site-description{ color: rgb({$r}, {$g}, {$b}); }
+			.header-menu .menu-container > li > a { color: #{$header_textcolor} }
+			.header-menu .menu-container > li:hover > a { color: rgb({$r_h}, {$g_h}, {$b_h}) }
+			:root body .search-toggle span.icon.search { border-color: #{$header_textcolor} }
 			:root body .search-toggle span.icon.search::before,.nav-toggle .bottom, .nav-toggle .middle, .nav-toggle .top {
-				background-color: #${header_textcolor}
+				background-color: #{$header_textcolor}
 			}";
 		}
 
@@ -205,7 +205,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$header_text_color = esc_html( get_theme_mod( 'header_menu_mobile' ) );
 			$czr_style        .= "@media screen and (max-width: 767px) {
 				body #header-nav.menu-container li a {
-			        color: ${header_text_color};
+			        color: {$header_text_color};
 		        }
 			}";
 		}
@@ -215,7 +215,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 			$header_menu_background = esc_html( get_theme_mod( 'header_menu_background' ) );
 			$czr_style             .= "@media screen and (max-width: 767px) {
 				#header-nav {
-					background-color:${header_menu_background}
+					background-color:{$header_menu_background}
 				}
 			}";
 		}

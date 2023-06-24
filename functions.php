@@ -1037,7 +1037,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			}
 
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
-			$logo .= "<${title_tagname} class=\"site-title\">" . esc_html( get_bloginfo( 'name' ) ) . "</${title_tagname}>";
+			$logo .= "<{$title_tagname} class=\"site-title\">" . esc_html( get_bloginfo( 'name' ) ) . "</{$title_tagname}>";
 			$logo .= '</a>';
 
 			echo apply_filters( 'cd_site_title', $logo ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
