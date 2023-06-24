@@ -40,7 +40,7 @@ jobs:
     strategy:
       matrix:
         wp-versions: ['latest']
-        php-versions: [ '5.6', '7.0', '7.1', '7.2', '7.3', '7.4' ]
+        php-versions: [ '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2' ]
         include:
           - php-versions: '7.4'
             wp-versions: 'trunk'
@@ -82,12 +82,13 @@ jobs:
         run: composer global require "phpunit/phpunit=8.*"
 
       - name: Install PHPUnit for PHP 7.3 - PHP 8.0
-        if: matrix.php-versions == '7.3' || matrix.php-versions == '7.4' || matrix.php-versions == '8.0'
+        if: matrix.php-versions == '7.3' || matrix.php-versions == '7.4' || matrix.php-versions == '8.0' || matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
         run: composer global require "phpunit/phpunit=9.*"
 
-      - name: Install PHPUnit for PHP 8.1 - 8.2
-        if: matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
-        run: composer global require "phpunit/phpunit=10.*"
+# Commeting this out because PHPUnit 10 doesn't work
+#      - name: Install PHPUnit for PHP 8.1 - 8.2
+#        if: matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
+#        run: composer global require "phpunit/phpunit=10.*"
 
       - name: Install phpunit-polyfills
         run: composer global require yoast/phpunit-polyfills
