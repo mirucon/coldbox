@@ -1,4 +1,4 @@
-# Coldbox v1.9.4
+# Coldbox v1.9.5
 
 [![CI](https://github.com/mirucon/coldbox/actions/workflows/ci.yml/badge.svg)](https://github.com/mirucon/coldbox/actions/workflows/ci.yml) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.9.4  
+**Version**: 1.9.5  
 **Requires at least**: Version 5.0 or higher  
 **Tested up to**: WordPress 6.2  
 **Requires PHP**: 5.6  
@@ -85,6 +85,11 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+1.9.5
+
+* fix: Deprecated notices appeared in PHP 8.2 are now gone
+* And small maintenances
 
 1.9.4
 

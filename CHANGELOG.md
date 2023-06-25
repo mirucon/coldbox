@@ -1,3 +1,8 @@
+### 1.9.5 <small> - June 25th, 2023</small>
+
+* fix: Deprecated notices appeared in PHP 8.2 are now gone
+* And small maintenances
+
 ### 1.9.4 <small> - February 5th, 2022</small>
 
 * fix: Update dependency libraries (such as hightlight.js and Font Awesome) to latest
