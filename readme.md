@@ -9,7 +9,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.9.4  
 **Requires at least**: Version 5.0 or higher  
-**Tested up to**: WordPress 5.9  
+**Tested up to**: WordPress 6.2  
 **Requires PHP**: 5.6  
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
