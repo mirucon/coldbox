@@ -5237,10 +5237,10 @@ signal-exit@^3.0.7:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
-simple-icons@9.21.0:
-  version "9.21.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-9.21.0.tgz#ab6b0a45bddf45887153ba6f3c5ba3fa26bf5875"
-  integrity sha512-yxjs49nKwff5ozRwPCBVcGG4Ehlg5YiR1g4EJ83zmqc0hYhYb6UQJqiy2WOga2OJ1/qVHaej7q762hYZX/mavA==
+simple-icons@11.10.0:
+  version "11.10.0"
+  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-11.10.0.tgz#85c799be91a1fc3dee7bdd46403fba4f33d058eb"
+  integrity sha512-3jhPx5xgbDCx/tuegpnW82VmUc4xe7yVd5r/BwIhfei02hS3IbOfgLKPPczd2OasngeNEd0J31vU19/0jmfxrQ==
 
 slash@^3.0.0:
   version "3.0.0"
