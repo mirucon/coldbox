@@ -1,23 +1,11 @@
 {
   "extends": [
-    "config:base",
+    "config:recommended",
     "group:allNonMajor"
   ],
-  "packageRules": [
-    {
-      "updateTypes": ["minor", "patch"],
-      "automerge": true
-    }
-  ],
   "timezone": "Asia/Tokyo",
-  "schedule": [
-    "on the 2nd day instance on Saturday before 7am"
-  ],
+  "dependencyDashboardApproval": true,
   "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true,
-    "schedule": [
-      "on the 2nd day instance on Saturday before 7am"
-    ]
+    "enabled": true
   }
 }
