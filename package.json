@@ -6,70 +6,15 @@
   "license": "GPL-2.0+",
   "homepage": "https://coldbox.miruc.co/",
   "devDependencies": {
-    "@babel/core": "7.29.6",
-    "@babel/plugin-transform-for-of": "7.24.7",
-    "@babel/polyfill": "7.12.1",
-    "@babel/preset-env": "7.24.8",
     "@fortawesome/fontawesome-free": "6.5.2",
-    "autoprefixer": "10.4.19",
-    "babel-loader": "9.1.3",
-    "css-loader": "6.11.0",
-    "css-minimizer-webpack-plugin": "5.0.1",
-    "cssnano": "6.1.2",
-    "eslint": "8.57.0",
-    "eslint-config-prettier": "9.1.0",
-    "eslint-config-standard": "17.1.0",
-    "eslint-plugin-import": "2.29.1",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-prettier": "5.1.3",
-    "eslint-plugin-promise": "6.4.0",
-    "eslint-plugin-standard": "5.0.0",
-    "highlight.js": "11.10.0",
-    "mini-css-extract-plugin": "2.9.0",
-    "npm-run-all2": "5.0.2",
-    "postcss": "8.5.31",
-    "postcss-cli": "10.1.0",
-    "postcss-import": "15.1.0",
-    "postcss-loader": "7.3.4",
-    "prettier": "3.3.2",
-    "prettier-eslint": "16.3.0",
-    "sass": "1.77.8",
-    "sass-loader": "13.3.3",
-    "showdown": "2.1.0",
-    "simple-icons": "9.21.0",
-    "smoothscroll-polyfill": "0.4.4",
-    "style-loader": "3.3.4",
-    "stylus": "0.63.0",
-    "sugarss": "4.0.1",
-    "terser-webpack-plugin": "5.3.10",
-    "webfonts-loader": "8.0.1",
-    "webpack": "5.112.0",
-    "webpack-cli": "5.1.4",
-    "wp-pot": "1.10.2"
+    "highlight.js": "11.12.0",
+    "esbuild": "0.28.2",
+    "@playwright/test": "1.64.1"
   },
   "scripts": {
-    "lint": "eslint assets/js/*.js",
-    "fix": "eslint --fix assets/js/*.js",
-    "pot": "mkdir -p languages && node bin/wppot.js",
-    "copy": "bash bin/copy.sh",
-    "md": "mkdir -p assets/html/ && showdown makehtml -i CHANGELOG.md -o assets/html/CHANGELOG.html",
-    "editor-stylus:compile": "stylus -m < sass/editor-style.styl > assets/css/editor-style.css",
-    "editor-stylus:autoprefixer": "postcss  --env production --no-map assets/css/editor-style.css --config postcss.config.js -o assets/css/editor-style.min.css",
-    "editor-stylus-dev:watch": "stylus -m -w sass/editor-style.styl -o assets/css/editor-style.min.css",
-    "editor-stylus": "npm-run-all editor-stylus:*",
-    "page-stylus:compile": "stylus -m < sass/page-style.styl > assets/css/page-style.css",
-    "page-stylus:autoprefixer": "postcss --env production --no-map assets/css/page-style.css --config postcss.config.js -o assets/css/page-style.min.css",
-    "page-stylus-dev:watch": "stylus -m -w sass/page-style.styl -o assets/css/page-style.min.css",
-    "page-stylus": "npm-run-all page-stylus:*",
-    "czr-stylus:compile": "stylus -m < sass/czr-style.styl > assets/css/czr-style.css",
-    "czr-stylus:autoprefixer": "postcss --env production --no-map assets/css/czr-style.css --config postcss.config.js -o assets/css/czr-style.min.css",
-    "czr-stylus-dev:watch": "stylus -m -w sass/czr-style.styl -o assets/css/czr-style.min.css",
-    "czr-stylus": "npm-run-all czr-stylus:*",
-    "wp:dev": "webpack --mode development",
-    "wp:watch": "webpack --mode development -w",
-    "wp:build": "webpack --mode production",
-    "watch": "npm-run-all -p wp:watch editor-stylus-dev:watch page-stylus-dev:watch",
-    "build": "npm-run-all -p pot wp:build editor-stylus page-stylus czr-stylus md && npm run copy"
+    "build": "node bin/build.mjs",
+    "test:browser": "playwright test",
+    "pot": "wp i18n make-pot . languages/coldbox.pot --exclude=node_modules,vendor,dist,tests --skip-js"
   },
   "repository": {
     "type": "git",
@@ -78,14 +23,6 @@
   "bugs": {
     "url": "https://github.com/mirucon/coldbox/issues"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
-  "browserslist": [
-    "last 2 versions"
-  ],
   "prettier": {
     "semi": false,
     "singleQuote": true

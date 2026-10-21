@@ -1,8 +1,8 @@
 === Coldbox ===
 Contributors: @mirucon
-Requires at least: 5.0
-Tested up to: WordPress 5.4
-Requires PHP: 5.2.4
+Requires at least: 7.0
+Tested up to: 7.1
+Requires PHP: 7.4
 Version: 1.9.5
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -22,18 +22,16 @@ To get started, see the "About Coldbox" page from the "Appearance" menu after in
 
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)
 
-The latest version has the following features. We highly recommend that you always use the plugin with the theme!
+The optional Add-on provides:
 
-* Automatic AMP pages generation
 * Social share buttons
-* Google Analytics integration
 * Automatic Open Graph tag output
 
 = Author information =
 The Coldbox theme is designed and created by mirucon
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
-Email: i@miruc.co
+
 
 == Copyright ==
 Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
@@ -59,10 +57,6 @@ PlaceFolder Camera Icon License
 License - MIT License
 URL: http://ionicons.com/
 Created by @benjsperry
-
-TGM Plugin Activation License
-License - GPL v2 or later
-URL: http://tgmpluginactivation.com/
 
 CSS minifying function
 License - GPL
@@ -269,3 +263,7 @@ All the photos used in the screenshot are all licensed under CC0.
 
 *See CHANGELOG.md to see full changelog*
 
+
+Simple Icons (Feedly and Hatena Bookmark)
+Source: https://github.com/simple-icons/simple-icons/tree/9.21.0
+License: CC0 1.0; see assets/icons/LICENSE.md.

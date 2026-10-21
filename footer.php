@@ -6,10 +6,7 @@
  * @package Coldbox
  */
 
-if ( cd_is_amp() ) :
-	cd_addon_amp_footer();
-else :
-	?>
+?>
 
 <footer id="footer" class="footer" role="contentinfo">
 
@@ -117,5 +114,3 @@ else :
 	<?php wp_footer(); ?>
 
 </body></html>
-
-<?php endif; ?>

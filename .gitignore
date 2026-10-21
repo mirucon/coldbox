@@ -17,3 +17,9 @@ assets/fonts/
 
 assets/js/min/
 assets/js/unmin/
+
+/.test-runtime/
+/test-results/
+/playwright-report/
+/.phpunit.result.cache
+/languages/*.pot

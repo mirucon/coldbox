@@ -1,6 +1,3 @@
-import smoothscroll from 'smoothscroll-polyfill'
-smoothscroll.polyfill()
-
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body
   const wpAdminBar = document.getElementById('wpadminbar')
@@ -119,12 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
     const inPageLinkHandler = (event) => {
-      let href = event.target.getAttribute('href') // Get href attr of the link
+      let href = event.currentTarget.getAttribute('href') // The listener belongs to the anchor, including clicks on its children.
       const hrefPageUrl = href.split('#')[0]
       const currentUrl = location.href.split('#')[0]
 
       if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
-        event.preventDefault()
         // If the link goes on the same page, run smooth scroll
         href = href.split('#').pop()
         let target
@@ -133,6 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           target = document.getElementById(href)
         }
+        if (!target) return
+        event.preventDefault()
         const rect = target.getBoundingClientRect()
         let targetPosition = window.pageYOffset + rect.top
         if (window.matchMedia('(min-width: 767px)').matches) {
@@ -646,8 +644,10 @@ document.addEventListener('DOMContentLoaded', () => {
       for (const date of dates) {
         if (date.previousElementSibling.tagName === 'A') {
           const parent = date.previousElementSibling
-          parent.innerHTML = `<span class="recent_entries_post-title">${parent.textContent}</span>`
-          const titleNode = date.previousElementSibling.children[0]
+          const titleNode = document.createElement('span')
+          titleNode.className = 'recent_entries_post-title'
+          titleNode.textContent = parent.textContent
+          parent.replaceChildren(titleNode)
           parent.insertBefore(date, titleNode)
         }
       }

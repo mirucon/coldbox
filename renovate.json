@@ -4,8 +4,9 @@
     "group:allNonMajor"
   ],
   "timezone": "Asia/Tokyo",
-  "dependencyDashboardApproval": true,
+  "dependencyDashboardApproval": false,
   "lockFileMaintenance": {
     "enabled": true
-  }
+  },
+  "prConcurrentLimit": 2
 }

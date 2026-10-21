@@ -1,45 +1,10 @@
-## Contributing to the Coldbox theme
+# Working on Coldbox
 
-Thanks for contributing to the Coldbox theme! I always welcome any contributions for the project. There are only a few things to know before contributing.
+See [MAINTENANCE.md](MAINTENANCE.md) for the supported scope and build/test commands.
+Keep changes focused on observable behavior. Follow the surrounding PHP/JS/CSS
+style, preserve existing translation keys where meaning is unchanged, and avoid
+unnecessary changes to customization hooks, class names and loading order.
 
-## Coding Standards
-
-This project follows the [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/) **for PHP** codes.  
-
-For JavaScript files, I use [Standard Style](https://github.com/standard/eslint-config-standard) and [Prettier](https://github.com/prettier/prettier).
-
-I don't currently use any standards for the SCSS files. 
-
-## Running the linters
-
-Please make sure that no errors are reported by the linters before submitting a PR.
-
-### PHP
-```bash
-$ composer lint
-```
-To auto-fix your problems:
-```bash
-$ composer fix
-```
-### JavaScript
-```bash
-$ yarn lint
-```
-To auto-fix your problems:
-```bash
-$ yarn fix
-```
-
-## Transpile JS/SCSS files
-
-I use Webpack for transpiling JavaScript and SCSS files.
-
-Run the following command to watch your changes:
-
-```bash
-$ yarn watch
-```
-## Bottom Line
-
-These are all you need to know. If you need help, as always please let me know so that I can help.
+Build the installable package, run native WordPress/PHPUnit tests, and run the
+relevant browser checks before proposing a behavior change. Do not publish a
+release or update the dist branch as part of an ordinary source change.

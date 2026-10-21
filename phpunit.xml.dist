@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="true" failOnWarning="true">
+  <testsuites><testsuite name="Coldbox"><directory suffix="Test.php">tests/php</directory></testsuite></testsuites>
+</phpunit>

@@ -1174,8 +1174,8 @@ define( 'CD_VER', '1.9.5' );
  * -------------------------------------------------------------------------
  */
 
-// Load TGM plugin activation file.
-require_once get_template_directory() . '/parts/tgm/load-tgm.php';
+// Keep old AMP query links working while retiring AMP rendering.
+require_once get_template_directory() . '/parts/retired-amp.php';
 
 if ( ! function_exists( 'cd_is_active_addon' ) ) {
 	/**
@@ -1190,6 +1190,13 @@ if ( ! function_exists( 'cd_is_active_addon' ) ) {
 	add_action( 'plugins_loaded', 'cd_is_active_addon', 1 );
 }
 
+// Add-on 1.2.5 registered this filter with the theme helper as its own callback.
+// Correct that existing registration when the theme is updated first.
+if ( has_filter( 'cd_is_active_addon', 'cd_is_active_addon' ) && function_exists( 'cd_addon_is_active_addon' ) ) {
+	remove_filter( 'cd_is_active_addon', 'cd_is_active_addon', 1 );
+	add_filter( 'cd_is_active_addon', 'cd_addon_is_active_addon', 1 );
+}
+
 if ( ! function_exists( 'cd_is_amp' ) ) {
 
 	/**
@@ -1198,8 +1205,7 @@ if ( ! function_exists( 'cd_is_amp' ) ) {
 	 * @since 1.2.0
 	 */
 	function cd_is_amp() {
-		$is_amp = false;
-		return apply_filters( 'cd_is_amp', $is_amp );
+		// Kept for child themes and the existing Ads extension. AMP is retired.
+		return false;
 	}
-	add_action( 'wp', 'cd_is_amp', 1 );
 }

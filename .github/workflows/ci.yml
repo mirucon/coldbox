@@ -17,16 +17,34 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - wp: latest
-            php: '8.3'
-          - wp: latest
-            php: '8.5'
-          - wp: '6.2'
-            php: '7.4'
+          - { wp: '7.0', php: '7.4' }
+          - { wp: '7.1', php: '7.4' }
+          - { wp: '7.1', php: '8.3' }
+          - { wp: '7.1', php: '8.5' }
     name: WordPress ${{ matrix.wp }} / PHP ${{ matrix.php }}
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: coldbox-test
+        ports: ['3306:3306']
+        options: --health-cmd="mysqladmin ping -pcoldbox-test" --health-interval=10s --health-timeout=5s --health-retries=10
+    env:
+      WP_VERSION: ${{ matrix.wp }}
+      DB_HOST: 127.0.0.1
+      DB_USER: root
+      DB_PASSWORD: coldbox-test
+      COLDBOX_THEME_DIR: ${{ github.workspace }}/dist
+      COLDBOX_ADDON_DIR: ${{ github.workspace }}/companion/dist
+      COLDBOX_TEST_RUNTIME: ${{ github.workspace }}/.test-runtime
     steps:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
+          persist-credentials: false
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          repository: mirucon/coldbox-addon
+          path: companion
           persist-credentials: false
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
@@ -34,23 +52,37 @@ jobs:
       - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
         with:
           php-version: ${{ matrix.php }}
+          extensions: mysqli, mbstring, dom
+          tools: composer:v2
           coverage: none
-      - name: Check PHP syntax
-        run: find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
-      - name: Build the installable package
+      - name: Build installable packages
         run: |
-          npm install --global yarn@1.22.22
-          yarn install --frozen-lockfile --non-interactive
-          yarn build
-      - name: Install pinned test tools
-        run: npm ci --prefix tests --ignore-scripts
-      - name: Exercise WordPress and check PHP errors
-        env:
-          WP_VERSION: ${{ matrix.wp }}
-          PHP_VERSION: ${{ matrix.php }}
-        run: npm test --prefix tests
+          npm ci
+          npm run build
+          node companion/bin/package.mjs
+      - name: Check distribution PHP syntax
+        run: find dist -name '*.php' -print0 | xargs -0 -n1 php -l
+      - name: Install native WordPress tests
+        run: |
+          composer install --no-interaction --prefer-dist --no-progress
+          mysql -h127.0.0.1 -uroot -pcoldbox-test -e 'CREATE DATABASE coldbox_test; CREATE DATABASE coldbox_browser;'
+          bash tests/install.sh
+      - name: Test real WordPress with MySQL
+        run: composer test
+      - name: Browser checks
+        if: matrix.wp == '7.1' && matrix.php == '8.3'
+        working-directory: .
+        run: |
+          npx playwright install --with-deps chromium firefox webkit
+          bash tests/browser-install.sh
+          php -S 127.0.0.1:8874 -t "$COLDBOX_TEST_RUNTIME/wordpress" "$PWD/tests/router.php" > "$COLDBOX_TEST_RUNTIME/server.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for i in {1..30}; do curl -fsS http://127.0.0.1:8874/ >/dev/null && break || sleep 1; done
+          npm run test:browser
+          if [ -s "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log" ]; then cat "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log"; exit 1; fi
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: matrix.wp == 'latest' && matrix.php == '8.3'
+        if: matrix.wp == '7.1' && matrix.php == '8.3'
         with:
           name: coldbox-unreleased-${{ github.sha }}
           path: dist/

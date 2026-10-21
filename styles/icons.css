@@ -1,0 +1,14 @@
+/* Simple Icons 9.21.0, CC0: shapes retained from the previous generated font.
+   Keep the public .si classes and one-em boxes used by share/social buttons. */
+.si { line-height: 1; }
+.si::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: top;
+  background-color: currentColor;
+  mask: var(--cd-icon) center / contain no-repeat;
+}
+.si-feedly { --cd-icon: url('../assets/icons/feedly.svg'); }
+.si-hatenabookmark { --cd-icon: url('../assets/icons/hatenabookmark.svg'); }

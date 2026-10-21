@@ -1,2 +1,4 @@
+* text=auto
+*.sh text eol=lf
 assets/js/min/* linguist-vendored
 assets/js/public/* linguist-vendored

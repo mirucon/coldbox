@@ -8,9 +8,9 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.9.5  
-**Requires at least**: Version 5.0 or higher  
-**Tested up to**: WordPress 6.2  
-**Requires PHP**: 5.6  
+**Requires at least**: WordPress 7.0
+**Tested up to**: WordPress 7.1
+**Requires PHP**: 7.4
 **License**: GPL v2.0 or later  
 **License URI**: http://www.gnu.org/licenses/gpl-2.0.html  
 **Tags**: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -31,18 +31,16 @@ To get a bootstrap of child theme, visit the [Coldbox official site](https://col
 ### Add-on Plugin
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)  
 
-The latest version has the following features. We highly recommend that you always use the plugin with the theme!
+The optional Add-on provides:
 
-* Automatic AMP pages generation
 * Social share buttons
-* Google Analytics integration
 * Automatic Open Graph tag output
 
 ## Theme Author information
 The Coldbox theme is designed and created by mirucon  
 WordPress.org Profile: [https://profiles.wordpress.org/mirucon/](https://profiles.wordpress.org/mirucon/)  
 Twitter: [@mirucons](https://twitter.com/@mirucons)  
-Email: i@miruc.co
+
 
 ## Copyright
 Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.  
@@ -68,11 +66,6 @@ Created by @highlightjs
 License - MIT License  
 URL: http://ionicons.com/  
 Created by @benjsperry
-
-### TGM Plugin Activation License
-License - GPL v2 or later  
-URL: http://tgmpluginactivation.com/  
-Copyright (c) 2011, Thomas Griffin
 
 ### CSS minifying function
 License - GPL  
@@ -218,15 +211,10 @@ Created by Dustan Kasten and Jeremias Menichelli
 
 *See [CHANGELOG.md](/CHANGELOG.md) to see all the releases*
 
-## Development checks
+## Maintenance
 
-CI builds a candidate package and exercises it in disposable WordPress instances.
-See [AGENTS.md](AGENTS.md) for commands and coverage. CI does not publish releases
-or update the distribution branch. Changes on this branch are unreleased.
+See [MAINTENANCE.md](MAINTENANCE.md) for current scope, build, tests and publication boundaries.
 
-The legacy build toolchain still has audit findings (checked 2026-10-21), notably
-font-generation dependencies (`tar`), CSS tooling, and the local changelog parser.
-These Node tools are not shipped in the WordPress package. CI builds repository
-inputs without release credentials; do not use the tools on untrusted archives or
-documents. This maintenance does not claim a clean dependency audit or a complete
-security review.
+Simple Icons (Feedly and Hatena Bookmark)
+Source: https://github.com/simple-icons/simple-icons/tree/9.21.0
+License: CC0 1.0; see assets/icons/LICENSE.md.

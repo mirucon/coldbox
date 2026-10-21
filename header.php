@@ -6,10 +6,7 @@
  * @package Coldbox
  */
 
-if ( cd_is_amp() ) :
-	cd_addon_amp_head();
-else :
-	?>
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -28,7 +25,6 @@ else :
 	<?php esc_html_e( 'Skip to content', 'coldbox' ); ?>
 </a>
 
-<?php endif; ?>
 
 	<header id="header" class="header" role="banner">
 
@@ -45,7 +41,7 @@ else :
 
 			<?php
 			$cd_nav_toggle    =
-				'<button id="header-nav-toggle" class="nav-toggle header-menu" on="tap:amp-sidebar.open">
+				'<button id="header-nav-toggle" class="nav-toggle header-menu">
 					<span class="top" aria-hidden="true"></span>
 					<span class="middle" aria-hidden="true"></span>
 					<span class="bottom" aria-hidden="true"></span>
