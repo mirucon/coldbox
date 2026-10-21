@@ -1,0 +1,14 @@
+{
+  "name": "coldbox-smoke-tests",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node smoke.mjs"
+  },
+  "devDependencies": {
+    "@wp-playground/cli": "3.1.60"
+  },
+  "overrides": {
+    "qs": "^6.15.4"
+  }
+}

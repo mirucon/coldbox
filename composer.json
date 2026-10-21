@@ -21,6 +21,6 @@
     "scripts": {
         "lint": "\"vendor/bin/phpcs\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml",
         "fix": "\"vendor/bin/phpcbf\" --ignore=*/vendor/*,*/node_modules/* --extensions=php ./ --standard=phpcs.xml",
-        "test": "vendor/bin/phpunit"
+        "test": "npm test --prefix tests"
     }
 }

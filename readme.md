@@ -217,3 +217,16 @@ Created by Dustan Kasten and Jeremias Menichelli
 * And includes many small bug fixes and improvements
 
 *See [CHANGELOG.md](/CHANGELOG.md) to see all the releases*
+
+## Development checks
+
+CI builds a candidate package and exercises it in disposable WordPress instances.
+See [AGENTS.md](AGENTS.md) for commands and coverage. CI does not publish releases
+or update the distribution branch. Changes on this branch are unreleased.
+
+The legacy build toolchain still has audit findings (checked 2026-10-21), notably
+font-generation dependencies (`tar`), CSS tooling, and the local changelog parser.
+These Node tools are not shipped in the WordPress package. CI builds repository
+inputs without release credentials; do not use the tools on untrusted archives or
+documents. This maintenance does not claim a clean dependency audit or a complete
+security review.
