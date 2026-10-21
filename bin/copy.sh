@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 mkdir -p dist/
 mkdir -p dist/parts/
 mkdir -p dist/parts/tgm/
@@ -31,4 +32,4 @@ cp assets/js/min/*.js   dist/assets/js/min/
 cp assets/css/*.min.css dist/assets/css/
 cp assets/html/*.html   dist/assets/html/
 
-rm dist/assets/js/czr-scripts.babel.js
+rm -f dist/assets/js/czr-scripts.babel.js

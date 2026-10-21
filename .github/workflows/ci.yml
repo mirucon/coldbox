@@ -1,132 +1,58 @@
 name: CI
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  Lint:
-    name: lint check
+  check:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup php 8.2
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: curl, dom, exif, fileinfo, hash, json, mbstring, mysqli, sodium, openssl, pcre, imagick, xml, zip
-          ini-values: assert.exception=1, zend.assertions=1
-      - name: Get composer cache directory
-        id: composer-cache
-        run: |
-          echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - name: Create cache for composer dependencies
-        uses: actions/cache@v4
-        with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer
-          restore-keys: ${{ runner.os }}-composer
-      - name: Install Composer dependencies
-        run: composer install --prefer-dist --optimize-autoloader
-
-      - name: lint
-        run: composer lint
-
-  PHPUnit:
-    name: PHPUnit check for PHP ${{ matrix.php-versions }} and WP ${{ matrix.wp-versions }}
-    runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
+      fail-fast: false
       matrix:
-        wp-versions: ['latest']
-        php-versions: [ '7.0', '7.1', '7.2', '7.3', '7.4', '8.0', '8.1', '8.2' ]
         include:
-          - php-versions: '7.4'
-            wp-versions: 'trunk'
-    services:
-      mysql:
-        image: mysql:5.7
-        env:
-          MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:
-          - 3306:3306
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - wp: latest
+            php: '8.3'
+          - wp: latest
+            php: '8.5'
+          - wp: '6.2'
+            php: '7.4'
+    name: WordPress ${{ matrix.wp }} / PHP ${{ matrix.php }}
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
         with:
-          php-version: ${{ matrix.php-versions }}
-          extensions: curl, dom, exif, fileinfo, hash, json, mbstring, mysqli, openssl, pcre, xml, zip
-          ini-values: assert.exception=1, zend.assertions=1
-
-      - name: Install WordPress
-        run: bash bin/install-wp-tests.sh wordpress_test root '' 127.0.0.1 ${{ matrix.wp-versions }}
-
-      - name: Install PHPUnit for PHP 7.0
-        if: matrix.php-versions == '7.0'
-        run: composer global require "phpunit/phpunit=6.*"
-
-      - name: Install PHPUnit for PHP 7.1
-        if: matrix.php-versions == '7.1'
-        run: composer global require "phpunit/phpunit=7.*"
-
-      - name: Install PHPUnit for PHP 7.2
-        if: matrix.php-versions == '7.2'
-        run: composer global require "phpunit/phpunit=8.*"
-
-      - name: Install PHPUnit for PHP 7.3 - PHP 8.0
-        if: matrix.php-versions == '7.3' || matrix.php-versions == '7.4' || matrix.php-versions == '8.0' || matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
-        run: composer global require "phpunit/phpunit=9.*"
-
-# Commeting this out because PHPUnit 10 doesn't work
-#      - name: Install PHPUnit for PHP 8.1 - 8.2
-#        if: matrix.php-versions == '8.1' || matrix.php-versions == '8.2'
-#        run: composer global require "phpunit/phpunit=10.*"
-
-      - name: Install phpunit-polyfills
-        run: composer global require yoast/phpunit-polyfills
-
-      - run: phpunit --version
-
-      - name: Run PHPUnit
-        run: phpunit
-
-      - name: Run PHPUnit multisite
-        run: WP_MULTISITE=1 phpunit
-
-  Build:
-    name: Build check
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Get Node version
-        id: node_version
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+      - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+      - name: Check PHP syntax
+        run: find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+      - name: Build the installable package
         run: |
-          VERSION=`cat .nvmrc`
-          echo ::set-output name=value::$VERSION
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ steps.node_version.outputs.value }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v4
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn
-          restore-keys: ${{ runner.os }}-yarn
-
-      - name: yarn install
-        run: yarn install --prefer-offline
-
-      - name: build
-        run: |
+          npm install --global yarn@1.22.22
+          yarn install --frozen-lockfile --non-interactive
           yarn build
+      - name: Install pinned test tools
+        run: npm ci --prefix tests --ignore-scripts
+      - name: Exercise WordPress and check PHP errors
+        env:
+          WP_VERSION: ${{ matrix.wp }}
+          PHP_VERSION: ${{ matrix.php }}
+        run: npm test --prefix tests
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: matrix.wp == 'latest' && matrix.php == '8.3'
+        with:
+          name: coldbox-unreleased-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error
+          retention-days: 7
