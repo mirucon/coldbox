@@ -2,11 +2,12 @@
 class ThemeTest extends WP_UnitTestCase {
   public function test_saved_options_and_script_order_survive() {
     set_theme_mod( 'link_color', '#123456' );
-    set_theme_mod( 'sidebar', 'hide' );
+    set_theme_mod( 'sidebar_position', 'hide' );
     $before = get_theme_mods();
     $this->go_to( home_url( '/' ) );
     do_action( 'wp_enqueue_scripts' );
     $this->assertSame( $before, get_theme_mods() );
+    $this->assertSame( 'hide', cd_sidebar_stg() );
     $this->assertTrue( wp_style_is( 'cd-style', 'enqueued' ) );
     $this->assertTrue( wp_script_is( 'cd-script', 'enqueued' ) );
     $this->assertSame( array( 'wp-polyfill' ), wp_scripts()->registered['cd-script']->deps );
