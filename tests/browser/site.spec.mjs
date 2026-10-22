@@ -52,8 +52,28 @@ test('mobile menu opens and follows an existing link', async ({ page, isMobile }
   await page.goto('/');
   await page.locator('#header-nav-toggle').click();
   await expect(page.locator('#header-menu')).toHaveClass(/open/);
+  // Closing through the keyboard-accessible button must reset toggle state.
+  await page.locator('#close-mobile-menu').focus();
+  await page.locator('#close-mobile-menu').press('Enter');
+  await expect(page.locator('#header-menu')).not.toHaveClass(/open/);
+  await page.locator('#header-nav-toggle').click();
+  await expect(page.locator('#header-menu')).toHaveClass(/open/);
   await page.locator('#header-menu').getByText('Fixture article').click();
   await expect(page).toHaveURL(/coldbox-fixture/);
+});
+
+test('comment tabs accept clicks on their nested icons and counts', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/coldbox-fixture/');
+  await expect(page.locator('#comment-list')).toContainText('Approved threaded reply.');
+  await page.locator('a[href="#ping-list"] .count').click();
+  await expect(page.locator('#ping-list')).toBeVisible();
+  await expect(page.locator('#comment-list')).toBeHidden();
+  await page.locator('a[href="#comment-list"] .fas').click();
+  await expect(page.locator('#comment-list')).toBeVisible();
+  await expect(page.locator('#ping-list')).toBeHidden();
+  expect(errors).toEqual([]);
 });
 
 test('old AMP links redirect once to the ordinary article', async ({ request }) => {

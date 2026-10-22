@@ -1,5 +1,18 @@
 <?php
 class ThemeTest extends WP_UnitTestCase {
+  public function test_title_size_does_not_discard_other_custom_styles() {
+    set_theme_mod( 'container_width', 1200 );
+    set_theme_mod( 'global_font_size_pc', 18 );
+    set_theme_mod( 'site_title_size', 220 );
+    $this->go_to( home_url( '/' ) );
+    cd_scripts();
+    cd_customizer_style();
+    $css = implode( '\n', wp_styles()->get_data( 'cd-style', 'after' ) );
+    $this->assertMatchesRegularExpression( '/max-width:\s*1200px/', $css );
+    $this->assertMatchesRegularExpression( '/font-size:\s*18px/', $css );
+    $this->assertMatchesRegularExpression( '/font-size:\s*2\.2em/', $css );
+  }
+
   public function test_saved_options_and_script_order_survive() {
     set_theme_mod( 'link_color', '#123456' );
     set_theme_mod( 'sidebar_position', 'hide' );

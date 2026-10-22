@@ -70,7 +70,6 @@ jobs:
       - name: Test real WordPress with MySQL
         run: composer test
       - name: Browser checks
-        if: matrix.wp == '7.1' && matrix.php == '8.3'
         working-directory: .
         run: |
           npx playwright install --with-deps chromium firefox webkit
@@ -79,8 +78,18 @@ jobs:
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           for i in {1..30}; do curl -fsS http://127.0.0.1:8874/ >/dev/null && break || sleep 1; done
-          npm run test:browser
+          if [ '${{ matrix.php }}' = '8.3' ]; then
+            npm run test:browser
+          else
+            npm run test:browser -- --project=chromium --project=webkit-mobile
+          fi
           if [ -s "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log" ]; then cat "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log"; exit 1; fi
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: browser-evidence-wp-${{ matrix.wp }}-php-${{ matrix.php }}
+          path: test-results/
+          retention-days: 7
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: matrix.wp == '7.1' && matrix.php == '8.3'
         with:

@@ -69,7 +69,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		) {
 			$size      = absint( get_theme_mod( 'site_title_size' ) );
 			$size_em   = $size / 100;
-			$czr_style = "body .site-title {
+			$czr_style .= "body .site-title {
 				font-size: {$size_em}em;
 			}";
 		}

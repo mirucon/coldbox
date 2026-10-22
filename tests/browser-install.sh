@@ -15,6 +15,7 @@ fi
 "${WP[@]}" config set WP_DEBUG true --raw
 "${WP[@]}" config set WP_DEBUG_LOG true --raw
 "${WP[@]}" config set WP_DEBUG_DISPLAY false --raw
+"${WP[@]}" config set DISABLE_WP_CRON true --raw
 "${WP[@]}" theme activate coldbox
 if [ -f "$RUNTIME/wordpress/wp-content/plugins/coldbox-addon/coldbox-addon.php" ]; then
   "${WP[@]}" plugin activate coldbox-addon

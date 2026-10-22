@@ -398,6 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.addEventListener('click', navToggleHandler)
 
       const menuOverlayHandler = () => {
+        navCount = 0
         navToggle.classList.remove('open')
         headerMenu.classList.remove('open')
         headerMenu.classList.add('closed')
@@ -595,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tabItemsHandler = (event) => {
       event.preventDefault()
-      const target = event.target
+      const target = event.currentTarget.querySelector('a')
 
       // Do nothing when clicked the item which is already active
       if (target.parentNode.classList.contains('active')) {

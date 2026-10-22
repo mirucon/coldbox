@@ -1,8 +1,8 @@
 # Maintenance
 
-## Scope and support
+## Runtime behavior and support
 
-The current cleanup retires AMP, Universal Analytics, Pocket and share counts.
+AMP, Universal Analytics, Pocket and share counts are not provided.
 Normal article display, settings, share links, OGP, verification tags and Ads
 extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
 Unrelated AMP plugins' `/amp/` paths are not intercepted. Saved retired settings
@@ -10,7 +10,10 @@ are left in the database; no user data migration or deletion is required.
 
 Target WP 7.0/7.1 patches, PHP 7.4–8.5; latest two Chrome/Edge/Firefox/Safari,
 including iOS Safari. IE and Opera Mini are excluded. CI checks representative
-PHP versions and Chromium/Firefox/WebKit engines, not every device/version.
+PHP versions with desktop Chromium and mobile WebKit in each configuration.
+Firefox is also checked on WP 7.1 / PHP 8.3. These are representative engines,
+not certification of every device/version. CI retains layout screenshots for
+seven days alongside failure traces.
 
 ## Build and test
 
@@ -58,8 +61,10 @@ usable for unchanged msgids, domains and contexts. Removed feature descriptions
 do not require replacement translations. Distribution does not need a fresh POT
 to load WordPress.org language packs.
 
-Source cleanup does not authorize publication: do not change dist branches,
-upload to WordPress.org or create a release. Version numbers remain at the last
-release until publication is separately approved. After publication the owner
-wants the agent to update and submit translations for currently supported locales;
-that is a separate follow-up, not a new standing maintenance service.
+Publication is a separate operation from source maintenance. After explicit
+release authorization, choose release versions, build the installable packages
+and verify their metadata before updating a dist branch or WordPress.org. CI
+artifacts are candidates, not published releases.
+
+See `docs/history/2026-10-21-upkeep.md` for the bounded cleanup decisions and
+the deferred translation submission follow-up.

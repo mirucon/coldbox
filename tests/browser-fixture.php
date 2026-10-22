@@ -7,6 +7,17 @@ $content = '<!-- wp:paragraph --><p>Coldbox fixture paragraph. <a href="#section
   . '<p><img src="' . get_template_directory_uri() . '/assets/img/thumb-standard.png" alt="Fixture thumbnail" width="500" height="500"></p>';
 $existing = get_page_by_path( 'coldbox-fixture', OBJECT, 'post' );
 $id = wp_insert_post( array( 'ID' => $existing ? $existing->ID : 0, 'post_name' => 'coldbox-fixture', 'post_title' => 'Coldbox fixture', 'post_content' => $content, 'post_status' => 'publish' ) );
+foreach ( array( 'fixture-page' => '', 'fixture-wide' => 'page-templates/full-width.php' ) as $slug => $template ) {
+  $existing_page = get_page_by_path( $slug );
+  $page_id = wp_insert_post( array( 'ID' => $existing_page ? $existing_page->ID : 0, 'post_type' => 'page', 'post_name' => $slug, 'post_title' => 'Fixture page', 'post_content' => '<p>Static page fixture.</p>', 'post_status' => 'publish' ) );
+  update_post_meta( $page_id, '_wp_page_template', $template );
+}
+wp_update_post( array( 'ID' => $id, 'comment_status' => 'open' ) );
+if ( ! get_comments( array( 'post_id' => $id, 'number' => 1 ) ) ) {
+  $comment = wp_insert_comment( array( 'comment_post_ID' => $id, 'comment_author' => 'Fixture reader', 'comment_content' => 'Approved parent comment.', 'comment_approved' => 1 ) );
+  wp_insert_comment( array( 'comment_post_ID' => $id, 'comment_author' => 'Fixture reply', 'comment_content' => 'Approved threaded reply.', 'comment_parent' => $comment, 'comment_approved' => 1 ) );
+  wp_insert_comment( array( 'comment_post_ID' => $id, 'comment_author' => 'Fixture ping', 'comment_author_url' => home_url( '/' ), 'comment_content' => 'Fixture pingback.', 'comment_type' => 'pingback', 'comment_approved' => 1 ) );
+}
 $title = 'Literal &lt;img src=x onerror=alert(1)&gt; title';
 $existing = get_page_by_path( 'literal-title', OBJECT, 'post' );
 wp_insert_post( array( 'ID' => $existing ? $existing->ID : 0, 'post_name' => 'literal-title', 'post_title' => $title, 'post_content' => '<p>Another article.</p>', 'post_status' => 'publish' ) );
