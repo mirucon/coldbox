@@ -89,6 +89,9 @@ test('WordPress legacy widget preview runs without a theme header', async ({ pag
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/wp-login.php', { waitUntil: 'domcontentloaded' });
+  // WordPress focuses this field after 200ms; filling earlier can redirect
+  // Firefox's password input into the username field mid-action.
+  await expect(page.locator('#user_login')).toBeFocused();
   await page.locator('#user_login').fill('coldbox-test');
   await page.locator('#user_pass').fill('coldbox-local-test');
   // Avoid dashboard feeds: continue straight to the real WP widget preview.
