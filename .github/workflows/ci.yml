@@ -72,6 +72,8 @@ jobs:
       - name: Browser checks
         working-directory: .
         run: |
+          # The runner's Azure mirror can stall before browser tests start.
+          sudo sed -i 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' /etc/apt/apt-mirrors.txt
           npx playwright install --with-deps chromium firefox webkit
           bash tests/browser-install.sh
           php -S 127.0.0.1:8874 -t "$COLDBOX_TEST_RUNTIME/wordpress" "$PWD/tests/router.php" > "$COLDBOX_TEST_RUNTIME/server.log" 2>&1 &
