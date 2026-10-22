@@ -36,6 +36,9 @@ and distribution packages.
 
 ## Source and releases
 
+The owner authorizes ordinary pushes to the existing public `mirucon/coldbox`
+repository across tasks; do not ask for push permission again. This excludes
+force pushes and destructive history changes.
 Direct commits on the default branch are sufficient; PRs are optional. Review
 outgoing changes and preserve unrelated work. Source maintenance and release
 publication are separate: WordPress.org uploads, release tags and `dist` branch
