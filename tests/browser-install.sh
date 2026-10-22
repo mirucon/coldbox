@@ -13,7 +13,8 @@ fi
 "${WP[@]}" option update home "$URL"
 "${WP[@]}" option update siteurl "$URL"
 "${WP[@]}" config set WP_DEBUG true --raw
-"${WP[@]}" config set WP_DEBUG_LOG true --raw
+# Keep CLI tooling diagnostics separate from actual HTTP runtime diagnostics.
+"${WP[@]}" config set WP_DEBUG_LOG "defined('WP_CLI') && WP_CLI ? '$RUNTIME/wp-cli.log' : true" --raw
 "${WP[@]}" config set WP_DEBUG_DISPLAY false --raw
 "${WP[@]}" config set DISABLE_WP_CRON true --raw
 "${WP[@]}" theme activate coldbox

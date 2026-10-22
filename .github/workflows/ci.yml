@@ -77,7 +77,7 @@ jobs:
           php -S 127.0.0.1:8874 -t "$COLDBOX_TEST_RUNTIME/wordpress" "$PWD/tests/router.php" > "$COLDBOX_TEST_RUNTIME/server.log" 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
-          for i in {1..30}; do curl -fsS http://127.0.0.1:8874/ >/dev/null && break || sleep 1; done
+          for i in {1..30}; do curl --max-time 5 -fsS http://127.0.0.1:8874/ >/dev/null && break || sleep 1; done
           if [ '${{ matrix.php }}' = '8.3' ]; then
             npm run test:browser
           else
@@ -88,7 +88,10 @@ jobs:
         if: always()
         with:
           name: browser-evidence-wp-${{ matrix.wp }}-php-${{ matrix.php }}
-          path: test-results/
+          path: |
+            test-results/
+            .test-runtime/*.log
+            .test-runtime/wordpress/wp-content/debug.log
           retention-days: 7
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: matrix.wp == '7.1' && matrix.php == '8.3'
