@@ -84,3 +84,20 @@ test('old AMP links redirect once to the ordinary article', async ({ request }) 
   expect(target.status()).toBe(200);
   expect(await target.text()).not.toMatch(/rel="amphtml"|<html[^>]*⚡/);
 });
+
+test('WordPress legacy widget preview runs without a theme header', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/wp-login.php', { waitUntil: 'domcontentloaded' });
+  await page.locator('#user_login').fill('coldbox-test');
+  await page.locator('#user_pass').fill('coldbox-local-test');
+  // Avoid dashboard feeds: continue straight to the real WP widget preview.
+  const preview = new URL('/wp-admin/?legacy-widget-preview[id]=recent-posts-2', page.url()).href;
+  await page.locator('input[name="redirect_to"]').evaluate((input, value) => { input.value = value; }, preview);
+  await page.locator('#wp-submit').click();
+  await page.waitForURL(url => url.searchParams.has('legacy-widget-preview[id]'), { waitUntil: 'domcontentloaded' });
+  await expect(page.locator('.widget_recent_entries')).toContainText('Recent posts');
+  await expect(page.locator('.recent_entries_post-title').first()).toBeVisible();
+  await page.setViewportSize({ width: 800, height: 700 });
+  expect(errors).toEqual([]);
+});

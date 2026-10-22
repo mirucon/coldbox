@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
     const widgets = document.querySelectorAll('#sidebar-s1 .widget')
 
-    if (widgets) {
+    if (sidebarInner && widgets.length) {
       const masonryHandler = () => {
         if (
           window.matchMedia('(max-width: 980px) and (min-width: 641px)')
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  if (body.classList.contains('sticky-header')) {
+  if (header && siteInfo && searchToggle && body.classList.contains('sticky-header')) {
     const stickyHeaderHandler = () => {
       const siteInfoHgt = siteInfo.offsetHeight
       const scrollTop = window.pageYOffset
@@ -425,6 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setElementOrder = () => {
       const items = document.querySelector('#header > .header-inner')
+      if (!items) return // WordPress's widget preview has no theme header.
       if (window.matchMedia('(max-width: 767px)').matches) {
         if (items.childNodes[3].id === 'header-menu') {
           items.insertBefore(
