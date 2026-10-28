@@ -1,6 +1,6 @@
 === Coldbox ===
 Contributors: @mirucon
-Requires at least: 7.0
+Requires at least: 5.2
 Tested up to: 7.1
 Requires PHP: 7.4
 Version: 1.10.0
@@ -78,7 +78,7 @@ All the photos used in the screenshot are all licensed under CC0.
 
 = 1.10.0 =
 
-* Theme now requires WordPress 7.0 and PHP 7.4 or higher
+* Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
 * And some small bug fixes and improvements
@@ -279,4 +279,4 @@ License: CC0 1.0; see assets/icons/LICENSE.md.
 
 = 1.10.0 =
 
-Requires WordPress 7.0+ and PHP 7.4+.
+Requires WordPress 5.2+ and PHP 7.4+.

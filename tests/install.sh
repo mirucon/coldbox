@@ -8,7 +8,7 @@ WP_VERSION="${WP_VERSION:-7.1}"
 DB_HOST="${DB_HOST:-127.0.0.1}"
 DB_USER="${DB_USER:-coldbox}"
 DB_PASSWORD="${DB_PASSWORD:-coldbox-test}"
-# Resolve the latest published patch within the explicitly supported WP series.
+# Resolve the latest published patch within the selected CI/test WP series.
 curl -fsSL https://api.wordpress.org/core/stable-check/1.0/ -o "$RUNTIME/versions.json"
 WP_RELEASE=$(php -r '$v=array_keys(json_decode(file_get_contents($argv[1]),true)); $v=array_filter($v,function($v)use($argv){return $v===$argv[2] || strpos($v,$argv[2].".")===0;}); usort($v,"version_compare"); echo end($v);' "$RUNTIME/versions.json" "$WP_VERSION")
 test -n "$WP_RELEASE"

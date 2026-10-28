@@ -8,7 +8,7 @@ A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traff
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
 **Version**: 1.10.0\
-**Requires at least**: WordPress 7.0
+**Requires at least**: WordPress 5.2
 **Tested up to**: WordPress 7.1
 **Requires PHP**: 7.4
 **License**: GPL v2.0 or later  
@@ -81,7 +81,7 @@ Created by Dustan Kasten and Jeremias Menichelli
 
 1.10.0
 
-* Theme now requires WordPress 7.0 and PHP 7.4 or higher
+* Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
 * And some small bug fixes and improvements

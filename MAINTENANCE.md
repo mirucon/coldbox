@@ -8,9 +8,11 @@ extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
 Unrelated AMP plugins' `/amp/` paths are not intercepted. Saved retired settings
 are left in the database; no user data migration or deletion is required.
 
-Target WP 7.0/7.1 patches, PHP 7.4–8.5; latest two Chrome/Edge/Firefox/Safari,
-including iOS Safari. IE and Opera Mini are excluded. CI checks representative
-PHP versions with desktop Chromium and mobile WebKit in each configuration.
+Requires WordPress 5.2+ and PHP 7.4+. The minimum WordPress version reflects
+runtime API requirements, independently of the CI matrix. Browser targets are
+the latest two Chrome/Edge/Firefox/Safari releases, including iOS Safari; IE and
+Opera Mini are excluded. CI checks WP 7.0/7.1 patches with representative PHP
+versions from 7.4–8.5, using desktop Chromium and mobile WebKit in each configuration.
 Firefox is also checked on WP 7.1 / PHP 8.3. These are representative engines,
 not certification of every device/version. CI retains layout screenshots for
 seven days alongside failure traces.
