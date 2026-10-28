@@ -1,3 +1,13 @@
+### 1.10.0
+
+* Requires WordPress 7.0 or later and PHP 7.4 or later.
+* Removed built-in AMP integration and obsolete plugin recommendations. Existing Coldbox ?amp=1 article links redirect to the ordinary page.
+* Preserved saved theme settings, child-theme customization points and existing translation keys for retained features.
+* Fixed mobile menu reopening, clicks on comment-tab icons and counts, and in-page anchor handling.
+* Fixed combined site-title/body/width settings and JavaScript errors in WordPress widget previews.
+* Fixed recent-post titles being interpreted as HTML. Feedly and Hatena icons retain their existing size with bundled SVG shapes.
+* Simplified the asset build and updated bundled libraries. Removed Ads promotion and general support solicitations.
+
 ### 1.9.5 <small> - June 25th, 2023</small>
 
 * fix: Deprecated notices appeared in PHP 8.2 are now gone

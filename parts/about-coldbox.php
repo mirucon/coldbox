@@ -46,6 +46,7 @@ function cd_welcome_page_content() {
 	?>
 	<header class="cdAdmin__header">
 		<h1 class="cdAdmin__themeName"><?php echo esc_html( /* translators: %s: Theme version */ sprintf( esc_html__( 'Welcome to Coldbox %s', 'coldbox' ), CD_VER ) ); ?></h1>
+		<p><a href="<?php echo esc_url( get_theme_file_uri( 'CHANGELOG.md' ) ); ?>"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></a></p>
 		<div class="cdAdmin__screenshot">
 			<img src="<?php echo esc_url( get_theme_file_uri( 'screenshot.jpg' ) ); ?>" width="1200" height="900" alt="<?php esc_attr_e( 'Theme screenshot', 'coldbox' ); ?>">
 		</div>

@@ -3,7 +3,7 @@ Contributors: @mirucon
 Requires at least: 7.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Version: 1.9.5
+Version: 1.10.0
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -75,6 +75,16 @@ All the photos used in the screenshot are all licensed under CC0.
 * Bottom-right photo: https://www.pexels.com/photo/beverage-breakfast-brewed-coffee-caffeine-374885/
 
 == Changelog ==
+
+= 1.10.0 =
+
+* Requires WordPress 7.0 or later and PHP 7.4 or later.
+* Removed built-in AMP integration and obsolete plugin recommendations. Existing Coldbox ?amp=1 article links redirect to the ordinary page.
+* Preserved saved theme settings, child-theme customization points and existing translation keys for retained features.
+* Fixed mobile menu reopening, clicks on comment-tab icons and counts, and in-page anchor handling.
+* Fixed combined site-title/body/width settings and JavaScript errors in WordPress widget previews.
+* Fixed recent-post titles being interpreted as HTML. Feedly and Hatena icons retain their existing size with bundled SVG shapes.
+* Simplified the asset build and updated bundled libraries. Removed Ads promotion and general support solicitations.
 
 = 1.9.5=
 
@@ -267,3 +277,9 @@ All the photos used in the screenshot are all licensed under CC0.
 Simple Icons (Feedly and Hatena Bookmark)
 Source: https://github.com/simple-icons/simple-icons/tree/9.21.0
 License: CC0 1.0; see assets/icons/LICENSE.md.
+
+== Upgrade Notice ==
+
+= 1.10.0 =
+
+Requires WordPress 7.0+ and PHP 7.4+. AMP is retired; old ?amp=1 links redirect to ordinary pages. Saved settings are retained.

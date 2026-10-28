@@ -1,4 +1,4 @@
-# Coldbox v1.9.5
+# Coldbox v1.10.0
 
 [![CI](https://github.com/mirucon/coldbox/actions/workflows/ci.yml/badge.svg)](https://github.com/mirucon/coldbox/actions/workflows/ci.yml) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fmirucon%2Fcoldbox?ref=badge_shield) [![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
@@ -7,7 +7,7 @@
 A beautiful blog-focused WordPress theme - Coldbox. It helps increase site traffic from Google and SNS. It is easy to customize, lightweight, SEO friendly, and quicker load. This theme is fully laid out with the Flexbox module, that is, it is really flexible.
 
 **Contributors**: [@mirucon](https://profiles.wordpress.org/mirucon/)  
-**Version**: 1.9.5  
+**Version**: 1.10.0\
 **Requires at least**: WordPress 7.0
 **Tested up to**: WordPress 7.1
 **Requires PHP**: 7.4
@@ -78,6 +78,16 @@ URL: https://github.com/iamdustan/smoothscroll
 Created by Dustan Kasten and Jeremias Menichelli
 
 ## Changelog
+
+### 1.10.0
+
+* Requires WordPress 7.0 or later and PHP 7.4 or later.
+* Removed built-in AMP integration and obsolete plugin recommendations. Existing Coldbox ?amp=1 article links redirect to the ordinary page.
+* Preserved saved theme settings, child-theme customization points and existing translation keys for retained features.
+* Fixed mobile menu reopening, clicks on comment-tab icons and counts, and in-page anchor handling.
+* Fixed combined site-title/body/width settings and JavaScript errors in WordPress widget previews.
+* Fixed recent-post titles being interpreted as HTML. Feedly and Hatena icons retain their existing size with bundled SVG shapes.
+* Simplified the asset build and updated bundled libraries. Removed Ads promotion and general support solicitations.
 
 1.9.5
 
