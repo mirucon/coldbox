@@ -85,9 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('is-hidden')) {
           return
         }
+        if (header) {
+          header.setAttribute('tabindex', '-1')
+          header.focus({ preventScroll: true })
+        }
         window.scroll({
           top: 0,
-          behavior: 'smooth',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
         })
         backToTop.classList.add('clicked')
       }
@@ -131,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (!target) return
         event.preventDefault()
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+        target.focus({ preventScroll: true })
         const rect = target.getBoundingClientRect()
         let targetPosition = window.pageYOffset + rect.top
         if (window.matchMedia('(min-width: 767px)').matches) {
@@ -158,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         window.scroll({
           top: targetPosition,
-          behavior: 'smooth',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
         })
       }
     }
@@ -289,6 +295,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleState = true
         if (toggleState) {
           searchToggle.classList.add('open')
+          searchToggle.setAttribute('aria-expanded', 'true')
           body.classList.add('modal-search-open')
           body.classList.remove('modal-search-closed')
 
@@ -315,15 +322,13 @@ document.addEventListener('DOMContentLoaded', () => {
               modalSearchDialog.childNodes[0]
             )
             const focusToFirstElInModal = () => {
-              document.querySelector('.modal-search-form .search-inner').focus()
+              closeToggle.focus()
             }
             forwardTrap.addEventListener('focus', focusToFirstElInModal)
           }
 
           if (body.classList.contains('modal-search-open')) {
-            setTimeout(() => {
-              document.querySelector('.modal-search-form .search-inner').focus()
-            }, 160)
+            document.querySelector('.modal-search-form .search-inner').focus()
           }
         }
       }
@@ -334,6 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleState = false
         if (!toggleState) {
           searchToggle.classList.remove('open')
+          searchToggle.setAttribute('aria-expanded', 'false')
           body.classList.remove('modal-search-open')
           body.classList.add('modal-search-closed')
           searchToggle.focus()
@@ -342,17 +348,11 @@ document.addEventListener('DOMContentLoaded', () => {
       closeToggle.addEventListener('click', closeToggleHandler)
 
       // Close toggle when pressing `esc` key
-      document.onkeydown = (event) => {
-        event = event || window.event
-        if (event.keyCode === 27) {
-          toggleState = false
-          if (!toggleState) {
-            searchToggle.classList.remove('open')
-            body.classList.remove('modal-search-open')
-            body.classList.add('modal-search-closed')
-          }
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toggleState) {
+          closeToggleHandler()
         }
-      }
+      })
     }
   }
 
@@ -376,6 +376,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navCount % 2 === 1) {
           // Opens menu.
           navToggle.classList.add('open')
+          navToggle.setAttribute('aria-expanded', 'true')
           headerMenu.classList.add('open')
           body.classList.remove('header-menu-closed')
 
@@ -385,8 +386,10 @@ document.addEventListener('DOMContentLoaded', () => {
           navToggle.style.position = 'fixed'
           navToggle.style.top = `${top}px`
           navToggle.style.height = `${getMenuPaddingTop(false)}px`
+          headerMenu.querySelector('a, button')?.focus()
         } else if (navCount % 2 === 0) {
           navToggle.classList.remove('open')
+          navToggle.setAttribute('aria-expanded', 'false')
           headerMenu.classList.remove('open')
           body.classList.add('header-menu-closed')
 
@@ -400,6 +403,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const menuOverlayHandler = () => {
         navCount = 0
         navToggle.classList.remove('open')
+        navToggle.setAttribute('aria-expanded', 'false')
         headerMenu.classList.remove('open')
         headerMenu.classList.add('closed')
         navToggle.classList.add('closed')
@@ -408,9 +412,30 @@ document.addEventListener('DOMContentLoaded', () => {
         navToggle.style.position = 'relative'
         navToggle.style.top = 'auto'
         navToggle.style.height = 'auto'
+        navToggle.focus()
       }
       menuOverlay.addEventListener('click', menuOverlayHandler)
       menuCloseButton.addEventListener('click', menuOverlayHandler)
+
+      document.addEventListener('keydown', (event) => {
+        if (!headerMenu.classList.contains('open') || window.innerWidth >= 768) return
+        if (event.key === 'Escape') {
+          event.preventDefault()
+          menuOverlayHandler()
+        } else if (event.key === 'Tab') {
+          const controls = [...headerMenu.querySelectorAll('a, button')]
+            .filter(el => getComputedStyle(el).visibility !== 'hidden' && el.getClientRects().length)
+          const first = controls[0]
+          const last = controls[controls.length - 1]
+          if (event.shiftKey && (document.activeElement === first || !headerMenu.contains(document.activeElement))) {
+            event.preventDefault()
+            last?.focus()
+          } else if (!event.shiftKey && (document.activeElement === last || !headerMenu.contains(document.activeElement))) {
+            event.preventDefault()
+            first?.focus()
+          }
+        }
+      })
 
       const handleAriaAttribute = () => {
         if (window.matchMedia('(min-width: 768px)').matches) {
@@ -458,87 +483,51 @@ document.addEventListener('DOMContentLoaded', () => {
   /*   Menu : Submenu handling on focus
   /* -------------------------------------------------- */
   {
-    /**
-     * Find the most parent in the nested sub menu.
-     *
-     * @param {HTMLElement} el
-     * @return {HTMLElement}
-     */
-    const getTheParent = (el) => {
-      const parent = el.parentElement
+    const parentMenus = document.querySelectorAll('.menu-container .menu-item-has-children')
 
-      if (parent.classList.contains('menu-container')) {
-        return el
+    parentMenus.forEach((parentEl, index) => {
+      const link = parentEl.querySelector('a')
+      const submenu = parentEl.querySelector('.sub-menu')
+      if (!submenu.id) submenu.id = `cd-submenu-${index}`
+      link.setAttribute('aria-controls', submenu.id)
+      const updateState = () => link.setAttribute('aria-expanded', String(
+        window.innerWidth < 768 || parentEl.classList.contains('is-sub-menu-shown')
+      ))
+      const open = () => {
+        parentEl.classList.remove('is-sub-menu-dismissed')
+        parentEl.classList.add('is-sub-menu-shown')
+        updateState()
       }
-
-      return getTheParent(parent)
-    }
-
-    /**
-     * @private
-     * @param {HTMLElement} el
-     * @return {boolean|HTMLElement}
-     */
-    const findClosestSubMenu = (el) => {
-      if (
-        el.parentElement.classList.contains('menu-container') ||
-        !el.parentElement
-      ) {
-        return false
-      }
-      if (el.parentElement.classList.contains('menu-item-has-children')) {
-        return el.parentElement
-      }
-      return findClosestSubMenu(el.parentElement)
-    }
-
-    /**
-     * Get all the parent menu items.
-     *
-     * @param {HTMLElement} el
-     * @return {Array<HTMLElement>|[]}
-     */
-    const getAllParentSubMenus = (el) => {
-      const parents = []
-
-      let res = el
-      do {
-        res = findClosestSubMenu(res)
-        if (res) {
-          parents.push(res)
-        }
-      } while (res)
-
-      return parents
-    }
-
-    const parentMenus = document.querySelectorAll('.menu-container li')
-
-    parentMenus.forEach((parentEl) => {
-      const allMenus = getAllParentSubMenus(parentEl)
-      const mostParent = getTheParent(parentEl)
-      const allMenuLinks = mostParent.querySelectorAll('a')
-
-      ;[...parentEl.children]
-        .filter((childEl) => {
-          return childEl.tagName === 'A' || childEl.tagName === 'a'
-        })
-        .forEach((linkEl) => {
-          linkEl.addEventListener('focusin', () => {
-            if ([...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach((subMenu) => {
-                subMenu.classList.add('is-sub-menu-shown')
-              })
-            }
-          })
-          linkEl.addEventListener('blur', () => {
-            if (![...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach((subMenu) => {
-                subMenu.classList.remove('is-sub-menu-shown')
-              })
-            }
-          })
-        })
+      parentEl.addEventListener('focusin', open)
+      parentEl.addEventListener('mouseenter', open)
+      parentEl.addEventListener('focusout', event => {
+        if (!parentEl.contains(event.relatedTarget)) parentEl.classList.remove('is-sub-menu-shown')
+        updateState()
+      })
+      parentEl.addEventListener('mouseleave', () => {
+        if (!parentEl.contains(document.activeElement)) parentEl.classList.remove('is-sub-menu-shown')
+        updateState()
+      })
+      parentEl.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || window.innerWidth < 768) return
+        event.preventDefault()
+        event.stopPropagation()
+        link.focus()
+        parentEl.classList.remove('is-sub-menu-shown')
+        parentEl.classList.add('is-sub-menu-dismissed')
+        updateState()
+      })
+      updateState()
+      window.addEventListener('resize', updateState)
+    })
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || window.innerWidth < 768) return
+      parentMenus.forEach(parentEl => {
+        if (!parentEl.matches(':hover')) return
+        parentEl.classList.remove('is-sub-menu-shown')
+        parentEl.classList.add('is-sub-menu-dismissed')
+        parentEl.querySelector('a').setAttribute('aria-expanded', 'false')
+      })
     })
   }
 
@@ -581,15 +570,42 @@ document.addEventListener('DOMContentLoaded', () => {
   {
     const tabmenu = document.querySelector('#comments .comment-tabmenu')
     const tabItems = document.querySelectorAll('#comments .tabitem')
-    const actionBar = document.createElement('span')
+    const actionBar = document.createElement('li')
     const pingList = document.getElementById('ping-list')
     const commentList = document.getElementById('comment-list')
 
     if (tabmenu) {
+      tabmenu.setAttribute('role', 'tablist')
+      actionBar.setAttribute('role', 'presentation')
+      actionBar.setAttribute('aria-hidden', 'true')
       actionBar.classList.add('action-bar')
       tabmenu.insertBefore(actionBar, null)
       actionBar.style.width = `${tabItems[0].clientWidth}px`
     }
+
+    const tabs = [...tabItems].map(item => item.querySelector('a'))
+    const panels = tabs.map((tab, index) => {
+      const list = document.querySelector(tab.getAttribute('href'))
+      const panel = document.createElement('div')
+      panel.id = `comment-panel-${index}`
+      panel.setAttribute('role', 'tabpanel')
+      panel.setAttribute('tabindex', '0')
+      tab.id = `comment-tab-${index}`
+      panel.setAttribute('aria-labelledby', tab.id)
+      tab.setAttribute('role', 'tab')
+      tab.setAttribute('aria-controls', panel.id)
+      tab.setAttribute('aria-selected', String(index === 0))
+      tab.tabIndex = index === 0 ? 0 : -1
+      tab.parentElement.setAttribute('role', 'presentation')
+      panel.hidden = index !== 0
+      if (list) {
+        list.before(panel)
+        panel.appendChild(list)
+      } else {
+        tabmenu.after(panel)
+      }
+      return panel
+    })
 
     if (pingList) {
       pingList.style.display = 'none'
@@ -603,6 +619,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target.parentNode.classList.contains('active')) {
         return
       }
+      tabs.forEach((tab, index) => {
+        const selected = tab === target
+        tab.setAttribute('aria-selected', String(selected))
+        tab.tabIndex = selected ? 0 : -1
+        panels[index].hidden = !selected
+      })
 
       if (target.getAttribute('href').includes('#comment')) {
         target.parentNode.classList.add('active')
@@ -635,6 +657,18 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const item of tabItems) {
       item.addEventListener('click', tabItemsHandler)
     }
+    tabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+      let next
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length
+      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length
+      if (event.key === 'Home') next = 0
+      if (event.key === 'End') next = tabs.length - 1
+      if (next !== undefined) {
+        event.preventDefault()
+        tabs[next].focus()
+        tabs[next].click()
+      }
+    }))
   }
 
   /*   Recent Posts Widget : Adjust the date style

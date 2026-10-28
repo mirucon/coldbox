@@ -83,6 +83,7 @@ License: CC0 1.0; see assets/icons/LICENSE.md.
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
+* fix: Keyboard navigation and text contrast
 * And some small bug fixes and improvements
 
 1.9.5

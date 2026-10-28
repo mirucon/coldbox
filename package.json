@@ -7,9 +7,10 @@
   "homepage": "https://coldbox.miruc.co/",
   "devDependencies": {
     "@fortawesome/fontawesome-free": "6.5.2",
-    "highlight.js": "11.12.0",
+    "@playwright/test": "1.64.1",
+    "axe-core": "4.14.0",
     "esbuild": "0.28.2",
-    "@playwright/test": "1.64.1"
+    "highlight.js": "11.12.0"
   },
   "scripts": {
     "build": "node bin/build.mjs",

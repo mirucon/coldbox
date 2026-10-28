@@ -6,7 +6,7 @@
  * @package Coldbox
  */
 
-$cd_form_id = 'search-form' . wp_rand( 1, 3 );
+$cd_form_id = wp_unique_id( 'search-form' );
 ?>
 
 <form method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">

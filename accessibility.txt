@@ -1,0 +1,35 @@
+=== Accessibility Statement ===
+
+Coldbox aims to keep its navigation, content and controls usable with a keyboard
+and assistive technology. Site content, plugins and custom colors also affect
+accessibility; the theme alone cannot establish a site's WCAG conformance.
+
+== Quick Information ==
+
+Accessibility audit completed: No
+
+The current release has automated and keyboard regression checks. These are not
+a complete WCAG audit or a new approval by the WordPress accessibility review team.
+
+== Testing Tools and Methodology ==
+
+Playwright checks rendered WordPress pages in Chromium, Firefox and WebKit.
+axe-core checks representative pages and open search/menu states. Keyboard checks
+cover skip links, search focus and dismissal, mobile navigation and comment tabs.
+Additional checks cover narrow layouts and increased text spacing.
+Browser accessibility trees are inspected; this is not testing by everyday
+screen-reader users. Author-supplied content and arbitrary custom colors are not
+certified by these checks.
+
+== Screen Reader Text Class ==
+
+.screen-reader-text
+
+== Accessibility Help Contact ==
+
+Public theme support forum: https://wordpress.org/support/theme/coldbox/
+Individual assistance and response times are not guaranteed.
+
+== Where to Report Issues ==
+
+Theme issue tracker: https://github.com/mirucon/coldbox/issues

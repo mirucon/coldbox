@@ -235,10 +235,19 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			} else {
 				$label = ucfirst( $key );
 			} ?>
+			<?php
+			ob_start();
+			do_action( 'cd_social_links_attr' );
+			$link_attributes = ob_get_clean();
+			?>
 			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
-				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php do_action( 'cd_social_links_attr' ); ?>>
+				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Existing attribute hook output. ?>>
 					<span class="<?php echo esc_attr( $class ); ?>" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php echo esc_html( $label ); ?></span>
+					<?php if ( preg_match( '/target\s*=\s*[\x22\x27]_blank[\x22\x27]/i', $link_attributes ) ) : ?>
+						<span class="new-window-notice" aria-hidden="true">&#8599;</span>
+						<span class="screen-reader-text"> (<?php esc_html_e( 'Opens in a new tab', 'coldbox' ); ?>)</span>
+					<?php endif; ?>
 				</a>
 			</li>
 			<?php

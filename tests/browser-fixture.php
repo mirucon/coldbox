@@ -27,6 +27,10 @@ if ( ! wp_get_nav_menu_items( $menu_id ) ) {
   wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => 'Fixture article', 'menu-item-object-id' => $id, 'menu-item-object' => 'post', 'menu-item-type' => 'post_type', 'menu-item-status' => 'publish' ) );
 }
 set_theme_mod( 'nav_menu_locations', array( 'header-menu' => $menu_id ) );
+$items = wp_get_nav_menu_items( $menu_id );
+if ( ! array_filter( $items, function ( $item ) { return $item->title === 'Nested fixture'; } ) ) {
+  wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => 'Nested fixture', 'menu-item-url' => home_url( '/fixture-page/' ), 'menu-item-type' => 'custom', 'menu-item-status' => 'publish', 'menu-item-parent-id' => $items[0]->ID ) );
+}
 set_theme_mod( 'link_color', '#00619f' );
 set_theme_mod( 'does_use_hljs', true );
 set_theme_mod( 'do_not_load_jquery', false );

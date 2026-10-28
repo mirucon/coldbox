@@ -80,6 +80,7 @@ All the photos used in the screenshot are all licensed under CC0.
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
+* fix: Keyboard navigation and text contrast
 * And some small bug fixes and improvements
 
 = 1.9.5=

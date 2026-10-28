@@ -367,27 +367,6 @@ h6 {
 .entry abbr {
   text-decoration: dotted;
 }
-.entry abbr::after {
-  content: attr(title);
-  display: block;
-  visibility: hidden;
-  position: absolute;
-  top: -26px;
-  right: -7px;
-  z-index: 999;
-  padding: 0.1875em 0.75em;
-  border-radius: 1px;
-  background-color: #f8f8f8;
-  color: #666;
-  font-size: 0.88em;
-  font-weight: 300;
-  text-align: center;
-  white-space: nowrap;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
-}
-.entry abbr:hover::after {
-  visibility: visible;
-}
 .entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
   font-weight: bold;
 }
@@ -1028,6 +1007,12 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   filter: blur(3px);
   transition: all 0.4s;
 }
+.post-nav .post-thumbnail::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
 .post-nav .nav-title {
   position: relative;
   margin-bottom: 0.4em;
@@ -1210,14 +1195,14 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   transition: all 0.4s;
 }
 .balloon-btn .share-inner:hover {
-  opacity: 0.8;
+  filter: brightness(0.85);
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1) inset;
 }
 .balloon-btn .count-inner:hover {
   color: #fff;
 }
 .balloon-btn.twitter .share-inner {
-  background-color: #6bace2;
+  background-color: #2879b5;
 }
 .balloon-btn.facebook .share-inner {
   background-color: #445d93;
@@ -1232,10 +1217,10 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   background-color: #e15c69;
 }
 .balloon-btn.line .share-inner {
-  background-color: #50c150;
+  background-color: #267c26;
 }
 .balloon-btn.feedly .share-inner {
-  background-color: #94be61;
+  background-color: #527c29;
 }
 .balloon-btn:first-of-type .share-inner {
   border-radius: 2px 0 0 2px;
@@ -1883,14 +1868,14 @@ ul.page-numbers a.page-numbers:hover {
   .menu-container .sub-menu li > a {
     padding: 8px 14px;
   }
-  .menu-container li:hover > .sub-menu,
+  .menu-container li:not(.is-sub-menu-dismissed):hover > .sub-menu,
   .menu-container li.is-sub-menu-shown > .sub-menu {
     position: absolute;
     height: auto;
     clip: auto;
     top: 50px;
   }
-  .menu-container li > .sub-menu > li:hover > .sub-menu,
+  .menu-container li > .sub-menu > li:not(.is-sub-menu-dismissed):hover > .sub-menu,
   .menu-container li > .sub-menu > li.is-sub-menu-shown > .sub-menu {
     position: absolute;
     height: auto;
@@ -2180,7 +2165,7 @@ ul.page-numbers a.page-numbers:hover {
   #header-menu.open {
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.4s, visibility 0.4s;
+    transition: opacity 0.4s;
   }
   #header-menu.open > #header-nav {
     animation: fadeInRight 0.4s;
@@ -2599,6 +2584,7 @@ ul.page-numbers a.page-numbers:hover {
 }
 .widget_cd_widget_social_links .social-links li {
   width: 25%;
+  min-width: 3.5em;
 }
 .widget_cd_widget_social_links .social-links li:not(:first-child) {
   margin-left: 0;
@@ -2619,7 +2605,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=twitter] a {
-  background-color: #00aced;
+  background-color: #2879b5;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=twitter] a:hover {
@@ -2703,14 +2689,14 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=slack] a {
-  background-color: #78d4b6;
+  background-color: #24785e;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=slack] a:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=skype] a {
-  background-color: #0bbff2;
+  background-color: #137a98;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=skype] a:hover {
@@ -2752,7 +2738,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=bell] a {
-  background-color: #ffbe06;
+  background-color: #806000;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=bell] a:hover {
@@ -2794,7 +2780,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=feedly] a {
-  background-color: #94be61;
+  background-color: #527c29;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=feedly] a:hover {
@@ -2905,7 +2891,7 @@ ul.page-numbers a.page-numbers:hover {
   font-size: 0.96em;
 }
 #comment-list .comment-meta a {
-  color: #888;
+  color: #666;
   box-shadow: none;
 }
 #comment-list .comment-meta a:hover {
@@ -2963,7 +2949,7 @@ ul.page-numbers a.page-numbers:hover {
   padding-left: 1.6em;
 }
 #comment-list .reply a {
-  color: #999;
+  color: #666;
   font-size: 0.875em;
   box-shadow: none;
 }
@@ -3753,6 +3739,13 @@ ul.social-links {
   color: #999;
   color: #fff;
 }
+input::placeholder, textarea::placeholder {
+  color: #666;
+  opacity: 1;
+}
+.modal-search-form .search-inner::placeholder {
+  color: #eee;
+}
 .modal-search-form .search-submit {
   padding: 3px 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
@@ -3811,6 +3804,10 @@ ul.social-links {
 .modal-search-open .modal-search-form {
   animation: fadeIn 0.14s;
   visibility: visible;
+}
+/* Inherited visibility must change immediately so newly opened controls can focus. */
+.modal-search-form input, .modal-search-form button, #header-nav a, #header-nav button {
+  transition-property: color, background-color, border-color, box-shadow, opacity, transform;
 }
 .modal-search-open #main, .modal-search-open #header, .modal-search-open .footer {
   filter: blur(4px);
@@ -3876,6 +3873,59 @@ ul.social-links {
   height: auto;
   padding: 0.8em 1em;
   clip: auto;
+}
+
+/* Visible keyboard focus on light and dark surfaces, including custom colors. */
+html body :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px #fff;
+}
+html body .post-nav a:focus-visible, html body .post-link:focus-visible {
+  outline-offset: -4px;
+  box-shadow: inset 0 0 0 6px #fff;
+}
+html body .screen-reader-text:focus {
+  clip: auto;
+  width: auto;
+  height: auto;
+}
+/* Keep input boundaries distinguishable from white form backgrounds. */
+input:not([type=submit]):not([type=button]):not([type=reset]), textarea, select {
+  border-color: #767676;
+}
+.post-category a {
+  display: inline-block;
+  min-height: 24px;
+}
+.new-window-notice {
+  display: inline-block;
+  font: 0.75em/1 sans-serif;
+  margin-left: 0.25em;
+  vertical-align: super;
+}
+.share-inner .new-window-notice, .widget_cd_widget_social_links .new-window-notice {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  font-size: 12px;
+}
+.social-links a { position: relative; }
+.social-links .new-window-notice { font-size: 12px; }
+.widget_text a, .widget_block p a, .copyright a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+.widget_text a:hover, .widget_block p a:hover, .copyright a:hover {
+  text-decoration-thickness: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Custom Classes for several usage */
@@ -4027,12 +4077,10 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 @keyframes fadeInRight {
   0% {
     opacity: 0;
-    visibility: hidden;
     transform: translate3d(100%, 0, 0);
   }
   100% {
     opacity: 1;
-    visibility: visible;
     transform: none;
   }
 }
@@ -4054,11 +4102,9 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    visibility: hidden;
   }
   100% {
     opacity: 1;
-    visibility: visible;
   }
 }
 @keyframes fadeOut {
@@ -4244,27 +4290,27 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 }
 
 .hljs-bullet, .hljs-literal, .hljs-number, .hljs-symbol {
-  color: #6897BB;
+  color: #9cc6e6;
 }
 
 .hljs-deletion, .hljs-keyword, .hljs-selector-tag {
-  color: #cc7832;
+  color: #ffb56b;
 }
 
 .hljs-link, .hljs-template-variable, .hljs-variable {
-  color: #629755;
+  color: #afd49f;
 }
 
 .hljs-comment, .hljs-quote {
-  color: grey;
+  color: #bcbcbc;
 }
 
 .hljs-meta {
-  color: #bd4b40;
+  color: #ffa59c;
 }
 
 .hljs-addition, .hljs-attribute, .hljs-string {
-  color: #8cab7a;
+  color: #afd49f;
 }
 
 .hljs-section, .hljs-title, .hljs-type {
@@ -4272,7 +4318,7 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 }
 
 .hljs-name, .hljs-selector-class, .hljs-selector-id {
-  color: #e66562;
+  color: #ffa59c;
 }
 
 .lang-tag * {

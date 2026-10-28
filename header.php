@@ -41,14 +41,14 @@
 
 			<?php
 			$cd_nav_toggle    =
-				'<button id="header-nav-toggle" class="nav-toggle header-menu">
+				'<button id="header-nav-toggle" class="nav-toggle header-menu" aria-controls="header-menu" aria-expanded="false">
 					<span class="top" aria-hidden="true"></span>
 					<span class="middle" aria-hidden="true"></span>
 					<span class="bottom" aria-hidden="true"></span>
 					<span class="screen-reader-text">' . esc_html__( 'Menu', 'coldbox' ) . '</span>
 				</button>';
 			$cd_search_toggle =
-				'<button class="search-toggle">
+				'<button class="search-toggle" aria-controls="modal-search-form" aria-expanded="false" aria-haspopup="dialog">
 					<span class="icon search" aria-hidden="true"></span>
 					<span class="screen-reader-text">' . esc_html__( 'Search Toggle', 'coldbox' ) . '</span>
 				</button>';

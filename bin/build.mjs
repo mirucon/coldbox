@@ -30,7 +30,7 @@ for (const name of ['editor-style', 'page-style', 'czr-style']) {
 }
 for (const name of readdirSync('.').filter(name => name.endsWith('.php') || name === 'style.css')) cpSync(name, `dist/${name}`);
 for (const name of ['parts', 'page-templates', 'assets/css', 'assets/fonts', 'assets/img', 'assets/icons', 'assets/js/min']) cpSync(name, `dist/${name}`, { recursive: true });
-for (const name of ['readme.txt', 'screenshot.jpg', 'CHANGELOG.md']) cpSync(name, `dist/${name}`);
+for (const name of ['readme.txt', 'screenshot.jpg', 'CHANGELOG.md', 'accessibility.txt']) cpSync(name, `dist/${name}`);
 mkdirSync('dist/licenses', { recursive: true });
 cpSync('node_modules/@fortawesome/fontawesome-free/LICENSE.txt', 'dist/licenses/Font-Awesome.txt');
 cpSync('node_modules/highlight.js/LICENSE', 'dist/licenses/highlight.js.txt');

@@ -22,7 +22,7 @@ test('article, icons, anchors and text stay usable', async ({ page }) => {
       const icon = page.locator(`#sns-buttons .si-${name}`);
       await expect(icon).toBeVisible();
       await expect(icon.locator('..')).toHaveAccessibleName(
-        name === 'feedly' ? 'Subscribe on Feedly' : 'Save to Hatena Bookmark'
+        name === 'feedly' ? /^Subscribe on Feedly(?: \(Opens in a new tab\))?$/ : /^Save to Hatena Bookmark(?: \(Opens in a new tab\))?$/
       );
       const size = await icon.evaluate(el => {
         const style = getComputedStyle(el, '::before');
