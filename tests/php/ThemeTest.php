@@ -27,6 +27,21 @@ class ThemeTest extends WP_UnitTestCase {
     $this->assertFalse( cd_is_amp() );
   }
 
+  public function test_standalone_highlighters_change_cache_url_with_theme_release() {
+    set_theme_mod( 'does_use_hljs', true );
+    set_theme_mod( 'concat_js', false );
+    foreach ( array( false => 'hljs.js', true => 'hljs_web.js' ) as $web => $file ) {
+      wp_deregister_script( 'hljs' );
+      set_theme_mod( 'use_hljs_web_pack', (bool) $web );
+      cd_load_hljs();
+      ob_start();
+      wp_print_scripts( 'hljs' );
+      $html = ob_get_clean();
+      $this->assertStringContainsString( '/assets/js/min/' . $file . '?ver=' . CD_VER, $html );
+      wp_scripts()->done = array_diff( wp_scripts()->done, array( 'hljs' ) );
+    }
+  }
+
   public function test_old_amp_links_preserve_page_and_query_without_using_request_host() {
     $id = self::factory()->post->create( array( 'post_content' => 'First page<!--nextpage-->Second page' ) );
     foreach ( array( '', '/%postname%/' ) as $structure ) {
