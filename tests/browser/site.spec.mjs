@@ -43,8 +43,8 @@ test('search opens, closes, and finds the article', async ({ page }) => {
   await page.locator('.header-inner .search-toggle').click();
   await page.locator('.modal-search-form input[type="search"]').fill('Coldbox fixture');
   await page.locator('.modal-search-form input[type="search"]').press('Enter');
+  await expect(page).toHaveURL(url => url.searchParams.get('s') === 'Coldbox fixture');
   await expect(page.locator('#main')).toContainText('Coldbox fixture');
-  expect(new URL(page.url()).searchParams.get('s')).toBe('Coldbox fixture');
 });
 
 test('mobile menu opens and follows an existing link', async ({ page, isMobile }) => {
