@@ -72,10 +72,9 @@ License - GPL
 URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php  
 Created by Gary Jones
 
-### Smooth Scroll behavior polyfill
-License - MIT  
-URL: https://github.com/iamdustan/smoothscroll  
-Created by Dustan Kasten and Jeremias Menichelli
+### Simple Icons (Feedly and Hatena Bookmark)
+Source: https://github.com/simple-icons/simple-icons/tree/9.21.0\
+License: CC0 1.0; see assets/icons/LICENSE.md.
 
 ## Changelog
 

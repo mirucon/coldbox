@@ -21,6 +21,9 @@ test('article, icons, anchors and text stay usable', async ({ page }) => {
     for (const name of ['feedly', 'hatenabookmark']) {
       const icon = page.locator(`#sns-buttons .si-${name}`);
       await expect(icon).toBeVisible();
+      await expect(icon.locator('..')).toHaveAccessibleName(
+        name === 'feedly' ? 'Subscribe on Feedly' : 'Save to Hatena Bookmark'
+      );
       const size = await icon.evaluate(el => {
         const style = getComputedStyle(el, '::before');
         return { width: parseFloat(style.width), height: parseFloat(style.height), font: parseFloat(style.fontSize), mask: style.maskImage };

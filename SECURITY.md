@@ -2,10 +2,7 @@
 
 ## Supported Versions
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 1.9.x   | :white_check_mark: |
-| < 1.9.0 | :x:                |
+Only the latest published release is supported.
 
 ## Reporting a Vulnerability
 

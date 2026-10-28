@@ -3598,15 +3598,6 @@ html body .screen-reader-text {
   transition: all 0.4s;
 }
 
-/* Simple Icons */
-.si-feedly:before {
-  content: "\f101";
-}
-
-.si-hatenabookmark:before {
-  content: "\f102";
-}
-
 /* Social Links */
 .social-links {
   display: flex;
