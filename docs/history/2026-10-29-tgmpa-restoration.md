@@ -74,3 +74,17 @@ tests. The owner's preview site data/settings were not reset. Browser checks
 installed public Add-on 1.2.5 via TGMPA's bulk flow, confirmed it remained inactive,
 activated it manually and checked the active About state and frontend. The bulk
 completion screen succeeded without the original fatal error.
+
+Further browser checks passed: individual installation link, individual and bulk
+activation, persisted dismissal followed by the About installation link, and
+editor-role denial (HTTP 403). The individual-install test initially matched the
+lowercase word "successfully" case-sensitively; WordPress prints "Successfully".
+Reading the actual completion output and repeating the full flow confirmed success.
+No new PHP diagnostics occurred during HTTP tests; the isolated setup logged one
+WordPress CLI HTTP_HOST warning during core installation, before browser testing.
+
+CI run 40862943121 on commit 004733e4 passed all four jobs: WP 7.0/PHP 7.4,
+WP 7.1/PHP 7.4, WP 7.1/PHP 8.3 and WP 7.1/PHP 8.5. Each includes PHP syntax,
+native WordPress regression tests and existing browser checks. The explicit TGMPA
+installer clicks were exercised locally on WP 7.1.3/PHP 8.1, not in every CI job.
+https://github.com/mirucon/coldbox/actions/runs/40862943121
