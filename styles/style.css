@@ -4290,27 +4290,27 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 }
 
 .hljs-bullet, .hljs-literal, .hljs-number, .hljs-symbol {
-  color: #9cc6e6;
+  color: #97b8d0;
 }
 
 .hljs-deletion, .hljs-keyword, .hljs-selector-tag {
-  color: #ffb56b;
+  color: #dfa97b;
 }
 
 .hljs-link, .hljs-template-variable, .hljs-variable {
-  color: #afd49f;
+  color: #96bf8c;
 }
 
 .hljs-comment, .hljs-quote {
-  color: #bcbcbc;
+  color: #b4b4b4;
 }
 
 .hljs-meta {
-  color: #ffa59c;
+  color: #dfa6a0;
 }
 
 .hljs-addition, .hljs-attribute, .hljs-string {
-  color: #afd49f;
+  color: #a2bb93;
 }
 
 .hljs-section, .hljs-title, .hljs-type {
@@ -4318,7 +4318,7 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
 }
 
 .hljs-name, .hljs-selector-class, .hljs-selector-id {
-  color: #ffa59c;
+  color: #ef9f9d;
 }
 
 .lang-tag * {
