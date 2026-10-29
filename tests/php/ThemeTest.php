@@ -78,6 +78,12 @@ class ThemeTest extends WP_UnitTestCase {
     $html = ob_get_clean();
     $this->assertStringContainsString( 'Getting Started', $html );
     $this->assertStringContainsString( 'The Add-on Plugin', $html );
-    $this->assertDoesNotMatchRegularExpression( '/>AMP|Analytics|Ads Extension|mailto:|please let me know|CHANGELOG.html/i', $html );
+    $this->assertStringContainsString( 'https://wordpress.org/support/theme/coldbox/reviews/#new-post', $html );
+    $this->assertStringContainsString( 'id="upgrade-notice"', $html );
+    $this->assertStringContainsString( 'These notices describe past releases.', $html );
+    $this->assertStringContainsString( '<h3>1.10.0</h3>', $html );
+    $this->assertStringNotContainsString( '### 1.10.0', $html );
+    // Historical release entries may name retired features; invitations and sales links must stay absent.
+    $this->assertDoesNotMatchRegularExpression( '/mailto:|please let me know|Need Help\?|feel free to get in touch|https:\/\/coldbox\.miruc\.co\/(?:addons\/)?google-adsense-extension/i', $html );
   }
 }

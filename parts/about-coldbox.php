@@ -46,7 +46,7 @@ function cd_welcome_page_content() {
 	?>
 	<header class="cdAdmin__header">
 		<h1 class="cdAdmin__themeName"><?php echo esc_html( /* translators: %s: Theme version */ sprintf( esc_html__( 'Welcome to Coldbox %s', 'coldbox' ), CD_VER ) ); ?></h1>
-		<p><a href="<?php echo esc_url( get_theme_file_uri( 'CHANGELOG.md' ) ); ?>"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></a></p>
+		<p><a href="#changelog"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></a></p>
 		<div class="cdAdmin__screenshot">
 			<img src="<?php echo esc_url( get_theme_file_uri( 'screenshot.jpg' ) ); ?>" width="1200" height="900" alt="<?php esc_attr_e( 'Theme screenshot', 'coldbox' ); ?>">
 		</div>
@@ -117,6 +117,95 @@ function cd_welcome_page_content() {
 		<?php endif; ?>
 	</div>
 
+	<div class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Rate this theme!', 'coldbox' ); ?></h2>
+		<p>
+			<?php
+				echo wp_kses_data(
+					sprintf(
+						/* translators: %1$s: Link to this theme's review page on WP.org, %2$s: Closing a tag */
+						__( 'If you liked this theme, please %1$spost your review on WordPress.org%2$s! Reviews definitely help to motivate me to continue support on this theme.', 'coldbox' ),
+						'<a href="https://wordpress.org/support/theme/coldbox/reviews/#new-post">',
+						'</a>'
+					)
+				);
+			?>
+		</p>
+	</div>
+
+	<?php
+		$upgrade_notices = array(
+			array(
+				'version'     => esc_html__( 'v1.9.0', 'coldbox' ),
+				'description' =>
+								sprintf(
+									/* translators: This text shows as a upgrade notice of v1.9.0. / placeholders: 1: Starting a tag, 2: Ending a tag. */
+									esc_html__(
+										'Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s.',
+										'coldbox'
+									),
+									'<a href="https://coldbox.miruc.co/demo/category/block/">',
+									'</a>'
+								)
+							. '<br/>' .
+								/* translators: This text shows as a upgrade notice of v1.9.0. */
+								esc_html__(
+									'Note: At this time, the AMP feature in my addon plugin does not support Block Editor yet. If you want to use the Block Editor\'s features a lot (like columns, buttons, or gallery), please disable generating the AMP pages as a workaround.',
+									'coldbox'
+								),
+			),
+
+			array(
+				'version'     => esc_html__( 'v1.8.4', 'coldbox' ),
+				'description' => esc_html__( 'I\'ve fixed a major issue that the grid column width for desktop/tablet option was always applied, even for mobile. The bug was introduced in v1.8.3 and affected users who have set the option other than 2. Sorry for the inconvenience this has caused.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.8.0', 'coldbox' ),
+				'description' => esc_html__( 'In this version, I made a fix that causing search and menu toggle button not working which affected number of users. The theme now requires WordPress version 5.0 or higher.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.7.1', 'coldbox' ),
+				'description' => esc_html__( 'Font Awesome icon fonts have been upgraded to version 5.7.0. There shouldn\'t be any breaking changes, but some icons have been added. Also added Telegram social button on the Social Links feature :)', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.7.0', 'coldbox' ),
+				'description' => esc_html__( 'The Font Awesome icon fonts have been upgraded to version 5.2.0 for better compatibility with other plugins which use Font Awesome version 5. If you use Font Awesome font in your content, some changes might be required.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.4', 'coldbox' ),
+				'description' => esc_html__( 'I\'ve added the option to show thumbnail image on every single post which have been requested quite a few times!', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.3', 'coldbox' ),
+				'description' => esc_html__( 'Feedly has changed its URL format. If you have Feedly subscription button in your Social Links, make sure to use the URL shown in the bottom of the "Social Links" section in the Customizer.', 'coldbox' ),
+			),
+			array(
+				'version'     => esc_html__( 'v1.5.0', 'coldbox' ),
+				'description' => esc_html__( 'In the version 1.5.0, we have added a new customizer option to adjust your logo width, and its default value has been set to 230px. If you are previously using the logo that the width is bigger than 230px, then your logo is now become smaller. To customize the width, go to the Theme Customizer, and proceed to "Coldbox: Header Settings" > "Custom Logo Width".', 'coldbox' ),
+			),
+		);
+		?>
+
+	<div id="upgrade-notice" class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
+		<p><?php esc_html_e( 'These notices describe past releases. For current changes, see the changelog below.', 'coldbox' ); ?></p>
+
+		<?php
+		foreach ( $upgrade_notices as $notice ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<h3 class="cdAdmin__h3">' . $notice['version'] . '</h3>';
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<p>' . $notice['description'] . '</p>';
+		}
+		?>
+
+	</div>
+
+	<div id="changelog" class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></h2>
+		<?php echo wp_kses_post( file_get_contents( get_theme_file_path( 'assets/html/CHANGELOG.html' ) ) ); ?>
+	</div>
+
 	<?php
 }
 
@@ -142,6 +231,15 @@ function cd_customize_admin_bar_menu( $wp_admin_bar ) {
 			'meta'   => array(),
 			'title'  => $title,
 			'href'   => admin_url( 'themes.php?page=welcome.php' ),
+		)
+	);
+	$wp_admin_bar->add_menu(
+		array(
+			'parent' => 'coldbox-link',
+			'id'     => 'coldbox-upgrade-notice',
+			'meta'   => array(),
+			'title'  => esc_html__( 'Upgrade Notices', 'coldbox' ),
+			'href'   => admin_url( 'themes.php?page=welcome.php#upgrade-notice' ),
 		)
 	);
 }

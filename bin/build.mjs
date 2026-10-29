@@ -1,4 +1,5 @@
 import { build, transform } from 'esbuild';
+import { marked } from 'marked';
 import { cpSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import assert from 'node:assert/strict';
@@ -31,6 +32,11 @@ for (const name of ['editor-style', 'page-style', 'czr-style']) {
 for (const name of readdirSync('.').filter(name => name.endsWith('.php') || name === 'style.css')) cpSync(name, `dist/${name}`);
 for (const name of ['parts', 'page-templates', 'assets/css', 'assets/fonts', 'assets/img', 'assets/icons', 'assets/js/min']) cpSync(name, `dist/${name}`, { recursive: true });
 for (const name of ['readme.txt', 'screenshot.jpg', 'CHANGELOG.md', 'accessibility.txt']) cpSync(name, `dist/${name}`);
+// Generate the admin-page history from the single maintained Markdown source.
+mkdirSync('assets/html', { recursive: true });
+writeFileSync('assets/html/CHANGELOG.html', marked.parse(readFileSync('CHANGELOG.md', 'utf8')));
+mkdirSync('dist/assets/html', { recursive: true });
+cpSync('assets/html/CHANGELOG.html', 'dist/assets/html/CHANGELOG.html');
 mkdirSync('dist/licenses', { recursive: true });
 cpSync('node_modules/@fortawesome/fontawesome-free/LICENSE.txt', 'dist/licenses/Font-Awesome.txt');
 cpSync('node_modules/highlight.js/LICENSE', 'dist/licenses/highlight.js.txt');

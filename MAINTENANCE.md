@@ -61,6 +61,10 @@ upstream completion-message fix for WordPress 4.8+: WordPress supplies the detai
 control, so TGMPA must not append a second sprintf placeholder. Keep the recommendation
 dismissible and activation manual. The About page also links to this installer.
 
+The About page includes review links, historical upgrade notices and the full
+changelog. Edit `CHANGELOG.md`; the build generates `assets/html/CHANGELOG.html`
+for the admin page and package. Marked is a build-only dependency, not runtime JS.
+
 ## Translation and publication
 
 Extract a POT only when needed with `npm run pot` (official WP-CLI i18n command).

@@ -88,3 +88,30 @@ WP 7.1/PHP 7.4, WP 7.1/PHP 8.3 and WP 7.1/PHP 8.5. Each includes PHP syntax,
 native WordPress regression tests and existing browser checks. The explicit TGMPA
 installer clicks were exercised locally on WP 7.1.3/PHP 8.1, not in every CI job.
 https://github.com/mirucon/coldbox/actions/runs/40862943121
+
+## Follow-up: restore the three remaining admin features
+
+The owner rejected retaining these removals and explicitly requested restoration.
+The recommendation above to keep review solicitation, upgrade guidance and inline
+changelog display removed is withdrawn. All three are restored:
+
+- Original review section/link, preserving its gettext key.
+- Eight historical version notices and the original admin-bar shortcut. The
+  v1.9.0 invitation to report problems is removed from its msgid so an old
+  translation cannot bring it back. A new short note identifies the notices as
+  past-release guidance; historical AMP descriptions are not a current offer.
+- Formatted changelog inside About. Marked renders the existing CHANGELOG.md at
+  build time, the package contains the HTML, and WordPress sanitizes it on output.
+  No separate hand-maintained history or browser Markdown dependency is introduced.
+
+The existing demo link was checked and still serves the Block demo archive.
+Build passed. Native PHP checks passed 9 tests / 41 assertions. Desktop Chromium
+and mobile WebKit checks passed, including review URL, eight notices, rendered
+headings/lists, in-page changelog navigation, desktop toolbar navigation and
+absence of support invitations/mailto links. The initial mobile evidence capture
+exceeded WebKit's maximum full-page image height; viewport capture is sufficient
+and both functional runs passed. The old blanket test forbidding even historical
+mentions of Ads/AMP was corrected to check invitations and sales links instead.
+
+Only the changed PHP and generated history were copied to the owner's preview;
+no content or saved configuration was reset. Accessibility decisions remain separate.
