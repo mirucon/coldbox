@@ -115,3 +115,8 @@ mentions of Ads/AMP was corrected to check invitations and sales links instead.
 
 Only the changed PHP and generated history were copied to the owner's preview;
 no content or saved configuration was reset. Accessibility decisions remain separate.
+
+Restoration commit d95367e6254b9e5b5dcdc0117bce95c8c9f3240f passed all four
+CI jobs (WP 7.0/PHP 7.4; WP 7.1/PHP 7.4, 8.3 and 8.5), including the new
+About-page browser regression. Firefox is also covered in the PHP 8.3 job.
+https://github.com/mirucon/coldbox/actions/runs/40866000082
