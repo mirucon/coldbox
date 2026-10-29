@@ -77,6 +77,7 @@ class ThemeTest extends WP_UnitTestCase {
     cd_welcome_page_content();
     $html = ob_get_clean();
     $this->assertStringContainsString( 'Getting Started', $html );
-    $this->assertDoesNotMatchRegularExpression( '/>AMP|Analytics|Ads Extension|mailto:|please let me know|tgmpa|CHANGELOG.html/i', $html );
+    $this->assertStringContainsString( 'The Add-on Plugin', $html );
+    $this->assertDoesNotMatchRegularExpression( '/>AMP|Analytics|Ads Extension|mailto:|please let me know|CHANGELOG.html/i', $html );
   }
 }

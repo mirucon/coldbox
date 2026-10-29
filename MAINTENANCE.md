@@ -55,6 +55,12 @@ the previous cascade order, asset names and class names. Feedly and Hatena use
 the same bundled SVG shapes instead of a generated font. esbuild only bundles
 and minifies; no Sass, Stylus, Babel, Webpack or webfont generator is required.
 
+TGMPA supplies the optional Add-on recommendation and installer in the admin area.
+The bundled 2.6.1 copy retains Coldbox's translation domain and includes the
+upstream completion-message fix for WordPress 4.8+: WordPress supplies the details
+control, so TGMPA must not append a second sprintf placeholder. Keep the recommendation
+dismissible and activation manual. The About page also links to this installer.
+
 ## Translation and publication
 
 Extract a POT only when needed with `npm run pot` (official WP-CLI i18n command).

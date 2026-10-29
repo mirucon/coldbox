@@ -98,6 +98,25 @@ function cd_welcome_page_content() {
 		</p>
 	</div>
 
+	<div class="cdAdmin__section">
+		<h2 class="cdAdmin__h2"><?php esc_html_e( 'The Add-on Plugin', 'coldbox' ); ?></h2>
+		<p>
+			<?php esc_html_e( 'We are also developing the Addon plugin called Coldbox Addons, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: ', 'coldbox' ); ?>
+		</p>
+		<ul>
+			<li><?php esc_html_e( 'Share buttons', 'coldbox' ); ?></li>
+			<li><?php esc_html_e( 'Automatic Open Graph Tag output', 'coldbox' ); ?></li>
+		</ul>
+		<?php if ( is_plugin_active( 'coldbox-addon/coldbox-addon.php' ) ) : ?>
+			<p><strong><?php esc_html_e( 'Great, you have already installed and activated the addon plugin! To customize some settings related to the addon plugin, go to the Theme Customizer.', 'coldbox' ); ?></strong></p>
+		<?php elseif ( current_user_can( 'install_plugins' ) ) : ?>
+			<p><?php esc_html_e( 'You have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!', 'coldbox' ); ?></p>
+			<a href="<?php echo esc_url( admin_url( 'themes.php?page=tgmpa-install-plugins' ) ); ?>" class="cdAdmin__button">
+				<?php esc_html_e( 'Install Now', 'coldbox' ); ?>
+			</a>
+		<?php endif; ?>
+	</div>
+
 	<?php
 }
 

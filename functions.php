@@ -1174,6 +1174,9 @@ define( 'CD_VER', '1.10.0' );
  * -------------------------------------------------------------------------
  */
 
+// Recommend the optional Coldbox Add-on through the existing installer.
+require_once get_template_directory() . '/parts/tgm/load-tgm.php';
+
 // Keep old AMP query links working while retiring AMP rendering.
 require_once get_template_directory() . '/parts/retired-amp.php';
 

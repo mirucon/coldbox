@@ -67,6 +67,11 @@ License - MIT License
 URL: http://ionicons.com/  
 Created by @benjsperry
 
+### TGM Plugin Activation License
+License - GPL v2 or later\
+URL: https://tgmpluginactivation.com/\
+Copyright (c) 2011, Thomas Griffin
+
 ### CSS minifying function
 License - GPL  
 URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php  

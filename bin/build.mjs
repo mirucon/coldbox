@@ -38,5 +38,5 @@ cpSync('node_modules/highlight.js/LICENSE', 'dist/licenses/highlight.js.txt');
 try { cpSync('languages', 'dist/languages', { recursive: true, filter: path => !path.endsWith('.gitkeep') }); } catch (error) { if (error.code !== 'ENOENT') throw error; }
 const files = readdirSync('dist', { recursive: true });
 assert(files.includes('assets/js/min/scripts.js') || files.includes('assets\\js\\min\\scripts.js'));
-assert(!files.some(name => /(?:node_modules|vendor|tests|tgm|\.map$|\.babel\.js$)/.test(name)), 'Development files must not ship');
+assert(!files.some(name => /(?:node_modules|vendor|tests|\.map$|\.babel\.js$)/.test(name)), 'Development files must not ship');
 console.log(`Built installable theme (${files.length} entries).`);
