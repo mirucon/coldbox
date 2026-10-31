@@ -3924,11 +3924,11 @@ input:not([type=submit]):not([type=button]):not([type=reset]):where(:not(.modal-
   border-color: #ddd;
   border-bottom-color: #8e8e8e;
 }
-.textwidget p a, .widget_block p a, .copyright a {
+.textwidget p a, .widget_block p a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
-.textwidget p a:hover, .widget_block p a:hover, .copyright a:hover {
+.textwidget p a:hover, .widget_block p a:hover {
   text-decoration-thickness: 2px;
 }
 @media (prefers-reduced-motion: reduce) {
