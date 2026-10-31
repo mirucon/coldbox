@@ -126,4 +126,26 @@ class ThemeTest extends WP_UnitTestCase {
     $this->assertStringContainsString( 'aria-label="Search"', $default );
     $this->assertStringContainsString( 'aria-label="Content &quot; test"', $content );
   }
+
+  public function test_hiding_social_notices_preserves_target_and_accessible_name() {
+    set_theme_mod( 'twitter', 'https://example.org/twitter' );
+    $addon = has_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr' );
+    remove_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr' );
+    foreach ( array( false, true ) as $legacy_addon ) {
+      $attributes = function () { echo 'target="_blank"'; };
+      if ( $legacy_addon ) add_action( 'cd_social_links_attr', $attributes );
+      foreach ( array( null, false, true ) as $show_icon ) {
+        if ( null === $show_icon ) remove_theme_mod( 'social_links_new_tab_icon' );
+        else set_theme_mod( 'social_links_new_tab_icon', $show_icon );
+        ob_start(); cd_social_links(); $html = ob_get_clean();
+        $this->assertStringContainsString( 'target="_blank"', $html );
+        $this->assertStringContainsString( 'Twitter</span>', $html );
+        $this->assertStringContainsString( 'Opens in a new tab', $html );
+        $this->assertSame( false !== $show_icon, false !== strpos( $html, 'class="new-window-notice"' ) );
+      }
+      remove_action( 'cd_social_links_attr', $attributes );
+    }
+    remove_theme_mod( 'social_links_new_tab_icon' );
+    if ( false !== $addon ) add_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr', $addon );
+  }
 }

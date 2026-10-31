@@ -21,6 +21,10 @@ Browser accessibility trees are inspected; this is not testing by everyday
 screen-reader users. Author-supplied content and arbitrary custom colors are not
 certified by these checks.
 
+Social links show new-tab icons by default. Site owners can hide them under
+Customizer > Coldbox: Social Links. This removes the visible notice; the links
+still open in a new tab and retain their screen-reader announcements.
+
 == Screen Reader Text Class ==
 
 .screen-reader-text

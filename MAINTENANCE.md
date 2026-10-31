@@ -7,6 +7,10 @@ Normal article display, settings, share links, OGP, verification tags and Ads
 extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
 Social profile links open in a new tab, with visual and screen-reader notices,
 whether or not the Add-on is active. Share buttons remain an Add-on feature.
+Customizer > Coldbox: Social Links > Show new-tab icons is enabled by default.
+Turning it off hides only the theme's social profile indicators; link targets
+and screen-reader announcements stay unchanged. It also applies to the social
+links widget and author box, but does not change Add-on share buttons.
 Unrelated AMP plugins' `/amp/` paths are not intercepted. Saved retired settings
 are left in the database; no user data migration or deletion is required.
 
