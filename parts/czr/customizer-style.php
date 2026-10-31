@@ -229,7 +229,7 @@ if ( ! function_exists( 'cd_customizer_style' ) ) {
 		// Footer Background Color.
 		if ( get_theme_mod( 'footer_color', '#44463b' ) !== '#44463b' ) {
 			$color_footer = esc_html( get_theme_mod( 'footer_color' ) );
-			$czr_style   .= ".footer-bottom { background-color: $color_footer; } ";
+			$czr_style   .= ".footer-bottom { background-color: $color_footer; --cd-footer-background: $color_footer; } ";
 		}
 
 		// Title Box Color.

@@ -1195,14 +1195,14 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   transition: all 0.4s;
 }
 .balloon-btn .share-inner:hover {
-  filter: brightness(0.85);
+  opacity: 0.8;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1) inset;
 }
 .balloon-btn .count-inner:hover {
   color: #fff;
 }
 .balloon-btn.twitter .share-inner {
-  background-color: #2879b5;
+  background-color: #6bace2;
 }
 .balloon-btn.facebook .share-inner {
   background-color: #445d93;
@@ -1214,10 +1214,10 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   background-color: #00c300;
 }
 .balloon-btn.line .share-inner {
-  background-color: #267c26;
+  background-color: #50c150;
 }
 .balloon-btn.feedly .share-inner {
-  background-color: #527c29;
+  background-color: #94be61;
 }
 .balloon-btn:first-of-type .share-inner {
   border-radius: 2px 0 0 2px;
@@ -2602,7 +2602,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=twitter] a {
-  background-color: #2879b5;
+  background-color: #00aced;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=twitter] a:hover {
@@ -2679,7 +2679,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=slack] a {
-  background-color: #24785e;
+  background-color: #78d4b6;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=slack] a:hover {
@@ -2714,7 +2714,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=bell] a {
-  background-color: #806000;
+  background-color: #bd8c04;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=bell] a:hover {
@@ -2756,7 +2756,7 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=feedly] a {
-  background-color: #527c29;
+  background-color: #94be61;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=feedly] a:hover {
@@ -3874,20 +3874,6 @@ input:not([type=submit]):not([type=button]):not([type=reset]), textarea, select 
   display: inline-block;
   min-height: 24px;
 }
-.new-window-notice {
-  display: inline-block;
-  font: 0.75em/1 sans-serif;
-  margin-left: 0.25em;
-  vertical-align: super;
-}
-.share-inner .new-window-notice, .widget_cd_widget_social_links .new-window-notice {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  font-size: 12px;
-}
-.social-links a { position: relative; }
-.social-links .new-window-notice { font-size: 12px; }
 .widget_text a, .widget_block p a, .copyright a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
@@ -4329,3 +4315,45 @@ div[id^=ad-][id$=-top], div[class^=ad-][class$=-top] {
     padding: 0;
   }
 }
+
+/* New-tab notices: keep the existing logo, button dimensions and link behavior. */
+.social-links a, .balloon-btn .share-inner { position: relative; }
+.new-window-notice {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+  box-sizing: border-box;
+  z-index: 2;
+  flex-shrink: 0;
+  right: -3.5px;
+  bottom: -2.5px;
+  width: 9.5px;
+  height: 9.5px;
+}
+.author-box .new-window-notice {
+  padding: 0;
+  border-radius: 1.5px;
+  color: #242930;
+  background-color: #fff;
+  box-shadow: 0 0 0 0.9px #fff;
+}
+.footer-bottom .new-window-notice {
+  padding: 0;
+  border-radius: 1.5px;
+  color: #b8b9b2;
+  background-color: var(--cd-footer-background, #44463b);
+  box-shadow: 0 0 0 0.9px var(--cd-footer-background, #44463b);
+}
+.author-box .new-window-notice path, .footer-bottom .new-window-notice path { stroke-width: 1.85; }
+.widget_cd_widget_social_links .new-window-notice, .balloon-btn .new-window-notice {
+  right: 3.5px;
+  bottom: 3px;
+  width: 10px;
+  height: 10px;
+  color: #fff;
+  background: transparent;
+  box-shadow: none;
+}
+.balloon-btn .new-window-notice { right: 5.5px; }
+/* Preserve the established hover effect, with enough contrast for Hatena's notice. */
+.balloon-btn.hatena .share-inner:hover { opacity: 0.81; }

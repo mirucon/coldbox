@@ -244,7 +244,7 @@ function cd_social_links( $class = null, $inner_class = null ) {
 					<span class="<?php echo esc_attr( $class ); ?>" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php echo esc_html( $label ); ?></span>
 					<?php if ( preg_match( '/target\s*=\s*[\x22\x27]_blank[\x22\x27]/i', $link_attributes ) ) : ?>
-						<span class="new-window-notice" aria-hidden="true">&#8599;</span>
+						<svg class="new-window-notice" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true" focusable="false"><path d="M9.2 7.2V9.8C9.2 10.46 8.66 11 8 11H2.2C1.54 11 1 10.46 1 9.8V4C1 3.34 1.54 2.8 2.2 2.8H4.8M6.8 1H11V5.2M10.6 1.4L5.2 6.8" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						<span class="screen-reader-text"> (<?php esc_html_e( 'Opens in a new tab', 'coldbox' ); ?>)</span>
 					<?php endif; ?>
 				</a>
