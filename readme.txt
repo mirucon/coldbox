@@ -82,6 +82,7 @@ All the photos used in the screenshot are all licensed under CC0.
 = 1.10.0 =
 
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
+* Removed Skype social links
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
 * fix: Keyboard navigation and text contrast

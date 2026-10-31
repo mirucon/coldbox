@@ -1213,9 +1213,6 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 .balloon-btn.line .share-inner {
   background-color: #00c300;
 }
-.balloon-btn.pocket .share-inner {
-  background-color: #e15c69;
-}
 .balloon-btn.line .share-inner {
   background-color: #267c26;
 }
@@ -2646,13 +2643,6 @@ ul.page-numbers a.page-numbers:hover {
 .widget_cd_widget_social_links .social-links *[class^=pinterest] a:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
-.widget_cd_widget_social_links .social-links *[class^=vine] a {
-  background-color: #00bf8f;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-.widget_cd_widget_social_links .social-links *[class^=vine] a:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-}
 .widget_cd_widget_social_links .social-links *[class^=snapchat] a {
   background-color: #fffc00;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
@@ -2693,20 +2683,6 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=slack] a:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-}
-.widget_cd_widget_social_links .social-links *[class^=skype] a {
-  background-color: #137a98;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-.widget_cd_widget_social_links .social-links *[class^=skype] a:hover {
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
-}
-.widget_cd_widget_social_links .social-links *[class^=google-plus] a {
-  background-color: #dd4c3b;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
-}
-.widget_cd_widget_social_links .social-links *[class^=google-plus] a:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=github] a {

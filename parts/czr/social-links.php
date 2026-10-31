@@ -28,7 +28,6 @@ function cd_social_sites() {
 		'steam'             => 'cd_steam_profile',
 		'foursquare'        => 'cd_foursquare_profile',
 		'slack'             => 'cd_slack_profile',
-		'skype'             => 'cd_skype_profile',
 		'paypal'            => 'cd_paypal_profile',
 		'500px'             => 'cd_500px_profile',
 		'rss'               => 'cd_rss_profile',
