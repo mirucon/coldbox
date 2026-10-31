@@ -47,3 +47,15 @@ updates require explicit release authorization. See MAINTENANCE.md for packaging
 Keep this file as reusable working guidance. Build/run instructions belong in
 MAINTENANCE.md; dated investigations and verification results belong in
 `docs/history/`, not in the instructions loaded for every task.
+
+## CI execution policy
+
+Ordinary checkpoint pushes use relevant local checks, not automatic full CI.
+PRs (including dependency updates) retain the complete compatibility matrix;
+only AGENTS.md, MAINTENANCE.md and docs/** are excluded as documentation.
+CI-workflow changes still run automatically. For a completed change requiring
+matrix verification, dispatch CI once on the intended branch and verify the
+resolved SHA. Do not dispatch after each checkpoint or documentation update.
+Before an authorized publication, require the full matrix for the exact release
+candidate; retain browser tests, package checks and companion integration.
+See MAINTENANCE.md. Publication authorization remains separate from source pushes.

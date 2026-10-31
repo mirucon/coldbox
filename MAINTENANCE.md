@@ -80,3 +80,20 @@ artifacts are candidates, not published releases.
 
 See `docs/history/2026-10-21-upkeep.md` for the bounded cleanup decisions and
 the deferred translation submission follow-up.
+
+## CI cadence
+
+Local development uses checks appropriate to the change. Ordinary source and
+documentation pushes do not start the compatibility matrix. Non-documentation
+PRs, including dependency PRs, and CI-workflow changes still run it automatically.
+CHANGELOG.md and package content are not treated as ignored documentation.
+
+For final clean-runner verification use `gh workflow run ci.yml --ref BRANCH`
+(the repository's default branch), then inspect the run's resolved head SHA and
+all four matrix jobs. Dispatch once per completed candidate when this coverage
+is needed, never for every checkpoint or a documentation-only follow-up.
+Before an explicitly authorized release, require full matrix success for that
+exact candidate and verify the companion revision used in integration tests.
+Reuse that run's built package; do not rerun unchanged tests just to record the
+result. Source-only CI never grants WordPress.org, tag or dist-branch publication
+authorization. PR concurrency still cancels obsolete runs on the same PR/ref.
