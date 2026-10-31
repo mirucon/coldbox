@@ -20,6 +20,51 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /*   Existing social/abbreviation tooltips: keyboard, hover and Escape support.
+  /* -------------------------------------------------- */
+  {
+    let tooltipId = 0
+    const triggers = [...document.querySelectorAll('.social-links a[title], .entry abbr[title]')]
+      .filter(node => !node.closest('.widget_cd_widget_social_links') && node.title.trim())
+    for (const node of triggers) {
+      const tooltip = document.createElement('span')
+      tooltip.className = 'cd-tooltip'
+      tooltip.textContent = node.title
+      tooltip.setAttribute('role', 'tooltip')
+      tooltip.setAttribute('aria-hidden', 'true')
+      do { tooltip.id = `cd-tooltip-${++tooltipId}` } while (document.getElementById(tooltip.id))
+      if (node.tagName === 'ABBR') {
+        if (!node.hasAttribute('tabindex')) node.tabIndex = 0
+        const description = node.getAttribute('aria-describedby')
+        node.setAttribute('aria-describedby', [description, tooltip.id].filter(Boolean).join(' '))
+      }
+      node.appendChild(tooltip)
+      node.classList.add('cd-tooltip-ready')
+      // Preserve the native title fallback when JavaScript is unavailable.
+      node.removeAttribute('title')
+      const open = () => {
+        tooltip.style.transform = ''
+        node.classList.add('cd-tooltip-open')
+        const rect = tooltip.getBoundingClientRect()
+        const shift = rect.left < 12 ? 12 - rect.left : Math.min(0, innerWidth - 12 - rect.right)
+        if (shift) tooltip.style.transform = `translateX(${shift}px)`
+      }
+      node.addEventListener('pointerenter', open)
+      node.addEventListener('focusin', open)
+      node.addEventListener('pointerleave', () => {
+        if (!node.contains(document.activeElement)) node.classList.remove('cd-tooltip-open')
+      })
+      node.addEventListener('focusout', () => {
+        if (!node.matches(':hover')) node.classList.remove('cd-tooltip-open')
+      })
+    }
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        for (const node of triggers) node.classList.remove('cd-tooltip-open')
+      }
+    })
+  }
+
   /*   Masonry responsive widgets
   /* -------------------------------------------------- */
   {
@@ -33,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .matches ||
           document.body.classList.contains('bottom-sidebar-s1')
         ) {
+          // Masonry loads asynchronously; an early resize can precede it.
+          // The load event below performs layout once the dependency is ready.
+          if (typeof Masonry !== 'function') return
           /* eslint-disable-next-line no-unused-vars, no-undef */
           const msnry = new Masonry(sidebarInner, {
             itemSelector: '.widget',

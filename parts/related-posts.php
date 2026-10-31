@@ -149,7 +149,7 @@ function cd_is_action_related_posts_bottom_hooked() {
 
 	<section class="related-posts content-box">
 
-		<h4 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h4>
+		<h2 class="related-head"><?php esc_html_e( 'Related Posts', 'coldbox' ); ?></h2>
 
 		<?php do_action( 'cd_related_posts_bottom' ); ?>
 

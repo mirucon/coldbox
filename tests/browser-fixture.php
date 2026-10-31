@@ -1,6 +1,7 @@
 <?php
 // Executed by WP-CLI against the disposable browser database, never via HTTP.
 $content = '<!-- wp:paragraph --><p>Coldbox fixture paragraph. <a href="#section-two"><strong>Jump to section</strong></a> <a href="#missing-target">Missing anchor</a></p><!-- /wp:paragraph -->'
+  . '<p><abbr id="fixture-abbreviation" title="World Wide Web Consortium">W3C</abbr></p>'
   . '<!-- wp:heading --><h2 class="wp-block-heading" id="section-two">Section two</h2><!-- /wp:heading -->'
   . '<!-- wp:code --><pre class="wp-block-code"><code class="language-javascript">const answer = 42;</code></pre><!-- /wp:code -->'
   . '<!-- wp:table --><figure class="wp-block-table"><table><tbody><tr><td>First cell</td><td>Second cell</td></tr></tbody></table></figure><!-- /wp:table -->'
@@ -32,6 +33,7 @@ if ( ! array_filter( $items, function ( $item ) { return $item->title === 'Neste
   wp_update_nav_menu_item( $menu_id, 0, array( 'menu-item-title' => 'Nested fixture', 'menu-item-url' => home_url( '/fixture-page/' ), 'menu-item-type' => 'custom', 'menu-item-status' => 'publish', 'menu-item-parent-id' => $items[0]->ID ) );
 }
 set_theme_mod( 'link_color', '#00619f' );
+set_theme_mod( 'twitter', 'https://twitter.com/example' );
 set_theme_mod( 'does_use_hljs', true );
 set_theme_mod( 'do_not_load_jquery', false );
 // Shared settings make the visual baseline comparable before and after removal.

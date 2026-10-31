@@ -107,3 +107,27 @@ test('WordPress legacy widget preview runs without a theme header', async ({ pag
   await page.setViewportSize({ width: 800, height: 700 });
   expect(errors).toEqual([]);
 });
+
+test('sidebar resize waits for the asynchronously loaded layout library', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  let release;
+  const pending = new Promise(resolve => { release = resolve; });
+  await page.route('**/masonry*.js*', async route => {
+    await pending;
+    await route.continue();
+  });
+  try {
+    await page.setViewportSize({ width: 1100, height: 800 });
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+    expect(await page.evaluate(() => typeof window.Masonry)).toBe('undefined');
+    await page.setViewportSize({ width: 800, height: 800 });
+    await page.evaluate(() => window.dispatchEvent(new Event('resize')));
+    expect(errors).toEqual([]);
+  } finally {
+    release();
+  }
+  await page.waitForLoadState('load');
+  await expect(page.locator('#sidebar-s1 .widget').first()).toHaveCSS('position', 'absolute');
+  expect(errors).toEqual([]);
+});

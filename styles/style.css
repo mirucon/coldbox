@@ -367,6 +367,27 @@ h6 {
 .entry abbr {
   text-decoration: dotted;
 }
+.entry abbr[title], .entry abbr.cd-tooltip-ready { position: relative; }
+.entry abbr[title]::after, .entry abbr .cd-tooltip {
+  content: attr(title);
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  top: -26px;
+  right: -7px;
+  z-index: 999;
+  padding: 0.1875em 0.75em;
+  border-radius: 1px;
+  background-color: #f8f8f8;
+  color: #666;
+  font-size: 0.88em;
+  font-weight: 300;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+.entry abbr[title]:hover::after { visibility: visible; }
+.entry abbr .cd-tooltip { top: auto; bottom: 100%; }
 .entry h1, .entry h2, .entry h3, .entry h4, .entry h5, .entry h6 {
   font-weight: bold;
 }
@@ -921,6 +942,7 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 .related-posts .post-category a {
   color: #00619F;
 }
+.related-head:not(.content-box-heading) { font-size: 1.34em; }
 .related-posts .post-category a:hover {
   color: #444;
 }
@@ -1690,6 +1712,7 @@ ul.page-numbers a.page-numbers:hover {
 }
 
 .site-title {
+  letter-spacing: -0.03em;
   display: inline-block;
   max-width: 100%;
   font-size: 1.875em;
@@ -2581,7 +2604,6 @@ ul.page-numbers a.page-numbers:hover {
 }
 .widget_cd_widget_social_links .social-links li {
   width: 25%;
-  min-width: 3.5em;
 }
 .widget_cd_widget_social_links .social-links li:not(:first-child) {
   margin-left: 0;
@@ -2867,7 +2889,7 @@ ul.page-numbers a.page-numbers:hover {
   font-size: 0.96em;
 }
 #comment-list .comment-meta a {
-  color: #666;
+  color: #747474;
   box-shadow: none;
 }
 #comment-list .comment-meta a:hover {
@@ -2925,7 +2947,7 @@ ul.page-numbers a.page-numbers:hover {
   padding-left: 1.6em;
 }
 #comment-list .reply a {
-  color: #666;
+  color: #747474;
   font-size: 0.875em;
   box-shadow: none;
 }
@@ -3226,6 +3248,11 @@ html body .screen-reader-text {
   height: 1px;
   clip: rect(1px, 1px, 1px, 1px);
   overflow: hidden;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+  clip-path: inset(50%);
+  word-wrap: normal !important;
 }
 
 /*   WP : Gutenberg Block Editor
@@ -3582,7 +3609,7 @@ html body .screen-reader-text {
 .social-links a, .social-links a:hover {
   box-shadow: none;
 }
-.social-links a::after {
+.social-links a::after, .social-links a .cd-tooltip {
   content: attr(title);
   display: block;
   visibility: hidden;
@@ -3614,6 +3641,17 @@ html body .screen-reader-text {
 }
 .social-links a:hover::after, .social-links a:hover::before {
   visibility: visible;
+}
+.social-links a.cd-tooltip-ready::after { content: none; }
+.social-links a.cd-tooltip-ready:not(.cd-tooltip-open)::before { visibility: hidden; }
+.cd-tooltip-ready.cd-tooltip-open > .cd-tooltip,
+.social-links a.cd-tooltip-open::before { visibility: visible; }
+.entry abbr .cd-tooltip, .social-links a .cd-tooltip {
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 ul.social-links {
@@ -3698,7 +3736,7 @@ ul.social-links {
   width: 100%;
   padding: 8px 10px;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.46);
   background-color: transparent;
   color: #fdfdfd;
 }
@@ -3724,7 +3762,7 @@ input::placeholder, textarea::placeholder {
 }
 .modal-search-form .search-submit {
   padding: 3px 4px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.46);
   background-color: transparent;
 }
 .modal-search-form .close-toggle {
@@ -3851,23 +3889,25 @@ input::placeholder, textarea::placeholder {
   clip: auto;
 }
 
-/* Visible keyboard focus on light and dark surfaces, including custom colors. */
+/* Visible keyboard focus without replacing the existing link/button shadows. */
 html body :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid #111;
   outline-offset: 2px;
-  box-shadow: 0 0 0 4px #fff;
+}
+html body :is(.footer-bottom, .modal-search-form, .post-nav) :is(a, input, button):focus-visible {
+  outline-color: #fff;
 }
 html body .post-nav a:focus-visible, html body .post-link:focus-visible {
   outline-offset: -4px;
-  box-shadow: inset 0 0 0 6px #fff;
 }
 html body .screen-reader-text:focus {
   clip: auto;
+  clip-path: none;
   width: auto;
   height: auto;
 }
 /* Keep input boundaries distinguishable from white form backgrounds. */
-input:not([type=submit]):not([type=button]):not([type=reset]), textarea, select {
+input:not([type=submit]):not([type=button]):not([type=reset]):where(:not(.modal-search-form .search-inner)), textarea, select {
   border-color: #767676;
 }
 /* Keep the comment fields' light sides and distinguish their lower boundary. */
@@ -3875,15 +3915,11 @@ input:not([type=submit]):not([type=button]):not([type=reset]), textarea, select 
   border-color: #ddd;
   border-bottom-color: #8e8e8e;
 }
-.post-category a {
-  display: inline-block;
-  min-height: 24px;
-}
-.widget_text a, .widget_block p a, .copyright a {
+.textwidget p a, .widget_block p a, .copyright a {
   text-decoration: underline;
   text-underline-offset: 0.15em;
 }
-.widget_text a:hover, .widget_block p a:hover, .copyright a:hover {
+.textwidget p a:hover, .widget_block p a:hover, .copyright a:hover {
   text-decoration-thickness: 2px;
 }
 @media (prefers-reduced-motion: reduce) {

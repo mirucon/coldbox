@@ -175,7 +175,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'post-formats', array( 'audio', 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
 		// Support HTML5.
-		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption', 'navigation-widgets' ) );
 
 		// Support custom header.
 		add_theme_support(
@@ -1033,7 +1033,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			if ( is_front_page() ) {
 				$title_tagname = 'h1';
 			} else {
-				$title_tagname = 'h2';
+				$title_tagname = 'div';
 			}
 
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
