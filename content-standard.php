@@ -20,7 +20,7 @@
 			<div class="post-header">
 
 				<h2 class="post-title">
-					<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+					<a href="<?php the_permalink(); ?>"><?php cd_the_accessible_title(); ?></a>
 				</h2>
 
 				<p class="post-meta">

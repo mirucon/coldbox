@@ -124,14 +124,15 @@ function cd_is_action_related_posts_bottom_hooked() {
 					<article <?php post_class(); ?>>
 
 						<figure class="post-thumbnail">
-							<a href="<?php the_permalink(); ?>" aria-label="<?php the_title_attribute(); ?>">
+							<?php $related_title = trim( wp_strip_all_tags( get_the_title() ) ); ?>
+							<a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( '' === $related_title ? __( '(no title)' ) : $related_title ); ?>">
 								<?php cd_middle_thumbnail( false ); ?>
 							</a>
 						</figure>
 
 						<div class="post-content">
 							<div class="post-category"><?php the_category( ' / ' ); ?></div>
-							<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+							<h3 class="post-title"><a href="<?php the_permalink(); ?>"><?php cd_the_accessible_title(); ?></a></h3>
 						</div>
 
 					</article>

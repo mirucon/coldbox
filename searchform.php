@@ -7,9 +7,10 @@
  */
 
 $cd_form_id = wp_unique_id( 'search-form' );
+$cd_form_label = ! empty( $args['aria_label'] ) ? $args['aria_label'] : __( 'Search', 'coldbox' );
 ?>
 
-<form method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+<form method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search" aria-label="<?php echo esc_attr( $cd_form_label ); ?>">
 	<label for="<?php echo esc_attr( $cd_form_id ); ?>" class="screen-reader-text"><?php esc_html_e( 'Search', 'coldbox' ); ?></label>
 	<input type="search" class="search-inner" name="s" id="<?php echo esc_attr( $cd_form_id ); ?>" placeholder="<?php esc_attr_e( 'Search this site', 'coldbox' ); ?>" value="<?php echo esc_attr( trim( get_search_query() ) ); ?>"/>
 	<button type="submit" class="search-submit">

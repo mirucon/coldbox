@@ -24,7 +24,7 @@ get_header(); ?>
 							<div class="error-messages">
 
 								<p><?php esc_html_e( 'The page does not exist, or has been moved. Try search or use menus to find what you are looking for.', 'coldbox' ); ?></p>
-								<?php get_search_form(); ?>
+								<?php get_search_form( array( 'aria_label' => __( 'Content' ) ) ); ?>
 
 							</div>
 

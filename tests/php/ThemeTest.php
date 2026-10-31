@@ -86,4 +86,44 @@ class ThemeTest extends WP_UnitTestCase {
     // Historical release entries may name retired features; invitations and sales links must stay absent.
     $this->assertDoesNotMatchRegularExpression( '/mailto:|please let me know|Need Help\?|feel free to get in touch|https:\/\/coldbox\.miruc\.co\/(?:addons\/)?google-adsense-extension/i', $html );
   }
+
+  public function test_untitled_posts_have_a_nonvisual_name_without_changing_titles() {
+    $id = self::factory()->post->create( array( 'post_title' => '' ) );
+    $GLOBALS['post'] = get_post( $id );
+    ob_start(); cd_the_accessible_title(); $html = ob_get_clean();
+    $this->assertStringContainsString( 'class="screen-reader-text"', $html );
+    $this->assertStringContainsString( '(no title)', $html );
+    $this->assertSame( '', get_the_title( $id ) );
+    wp_update_post( array( 'ID' => $id, 'post_title' => 'Title <em>with markup</em>' ) );
+    $GLOBALS['post'] = get_post( $id );
+    ob_start(); cd_the_accessible_title(); $html = ob_get_clean();
+    $this->assertSame( get_the_title( $id ), $html );
+    wp_update_post( array( 'ID' => $id, 'post_title' => '0' ) );
+    $GLOBALS['post'] = get_post( $id );
+    ob_start(); cd_the_accessible_title(); $html = ob_get_clean();
+    $this->assertSame( '0', $html );
+  }
+
+  public function test_social_link_default_does_not_depend_on_addon_attribute_hook() {
+    set_theme_mod( 'twitter', 'https://example.org/twitter' );
+    $addon = has_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr' );
+    remove_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr' );
+    ob_start(); cd_social_links(); $without = ob_get_clean();
+    $this->assertStringContainsString( 'target="_blank"', $without );
+    $this->assertStringContainsString( 'new-window-notice', $without );
+    // Simulate the already-published Add-on, including when the companion is absent.
+    $legacy = function () { echo 'target="_blank"'; };
+    add_action( 'cd_social_links_attr', $legacy );
+    ob_start(); cd_social_links(); $with = ob_get_clean();
+    $this->assertSame( preg_replace( '/\s+/', ' ', $without ), preg_replace( '/\s+/', ' ', $with ) );
+    remove_action( 'cd_social_links_attr', $legacy );
+    if ( false !== $addon ) add_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr', $addon );
+  }
+
+  public function test_search_landmarks_honor_context_and_escape_names() {
+    $default = get_search_form( array( 'echo' => false ) );
+    $content = get_search_form( array( 'echo' => false, 'aria_label' => 'Content " test' ) );
+    $this->assertStringContainsString( 'aria-label="Search"', $default );
+    $this->assertStringContainsString( 'aria-label="Content &quot; test"', $content );
+  }
 }

@@ -1260,11 +1260,13 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   flex-flow: row nowrap;
 }
 .post-password-form p:last-child label {
+  min-width: 0;
   flex-grow: 1;
   display: flex;
   align-items: center;
 }
 .post-password-form p:last-child input[type=password] {
+  min-width: 0;
   flex-grow: 1;
   border-right-width: 0;
 }
@@ -3333,6 +3335,13 @@ html body .screen-reader-text {
   text-align: center;
   font-size: 0.94em;
   line-height: 1.4;
+}
+
+/* Preserve the file button's core text color instead of the prose link color. */
+.entry .wp-block-file__button:not(.has-text-color),
+.entry .wp-block-file__button:not(.has-text-color):hover,
+.entry .wp-block-file__button:not(.has-text-color):focus {
+  color: #fff;
 }
 
 /*   Block Editor : Video Block

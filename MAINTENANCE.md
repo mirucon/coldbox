@@ -5,6 +5,8 @@
 AMP, Universal Analytics, Pocket and share counts are not provided.
 Normal article display, settings, share links, OGP, verification tags and Ads
 extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
+Social profile links open in a new tab, with visual and screen-reader notices,
+whether or not the Add-on is active. Share buttons remain an Add-on feature.
 Unrelated AMP plugins' `/amp/` paths are not intercepted. Saved retired settings
 are left in the database; no user data migration or deletion is required.
 

@@ -960,6 +960,18 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
  * -------------------------------------------------------------------------
  */
 
+if ( ! function_exists( 'cd_the_accessible_title' ) ) {
+	/** Render the existing title, with a nonvisual fallback for untitled posts. */
+	function cd_the_accessible_title() {
+		$title = get_the_title();
+		if ( '' === trim( wp_strip_all_tags( $title ) ) ) {
+			echo '<span class="screen-reader-text">' . esc_html__( '(no title)' ) . '</span>';
+		} else {
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Same filtered markup as the_title().
+		}
+	}
+}
+
 /*
  * the_excerpt
  * --------------------------------------------------

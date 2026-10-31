@@ -65,6 +65,36 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  /*   Keyboard access to content that actually needs scrolling.
+  /* -------------------------------------------------- */
+  {
+    const scrollAreas = [...document.querySelectorAll('.entry pre, .comment-body pre, .wp-block-gallery figcaption')]
+      .filter(node => !node.hasAttribute('tabindex'))
+    const update = node => {
+      const style = getComputedStyle(node)
+      const scrolls = (/auto|scroll/.test(style.overflowX) && node.scrollWidth > node.clientWidth + 1) ||
+        (/auto|scroll/.test(style.overflowY) && node.scrollHeight > node.clientHeight + 1)
+      if (scrolls) node.tabIndex = 0
+      else node.removeAttribute('tabindex')
+    }
+    const observer = new ResizeObserver(entries => entries.forEach(entry => update(entry.target)))
+    scrollAreas.forEach(node => {
+      update(node)
+      observer.observe(node)
+      // WebKit focuses gallery captions but does not scroll them with arrow keys.
+      if (node.tagName === 'FIGCAPTION') node.addEventListener('keydown', event => {
+        if (event.target !== node || event.defaultPrevented || node.isContentEditable || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+        const step = { ArrowDown: 40, ArrowUp: -40 }[event.key]
+        if (!step) return
+        const before = node.scrollTop
+        node.scrollTop += step
+        if (node.scrollTop !== before) event.preventDefault()
+      })
+    })
+    window.addEventListener('load', () => scrollAreas.forEach(update))
+    document.fonts.ready.then(() => scrollAreas.forEach(update))
+  }
+
   /*   Masonry responsive widgets
   /* -------------------------------------------------- */
   {

@@ -238,6 +238,13 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			ob_start();
 			do_action( 'cd_social_links_attr' );
 			$link_attributes = ob_get_clean();
+			// The theme owns the default; keep explicit attributes from extensions.
+			if ( ! preg_match( '/(?:^|\s)target\s*=/i', $link_attributes ) ) {
+				$link_attributes .= ' target="_blank"';
+			}
+			if ( ! preg_match( '/(?:^|\s)rel\s*=/i', $link_attributes ) ) {
+				$link_attributes .= ' rel="noopener"';
+			}
 			?>
 			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
 				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Existing attribute hook output. ?>>

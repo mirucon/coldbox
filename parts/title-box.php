@@ -11,7 +11,7 @@ if ( is_single() && ! is_attachment() ) {
 	<header class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
-			<h1 class="post-title"><?php the_title(); ?></h1>
+			<h1 class="post-title"><?php cd_the_accessible_title(); ?></h1>
 		</div>
 	</header>
 	<?php
@@ -20,7 +20,7 @@ if ( is_single() && ! is_attachment() ) {
 	<header class="title-box">
 		<div class="title-box-inner container">
 			<div class="breadcrumb"><?php cd_breadcrumb(); ?></div>
-			<h1 class="post-title"><?php the_title(); ?></h1>
+			<h1 class="post-title"><?php cd_the_accessible_title(); ?></h1>
 		</div>
 	</header>
 	<?php

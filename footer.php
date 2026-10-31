@@ -109,7 +109,7 @@
 </footer>
 
 <div class="modal-search-form" id="modal-search-form" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Search', 'coldbox' ); ?>">
-	<?php get_search_form(); ?>
+	<?php get_search_form( array( 'aria_label' => __( 'Header' ) ) ); ?>
 
 	<button class="close-toggle" aria-label="<?php esc_attr_e( 'Close', 'coldbox' ); ?>">
 		<span class="top" aria-hidden="true"></span>
