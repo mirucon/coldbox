@@ -1007,26 +1007,22 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   filter: blur(3px);
   transition: all 0.4s;
 }
-.post-nav .post-thumbnail::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-}
 .post-nav .nav-title {
   position: relative;
   margin-bottom: 0.4em;
   color: #f0f0f0;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 0 2px rgba(0, 0, 0, 0.6);
+  text-shadow: -1px -1px 0 #333, 0 -1px 0 #333, 1px -1px 0 #333, 1px 0 0 #333,
+    1px 1px 0 #333, 0 1px 0 #333, -1px 1px 0 #333, -1px 0 0 #333;
   font-size: 14px;
   font-family: Lato, Arial, sans-serif;
 }
 .post-nav .post-title {
   position: relative;
   color: #fff;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: -1px -1px 0 #333, 0 -1px 0 #333, 1px -1px 0 #333, 1px 0 0 #333,
+    1px 1px 0 #333, 0 1px 0 #333, -1px 1px 0 #333, -1px 0 0 #333;
   line-height: 1.6;
 }
 .post-nav .chevron-right {
@@ -1052,6 +1048,10 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   border-bottom: 1px solid #fff;
   transform: rotate(45deg);
   transition: all 0.4s;
+}
+.post-nav .chevron-left, .post-nav .chevron-right {
+  filter: drop-shadow(1px 0 #333) drop-shadow(-1px 0 #333)
+    drop-shadow(0 1px #333) drop-shadow(0 -1px #333);
 }
 .post-nav .next .nav-title {
   right: -8px;
@@ -3869,6 +3869,11 @@ html body .screen-reader-text:focus {
 /* Keep input boundaries distinguishable from white form backgrounds. */
 input:not([type=submit]):not([type=button]):not([type=reset]), textarea, select {
   border-color: #767676;
+}
+/* Keep the comment fields' light sides and distinguish their lower boundary. */
+#respond :is(input[type=text], input[type=email], input[type=url], textarea) {
+  border-color: #ddd;
+  border-bottom-color: #8e8e8e;
 }
 .post-category a {
   display: inline-block;
