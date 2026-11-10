@@ -52,16 +52,6 @@
       "allowedVersions": "<10.0.0"
     },
     {
-      "description": "Keep Font Awesome 5/6 class and font-family compatibility for existing sites and child themes",
-      "matchDatasources": [
-        "npm"
-      ],
-      "matchPackageNames": [
-        "@fortawesome/fontawesome-free"
-      ],
-      "allowedVersions": "<7.0.0"
-    },
-    {
       "description": "Track MySQL LTS lines in CI rather than short-lived Innovation releases",
       "matchDatasources": [
         "docker"
