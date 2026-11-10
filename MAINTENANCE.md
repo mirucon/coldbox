@@ -56,9 +56,9 @@ php -S 127.0.0.1:8874 -t .test-runtime/wordpress tests/router.php
 npm run test:browser
 ```
 
-Only `dist/` is an installable package; it retains the editable `styles/` and
-`assets/js/` sources alongside minified assets as WordPress.org requires, while
-excluding tests, node_modules, vendor and runtime files. The theme uses plain CSS
+Only `dist/` is an installable package; it retains the editable `styles/`,
+`assets/js/` and bundled library (`assets/lib/`) sources alongside minified assets
+as WordPress.org requires, while excluding tests, node_modules, vendor and runtime files. The theme uses plain CSS
 in `styles/` and preserves the previous cascade order, asset names and class names. Feedly and Hatena use
 the same bundled SVG shapes instead of a generated font. esbuild only bundles
 and minifies; no Sass, Stylus, Babel, Webpack or webfont generator is required.
