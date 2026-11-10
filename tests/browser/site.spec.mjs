@@ -76,9 +76,9 @@ test('header element order adapts across mobile and desktop without whitespace t
     [...document.querySelector('#header > .header-inner').children].map(el => el.id || el.className.split(' ')[0])
   );
   await page.setViewportSize({ width: 390, height: 800 });
-  expect(await order()).toEqual(['site-info', 'search-toggle', 'header-nav-toggle', 'header-menu']);
+  await expect.poll(order).toEqual(['site-info', 'search-toggle', 'header-nav-toggle', 'header-menu']);
   await page.setViewportSize({ width: 1024, height: 800 });
-  expect(await order()).toEqual(['site-info', 'header-menu', 'search-toggle', 'header-nav-toggle']);
+  await expect.poll(order).toEqual(['site-info', 'header-menu', 'search-toggle', 'header-nav-toggle']);
   expect(errors).toEqual([]);
 });
 
