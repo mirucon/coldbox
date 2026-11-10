@@ -566,6 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
     parentMenus.forEach((parentEl, index) => {
       const link = parentEl.querySelector('a')
       const submenu = parentEl.querySelector('.sub-menu')
+      if (!link || !submenu) return
       if (!submenu.id) submenu.id = `cd-submenu-${index}`
       link.setAttribute('aria-controls', submenu.id)
       const updateState = () => link.setAttribute('aria-expanded', String(
@@ -604,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!parentEl.matches(':hover')) return
         parentEl.classList.remove('is-sub-menu-shown')
         parentEl.classList.add('is-sub-menu-dismissed')
-        parentEl.querySelector('a').setAttribute('aria-expanded', 'false')
+        parentEl.querySelector('a')?.setAttribute('aria-expanded', 'false')
       })
     })
   }
@@ -756,7 +757,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (dates) {
       for (const date of dates) {
-        if (date.previousElementSibling.tagName === 'A') {
+        if (date.previousElementSibling?.tagName === 'A') {
           const parent = date.previousElementSibling
           const titleNode = document.createElement('span')
           titleNode.className = 'recent_entries_post-title'

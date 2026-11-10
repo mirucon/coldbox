@@ -24,10 +24,27 @@ for (const path of ['/', '/coldbox-fixture/', '/fixture-page/', '/fixture-wide/'
     });
     expect(visible).toBe(true);
     await page.keyboard.press('Enter');
+    expect(await page.locator('#content').evaluate(el => getComputedStyle(el).outlineStyle)).toBe('none');
     await page.keyboard.press('Tab');
     expect(await page.locator(':focus').evaluate(el => !el.closest('#header'))).toBe(true);
   });
 }
+
+test('comment textarea preserves Coldbox blue focus border and jump targets omit button outlines', async ({ page }) => {
+  await page.goto('/coldbox-fixture/');
+  const jump = page.getByRole('link', { name: 'Jump to section', exact: true });
+  await jump.focus();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#section-two')).toBeFocused();
+  expect(await page.locator('#section-two').evaluate(el => ({
+    tabIndex: el.getAttribute('tabindex'),
+    outlineStyle: getComputedStyle(el).outlineStyle,
+  }))).toEqual({ tabIndex: '-1', outlineStyle: 'none' });
+  const comment = page.locator('#respond textarea');
+  await expect(comment).toHaveCSS('border-bottom-color', 'rgb(142, 142, 142)');
+  await comment.click();
+  await expect(comment).toHaveCSS('border-bottom-color', 'rgb(0, 97, 159)');
+});
 
 test('search dialog cycles both ways and restores keyboard focus', async ({ page }) => {
   await page.goto('/');

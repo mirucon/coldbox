@@ -30,7 +30,8 @@ for (const name of ['editor-style', 'page-style', 'czr-style']) {
   writeFileSync(`assets/css/${name}.min.css`, result.code);
 }
 for (const name of readdirSync('.').filter(name => name.endsWith('.php') || name === 'style.css')) cpSync(name, `dist/${name}`);
-for (const name of ['parts', 'page-templates', 'assets/css', 'assets/fonts', 'assets/img', 'assets/icons', 'assets/js/min']) cpSync(name, `dist/${name}`, { recursive: true });
+// Ship editable CSS/JS sources alongside minified assets per WP.org theme requirements.
+for (const name of ['parts', 'page-templates', 'styles', 'assets/css', 'assets/fonts', 'assets/img', 'assets/icons', 'assets/js']) cpSync(name, `dist/${name}`, { recursive: true });
 for (const name of ['readme.txt', 'screenshot.jpg', 'CHANGELOG.md', 'accessibility.txt']) cpSync(name, `dist/${name}`);
 // Generate the admin-page history from the single maintained Markdown source.
 mkdirSync('assets/html', { recursive: true });
@@ -42,7 +43,7 @@ cpSync('node_modules/@fortawesome/fontawesome-free/LICENSE.txt', 'dist/licenses/
 cpSync('node_modules/highlight.js/LICENSE', 'dist/licenses/highlight.js.txt');
 // Existing translations are optional and extracted separately; build needs no WP/network.
 try { cpSync('languages', 'dist/languages', { recursive: true, filter: path => !path.endsWith('.gitkeep') }); } catch (error) { if (error.code !== 'ENOENT') throw error; }
-const files = readdirSync('dist', { recursive: true });
-assert(files.includes('assets/js/min/scripts.js') || files.includes('assets\\js\\min\\scripts.js'));
-assert(!files.some(name => /(?:node_modules|vendor|tests|\.map$|\.babel\.js$)/.test(name)), 'Development files must not ship');
+const files = readdirSync('dist', { recursive: true }).map(name => name.replaceAll('\\', '/'));
+assert(files.includes('assets/js/min/scripts.js') && files.includes('assets/js/cd-scripts.babel.js') && files.includes('styles/style.css'));
+assert(!files.some(name => /(?:^|\/)(?:node_modules|vendor|tests)(?:\/|$)|\.map$/.test(name)), 'Development files must not ship');
 console.log(`Built installable theme (${files.length} entries).`);

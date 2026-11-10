@@ -3899,9 +3899,12 @@ input::placeholder, textarea::placeholder {
 }
 
 /* Visible keyboard focus without replacing the existing link/button shadows. */
-html body :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+html body :where(a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])):focus-visible {
   outline: 2px solid #111;
   outline-offset: 2px;
+}
+html body [tabindex="-1"]:focus {
+  outline: none;
 }
 html body :is(.footer-bottom, .modal-search-form, .post-nav) :is(a, input, button):focus-visible {
   outline-color: #fff;
@@ -3915,12 +3918,14 @@ html body .screen-reader-text:focus {
   width: auto;
   height: auto;
 }
-/* Keep input boundaries distinguishable from white form backgrounds. */
-input:not([type=submit]):not([type=button]):not([type=reset]):where(:not(.modal-search-form .search-inner)), textarea, select {
+/* Keep input boundaries distinguishable from white form backgrounds without clobbering :focus. */
+input:where(:not([type=submit], [type=button], [type=reset], [type=checkbox], [type=radio], [type=range], [type=file], [type=image], [type=color], [type=hidden], .modal-search-form .search-inner)):not(:focus),
+textarea:not(:focus),
+select:not(:focus) {
   border-color: #767676;
 }
-/* Keep the comment fields' light sides and distinguish their lower boundary. */
-#respond :is(input[type=text], input[type=email], input[type=url], textarea) {
+/* Keep the comment fields' light sides and distinguish their lower boundary while preserving :focus. */
+#respond :is(input[type=text], input[type=email], input[type=url], textarea):not(:focus) {
   border-color: #ddd;
   border-bottom-color: #8e8e8e;
 }

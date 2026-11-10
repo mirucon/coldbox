@@ -98,7 +98,7 @@ function cd_czr_social_links( $wp_customize ) {
 		array(
 			'type'        => 'checkbox',
 			'label'       => __( 'Show new-tab icons', 'coldbox' ),
-			'description' => __( 'Hiding the icons removes the visible new-tab notice. Links still open in a new tab, and screen-reader announcements remain enabled.', 'coldbox' ),
+			'description' => __( 'Applies to social links and Coldbox Add-on share buttons. Hiding the icons removes the visible new-tab notice; links still open in a new tab, and screen-reader announcements remain enabled.', 'coldbox' ),
 			'section'     => 'social_links',
 			'priority'    => 1,
 		)

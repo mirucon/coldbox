@@ -8,9 +8,9 @@ extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
 Social profile links open in a new tab, with visual and screen-reader notices,
 whether or not the Add-on is active. Share buttons remain an Add-on feature.
 Customizer > Coldbox: Social Links > Show new-tab icons is enabled by default.
-Turning it off hides only the theme's social profile indicators; link targets
-and screen-reader announcements stay unchanged. It also applies to the social
-links widget and author box, but does not change Add-on share buttons.
+Turning it off hides only the visible new-tab indicators on the theme's social
+profile links (including the social links widget and author box) and Coldbox
+Add-on share buttons; link targets and screen-reader announcements stay unchanged.
 Unrelated AMP plugins' `/amp/` paths are not intercepted. Saved retired settings
 are left in the database; no user data migration or deletion is required.
 
@@ -55,9 +55,10 @@ php -S 127.0.0.1:8874 -t .test-runtime/wordpress tests/router.php
 npm run test:browser
 ```
 
-Only `dist/` is an installable package. Tests, node_modules, vendor and runtime
-files are excluded. The theme uses editable plain CSS in `styles/`; it retains
-the previous cascade order, asset names and class names. Feedly and Hatena use
+Only `dist/` is an installable package; it retains the editable `styles/` and
+`assets/js/` sources alongside minified assets as WordPress.org requires, while
+excluding tests, node_modules, vendor and runtime files. The theme uses plain CSS
+in `styles/` and preserves the previous cascade order, asset names and class names. Feedly and Hatena use
 the same bundled SVG shapes instead of a generated font. esbuild only bundles
 and minifies; no Sass, Stylus, Babel, Webpack or webfont generator is required.
 

@@ -19,6 +19,7 @@ assets/js/min/
 assets/js/unmin/
 
 /.test-runtime/
+/.playwright-mcp/
 /test-results/
 /playwright-report/
 /.phpunit.result.cache

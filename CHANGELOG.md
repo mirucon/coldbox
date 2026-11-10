@@ -3,7 +3,7 @@
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * Removed Skype social links
 * Social links now open in a new tab with or without the Add-on
-* Added an option to hide new-tab icons on social links
+* Added an option to hide new-tab icons on social links and share buttons
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
 * fix: Keyboard navigation and text contrast
