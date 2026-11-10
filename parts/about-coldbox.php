@@ -46,6 +46,7 @@ function cd_welcome_page_content() {
 	?>
 	<header class="cdAdmin__header">
 		<h1 class="cdAdmin__themeName"><?php echo esc_html( /* translators: %s: Theme version */ sprintf( esc_html__( 'Welcome to Coldbox %s', 'coldbox' ), CD_VER ) ); ?></h1>
+		<p><a href="#changelog"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></a></p>
 		<div class="cdAdmin__screenshot">
 			<img src="<?php echo esc_url( get_theme_file_uri( 'screenshot.jpg' ) ); ?>" width="1200" height="900" alt="<?php esc_attr_e( 'Theme screenshot', 'coldbox' ); ?>">
 		</div>
@@ -103,95 +104,17 @@ function cd_welcome_page_content() {
 			<?php esc_html_e( 'We are also developing the Addon plugin called Coldbox Addons, which is created and designed just for the Coldbox theme. We highly recommend you to always use the plugin to make the most of the theme. The latest version of the plugin has the following features: ', 'coldbox' ); ?>
 		</p>
 		<ul>
-			<li><?php esc_html_e( 'Automatic AMP pages generation', 'coldbox' ); ?></li>
 			<li><?php esc_html_e( 'Share buttons', 'coldbox' ); ?></li>
-			<li><?php esc_html_e( 'Google Analytics integration', 'coldbox' ); ?></li>
 			<li><?php esc_html_e( 'Automatic Open Graph Tag output', 'coldbox' ); ?></li>
 		</ul>
-
-		<?php
-		if ( is_plugin_active( 'coldbox-addon/coldbox-addon.php' ) ) {
-			?>
+		<?php if ( is_plugin_active( 'coldbox-addon/coldbox-addon.php' ) ) : ?>
 			<p><strong><?php esc_html_e( 'Great, you have already installed and activated the addon plugin! To customize some settings related to the addon plugin, go to the Theme Customizer.', 'coldbox' ); ?></strong></p>
-			<?php
-		} else {
-			?>
+		<?php elseif ( current_user_can( 'install_plugins' ) ) : ?>
 			<p><?php esc_html_e( 'You have not installed or activated the addon plugin yet. Click the link below to proceed installing the plugin!', 'coldbox' ); ?></p>
 			<a href="<?php echo esc_url( admin_url( 'themes.php?page=tgmpa-install-plugins' ) ); ?>" class="cdAdmin__button">
 				<?php esc_html_e( 'Install Now', 'coldbox' ); ?>
 			</a>
-			<?php
-		}
-		?>
-	</div>
-
-	<div class="cdAdmin__section">
-		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Coldbox Ads Extension Plugin', 'coldbox' ); ?></h2>
-		<p>
-			<?php
-				esc_html_e(
-					'We\'ve developed an extension plugin for the Google AdSense ads for the Coldbox theme users. The plugin gives you the great experiences and engagements on Google AdSense without writing code at all.
-				This currently supports in-article, in-feed, matched content, responsive ads, and the auto-ads settings with one-click. See the below article for more information:',
-					'coldbox'
-				);
-			?>
-		</p>
-
-		<p>
-			<a href="<?php echo esc_url( __( 'https://coldbox.miruc.co/addons/google-adsense-extension/', 'coldbox' ) ); ?>" class="cdAdmin__button">
-				<?php esc_html_e( 'About the Coldbox Ads Extension', 'coldbox' ); ?>
-			</a>
-		</p>
-
-		<?php
-		if ( is_plugin_active( 'coldbox-ads-extension/coldbox-ads-extension.php' ) ) {
-			?>
-			<p>
-				<strong>
-					<?php
-						esc_html__( 'Thanks for purchasing the ads extension plugin! If you need help about how to set up the ads, please contact me from the contact information below.', 'coldbox' );
-					?>
-				</strong>
-			</p>
-			<?php
-		}
-		?>
-	</div>
-
-	<div class="cdAdmin__section">
-		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Need Help?', 'coldbox' ); ?></h2>
-		<p>
-			<?php
-				echo wp_kses_data(
-					sprintf(
-						/* translators: %1$s: forum link, %2$s: Opening a tag, %3$s: Closing a tag */
-						__( 'If you need help with the theme, you can simply ask your query on the %1$s, or %2$s email me%3$s. Please also feel free to get in touch if you think you found a bug, or have a new feature request.', 'coldbox' ),
-						'<a href="https://wordpress.org/support/theme/coldbox/">' . esc_html__( 'forum', 'coldbox' ) . '</a>',
-						'<a href="mailto:i@miruc.co">',
-						'</a>'
-					)
-				);
-
-				echo ' ';
-				esc_html_e(
-					'Please first consider to post your question on the forum, as posting on forum can help the other users having the same problem. Email me if you want to share images with me or your question is private.',
-					'coldbox'
-				);
-			?>
-		</p>
-		<p>
-			<?php
-				printf(
-					/* translators: 1: Opening a tag, 2: Closing a tag */
-					esc_html__(
-						'If you are a developer, submitting an issue or pull request %1$son the GitHub repository%2$s is always welcome.',
-						'coldbox'
-					),
-					'<a href="https://github.com/mirucon/coldbox" target="_blank" rel="nofollow">',
-					'</a>'
-				);
-			?>
-		</p>
+		<?php endif; ?>
 	</div>
 
 	<div class="cdAdmin__section">
@@ -211,35 +134,6 @@ function cd_welcome_page_content() {
 	</div>
 
 	<?php
-	if ( -1 === version_compare( phpversion(), '7.2.0' ) ) {
-		?>
-		<div id="upgrade-php" class="cdAdmin__section">
-			<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Your PHP!', 'coldbox' ); ?></h2>
-			<p>
-				<?php
-					$allowed_html = array(
-						'a' => array(
-							'href',
-						),
-					);
-					echo wp_kses(
-						sprintf(
-							/* translators: %1$s: PHP version, %2$s: Opening a tag, %3$s: Closing a tag. */
-							__( 'We\'ve detected you are using PHP version %1$s which has already been unmaintained. Although WordPress core and the Coldbox theme still supports your PHP version, using unmaintained version of PHP means you have a big security risk. Please consider to upgrade your PHP version to PHP 7.2 or greater for the maximum compatibility (including theme, plugins and WordPress core) and your security. WordPress recommends you to use PHP 7.4 or greater. See %2$sRequirements %3$s on WordPress.org.', 'coldbox' ),
-							phpversion(),
-							'<a href="' . esc_url( __( 'https://wordpress.org/about/requirements/', 'coldbox' ) ) . '">',
-							'</a>'
-						),
-						$allowed_html
-					);
-				?>
-			</p>
-		</div>
-		<?php
-	}
-	?>
-
-	<?php
 		$upgrade_notices = array(
 			array(
 				'version'     => esc_html__( 'v1.9.0', 'coldbox' ),
@@ -247,7 +141,7 @@ function cd_welcome_page_content() {
 								sprintf(
 									/* translators: This text shows as a upgrade notice of v1.9.0. / placeholders: 1: Starting a tag, 2: Ending a tag. */
 									esc_html__(
-										'Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s. If you still see something is broken or looks not so nice, please let me know.',
+										'Finally, the theme is fully compatible with the Gutenberg Block Editor! To find out how you can use the Block Editor with the Coldbox theme, please see the %1$sdemo pages%2$s.',
 										'coldbox'
 									),
 									'<a href="https://coldbox.miruc.co/demo/category/block/">',
@@ -294,6 +188,7 @@ function cd_welcome_page_content() {
 
 	<div id="upgrade-notice" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Upgrade Notice', 'coldbox' ); ?></h2>
+		<p><?php esc_html_e( 'These notices describe past releases. For current changes, see the changelog below.', 'coldbox' ); ?></p>
 
 		<?php
 		foreach ( $upgrade_notices as $notice ) {
@@ -304,17 +199,14 @@ function cd_welcome_page_content() {
 		}
 		?>
 
-	<div class="cdAdmin__section">
+	</div>
+
+	<div id="changelog" class="cdAdmin__section">
 		<h2 class="cdAdmin__h2"><?php esc_html_e( 'Changelog', 'coldbox' ); ?></h2>
+		<?php echo wp_kses_post( file_get_contents( get_theme_file_path( 'assets/html/CHANGELOG.html' ) ) ); ?>
 	</div>
 
 	<?php
-	ob_start();
-	require_once get_theme_file_path( 'assets/html/CHANGELOG.html' );
-	$changelog = ob_get_contents();
-	ob_end_clean();
-
-	echo wp_kses_post( $changelog ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**

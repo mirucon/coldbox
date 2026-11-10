@@ -1,9 +1,9 @@
 === Coldbox ===
 Contributors: @mirucon
-Requires at least: 5.0
-Tested up to: WordPress 5.4
-Requires PHP: 5.2.4
-Version: 1.9.5
+Requires at least: 5.2
+Tested up to: 7.1
+Requires PHP: 7.4
+Version: 1.10.0
 License: GPL v2.0 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: accessibility-ready, blog, one-column, two-columns, right-sidebar, left-sidebar, grid-layout, translation-ready, flexible-header, custom-background, custom-header, custom-colors, custom-menu, featured-images, post-formats, sticky-post, theme-options, editor-style, threaded-comments, custom-logo
@@ -22,28 +22,27 @@ To get started, see the "About Coldbox" page from the "Appearance" menu after in
 
 The official Add-on Plugin is now available. Download it from the WP.org plugin repository! [https://wordpress.org/plugins/coldbox-addon/](https://wordpress.org/plugins/coldbox-addon/)
 
-The latest version has the following features. We highly recommend that you always use the plugin with the theme!
+The optional Add-on provides:
 
-* Automatic AMP pages generation
 * Social share buttons
-* Google Analytics integration
 * Automatic Open Graph tag output
 
 = Author information =
 The Coldbox theme is designed and created by mirucon
 WordPress.org Profile: https://profiles.wordpress.org/mirucon/
 Twitter: @mirucons
-Email: i@miruc.co
+
 
 == Copyright ==
 Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
 The Coldbox theme is distributed under the terms of GNU GPL.
 
-FontAwesome License
+Font Awesome Free License
 Font License - SIL OFL 1.1
+Icons License - CC BY 4.0
 Code License - MIT License
-URL: http://fontawesome.io/license/
-Created by Dave Gandy
+URL: https://fontawesome.com/license/free
+Copyright Fonticons, Inc.; see licenses/Font-Awesome.txt.
 
 IcoMoon License
 License - GPL / CC BY 4.0
@@ -62,17 +61,16 @@ Created by @benjsperry
 
 TGM Plugin Activation License
 License - GPL v2 or later
-URL: http://tgmpluginactivation.com/
+URL: https://tgmpluginactivation.com/
 
 CSS minifying function
 License - GPL
 URL: https://github.com/GaryJones/Simple-PHP-CSS-Minification/blob/master/minify.php
 Created by Gary Jones
 
-Smooth Scroll behavior polyfill
-License - MIT
-URL: https://github.com/iamdustan/smoothscroll
-Created by Dustan Kasten and Jeremias Menichelli
+Simple Icons (Feedly and Hatena Bookmark)
+Source: https://github.com/simple-icons/simple-icons/tree/9.21.0
+License: CC0 1.0; see assets/icons/LICENSE.md.
 
 All the photos used in the screenshot are all licensed under CC0.
 * Top-left photo: Taken by me.
@@ -81,6 +79,18 @@ All the photos used in the screenshot are all licensed under CC0.
 * Bottom-right photo: https://www.pexels.com/photo/beverage-breakfast-brewed-coffee-caffeine-374885/
 
 == Changelog ==
+
+= 1.10.0 =
+
+* Theme now requires WordPress 5.2 and PHP 7.4 or higher
+* feat: Add Bluesky and Threads to Social Links
+* feat: Add option to display Twitter as X on social links and share buttons
+* feat: Open social links in a new tab by default, with an option to hide new-tab icons
+* feat: Improve accessibility, keyboard navigation, focus styles, color contrast, and tooltips
+* fix: Mobile menu cannot be reopened after closing
+* fix: Custom site title font size overrides other Customizer styles
+* Removed Skype from Social Links
+* And some small bug fixes and improvements
 
 = 1.9.5=
 
@@ -269,3 +279,9 @@ All the photos used in the screenshot are all licensed under CC0.
 
 *See CHANGELOG.md to see full changelog*
 
+
+== Upgrade Notice ==
+
+= 1.10.0 =
+
+Requires WordPress 5.2+ and PHP 7.4+.

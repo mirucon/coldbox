@@ -1,3 +1,15 @@
+### 1.10.0 <small> - November 10th, 2026</small>
+
+* Theme now requires WordPress 5.2 and PHP 7.4 or higher
+* feat: Add Bluesky and Threads to Social Links
+* feat: Add option to display Twitter as X on social links and share buttons
+* feat: Open social links in a new tab by default, with an option to hide new-tab icons
+* feat: Improve accessibility, keyboard navigation, focus styles, color contrast, and tooltips
+* fix: Mobile menu cannot be reopened after closing
+* fix: Custom site title font size overrides other Customizer styles
+* Removed Skype from Social Links
+* And some small bug fixes and improvements
+
 ### 1.9.5 <small> - June 25th, 2023</small>
 
 * fix: Deprecated notices appeared in PHP 8.2 are now gone

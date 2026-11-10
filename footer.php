@@ -6,10 +6,7 @@
  * @package Coldbox
  */
 
-if ( cd_is_amp() ) :
-	cd_addon_amp_footer();
-else :
-	?>
+?>
 
 <footer id="footer" class="footer" role="contentinfo">
 
@@ -19,11 +16,18 @@ else :
 
 			<div class="container">
 
-				<?php for ( $cd_i = 1; $cd_i <= 4; $cd_i++ ) : ?>
+				<?php
+				$cd_footer_labels = array(
+					1 => __( 'Footer Sidebar One', 'coldbox' ),
+					2 => __( 'Footer Sidebar Two', 'coldbox' ),
+					3 => __( 'Footer Sidebar Three', 'coldbox' ),
+					4 => __( 'Footer Sidebar Four', 'coldbox' ),
+				);
+				for ( $cd_i = 1; $cd_i <= 4; $cd_i++ ) : ?>
 
 					<?php if ( is_active_sidebar( 'footer-' . $cd_i ) ) : ?>
 
-						<aside id="footer-<?php echo absint( $cd_i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $cd_i ); ?>" role="complementary">
+						<aside id="footer-<?php echo absint( $cd_i ); ?>" class="footer-sidebar-container footer-s<?php echo absint( $cd_i ); ?>" role="complementary" aria-label="<?php echo esc_attr( $cd_footer_labels[ $cd_i ] ); ?>">
 
 							<div class="footer-sidebar sidebar">
 
@@ -104,10 +108,10 @@ else :
 
 </footer>
 
-<div class="modal-search-form" id="modal-search-form" role="dialog" aria-modal="true">
-	<?php get_search_form(); ?>
+<div class="modal-search-form" id="modal-search-form" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Search', 'coldbox' ); ?>">
+	<?php get_search_form( array( 'aria_label' => __( 'Header', 'coldbox' ) ) ); ?>
 
-	<button class="close-toggle">
+	<button class="close-toggle" aria-label="<?php esc_attr_e( 'Close', 'coldbox' ); ?>">
 		<span class="top" aria-hidden="true"></span>
 		<span class="bottom" aria-hidden="true"></span>
 		<span class="label"><?php esc_html_e( 'Close', 'coldbox' ); ?></span>
@@ -117,5 +121,3 @@ else :
 	<?php wp_footer(); ?>
 
 </body></html>
-
-<?php endif; ?>

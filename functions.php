@@ -43,14 +43,14 @@ if ( ! function_exists( 'cd_load_hljs' ) ) {
 					wp_enqueue_script( 'scripts-hljs', get_theme_file_uri( 'assets/js/min/scripts+hljs.js' ), array( 'wp-polyfill' ), CD_VER, false );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs.js' ), array(), '9.12.0', false );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs.js' ), array(), CD_VER, false );
 				}
 			} elseif ( cd_use_web_hljs() && ! cd_use_normal_hljs() || cd_use_web_hljs() && cd_use_normal_hljs() ) {
 				if ( cd_use_concat_js() ) { // Web hljs with concat JS.
 					wp_enqueue_script( 'scripts-hljs-web', get_theme_file_uri( 'assets/js/min/scripts+hljs_web.js' ), array( 'wp-polyfill' ), CD_VER, false );
 					wp_dequeue_script( 'cd-script' );
 				} else {
-					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs_web.js' ), array(), '9.12.0', false );
+					wp_enqueue_script( 'hljs', get_theme_file_uri( 'assets/js/min/hljs_web.js' ), array(), CD_VER, false );
 				}
 			}
 		}
@@ -175,7 +175,7 @@ if ( ! function_exists( 'cd_supports' ) ) {
 		add_theme_support( 'post-formats', array( 'audio', 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video' ) );
 
 		// Support HTML5.
-		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption' ) );
+		add_theme_support( 'html5', array( 'comment-form', 'comment-list', 'gallery', 'caption', 'navigation-widgets' ) );
 
 		// Support custom header.
 		add_theme_support(
@@ -960,6 +960,18 @@ if ( ! function_exists( 'cd_breadcrumb' ) ) {
  * -------------------------------------------------------------------------
  */
 
+if ( ! function_exists( 'cd_the_accessible_title' ) ) {
+	/** Render the existing title, with a nonvisual fallback for untitled posts. */
+	function cd_the_accessible_title() {
+		$title = get_the_title();
+		if ( '' === trim( wp_strip_all_tags( $title ) ) ) {
+			echo '<span class="screen-reader-text">' . esc_html__( '(no title)', 'coldbox' ) . '</span>';
+		} else {
+			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Same filtered markup as the_title().
+		}
+	}
+}
+
 /*
  * the_excerpt
  * --------------------------------------------------
@@ -1033,7 +1045,7 @@ if ( ! function_exists( 'cd_site_title' ) ) {
 			if ( is_front_page() ) {
 				$title_tagname = 'h1';
 			} else {
-				$title_tagname = 'h2';
+				$title_tagname = 'div';
 			}
 
 			$logo  = '<a href="' . esc_url( home_url() ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '">';
@@ -1166,7 +1178,7 @@ if ( ! function_exists( 'cd_post_format_icon' ) ) {
  *  Theme definitions
  * -------------------------------------------------------------------------
  */
-define( 'CD_VER', '1.9.5' );
+define( 'CD_VER', '1.10.0' );
 
 /*
  * -------------------------------------------------------------------------
@@ -1174,8 +1186,11 @@ define( 'CD_VER', '1.9.5' );
  * -------------------------------------------------------------------------
  */
 
-// Load TGM plugin activation file.
+// Recommend the optional Coldbox Add-on through the existing installer.
 require_once get_template_directory() . '/parts/tgm/load-tgm.php';
+
+// Keep old AMP query links working while retiring AMP rendering.
+require_once get_template_directory() . '/parts/retired-amp.php';
 
 if ( ! function_exists( 'cd_is_active_addon' ) ) {
 	/**
@@ -1190,6 +1205,13 @@ if ( ! function_exists( 'cd_is_active_addon' ) ) {
 	add_action( 'plugins_loaded', 'cd_is_active_addon', 1 );
 }
 
+// Add-on 1.2.5 registered this filter with the theme helper as its own callback.
+// Correct that existing registration when the theme is updated first.
+if ( has_filter( 'cd_is_active_addon', 'cd_is_active_addon' ) && function_exists( 'cd_addon_is_active_addon' ) ) {
+	remove_filter( 'cd_is_active_addon', 'cd_is_active_addon', 1 );
+	add_filter( 'cd_is_active_addon', 'cd_addon_is_active_addon', 1 );
+}
+
 if ( ! function_exists( 'cd_is_amp' ) ) {
 
 	/**
@@ -1198,8 +1220,7 @@ if ( ! function_exists( 'cd_is_amp' ) ) {
 	 * @since 1.2.0
 	 */
 	function cd_is_amp() {
-		$is_amp = false;
-		return apply_filters( 'cd_is_amp', $is_amp );
+		// Kept for child themes and the existing Ads extension. AMP is retired.
+		return false;
 	}
-	add_action( 'wp', 'cd_is_amp', 1 );
 }

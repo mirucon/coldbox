@@ -1,6 +1,3 @@
-import smoothscroll from 'smoothscroll-polyfill'
-smoothscroll.polyfill()
-
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body
   const wpAdminBar = document.getElementById('wpadminbar')
@@ -23,19 +20,102 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  /*   Existing social/share/abbreviation tooltips: keyboard, hover and Escape support.
+  /* -------------------------------------------------- */
+  {
+    let tooltipId = 0
+    const hosts = []
+    const triggers = [...document.querySelectorAll('.social-links a[title], .entry abbr[title], .balloon-btn .share-inner[title]')]
+      .filter(node => !node.closest('.widget_cd_widget_social_links') && node.title.trim())
+    for (const node of triggers) {
+      const host = node.closest('.balloon-btn .share') || node
+      const centered = host !== node
+      const tooltip = document.createElement('span')
+      tooltip.className = 'cd-tooltip'
+      tooltip.textContent = node.title
+      tooltip.dataset.defaultText = node.title
+      tooltip.setAttribute('role', 'tooltip')
+      tooltip.setAttribute('aria-hidden', 'true')
+      do { tooltip.id = `cd-tooltip-${++tooltipId}` } while (document.getElementById(tooltip.id))
+      if (node.tagName === 'ABBR') {
+        if (!node.hasAttribute('tabindex')) node.tabIndex = 0
+        const description = node.getAttribute('aria-describedby')
+        node.setAttribute('aria-describedby', [description, tooltip.id].filter(Boolean).join(' '))
+      }
+      host.appendChild(tooltip)
+      host.classList.add('cd-tooltip-ready')
+      hosts.push(host)
+      // Preserve the native title fallback when JavaScript is unavailable.
+      node.removeAttribute('title')
+      const open = () => {
+        tooltip.style.transform = ''
+        host.classList.add('cd-tooltip-open')
+        const rect = tooltip.getBoundingClientRect()
+        const shift = rect.left < 12 ? 12 - rect.left : Math.min(0, innerWidth - 12 - rect.right)
+        if (shift) tooltip.style.transform = centered ? `translateX(calc(-50% + ${shift}px))` : `translateX(${shift}px)`
+      }
+      host.addEventListener('pointerenter', open)
+      host.addEventListener('focusin', open)
+      host.addEventListener('pointerleave', () => {
+        if (!host.contains(document.activeElement)) host.classList.remove('cd-tooltip-open')
+      })
+      host.addEventListener('focusout', () => {
+        if (!host.matches(':hover')) host.classList.remove('cd-tooltip-open')
+      })
+    }
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') {
+        for (const host of hosts) host.classList.remove('cd-tooltip-open')
+      }
+    })
+  }
+
+  /*   Keyboard access to content that actually needs scrolling.
+  /* -------------------------------------------------- */
+  {
+    const scrollAreas = [...document.querySelectorAll('.entry pre, .comment-body pre, .wp-block-gallery figcaption')]
+      .filter(node => !node.hasAttribute('tabindex'))
+    const update = node => {
+      const style = getComputedStyle(node)
+      const scrolls = (/auto|scroll/.test(style.overflowX) && node.scrollWidth > node.clientWidth + 1) ||
+        (/auto|scroll/.test(style.overflowY) && node.scrollHeight > node.clientHeight + 1)
+      if (scrolls) node.tabIndex = 0
+      else node.removeAttribute('tabindex')
+    }
+    const observer = new ResizeObserver(entries => entries.forEach(entry => update(entry.target)))
+    scrollAreas.forEach(node => {
+      update(node)
+      observer.observe(node)
+      // WebKit focuses gallery captions but does not scroll them with arrow keys.
+      if (node.tagName === 'FIGCAPTION') node.addEventListener('keydown', event => {
+        if (event.target !== node || event.defaultPrevented || node.isContentEditable || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+        const step = { ArrowDown: 40, ArrowUp: -40 }[event.key]
+        if (!step) return
+        const before = node.scrollTop
+        node.scrollTop += step
+        if (node.scrollTop !== before) event.preventDefault()
+      })
+    })
+    window.addEventListener('load', () => scrollAreas.forEach(update))
+    document.fonts.ready.then(() => scrollAreas.forEach(update))
+  }
+
   /*   Masonry responsive widgets
   /* -------------------------------------------------- */
   {
     const sidebarInner = document.querySelector('#sidebar-s1 .sidebar-inner')
     const widgets = document.querySelectorAll('#sidebar-s1 .widget')
 
-    if (widgets) {
+    if (sidebarInner && widgets.length) {
       const masonryHandler = () => {
         if (
           window.matchMedia('(max-width: 980px) and (min-width: 641px)')
             .matches ||
           document.body.classList.contains('bottom-sidebar-s1')
         ) {
+          // Masonry loads asynchronously; an early resize can precede it.
+          // The load event below performs layout once the dependency is ready.
+          if (typeof Masonry !== 'function') return
           /* eslint-disable-next-line no-unused-vars, no-undef */
           const msnry = new Masonry(sidebarInner, {
             itemSelector: '.widget',
@@ -88,9 +168,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.classList.contains('is-hidden')) {
           return
         }
+        if (header) {
+          header.setAttribute('tabindex', '-1')
+          header.focus({ preventScroll: true })
+        }
         window.scroll({
           top: 0,
-          behavior: 'smooth',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
         })
         backToTop.classList.add('clicked')
       }
@@ -119,12 +203,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const links = document.querySelectorAll('a[href*="#"]:not(.noscroll)')
 
     const inPageLinkHandler = (event) => {
-      let href = event.target.getAttribute('href') // Get href attr of the link
+      let href = event.currentTarget.getAttribute('href') // The listener belongs to the anchor, including clicks on its children.
       const hrefPageUrl = href.split('#')[0]
       const currentUrl = location.href.split('#')[0]
 
       if (hrefPageUrl === currentUrl || hrefPageUrl === '') {
-        event.preventDefault()
         // If the link goes on the same page, run smooth scroll
         href = href.split('#').pop()
         let target
@@ -133,6 +216,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           target = document.getElementById(href)
         }
+        if (!target) return
+        event.preventDefault()
+        if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1')
+        target.focus({ preventScroll: true })
         const rect = target.getBoundingClientRect()
         let targetPosition = window.pageYOffset + rect.top
         if (window.matchMedia('(min-width: 767px)').matches) {
@@ -160,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         window.scroll({
           top: targetPosition,
-          behavior: 'smooth',
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
         })
       }
     }
@@ -172,7 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /*   Sticky Header
   /* -------------------------------------------------- */
-  if (body.classList.contains('sticky-header')) {
+  if (header && siteInfo && searchToggle && body.classList.contains('sticky-header')) {
     const stickyHeaderHandler = () => {
       const siteInfoHgt = siteInfo.offsetHeight
       const scrollTop = window.pageYOffset
@@ -291,6 +378,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleState = true
         if (toggleState) {
           searchToggle.classList.add('open')
+          searchToggle.setAttribute('aria-expanded', 'true')
           body.classList.add('modal-search-open')
           body.classList.remove('modal-search-closed')
 
@@ -317,15 +405,13 @@ document.addEventListener('DOMContentLoaded', () => {
               modalSearchDialog.childNodes[0]
             )
             const focusToFirstElInModal = () => {
-              document.querySelector('.modal-search-form .search-inner').focus()
+              closeToggle.focus()
             }
             forwardTrap.addEventListener('focus', focusToFirstElInModal)
           }
 
           if (body.classList.contains('modal-search-open')) {
-            setTimeout(() => {
-              document.querySelector('.modal-search-form .search-inner').focus()
-            }, 160)
+            document.querySelector('.modal-search-form .search-inner').focus()
           }
         }
       }
@@ -336,6 +422,7 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleState = false
         if (!toggleState) {
           searchToggle.classList.remove('open')
+          searchToggle.setAttribute('aria-expanded', 'false')
           body.classList.remove('modal-search-open')
           body.classList.add('modal-search-closed')
           searchToggle.focus()
@@ -344,74 +431,72 @@ document.addEventListener('DOMContentLoaded', () => {
       closeToggle.addEventListener('click', closeToggleHandler)
 
       // Close toggle when pressing `esc` key
-      document.onkeydown = (event) => {
-        event = event || window.event
-        if (event.keyCode === 27) {
-          toggleState = false
-          if (!toggleState) {
-            searchToggle.classList.remove('open')
-            body.classList.remove('modal-search-open')
-            body.classList.add('modal-search-closed')
-          }
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && toggleState) {
+          closeToggleHandler()
         }
-      }
+      })
     }
   }
 
   /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
   {
-    let navCount = 0
     const navToggle = document.querySelector('.nav-toggle.header-menu')
     const menuCloseButton = document.getElementById('close-mobile-menu')
 
-    if (navToggle) {
+    if (navToggle && headerMenu) {
       const menuOverlay = document.createElement('div')
       menuOverlay.classList.add('menu-overlay')
-      if (headerMenu) {
-        headerMenu.insertBefore(menuOverlay, null)
-      }
+      headerMenu.appendChild(menuOverlay)
 
-      const navToggleHandler = () => {
-        let top = 0
-        navCount++
-        if (navCount % 2 === 1) {
-          // Opens menu.
-          navToggle.classList.add('open')
-          headerMenu.classList.add('open')
-          body.classList.remove('header-menu-closed')
+      const setMenuOpen = (open, restoreFocus = false) => {
+        navToggle.classList.toggle('open', open)
+        navToggle.classList.toggle('closed', !open)
+        navToggle.setAttribute('aria-expanded', String(open))
+        headerMenu.classList.toggle('open', open)
+        headerMenu.classList.toggle('closed', !open)
+        body.classList.toggle('header-menu-closed', !open)
 
-          if (body.classList.contains('admin-bar')) {
-            top += wpAdminBar.clientHeight
-          }
+        if (open) {
+          const top = body.classList.contains('admin-bar') && wpAdminBar ? wpAdminBar.clientHeight : 0
           navToggle.style.position = 'fixed'
           navToggle.style.top = `${top}px`
           navToggle.style.height = `${getMenuPaddingTop(false)}px`
-        } else if (navCount % 2 === 0) {
-          navToggle.classList.remove('open')
-          headerMenu.classList.remove('open')
-          body.classList.add('header-menu-closed')
-
+          headerMenu.querySelector('a, button')?.focus()
+        } else {
           navToggle.style.position = 'relative'
           navToggle.style.top = 'auto'
           navToggle.style.height = 'auto'
+          if (restoreFocus) navToggle.focus()
         }
       }
-      navToggle.addEventListener('click', navToggleHandler)
 
-      const menuOverlayHandler = () => {
-        navToggle.classList.remove('open')
-        headerMenu.classList.remove('open')
-        headerMenu.classList.add('closed')
-        navToggle.classList.add('closed')
-        body.classList.add('header-menu-closed')
+      navToggle.addEventListener('click', () => {
+        setMenuOpen(!headerMenu.classList.contains('open'))
+      })
+      menuOverlay.addEventListener('click', () => setMenuOpen(false, true))
+      menuCloseButton?.addEventListener('click', () => setMenuOpen(false, true))
 
-        navToggle.style.position = 'relative'
-        navToggle.style.top = 'auto'
-        navToggle.style.height = 'auto'
-      }
-      menuOverlay.addEventListener('click', menuOverlayHandler)
-      menuCloseButton.addEventListener('click', menuOverlayHandler)
+      document.addEventListener('keydown', (event) => {
+        if (!headerMenu.classList.contains('open') || window.innerWidth >= 768) return
+        if (event.key === 'Escape') {
+          event.preventDefault()
+          setMenuOpen(false, true)
+        } else if (event.key === 'Tab') {
+          const controls = [...headerMenu.querySelectorAll('a, button')]
+            .filter(el => getComputedStyle(el).visibility !== 'hidden' && el.getClientRects().length)
+          const first = controls[0]
+          const last = controls[controls.length - 1]
+          if (event.shiftKey && (document.activeElement === first || !headerMenu.contains(document.activeElement))) {
+            event.preventDefault()
+            last?.focus()
+          } else if (!event.shiftKey && (document.activeElement === last || !headerMenu.contains(document.activeElement))) {
+            event.preventDefault()
+            first?.focus()
+          }
+        }
+      })
 
       const handleAriaAttribute = () => {
         if (window.matchMedia('(min-width: 768px)').matches) {
@@ -425,30 +510,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const setElementOrder = () => {
-      const items = document.querySelector('#header > .header-inner')
+      const items = header?.querySelector(':scope > .header-inner')
+      if (!items || !headerMenu || headerMenu.parentElement !== items) return
       if (window.matchMedia('(max-width: 767px)').matches) {
-        if (items.childNodes[3].id === 'header-menu') {
-          items.insertBefore(
-            items.childNodes[3],
-            items.childNodes[items.childNodes.length - 1]
-          )
-        }
-      } else {
-        const possibleKeys = [3, 4, 5, 6]
-        for (const key of possibleKeys) {
-          if (!items.childNodes[key]) {
-            return
-          }
-          if (
-            items.childNodes[key].classList &&
-            items.childNodes[key].classList.contains('search-toggle')
-          ) {
-            items.insertBefore(
-              items.childNodes[key],
-              items.childNodes[items.childNodes.length - 1]
-            )
-          }
-        }
+        if (items.lastElementChild !== headerMenu) items.appendChild(headerMenu)
+      } else if (searchToggle && searchToggle.parentElement === items) {
+        if (headerMenu.nextElementSibling !== searchToggle) items.insertBefore(headerMenu, searchToggle)
       }
     }
     setElementOrder()
@@ -458,87 +525,52 @@ document.addEventListener('DOMContentLoaded', () => {
   /*   Menu : Submenu handling on focus
   /* -------------------------------------------------- */
   {
-    /**
-     * Find the most parent in the nested sub menu.
-     *
-     * @param {HTMLElement} el
-     * @return {HTMLElement}
-     */
-    const getTheParent = (el) => {
-      const parent = el.parentElement
+    const parentMenus = document.querySelectorAll('.menu-container .menu-item-has-children')
 
-      if (parent.classList.contains('menu-container')) {
-        return el
+    parentMenus.forEach((parentEl, index) => {
+      const link = parentEl.querySelector('a')
+      const submenu = parentEl.querySelector('.sub-menu')
+      if (!link || !submenu) return
+      if (!submenu.id) submenu.id = `cd-submenu-${index}`
+      link.setAttribute('aria-controls', submenu.id)
+      const updateState = () => link.setAttribute('aria-expanded', String(
+        window.innerWidth < 768 || parentEl.classList.contains('is-sub-menu-shown')
+      ))
+      const open = () => {
+        parentEl.classList.remove('is-sub-menu-dismissed')
+        parentEl.classList.add('is-sub-menu-shown')
+        updateState()
       }
-
-      return getTheParent(parent)
-    }
-
-    /**
-     * @private
-     * @param {HTMLElement} el
-     * @return {boolean|HTMLElement}
-     */
-    const findClosestSubMenu = (el) => {
-      if (
-        el.parentElement.classList.contains('menu-container') ||
-        !el.parentElement
-      ) {
-        return false
-      }
-      if (el.parentElement.classList.contains('menu-item-has-children')) {
-        return el.parentElement
-      }
-      return findClosestSubMenu(el.parentElement)
-    }
-
-    /**
-     * Get all the parent menu items.
-     *
-     * @param {HTMLElement} el
-     * @return {Array<HTMLElement>|[]}
-     */
-    const getAllParentSubMenus = (el) => {
-      const parents = []
-
-      let res = el
-      do {
-        res = findClosestSubMenu(res)
-        if (res) {
-          parents.push(res)
-        }
-      } while (res)
-
-      return parents
-    }
-
-    const parentMenus = document.querySelectorAll('.menu-container li')
-
-    parentMenus.forEach((parentEl) => {
-      const allMenus = getAllParentSubMenus(parentEl)
-      const mostParent = getTheParent(parentEl)
-      const allMenuLinks = mostParent.querySelectorAll('a')
-
-      ;[...parentEl.children]
-        .filter((childEl) => {
-          return childEl.tagName === 'A' || childEl.tagName === 'a'
-        })
-        .forEach((linkEl) => {
-          linkEl.addEventListener('focusin', () => {
-            if ([...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach((subMenu) => {
-                subMenu.classList.add('is-sub-menu-shown')
-              })
-            }
-          })
-          linkEl.addEventListener('blur', () => {
-            if (![...allMenuLinks].includes(document.activeElement)) {
-              allMenus.forEach((subMenu) => {
-                subMenu.classList.remove('is-sub-menu-shown')
-              })
-            }
-          })
-        })
+      parentEl.addEventListener('focusin', open)
+      parentEl.addEventListener('mouseenter', open)
+      parentEl.addEventListener('focusout', event => {
+        if (!parentEl.contains(event.relatedTarget)) parentEl.classList.remove('is-sub-menu-shown')
+        updateState()
+      })
+      parentEl.addEventListener('mouseleave', () => {
+        if (!parentEl.contains(document.activeElement)) parentEl.classList.remove('is-sub-menu-shown')
+        updateState()
+      })
+      parentEl.addEventListener('keydown', event => {
+        if (event.key !== 'Escape' || window.innerWidth < 768) return
+        event.preventDefault()
+        event.stopPropagation()
+        link.focus()
+        parentEl.classList.remove('is-sub-menu-shown')
+        parentEl.classList.add('is-sub-menu-dismissed')
+        updateState()
+      })
+      updateState()
+      window.addEventListener('resize', updateState)
+    })
+    document.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || window.innerWidth < 768) return
+      parentMenus.forEach(parentEl => {
+        if (!parentEl.matches(':hover')) return
+        parentEl.classList.remove('is-sub-menu-shown')
+        parentEl.classList.add('is-sub-menu-dismissed')
+        parentEl.querySelector('a')?.setAttribute('aria-expanded', 'false')
+      })
     })
   }
 
@@ -581,15 +613,42 @@ document.addEventListener('DOMContentLoaded', () => {
   {
     const tabmenu = document.querySelector('#comments .comment-tabmenu')
     const tabItems = document.querySelectorAll('#comments .tabitem')
-    const actionBar = document.createElement('span')
+    const actionBar = document.createElement('li')
     const pingList = document.getElementById('ping-list')
     const commentList = document.getElementById('comment-list')
 
     if (tabmenu) {
+      tabmenu.setAttribute('role', 'tablist')
+      actionBar.setAttribute('role', 'presentation')
+      actionBar.setAttribute('aria-hidden', 'true')
       actionBar.classList.add('action-bar')
       tabmenu.insertBefore(actionBar, null)
       actionBar.style.width = `${tabItems[0].clientWidth}px`
     }
+
+    const tabs = [...tabItems].map(item => item.querySelector('a'))
+    const panels = tabs.map((tab, index) => {
+      const list = document.querySelector(tab.getAttribute('href'))
+      const panel = document.createElement('div')
+      panel.id = `comment-panel-${index}`
+      panel.setAttribute('role', 'tabpanel')
+      panel.setAttribute('tabindex', '0')
+      tab.id = `comment-tab-${index}`
+      panel.setAttribute('aria-labelledby', tab.id)
+      tab.setAttribute('role', 'tab')
+      tab.setAttribute('aria-controls', panel.id)
+      tab.setAttribute('aria-selected', String(index === 0))
+      tab.tabIndex = index === 0 ? 0 : -1
+      tab.parentElement.setAttribute('role', 'presentation')
+      panel.hidden = index !== 0
+      if (list) {
+        list.before(panel)
+        panel.appendChild(list)
+      } else {
+        tabmenu.after(panel)
+      }
+      return panel
+    })
 
     if (pingList) {
       pingList.style.display = 'none'
@@ -597,12 +656,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tabItemsHandler = (event) => {
       event.preventDefault()
-      const target = event.target
+      const target = event.currentTarget.querySelector('a')
 
       // Do nothing when clicked the item which is already active
       if (target.parentNode.classList.contains('active')) {
         return
       }
+      tabs.forEach((tab, index) => {
+        const selected = tab === target
+        tab.setAttribute('aria-selected', String(selected))
+        tab.tabIndex = selected ? 0 : -1
+        panels[index].hidden = !selected
+      })
 
       if (target.getAttribute('href').includes('#comment')) {
         target.parentNode.classList.add('active')
@@ -635,6 +700,18 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const item of tabItems) {
       item.addEventListener('click', tabItemsHandler)
     }
+    tabs.forEach((tab, index) => tab.addEventListener('keydown', event => {
+      let next
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length
+      if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length
+      if (event.key === 'Home') next = 0
+      if (event.key === 'End') next = tabs.length - 1
+      if (next !== undefined) {
+        event.preventDefault()
+        tabs[next].focus()
+        tabs[next].click()
+      }
+    }))
   }
 
   /*   Recent Posts Widget : Adjust the date style
@@ -644,13 +721,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (dates) {
       for (const date of dates) {
-        if (date.previousElementSibling.tagName === 'A') {
+        if (date.previousElementSibling?.tagName === 'A') {
           const parent = date.previousElementSibling
-          parent.innerHTML = `<span class="recent_entries_post-title">${parent.textContent}</span>`
-          const titleNode = date.previousElementSibling.children[0]
+          const titleNode = document.createElement('span')
+          titleNode.className = 'recent_entries_post-title'
+          titleNode.textContent = parent.textContent
+          parent.replaceChildren(titleNode)
           parent.insertBefore(date, titleNode)
         }
       }
+    }
+  }
+
+  /*   Share Buttons : Copy article URL
+  /* -------------------------------------------------- */
+  {
+    const copyText = async (text) => {
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(text)
+          return true
+        } catch {}
+      }
+      const area = document.createElement('textarea')
+      area.value = text
+      area.setAttribute('readonly', '')
+      area.style.cssText = 'position:fixed;opacity:0;pointer-events:none'
+      document.body.appendChild(area)
+      area.select()
+      let ok = false
+      try { ok = document.execCommand('copy') } catch {}
+      area.remove()
+      return ok
+    }
+
+    for (const btn of document.querySelectorAll('.js-copy-url')) {
+      let timer
+      btn.addEventListener('click', async () => {
+        const url = btn.dataset.copyUrl || window.location.href
+        if (!(await copyText(url))) return
+        const icon = btn.querySelector('.share-icon')
+        const status = btn.parentElement?.querySelector('.js-copy-status')
+        const tooltip = btn.closest('.share')?.querySelector('.cd-tooltip')
+        btn.classList.add('is-copied')
+        if (icon) {
+          icon.classList.remove('fa-link')
+          icon.classList.add('fa-check')
+        }
+        if (status && btn.dataset.copiedLabel) status.textContent = btn.dataset.copiedLabel
+        if (tooltip && btn.dataset.copiedLabel) tooltip.textContent = btn.dataset.copiedLabel
+        clearTimeout(timer)
+        timer = window.setTimeout(() => {
+          btn.classList.remove('is-copied')
+          if (icon) {
+            icon.classList.remove('fa-check')
+            icon.classList.add('fa-link')
+          }
+          if (status) status.textContent = ''
+          if (tooltip?.dataset.defaultText) tooltip.textContent = tooltip.dataset.defaultText
+        }, 1800)
+      })
     }
   }
 })

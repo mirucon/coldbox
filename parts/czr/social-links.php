@@ -14,6 +14,8 @@
 function cd_social_sites() {
 	$social_sites = array(
 		'twitter'           => 'cd_twitter_profile',
+		'bluesky'           => 'cd_bluesky_profile',
+		'threads'           => 'cd_threads_profile',
 		'facebook-official' => 'cd_facebook_profile',
 		'linkedin-square'   => 'cd_linkedin_profile',
 		'youtube'           => 'cd_youtube_profile',
@@ -23,12 +25,11 @@ function cd_social_sites() {
 		'tumblr'            => 'cd_tumblr_profile',
 		'telegram'          => 'cd_telegram_profile',
 		'codepen'           => 'cd_codepen_profile',
-		'github'            => 'cd_github_profile',
-		'wordpress'         => 'cd_wordpress_profile',
-		'steam'             => 'cd_steam_profile',
+		'github'                   => 'cd_github_profile',
+		strtolower( 'WordPress' ) => 'cd_' . strtolower( 'WordPress' ) . '_profile',
+		'steam'                    => 'cd_steam_profile',
 		'foursquare'        => 'cd_foursquare_profile',
 		'slack'             => 'cd_slack_profile',
-		'skype'             => 'cd_skype_profile',
 		'paypal'            => 'cd_paypal_profile',
 		'500px'             => 'cd_500px_profile',
 		'rss'               => 'cd_rss_profile',
@@ -84,6 +85,42 @@ function cd_czr_social_links( $wp_customize ) {
 			'title'       => __( 'Coldbox: Social Links', 'coldbox' ),
 			'description' => __( 'You can add your social account profiles here. This will be shown in the footer area, and your author box. You can also show this in the sidebar by adding a widget. Please enter the full URLs.', 'coldbox' ),
 			'priority'    => 5,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'social_links_new_tab_icon',
+		array(
+			'default'           => true,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'social_links_new_tab_icon',
+		array(
+			'type'        => 'checkbox',
+			'label'       => __( 'Show new-tab icons', 'coldbox' ),
+			'description' => __( 'Applies to social links and Coldbox Add-on share buttons. Hiding the icons removes the visible new-tab notice; links still open in a new tab, and screen-reader announcements remain enabled.', 'coldbox' ),
+			'section'     => 'social_links',
+			'priority'    => 1,
+		)
+	);
+
+	$wp_customize->add_setting(
+		'social_links_twitter_as_x',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'social_links_twitter_as_x',
+		array(
+			'type'        => 'checkbox',
+			'label'       => __( 'Use X icon and name for Twitter', 'coldbox' ),
+			'description' => __( 'Applies to social links and Coldbox Add-on share buttons.', 'coldbox' ),
+			'section'     => 'social_links',
+			'priority'    => 2,
 		)
 	);
 
@@ -161,6 +198,16 @@ function cd_is_links_on_author_box() {
 	return get_theme_mod( 'links_on_author_box', true );
 }
 
+/**
+ * Whether Twitter social links and share buttons should use X branding.
+ *
+ * @since 1.10.0
+ * @return bool
+ */
+function cd_use_x_for_twitter() {
+	return (bool) get_theme_mod( 'social_links_twitter_as_x', false );
+}
+
 
 /**
  * Output the social links got from the theme customizer
@@ -195,7 +242,12 @@ function cd_social_links( $class = null, $inner_class = null ) {
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
-			if ( 'feedly' === $key ) {
+			$is_x_twitter = ( 'twitter' === $key && cd_use_x_for_twitter() );
+			$li_class     = $is_x_twitter ? 'twitter-container x-twitter-container' : $key . '-container';
+			$link_class   = $is_x_twitter ? 'twitter x-twitter' : $key;
+			if ( $is_x_twitter ) {
+				$class = 'fab fa-x-twitter';
+			} elseif ( 'feedly' === $key ) {
 				$class = 'si si-feedly';
 			} elseif ( 'bell' === $key ) {
 				$class = 'fas fa-bell';
@@ -210,7 +262,9 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			} else {
 				$class = 'fab fa-' . $key;
 			}
-			if ( 'rss' === $key ) {
+			if ( $is_x_twitter ) {
+				$label = 'X';
+			} elseif ( 'rss' === $key ) {
 				$label = __( 'RSS Feed', 'coldbox' );
 			} elseif ( 'codepen' === $key ) {
 				$label = 'CodePen';
@@ -235,10 +289,28 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			} else {
 				$label = ucfirst( $key );
 			} ?>
-			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
-				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php do_action( 'cd_social_links_attr' ); ?>>
+			<?php
+			ob_start();
+			do_action( 'cd_social_links_attr' );
+			$link_attributes = ob_get_clean();
+			// The theme owns the default; keep explicit attributes from extensions.
+			if ( ! preg_match( '/(?:^|\s)target\s*=/i', $link_attributes ) ) {
+				$link_attributes .= ' target="_blank"';
+			}
+			if ( ! preg_match( '/(?:^|\s)rel\s*=/i', $link_attributes ) ) {
+				$link_attributes .= ' rel="noopener"';
+			}
+			?>
+			<li class="<?php echo esc_attr( $li_class ); ?>">
+				<a class="<?php echo esc_attr( $link_class ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Existing attribute hook output. ?>>
 					<span class="<?php echo esc_attr( $class ); ?>" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php echo esc_html( $label ); ?></span>
+					<?php if ( preg_match( '/target\s*=\s*[\x22\x27]_blank[\x22\x27]/i', $link_attributes ) ) : ?>
+						<?php if ( get_theme_mod( 'social_links_new_tab_icon', true ) ) : ?>
+						<svg class="new-window-notice" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true" focusable="false"><path d="M9.2 7.2V9.8C9.2 10.46 8.66 11 8 11H2.2C1.54 11 1 10.46 1 9.8V4C1 3.34 1.54 2.8 2.2 2.8H4.8M6.8 1H11V5.2M10.6 1.4L5.2 6.8" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						<?php endif; ?>
+						<span class="screen-reader-text"> (<?php esc_html_e( 'Opens in a new tab', 'coldbox' ); ?>)</span>
+					<?php endif; ?>
 				</a>
 			</li>
 			<?php
