@@ -20,16 +20,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  /*   Existing social/abbreviation tooltips: keyboard, hover and Escape support.
+  /*   Existing social/share/abbreviation tooltips: keyboard, hover and Escape support.
   /* -------------------------------------------------- */
   {
     let tooltipId = 0
-    const triggers = [...document.querySelectorAll('.social-links a[title], .entry abbr[title]')]
+    const hosts = []
+    const triggers = [...document.querySelectorAll('.social-links a[title], .entry abbr[title], .balloon-btn .share-inner[title]')]
       .filter(node => !node.closest('.widget_cd_widget_social_links') && node.title.trim())
     for (const node of triggers) {
+      const host = node.closest('.balloon-btn .share') || node
+      const centered = host !== node
       const tooltip = document.createElement('span')
       tooltip.className = 'cd-tooltip'
       tooltip.textContent = node.title
+      tooltip.dataset.defaultText = node.title
       tooltip.setAttribute('role', 'tooltip')
       tooltip.setAttribute('aria-hidden', 'true')
       do { tooltip.id = `cd-tooltip-${++tooltipId}` } while (document.getElementById(tooltip.id))
@@ -38,29 +42,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const description = node.getAttribute('aria-describedby')
         node.setAttribute('aria-describedby', [description, tooltip.id].filter(Boolean).join(' '))
       }
-      node.appendChild(tooltip)
-      node.classList.add('cd-tooltip-ready')
+      host.appendChild(tooltip)
+      host.classList.add('cd-tooltip-ready')
+      hosts.push(host)
       // Preserve the native title fallback when JavaScript is unavailable.
       node.removeAttribute('title')
       const open = () => {
         tooltip.style.transform = ''
-        node.classList.add('cd-tooltip-open')
+        host.classList.add('cd-tooltip-open')
         const rect = tooltip.getBoundingClientRect()
         const shift = rect.left < 12 ? 12 - rect.left : Math.min(0, innerWidth - 12 - rect.right)
-        if (shift) tooltip.style.transform = `translateX(${shift}px)`
+        if (shift) tooltip.style.transform = centered ? `translateX(calc(-50% + ${shift}px))` : `translateX(${shift}px)`
       }
-      node.addEventListener('pointerenter', open)
-      node.addEventListener('focusin', open)
-      node.addEventListener('pointerleave', () => {
-        if (!node.contains(document.activeElement)) node.classList.remove('cd-tooltip-open')
+      host.addEventListener('pointerenter', open)
+      host.addEventListener('focusin', open)
+      host.addEventListener('pointerleave', () => {
+        if (!host.contains(document.activeElement)) host.classList.remove('cd-tooltip-open')
       })
-      node.addEventListener('focusout', () => {
-        if (!node.matches(':hover')) node.classList.remove('cd-tooltip-open')
+      host.addEventListener('focusout', () => {
+        if (!host.matches(':hover')) host.classList.remove('cd-tooltip-open')
       })
     }
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') {
-        for (const node of triggers) node.classList.remove('cd-tooltip-open')
+        for (const host of hosts) host.classList.remove('cd-tooltip-open')
       }
     })
   }
@@ -798,12 +803,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!(await copyText(url))) return
         const icon = btn.querySelector('.share-icon')
         const status = btn.parentElement?.querySelector('.js-copy-status')
+        const tooltip = btn.closest('.share')?.querySelector('.cd-tooltip')
         btn.classList.add('is-copied')
         if (icon) {
           icon.classList.remove('fa-link')
           icon.classList.add('fa-check')
         }
         if (status && btn.dataset.copiedLabel) status.textContent = btn.dataset.copiedLabel
+        if (tooltip && btn.dataset.copiedLabel) tooltip.textContent = btn.dataset.copiedLabel
         clearTimeout(timer)
         timer = window.setTimeout(() => {
           btn.classList.remove('is-copied')
@@ -812,6 +819,7 @@ document.addEventListener('DOMContentLoaded', () => {
             icon.classList.add('fa-link')
           }
           if (status) status.textContent = ''
+          if (tooltip?.dataset.defaultText) tooltip.textContent = tooltip.dataset.defaultText
         }, 1800)
       })
     }

@@ -33,10 +33,17 @@ test('share links retain their service names, copy action, and a single new-tab 
   await page.addStyleTag({ content: '.new-window-notice { display: none !important; }' });
   expect(await bounds()).toEqual(withNotices);
 
+  await copyBtn.focus();
+  const copyTooltip = page.locator('#sns-buttons .copy .cd-tooltip');
+  await expect(copyTooltip).toBeVisible();
+  await expect(copyTooltip).toHaveText('Copy link');
   await copyBtn.click();
   await expect(copyBtn).toHaveClass(/is-copied/);
   await expect(copyBtn.locator('.share-icon')).toHaveClass(/fa-check/);
+  await expect(copyTooltip).toHaveText('Link copied');
   await expect(page.locator('#sns-buttons .js-copy-status')).toHaveText('Link copied');
+  await page.keyboard.press('Escape');
+  await expect(copyTooltip).toBeHidden();
 });
 
 test('Customizer social toggles control new-tab icons and X branding across theme and Add-on', async ({ page, browserName }) => {
