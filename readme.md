@@ -87,6 +87,7 @@ License: CC0 1.0; see assets/icons/LICENSE.md.
 
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * Removed Skype social links
+* Added Bluesky and Threads social links, plus an option to display Twitter as X
 * Social links now open in a new tab with or without the Add-on
 * Added an option to hide new-tab icons on social links and share buttons
 * Updated Font Awesome to 7.3.1

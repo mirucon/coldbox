@@ -34,7 +34,7 @@ body #customize-controls h3.czr-heading.first {
 li[id^='customize-control-sns_button_'] {
   margin-bottom: 0.4em;
 }
-#sub-accordion-section-social_links > li:not(:nth-child(2)) > label {
+#sub-accordion-section-social_links > li.customize-control-url > label {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -82,10 +82,7 @@ li[id^='customize-control-sns_button_'] {
   box-shadow: 0 0 6px rgba(0,0,0,0.6);
 }
 /* For addon plugin options... */
-#customize-control-sns_button_twitter,
-#customize-control-sns_button_facebook,
-#customize-control-sns_button_hatena,
-#customize-control-sns_button_feedly {
+li[id^='customize-control-sns_button_'] {
   width: 92%;
   float: none;
   margin: 0 auto 0.4em;
@@ -93,8 +90,9 @@ li[id^='customize-control-sns_button_'] {
 #customize-control-sns_button_twitter {
   margin-top: -0.2em;
 }
-#customize-control-sns_button_feedly {
-  margin-bottom: 0.8em;
+#customize-control-sns_twitter_as_x,
+#customize-control-twitter_username {
+  margin-top: 0.4em;
 }
 body #customize-controls h4.czr-heading {
   display: block;

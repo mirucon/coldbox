@@ -18,20 +18,17 @@ test('article, icons, anchors and text stay usable', async ({ page }) => {
   await expect(page.locator('link[rel="amphtml"]')).toHaveCount(0);
   if (await page.locator('#sns-buttons').count()) {
     await expect(page.locator('#sns-buttons .pocket')).toHaveCount(0);
-    for (const name of ['feedly', 'hatenabookmark']) {
-      const icon = page.locator(`#sns-buttons .si-${name}`);
-      await expect(icon).toBeVisible();
-      await expect(icon.locator('..')).toHaveAccessibleName(
-        name === 'feedly' ? /^Subscribe on Feedly(?: \(Opens in a new tab\))?$/ : /^Save to Hatena Bookmark(?: \(Opens in a new tab\))?$/
-      );
-      const size = await icon.evaluate(el => {
-        const style = getComputedStyle(el, '::before');
-        return { width: parseFloat(style.width), height: parseFloat(style.height), font: parseFloat(style.fontSize), mask: style.maskImage };
-      });
-      expect(size.mask).not.toBe('none');
-      expect(size.width).toBeCloseTo(size.font, 1);
-      expect(size.height).toBeCloseTo(size.font, 1);
-    }
+    await expect(page.locator('#sns-buttons .feedly')).toHaveCount(0);
+    const icon = page.locator('#sns-buttons .si-hatenabookmark');
+    await expect(icon).toBeVisible();
+    await expect(icon.locator('..')).toHaveAccessibleName(/^Save to Hatena Bookmark(?: \(Opens in a new tab\))?$/);
+    const size = await icon.evaluate(el => {
+      const style = getComputedStyle(el, '::before');
+      return { width: parseFloat(style.width), height: parseFloat(style.height), font: parseFloat(style.fontSize), mask: style.maskImage };
+    });
+    expect(size.mask).not.toBe('none');
+    expect(size.width).toBeCloseTo(size.font, 1);
+    expect(size.height).toBeCloseTo(size.font, 1);
   }
   expect(assets).toEqual([]);
   expect(errors).toEqual([]);

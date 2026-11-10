@@ -148,4 +148,31 @@ class ThemeTest extends WP_UnitTestCase {
     remove_theme_mod( 'social_links_new_tab_icon' );
     if ( false !== $addon ) add_action( 'cd_social_links_attr', 'coldbox_addon_social_links_attr', $addon );
   }
+
+  public function test_social_links_support_bluesky_threads_and_x_branding_toggle() {
+    set_theme_mod( 'twitter', 'https://example.org/twitter' );
+    set_theme_mod( 'bluesky', 'https://bsky.app/profile/example.org' );
+    set_theme_mod( 'threads', 'https://www.threads.net/@example' );
+    remove_theme_mod( 'social_links_twitter_as_x' );
+
+    ob_start(); cd_social_links(); $default_html = ob_get_clean();
+    $this->assertStringContainsString( 'fab fa-twitter', $default_html );
+    $this->assertStringContainsString( 'title="Twitter"', $default_html );
+    $this->assertStringContainsString( 'fab fa-bluesky', $default_html );
+    $this->assertStringContainsString( 'title="Bluesky"', $default_html );
+    $this->assertStringContainsString( 'fab fa-threads', $default_html );
+    $this->assertStringContainsString( 'title="Threads"', $default_html );
+
+    set_theme_mod( 'social_links_twitter_as_x', true );
+    ob_start(); cd_social_links(); $x_html = ob_get_clean();
+    $this->assertStringContainsString( 'https://example.org/twitter', $x_html );
+    $this->assertStringContainsString( 'x-twitter-container', $x_html );
+    $this->assertStringContainsString( 'fab fa-x-twitter', $x_html );
+    $this->assertStringContainsString( 'title="X"', $x_html );
+    $this->assertStringNotContainsString( 'fab fa-twitter"', $x_html );
+
+    remove_theme_mod( 'social_links_twitter_as_x' );
+    remove_theme_mod( 'bluesky' );
+    remove_theme_mod( 'threads' );
+  }
 }

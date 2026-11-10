@@ -2,11 +2,12 @@
 
 ## Runtime behavior and support
 
-AMP, Universal Analytics, Pocket and share counts are not provided.
-Normal article display, settings, share links, OGP, verification tags and Ads
+AMP, Universal Analytics, Pocket, Feedly share buttons and share counts are not provided.
+Normal article display, settings, share links (including Copy link), OGP, verification tags and Ads
 extension hooks remain. Old Coldbox `?amp=1` links redirect to ordinary pages.
-Social profile links open in a new tab, with visual and screen-reader notices,
+Social profile links (including Bluesky and Threads) open in a new tab, with visual and screen-reader notices,
 whether or not the Add-on is active. Share buttons remain an Add-on feature.
+`social_links_twitter_as_x` (disabled by default) switches both Twitter social links and share buttons to X branding without changing saved URLs.
 Customizer > Coldbox: Social Links > Show new-tab icons is enabled by default.
 Turning it off hides only the visible new-tab indicators on the theme's social
 profile links (including the social links widget and author box) and Coldbox

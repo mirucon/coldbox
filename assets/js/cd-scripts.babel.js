@@ -768,4 +768,52 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+  /*   Share Buttons : Copy article URL
+  /* -------------------------------------------------- */
+  {
+    const copyText = async (text) => {
+      if (navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(text)
+          return true
+        } catch {}
+      }
+      const area = document.createElement('textarea')
+      area.value = text
+      area.setAttribute('readonly', '')
+      area.style.cssText = 'position:fixed;opacity:0;pointer-events:none'
+      document.body.appendChild(area)
+      area.select()
+      let ok = false
+      try { ok = document.execCommand('copy') } catch {}
+      area.remove()
+      return ok
+    }
+
+    for (const btn of document.querySelectorAll('.js-copy-url')) {
+      let timer
+      btn.addEventListener('click', async () => {
+        const url = btn.dataset.copyUrl || window.location.href
+        if (!(await copyText(url))) return
+        const icon = btn.querySelector('.share-icon')
+        const status = btn.parentElement?.querySelector('.js-copy-status')
+        btn.classList.add('is-copied')
+        if (icon) {
+          icon.classList.remove('fa-link')
+          icon.classList.add('fa-check')
+        }
+        if (status && btn.dataset.copiedLabel) status.textContent = btn.dataset.copiedLabel
+        clearTimeout(timer)
+        timer = window.setTimeout(() => {
+          btn.classList.remove('is-copied')
+          if (icon) {
+            icon.classList.remove('fa-check')
+            icon.classList.add('fa-link')
+          }
+          if (status) status.textContent = ''
+        }, 1800)
+      })
+    }
+  }
 })

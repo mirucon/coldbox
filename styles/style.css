@@ -1182,6 +1182,7 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   transition: all 0.4s;
 }
 .balloon-btn .share .share-icon {
+  --fa-width: 1em;
   position: relative;
   left: calc(50% - 1.2rem);
   z-index: 999;
@@ -1192,6 +1193,15 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
   padding: 0.4em 0.6em;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
   color: #fff;
+}
+.balloon-btn button.share-inner,
+.balloon-btn button.share-inner:hover,
+.balloon-btn button.share-inner:focus {
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+  font: inherit;
+  line-height: inherit;
 }
 .balloon-btn .count {
   position: absolute;
@@ -1228,6 +1238,9 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 .balloon-btn.twitter .share-inner {
   background-color: #6bace2;
 }
+.balloon-btn.x-twitter .share-inner {
+  background-color: #22262a;
+}
 .balloon-btn.facebook .share-inner {
   background-color: #445d93;
 }
@@ -1242,6 +1255,12 @@ p.post-btm-tags a:hover, p.post-btm-cats a:hover {
 }
 .balloon-btn.feedly .share-inner {
   background-color: #94be61;
+}
+.balloon-btn.copy .share-inner {
+  background-color: #57606a;
+}
+.balloon-btn.copy .share-inner.is-copied {
+  background-color: #2f7d4a;
 }
 .balloon-btn:first-of-type .share-inner {
   border-radius: 2px 0 0 2px;
@@ -2632,6 +2651,27 @@ ul.page-numbers a.page-numbers:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 .widget_cd_widget_social_links .social-links *[class^=twitter] a:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+.widget_cd_widget_social_links .social-links .x-twitter-container a {
+  background-color: #181b1f;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.widget_cd_widget_social_links .social-links .x-twitter-container a:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+.widget_cd_widget_social_links .social-links *[class^=bluesky] a {
+  background-color: #0b74de;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.widget_cd_widget_social_links .social-links *[class^=bluesky] a:hover {
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+}
+.widget_cd_widget_social_links .social-links *[class^=threads] a {
+  background-color: #181818;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.widget_cd_widget_social_links .social-links *[class^=threads] a:hover {
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 }
 .widget_cd_widget_social_links .social-links *[class^=youtube] a {

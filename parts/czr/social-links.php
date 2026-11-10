@@ -14,6 +14,8 @@
 function cd_social_sites() {
 	$social_sites = array(
 		'twitter'           => 'cd_twitter_profile',
+		'bluesky'           => 'cd_bluesky_profile',
+		'threads'           => 'cd_threads_profile',
 		'facebook-official' => 'cd_facebook_profile',
 		'linkedin-square'   => 'cd_linkedin_profile',
 		'youtube'           => 'cd_youtube_profile',
@@ -104,6 +106,24 @@ function cd_czr_social_links( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'social_links_twitter_as_x',
+		array(
+			'default'           => false,
+			'sanitize_callback' => 'cd_sanitize_checkbox',
+		)
+	);
+	$wp_customize->add_control(
+		'social_links_twitter_as_x',
+		array(
+			'type'        => 'checkbox',
+			'label'       => __( 'Use X icon and name for Twitter', 'coldbox' ),
+			'description' => __( 'Applies to social links and Coldbox Add-on share buttons.', 'coldbox' ),
+			'section'     => 'social_links',
+			'priority'    => 2,
+		)
+	);
+
 	$social_sites = cd_social_sites();
 
 	$priority = 5;
@@ -178,6 +198,16 @@ function cd_is_links_on_author_box() {
 	return get_theme_mod( 'links_on_author_box', true );
 }
 
+/**
+ * Whether Twitter social links and share buttons should use X branding.
+ *
+ * @since 1.10.0
+ * @return bool
+ */
+function cd_use_x_for_twitter() {
+	return (bool) get_theme_mod( 'social_links_twitter_as_x', false );
+}
+
 
 /**
  * Output the social links got from the theme customizer
@@ -212,7 +242,12 @@ function cd_social_links( $class = null, $inner_class = null ) {
 
 		// $key has got the social account name, $value has got the URL
 		foreach ( $active_links as $key => $value ) {
-			if ( 'feedly' === $key ) {
+			$is_x_twitter = ( 'twitter' === $key && cd_use_x_for_twitter() );
+			$li_class     = $is_x_twitter ? 'twitter-container x-twitter-container' : $key . '-container';
+			$link_class   = $is_x_twitter ? 'twitter x-twitter' : $key;
+			if ( $is_x_twitter ) {
+				$class = 'fab fa-x-twitter';
+			} elseif ( 'feedly' === $key ) {
 				$class = 'si si-feedly';
 			} elseif ( 'bell' === $key ) {
 				$class = 'fas fa-bell';
@@ -227,7 +262,9 @@ function cd_social_links( $class = null, $inner_class = null ) {
 			} else {
 				$class = 'fab fa-' . $key;
 			}
-			if ( 'rss' === $key ) {
+			if ( $is_x_twitter ) {
+				$label = 'X';
+			} elseif ( 'rss' === $key ) {
 				$label = __( 'RSS Feed', 'coldbox' );
 			} elseif ( 'codepen' === $key ) {
 				$label = 'CodePen';
@@ -264,8 +301,8 @@ function cd_social_links( $class = null, $inner_class = null ) {
 				$link_attributes .= ' rel="noopener"';
 			}
 			?>
-			<li class="<?php echo esc_attr( $key ) . '-container'; ?>">
-				<a class="<?php echo esc_attr( $key ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Existing attribute hook output. ?>>
+			<li class="<?php echo esc_attr( $li_class ); ?>">
+				<a class="<?php echo esc_attr( $link_class ); ?>" href="<?php echo esc_url( $value, array( 'http', 'https', 'mailto' ) ); ?>" title="<?php echo esc_attr( $label ); ?>" <?php echo $link_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Existing attribute hook output. ?>>
 					<span class="<?php echo esc_attr( $class ); ?>" aria-hidden="true"></span>
 					<span class="screen-reader-text"><?php echo esc_html( $label ); ?></span>
 					<?php if ( preg_match( '/target\s*=\s*[\x22\x27]_blank[\x22\x27]/i', $link_attributes ) ) : ?>
