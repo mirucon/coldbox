@@ -15,6 +15,12 @@ test('share links retain their service names and a single new-tab notice', async
     await expect(link.locator('svg.new-window-notice')).toHaveAttribute('focusable', 'false');
   }
   const links = page.locator('#sns-buttons .share-inner');
+  const iconOffsets = await links.evaluateAll(es => es.map(e => {
+    const r = e.getBoundingClientRect();
+    const ic = e.querySelector('.share-icon').getBoundingClientRect();
+    return Math.abs((ic.left + ic.width / 2) - (r.left + r.width / 2));
+  }));
+  for (const offset of iconOffsets) expect(offset).toBeLessThanOrEqual(0.5);
   const bounds = () => links.evaluateAll(es => es.map(e => { const r = e.getBoundingClientRect(); return [r.x, r.y, r.width, r.height]; }));
   const withNotices = await bounds();
   await page.addStyleTag({ content: '.new-window-notice { display: none !important; }' });

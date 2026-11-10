@@ -37,11 +37,12 @@ Twitter: @mirucons
 Coldbox WordPress Theme, Copyright 2018 Toshihiro Kanai.
 The Coldbox theme is distributed under the terms of GNU GPL.
 
-FontAwesome License
+Font Awesome Free License
 Font License - SIL OFL 1.1
+Icons License - CC BY 4.0
 Code License - MIT License
-URL: http://fontawesome.io/license/
-Created by Dave Gandy
+URL: https://fontawesome.com/license/free
+Copyright Fonticons, Inc.; see licenses/Font-Awesome.txt.
 
 IcoMoon License
 License - GPL / CC BY 4.0
@@ -85,6 +86,7 @@ All the photos used in the screenshot are all licensed under CC0.
 * Removed Skype social links
 * Social links now open in a new tab with or without the Add-on
 * Added an option to hide new-tab icons on social links and share buttons
+* Updated Font Awesome to 7.3.1
 * fix: Mobile menu does not reopen after closing
 * fix: Changing the site title size overrides other custom styles
 * fix: Keyboard navigation and text contrast
