@@ -125,7 +125,7 @@ function cd_is_action_related_posts_bottom_hooked() {
 
 						<figure class="post-thumbnail">
 							<?php $related_title = trim( wp_strip_all_tags( get_the_title() ) ); ?>
-							<a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( '' === $related_title ? __( '(no title)' ) : $related_title ); ?>">
+							<a href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( '' === $related_title ? __( '(no title)', 'coldbox' ) : $related_title ); ?>">
 								<?php cd_middle_thumbnail( false ); ?>
 							</a>
 						</figure>

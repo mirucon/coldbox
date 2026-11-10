@@ -1,4 +1,4 @@
-### 1.10.0
+### 1.10.0 <small> - November 10th, 2026</small>
 
 * Theme now requires WordPress 5.2 and PHP 7.4 or higher
 * feat: Add Bluesky and Threads to Social Links

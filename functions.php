@@ -965,7 +965,7 @@ if ( ! function_exists( 'cd_the_accessible_title' ) ) {
 	function cd_the_accessible_title() {
 		$title = get_the_title();
 		if ( '' === trim( wp_strip_all_tags( $title ) ) ) {
-			echo '<span class="screen-reader-text">' . esc_html__( '(no title)' ) . '</span>';
+			echo '<span class="screen-reader-text">' . esc_html__( '(no title)', 'coldbox' ) . '</span>';
 		} else {
 			echo $title; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Same filtered markup as the_title().
 		}

@@ -8,7 +8,7 @@
 
 ?>
 
-<nav class="post-nav" aria-label="<?php esc_attr_e( 'Posts' ); ?>">
+<nav class="post-nav" aria-label="<?php esc_attr_e( 'Posts', 'coldbox' ); ?>">
 
 	<ul>
 
