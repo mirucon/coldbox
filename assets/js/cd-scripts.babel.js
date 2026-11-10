@@ -442,69 +442,47 @@ document.addEventListener('DOMContentLoaded', () => {
   /*   Toggle : Nav Menu Toggle
   /* -------------------------------------------------- */
   {
-    let navCount = 0
     const navToggle = document.querySelector('.nav-toggle.header-menu')
     const menuCloseButton = document.getElementById('close-mobile-menu')
 
-    if (navToggle) {
+    if (navToggle && headerMenu) {
       const menuOverlay = document.createElement('div')
       menuOverlay.classList.add('menu-overlay')
-      if (headerMenu) {
-        headerMenu.insertBefore(menuOverlay, null)
-      }
+      headerMenu.appendChild(menuOverlay)
 
-      const navToggleHandler = () => {
-        let top = 0
-        navCount++
-        if (navCount % 2 === 1) {
-          // Opens menu.
-          navToggle.classList.add('open')
-          navToggle.setAttribute('aria-expanded', 'true')
-          headerMenu.classList.add('open')
-          body.classList.remove('header-menu-closed')
+      const setMenuOpen = (open, restoreFocus = false) => {
+        navToggle.classList.toggle('open', open)
+        navToggle.classList.toggle('closed', !open)
+        navToggle.setAttribute('aria-expanded', String(open))
+        headerMenu.classList.toggle('open', open)
+        headerMenu.classList.toggle('closed', !open)
+        body.classList.toggle('header-menu-closed', !open)
 
-          if (body.classList.contains('admin-bar')) {
-            top += wpAdminBar.clientHeight
-          }
+        if (open) {
+          const top = body.classList.contains('admin-bar') && wpAdminBar ? wpAdminBar.clientHeight : 0
           navToggle.style.position = 'fixed'
           navToggle.style.top = `${top}px`
           navToggle.style.height = `${getMenuPaddingTop(false)}px`
           headerMenu.querySelector('a, button')?.focus()
-        } else if (navCount % 2 === 0) {
-          navToggle.classList.remove('open')
-          navToggle.setAttribute('aria-expanded', 'false')
-          headerMenu.classList.remove('open')
-          body.classList.add('header-menu-closed')
-
+        } else {
           navToggle.style.position = 'relative'
           navToggle.style.top = 'auto'
           navToggle.style.height = 'auto'
+          if (restoreFocus) navToggle.focus()
         }
       }
-      navToggle.addEventListener('click', navToggleHandler)
 
-      const menuOverlayHandler = () => {
-        navCount = 0
-        navToggle.classList.remove('open')
-        navToggle.setAttribute('aria-expanded', 'false')
-        headerMenu.classList.remove('open')
-        headerMenu.classList.add('closed')
-        navToggle.classList.add('closed')
-        body.classList.add('header-menu-closed')
-
-        navToggle.style.position = 'relative'
-        navToggle.style.top = 'auto'
-        navToggle.style.height = 'auto'
-        navToggle.focus()
-      }
-      menuOverlay.addEventListener('click', menuOverlayHandler)
-      menuCloseButton.addEventListener('click', menuOverlayHandler)
+      navToggle.addEventListener('click', () => {
+        setMenuOpen(!headerMenu.classList.contains('open'))
+      })
+      menuOverlay.addEventListener('click', () => setMenuOpen(false, true))
+      menuCloseButton?.addEventListener('click', () => setMenuOpen(false, true))
 
       document.addEventListener('keydown', (event) => {
         if (!headerMenu.classList.contains('open') || window.innerWidth >= 768) return
         if (event.key === 'Escape') {
           event.preventDefault()
-          menuOverlayHandler()
+          setMenuOpen(false, true)
         } else if (event.key === 'Tab') {
           const controls = [...headerMenu.querySelectorAll('a, button')]
             .filter(el => getComputedStyle(el).visibility !== 'hidden' && el.getClientRects().length)
@@ -532,31 +510,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const setElementOrder = () => {
-      const items = document.querySelector('#header > .header-inner')
-      if (!items) return // WordPress's widget preview has no theme header.
+      const items = header?.querySelector(':scope > .header-inner')
+      if (!items || !headerMenu || headerMenu.parentElement !== items) return
       if (window.matchMedia('(max-width: 767px)').matches) {
-        if (items.childNodes[3].id === 'header-menu') {
-          items.insertBefore(
-            items.childNodes[3],
-            items.childNodes[items.childNodes.length - 1]
-          )
-        }
-      } else {
-        const possibleKeys = [3, 4, 5, 6]
-        for (const key of possibleKeys) {
-          if (!items.childNodes[key]) {
-            return
-          }
-          if (
-            items.childNodes[key].classList &&
-            items.childNodes[key].classList.contains('search-toggle')
-          ) {
-            items.insertBefore(
-              items.childNodes[key],
-              items.childNodes[items.childNodes.length - 1]
-            )
-          }
-        }
+        if (items.lastElementChild !== headerMenu) items.appendChild(headerMenu)
+      } else if (searchToggle && searchToggle.parentElement === items) {
+        if (headerMenu.nextElementSibling !== searchToggle) items.insertBefore(headerMenu, searchToggle)
       }
     }
     setElementOrder()

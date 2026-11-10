@@ -62,6 +62,26 @@ test('mobile menu opens and follows an existing link', async ({ page, isMobile }
   await expect(page).toHaveURL(/coldbox-fixture/);
 });
 
+test('header element order adapts across mobile and desktop without whitespace text nodes', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/');
+  await page.evaluate(() => {
+    const inner = document.querySelector('#header > .header-inner');
+    for (const node of [...inner.childNodes]) {
+      if (node.nodeType === Node.TEXT_NODE) node.remove();
+    }
+  });
+  const order = () => page.evaluate(() =>
+    [...document.querySelector('#header > .header-inner').children].map(el => el.id || el.className.split(' ')[0])
+  );
+  await page.setViewportSize({ width: 390, height: 800 });
+  expect(await order()).toEqual(['site-info', 'search-toggle', 'header-nav-toggle', 'header-menu']);
+  await page.setViewportSize({ width: 1024, height: 800 });
+  expect(await order()).toEqual(['site-info', 'header-menu', 'search-toggle', 'header-nav-toggle']);
+  expect(errors).toEqual([]);
+});
+
 test('comment tabs accept clicks on their nested icons and counts', async ({ page }) => {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
