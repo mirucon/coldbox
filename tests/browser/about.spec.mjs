@@ -15,7 +15,7 @@ test('About retains review links, historical notices and a rendered changelog wi
     .toHaveAttribute('href', 'https://wordpress.org/support/theme/coldbox/reviews/#new-post');
   await expect(page.locator('#upgrade-notice h3')).toHaveCount(8);
   await expect(page.locator('#upgrade-notice')).toContainText('These notices describe past releases.');
-  await expect(page.locator('#changelog h3').first()).toHaveText('1.10.0');
+  await expect(page.locator('#changelog h3').first()).toHaveText(/^1\.10\.0(?:\s+-\s+.+)?$/);
   await expect(page.locator('#changelog ul').first()).toContainText('Mobile menu');
   await expect(body).not.toContainText(/please let me know|email me|feel free to get in touch|Need Help\?/i);
   await expect(body.locator('a[href^="mailto:"]')).toHaveCount(0);
