@@ -30,7 +30,7 @@ jobs:
     name: WordPress ${{ matrix.wp }} / PHP ${{ matrix.php }}
     services:
       mysql:
-        image: mysql:8.0
+        image: mysql:8.0@sha256:7dcddc01f13bab2f15cde676d44d01f61fc9f99fe7785e86196dfc07d358ae2b
         env:
           MYSQL_ROOT_PASSWORD: coldbox-test
         ports: ['3306:3306']
@@ -44,18 +44,18 @@ jobs:
       COLDBOX_ADDON_DIR: ${{ github.workspace }}/companion/dist
       COLDBOX_TEST_RUNTIME: ${{ github.workspace }}/.test-runtime
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/checkout@v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/checkout@v7.0.1
         with:
           repository: mirucon/coldbox-addon
           path: companion
           persist-credentials: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+      - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
-      - uses: shivammathur/setup-php@d52fc211a0436f8839a587b3b5b8efddab4744ea # v2
+      - uses: shivammathur/setup-php@2.40.0
         with:
           php-version: ${{ matrix.php }}
           extensions: mysqli, mbstring, dom
@@ -92,7 +92,7 @@ jobs:
             npm run test:browser -- --project=chromium --project=webkit-mobile
           fi
           if [ -s "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log" ]; then cat "$COLDBOX_TEST_RUNTIME/wordpress/wp-content/debug.log"; exit 1; fi
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@v7.0.2
         if: always()
         with:
           name: browser-evidence-wp-${{ matrix.wp }}-php-${{ matrix.php }}
@@ -102,7 +102,7 @@ jobs:
             .test-runtime/*.log
             .test-runtime/wordpress/wp-content/debug.log
           retention-days: 7
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+      - uses: actions/upload-artifact@v7.0.2
         if: matrix.wp == '7.1' && matrix.php == '8.3'
         with:
           name: coldbox-unreleased-${{ github.sha }}

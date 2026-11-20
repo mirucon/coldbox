@@ -83,8 +83,9 @@
       "matchManagers": [
         "github-actions"
       ],
+      "matchDatasources": ["github-tags"],
       "groupName": "GitHub Actions",
-      "pinDigests": true
+      "pinDigests": false
     }
   ]
 }
