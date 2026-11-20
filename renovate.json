@@ -1,9 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended"
+    "config:recommended",
+    ":configMigration"
   ],
-  "dependencyDashboard": true,
   "dependencyDashboardApproval": false,
   "timezone": "Asia/Tokyo",
   "schedule": [
@@ -62,13 +62,6 @@
       "allowedVersions": "/^8\\.(0|4)(\\..+)?$/"
     },
     {
-      "description": "Track active/maintenance LTS Node.js lines in .nvmrc",
-      "matchManagers": [
-        "nvm"
-      ],
-      "allowedVersions": "/^(22|24|26)(\\..+)?$/"
-    },
-    {
       "matchManagers": [
         "composer",
         "npm"
@@ -83,9 +76,14 @@
       "matchManagers": [
         "github-actions"
       ],
-      "matchDatasources": ["github-tags"],
       "groupName": "GitHub Actions",
-      "pinDigests": false
+      "matchDepTypes": [
+        "action",
+        "workflow"
+      ]
     }
-  ]
+  ],
+  "statusCheckWhen": {
+    "artifactError": "always"
+  }
 }
