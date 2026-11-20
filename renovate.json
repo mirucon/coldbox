@@ -52,16 +52,6 @@
       "allowedVersions": "<10.0.0"
     },
     {
-      "description": "Track MySQL LTS lines in CI rather than short-lived Innovation releases",
-      "matchDatasources": [
-        "docker"
-      ],
-      "matchPackageNames": [
-        "mysql"
-      ],
-      "allowedVersions": "/^8\\.(0|4)(\\..+)?$/"
-    },
-    {
       "matchManagers": [
         "composer",
         "npm"
