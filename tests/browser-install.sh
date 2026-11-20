@@ -3,7 +3,19 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 RUNTIME="${COLDBOX_TEST_RUNTIME:-$PWD/.test-runtime}"
 URL="${COLDBOX_TEST_URL:-http://127.0.0.1:8874}"
-WP=(php "$RUNTIME/wp-cli.phar" --path="$RUNTIME/wordpress" --url="$URL")
+if [[ -n "${COLDBOX_WP_CLI:-}" ]]; then
+  WP=("$COLDBOX_WP_CLI")
+else
+  read -r version sha256 < tests/wp-cli.lock
+  phar="$RUNTIME/wp-cli.phar"
+  curl -fsSL "https://github.com/wp-cli/wp-cli/releases/download/v$version/wp-cli-$version.phar" -o "$phar"
+  if [[ "$(php -r 'echo hash_file("sha256", $argv[1]);' "$phar")" != "$sha256" ]]; then
+    echo "WP-CLI checksum mismatch" >&2
+    exit 1
+  fi
+  WP=(php "$phar")
+fi
+WP+=(--path="$RUNTIME/wordpress" --url="$URL")
 if [ ! -f "$RUNTIME/wordpress/wp-config.php" ]; then
   "${WP[@]}" config create --dbname=coldbox_browser --dbuser="${DB_USER:-coldbox}" --dbpass="${DB_PASSWORD:-coldbox-test}" --dbhost="${DB_HOST:-127.0.0.1}" --skip-check
 fi

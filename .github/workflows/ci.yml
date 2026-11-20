@@ -55,12 +55,19 @@ jobs:
       - uses: actions/setup-node@v7.1.0
         with:
           node-version-file: .nvmrc
+      - name: Read WP-CLI release pin
+        id: wpcli
+        run: |
+          read -r version sha256 < tests/wp-cli.lock
+          echo "tool=wp-cli:$version@sha256:$sha256" >> "$GITHUB_OUTPUT"
       - uses: shivammathur/setup-php@2.40.0
         with:
           php-version: ${{ matrix.php }}
           extensions: mysqli, mbstring, dom
-          tools: composer:v2
+          tools: composer:v2, ${{ steps.wpcli.outputs.tool }}
           coverage: none
+        env:
+          fail-fast: true
       - name: Build installable packages
         run: |
           npm ci
@@ -76,6 +83,8 @@ jobs:
       - name: Test real WordPress with MySQL
         run: composer test
       - name: Browser checks
+        env:
+          COLDBOX_WP_CLI: wp
         working-directory: .
         run: |
           # The runner's Azure mirror can stall before browser tests start.

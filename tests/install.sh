@@ -14,7 +14,6 @@ WP_RELEASE=$(php -r '$v=array_keys(json_decode(file_get_contents($argv[1]),true)
 test -n "$WP_RELEASE"
 curl -fsSL "https://wordpress.org/wordpress-${WP_RELEASE}.tar.gz" | tar -xz -C "$RUNTIME"
 curl -fsSL "https://github.com/WordPress/wordpress-develop/archive/refs/heads/${WP_VERSION}.tar.gz" | tar -xz -C "$RUNTIME"
-curl -fsSL https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o "$RUNTIME/wp-cli.phar"
 THEME_DIR="${COLDBOX_THEME_DIR:-$ROOT/dist}"
 mkdir -p "$RUNTIME/wordpress/wp-content/themes/coldbox"
 cp -R "$THEME_DIR/." "$RUNTIME/wordpress/wp-content/themes/coldbox/"

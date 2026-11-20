@@ -45,7 +45,10 @@ PHPUnit runs against WordPress's official test bootstrap with a real database.
 The companion package path makes local integration checks possible without
 publishing either package. CI builds both public source repositories together.
 
-Browser tests live in the theme. After installing its native runtime:
+Browser tests live in the theme. Both CI workflows use setup-php to install
+the official WP-CLI PHAR pinned in `tests/wp-cli.lock`. Local browser setup
+verifies the same SHA-256. Update the version and the official release asset
+digest together when upgrading WP-CLI. After installing the native runtime:
 
 ```sh
 npx playwright install chromium firefox webkit
