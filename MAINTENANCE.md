@@ -27,6 +27,9 @@ seven days alongside failure traces.
 ## Build and test
 
 Use Node from `.nvmrc`, Composer, native PHP and MySQL/MariaDB.
+If `npm ci` flags a new install script, review what it runs before adding an
+explicit allow or deny entry to `allowScripts` in `package.json`. The current
+allowlist lets esbuild prepare and verify its platform binary.
 
 ```sh
 npm ci && npm run build
